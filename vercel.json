@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["fra1"],
+  "functions": {
+    "app/api/**/*": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "crons": [],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/speed-insights/script.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Timing-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/insights/script.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Timing-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
+      ]
+    }
+  ],
+  "images": {
+    "sizes": [640, 750, 828, 1080, 1200, 1920],
+    "minimumCacheTTL": 60,
+    "formats": ["image/webp"],
+    "domains": ["lastbot.com"],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "*.supabase.co"
+      },
+      {
+        "protocol": "https",
+        "hostname": "replicate.delivery"
+      }
+    ]
+  }
+} 

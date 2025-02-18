@@ -1,0 +1,409 @@
+---
+description: Description of unit testing design patterns and instructions
+globs: *test*
+---
+---
+description:
+globs:
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+
+# Unit Testing Implementation Patterns
+
+This document describes the patterns and best practices for implementing unit tests in our Next.js application, covering both component testing and API route testing.
+
+## Test Setup
+
+### Directory Structure
+```
+app/
+  components/
+    Button/
+      Button.tsx
+      __tests__/
+        Button.test.tsx
+  api/
+    languages/
+      route.ts
+      __tests__/
+        route.test.ts
+```
+
+### Required Dependencies
+```json
+{
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "@types/jest": "^29.0.0"
+  }
+}
+```
+
+## Component Testing
+
+### 1. Basic Component Test Structure
+```typescript
+/**
+ * @jest-environment jsdom
+ */
+import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { ComponentToTest } from '../ComponentToTest'
+
+describe('ComponentToTest', () => {
+  // Setup default props and mocks
+  const defaultProps = {
+    onAction: jest.fn()
+  }
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('renders correctly', () => {
+    render(<ComponentToTest {...defaultProps} />)
+    // Add assertions
+  })
+})
+```
+
+### 2. Testing with Internationalization
+```typescript
+// Mock translations
+const mockTranslations = {
+  namespace: {
+    key: 'Translated text'
+  }
+}
+
+// Helper function to render with translations
+const renderWithTranslations = (component: React.ReactNode) => {
+  return render(
+    <NextIntlClientProvider messages={mockTranslations} locale="en">
+      {component}
+    </NextIntlClientProvider>
+  )
+}
+
+it('renders translated content', () => {
+  renderWithTranslations(<Component />)
+  expect(screen.getByText('Translated text')).toBeInTheDocument()
+})
+```
+
+### 3. Testing UI Components
+Example from Button component tests:
+```typescript
+describe('Button', () => {
+  it('applies correct size classes', () => {
+    const { rerender } = render(<Button size="sm">Small</Button>)
+    expect(screen.getByRole('button', { name: 'Small' }))
+      .toHaveClass('text-sm h-8 px-3')
+
+    rerender(<Button size="md">Medium</Button>)
+    expect(screen.getByRole('button', { name: 'Medium' }))
+      .toHaveClass('text-base h-10 px-4')
+  })
+
+  it('handles click events', () => {
+    const handleClick = jest.fn()
+    render(<Button onClick={handleClick}>Click me</Button>)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Click me' }))
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+})
+```
+
+### 4. Testing Rich Text Editor
+Example from RichTextEditor tests:
+```typescript
+describe('RichTextEditor', () => {
+  it('applies text formatting when toolbar buttons are clicked', async () => {
+    renderWithTranslations(<RichTextEditor {...defaultProps} />)
+    
+    fireEvent.click(screen.getByTitle('Bold'))
+    expect(screen.getByTitle('Bold')).toHaveClass('bg-gray-200')
+
+    fireEvent.click(screen.getByTitle('Italic'))
+    expect(screen.getByTitle('Italic')).toHaveClass('bg-gray-200')
+  })
+
+  it('inserts selected image from media selector', async () => {
+    renderWithTranslations(<RichTextEditor {...defaultProps} />)
+    fireEvent.click(screen.getByTitle('Image'))
+    fireEvent.click(screen.getByTestId('editor-media-selector-select'))
+
+    await waitFor(() => {
+      expect(mockOnChange).toHaveBeenCalledWith(
+        expect.stringContaining('src="test.jpg"')
+      )
+    })
+  })
+})
+```
+
+## API Route Testing
+
+### 1. Basic API Route Test Structure
+```typescript
+// Set environment variables before importing the route
+process.env.REQUIRED_ENV_VAR = 'test-value'
+
+// Mock external dependencies
+jest.mock('external-package', () => ({
+  someFunction: jest.fn()
+}))
+
+import { POST } from '../route'
+
+describe('POST /api/endpoint', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('handles successful request', async () => {
+    const request = new Request('http://api/endpoint', {
+      method: 'POST',
+      body: JSON.stringify({ data: 'test' })
+    })
+
+    const response = await POST(request)
+    const data = await response.json()
+
+    expect(response.status).toBe(200)
+    expect(data).toEqual(expect.objectContaining({
+      success: true
+    }))
+  })
+})
+```
+
+### 2. Testing Authentication
+Example from Tavily Search API tests:
+```typescript
+describe('POST /api/tavily-search', () => {
+  it('handles missing authorization header', async () => {
+    const request = new Request('http://localhost/api/tavily-search', {
+      method: 'POST',
+      body: JSON.stringify({ query: 'test' })
+    })
+
+    const response = await POST(request)
+    const data = await response.json()
+
+    expect(response.status).toBe(401)
+    expect(data.error).toBe('Missing or invalid authorization header')
+  })
+
+  it('handles invalid authorization token', async () => {
+    // Mock unauthorized user
+    (createClient as jest.Mock).mockReturnValue({
+      auth: {
+        getUser: jest.fn().mockResolvedValue({ 
+          data: { user: null }, 
+          error: new Error('Invalid token') 
+        })
+      }
+    })
+
+    const request = new Request('http://localhost/api/tavily-search', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer invalid-token'
+      },
+      body: JSON.stringify({ query: 'test' })
+    })
+
+    const response = await POST(request)
+    expect(response.status).toBe(401)
+  })
+})
+```
+
+### 3. Testing External Service Integration
+Example from Recraft API tests:
+```typescript
+describe('POST /api/recraft', () => {
+  it('generates an image successfully', async () => {
+    const request = new Request('http://localhost/api/recraft', {
+      method: 'POST',
+      body: JSON.stringify({
+        prompt: 'test prompt',
+        style: 'digital_illustration'
+      })
+    })
+
+    const mockImageUrl = 'https://example.com/image.png'
+    mockRun.mockResolvedValueOnce([mockImageUrl])
+
+    const response = await POST(request)
+    const data = await response.json()
+
+    expect(response.status).toBe(200)
+    expect(data.images).toEqual([mockImageUrl])
+    expect(mockRun).toHaveBeenCalledWith(
+      'recraft-ai/recraft-v3',
+      expect.objectContaining({
+        input: expect.objectContaining({
+          prompt: 'test prompt'
+        })
+      })
+    )
+  })
+
+  it('handles API errors', async () => {
+    const request = new Request('http://localhost/api/recraft', {
+      method: 'POST',
+      body: JSON.stringify({ prompt: 'test prompt' })
+    })
+
+    mockRun.mockRejectedValueOnce(new Error('API error'))
+
+    const response = await POST(request)
+    const data = await response.json()
+
+    expect(response.status).toBe(500)
+    expect(data.error).toBe('API error')
+  })
+})
+```
+
+## Mocking Patterns
+
+### 1. Environment Variables
+```typescript
+const originalEnv = process.env
+
+beforeAll(() => {
+  process.env = {
+    ...originalEnv,
+    REQUIRED_ENV_VAR: 'test-value'
+  }
+})
+
+afterAll(() => {
+  process.env = originalEnv
+})
+```
+
+### 2. External Dependencies
+```typescript
+// Mock Next.js
+jest.mock('next/headers', () => ({
+  cookies: jest.fn(() => ({
+    get: jest.fn(),
+    set: jest.fn(),
+    delete: jest.fn()
+  }))
+}))
+
+// Mock Supabase
+jest.mock('@/utils/supabase/server', () => ({
+  createClient: jest.fn(() => ({
+    auth: {
+      getUser: jest.fn().mockResolvedValue({
+        data: { user: mockUser },
+        error: null
+      })
+    }
+  }))
+}))
+```
+
+### 3. Components and Images
+```typescript
+// Mock next/image
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (props: ImageProps) => <img {...props} alt={props.alt || ''} />
+}))
+
+// Mock child component
+jest.mock('../ChildComponent', () => ({
+  __esModule: true,
+  default: ({ onAction }: { onAction: () => void }) => (
+    <button onClick={onAction}>Mock Button</button>
+  )
+}))
+```
+
+## Best Practices
+
+### 1. Test Organization
+- Group tests logically by feature or scenario
+- Use descriptive test names
+- Follow the Arrange-Act-Assert pattern
+- Keep tests focused and atomic
+
+### 2. Mocking Strategy
+- Mock external dependencies at the lowest level possible
+- Use Jest's mock functions to verify calls
+- Keep mock data realistic but minimal
+- Reset mocks between tests
+
+### 3. Testing Priorities
+1. Test user interactions and events
+2. Test component rendering and props
+3. Test error states and edge cases
+4. Test accessibility features
+5. Test integration with external services
+
+### 4. Common Patterns
+```typescript
+// Testing loading states
+it('shows loading state', async () => {
+  render(<Component isLoading={true} />)
+  expect(screen.getByRole('progressbar')).toBeInTheDocument()
+})
+
+// Testing error states
+it('shows error message', () => {
+  render(<Component error="Test error" />)
+  expect(screen.getByText('Test error')).toBeInTheDocument()
+})
+
+// Testing async operations
+it('handles async operation', async () => {
+  render(<Component />)
+  fireEvent.click(screen.getByRole('button'))
+  await waitFor(() => {
+    expect(screen.getByText('Success')).toBeInTheDocument()
+  })
+})
+```
+
+### 5. Testing Library Query Priority
+```typescript
+// Prefer
+screen.getByRole('button', { name: 'Submit' })
+// Over
+screen.getByTestId('submit-button')
+
+// For text that might include line breaks
+screen.getByText((content) => content.includes('Expected Text'))
+```
+
+### 6. Type-Safe Mocks
+```typescript
+const mockCallback = jest.fn() as jest.MockedFunction<
+  (value: string) => void
+>
+
+const mockAsyncFunction = jest.fn() as jest.MockedFunction<
+  (query: string) => Promise<Result[]>
+>
+```
+
+## References
+- [Testing Library Documentation](mdc:https:/testing-library.com/docs/react-testing-library/intro)
+- [Jest Documentation](mdc:https:/jestjs.io/docs/getting-started)
+- [Next.js Testing](mdc:https:/nextjs.org/docs/testing)

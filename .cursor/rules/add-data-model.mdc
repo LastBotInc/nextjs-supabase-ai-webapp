@@ -1,0 +1,320 @@
+---
+description: Add or modify a new datamodel in supabase
+globs: *.sql, /supabase/*
+---
+---
+description: Add or modify a new datamodel in supabase
+globs: *.sql, /supabase/*
+---
+
+
+# Data Model Security Patterns
+
+This document describes the security patterns and policies for different types of resources in our Next.js application using Supabase Row Level Security (RLS).
+
+Generic instructions on adding a new datamodel:
+1. Always read [datamodel.md](mdc:docs/datamodel.md) for existing datamodel description and [description.md](mdc:docs/description.md) for overall description of the app
+2. Implement a new migration file using supabase cli
+3. Construct the datamodel using guidance in this file
+4. Run the data migration locally using supabase db push in cli
+
+If you need to reset the whole database, always ask before doing it.
+Reset by: supabase db reset
+After reset run all db inilisations as described in [README.md](mdc:README.md)
+
+## Access Levels
+
+### 1. Public Access
+Resources that are accessible to all users without authentication.
+
+```sql
+-- Basic public read access
+create policy "Public read access"
+  on table_name for select
+  using ( true );
+
+-- Public read access with conditions
+create policy "Public read access with conditions"
+  on table_name for select
+  using ( 
+    published = true and 
+    expires_at > now() 
+  );
+
+-- Public create access with validation
+create policy "Public create access"
+  on table_name for insert
+  with check (
+    char_length(name) >= 2 and
+    email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+  );
+```
+
+### 2. Authenticated Access
+Resources that require user authentication but not specific roles.
+
+```sql
+-- Basic authenticated access
+create policy "Authenticated read access"
+  on table_name for select
+  using ( auth.role() = 'authenticated' );
+
+-- Owner-based access
+create policy "Owner access"
+  on table_name for all
+  using ( auth.uid() = user_id );
+
+-- Team-based access
+create policy "Team access"
+  on table_name for all
+  using (
+    auth.uid() in (
+      select member_id 
+      from team_members 
+      where team_id = table_name.team_id
+    )
+  );
+```
+
+### 3. Admin Access
+Resources that require admin privileges.
+
+```sql
+-- Admin-only access
+create policy "Admin access"
+  on table_name for all
+  using (
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+
+-- Admin or owner access
+create policy "Admin or owner access"
+  on table_name for all
+  using (
+    auth.uid() = user_id or
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+```
+
+## Policy Patterns
+
+### 1. Content Management
+```sql
+-- Published content visible to all
+create policy "Public can view published content"
+  on content for select
+  using ( published = true );
+
+-- Draft content visible to authors and admins
+create policy "Authors and admins can view drafts"
+  on content for select
+  using (
+    auth.uid() = author_id or
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+
+-- Only authors can create content
+create policy "Authors can create content"
+  on content for insert
+  with check ( auth.role() = 'authenticated' );
+
+-- Only authors can update their content
+create policy "Authors can update own content"
+  on content for update
+  using ( auth.uid() = author_id );
+```
+
+### 2. User Data Management
+```sql
+-- Users can view own data
+create policy "Users can view own data"
+  on user_data for select
+  using ( auth.uid() = user_id );
+
+-- Users can update own data
+create policy "Users can update own data"
+  on user_data for update
+  using ( auth.uid() = user_id )
+  with check (
+    case
+      when auth.uid() = user_id then true
+      else false
+    end
+  );
+
+-- Admins can view all user data
+create policy "Admins can view all user data"
+  on user_data for select
+  using (
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+```
+
+### 3. Media Management
+```sql
+-- Public can view media
+create policy "Public can view media"
+  on media_assets for select
+  using ( true );
+
+-- Users can upload media
+create policy "Users can upload media"
+  on media_assets for insert
+  with check (
+    auth.uid() = user_id and
+    file_size <= 10485760 and  -- 10MB limit
+    mime_type in ('image/jpeg', 'image/png', 'image/webp')
+  );
+
+-- Users can manage own media
+create policy "Users can manage own media"
+  on media_assets for all
+  using ( auth.uid() = user_id );
+```
+
+### 4. Analytics and Logging
+```sql
+-- Anyone can create analytics events
+create policy "Public can create analytics"
+  on analytics_events for insert
+  with check ( true );
+
+-- Only admins can view analytics
+create policy "Admins can view analytics"
+  on analytics_events for select
+  using (
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+```
+
+## Implementation Examples
+
+### 1. Blog System
+```sql
+-- Posts table policies
+create policy "Public can view published posts"
+  on posts for select using ( published = true );
+
+create policy "Authors can view all own posts"
+  on posts for select using ( auth.uid() = author_id );
+
+create policy "Authors can create posts"
+  on posts for insert
+  with check ( auth.role() = 'authenticated' );
+
+create policy "Authors can update own posts"
+  on posts for update using ( auth.uid() = author_id );
+
+-- Comments table policies
+create policy "Public can view comments"
+  on comments for select using ( true );
+
+create policy "Authenticated users can create comments"
+  on comments for insert
+  with check ( auth.role() = 'authenticated' );
+
+create policy "Users can update own comments"
+  on comments for update using ( auth.uid() = author_id );
+```
+
+### 2. Contact Form System
+```sql
+-- Contacts table policies
+create policy "Anyone can create contacts"
+  on contacts for insert
+  with check ( true );
+
+create policy "Only authenticated users can view contacts"
+  on contacts for select
+  using ( auth.role() = 'authenticated' );
+
+create policy "Only admins can update contacts"
+  on contacts for update
+  using (
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+```
+
+### 3. Translation System
+```sql
+-- Languages table policies
+create policy "Public can view enabled languages"
+  on languages for select
+  using ( enabled = true );
+
+create policy "Admins can manage languages"
+  on languages for all
+  using (
+    exists (
+      select 1 from profiles
+      where id = auth.uid()
+      and is_admin = true
+    )
+  );
+
+-- Translations table policies
+create policy "Public can view translations"
+  on translations for select using ( true );
+
+create policy "Only authenticated users can manage translations"
+  on translations for all
+  using ( auth.role() = 'authenticated' );
+```
+
+## Best Practices
+
+### 1. Policy Design
+- Start with most restrictive access
+- Use row-level security for all tables
+- Implement policies for each operation type
+- Consider performance impact of complex policies
+- Use appropriate policy combinations
+
+### 2. Security Considerations
+- Always enable RLS
+- Use service role sparingly
+- Validate all user input
+- Use appropriate policy granularity
+- Implement proper error handling
+
+### 3. Performance
+- Keep policies simple when possible
+- Index columns used in policies
+- Use materialized views for complex queries
+- Monitor policy performance
+- Cache frequently accessed data
+
+### 4. Testing
+- Test all access patterns
+- Verify policy combinations
+- Test edge cases
+- Use proper test data
+- Monitor policy changes
+
+## References
+- [Supabase RLS Documentation](mdc:https:/supabase.com/docs/guides/auth/row-level-security)
+- [PostgreSQL RLS Documentation](mdc:https:/www.postgresql.org/docs/current/ddl-rowsecurity.html)

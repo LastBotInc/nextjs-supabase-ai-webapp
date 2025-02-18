@@ -1,0 +1,52 @@
+{
+  "Index": {
+    "meta": {
+      "title": "AI-Driven Next.js Mall | Modern Webbutveckling",
+      "description": "En modern Next.js mall med inbyggda AI-funktioner, Supabase-integration och utvecklingsverktyg för att bygga skalbara webbapplikationer."
+    },
+    "hero": {
+      "title": "Bygg Smartare Webbappar med AI",
+      "description": "En modern Next.js mall med inbyggda AI-funktioner, utvecklingsverktyg och bästa praxis för att bygga skalbara webbapplikationer.",
+      "backgroundAlt": "Abstrakt teknologibakgrund",
+      "cta": "Kom Igång",
+      "docs": "Dokumentation"
+    },
+    "features": {
+      "title": "Allt Du Behöver",
+      "description": "En omfattande uppsättning verktyg och funktioner för att accelerera ditt utvecklingsarbete.",
+      "ai": {
+        "title": "AI-Integration",
+        "description": "Inbyggda AI-funktioner med Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
+      },
+      "tools": {
+        "title": "Utvecklingsverktyg",
+        "description": "Moderna utvecklingsverktyg för bildoptimering, HTML till Markdown-konvertering och effektiv filhantering."
+      },
+      "database": {
+        "title": "Databas & Auth",
+        "description": "Sömlös Supabase-integration för autentisering, realtidsdata och säkra API-endpoints."
+      },
+      "i18n": {
+        "title": "Internationalisering",
+        "description": "Inbyggt stöd för flera språk med next-intl och effektiv översättningshantering."
+      },
+      "performance": {
+        "title": "Prestanda",
+        "description": "Optimerad för hastighet med serverkomponenter, edge-funktioner och effektiva cachningsstrategier."
+      },
+      "security": {
+        "title": "Säkerhet",
+        "description": "Bästa praxis för säker autentisering, API-skydd och datahantering."
+      }
+    },
+    "getStarted": {
+      "title": "Börja Bygga Idag",
+      "description": "Kom igång med ditt nästa projekt på minuter, inte timmar.",
+      "step1": "Klona repositoryt och installera beroenden",
+      "step2": "Konfigurera dina miljövariabler och API-nycklar",
+      "step3": "Börja utveckla med inbyggda AI-funktioner",
+      "cta": "Läs Dokumentationen",
+      "imageAlt": "Illustration av utvecklingsverktyg och funktioner"
+    }
+  }
+}

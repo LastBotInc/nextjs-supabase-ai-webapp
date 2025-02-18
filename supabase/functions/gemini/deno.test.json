@@ -1,0 +1,11 @@
+{
+  "files": {
+    "include": ["**/*.test.ts"]
+  },
+  "importMap": "import_map.json",
+  "permissions": {
+    "env": true,
+    "net": true,
+    "read": true
+  }
+} 

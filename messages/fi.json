@@ -1,0 +1,52 @@
+{
+  "Index": {
+    "meta": {
+      "title": "Tekoälypohjainen Next.js Malli | Moderni Webkehitys",
+      "description": "Moderni Next.js malli sisäänrakennetuilla tekoälyominaisuuksilla, Supabase-integraatiolla ja kehitystyökaluilla skaalautuvien web-sovellusten rakentamiseen."
+    },
+    "hero": {
+      "title": "Rakenna Älykkäämpiä Web-sovelluksia Tekoälyllä",
+      "description": "Moderni Next.js malli sisäänrakennetuilla tekoälyominaisuuksilla, kehitystyökaluilla ja parhailla käytännöillä skaalautuvien web-sovellusten rakentamiseen.",
+      "backgroundAlt": "Abstrakti teknologiatausta",
+      "cta": "Aloita Tästä",
+      "docs": "Dokumentaatio"
+    },
+    "features": {
+      "title": "Kaikki Mitä Tarvitset",
+      "description": "Kattava valikoima työkaluja ja ominaisuuksia kehitystyönkulkusi nopeuttamiseen.",
+      "ai": {
+        "title": "Tekoäly-integraatio",
+        "description": "Sisäänrakennetut tekoälyominaisuudet Google Gemini, Recraft ja Tavily API:en avulla sisällöntuotantoon, kuvien luomiseen ja älykkääseen hakuun."
+      },
+      "tools": {
+        "title": "Kehitystyökalut",
+        "description": "Modernit kehitystyökalut kuvien optimointiin, HTML-Markdown-muunnoksiin ja tehokkaaseen tiedostonhallintaan."
+      },
+      "database": {
+        "title": "Tietokanta & Autentikointi",
+        "description": "Saumaton Supabase-integraatio autentikointiin, reaaliaikaiseen dataan ja turvallisiin API-päätepisteisiin."
+      },
+      "i18n": {
+        "title": "Kansainvälistäminen",
+        "description": "Sisäänrakennettu tuki useille kielille next-intl:n avulla ja tehokas käännösten hallinta."
+      },
+      "performance": {
+        "title": "Suorituskyky",
+        "description": "Optimoitu nopeutta varten palvelinkomponenteilla, edge-funktioilla ja tehokkailla välimuististrategioilla."
+      },
+      "security": {
+        "title": "Tietoturva",
+        "description": "Parhaat käytännöt turvalliseen autentikointiin, API-suojaukseen ja tietojen käsittelyyn."
+      }
+    },
+    "getStarted": {
+      "title": "Aloita Kehittäminen Tänään",
+      "description": "Pääset alkuun seuraavan projektisi kanssa minuuteissa, ei tunneissa.",
+      "step1": "Kloonaa repositorio ja asenna riippuvuudet",
+      "step2": "Määritä ympäristömuuttujat ja API-avaimet",
+      "step3": "Aloita kehittäminen sisäänrakennetuilla tekoälyominaisuuksilla",
+      "cta": "Lue Dokumentaatio",
+      "imageAlt": "Kehitystyökalujen ja ominaisuuksien kuvitus"
+    }
+  }
+}
