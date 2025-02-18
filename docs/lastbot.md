@@ -1,4 +1,4 @@
-# LastBot Features Overview
+# AI Template Features Overview
 
 ## Admin Dashboard
 

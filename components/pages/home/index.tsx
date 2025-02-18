@@ -64,7 +64,7 @@ export default function HomePage({ params }: Props) {
             <div className="flex gap-4 justify-center">
               <Button 
                 size="lg" 
-                href="https://github.com/yourusername/nextjs-supabase-ai-webapp"
+                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
                 variant="gradient"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,8 +73,10 @@ export default function HomePage({ params }: Props) {
               </Button>
               <Button 
                 size="lg" 
-                href="/docs"
+                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
                 variant="outline"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {t('hero.docs')}
               </Button>
@@ -428,7 +430,9 @@ export default function HomePage({ params }: Props) {
               <div className="mt-8">
                 <Button 
                   variant="gradient"
-                  href="/docs/getting-started"
+                  href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {t('getStarted.cta')}
                 </Button>

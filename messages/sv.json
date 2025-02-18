@@ -1,52 +1,1184 @@
 {
   "Index": {
-    "meta": {
-      "title": "AI-Driven Next.js Mall | Modern Webbutveckling",
-      "description": "En modern Next.js mall med inbyggda AI-funktioner, Supabase-integration och utvecklingsverktyg för att bygga skalbara webbapplikationer."
-    },
     "hero": {
-      "title": "Bygg Smartare Webbappar med AI",
-      "description": "En modern Next.js mall med inbyggda AI-funktioner, utvecklingsverktyg och bästa praxis för att bygga skalbara webbapplikationer.",
+      "title": "Bygg smartare webbappar med AI",
+      "description": "Ett modernt Next.js-templat med inbyggda AI-funktioner, utvecklingsverktyg och bästa praxis för att bygga skalbara webbapplikationer.",
       "backgroundAlt": "Abstrakt teknologibakgrund",
-      "cta": "Kom Igång",
+      "cta": "Kom igång",
       "docs": "Dokumentation"
     },
+    "agentic": {
+      "title": "Agentiskt utvecklingsramverk",
+      "subtitle": "för Cursor IDE",
+      "description": "Utöka och förbättra Cursors composer-agent med ett heltäckande ramverk för end-to-end-utveckling.",
+      "features": {
+        "title": "Förbättrad utvecklingsupplevelse",
+        "list": {
+          "rules": "Strukturerade utvecklingsregler och mönster",
+          "prompts": "Optimerade promptar för kodgenerering",
+          "tools": "Integrerade utvecklingsverktyg och hjälpmedel",
+          "validation": "Automatiserad testning och validering",
+          "docs": "Omfattande dokumentationsgenerering"
+        }
+      },
+      "benefits": {
+        "title": "Viktiga fördelar",
+        "quality": "Förbättrad kodkvalitet och konsekvens",
+        "completeness": "Utökad funktionsomfattning",
+        "efficiency": "Snabbare utvecklingsarbetsflöde",
+        "standards": "Efterlevnad av kodningsstandarder och bästa praxis"
+      }
+    },
+    "cta": {
+      "button": "KOM IGÅNG NU"
+    },
+    "meta": {
+      "title": "AI-drivet Next.js-templat | Modern webbutveckling",
+      "description": "Ett modernt Next.js-templat med inbyggd AI-funktionalitet, Supabase-integration och utvecklingsverktyg för att bygga skalbara webbapplikationer."
+    },
+    "description": "LastBot hjälper företag att bli AI-first utan att förlora sitt människofokus. Vi erbjuder en snabb väg till AI-integration, skapar genuina kopplingar och levererar autonoma lösningar.",
     "features": {
-      "title": "Allt Du Behöver",
-      "description": "En omfattande uppsättning verktyg och funktioner för att accelerera ditt utvecklingsarbete.",
+      "title": "Allt du behöver",
+      "description": "Ett heltäckande utbud av verktyg och funktioner för att påskynda ditt utvecklingsarbete.",
       "ai": {
-        "title": "AI-Integration",
-        "description": "Inbyggda AI-funktioner med Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
+        "title": "AI-integration",
+        "description": "Inbyggd AI-funktionalitet via Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
       },
       "tools": {
         "title": "Utvecklingsverktyg",
-        "description": "Moderna utvecklingsverktyg för bildoptimering, HTML till Markdown-konvertering och effektiv filhantering."
+        "description": "Moderna utvecklingsverktyg för bildoptimering, HTML-till-Markdown-konvertering och effektiv filhantering."
       },
       "database": {
         "title": "Databas & Auth",
-        "description": "Sömlös Supabase-integration för autentisering, realtidsdata och säkra API-endpoints."
+        "description": "Sömlös integration med Supabase för autentisering, realtidsdata och säkra API-slutpunkter."
       },
       "i18n": {
         "title": "Internationalisering",
-        "description": "Inbyggt stöd för flera språk med next-intl och effektiv översättningshantering."
+        "description": "Inbyggt stöd för flera språk med next-intl och effektiv hantering av översättningar."
       },
       "performance": {
         "title": "Prestanda",
-        "description": "Optimerad för hastighet med serverkomponenter, edge-funktioner och effektiva cachningsstrategier."
+        "description": "Optimerad för hastighet med serverkomponenter, edge-funktioner och smarta cachingstrategier."
       },
       "security": {
         "title": "Säkerhet",
-        "description": "Bästa praxis för säker autentisering, API-skydd och datahantering."
+        "description": "Bästa praxis för säker autentisering, API-skydd och databehandling."
+      }
+    },
+    "coreFeatures": {
+      "title": "Centrala funktioner",
+      "description": "Allt du behöver för att bygga en fullfjädrad webbapplikation",
+      "auth": {
+        "title": "Autentisering & användare",
+        "description": "Komplett användarhantering med Supabase Auth-integration, social inloggning, skyddade rutter och rollbaserad åtkomstkontroll.",
+        "feature1": "Social inloggning",
+        "feature2": "Skyddade rutter",
+        "feature3": "Rollbaserad åtkomst",
+        "feature4": "Användarprofiler"
+      },
+      "content": {
+        "title": "Innehållshantering",
+        "description": "Omfattande innehållshantering med AI-stöd för skapande och optimering av innehåll.",
+        "feature1": "AI-stött bloggsystem",
+        "feature2": "Mediabibliotek med AI-generering",
+        "feature3": "Optimeringspipeline för tillgångar",
+        "feature4": "Verktyg för landningssidor",
+        "feature5": "SEO-optimering"
+      },
+      "i18n": {
+        "title": "Internationalisering",
+        "description": "Inbyggt stöd för flera språk och innehållslokalisering.",
+        "feature1": "Flerspråkigt stöd",
+        "feature2": "Hantering av översättningar",
+        "feature3": "Språkväxling",
+        "feature4": "Lokalisering av innehåll"
+      },
+      "analytics": {
+        "title": "Analys",
+        "description": "Spåra och analysera användarbeteende och applikationsprestanda.",
+        "feature1": "Sidvisningsspårning",
+        "feature2": "Händelsespårning",
+        "feature3": "Sessionshantering",
+        "feature4": "Analyser av användarflöden"
+      },
+      "booking": {
+        "title": "Bokningssystem",
+        "description": "Fullständig bokningsfunktion med kalenderhantering.",
+        "feature1": "Tidsbokning",
+        "feature2": "Kalenderhantering",
+        "feature3": "Tidszonstöd",
+        "feature4": "E-postaviseringar"
+      },
+      "realtime": {
+        "title": "Realtidsfunktioner",
+        "description": "Liveuppdateringar och samarbetsmöjligheter med stöd från Supabase.",
+        "feature1": "Direktuppdateringar",
+        "feature2": "Datasynkronisering",
+        "feature3": "Närvarofunktion",
+        "feature4": "Samarbetsredigering"
+      },
+      "technical": {
+        "title": "Tekniska funktioner",
+        "description": "Byggt med moderna teknologier och bästa praxis.",
+        "feature1": "Modern UI med Tailwind CSS",
+        "feature2": "Mörkt/ljust läge",
+        "feature3": "Typsäker utveckling",
+        "feature4": "Prestandaoptimering",
+        "feature5": "Omfattande tester",
+        "feature6": "Radnivå-säkerhet",
+        "feature7": "API-skydd",
+        "feature8": "Realtidsprenumerationer"
       }
     },
     "getStarted": {
-      "title": "Börja Bygga Idag",
-      "description": "Kom igång med ditt nästa projekt på minuter, inte timmar.",
-      "step1": "Klona repositoryt och installera beroenden",
+      "title": "Kom igång redan idag",
+      "description": "Kom igång med ditt nästa projekt på några minuter istället för timmar.",
+      "step1": "Klona arkivet och installera beroenden",
       "step2": "Konfigurera dina miljövariabler och API-nycklar",
       "step3": "Börja utveckla med inbyggda AI-funktioner",
-      "cta": "Läs Dokumentationen",
+      "cta": "Läs dokumentationen",
       "imageAlt": "Illustration av utvecklingsverktyg och funktioner"
+    }
+  },
+  "Footer": {
+    "rights": "Alla rättigheter förbehållna.",
+    "adminLogin": "Administratörsinloggning",
+    "privacy": "Integritetspolicy",
+    "contact": "Kontakt",
+    "terms": "Användarvillkor",
+    "presentations": "Presentationer"
+  },
+  "About": {
+    "title": "Om LastBot",
+    "description": "Vi är ett team av AI-experter som brinner för att göra artificiell intelligens tillgänglig och användbar för företag av alla storlekar.",
+    "about": {
+      "cta": "KOM IGÅNG NU"
+    },
+    "news": {
+      "title": "Nyheter",
+      "viewAll": "Visa alla nyheter",
+      "readMore": "Läs mer"
+    },
+    "contact": {
+      "title": "Kontakta oss",
+      "description": "Hör av dig till oss. Vi vill gärna höra vad du behöver och diskutera hur vi kan hjälpa ditt företag med AI.",
+      "info": {
+        "title": "Kontaktinformation"
+      },
+      "address": {
+        "title": "Adress",
+        "street": "Kimmeltie 10",
+        "postal": "90630 Uleåborg",
+        "country": "Finland"
+      },
+      "website": "Webbplats",
+      "email": "E-post",
+      "social": {
+        "title": "Följ oss"
+      },
+      "form": {
+        "title": "Skicka ett meddelande"
+      }
+    },
+    "form": {
+      "title": "Skicka ett meddelande"
+    },
+    "meta": {
+      "title": "Om | LastBot – Människocentrerade AI-lösningar",
+      "description": "Lär känna LastBot, vårt uppdrag att humanisera AI-teknik, vårt expertteam och vårt engagemang för att hjälpa företag att lyckas i AI-eran."
+    }
+  },
+  "Blog": {
+    "title": "Blogg",
+    "description": "De senaste insikterna, forskningen och nyheterna från LastBot",
+    "readMore": "Läs mer",
+    "newestPost": "Senaste artikeln",
+    "publishedOn": "Publicerad den",
+    "noPosts": "Inga inlägg än. Var den första att skriva ett!",
+    "by": "av",
+    "tags": "Taggar",
+    "relatedPosts": "Relaterade inlägg",
+    "similarPosts": "Liknande inlägg",
+    "backToBlog": "Tillbaka till bloggen",
+    "readingTime": "{minutes} min läsning",
+    "sharePost": "Dela inlägg",
+    "admin": {
+      "title": "Blogginlägg",
+      "newPost": "Nytt inlägg",
+      "editPost": "Redigera",
+      "deletePost": "Radera",
+      "confirmDelete": "Är du säker på att du vill radera detta inlägg?",
+      "save": "Spara",
+      "saving": "Sparar...",
+      "cancel": "Avbryt",
+      "generating": "Genererar...",
+      "generateWithAI": "Generera med AI",
+      "generateImage": "Generera bild",
+      "publishPost": "Publicera",
+      "unpublishPost": "Avpublicera",
+      "fields": {
+        "title": "Titel",
+        "slug": "URL-slug",
+        "content": "Innehåll",
+        "excerpt": "Utdrag",
+        "metaDescription": "Meta-beskrivning",
+        "featuredImage": "Huvudbild",
+        "tags": "Taggar",
+        "locale": "Språkversion",
+        "targetLanguages": "Målspråk",
+        "targetLanguagesHelp": "Välj språk för automatisk översättning",
+        "targetLanguagesOptional": "(valfritt)",
+        "prompt": "Bloggprompt",
+        "promptPlaceholder": "Skriv en prompt för att generera blogginnehåll...",
+        "detectedLanguage": "(upptäckt)"
+      },
+      "editor": {
+        "bold": "Fetstil",
+        "italic": "Kursiv",
+        "strike": "Genomstrykning",
+        "code": "Kod",
+        "heading": "Rubrik",
+        "bulletList": "Punktlista",
+        "orderedList": "Nummerlista",
+        "quote": "Citat",
+        "image": "Infoga bild"
+      },
+      "saveSuccess": "Inlägget har sparats",
+      "saveError": "Misslyckades med att spara inlägget",
+      "translationSuccess": "Översättningar skapade framgångsrikt",
+      "translationError": "Misslyckades med att skapa översättningar",
+      "deleteSuccess": "Inlägget har raderats",
+      "deleteError": "Misslyckades med att radera inlägget",
+      "publishSuccess": "Inlägget har publicerats",
+      "publishError": "Misslyckades med att publicera inlägget",
+      "unpublishSuccess": "Inlägget har avpublicerats",
+      "unpublishError": "Misslyckades med att avpublicera inlägget",
+      "research": {
+        "title": "Webbforskning",
+        "search": "Sök",
+        "searching": "Söker...",
+        "noResults": "Inga resultat",
+        "error": "Sökningen misslyckades",
+        "retry": "Försök igen",
+        "use": "Använd",
+        "useResult": "Använd resultat",
+        "searchPlaceholder": "Sök på webben efter relevant innehåll...",
+        "results": "Resultat",
+        "source": "Källa",
+        "analyze": "Analysera",
+        "analyzing": "Analyserar...",
+        "summary": "Sammanfattning",
+        "keyPoints": "Viktiga punkter",
+        "scope": {
+          "small": "Liten (3 resultat)",
+          "medium": "Mellan (5 resultat)",
+          "large": "Stor (8 resultat)",
+          "huge": "Jättestor (10 resultat)"
+        },
+        "selected": "{count} valda",
+        "useSelected": "Använd valda",
+        "extending": "Utökar...",
+        "extend": "Utöka",
+        "error": {
+          "search": "Misslyckades med att genomföra forskningen",
+          "extend": "Misslyckades med att utöka innehållet"
+        },
+        "analysis": {
+          "title": "Analys",
+          "readability": "Läsbarhet",
+          "confidence": "Trovärdighet",
+          "style": "Skrivstil",
+          "audience": "Målgrupp"
+        },
+        "topics": {
+          "title": "Ämnen & Ton",
+          "sentiment": "Tonalitet",
+          "topics": "Ämnen"
+        }
+      }
+    },
+    "comments": "Kommentarer",
+    "noComments": "Inga kommentarer än. Bli den första att kommentera!",
+    "loginToComment": "Vänligen logga in för att skriva en kommentar.",
+    "signIn": "Logga in",
+    "yourComment": "Din kommentar",
+    "commentPlaceholder": "Skriv din kommentar här...",
+    "submitComment": "Skicka kommentar",
+    "submittingComment": "Skickar...",
+    "deleteComment": "Radera",
+    "fetchCommentsError": "Misslyckades med att ladda kommentarer. Försök igen.",
+    "deleteCommentError": "Misslyckades med att radera kommentaren. Försök igen.",
+    "subjects": {
+      "all": "Alla",
+      "news": "Nyheter",
+      "research": "Forskning",
+      "generative-ai": "Generativ AI",
+      "case-stories": "Fallstudier"
+    },
+    "latestPost": "Senaste inlägg",
+    "meta": {
+      "title": "Blogg | LastBot – Människocentrerade AI-lösningar",
+      "description": "Upptäck de senaste insikterna, trenderna och framgångshistorierna inom AI-integration, digital transformation och människocentrerad teknologi."
+    }
+  },
+  "Navigation": {
+    "brand": "LastBot",
+    "home": "Hem",
+    "about": "Om oss",
+    "blog": "Blogg",
+    "book": "Boka möte",
+    "contact": "Kontakt",
+    "admin_link": "Admin",
+    "analytics": "Analys",
+    "signIn": "Logga in",
+    "signOut": "Logga ut",
+    "backToSite": "Tillbaka till webbplatsen",
+    "translations": "Översättningar",
+    "login": "Logga in",
+    "profile": "Profil",
+    "Profile": {
+      "menu": {
+        "general": "Allmänna inställningar",
+        "security": "Säkerhet & integritet",
+        "preferences": "Preferenser",
+        "backToSite": "Tillbaka till webbplatsen"
+      }
+    },
+    "admin": {
+      "blog": "Bloggadministration",
+      "contacts": "Kontakter",
+      "analytics": "Analys",
+      "translations": "Översättningar",
+      "media": "Media",
+      "users": "Användare",
+      "landingPages": "Landningssidor",
+      "calendar": "Kalender"
+    },
+    "account": {
+      "title": "Mitt konto",
+      "settings": "Inställningar",
+      "security": "Säkerhet",
+      "notifications": "Aviseringar"
+    },
+    "solutions": "Lösningar"
+  },
+  "Auth": {
+    "email": "E-post",
+    "password": "Lösenord",
+    "signIn": "Logga in",
+    "signUp": "Registrera dig",
+    "signingIn": "Loggar in...",
+    "signingUp": "Registrerar...",
+    "signingOut": "Loggar ut",
+    "pleaseWait": "Vänligen vänta medan vi loggar ut...",
+    "continueWith": "Fortsätt med",
+    "dontHaveAccount": "Har du inget konto?",
+    "alreadyHaveAccount": "Har du redan ett konto?",
+    "redirecting": "Omdirigerar till admin...",
+    "loading": "Laddar...",
+    "accountUsage": "Detta konto används för funktioner på LastBots webbplats, t.ex. för att kommentera. Fler funktioner kommer snart.",
+    "authError": {
+      "title": "Autentiseringsfel",
+      "description": "Ett problem uppstod under autentiseringen. Försök logga in igen.",
+      "backToSignIn": "Tillbaka till inloggning"
+    },
+    "signIn": "Logga in på ditt konto",
+    "register": "Skapa konto",
+    "noAccount": "Har du inget konto?",
+    "haveAccount": "Har du redan ett konto?",
+    "forgotPassword": "Glömt ditt lösenord?",
+    "fullName": "Fullständigt namn",
+    "company": "Företag",
+    "newsletter": "Prenumerera på vårt nyhetsbrev",
+    "marketing": "Jag samtycker till att få marknadsföringsutskick",
+    "privacyNotice": "Dina kontaktuppgifter delas eller säljs inte till tredje part.",
+    "signingIn": "Loggar in...",
+    "creatingAccount": "Skapar konto...",
+    "checkEmail": "Kolla din e-post",
+    "emailSent": "Vi har skickat ett e-postmeddelande med en verifieringslänk.",
+    "checkSpam": "Om du inte ser det, kontrollera din skräppostmapp.",
+    "backToSignIn": "Tillbaka till inloggning",
+    "redirecting": "Omdirigerar...",
+    "error": {
+      "login": "Ett fel uppstod vid inloggning",
+      "register": "Registreringen misslyckades. Försök igen.",
+      "captcha": "Vänligen genomför captcha-verifiering.",
+      "captchaValidation": "Captcha-verifieringen misslyckades. Försök igen."
+    }
+  },
+  "Admin": {
+    "title": "Admin",
+    "analytics": {
+      "title": "Analysdashboard",
+      "tabs": {
+        "pageViews": "Sidvisningar",
+        "topPages": "Topp sidor"
+      },
+      "cards": {
+        "activeSessions": "Aktiva sessioner",
+        "pageViews": "Sidvisningar (senaste 7 dagarna)",
+        "topPages": "Topp sidor (senaste 30 dagarna)"
+      },
+      "error": {
+        "title": "Analysfel",
+        "description": "Ett fel uppstod vid inläsning av analystatistik. Försök igen.",
+        "retry": "Försök igen"
+      }
+    },
+    "contacts": {
+      "title": "Kontaktförfrågningar",
+      "table": {
+        "date": "Datum",
+        "name": "Namn",
+        "company": "Företag",
+        "email": "E-post",
+        "description": "Meddelande",
+        "status": "Status",
+        "actions": "Åtgärder"
+      },
+      "status": {
+        "new": "Ny",
+        "in_progress": "Pågående",
+        "completed": "Klart",
+        "archived": "Arkiverad"
+      },
+      "delete": "Radera",
+      "deleteConfirmation": "Är du säker på att du vill radera denna kontakt? Åtgärden går inte att ångra.",
+      "loading": "Laddar kontakter...",
+      "retry": "Försök igen"
+    },
+    "translations": {
+      "title": "Översättningar",
+      "description": "Hantera översättningar för alla stödda språk",
+      "shortcuts": {
+        "title": "Kortkommandon",
+        "enter": "Tryck Enter för att redigera",
+        "save": "Tryck Ctrl/Cmd + Enter för att spara",
+        "cancel": "Tryck Escape för att avbryta"
+      },
+      "table": {
+        "namespace": "Namnrymd",
+        "key": "Nyckel"
+      },
+      "editor": {
+        "save": "Spara",
+        "saving": "Sparar...",
+        "cancel": "Avbryt",
+        "edit": "Klicka för att redigera",
+        "empty": "Tom",
+        "placeholder": "Ange översättning",
+        "success": "Översättning sparad",
+        "error": "Misslyckades med att spara översättning",
+        "generate": "Generera översättning med AI"
+      },
+      "languages": {
+        "title": "Språk",
+        "addButton": "Lägg till språk",
+        "enabled": "Aktiverat",
+        "disabled": "Inaktiverat",
+        "form": {
+          "code": "Språkkod",
+          "name": "Namn på engelska",
+          "nativeName": "Namn på originalspråk",
+          "codeHelp": "Tvåbokstavskod (t.ex. en, fi)",
+          "add": "Lägg till språk",
+          "cancel": "Avbryt",
+          "select": "Välj ett språk...",
+          "generating": "Genererar översättningar..."
+        },
+        "addSuccess": "Språket lades till framgångsrikt",
+        "addError": "Misslyckades med att lägga till språk",
+        "enableSuccess": "Språket aktiverades",
+        "disableSuccess": "Språket inaktiverades",
+        "updateError": "Misslyckades med att uppdatera språk",
+        "translationSuccess": "Översättningar skapades framgångsrikt",
+        "translationError": "Misslyckades med att skapa vissa översättningar",
+        "remove": "Ta bort",
+        "removing": "Tar bort...",
+        "removeSuccess": "Språket togs bort framgångsrikt",
+        "removeError": "Misslyckades med att ta bort språk",
+        "removeConfirmTitle": "Ta bort språk",
+        "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Detta tar bort alla översättningar för språket. Åtgärden kan inte ångras.",
+        "removeConfirm": "Ja, ta bort språket"
+      },
+      "search": {
+        "placeholder": "Sök översättningar..."
+      },
+      "generating": "Genererar översättningar..."
+    },
+    "users": {
+      "title": "Användarhantering",
+      "email": "E-post",
+      "id": "ID",
+      "created": "Skapad",
+      "lastSignIn": "Senaste inloggning",
+      "never": "Aldrig",
+      "loading": "Laddar användare...",
+      "error": "Misslyckades med att ladda användare",
+      "retry": "Försök igen",
+      "previous": "Föregående",
+      "next": "Nästa",
+      "page": "Sida"
+    },
+    "editor": {
+      "title": "Landningssideeditor",
+      "tabs": {
+        "content": "Innehåll",
+        "seo": "SEO-inställningar",
+        "code": "Anpassad kod",
+        "analytics": "Analys"
+      }
+    },
+    "seo": {
+      "metaTitle": "Meta-titel",
+      "metaDescription": "Meta-beskrivning",
+      "ogImage": "OG-bild",
+      "keywords": "Nyckelord",
+      "canonicalUrl": "Kanonisk URL"
+    },
+    "code": {
+      "customHead": "Anpassad &lt;head&gt;-kod",
+      "customCss": "Anpassad CSS",
+      "customJs": "Anpassad JavaScript"
+    },
+    "calendar": {
+      "title": "Kalenderhantering",
+      "description": "Hantera bokningsbara tider och inställningar",
+      "loading": "Laddar kalender...",
+      "tabs": {
+        "calendar": "Kalender & tider",
+        "settings": "Inställningar",
+        "appointmentTypes": "Bokningstyper"
+      },
+      "slots": {
+        "loading": "Laddar tider...",
+        "timeSlots": "Tillgängliga tidsluckor",
+        "availableSlots": "Tillgängliga tider",
+        "createSlots": "Skapa nya tidsluckor",
+        "noSlots": "Inga lediga tider denna dag",
+        "title": "Tidsluckor",
+        "selectDate": "Välj datum",
+        "startDate": "Startdatum",
+        "cancel": "Avboka tid",
+        "endDate": "Slutdatum",
+        "create": "Skapa tidsluckor",
+        "creating": "Skapar tidsluckor...",
+        "availableHours": "Tillgängliga timmar",
+        "unavailableDates": "Otillgängliga datum",
+        "slotDuration": "Längd på tidslucka (minuter)",
+        "bookedSlots": "Bokade tider",
+        "cancelBooking": "Avboka",
+        "slots": "Tidsluckor",
+        "status": {
+          "available": "Tillgänglig",
+          "booked": "Bokad",
+          "cancelled": "Avbokad"
+        },
+        "actions": {
+          "cancel": "Avbryt",
+          "generate": "Generera tillgängliga tidsluckor",
+          "generating": "Genererar tidsluckor...",
+          "success": "Tidsluckor genererade",
+          "error": "Misslyckades med att generera tidsluckor"
+        }
+      },
+      "settings": {
+        "endTime": "Sluttid",
+        "startTime": "Starttid",
+        "loading": "Laddar inställningar...",
+        "title": "Kalenderinställningar",
+        "timezone": "Tidszon",
+        "defaultDuration": "Standardlängd för bokning",
+        "durationError": "Längden måste vara minst 15 minuter",
+        "bufferTime": "Buffertid",
+        "bufferBefore": "Buffertid före",
+        "bufferAfter": "Buffertid efter",
+        "saving": "Sparar inställningar...",
+        "saved": "Inställningar sparade",
+        "error": "Misslyckades med att spara inställningar",
+        "before": "Före",
+        "after": "Efter",
+        "save": "Spara inställningar",
+        "saveSuccess": "Inställningarna sparades",
+        "saveError": "Misslyckades med att spara inställningarna",
+        "remove": "Ta bort",
+        "noWorkingDays": "Inga arbetsdagar valda. Klicka på 'Lägg till arbetsdag' för att lägga till tillgängliga timmar.",
+        "addWorkingDay": "Lägg till arbetsdag",
+        "updateSuccess": "Inställningarna uppdaterades",
+        "workingHours": "Arbetstider",
+        "day": "Dag",
+        "days": {
+          "monday": "Måndag",
+          "tuesday": "Tisdag",
+          "wednesday": "Onsdag",
+          "thursday": "Torsdag",
+          "friday": "Fredag",
+          "saturday": "Lördag",
+          "sunday": "Söndag"
+        }
+      },
+      "appointmentTypes": {
+        "createNew": "Skapa ny bokningstyp",
+        "existingTypes": "Dina bokningstyper",
+        "loading": "Laddar bokningstyper...",
+        "noTypes": "Du har inte skapat några bokningstyper än",
+        "form": {
+          "name": "Namn",
+          "description": "Beskrivning",
+          "duration": "Längd (minuter)",
+          "isFree": "Detta är en kostnadsfri bokningstyp",
+          "price": "Pris ($)",
+          "create": "Skapa bokningstyp",
+          "creating": "Skapar...",
+          "edit": "Redigera bokningstyp",
+          "delete": "Radera bokningstyp",
+          "isActive": "Är aktiv",
+          "slug": "Slug"
+        },
+        "status": {
+          "active": "Aktiv",
+          "inactive": "Inaktiv"
+        },
+        "duration": "Längd",
+        "minutes": "minuter",
+        "price": "Pris",
+        "free": "Gratis",
+        "viewBookingPage": "Visa bokningssida"
+      }
+    }
+  },
+  "Media": {
+    "title": "Mediabibliotek",
+    "selectMedia": "Välj media",
+    "close": "Stäng",
+    "select": "Välj",
+    "cancel": "Avbryt",
+    "noMedia": "Inga mediafiler hittades",
+    "uploadPrompt": "Kom igång genom att ladda upp din första mediafil",
+    "details": "Mediadetaljer",
+    "title": "Titel",
+    "description": "Beskrivning",
+    "altText": "Alt-text",
+    "fileInfo": "Filinformation",
+    "uploaded": "Uppladdad",
+    "edit": "Redigera",
+    "delete": "Radera",
+    "deleteConfirm": "Är du säker på att du vill radera den här mediafilen?",
+    "deleteError": "Misslyckades med att radera mediafilen",
+    "updateError": "Misslyckades med att uppdatera mediafilen",
+    "saving": "Sparar...",
+    "save": "Spara",
+    "upload": "Ladda upp",
+    "uploading": "Laddar upp...",
+    "dragDrop": "Dra och släpp filer här, eller klicka för att välja",
+    "success": "Filen har laddats upp",
+    "error": "Uppladdningen misslyckades",
+    "deleteSuccess": "Filen raderades framgångsrikt",
+    "generateNew": "Generera ny bild",
+    "generateImage": "Generera bild",
+    "generationError": "Misslyckades med att generera bild",
+    "generatingImage": "Genererar bild...",
+    "dropzoneText": "Dra och släpp filer här, eller klicka för att välja",
+    "supportedFormats": "Stödjer formaten PNG, JPG, GIF och WebP",
+    "searchPlaceholder": "Sök i media...",
+    "sortNewest": "Nyast först",
+    "sortOldest": "Äldst först",
+    "sortNameAZ": "Namn A–Ö",
+    "sortNameZA": "Namn Ö–A",
+    "sortSizeLarge": "Storlek: störst först",
+    "sortSizeSmall": "Storlek: minst först",
+    "noAssets": "Inga mediafiler",
+    "loadError": "Misslyckades med att ladda mediafiler",
+    "assetDetails": "Filinformation",
+    "dimensions": "Dimensioner",
+    "fileSize": "Filstorlek",
+    "fileType": "Filtyp",
+    "unknown": "Okänd",
+    "prompt": "Beskrivning",
+    "promptPlaceholder": "Beskriv den bild du vill ha...",
+    "style": "Stil",
+    "size": "Storlek",
+    "negativePrompt": "Negativ beskrivning",
+    "negativePromptPlaceholder": "Sådant som inte ska ingå i bilden...",
+    "generate": "Generera",
+    "generating": "Genererar..."
+  },
+  "CookieConsent": {
+    "message": "Vi använder cookies för att förbättra din upplevelse.",
+    "accept": "Acceptera",
+    "decline": "Neka",
+    "accepted": "Dina cookie-inställningar har sparats",
+    "declined": "Dina cookie-inställningar har sparats",
+    "privacyPolicy": "Läs vår integritetspolicy",
+    "privacyPolicyAriaLabel": "Läs vår integritetspolicy för att se hur vi hanterar din data"
+  },
+  "Privacy": {
+    "title": "Integritetspolicy",
+    "introduction": {
+      "title": "Introduktion",
+      "content": "Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar din personliga information när du använder vår webbplats."
+    },
+    "information": {
+      "title": "Information vi samlar in",
+      "analytics": {
+        "title": "Analysinformation",
+        "description": "Vi samlar in analysdata för att förbättra våra tjänster och användarupplevelse.",
+        "items": [
+          "Sidvisningar och navigeringsmönster",
+          "Information om session och varaktighet",
+          "Enhetstyp och webbläsarinformation",
+          "Språkinställningar",
+          "Referenskällor"
+        ]
+      },
+      "session": {
+        "title": "Sessionsinformation",
+        "description": "När du använder vår webbplats samlar vi automatiskt in:",
+        "items": [
+          "Sessionsidentifierare",
+          "IP-adress (anonymiserad)",
+          "Webbläsartyp och version",
+          "Operativsystem",
+          "Tidszons- och språkinställningar"
+        ]
+      }
+    },
+    "cookies": {
+      "title": "Användning av cookies",
+      "description": "Vi använder cookies för att förbättra din surfupplevelse. Du kan hantera dina cookiepreferenser i webbläsarens inställningar.",
+      "types": [
+        {
+          "name": "Nödvändiga cookies",
+          "description": "Krävs för grundläggande webbplatsfunktionalitet, autentisering och säkerhet"
+        },
+        {
+          "name": "Analys-cookies",
+          "description": "Hjälper oss att förstå hur besökare interagerar med vår webbplats"
+        },
+        {
+          "name": "Preferens-cookies",
+          "description": "Sparar dina språk- och visningsinställningar"
+        }
+      ]
+    },
+    "usage": {
+      "title": "Hur vi använder din information",
+      "description": "Vi använder den insamlade informationen för att:",
+      "items": [
+        "Tillhandahålla och förbättra våra tjänster",
+        "Analysera hur webbplatsen används",
+        "Personanpassa din upplevelse",
+        "Upprätthålla webbplatsens säkerhet",
+        "Kommunicera viktiga uppdateringar"
+      ]
+    },
+    "protection": {
+      "title": "Dataskydd",
+      "content": "Vi implementerar lämpliga säkerhetsåtgärder för att skydda din information. Data lagras säkert i Supabases infrastruktur med kryptering i vila och under överföring."
+    },
+    "rights": {
+      "title": "Dina rättigheter",
+      "description": "Du har följande rättigheter gällande dina uppgifter:",
+      "items": [
+        "Tillgång till dina personuppgifter",
+        "Begära korrigering av felaktiga uppgifter",
+        "Begära radering av dina uppgifter",
+        "Avstå från analysspårning",
+        "Hantera cookiepreferenser",
+        "Återkalla samtycke när som helst"
+      ]
+    },
+    "preferences": {
+      "title": "Dina inställningar",
+      "content": "Du kan när som helst hantera dina cookiepreferenser via vår cookiebanner eller webbläsarens inställningar."
+    },
+    "updates": {
+      "title": "Policyns uppdateringar",
+      "content": "Vi kan uppdatera denna integritetspolicy med jämna mellanrum. Eventuella ändringar publiceras på denna sida med ett uppdaterat datum."
+    },
+    "contact": {
+      "title": "Kontakta oss",
+      "description": "Om du har några frågor om denna integritetspolicy eller hur vi hanterar din data, vänligen kontakta oss:",
+      "info": {
+        "title": "Kontaktinformation"
+      },
+      "address": {
+        "title": "Adress",
+        "street": "Kimmeltie 10",
+        "postal": "90630 Uleåborg",
+        "country": "Finland"
+      },
+      "website": "Webbplats",
+      "email": "E-post",
+      "social": {
+        "title": "Följ oss"
+      },
+      "form": {
+        "title": "Skicka oss ett meddelande"
+      }
+    },
+    "form": {
+      "title": "Skicka oss ett meddelande"
+    }
+  },
+  "Profile": {
+    "title": "Profilinställningar",
+    "description": "Hantera dina kontoinställningar och preferenser",
+    "menu": {
+      "title": "Profilmeny",
+      "general": "Allmänna inställningar",
+      "security": "Säkerhet & integritet",
+      "preferences": "Preferenser",
+      "backToSite": "Tillbaka till webbplatsen"
+    },
+    "tabs": {
+      "general": "Allmänt",
+      "security": "Säkerhet",
+      "preferences": "Preferenser"
+    },
+    "sections": {
+      "general": {
+        "title": "Allmän information",
+        "description": "Hantera grundläggande profilinformation"
+      },
+      "security": {
+        "title": "Säkerhetsinställningar",
+        "description": "Hantera kontots säkerhets- och integritetsinställningar"
+      },
+      "preferences": {
+        "title": "Användarinställningar",
+        "description": "Anpassa din upplevelse"
+      }
+    },
+    "fields": {
+      "username": "Användarnamn",
+      "email": "E-post",
+      "fullName": "Fullständigt namn",
+      "fullNamePlaceholder": "Ange ditt fullständiga namn",
+      "language": "Föredraget språk",
+      "theme": "Temainställning",
+      "notifications": "E-postaviseringar",
+      "currentPassword": "Nuvarande lösenord",
+      "newPassword": "Nytt lösenord",
+      "confirmPassword": "Bekräfta nytt lösenord"
+    },
+    "actions": {
+      "save": "Spara ändringar",
+      "cancel": "Avbryt",
+      "changePassword": "Byt lösenord",
+      "updateEmail": "Uppdatera e-post",
+      "enable2FA": "Aktivera tvåfaktorsautentisering",
+      "disable2FA": "Inaktivera tvåfaktorsautentisering"
+    },
+    "messages": {
+      "saved": "Ändringarna sparades",
+      "error": "Ett fel uppstod vid sparande av ändringar",
+      "passwordChanged": "Lösenordet uppdaterades",
+      "emailChanged": "E-postadressen uppdaterades"
+    }
+  },
+  "Account": {
+    "title": "Mitt konto",
+    "settings": {
+      "title": "Kontoinställningar",
+      "profile": "Profilinformation",
+      "preferences": "Preferenser",
+      "theme": "Tema",
+      "language": "Språk",
+      "fullName": "Fullständigt namn",
+      "fullNamePlaceholder": "Ange ditt fullständiga namn",
+      "save": "Spara ändringar"
+    },
+    "security": {
+      "title": "Säkerhetsinställningar",
+      "description": "Hantera ditt kontos säkerhetsinställningar och aktiva sessioner",
+      "newPassword": "Nytt lösenord",
+      "confirmPassword": "Bekräfta lösenord",
+      "updatePassword": "Uppdatera lösenord",
+      "updating": "Uppdaterar...",
+      "passwordMismatch": "Lösenorden matchar inte",
+      "passwordTooShort": "Lösenordet måste vara minst 6 tecken långt",
+      "updateError": "Misslyckades med att uppdatera lösenordet. Försök igen.",
+      "sessions": "Aktiva sessioner",
+      "currentSession": "Information om din nuvarande session:",
+      "lastSignIn": "Senaste inloggningen",
+      "browser": "Webbläsare",
+      "unknown": "Okänd"
+    },
+    "notifications": {
+      "title": "Aviseringsinställningar",
+      "email": "E-postaviseringar",
+      "push": "Push-aviseringar"
+    },
+    "appointments": {
+      "title": "Bokningstyper",
+      "createNew": "Skapa ny bokningstyp",
+      "existingTypes": "Dina bokningstyper",
+      "loading": "Laddar bokningstyper...",
+      "noTypes": "Du har inte skapat några bokningstyper än",
+      "form": {
+        "name": "Namn",
+        "description": "Beskrivning",
+        "duration": "Varaktighet (minuter)",
+        "isFree": "Detta är en gratis bokning",
+        "price": "Pris ($)",
+        "create": "Skapa bokningstyp",
+        "creating": "Skapar..."
+      },
+      "status": {
+        "active": "Aktiv",
+        "inactive": "Inaktiv"
+      },
+      "duration": "Längd",
+      "minutes": "minuter",
+      "price": "Pris",
+      "free": "Gratis",
+      "viewBookingPage": "Visa bokningssida"
+    }
+  },
+  "Contact": {
+    "title": "Kontakta oss",
+    "description": "Ta kontakt med oss. Vi vill gärna höra om dina behov och diskutera hur vi kan hjälpa ditt företag med AI.",
+    "info": {
+      "title": "Kontaktinformation"
+    },
+    "address": {
+      "title": "Adress",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Uleåborg",
+      "country": "Finland"
+    },
+    "website": "Webbplats",
+    "email": "E-post",
+    "social": {
+      "title": "Följ oss"
+    },
+    "form": {
+      "title": "Skicka ett meddelande",
+      "description": "Fyll i formuläret nedan så återkommer vi så snart som möjligt.",
+      "name": "Namn",
+      "email": "E-post",
+      "company": "Företag",
+      "message": "Meddelande",
+      "submit": "Skicka",
+      "submitting": "Skickar...",
+      "success": {
+        "title": "Meddelandet skickades",
+        "message": "Tack för ditt meddelande. Vi återkommer inom kort."
+      },
+      "error": {
+        "captcha": "Vänligen genomför captcha-verifiering.",
+        "captchaValidation": "Captcha-verifieringen misslyckades. Försök igen.",
+        "general": "Misslyckades med att skicka meddelande. Försök igen."
+      },
+      "meta": {
+        "title": "Kontakt | LastBot – Människocentrerade AI-lösningar",
+        "description": "Kontakta LastBot för att diskutera dina AI-behov. Boka en konsultation, hitta våra kontor eller nå oss via våra supportkanaler."
+      }
+    }
+  },
+  "LandingPages": {
+    "title": "Landningssidor",
+    "description": "Skapa och hantera landningssidor",
+    "content": "Innehåll",
+    "notFound": "Sidan kunde inte hittas",
+    "notFoundDescription": "Den begärda landningssidan kunde inte hittas.",
+    "createPage": "Skapa landningssida",
+    "createPageDescription": "Skapa en ny landningssida med anpassat innehåll, SEO-inställningar och analysuppföljning.",
+    "editPage": "Redigera landningssida",
+    "editPageDescription": "Redigera innehåll, inställningar och spårning för denna landningssida.",
+    "deletePage": "Radera landningssida",
+    "previewPage": "Förhandsgranska sida",
+    "publishPage": "Publicera sida",
+    "unpublishPage": "Avpublicera sida",
+    "generateContent": "Generera innehåll",
+    "generateImage": "Generera bild",
+    "seoSettings": "SEO-inställningar",
+    "customCode": "Anpassad kod",
+    "analytics": {
+      "title": "Analys",
+      "description": "Konfigurera analysinställningar för din landningssida",
+      "enableAnalytics": "Aktivera analys",
+      "enableAnalyticsDescription": "Aktivera analysuppföljning för den här landningssidan"
+    },
+    "deleteConfirm": "Är du säker på att du vill radera den här landningssidan?",
+    "publishConfirm": "Är du säker på att du vill publicera den här landningssidan?",
+    "unpublishConfirm": "Är du säker på att du vill avpublicera den här landningssidan?",
+    "form": {
+      "title": "Titel",
+      "slug": "URL-slug",
+      "content": "Innehåll",
+      "excerpt": "Utdrag",
+      "metaDescription": "Meta-beskrivning",
+      "featuredImage": "Huvudbild",
+      "tags": "Taggar",
+      "template": "Mall",
+      "customCss": "Anpassad CSS",
+      "customJs": "Anpassad JavaScript",
+      "customHead": "Anpassat Head-innehåll",
+      "customScripts": "Ytterligare skript",
+      "seoData": "SEO-data",
+      "analyticsData": "Analysdata",
+      "prompt": "Landningssidans prompt",
+      "promptPlaceholder": "Skriv en prompt för att generera innehåll till landningssidan...",
+      "generating": "Genererar...",
+      "validation": {
+        "titleRequired": "Titel krävs",
+        "slugRequired": "URL-slug krävs",
+        "contentRequired": "Innehåll krävs",
+        "slugFormat": "URL-slug kan endast innehålla gemener, siffror och bindestreck",
+        "slugUnique": "Denna URL-slug används redan"
+      },
+      "success": {
+        "created": "Landningssidan skapades",
+        "updated": "Landningssidan uppdaterades",
+        "deleted": "Landningssidan raderades",
+        "published": "Landningssidan publicerades",
+        "unpublished": "Landningssidan avpublicerades"
+      },
+      "error": {
+        "create": "Misslyckades med att skapa landningssida",
+        "update": "Misslyckades med att uppdatera landningssida",
+        "delete": "Misslyckades med att radera landningssida",
+        "publish": "Misslyckades med att publicera landningssida",
+        "unpublish": "Misslyckades med att avpublicera landningssida",
+        "load": "Misslyckades med att ladda landningssida"
+      },
+      "cancel": "Avbryt",
+      "save": "Spara",
+      "createPage": "Skapa sida",
+      "generateContent": "Generera innehåll",
+      "generateImage": "Generera bild",
+      "generating": "Genererar...",
+      "search": "Sök landningssidor...",
+      "status": "Status",
+      "lastModified": "Senast ändrad",
+      "actions": "Åtgärder",
+      "edit": "Redigera",
+      "view": "Visa",
+      "published": "Publicerad",
+      "draft": "Utkast",
+      "noPages": "Inga landningssidor skapade än. Skapa din första!",
+      "noSearchResults": "Inga landningssidor matchade din sökning.",
+      "editor": {
+        "title": "Landningssideeditor",
+        "tabs": {
+          "content": "Innehåll",
+          "seo": "SEO-inställningar",
+          "code": "Anpassad kod",
+          "analytics": "Analys"
+        }
+      },
+      "seo": {
+        "metaTitle": "Meta-titel",
+        "metaDescription": "Meta-beskrivning",
+        "ogImage": "OG-bild",
+        "keywords": "Nyckelord",
+        "canonicalUrl": "Kanonisk URL"
+      },
+      "code": {
+        "customHead": "Anpassad &lt;head&gt;-kod",
+        "customCss": "Anpassad CSS",
+        "customJs": "Anpassad JavaScript"
+      }
+    },
+    "validation": {
+      "titleRequired": "Titel krävs",
+      "slugRequired": "URL-slug krävs",
+      "contentRequired": "Innehåll krävs",
+      "slugFormat": "URL-slug kan endast innehålla gemener, siffror och bindestreck",
+      "slugUnique": "Denna URL-slug används redan"
+    },
+    "success": {
+      "created": "Landningssidan skapades",
+      "updated": "Landningssidan uppdaterades",
+      "deleted": "Landningssidan raderades",
+      "published": "Landningssidan publicerades",
+      "unpublished": "Landningssidan avpublicerades",
+      "imageGenerated": "Bilden genererades"
+    },
+    "error": {
+      "create": "Misslyckades med att skapa landningssida",
+      "update": "Misslyckades med att uppdatera landningssida",
+      "delete": "Misslyckades med att radera landningssida",
+      "publish": "Misslyckades med att publicera landningssida",
+      "unpublish": "Misslyckades med att avpublicera landningssida",
+      "load": "Misslyckades med att ladda landningssida"
+    },
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "createPage": "Skapa sida",
+    "generateContent": "Generera innehåll",
+    "generateImage": "Generera bild",
+    "generating": "Genererar...",
+    "search": "Sök landningssidor...",
+    "status": "Status",
+    "lastModified": "Senast ändrad",
+    "actions": "Åtgärder",
+    "edit": "Redigera",
+    "view": "Visa",
+    "published": "Publicerad",
+    "draft": "Utkast",
+    "noPages": "Inga landningssidor skapade. Skapa din första!",
+    "noSearchResults": "Inga landningssidor matchade din sökning.",
+    "editor": {
+      "title": "Landningssideeditor",
+      "tabs": {
+        "content": "Innehåll",
+        "seo": "SEO-inställningar",
+        "code": "Anpassad kod",
+        "analytics": "Analys"
+      }
+    },
+    "seo": {
+      "metaTitle": "Meta-titel",
+      "metaDescription": "Meta-beskrivning",
+      "ogImage": "OG-bild",
+      "keywords": "Nyckelord",
+      "canonicalUrl": "Kanonisk URL"
+    },
+    "code": {
+      "customHead": "Anpassad &lt;head&gt;-kod",
+      "customCss": "Anpassad CSS",
+      "customJs": "Anpassad JavaScript"
+    }
+  },
+  "Presentations": {
+    "title": "Presentationer",
+    "description": "Utforska våra interaktiva presentationer om AI-transformation och tekniska trender",
+    "noPresentations": "Inga presentationer tillgängliga",
+    "slides": "bilder",
+    "navigatingAI": {
+      "title": "Navigera i AI-transformationen",
+      "description": "En omfattande guide för att förstå hur AI omvandlar mjukvaruutveckling, affärsprocesser och användarupplevelser",
+      "sections": {
+        "development": {
+          "title": "AI-assisterad utveckling",
+          "description": "Hur AI revolutionerar sättet vi bygger mjukvara på"
+        },
+        "agents": {
+          "title": "Integration av AI-agenter",
+          "description": "Framväxten av AI-agenter och deras påverkan på systemarkitekturen"
+        },
+        "ux": {
+          "title": "Förändring av användarupplevelsen",
+          "description": "Hur AI förändrar användarnas förväntningar och upplevelser"
+        },
+        "company": {
+          "title": "Företagstransformation",
+          "description": "Åtgärder som företag måste ta för att anamma AI-transformationen"
+        },
+        "lastbot": {
+          "title": "LastBot-lösningar",
+          "description": "Hur LastBot hjälper företag att navigera i sin AI-resa"
+        }
+      }
+    }
+  },
+  "Common": {
+    "languageSelector": {
+      "label": "Välj språk",
+      "ariaLabel": "Ändra webbplatsens språk"
     }
   }
 }

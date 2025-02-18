@@ -4,7 +4,7 @@
       "title": "Build Smarter Web Apps with AI",
       "description": "A modern Next.js template with built-in AI capabilities, development tools, and best practices for building scalable web applications.",
       "backgroundAlt": "Abstract technology background",
-      "cta": "Get Started",
+      "cta": "View on GitHub",
       "docs": "Documentation"
     },
     "agentic": {
@@ -30,97 +30,7 @@
       }
     },
     "cta": {
-      "button": "GET STARTED NOW"
-    },
-    "solutions": {
-      "ready": {
-        "title": "Start from ready-made solutions",
-        "description": "Why reinvent the wheel when you can hit the ground running? We've got a treasure trove of battle-tested solutions ready to transform your business. From AI-powered customer service that never sleeps to smart sales systems that know exactly what your customers want before they do. Our secret sauce? A patent-pending AI engine that's like a mind reader for business – it always knows the perfect next move and exactly what to say to keep your customers coming back for more.",
-        "cta": "EXPLORE SOLUTIONS",
-        "imageAlt": "AI Chat Interface"
-      },
-      "custom": {
-        "title": "Or let's build something entirely your own",
-        "description": "Think of us as your AI dream-builders. We speak fluent machine learning, dream in large language models (LLMs), and craft retrieval-augmented generation (RAG) systems that would make a tech guru blush. But here's the real magic: we start by diving deep into your world, understanding what makes your business tick. Then we blend cutting-edge AI with your unique needs to create something that's not just smart – it's brilliant. Whether it's predictive analytics that feel like fortune-telling or AI conversations that are indistinguishable from your best team members, we're here to build an AI ecosystem that grows smarter with you, turning your wildest tech dreams into your daily reality.",
-        "cta": "START BUILDING",
-        "imageAlt": "AI Architecture Diagram"
-      }
-    },
-    "customers": {
-      "title": "FEATURED CUSTOMERS",
-      "subtitle": "Join the Innovators Who Are Already Shaping the Future.",
-      "stories": {
-        "title": "CUSTOMER SUCCESS STORIES",
-        "autolle": {
-          "title": "Autolle.com",
-          "description": "Meet AI-Tomppa, the witty car salesman who never sleeps! We helped Autolle.com revolutionize their business with an AI-first strategy that's changing how people buy cars. Our AI doesn't just recommend vehicles – it creates genuine connections with customers through humor and personality, while delivering spot-on car recommendations based on each buyer's unique needs."
-        },
-        "dnaB2B": {
-          "title": "DNA B2B",
-          "description": "When Telenor, one of Europe's leading telecom giants, wanted to push the boundaries of AI innovation, they chose LastBot. We're now working hand-in-hand with DNA (Telenor Finland) to craft cutting-edge AI solutions that are transforming how they serve their enterprise customers. It's not just about automation – it's about creating smarter, more intuitive business relationships."
-        },
-        "harvia": {
-          "title": "Harvia Saunabuddy",
-          "description": "As Finns, sauna is in our DNA, but we realized our American friends needed a friendly guide to unlock the full potential of their sauna experience. Enter Saunabuddy – your personal sauna companion that talks to you through your phone or bluetooth speaker! Using advanced voice AI, it's like having a knowledgeable Finnish friend right there with you, sharing centuries of sauna wisdom and health tips while keeping you safe and comfortable."
-        },
-        "dnaB2C": {
-          "title": "DNA B2C",
-          "description": "We're taking DNA's internal operations to the next level with AI that thinks like a human but works at machine speed. From personalized training programs to customer communications that feel genuinely personal, we're helping DNA create experiences that make both employees and customers say \"wow.\" It's about making AI not just a tool, but a trusted teammate in delivering exceptional service."
-        }
-      }
-    },
-    "whyChoose": {
-      "title": "WHY CHOOSE LASTBOT",
-      "reasons": {
-        "roi": {
-          "title": "Lightning Fast ROI",
-          "description": "Why wait months for results when you can see impact in weeks? Our pre-built solutions are like having a time machine for your digital transformation – delivering value faster than you can say \"artificial intelligence.\""
-        },
-        "fit": {
-          "title": "AI That Fits Like a Glove",
-          "description": "One size fits none in the world of AI. We meticulously tailor our solutions to match your unique business DNA, ensuring they work in perfect harmony with your existing processes and culture."
-        },
-        "future": {
-          "title": "Tomorrow-Ready Today",
-          "description": "The future waits for no one, and neither do we. Our solutions are built on cutting-edge tech that evolves faster than AI trends themselves. Think of it as future-proofing with a turbo boost."
-        }
-      }
-    },
-    "Solutions": {
-      "title": "FEATURED SOLUTIONS",
-      "cases": {
-        "customerService": {
-          "title": "Customer Service Reimagined",
-          "description": "Imagine customer service that never sleeps, never gets tired, and always knows exactly what to say. Our AI solution is like having a thousand expert service agents working in perfect harmony.",
-          "imageAlt": "AI Customer Service Interface",
-          "learnMore": "LEARN MORE"
-        },
-        "insights": {
-          "title": "Customer Insights That Feel Like Mind Reading",
-          "description": "Gone are the days of one-size-fits-all customer segments. Our AI dives deep into the digital footprints your customers leave behind, creating portraits so detailed, you'll think we hired a thousand market researchers.",
-          "imageAlt": "AI Customer Insights Dashboard"
-        },
-        "agents": {
-          "title": "AI Agents That Feel Human",
-          "description": "Forget everything you know about clunky chatbots. Our AI agents are more like digital team members who never need coffee breaks.",
-          "imageAlt": "AI Agent Interface"
-        },
-        "marketing": {
-          "title": "Outbound Marketing that Learns",
-          "description": "Forget one-size-fits-all campaigns. Our AI-powered marketing solutions continuously analyze feedback and performance data to refine targeting, messaging, and timing.",
-          "imageAlt": "AI Marketing Analytics Dashboard"
-        },
-        "salesCoach": {
-          "title": "AI Sales Coach",
-          "description": "Transform your sales team with AI-powered coaching. Our platform analyzes sales conversations in real-time, providing instant feedback and actionable insights to improve performance. From pitch refinement to objection handling, give your team the competitive edge they need.",
-          "imageAlt": "AI Sales Coach Interface Visualization"
-        }
-      },
-      "cta": "EXPLORE ALL SOLUTIONS"
-    },
-    "finalCta": {
-      "title": "GET STARTED WITH LASTBOT TODAY",
-      "cta": "BOOK A DEMO"
+      "button": "VIEW ON GITHUB"
     },
     "meta": {
       "title": "AI-Powered Next.js Template | Modern Web Development",
@@ -226,7 +136,7 @@
       "step1": "Clone the repository and install dependencies",
       "step2": "Configure your environment variables and API keys",
       "step3": "Start developing with built-in AI capabilities",
-      "cta": "Read the Docs",
+      "cta": "View on GitHub",
       "imageAlt": "Development tools and features illustration"
     }
   },
@@ -415,12 +325,8 @@
     "brand": "LastBot",
     "home": "Home",
     "about": "About",
-    "services": "Services",
-    "tech": "R&D",
-    "use_cases": "Use Cases",
     "blog": "Blog",
     "book": "Book Appointment",
-    "careers": "Careers",
     "contact": "Contact",
     "admin_link": "Admin",
     "analytics": "Analytics",
