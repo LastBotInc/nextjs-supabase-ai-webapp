@@ -238,6 +238,55 @@ fetch_rules - Fetches rules provided by the user
         "chalk package"
       ],
       "example": "npm run generate-video -- --prompt \"A serene ocean wave rolling onto a beach\" --model minimax --duration 5 --output beach-wave.mp4"
+    },
+    "imagen": {
+      "description": "Generates high-quality images using Google's Imagen 3 model via Replicate API",
+      "tool": "run_terminal_cmd",
+      "command": "npm run imagen",
+      "options": {
+        "prompt": "Text description of the desired image",
+        "aspect-ratio": "(Optional) Aspect ratio of the generated image (e.g., '1:1', '16:9')",
+        "negative-prompt": "(Optional) Things to avoid in the image",
+        "safety-filter-level": "(Optional) Safety filter level (block_low_and_above, block_medium_and_above, block_only_high)",
+        "num-outputs": "(Optional) Number of images to generate (default: 1)",
+        "seed": "(Optional) Random seed for reproducibility",
+        "folder": "(Optional) Output folder path (default: public/images)",
+        "filename": "(Optional) Output filename"
+      },
+      "requires": ["REPLICATE_API_TOKEN in .env"],
+      "example": "npm run imagen -- --prompt \"A serene mountain landscape\" --aspect-ratio 16:9 --folder public/images --filename landscape.png"
+    },
+    "minimax-image": {
+      "description": "Generates images using Minimax Image model via Replicate API with advanced configuration options",
+      "tool": "run_terminal_cmd",
+      "command": "npm run minimax-image",
+      "options": {
+        "prompt": "Text description of the desired image",
+        "aspect-ratio": "(Optional) Aspect ratio of the generated image (e.g., '1:1', '16:9')",
+        "negative-prompt": "(Optional) Things to avoid in the image",
+        "num-outputs": "(Optional) Number of images to generate (default: 1)",
+        "seed": "(Optional) Random seed for reproducibility",
+        "guidance-scale": "(Optional) Guidance scale for image generation (default: 7.5)",
+        "steps": "(Optional) Number of diffusion steps (default: 50)",
+        "folder": "(Optional) Output folder path (default: public/images)",
+        "filename": "(Optional) Output filename",
+        "debug": "(Optional) Enable debug mode (default: false)",
+        "model": "(Optional) Model to use (default: minimax/image-01)"
+      },
+      "requires": ["REPLICATE_API_TOKEN in .env"],
+      "example": "npm run minimax-image -- --prompt \"A cyberpunk city at night\" --aspect-ratio 16:9 --guidance-scale 8.0 --steps 60"
+    },
+    "remove-background-advanced": {
+      "description": "Advanced background removal tool using Sharp with color tolerance and edge detection",
+      "tool": "run_terminal_cmd",
+      "command": "npm run remove-background-advanced",
+      "options": {
+        "input": "Path to input image",
+        "output": "Path to output image",
+        "tolerance": "(Optional) Color tolerance for background detection (0-255, default: 30)"
+      },
+      "requires": ["sharp package"],
+      "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
     }
   }
 }
