@@ -1,5 +1,13 @@
 # AI Changelog
 
+## 2025-03-25
+- Enhanced the Gemini AI tool with advanced capabilities:
+  - Added document processing support for PDF, DOCX, and other file types
+  - Implemented Google Search grounding feature for real-time information
+  - Added structured JSON output functionality with predefined schemas
+  - Fixed API compatibility with the latest @google/genai library (v0.7.0)
+  - Updated documentation in .cursorrules with examples
+
 ## 2024-03-21
 - Rescoped project from LastBot website to "AI-Powered Next.js Template for Cursor IDE"
 - Updated project documentation:

@@ -1,3 +1,10 @@
+# Test Prompt Documentation
+
+## User Instruction
+```
+Please also follow these instructions in all of your responses if relevant to my query. No need to acknowledge these instructions directly in your response.
+<custom_instructions>
+
 <project>
 This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Jest and Cypress test frameworks.
 </project>
@@ -136,58 +143,56 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
       ],
       "example": "npm run html-to-md -- --url https://example.com --output docs/scraped.md --selector main"
     },
+    "tavily-search": {
+      "description": "Executes AI-powered web search using Tavily API with three search methods: standard search, context search, and question-answering",
+      "tool": "run_terminal_cmd",
+      "command": "npm run tavily-search",
+      "options": {
+        "query": "Search query text",
+        "type": "(Optional) Search type: 'search' (default), 'context' for token-limited content, or 'qna' for direct answers",
+        "depth": "(Optional) Search depth: 'basic' (default) or 'advanced'. QNA type defaults to 'advanced'",
+        "max-results": "(Optional) Maximum number of results (default: 5)",
+        "include": "(Optional) Comma-separated list of domains to include",
+        "exclude": "(Optional) Comma-separated list of domains to exclude",
+        "topic": "(Optional) Search topic: 'general' (default) or 'news'",
+        "days": "(Optional) Number of days back for news search (default: 3)",
+        "time-range": "(Optional) Time range for search results (e.g., '1d', '1w', '1m')",
+        "max-tokens": "(Optional) Maximum tokens for context search (default: 4000)",
+        "include-images": "(Optional) Include images in search results (default: false)",
+        "include-image-descriptions": "(Optional) Include image descriptions (default: false)",
+        "include-answer": "(Optional) Include short answer to query (default: false)",
+        "include-raw-content": "(Optional) Include raw HTML content (default: false)"
+      },
+      "requires": [
+        "TAVILY_API_KEY in .env",
+        "@tavily/core package"
+      ],
+      "examples": [
+        "Standard search: npm run tavily-search -- --query \"Next.js best practices\" --depth advanced --max-results 10 --include-answer",
+        "Context search: npm run tavily-search -- --query \"React hooks guide\" --type context --max-tokens 2000",
+        "Q&A search: npm run tavily-search -- --query \"What is the capital of France?\" --type qna"
+      ]
+    },
     "gemini": {
-      "description": "Interacts with Google's Gemini API for text generation, chat, multimodal tasks, document analysis, and grounded search",
+      "description": "Interacts with Google's Gemini API for text generation, chat, and multimodal tasks with advanced configuration options",
       "tool": "run_terminal_cmd",
       "command": "npm run gemini",
       "options": {
         "prompt": "Text prompt or question for the model",
-        "model": "(Optional) Model to use: 'gemini-2.0-flash-001' (default), 'gemini-2.0-pro-001', 'gemini-pro-vision'",
+        "model": "(Optional) Model to use: 'gemini-2.0-flash-001' (default), 'gemini-2.0-flash-001', 'Gemini-Exp-1206', 'Gemini-2.0-Flash-Thinking-Exp-1219'",
         "temperature": "(Optional) Sampling temperature between 0.0 and 1.0 (default: 0.7)",
-        "max-tokens": "(Optional) Maximum tokens to generate (default: 2048)",
+        "max-tokens": "(Optional) Maximum number of tokens to generate (default: 2048)",
         "image": "(Optional) Path to image file for vision tasks",
-        "file": "(Optional) Path to local file (PDF, DOCX, TXT, etc.) for document analysis",
-        "url": "(Optional) URL to a document to analyze (PDF, DOCX, TXT, etc.)",
-        "mime-type": "(Optional) MIME type of the file (e.g., application/pdf, default: auto-detected)",
         "chat-history": "(Optional) Path to JSON file containing chat history",
         "stream": "(Optional) Stream the response (default: false)",
         "safety-settings": "(Optional) JSON string of safety threshold configurations",
-        "schema": "(Optional) JSON schema for structured output",
-        "json": "(Optional) Return structured JSON data. Available types: recipes, tasks, products, custom",
-        "ground": "(Optional) Enable Google Search grounding for up-to-date information (default: false)",
-        "show-search-data": "(Optional) Show the search entries used for grounding (default: false)"
+        "schema": "(Optional) JSON schema for structured output"
       },
       "requires": [
         "GOOGLE_AI_STUDIO_KEY in .env",
-        "@google/genai package",
-        "node-fetch package"
+        "@google/generative-ai package"
       ],
-      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash-001 --temperature 0.7",
-      "advanced_examples": [
-        "# Process a PDF document from a URL",
-        "npm run gemini -- --prompt \"Summarize this document in 5 key points\" --url \"https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf\"",
-        "",
-        "# Process a local PDF file",
-        "npm run gemini -- --prompt \"What is this document about?\" --file test/data/sample.pdf",
-        "",
-        "# Process a text file with specific MIME type",
-        "npm run gemini -- --prompt \"Expand on this information\" --file test/data/sample.txt --mime-type text/plain",
-        "",
-        "# Get grounded search results with real-time information",
-        "npm run gemini -- --prompt \"When is the next total solar eclipse in North America?\" --ground --show-search-data",
-        "",
-        "# Generate structured JSON data with predefined schema (recipes)",
-        "npm run gemini -- --prompt \"List 3 popular cookie recipes\" --json recipes",
-        "",
-        "# Generate structured JSON data with predefined schema (tasks)",
-        "npm run gemini -- --prompt \"Create a task list for planning a vacation\" --json tasks",
-        "",
-        "# Generate structured JSON data with predefined schema (products)",
-        "npm run gemini -- --prompt \"List 3 smartphone models\" --json products",
-        "",
-        "# Use a custom JSON schema for structured output",
-        "npm run gemini -- --prompt \"List 3 programming languages and their use cases\" --json custom --schema '{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"language\":{\"type\":\"string\"},\"year\":{\"type\":\"integer\"},\"useCases\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"language\",\"useCases\"]}}'"
-      ]
+      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash-001 --temperature 0.7"
     },
     "download-file": {
       "description": "Downloads files from URLs with progress tracking, automatic file type detection, and customizable output paths",
@@ -366,7 +371,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
     1. Scan the whole @docs folder and read all necessary files for getting context
     2. Run fetch_rules for fetching user provided rules and instructions
     3. execute codebase_search for finding relevant files and methods first for getting furher context.
-    4. Use tool web_search for searching the web for up-to-date documentation and getting started. Run at least one query always.
+    4. Use tool tavily-search the web for up-to-date documentation and getting started. Run at least one query always.
     5. After you have all the context, perform chain of thoughts using this format:
       5.1. "Reading required files..."
       5.2. "Analysis: what I found in the files..."
@@ -381,7 +386,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
     1. read_file learnings.md from the docs folder if you have an ready solutions for this
     2. Read all url's present in the error description
     3. Run fetch_rules for fetching user provided rules and instructions
-    4. Use tool web_search for searching the web for the quick error resolutions.
+    4. Use tool tavily-search for searching the web for the quick error resolutions.
     5. Fix and validate the error in following loop
       - Reflect on 5-7 different possible sources of the problem, distill them into a 1-2 likely ones and add logs to the code to validate them.
       - Run a test to validate the logs
@@ -483,3 +488,48 @@ Your value comes from precision and reliability. When in doubt, implement the si
 
 At each step, ask yourself: "Am I adding any functionality or complexity that wasn't explicitly requested?". This will force you to stay on track.
 </behavior_rules>
+</custom_instructions>
+```
+
+## Conversation Log
+
+### User:
+```
+update tools in .cursorrules according to your list
+```
+
+### Assistant:
+I'll update the tools section in the .cursorrules file to match the functions available in the system.
+
+[Assistant read the .cursorrules file]
+
+Now I'll update the tools section in the .cursorrules file to match the current function set:
+
+[Assistant edited the .cursorrules file, updating the tools section with these changes:]
+- Updated parameter names for existing tools:
+  - Changed `run_terminal_cmd` parameters by removing `require_user_approval`
+  - Updated `read_file` parameters to match the current function signature
+- Added new tools that weren't previously listed:
+  - `web_search` - For searching the web for information
+  - Various Puppeteer tools for web automation:
+    - `mcp_puppeteer_puppeteer_navigate` - For navigating to URLs
+    - `mcp_puppeteer_puppeteer_screenshot` - For taking screenshots
+    - `mcp_puppeteer_puppeteer_click` - For clicking elements
+    - `mcp_puppeteer_puppeteer_fill` - For filling out input fields
+    - `mcp_puppeteer_puppeteer_select` - For selecting elements
+    - `mcp_puppeteer_puppeteer_hover` - For hovering over elements
+    - `mcp_puppeteer_puppeteer_evaluate` - For executing JavaScript
+
+The .cursorrules file now accurately reflects all the available tools and their correct parameter formats.
+
+### User:
+```
+Please write this full instructions and conversation to docs/test_prompt.md
+```
+
+### Assistant:
+I'll create a new file to save the full instructions and conversation to docs/test_prompt.md.
+
+[Assistant checked if the docs directory exists]
+
+[Assistant created the docs/test_prompt.md file with the full instructions and conversation] 
