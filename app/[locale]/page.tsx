@@ -3,6 +3,8 @@ import { getTranslations } from 'next-intl/server'
 import { generateLocalizedMetadata } from '@/utils/metadata'
 import HomePage from '@/components/pages/home/index'
 
+export const dynamic = 'force-dynamic'
+
 interface Props {
   params: {
     locale: string

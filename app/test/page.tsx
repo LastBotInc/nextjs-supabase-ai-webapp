@@ -3,6 +3,8 @@
 import * as React from 'react'
 import { initializeAnalytics } from '@/lib/analytics-init'
 
+export const dynamic = 'force-dynamic'
+
 export default function TestPage() {
   React.useEffect(() => {
     const init = async () => {

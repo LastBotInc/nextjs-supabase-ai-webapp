@@ -8,6 +8,8 @@ import { z } from 'zod'
 import { AppointmentType, CreateAppointmentTypeRequest } from '@/lib/types/booking'
 import clsx from 'clsx'
 
+export const dynamic = 'force-dynamic'
+
 const appointmentTypeSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   description: z.string().optional(),

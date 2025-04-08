@@ -981,6 +981,9 @@
   },
   "LandingPages": {
     "title": "Landing Pages",
+    "preview": "Preview landing page",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
     "description": "Create and manage landing pages",
     "content": "Content",
     "notFound": "Page Not Found",
@@ -1062,15 +1065,7 @@
       "draft": "Draft",
       "noPages": "No landing pages found. Create your first one!",
       "noSearchResults": "No landing pages found matching your search.",
-      "editor": {
-        "title": "Landing Page Editor",
-        "tabs": {
-          "content": "Content",
-          "seo": "SEO Settings",
-          "code": "Custom Code",
-          "analytics": "Analytics"
-        }
-      },
+      
       "seo": {
         "metaTitle": "Meta Title",
         "metaDescription": "Meta Description",
@@ -1099,6 +1094,12 @@
       "unpublished": "Landing page unpublished successfully",
       "imageGenerated": "Image generated successfully"
     },
+    "tabs": {
+      "content": "Content",
+      "seo": "SEO Settings",
+      "cta": "Call to Action",
+      "code": "Custom Code"
+    },
     "error": {
       "create": "Failed to create landing page",
       "update": "Failed to update landing page",
@@ -1109,9 +1110,6 @@
     },
     "cancel": "Cancel",
     "save": "Save",
-    "createPage": "Create Page",
-    "generateContent": "Generate Content",
-    "generateImage": "Generate Image",
     "generating": "Generating...",
     "search": "Search landing pages...",
     "status": "Status",
@@ -1125,12 +1123,6 @@
     "noSearchResults": "No landing pages found matching your search.",
     "editor": {
       "title": "Landing Page Editor",
-      "tabs": {
-        "content": "Content",
-        "seo": "SEO Settings",
-        "code": "Custom Code",
-        "analytics": "Analytics"
-      },
       "cta": {
         "title": "Call to Action",
         "headline": {

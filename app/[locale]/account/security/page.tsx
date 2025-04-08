@@ -12,6 +12,8 @@ import { useParams, useRouter } from 'next/navigation'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { Database } from '@/types/database'
 
+export const dynamic = 'force-dynamic'
+
 export default function SecurityPage() {
   const params = useParams()
   const locale = params.locale as string

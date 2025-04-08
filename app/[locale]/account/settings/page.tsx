@@ -13,6 +13,8 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
 import { use } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 interface Props {
   params: Promise<{
     locale: string

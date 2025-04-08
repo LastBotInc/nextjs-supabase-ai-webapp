@@ -337,15 +337,6 @@ export default function LandingPageForm({ page, locale }: Props) {
           />
         </div>
       </div>
-
-      <div className="flex justify-end space-x-4 mt-8">
-        <Button type="button" variant="outline">
-          {t('form.cancel')}
-        </Button>
-        <Button type="submit" disabled={generating}>
-          {generating ? t('form.generating') : (page ? t('form.save') : t('form.createPage'))}
-        </Button>
-      </div>
     </div>
   )
 } 

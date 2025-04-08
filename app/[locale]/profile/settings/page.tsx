@@ -5,6 +5,8 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { redirect } from '@/app/i18n/navigation'
 
+export const dynamic = 'force-dynamic'
+
 export default function SettingsPage() {
   const t = useTranslations('Profile')
   const { session, loading } = useAuth()

@@ -64,7 +64,7 @@ export default function LandingPageEditor({ params: paramsPromise }: Props) {
       cta_headline: '',
       cta_description: '',
       cta_button_text: '',
-      cta_button_link: '#',
+      cta_button_link: '',
       cta_secondary_text: '',
     },
   })
@@ -298,11 +298,18 @@ export default function LandingPageEditor({ params: paramsPromise }: Props) {
             </TabsContent>
           </Tabs>
 
-          <div className="flex justify-end">
-            <Button type="submit" disabled={methods.formState.isSubmitting}>
+          <div className="flex justify-end space-x-4 mt-8">
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => router.push(`/${params.locale}/admin/landing-pages`)}
+            >
+              {t('form.cancel')}
+            </Button>
+            <Button type="submit" disabled={methods.formState.isSubmitting || isLoading}>
               {methods.formState.isSubmitting
-                ? t('buttons.saving')
-                : t('buttons.save')}
+                ? t('form.generating')
+                : (page ? t('form.save') : t('form.createPage'))}
             </Button>
           </div>
         </form>

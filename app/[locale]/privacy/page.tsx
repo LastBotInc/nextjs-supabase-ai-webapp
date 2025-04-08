@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server'
 import { setupServerLocale } from '@/app/i18n/server'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{
     locale: string

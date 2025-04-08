@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export default function CheckEmailPage() {
   const t = useTranslations('Auth')
   const params = useParams()
