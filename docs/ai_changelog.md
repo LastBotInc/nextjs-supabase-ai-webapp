@@ -29,6 +29,8 @@
 - **Fix:** Addressed RLS permission errors on public landing pages (guided user to fix policy, code already correct).
 - **Feat:** Added a 'Published' switch to the landing page admin form (`LandingPageForm.tsx`).
 - **Fix:** Corrected the landing page editor (`[id]/page.tsx`) to use PATCH for updates and POST for creates.
+- **Docs:** Updated the `Available Scripts` section in `README.md` to accurately reflect the command-line tools defined in `.cursorrules`.
+- **Chore:** Added `NODE_ENV=production` prefix to production-related npm scripts in `package.json`.
 
 *   Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
 *   Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.

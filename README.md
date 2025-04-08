@@ -166,31 +166,40 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
 - `npm test`: Run Jest unit tests
 - `npm run cypress`: Run Cypress E2E tests
 
-### Database Scripts
-- `supabase db reset`: Reset database to clean state
-- `npm run seed:users:local`: Create test users and admin for development
-- `npm run seed:users:prod`: Create initial users for production
-- `npm run seed:blog:local`: Create blog posts with AI-generated images for development
-- `npm run seed:blog:prod`: Create blog posts with AI-generated images for production
-- `npm run import-translations:local`: Import translations for development
+### Database & Seeding
+- `supabase db reset`: Reset the database
+- `supabase migration new <name>`: Create a new migration file
+- `supabase db push`: Apply database migration changes
+- `npm run seed:users:local`: Seed users for local development
+- `npm run seed:users:prod`: Seed users for production
+- `npm run seed:blog:local`: Seed blog data for local development
+- `npm run seed:blog:prod`: Seed blog data for production
+
+### Translations
+- `npm run check-translations`: Compare translation files
+- `npm run import-translations:local`: Import translations for local development
 - `npm run import-translations:prod`: Import translations for production
-- `npm run generate-embeddings`: Generate search embeddings for blog posts
 
-### AI & Media Tools
-- `npm run gemini`: Generate text or analyze images with Gemini API
-- `npm run recraft`: Generate images using Recraft V3 API
-- `npm run flux`: Generate photorealistic images using Flux API
-- `npm run optimize-image`: Optimize and process images
-- `npm run html-to-md`: Convert HTML content to Markdown
-- `npm run tavily-search`: Perform AI-powered web searches
-- `npm run download-file`: Download and process files
-- `npm run generate-video`: Generate videos using various AI models
+### AI & Content Tools
+- `npm run gemini -- --prompt "..." [options]`: Interact with Google Gemini API (text, chat, vision, document analysis, grounding)
+- `node tools/gemini-image-tool.js generate -p "..." [options]`: Generate images with Gemini/Imagen
+- `node tools/gemini-image-tool.js edit -i <input> -p "..." [options]`: Edit images with Gemini
+- `npm run generate-video -- --prompt "..." [options]`: Generate videos with Replicate models (minimax, hunyuan, mochi, ltx)
+- `npm run html-to-md -- --url <url> [options]`: Convert webpage HTML to Markdown
 
-### Utility Scripts
-- `npm run send-email-sendgrid`: Send emails using SendGrid
-- `npm run check-translations`: Compare translation files for completeness
-- `npm run submit-sitemap`: Submit sitemap to search engines
-- `npm run test-analytics`: Test analytics tracking
+### Image & Media Tools
+- `npm run optimize-image -- --input <in> --output <out> [options]`: Optimize images (resize, format, quality, remove BG via Replicate)
+- `npm run remove-background-advanced -- --input <in> --output <out> [options]`: Advanced background removal (color tolerance)
+- `npm run download-file -- --url <url> [options]`: Download files from URLs
+
+### Deprecated/Removed Tools (Examples)
+- `npm run recraft` (Replaced by `gemini-image`)
+- `npm run flux` (Replaced by `gemini-image`)
+- `npm run tavily-search` (Integrated into `gemini` tool with grounding)
+- `npm run generate-embeddings` (Potentially replaced by db functions or other tools)
+- `npm run send-email-sendgrid` (Handled by application logic)
+- `npm run submit-sitemap` (Manual or CI process)
+- `npm run test-analytics` (Use E2E tests)
 
 ## Contributing
 
