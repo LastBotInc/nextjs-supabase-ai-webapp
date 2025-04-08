@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { formatDate } from '@/utils/date'
 import { Database } from '@/types/database'
+import { LandingPagePublishToggle } from './LandingPagePublishToggle'
 
 type LandingPage = Database['public']['Tables']['landing_pages']['Row']
 
@@ -28,14 +29,15 @@ export default async function LandingPagesPage({
   const supabase = await createClient(true)
 
   // Fetch landing pages with search filter
+  const searchTerm = searchParams.search;
   let query = supabase
     .from('landing_pages')
     .select('*')
     .eq('locale', locale)
     .order('created_at', { ascending: false })
 
-  if (searchParams.search) {
-    query = query.or(`title.ilike.%${searchParams.search}%,content.ilike.%${searchParams.search}%`)
+  if (searchTerm) {
+    query = query.or(`title.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
   }
 
   const { data: pages, error } = await query
@@ -79,7 +81,7 @@ export default async function LandingPagesPage({
           <Input
             type="search"
             name="search"
-            defaultValue={searchParams.search}
+            defaultValue={searchTerm}
             placeholder={t('search')}
             className="pl-10"
           />
@@ -121,9 +123,7 @@ export default async function LandingPagesPage({
                         {page.slug}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm">
-                        <Badge variant={page.published ? 'success' : 'secondary'}>
-                          {page.published ? t('published') : t('draft')}
-                        </Badge>
+                        <LandingPagePublishToggle page={page} locale={locale} />
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
                         {formatDate(page.updated_at)}
@@ -150,7 +150,7 @@ export default async function LandingPagesPage({
                   {pages?.length === 0 && (
                     <tr>
                       <td colSpan={5} className="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
-                        {searchParams.search ? t('noSearchResults') : t('noPages')}
+                        {searchTerm ? t('noSearchResults') : t('noPages')}
                       </td>
                     </tr>
                   )}

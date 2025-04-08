@@ -70,7 +70,8 @@ async function getPosts(locale: string, subject?: string) {
 
 export default async function BlogPage({ params, searchParams }: Props) {
   const { locale } = await params;
-  const { subject = 'all' } = searchParams
+  const resolvedSearchParams = await searchParams;
+  const subject = resolvedSearchParams.subject ?? 'all';
   await setupServerLocale(locale)
   const t = await getTranslations('Blog')
   const posts = await getPosts(locale, subject)

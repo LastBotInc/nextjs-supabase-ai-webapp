@@ -177,6 +177,11 @@ export interface Database {
           custom_css: string | null
           custom_js: string | null
           custom_head: string | null
+          cta_headline: string | null
+          cta_description: string | null
+          cta_button_text: string | null
+          cta_button_link: string | null
+          cta_secondary_text: string | null
           enable_analytics: boolean
           ga_measurement_id: string | null
           gtm_container_id: string | null
@@ -207,6 +212,11 @@ export interface Database {
           custom_css?: string | null
           custom_js?: string | null
           custom_head?: string | null
+          cta_headline?: string | null
+          cta_description?: string | null
+          cta_button_text?: string | null
+          cta_button_link?: string | null
+          cta_secondary_text?: string | null
           enable_analytics?: boolean
           ga_measurement_id?: string | null
           gtm_container_id?: string | null
@@ -237,6 +247,11 @@ export interface Database {
           custom_css?: string | null
           custom_js?: string | null
           custom_head?: string | null
+          cta_headline?: string | null
+          cta_description?: string | null
+          cta_button_text?: string | null
+          cta_button_link?: string | null
+          cta_secondary_text?: string | null
           enable_analytics?: boolean
           ga_measurement_id?: string | null
           gtm_container_id?: string | null

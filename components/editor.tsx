@@ -3,6 +3,10 @@ import StarterKit from '@tiptap/starter-kit'
 import { useEditor, EditorContent } from '@tiptap/react'
 import { Bold, Italic, List, ListOrdered, Quote, Heading1, Heading2, Heading3 } from 'lucide-react'
 import { Button } from './ui/button'
+import Placeholder from '@tiptap/extension-placeholder'
+import Image from '@tiptap/extension-image'
+import Link from '@tiptap/extension-link'
+import { Toolbar } from './editor/Toolbar'
 
 interface EditorProps {
   content: string
@@ -13,8 +17,27 @@ interface EditorProps {
 
 export function Editor({ content, onChange, error, className = '' }: EditorProps) {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit.configure({}),
+      Placeholder.configure({
+        placeholder: 'Enter content here...',
+      }),
+      Image.configure({
+        inline: true,
+      }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+      }),
+    ],
     content,
+    immediatelyRender: false,
+    editorProps: {
+      attributes: {
+        class:
+          'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none dark:prose-invert min-h-[200px] border rounded-md p-4',
+      },
+    },
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML())
     }

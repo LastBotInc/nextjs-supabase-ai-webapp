@@ -15,6 +15,7 @@ import { createClient } from '@/utils/supabase/client'
 import dynamic from 'next/dynamic'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { slugify } from '@/utils/string'
+import { Switch } from '@/components/ui/switch'
 
 // Dynamically import the editor to avoid SSR issues
 const Editor = dynamic(() => import('@/components/editor').then(mod => mod.Editor), { 
@@ -37,7 +38,7 @@ interface Props {
 export default function LandingPageForm({ page, locale }: Props) {
   const t = useTranslations('LandingPages')
   const { toast } = useToast()
-  const { register, formState: { errors }, watch, setValue } = useFormContext<FormData>()
+  const { register, formState: { errors }, watch, setValue, control } = useFormContext<FormData>()
   const [generating, setGenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [prompt, setPrompt] = useState('')
@@ -93,9 +94,9 @@ export default function LandingPageForm({ page, locale }: Props) {
       setValue('title', data.title)
       setValue('content', data.content)
       setValue('excerpt', data.excerpt)
-      setValue('meta_title', data.meta_title)
-      setValue('meta_description', data.meta_description)
-      setValue('keywords', data.keywords || [])
+      setValue('seo_data.meta_title', data.meta_title)
+      setValue('seo_data.meta_description', data.meta_description)
+      setValue('seo_data.keywords', data.keywords || [])
       setValue('slug', data.slug)
 
       // If image prompt was generated, trigger image generation
@@ -250,6 +251,17 @@ export default function LandingPageForm({ page, locale }: Props) {
               error={errors.slug?.message}
             />
           </div>
+        </div>
+
+        <div className="flex items-center space-x-2 pt-4">
+          <Switch 
+            id="published"
+            checked={watch('published')}
+            onCheckedChange={(checked) => setValue('published', checked)}
+          />
+          <Label htmlFor="published" className="cursor-pointer">
+            {t('form.published')}
+          </Label>
         </div>
 
         <div className="space-y-2">

@@ -1130,6 +1130,29 @@
         "seo": "SEO Settings",
         "code": "Custom Code",
         "analytics": "Analytics"
+      },
+      "cta": {
+        "title": "Call to Action",
+        "headline": {
+          "label": "Headline",
+          "placeholder": "Enter your headline here"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Enter your description here"
+        },
+        "buttonText": {
+          "label": "Button Text",
+          "placeholder": "Enter button text"
+        },
+        "buttonLink": {
+          "label": "Button Link",
+          "placeholder":"Enter URL"
+        },
+        "secondaryText": {
+          "label": "Secondary Text",
+          "placeholder": "Enter secondary text"
+        }
       }
     },
     "seo": {

@@ -15,6 +15,7 @@ import type { z } from 'zod'
 import LandingPageForm from './LandingPageForm'
 import SeoSettings from './SeoSettings'
 import CustomCode from './CustomCode'
+import CtaSettings from './CtaSettings'
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
@@ -59,7 +60,12 @@ export default function LandingPageEditor({ params: paramsPromise }: Props) {
       custom_css: '',
       custom_js: '',
       published: false,
-      locale: params.locale
+      locale: params.locale,
+      cta_headline: '',
+      cta_description: '',
+      cta_button_text: '',
+      cta_button_link: '#',
+      cta_secondary_text: '',
     },
   })
 
@@ -112,34 +118,45 @@ export default function LandingPageEditor({ params: paramsPromise }: Props) {
       return
     }
 
+    const isUpdating = params.id !== 'new';
+    const url = isUpdating ? `/api/landing-pages` : '/api/landing-pages'; // Keep URL same, method changes
+    const method = isUpdating ? 'PATCH' : 'POST';
+
+    let payload: any = {
+        ...data,
+        locale: params.locale,
+        updated_by: session.user.id,
+    };
+
+    if (isUpdating) {
+        payload.id = params.id; // Include ID for PATCH
+    } else {
+        payload.created_by = session.user.id; // Include created_by for POST
+    }
+
     try {
-      const response = await fetch('/api/landing-pages', {
-        method: 'POST',
+      const response = await fetch(url, { // Use dynamic URL and Method
+        method: method,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`
         },
-        body: JSON.stringify({
-          ...data,
-          locale: params.locale,
-          created_by: session.user.id,
-          updated_by: session.user.id
-        })
+        body: JSON.stringify(payload)
       })
 
       if (!response.ok) {
         const error = await response.json()
-        throw new Error(error.error || 'Failed to save landing page')
+        throw new Error(error.error || `Failed to ${isUpdating ? 'update' : 'save'} landing page`)
       }
 
       const savedPage = await response.json()
       
       toast({
-        title: t('success.created'),
+        title: t(isUpdating ? 'success.updated' : 'success.created'),
         variant: 'default',
       })
 
-      // Redirect to index page
+      // Redirect to index page after save/update
       router.push(`/${params.locale}/admin/landing-pages`)
     } catch (err) {
       console.error('Error saving landing page:', err)
@@ -251,32 +268,43 @@ export default function LandingPageEditor({ params: paramsPromise }: Props) {
       </div>
 
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <Tabs defaultValue="content" className="space-y-6">
+        <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-8">
+          <Tabs defaultValue="content" className="w-full">
             <TabsList>
-              <TabsTrigger value="content">{t('editor.tabs.content')}</TabsTrigger>
-              <TabsTrigger value="seo">{t('editor.tabs.seo')}</TabsTrigger>
-              <TabsTrigger value="code">{t('editor.tabs.code')}</TabsTrigger>
+              <TabsTrigger value="content">{t('tabs.content')}</TabsTrigger>
+              <TabsTrigger value="seo">{t('tabs.seo')}</TabsTrigger>
+              <TabsTrigger value="cta">{t('tabs.cta', { defaultValue: 'CTA' })}</TabsTrigger>
+              <TabsTrigger value="code">{t('tabs.code')}</TabsTrigger>
             </TabsList>
-
             <TabsContent value="content">
-              <Card>
+              <Card className="p-6">
                 <LandingPageForm page={page} locale={params.locale} />
               </Card>
             </TabsContent>
-
             <TabsContent value="seo">
-              <Card>
+              <Card className="p-6">
                 <SeoSettings page={page} locale={params.locale} />
               </Card>
             </TabsContent>
-
+            <TabsContent value="cta">
+              <Card className="p-6">
+                <CtaSettings />
+              </Card>
+            </TabsContent>
             <TabsContent value="code">
-              <Card>
+              <Card className="p-6">
                 <CustomCode page={page} locale={params.locale} />
               </Card>
             </TabsContent>
           </Tabs>
+
+          <div className="flex justify-end">
+            <Button type="submit" disabled={methods.formState.isSubmitting}>
+              {methods.formState.isSubmitting
+                ? t('buttons.saving')
+                : t('buttons.save')}
+            </Button>
+          </div>
         </form>
       </FormProvider>
     </div>

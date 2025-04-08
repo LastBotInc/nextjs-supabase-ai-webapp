@@ -100,12 +100,9 @@ export default function RootLayout({
   return (
     <html lang={htmlLang} dir="ltr" suppressHydrationWarning>
       <head>
-        <link
-          rel="preload"
-          href="/images/hero-bg-abstract-new.webp"
-          as="image"
-          type="image/webp"
-        />
+        <meta name="theme-color" content="#ffffff" />
+        {/* Remove unused preload link */}
+        {/* <link rel="preload" href="/images/hero-bg-abstract-new.webp" as="image" /> */}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AIBotMessageWrapper />

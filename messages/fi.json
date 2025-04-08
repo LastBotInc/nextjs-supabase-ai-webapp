@@ -1080,7 +1080,8 @@
         "customHead": "Mukautettu &lt;head&gt;-koodi",
         "customCss": "Mukautettu CSS",
         "customJs": "Mukautettu JavaScript"
-      }
+      },
+      "unpublish": "Poista julkaisu"
     },
     "validation": {
       "titleRequired": "Otsikko on pakollinen",
@@ -1141,7 +1142,8 @@
       "customHead": "Mukautettu &lt;head&gt;-koodi",
       "customCss": "Mukautettu CSS",
       "customJs": "Mukautettu JavaScript"
-    }
+    },
+    "unpublish": "Poista julkaisu"
   },
   "Presentations": {
     "title": "Esitykset",

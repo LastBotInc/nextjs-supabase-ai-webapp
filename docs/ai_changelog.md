@@ -17,5 +17,27 @@
   - Removed company-specific content and features
   - Added comprehensive AI service integration documentation
 
+## [Current Session]
+- **Fix:** Resolved synchronous access errors for `searchParams` and `params` in multiple page components (`/admin/landing-pages`, `/blog`, `/[slug]`).
+- **Fix:** Replaced insecure `getSession`/`onAuthStateChange` usage with `getUser()` in `AuthProvider` and `middleware` as per Supabase recommendations.
+- **Fix:** Addressed authentication flow issues caused by the `getUser` refactor by refining middleware cookie handling.
+- **Fix:** Removed extraneous Supabase auth debug logs by removing `DEBUG_AUTH` env variable.
+- **Fix:** Resolved `supabase.from is not a function` error on public landing pages by using `createServerClient` with anon key.
+- **Fix:** Addressed RLS permission errors on public landing pages (guided user to fix policy, code already correct).
+- **Feat:** Added a 'Published' switch to the landing page admin form (`LandingPageForm.tsx`).
+- **Fix:** Corrected the landing page editor (`[id]/page.tsx`) to use PATCH for updates and POST for creates.
+
+*   Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
+*   Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.
+*   Fixed Next.js 15 warning by awaiting `params` in API route and `generateMetadata`.
+*   Redesigned public landing page (`/[slug]`) styling using Tailwind CSS, added hero section with generated background, and improved typography.
+*   Added dynamic CTA fields (`cta_headline`, `cta_description`, etc.) to `landing_pages` table (migration `20250407182326`).
+*   Added "CTA" tab and fields to landing page editor.
+*   Updated public landing page to display CTA content from the database.
+*   Fixed missing translation keys for editor tabs/buttons.
+*   Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
+*   Removed unused preload link from `app/layout.tsx`.
+*   Adjusted prose font sizes and colors for better readability on landing page.
+
 // ... existing changelog entries ...
 

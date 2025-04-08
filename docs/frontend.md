@@ -40,6 +40,19 @@
    - Success/Error messages
    - Responsive design for all devices
 
+6. Landing Page (`/[slug]`)
+   - Concept: "AI-Powered Growth Engine"
+   - Theme: Dark theme consistent with admin, using brand gradients for highlights.
+   - Fonts: Geist Sans (headings), Inter (body).
+   - Structure:
+     - Hero Section: Large gradient headline, sub-headline, dynamic abstract background (using `public/images/landing-hero-bg.png`), prominent gradient CTA button.
+     - Problem/Solution Section: Two-column layout contrasting user pain points with AI solutions.
+     - Key Features Section: Grid of dark cards showcasing features like Predictive Keyword Research, Content Optimization, etc.
+     - Social Proof/Trust Section: Logos, testimonials, or key results.
+     - How It Works Section (Optional): Simple 3-step graphic/list.
+     - Final CTA Section: Reinforce value proposition, repeat prominent gradient CTA button, trust statement.
+   - Styling: Tailwind CSS, leveraging configured theme colors and fonts.
+
 ### Admin Pages (`/[locale]/admin`)
 
 1. Dashboard (`/admin`)

@@ -58,10 +58,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   const validatedLocale = await validateLocale(resolvedParams.locale)
 
   // Get messages using our i18n configuration that includes database translations
-  const { messages } = await getI18nConfig({ locale: validatedLocale })
+  let messages: AbstractIntlMessages = {};
+  try {
+    const i18nConfig = await getI18nConfig({ locale: validatedLocale })
+    messages = (i18nConfig.messages || {}) as AbstractIntlMessages; // Ensure messages is always an object
+  } catch (error) {
+      console.error("Failed to load translations for layout:", error);
+      // Optionally load default locale messages as a fallback here if needed
+  }
 
   return (
-    <NextIntlClientProvider messages={messages as AbstractIntlMessages} locale={validatedLocale}>
+    // Ensure messages is always passed as an object, even if empty
+    <NextIntlClientProvider messages={messages} locale={validatedLocale}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <AuthProvider>
           <Navigation />

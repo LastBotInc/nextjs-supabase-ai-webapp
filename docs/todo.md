@@ -787,3 +787,42 @@ Next Priority Tasks:
 2. Create E2E tests for booking flow
 3. Complete testing documentation
 4. Write deployment guide
+
+## Features
+
+- ❌ Implement user profile management page
+- ❌ Add blog commenting system
+- ❌ Integrate newsletter signup
+- ✅ Add admin functionality for landing pages (CRUD)
+- ✅ Add `published` status control to landing page form
+- ✅ Add `published` status toggle to landing page index
+- ✅ Add image generation to landing page admin
+- ✅ Add AI content generation to landing page admin
+
+## Bugs
+
+- ✅ Fix landing page RLS / public access
+- ✅ Resolve synchronous `searchParams`/`params` access errors
+- ✅ Fix Supabase auth warnings (`getUser` vs `getSession`)
+- ✅ Fix broken authentication flow after refactor
+- ✅ Remove extraneous Supabase auth debug logs
+
+## Refactoring
+
+- ❌ Refactor shared components into library
+- ❌ Improve global state management
+
+## Documentation
+
+- ❌ Update README with setup instructions
+- ❌ Document API endpoints
+
+### Landing Page Feature
+-   ✅ Implement basic landing page CRUD (Admin)
+-   ✅ Implement public view for landing pages
+-   ✅ Add publish/unpublish functionality
+-   ✅ Add basic SEO fields (meta title, description)
+-   ✅ Add custom code injection (head, css, js)
+-   ✅ Fix landing page editor fields being empty on edit
+-   ✅ Redesign public landing page view
+-   ✅ Add dynamic CTA content management to landing pages

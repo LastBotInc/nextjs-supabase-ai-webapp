@@ -3,13 +3,13 @@ This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Jest
 </project>
 
 <tools>
-#internal tools
+# Internal Tools: Core capabilities available directly.
 run_terminal_cmd - Executes terminal commands
   - Parameters: command, is_background, explanation
 codebase_search - Semantic codebase search
   - Parameters: query, target_directories, explanation
 read_file - Reads file contents
-  - Parameters: target_file, offset, limit, should_read_entire_file
+  - Parameters: target_file, start_line_one_indexed, end_line_one_indexed_inclusive, should_read_entire_file, explanation  # Updated params
 list_dir - Lists directory contents
   - Parameters: relative_workspace_path, explanation
 grep_search - Regex search in text
@@ -22,7 +22,7 @@ delete_file - Deletes files
   - Parameters: target_file, explanation
 reapply - Reapplies last edit
   - Parameters: target_file
-fetch_rules - Fetches rules provided by the user
+fetch_rules - Fetches user-provided rules (@*.mdc files)
   - Parameters: rule_names
 web_search - Searches the web for information
   - Parameters: search_term, explanation
@@ -40,10 +40,12 @@ mcp_puppeteer_puppeteer_hover - Hover an element
   - Parameters: selector
 mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
   - Parameters: script
+mcp_supabase_query - Run a read-only SQL query to project database
+  - Parameters: sql
 </tools>
 
 <command_line_tools>
-#Project specific tools, please execute using run_terminal_cmd tool
+# Project-Specific Tools: Execute these using `run_terminal_cmd`.
 {
   "tools": {
     "translations": {
@@ -81,26 +83,6 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
           "reset": "Reset the database"
         },
       },
-    },
-    "recraft": {
-      "description": "Generates images using Recraft V3 API (SOTA text-to-image model)",
-      "tool": "run_terminal_cmd",
-      "command": "npm run recraft",
-      "options": {
-        "prompt": "Text description of the desired image",
-        "style": "(Optional) Image style to use (default: digital_illustration). Available styles:\n
-        - realistic_image (and variants: b_and_w, hard_flash, hdr, natural_light, studio_portrait, enterprise, motion_blur)\n
-        - digital_illustration (and variants: pixel_art, hand_drawn, grain, infantile_sketch, 2d_art_poster, handmade_3d, hand_drawn_outline, engraving_color, 2d_art_poster_2)",
-        "negative-prompt": "(Optional) Things to avoid in the image",
-        "width": "(Optional) Image width in pixels. Available sizes: 1024, 1365, 1536, 1820, 2048, 1434, 1280, 1707 (default: 1024)",
-        "height": "(Optional) Image height in pixels. Available sizes: 1024, 1365, 1536, 1820, 2048, 1434, 1280, 1707 (default: 1024)",
-        "num-outputs": "(Optional) Number of images to generate (default: 1)",
-        "seed": "(Optional) Random seed for reproducibility",
-        "folder": "(Optional) Output folder path",
-        "filename": "(Optional) Output filename"
-      },
-      "requires": ["REPLICATE_API_TOKEN in .env"],
-      "example": "npm run recraft -- --prompt \"A modern logo with blue background\" --style realistic_image --folder public/images --filename logo.png"
     },
     "image-optimizer": {
       "description": "Optimizes images with background removal, resizing, and format conversion using Sharp and Replicate's remove-bg model",
@@ -142,7 +124,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
       "command": "npm run gemini",
       "options": {
         "prompt": "Text prompt or question for the model",
-        "model": "(Optional) Model to use: 'gemini-2.0-flash-001' (default), 'gemini-2.0-pro-001', 'gemini-pro-vision'",
+        "model": "(Optional) Model to use: 'gemini-2.0-flash' (default), 'gemini-2.5-pro-exp-03-25'",
         "temperature": "(Optional) Sampling temperature between 0.0 and 1.0 (default: 0.7)",
         "max-tokens": "(Optional) Maximum tokens to generate (default: 2048)",
         "image": "(Optional) Path to image file for vision tasks",
@@ -162,31 +144,68 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
         "@google/genai package",
         "node-fetch package"
       ],
-      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash-001 --temperature 0.7",
+      "example": "npm run gemini -- --prompt "What is the capital of France?" --model gemini-2.0-flash-001 --temperature 0.7",
       "advanced_examples": [
         "# Process a PDF document from a URL",
-        "npm run gemini -- --prompt \"Summarize this document in 5 key points\" --url \"https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf\"",
+        "npm run gemini -- --prompt "Summarize this document in 5 key points" --url "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"",
         "",
         "# Process a local PDF file",
-        "npm run gemini -- --prompt \"What is this document about?\" --file test/data/sample.pdf",
+        "npm run gemini -- --prompt "What is this document about?" --file test/data/sample.pdf",
         "",
         "# Process a text file with specific MIME type",
-        "npm run gemini -- --prompt \"Expand on this information\" --file test/data/sample.txt --mime-type text/plain",
+        "npm run gemini -- --prompt "Expand on this information" --file test/data/sample.txt --mime-type text/plain",
         "",
         "# Get grounded search results with real-time information",
-        "npm run gemini -- --prompt \"When is the next total solar eclipse in North America?\" --ground --show-search-data",
+        "npm run gemini -- --prompt "When is the next total solar eclipse in North America?" --ground --show-search-data",
         "",
         "# Generate structured JSON data with predefined schema (recipes)",
-        "npm run gemini -- --prompt \"List 3 popular cookie recipes\" --json recipes",
+        "npm run gemini -- --prompt "List 3 popular cookie recipes" --json recipes",
         "",
         "# Generate structured JSON data with predefined schema (tasks)",
-        "npm run gemini -- --prompt \"Create a task list for planning a vacation\" --json tasks",
+        "npm run gemini -- --prompt "Create a task list for planning a vacation" --json tasks",
         "",
         "# Generate structured JSON data with predefined schema (products)",
-        "npm run gemini -- --prompt \"List 3 smartphone models\" --json products",
+        "npm run gemini -- --prompt "List 3 smartphone models" --json products",
         "",
         "# Use a custom JSON schema for structured output",
-        "npm run gemini -- --prompt \"List 3 programming languages and their use cases\" --json custom --schema '{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"language\":{\"type\":\"string\"},\"year\":{\"type\":\"integer\"},\"useCases\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"language\",\"useCases\"]}}'"
+        "npm run gemini -- --prompt "List 3 programming languages and their use cases" --json custom --schema '{"type":"array","items":{"type":"object","properties":{"language":{"type":"string"},"year":{"type":"integer"},"useCases":{"type":"array","items":{"type":"string"}}},"required":["language","useCases"]}}'"
+      ]
+    },
+    "gemini-image": {
+      "description": "Generates and edits images using Google Gemini and Imagen models",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/gemini-image-tool.js",
+      "subcommands": {
+        "generate": {
+          "description": "Generate an image using Gemini 2.0 or Imagen 3.0",
+          "options": {
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: 'gemini-2.0' (default) or 'imagen-3.0'",
+            "output": "(Optional) Output file path (default: gemini-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "num-outputs": "(Optional) Number of images (Imagen 3 only, default: 1, max: 4)",
+            "negative-prompt": "(Optional) Negative prompt (Imagen 3 only)",
+            "aspect-ratio": "(Optional) Aspect ratio (Imagen 3 only, default: 1:1, options: 1:1, 16:9, 9:16, 4:3, 3:4)"
+          },
+          "example": "node tools/gemini-image-tool.js generate -p "A futuristic car" -m imagen-3.0 -n 2 --aspect-ratio 16:9 -o car.png"
+        },
+        "edit": {
+          "description": "Edit an existing image using Gemini 2.0",
+          "options": {
+            "input-image": "Required: Path to the input image",
+            "edit-prompt": "Required: Text prompt describing the edit",
+            "output": "(Optional) Output file path (default: gemini-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)"
+          },
+          "example": "node tools/gemini-image-tool.js edit -i input.png -p "Add sunglasses to the person" -o edited.png"
+        }
+      },
+      "requires": [
+        "GOOGLE_AI_STUDIO_KEY or GEMINI_API_KEY in .env.local",
+        "@google/genai package",
+        "commander package",
+        "axios package",
+        "dotenv package"
       ]
     },
     "download-file": {
@@ -206,37 +225,6 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
       ],
       "example": "npm run download-file -- --url https://example.com/image.jpg --folder public/images --filename downloaded-image.jpg"
     },
-    "flux": {
-      "description": "Generates images using Flux 1.1 Pro API (high quality text-to-image model)",
-      "tool": "run_terminal_cmd",
-      "command": "npm run flux",
-      "options": {
-        "prompt": "Text description of the desired image",
-        "prompt-upsampling": "(Optional) Enable prompt upsampling for better results (default: true)",
-        "num-outputs": "(Optional) Number of images to generate (default: 1)",
-        "seed": "(Optional) Random seed for reproducibility",
-        "folder": "(Optional) Output folder path (default: public/images)",
-        "filename": "(Optional) Output filename"
-      },
-      "requires": ["REPLICATE_API_TOKEN in .env"],
-      "example": "npm run flux -- --prompt \"A modern logo with blue background\" --folder public/images --filename logo.webp"
-    },
-    "send-email-sendgrid": {
-      "description": "Sends emails using SendGrid API with support for templates and dynamic data",
-      "tool": "run_terminal_cmd",
-      "command": "npm run send-email-sendgrid",
-      "options": {
-        "to": "Recipient email address",
-        "subject": "Email subject line",
-        "message": "Email message content (HTML supported)",
-        "template-id": "(Optional) SendGrid template ID",
-        "dynamic-template-data": "(Optional) JSON string of dynamic template data"
-      },
-      "requires": [
-        "SENDGRID_API_KEY in .env"
-      ],
-      "example": "npm run send-email-sendgrid -- --to recipient@example.com --subject \"Hello\" --message \"<h1>Hi there!</h1><p>This is a test email.</p>\""
-    },
     "generate-video": {
       "description": "Generates videos using various Replicate API models including Minimax, Hunyuan, Mochi, and LTX",
       "tool": "run_terminal_cmd",
@@ -255,44 +243,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
         "ora package",
         "chalk package"
       ],
-      "example": "npm run generate-video -- --prompt \"A serene ocean wave rolling onto a beach\" --model minimax --duration 5 --output beach-wave.mp4"
-    },
-    "imagen": {
-      "description": "Generates high-quality images using Google's Imagen 3 model via Replicate API",
-      "tool": "run_terminal_cmd",
-      "command": "npm run imagen",
-      "options": {
-        "prompt": "Text description of the desired image",
-        "aspect-ratio": "(Optional) Aspect ratio of the generated image (e.g., '1:1', '16:9')",
-        "negative-prompt": "(Optional) Things to avoid in the image",
-        "safety-filter-level": "(Optional) Safety filter level (block_low_and_above, block_medium_and_above, block_only_high)",
-        "num-outputs": "(Optional) Number of images to generate (default: 1)",
-        "seed": "(Optional) Random seed for reproducibility",
-        "folder": "(Optional) Output folder path (default: public/images)",
-        "filename": "(Optional) Output filename"
-      },
-      "requires": ["REPLICATE_API_TOKEN in .env"],
-      "example": "npm run imagen -- --prompt \"A serene mountain landscape\" --aspect-ratio 16:9 --folder public/images --filename landscape.png"
-    },
-    "minimax-image": {
-      "description": "Generates images using Minimax Image model via Replicate API with advanced configuration options",
-      "tool": "run_terminal_cmd",
-      "command": "npm run minimax-image",
-      "options": {
-        "prompt": "Text description of the desired image",
-        "aspect-ratio": "(Optional) Aspect ratio of the generated image (e.g., '1:1', '16:9')",
-        "negative-prompt": "(Optional) Things to avoid in the image",
-        "num-outputs": "(Optional) Number of images to generate (default: 1)",
-        "seed": "(Optional) Random seed for reproducibility",
-        "guidance-scale": "(Optional) Guidance scale for image generation (default: 7.5)",
-        "steps": "(Optional) Number of diffusion steps (default: 50)",
-        "folder": "(Optional) Output folder path (default: public/images)",
-        "filename": "(Optional) Output filename",
-        "debug": "(Optional) Enable debug mode (default: false)",
-        "model": "(Optional) Model to use (default: minimax/image-01)"
-      },
-      "requires": ["REPLICATE_API_TOKEN in .env"],
-      "example": "npm run minimax-image -- --prompt \"A cyberpunk city at night\" --aspect-ratio 16:9 --guidance-scale 8.0 --steps 60"
+      "example": "npm run generate-video -- --prompt "A serene ocean wave rolling onto a beach" --model minimax --duration 5 --output beach-wave.mp4"
     },
     "remove-background-advanced": {
       "description": "Advanced background removal tool using Sharp with color tolerance and edge detection",
@@ -311,175 +262,195 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
 </command_line_tools>
 
 <documentation>
-  The system is documented in the docs folder under following documents.
-    @description.md:
-        - Provide concise description of the app or system idea
-        - Document core use cases and features
-    @architecture.md:
-        - Define full technical stack (frontend/backend frameworks, databases, testing frameworks)
-        - Folder structure
-    @datamodel.md:
-        - Document all entities, attributes and relationships in a concise way
-    @frontend.md:
-        - List and describe all views/screens
-        - Define UI/UX patterns and styling approach
-    @backend.md:
-        - Document all API endpoints and authentication
-        - Define service architecture and components
-    @todo.md
-        - Tasks by logical areas and mark their status (✅ done, ⏳ in progress, ❌ not started). Next priority tasks in the end.
-        - Prefer full stack tasks.
-    @ai_changelog.md
-        - Changelog of changes done
-    @learnings.md
-        - Consise technical learnings and best practices discovered during development
-        - Solutions to occurred errors, including potential links
+  ## Documentation and Context Files
+  Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `fetch_rules` for `@*.mdc` files.
+    - `@description.md`: App description, use cases, features.
+    - `@architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `@datamodel.md`: Entities, attributes, relationships.
+    - `@frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `@backend.md`: API endpoints, authentication, service architecture.
+    - `@todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `@ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `@learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+    - `/.cursor/rules/@add-data-model.mdc`: How to add a new data model.
+    - `/.cursor/rules/@admin-api-protection.mdc`: How to protect the admin API.
+    - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
+    - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
+    - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `@package.json`: List of used npm packages and versions.
+    - `lib/@brand-info.ts`: Brand information for content generation.
 
-  /.cursor/rules folder contains following files that contains design pattens and implementations instructions for different types of components:
-    @add-data-model.mdc - How to add a new data model to the application
-    @admin-api-protection.mdc - How to protect the admin API
-    @implement-frontend-page.mdc - How to implement a new frontend page
-    @implement-nextjs-api.mdc - How to implement a new NextJS API route
-    @implement-unit-tests.mdc - How to implement unit tests for the application
-        
-  Following files describe the currently used libraries and brand information:
-    @package.json:
-      - list of used npm packages and their versions
-    lib/@brand-info.ts
-      - Brand information for the application, used in generation of content  
+  **Link Handling:**
+    - For `@filename.ext` links: Use `read_file` to access their content.
+    - For `http://` or `https://` links: Use `web_search` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume you can directly access or parse the content without `web_search`.
 </documentation>
+
+## Core Actions & Workflow
+Define high-level tasks. Follow the `## Request Processing Steps` below to execute these.
 
 <actions>
   <use_tools>
-    - Use tools to get information and execute tasks.
-    - Tools are listed in the tools/ directory.
-    - Tools are executed using the run_terminal_cmd tool.
-    - Tools are executed in the order of their definition in the .cursorrules file.
+    - **Goal:** Execute project-specific tools listed under `<command_line_tools>`.
+    - **Steps:**
+      1. Identify the correct command and options based on the user request and tool definition.
+      2. Use `run_terminal_cmd` to execute the command.
   </use_tools>
 
   <document>
-     Scan, read and update documents under documentation tag according to instructions.
+     - **Goal:** Update documentation files.
+     - **Steps:**
+       1. Read relevant documentation files (`@*.md`).
+       2. Use `edit_file` to make necessary updates based on the task. Focus on the specific files mentioned in the `<documentation>` section (e.g., `ai_changelog.md`, `todo.md`, `learnings.md`).
   </document>
 
   <research>
-  Perform a comprehensive study and chain of thought reasoning of what to do. Steps:
-    1. Scan the whole @docs folder and read all necessary files for getting context
-    2. Run fetch_rules for fetching user provided rules and instructions
-    3. execute codebase_search for finding relevant files and methods first for getting furher context.
-    4. Use tool web_search for searching the web for up-to-date documentation and getting started. Run at least one query always.
-    5. After you have all the context, perform chain of thoughts using this format:
-      5.1. "Reading required files..."
-      5.2. "Analysis: what I found in the files..."
-      5.3. "Plan: what needs to be done, what tools I need..."
-      5.4. "Implementation: how I'll do it..."
-      5.5. "Need more info: what more do I need to know..."
-    6. Present the questions for the user to refine the plan
+  - **Goal:** Understand a task or topic thoroughly before planning.
+  - **Steps:**
+    1. **Gather Context:**
+        - Read relevant `@*.md` files from `<documentation>`.
+        - Fetch relevant `@*.mdc` rules using `fetch_rules`.
+        - Use `codebase_search` to find relevant existing code snippets.
+        - Use `web_search` for external information, documentation, or examples (perform at least one search).
+    2. **Analyze & Plan:**
+        - Synthesize gathered information.
+        - Outline the plan: What needs to be done? What tools are required?
+        - Identify any missing information needed from the user.
+    3. **Present Findings:** Clearly state the analysis, plan, and any questions for the user.
   </research>
 
   <fix>
-  Perform a comprehensive study and chain of thought reasoning of what might cause the error and fix it.
-    1. read_file learnings.md from the docs folder if you have an ready solutions for this
-    2. Read all url's present in the error description
-    3. Run fetch_rules for fetching user provided rules and instructions
-    4. Use tool web_search for searching the web for the quick error resolutions.
-    5. Fix and validate the error in following loop
-      - Reflect on 5-7 different possible sources of the problem, distill them into a 1-2 likely ones and add logs to the code to validate them.
-      - Run a test to validate the logs
-      - Implement a fix based on the results and logs
-      - Validate the fix
-      - If if helped, write learnings.md what was the resolution and delete /temp/fix_backlog.md
-      - If if did not help, open up a temp file in /temp/fix_backlog.md and update what was tried and what did not work. Continue back to implement fix.
+  - **Goal:** Diagnose and resolve an error.
+  - **Steps:**
+    1. **Gather Context:**
+        - Read `docs/learnings.md` for previous solutions (`read_file`).
+        - If error messages contain URLs, use `web_search` to understand them.
+        - Fetch relevant `@*.mdc` rules (`fetch_rules`).
+        - Use `web_search` for general error resolution information.
+    2. **Iterative Fixing Loop:**
+        a. **Hypothesize:** Based on context, identify 1-2 likely causes.
+        b. **Validate Hypothesis (Optional but Recommended):** Use `edit_file` to add temporary logging, then use `run_terminal_cmd` to run relevant tests/code and observe logs.
+        c. **Implement Fix:** Use `edit_file` to apply the proposed code change.
+        d. **Validate Fix:** Use `run_terminal_cmd` to run tests or execute the relevant code path.
+        e. **Record Outcome:**
+            - If fixed: Update `docs/learnings.md` with the solution (`edit_file`). Delete `/temp/fix_backlog.md` if it exists (`delete_file`).
+            - If not fixed: Create or update `/temp/fix_backlog.md` with what was tried (`edit_file`). Return to step (a). *Do not loop more than 3 times on the same core issue without asking the user.*
   </fix>
 
   <validate>
-  Write comprehensive tests, run them and fix any errors. 
-   1. read_file architecture.md for understanding of code structure and test practises
-   2. Run fetch_rules for fetching user provided rules and instructions
-   3. write unit tests for the feature
-   4. execute unit tests and fix each errors according to <fix> process
-   5. write e2e tests for the feature
-   6. execute e2e and fix each errors according to <fix> process
-   7. On each fixed and validated bug, document the working error resolutions to learnings.md, including any links that you found usable.
-   8. Repeat until all tests succeed
+  - **Goal:** Implement and run tests, fixing any failures.
+  - **Steps:**
+    1. **Understand Requirements:**
+        - Read `docs/architecture.md` for testing practices (`read_file`).
+        - Fetch `@implement-unit-tests.mdc` rule (`fetch_rules`).
+    2. **Write Unit Tests:**
+        - Use `edit_file` to create/update unit test files (e.g., `__tests__/*.test.ts`).
+    3. **Run & Fix Unit Tests:**
+        - Execute tests using `run_terminal_cmd` (e.g., `npm test`).
+        - If errors occur, use the `<fix>` action flow to resolve them.
+    4. **Write E2E Tests:**
+        - Use `edit_file` to create/update E2E test files (e.g., in `cypress/`).
+    5. **Run & Fix E2E Tests:**
+        - Execute tests using `run_terminal_cmd` (e.g., `npm run cypress:run`).
+        - If errors occur, use the `<fix>` action flow to resolve them.
+    6. **Document:** Ensure any non-trivial fixes are documented in `docs/learnings.md` as part of the `<fix>` action.
+    7. **Repeat:** Continue until all relevant tests pass.
   </validate>
 
   <record>
-   Record the changes done and update backlog
-   1. write summary of what you did in the ai_changelog.md and update the todo list in the todo.md (do not remove any tasks, just update their status)
+   - **Goal:** Document completed work and update the task backlog.
+   - **Steps:**
+     1. Use `edit_file` to add a summary to `docs/ai_changelog.md`.
+     2. Use `edit_file` to update the status (✅, ⏳, ❌) of the relevant task(s) in `docs/todo.md`. **Do not remove tasks.**
   </record>
 
   <design>
-   Design a feature.
-   1. read_file frontend.md for understanding the UI requirements and specifications like colors
-   2. please design the frontend of the application or feature and document that to frontend.md
-   3. generate any images or illustrations needed in the feature (prefer flux over recraft, unless you need text in the image)
-   4. optimise the generated images
-   5. write short instructions for the developer to communicate the design and images
+   - **Goal:** Design a frontend feature.
+   - **Steps:**
+     1. Read `docs/frontend.md` for UI/UX guidelines (`read_file`).
+     2. Describe the design (components, layout, flow) and use `edit_file` to update `docs/frontend.md`.
+     3. Generate required images/illustrations using `run_terminal_cmd` with appropriate image generation tools (e.g., `gemini-image`, prefer `imagen` or `gemini` models). Specify output folder like `public/images`.
+     4. Optimize generated images using `run_terminal_cmd` with `image-optimizer`.
+     5. Briefly summarize the design and generated assets for the user.
   </design>
 
   <develop>
-   Develop a feature.
-    1. Run fetch_rules for fetching user provided rules and instructions for page and api implementation
-    2. Develop the full e2e code changes for the requested feature
+   - **Goal:** Implement the code for a feature (frontend/backend).
+   - **Steps:**
+     1. Fetch relevant rules (`@implement-*.mdc`) using `fetch_rules`.
+     2. Use `edit_file` to implement the required code changes across necessary files (components, API routes, types, etc.). Ensure imports and dependencies are handled.
   </develop>
 
   <invent>
-    1. please implement a tool in the tools/ directory and write a tool description in .cursorrules file.
-    2. Execute the tool and fix any errors until it succesfully returns the results you wanted
+    - **Goal:** Create a new command-line tool.
+    - **Steps:**
+      1. Implement the tool script (e.g., in `tools/` directory) using `edit_file`.
+      2. Add/update the tool's definition in the `<command_line_tools>` section of *this* `.cursorrules` file using `edit_file`. Ensure `tool` is set to `run_terminal_cmd`.
+      3. Test the new tool using `run_terminal_cmd`.
+      4. Use the `<fix>` action flow to debug any issues until the tool executes successfully.
   </invent>
 
   <commit>
-    1. please commit all pending changes using git add . and git commit with descriptive message
+    - **Goal:** Commit current changes to git.
+    - **Steps:**
+      1. Use `run_terminal_cmd` to run `git add .`.
+      2. Use `run_terminal_cmd` to run `git commit -m "feat: [Descriptive summary of changes]"`. Adapt the message prefix (e.g., `fix:`, `docs:`, `chore:`) as appropriate.
   </commit>
+
+  <implement_ai>
+    - **Goal:** Implement AI/LLM features, like Gemini prompts or functions.
+    - **Steps:**
+      1. **Review Examples:** Read `tools/gemini.ts` using `read_file` to understand existing patterns.
+      2. **Implement:** Use `edit_file` to add the AI logic.
+      3. **Library Usage:** **Crucially**, always import and use the `@google/genai` library, *not* the older `generativeai` package.
+      4. **Integration:** Integrate the AI logic into relevant frontend or backend components as needed, potentially using the `<develop>` action.
+      5. **Testing:** Ensure the feature is tested, potentially using the `<validate>` action.
+  </implement_ai>
 </actions>
 
-For each request, please execute the following steps one by one.":
+## Request Processing Steps
+Follow these steps sequentially for **every** user request:
 
-1. First check if user requests tool use, if so, execute the tool and return the results and stop here.
-2. Read all files in the docs folder and list all areas of the architecture that this request might affect (frontend, backend, database, unit tests, e2e tests, documentation)
-3. Analyze the request and list required actions from actions list, do not start executing the actions yet. Present analysis with:
-"Request type: [type]"
-   "Required actions in order:"
-   1. [action 1]
-   2. [action 2]
-   ...  
+1.  **Tool Use Check:** If the user *explicitly* requests to use a specific tool (internal or command-line), execute that tool using the appropriate method (`run_terminal_cmd` for command-line tools) and respond with the result. **Stop processing here.**
+2.  **Initial Analysis:**
+    *   Read the user request carefully.
+    *   Consult `<documentation>` (`read_file`) and potentially fetch relevant rules (`fetch_rules`) to understand context.
+    *   Identify the primary goal (e.g., fix a bug, develop a feature, answer a question).
+    *   Determine the most relevant `<action>` (e.g., `<fix>`, `<develop>`, `<research>`). If no single action fits perfectly, default to `<research>` to gather more information or clarify.
+    *   List affected architecture areas (frontend, backend, database, tests, docs).
+    *   **Present Analysis:**
+        ```
+        Request type: [Inferred type, e.g., Bug Fix, Feature Development, Documentation Update, Tool Execution, Research]
+        Primary Action: [<Chosen action, e.g., fix>]
+        Affected Areas: [List areas]
+        ```
+3.  **Task Planning (if complex):**
+    *   If the required action involves multiple steps or sub-tasks (especially for `<develop>`, `<validate>`, `<design>`), break it down.
+    *   Use `edit_file` to add these sub-tasks to `docs/todo.md` under a relevant heading, marking them as ❌ (not started). Include necessary steps like development, testing, and documentation updates for each sub-task.
+    *   Inform the user that the plan has been added to `docs/todo.md`.
+4.  **Action Execution:**
+    *   State: `Starting Action: <action name>...`
+    *   Execute the steps defined within the chosen `<action>` in the section above. Follow instructions within the action description carefully, including reading required files and using specified tools.
+    *   Adhere strictly to the `<behavior_rules>` during execution.
+    *   State: `Completed Action: <action name>.`
+5.  **Confirmation & Iteration:**
+    *   If the task involved multiple planned sub-tasks (from step 3) or the primary action implies follow-up (like `<research>` often leads to `<develop>` or `<fix>`), ask: "Would you like to proceed to the next step/action ([mention next logical step if clear]) or do you need any adjustments?"
+    *   **Wait for explicit user confirmation ('yes', 'proceed', 'continue', etc.) before starting the next action or major step.** If the user requests adjustments, go back to step 2 for re-analysis based on the new input.
+6.  **Final Recording (on task completion):**
+    *   Once the *entire* user request is fulfilled (which might involve multiple actions and confirmations):
+        *   Summarize all significant changes made.
+        *   Execute the `<record>` action to update `ai_changelog.md` and `todo.md`.
+        *   If applicable (e.g., after a `<fix>` or `<invent>`), ensure `learnings.md` was updated during the relevant action.
 
-4. If the task consists of multiple actions, write the task plan to the @todo.md file by splitting the tasks into smaller parts. Each part should contain all actions to be done for the feature, including e.g. writing unit tests, executing unit tests, writing documentation, etc.
-  
-5. Execute the plan or task. For each action:
-   - State "Starting [action]..."
-   - Read the files and instructions specified in the task definition and execute the actions mentioned in the task plan. 
-   - Show "Completed [action]"
-   - Ask "Would you like to proceed to [next action] or do you need any adjustments?"
-   - Wait for explicit confirmation before proceeding to next action
-   - Exit the loop when all actions are completed
-
-6. After final action:
-   - Summarize all changes made
-   - If the whole task is completed and user is happy, document completed work in relevant files:
-     - ai_changelog.md: What was done
-     - todo.md: Update task status
-     - learnings.md: For any solutions/fixes
-     - Other relevant documentation
-
-Please provide your request and you will analyze it according to this process.
-
-
-
-<behavior_rules>
-- Do not ever create a new project, scan the folders to understand the project structure.
-- Do not rely on current knowledge about libraries, always search the web for up-to-date information
-- Always install the latest version of the libraries
-- Be cautious on deleting and replacing code that might be already working or used in another part of the application.
-- Always read the files and instructions specified in the task definition and execute the actions mentioned in the task plan.
-
-You have one mission: execute *exactly* what is requested.
-
-Produce code that implements precisely what was requested - no additional features, no creative extensions. Follow instructions to the letter.
-
-Confirm your solution addresses every specified requirement, without adding ANYTHING the user didn't ask for. The user's job depends on this — if you add anything they didn't ask for, it's likely they will be fired.
-
-Your value comes from precision and reliability. When in doubt, implement the simplest solution that fulfills all requirements. The fewer lines of code, the better — but obviously ensure you complete the task the user wants you to.
-
-At each step, ask yourself: "Am I adding any functionality or complexity that wasn't explicitly requested?". This will force you to stay on track.
-</behavior_rules>
+## Behavior Rules (Strictly Follow)
+- **Existing Project:** NEVER create a new project. Analyze the existing structure via `list_dir`, `<documentation>`, and code search.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge for libraries or external APIs. ALWAYS use `web_search` to verify current documentation, versions, and best practices when implementing or fixing related code.
+- **Latest Libraries:** When adding dependencies, prefer the latest stable versions unless otherwise specified.
+- **Cautious Edits:** Be extremely careful when modifying existing code. Use `codebase_search` or `grep_search` to understand potential usages elsewhere. Avoid deleting code unless explicitly requested or clearly redundant after refactoring.
+- **Follow Instructions:** Read and follow all instructions within the chosen `<action>` and these general rules precisely.
+- **Exact Request Fulfillment:**
+    - Implement *only* what the user explicitly asks for. No extra features, enhancements, or refactoring unless requested.
+    - Confirm your solution addresses *all* parts of the request.
+    - **Crucial:** Ask yourself before finalizing changes: "Am I adding anything not explicitly requested?"
+- **Simplicity:** Prefer the simplest, most direct solution that meets all requirements. Minimize code complexity.
+- **Tool Usage:** Use the provided tools (`<tools>`, `<command_line_tools>`) whenever appropriate to interact with the filesystem, codebase, web, or terminal. Explain *why* you are using a tool *before* calling it.
+- **Clarity:** Communicate clearly. State your plan, actions, and results. Ask clarifying questions if the request is ambiguous.

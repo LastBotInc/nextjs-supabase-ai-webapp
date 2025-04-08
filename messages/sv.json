@@ -1080,7 +1080,8 @@
         "customHead": "Anpassad &lt;head&gt;-kod",
         "customCss": "Anpassad CSS",
         "customJs": "Anpassad JavaScript"
-      }
+      },
+      "unpublish": "Avpublicera"
     },
     "validation": {
       "titleRequired": "Titel krävs",
@@ -1141,7 +1142,8 @@
       "customHead": "Anpassad &lt;head&gt;-kod",
       "customCss": "Anpassad CSS",
       "customJs": "Anpassad JavaScript"
-    }
+    },
+    "unpublish": "Avpublicera"
   },
   "Presentations": {
     "title": "Presentationer",
