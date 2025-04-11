@@ -40,7 +40,10 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
           margin-bottom: 1.2em;
         }
       `}</style>
-      <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-[2.25rem] prose-h2:leading-tight prose-h2:font-extrabold prose-h3:text-[1.75rem] prose-h3:leading-snug prose-h3:font-bold prose-p:leading-relaxed prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-p:my-5 prose-a:text-purple-500 hover:prose-a:text-purple-400 prose-img:rounded-xl prose-img:shadow-lg prose-blockquote:border-l-purple-500 prose-blockquote:bg-gray-50 dark:prose-blockquote:bg-gray-800 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg" dangerouslySetInnerHTML={{ __html: content }} />
+      <div 
+        className="prose prose-lg max-w-none \n                   prose-p:text-gray-700 prose-p:leading-relaxed \n                   prose-a:text-blue-600 hover:prose-a:text-blue-800 \n                   prose-headings:text-gray-900 prose-headings:font-semibold \n                   prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10 \n                   prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8 \n                   prose-strong:text-gray-900 prose-strong:font-semibold \n                   prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4 prose-li:my-1 \n                   prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4 \n                   prose-img:rounded-lg prose-img:shadow-md prose-img:my-8 \n                   prose-blockquote:border-l-blue-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 \n                   dark:prose-invert dark:prose-p:text-gray-300 dark:prose-headings:text-gray-100 \n                   dark:prose-strong:text-gray-100 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300 \n                   dark:prose-blockquote:border-l-blue-400 dark:prose-blockquote:text-gray-400"
+        dangerouslySetInnerHTML={{ __html: content }} 
+      />
     </>
   )
 }
