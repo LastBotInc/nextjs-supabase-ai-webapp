@@ -9,6 +9,8 @@ import { createClient } from '@/utils/supabase/server';
 import { getTranslations } from 'next-intl/server';
 import { setupServerLocale } from '@/app/i18n/server-utils';
 import { AnimatedOrbs } from '@/app/components/AnimatedOrbs';
+import SectionContainer from '@/app/components/SectionContainer';
+import { generateLocalizedMetadata } from '@/utils/metadata'
 
 interface Props {
   params: Promise<{
@@ -16,197 +18,155 @@ interface Props {
   }>
 }
 
-export default async function About({ params }: Props) {
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations('About');
+  return generateLocalizedMetadata(locale, 'About', {
+    title: t('title'),
+    description: t('description'),
+    canonicalUrl: '/about'
+  })
+}
+
+export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
   const t = await getTranslations('About');
 
-  // Fetch latest news posts
-  const supabase = await createClient();
-  const { data: latestNews } = await supabase
-    .from('posts')
-    .select('*')
-    .eq('locale', locale)
-    .eq('published', true)
-    .eq('subject', 'news')
-    .order('created_at', { ascending: false })
-    .limit(3);
+  const teamMembers = [
+    { name: "Teemu Ruuska", title: t('team.title1'), image: "/images/team/teemu.jpg" },
+    { name: "Sami Vuorio", title: t('team.title2'), image: "/images/team/sami.jpg" },
+    { name: "Ville Vähäsaari", title: t('team.title3'), image: "/images/team/ville.jpg" },
+    // Add more team members if available
+  ];
+
+  const partners = [
+    { name: "Autolle.com", logo: "/images/partners/autolle.png", url: "https://autolle.com" },
+    { name: "Vianor", logo: "/images/partners/vianor.png", url: "https://vianor.fi" },
+    { name: "Euromaster", logo: "/images/partners/euromaster.png", url: "https://www.euromaster.fi" },
+    { name: "A-Katsastus", logo: "/images/partners/a-katsastus.png", url: "https://www.a-katsastus.fi" },
+    // Add more partners
+  ];
 
   return (
-    <main className="flex min-h-screen flex-col bg-black">
-      {/* About Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-              {t('title')}
-            </h1>
-            <p className="text-xl text-gray-300 mb-16 text-center leading-relaxed max-w-3xl mx-auto">
-              {t('description')}
-            </p>
+    <main className="flex min-h-screen flex-col bg-white text-gray-900">
+      {/* Hero Section */}
+      <section className="bg-gray-900 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
+            <p className="text-xl text-gray-300">{t('subtitle')}</p>
           </div>
         </div>
       </section>
 
-      {/* Latest News Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-tl from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center mb-12">
-              <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-                {t('news.title')}
-              </h2>
-              <Link
-                href={`/${locale}/blog?subject=news`}
-                className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
-              >
-                {t('news.viewAll')} →
-              </Link>
-            </div>
-
-            <div className="space-y-8">
-              {latestNews?.map((post) => (
-                <div
-                  key={post.id}
-                  className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-gray-800/50 hover:border-gray-700/50 transition-colors"
-                >
-                  <p className="text-gray-400 mb-4">
-                    {new Date(post.created_at).toLocaleDateString()}
-                  </p>
-                  <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-300 mb-6">
-                    {post.excerpt}
-                  </p>
-                  <Link 
-                    href={`/${locale}/blog/${post.slug}`}
-                    className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
-                  >
-                    {t('news.readMore')} →
-                  </Link>
-                </div>
-              ))}
-            </div>
+      {/* Company History & Autolle.com Connection */}
+      <SectionContainer>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">{t('history.title')}</h2>
+            <p className="text-lg text-gray-700 mb-4">{t('history.paragraph1')}</p>
+            <p className="text-gray-700 mb-6">{t('history.paragraph2')}</p>
+            <Button href="https://autolle.com" target="_blank" variant="secondary">
+              {t('history.autolleButton')}
+            </Button>
+          </div>
+          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+            {/* Placeholder for an image related to Autolle.com or Innolease history */}
+            <Image src="/images/office-building.jpg" alt={t('history.imageAlt')} fill className="object-cover" />
           </div>
         </div>
-      </section>
+      </SectionContainer>
 
-      {/* Contact Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-              {t('contact.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                  {t('contact.info.title')}
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2 text-gray-100">
-                      {t('contact.address.title')}
-                    </h4>
-                    <p className="text-gray-300">{t('contact.address.street')}</p>
-                    <p className="text-gray-300">{t('contact.address.postal')}</p>
-                    <p className="text-gray-300">{t('contact.address.country')}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2 text-gray-100">
-                      {t('contact.social.title')}
-                    </h4>
-                    <div className="flex space-x-4">
-                      <Link
-                        href="https://www.linkedin.com/company/lastbot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors"
-                      >
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
+      {/* Our Values */}
+      <SectionContainer bgColor="bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-12">{t('values.title')}</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="text-center p-6 bg-white rounded-lg shadow">
+              {/* Placeholder for icons related to values */}
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-3xl">
+                  {/* Example Icon Placeholder - replace with actual icons */}
+                  {i === 1 && '🤝'} {i === 2 && '💡'} {i === 3 && '📈'}
                 </div>
               </div>
-              {/* Contact Form */}
+              <h3 className="text-xl font-semibold mb-2">{t(`values.value${i}.title`)}</h3>
+              <p className="text-gray-600">{t(`values.value${i}.description`)}</p>
+            </div>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* Leadership Team */}
+      <SectionContainer>
+        <h2 className="text-3xl font-bold text-center mb-12">{t('team.title')}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {teamMembers.map((member) => (
+            <div key={member.name} className="text-center">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden shadow-md">
+                <Image src={member.image} alt={member.name} fill className="object-cover" />
+              </div>
+              <h3 className="font-semibold text-lg">{member.name}</h3>
+              <p className="text-blue-600 text-sm">{member.title}</p>
+            </div>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* Service Coverage & Fleet Stats (Consider using a map component if available) */}
+      <SectionContainer bgColor="bg-gray-50">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">{t('coverage.title')}</h2>
+            <p className="text-lg text-gray-700 mb-6">{t('coverage.description')}</p>
+            <div className="grid grid-cols-2 gap-6 text-center">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                  {t('contact.form.title')}
-                </h3>
-                <ContactForm />
+                <p className="text-4xl font-bold text-blue-600">{t('stats.fleetSize')}</p>
+                <p className="text-gray-600">{t('stats.fleetSizeLabel')}</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-blue-600">{t('stats.satisfactionRate')}%</p>
+                <p className="text-gray-600">{t('stats.satisfactionRateLabel')}</p>
               </div>
             </div>
+          </div>
+          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center">
+            {/* Placeholder for a map image or an interactive map component */}
+            <span className="text-gray-500">{t('coverage.mapPlaceholder')}</span>
+            {/* Example using an image:
+            <Image src="/images/finland-map.png" alt={t('coverage.mapAlt')} fill className="object-contain p-4" /> */}
+          </div>
+        </div>
+      </SectionContainer>
+
+      {/* Partners */}
+      <SectionContainer>
+        <h2 className="text-3xl font-bold text-center mb-12">{t('partners.title')}</h2>
+        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+          {partners.map((partner) => (
+            <a
+              key={partner.name}
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative h-12 w-32 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300"
+            >
+              <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+            </a>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-4">{t('cta.title')}</h2>
+            <p className="text-xl text-blue-100 mb-8">{t('cta.description')}</p>
+            <Button href="/contact" variant="white" size="lg">
+              {t('cta.button')}
+            </Button>
           </div>
         </div>
       </section>

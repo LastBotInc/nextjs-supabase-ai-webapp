@@ -10,63 +10,145 @@ table: profiles
 - id (uuid, primary key, references auth.users)
 - created_at (timestamp with time zone)
 - updated_at (timestamp with time zone)
-- username (text)
-- full_name (text)
+- first_name (text)
+- last_name (text)
+- email (text)
+- phone (text)
 - avatar_url (text)
-- website (text)
-- bio (text)
-- role (text)
-- company (text)
+- role (text) -- 'fleet_manager', 'driver', 'admin', 'service_provider'
+- company_id (uuid, references companies)
+- department (text)
 - title (text)
-- location (text)
+- default_language (text)
 - timezone (text)
+- is_active (boolean)
 ```
 
-#### Posts
+#### Companies
 ```sql
-table: posts
-- id (uuid, primary key)
-- created_at (timestamp with time zone)
-- title (text)
-- slug (text, unique)
-- content (text)
-- published (boolean)
-- author_id (uuid, references profiles)
-- last_edited_by (uuid, references auth.users)
-- subject (text)
-- featured (boolean)
-- embedding (vector)
-```
-
-#### Media
-```sql
-table: media
+table: companies
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
 - updated_at (timestamp with time zone)
 - name (text)
-- description (text)
-- type (text)
-- url (text)
-- thumbnail_url (text)
-- size (bigint)
-- metadata (jsonb)
-- user_id (uuid, references auth.users)
-- folder_id (uuid, references media_folders)
-- generation_prompt (text)
-- generation_model (text)
-- generation_params (jsonb)
+- business_id (text) -- Finnish Y-tunnus
+- billing_address (jsonb)
+- shipping_address (jsonb)
+- contact_person (text)
+- contact_email (text)
+- contact_phone (text)
+- logo_url (text)
+- industry (text)
+- size (text) -- 'small', 'medium', 'large'
+- contract_number (text)
+- parent_company_id (uuid, references companies) -- For corporate hierarchies
+- settings (jsonb) -- Company-specific settings
+- is_active (boolean)
 ```
 
-#### Media Folders
+#### Vehicles
 ```sql
-table: media_folders
+table: vehicles
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
-- name (text)
+- updated_at (timestamp with time zone)
+- registration_number (text) -- License plate
+- vin (text) -- Vehicle Identification Number
+- make (text)
+- model (text)
+- year (integer)
+- color (text)
+- fuel_type (text) -- 'petrol', 'diesel', 'hybrid', 'electric'
+- transmission (text)
+- mileage (integer)
+- mileage_updated_at (timestamp with time zone)
+- status (text) -- 'available', 'leased', 'maintenance', 'retired'
+- category (text) -- 'passenger', 'utility', 'truck'
+- features (jsonb)
+- technical_data (jsonb)
+- images (jsonb)
+- company_id (uuid, references companies)
+- current_driver_id (uuid, references profiles)
+- purchase_date (date)
+- purchase_price (numeric)
+- residual_value (numeric)
+- co2_emissions (numeric)
+- next_inspection_date (date)
+```
+
+#### Contracts
+```sql
+table: contracts
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- contract_number (text)
+- company_id (uuid, references companies)
+- vehicle_id (uuid, references vehicles)
+- start_date (date)
+- end_date (date)
+- contract_type (text) -- 'financial_leasing', 'flexible_leasing', 'maintenance_leasing', 'mini_leasing'
+- monthly_price (numeric)
+- included_services (jsonb) -- Array of included services
+- max_mileage (integer) -- Maximum allowed mileage, null if unlimited
+- actual_mileage (integer) -- Current mileage
+- status (text) -- 'draft', 'active', 'expired', 'terminated'
+- termination_date (date)
+- termination_reason (text)
+- contract_document_url (text)
+- terms_and_conditions (text)
+- created_by (uuid, references auth.users)
+- assigned_fleet_manager (uuid, references profiles)
+- contract_notes (text)
+- payment_terms (jsonb)
+- optional_services (jsonb)
+```
+
+#### Maintenance Records
+```sql
+table: maintenance_records
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- vehicle_id (uuid, references vehicles)
+- service_date (date)
+- service_provider (text) -- 'vianor', 'euromaster', 'other'
+- service_location (text)
+- service_type (text) -- 'regular_maintenance', 'tire_change', 'repair', 'inspection'
 - description (text)
-- parent_id (uuid, references media_folders)
-- user_id (uuid, references auth.users)
+- cost (numeric)
+- invoice_number (text)
+- mileage_at_service (integer)
+- parts_replaced (jsonb)
+- warranty_claim (boolean)
+- performed_by (text)
+- approved_by (uuid, references profiles)
+- documents (jsonb) -- URLs to related documents
+- next_service_date (date)
+- next_service_mileage (integer)
+- status (text) -- 'scheduled', 'in_progress', 'completed', 'cancelled'
+```
+
+#### Service Requests
+```sql
+table: service_requests
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- vehicle_id (uuid, references vehicles)
+- requested_by (uuid, references profiles)
+- service_type (text) -- 'maintenance', 'tire_change', 'repair', 'inspection'
+- description (text)
+- urgency (text) -- 'low', 'medium', 'high', 'critical'
+- preferred_date (date)
+- preferred_location (text)
+- status (text) -- 'pending', 'approved', 'scheduled', 'completed', 'declined'
+- approved_by (uuid, references profiles)
+- scheduled_date (date)
+- service_provider (text)
+- completion_notes (text)
+- invoice_amount (numeric)
+- maintenance_record_id (uuid, references maintenance_records)
 ```
 
 ### Internationalization
@@ -74,7 +156,7 @@ table: media_folders
 #### Languages
 ```sql
 table: languages
-- id (text, primary key)
+- id (text, primary key) -- 'fi', 'sv', 'en'
 - created_at (timestamp with time zone)
 - name (text)
 - native_name (text)
@@ -97,284 +179,199 @@ table: translations
 
 ### Analytics
 
-#### Analytics Events
+#### Fleet Analytics
 ```sql
-table: analytics_events
+table: fleet_analytics
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
-- event_type (text)
-- page_url (text)
-- user_id (uuid, references auth.users)
-- session_id (text)
-- locale (text)
-- referrer (text)
-- user_agent (text)
-- ip_address (text)
-- device_type (text)
-- country (text)
-- city (text)
-- metadata (jsonb)
+- company_id (uuid, references companies)
+- period_start (date)
+- period_end (date)
+- total_vehicles (integer)
+- active_leases (integer)
+- total_costs (numeric)
+- maintenance_costs (numeric)
+- fuel_costs (numeric)
+- average_cost_per_vehicle (numeric)
+- co2_emissions (numeric)
+- total_mileage (integer)
+- electric_vehicle_percentage (numeric)
+- vehicle_utilization_rate (numeric)
+- maintenance_frequency (numeric)
+- report_url (text)
 ```
 
-### Communication
+### Invoicing
 
-#### Contacts
+#### Invoices
 ```sql
-table: contacts
-- id (uuid, primary key)
-- created_at (timestamp with time zone)
-- name (text)
-- company (text)
-- email (text)
-- description (text)
-- status (text)
-```
-
-#### Landing Pages
-```sql
-table: landing_pages
+table: invoices
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
 - updated_at (timestamp with time zone)
-- title (text)
-- slug (text, unique)
-- content (jsonb)
-- published (boolean)
-- author_id (uuid, references auth.users)
-- metadata (jsonb)
+- invoice_number (text)
+- company_id (uuid, references companies)
+- billing_period_start (date)
+- billing_period_end (date)
+- due_date (date)
+- total_amount (numeric)
+- status (text) -- 'draft', 'sent', 'paid', 'overdue', 'cancelled'
+- payment_date (date)
+- invoice_pdf_url (text)
+- line_items (jsonb)
+- payment_terms (text)
+- notes (text)
 ```
 
-### Booking System
-
-#### Appointment Types
+#### Invoice Line Items
 ```sql
-table: appointment_types
+table: invoice_line_items
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- invoice_id (uuid, references invoices)
+- contract_id (uuid, references contracts)
+- vehicle_id (uuid, references vehicles)
+- description (text)
+- quantity (numeric)
+- unit_price (numeric)
+- total_price (numeric)
+- tax_rate (numeric)
+- tax_amount (numeric)
+- item_type (text) -- 'lease_payment', 'maintenance', 'extra_services', 'penalty'
+```
+
+### Documents
+
+#### Document Templates
+```sql
+table: document_templates
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
 - updated_at (timestamp with time zone)
-- user_id (uuid, references auth.users)
 - name (text)
 - description (text)
-- duration (integer)
-- color (text)
-- active (boolean)
+- template_type (text) -- 'contract', 'invoice', 'report'
+- content (text)
+- variables (jsonb)
+- language_id (text, references languages)
+- is_active (boolean)
 ```
 
-#### Booking Slots
+#### Company Documents
 ```sql
-table: booking_slots
+table: company_documents
 - id (uuid, primary key)
 - created_at (timestamp with time zone)
-- start_time (timestamp with time zone)
-- end_time (timestamp with time zone)
-- user_id (uuid, references auth.users)
-- appointment_type_id (uuid, references appointment_types)
-- status (text)
-- booking_id (uuid, references bookings)
-```
-
-#### Bookings
-```sql
-table: bookings
-- id (uuid, primary key)
-- created_at (timestamp with time zone)
-- slot_id (uuid, references booking_slots)
-- customer_name (text)
-- customer_email (text)
-- customer_company (text)
+- company_id (uuid, references companies)
+- document_type (text) -- 'contract', 'invoice', 'report', 'other'
+- name (text)
 - description (text)
-- status (text)
-- meeting_link (text)
-- calendar_event_id (text)
+- file_url (text)
+- uploaded_by (uuid, references profiles)
+- expiration_date (date)
+- is_confidential (boolean)
 ```
 
 ## Row Level Security Policies
 
-### Posts
-- Anyone can read published posts
-- Only authenticated users can create posts
-- Only post author or admin can update/delete posts
+### Vehicles
+- Companies can only view their own vehicles
+- Admins can view and manage all vehicles
+- Drivers can only view vehicles assigned to them
+- Fleet managers can view all vehicles in their company
 
-### Media
-- Only authenticated users can upload media
-- Users can only access their own media
-- Admin users can access all media
+### Contracts
+- Companies can only view their own contracts
+- Admins can view and manage all contracts
+- Only fleet managers and admins can create/update contracts
 
-### Contacts
-- Anyone can create contacts
-- Only authenticated users can view contacts
-- Only admin users can update contact status
+### Maintenance Records
+- Companies can only view records for their vehicles
+- Service providers can view records they've created
+- Admins can view and manage all maintenance records
 
-### Booking
-- Anyone can view available booking slots
-- Only slot owner can manage their slots
-- Only authenticated users can create appointment types
-- Only booking owner can view customer details
+### Service Requests
+- Companies can only create/view requests for their vehicles
+- Drivers can only create/view requests for vehicles assigned to them
+- Fleet managers can manage all requests for their company
+- Admins can view and manage all service requests
 
-### Translations
-- Anyone can read translations
-- Only authenticated users can create/update translations
-- Only admin users can delete translations
+### Invoices
+- Companies can only view their own invoices
+- Admins can view and manage all invoices
+- Only admins can create/update invoices
 
 ## Real-time Enabled Tables
-- languages
-- translations
-- booking_slots
-- bookings
+- vehicles (for real-time status updates)
+- service_requests (for real-time notifications)
+- maintenance_records (for service tracking)
+- fleet_analytics (for dashboard updates)
 
 ## Functions and Triggers
 - update_updated_at(): Updates updated_at timestamp
 - handle_new_user(): Creates profile for new users
-- update_post_embedding(): Updates post embedding vector
-- update_session_last_seen(): Updates analytics session
+- calculate_contract_costs(): Updates contract costs based on services
+- check_vehicle_maintenance(): Checks if vehicle needs maintenance
+- create_invoice_automatically(): Creates monthly invoices for active contracts
+- update_mileage_report(): Updates mileage reports based on driver input
+- recalculate_fleet_analytics(): Updates analytics when vehicle data changes
 
 ## Indexes
-- posts(slug)
-- posts(embedding) using ivfflat
-- booking_slots(start_time, end_time)
-- translations(language_id, namespace, key)
-- landing_pages(slug)
+- vehicles(registration_number)
+- vehicles(vin)
+- contracts(contract_number)
+- contracts(company_id, status)
+- maintenance_records(vehicle_id, service_date)
+- invoices(company_id, status)
+- service_requests(vehicle_id, status)
 
 ## Core Types
 
-### Image Generation
+### Vehicle Details
 ```typescript
-interface ImageGenerationRequest {
-  prompt: string;
-  style?: string;
-  negative_prompt?: string;
-  width?: number;
-  height?: number;
-  num_outputs?: number;
-  scheduler?: string;
-  num_inference_steps?: number;
-  guidance_scale?: number;
-  seed?: number;
-}
-
-interface ImageGenerationResponse {
-  images: string[];
-  metadata: {
-    prompt: string;
-    style: string;
-    dimensions: {
-      width: number;
-      height: number;
-    };
-    seed: number;
+interface VehicleDetails {
+  make: string;
+  model: string;
+  year: number;
+  registrationNumber: string;
+  vin: string;
+  color: string;
+  fuelType: 'petrol' | 'diesel' | 'hybrid' | 'electric';
+  transmission: 'manual' | 'automatic';
+  category: 'passenger' | 'utility' | 'truck';
+  features: string[];
+  technicalData: {
+    engineSize: number;
+    power: number;
+    torque: number;
+    batteryCapacity?: number;
+    range?: number;
+    co2Emissions: number;
+  };
+  images: {
+    main: string;
+    thumbnail: string;
+    gallery: string[];
   };
 }
-```
 
-### Image Optimization
-```typescript
-interface ImageOptimizationRequest {
-  input: string;
-  output: string;
-  removeBg?: boolean;
-  resize?: {
-    width: number;
-    height: number;
+interface LeaseContract {
+  contractNumber: string;
+  contractType: 'financial_leasing' | 'flexible_leasing' | 'maintenance_leasing' | 'mini_leasing';
+  startDate: Date;
+  endDate: Date;
+  monthlyPrice: number;
+  includedServices: string[];
+  maxMileage: number | null;
+  paymentTerms: {
+    firstPaymentDate: Date;
+    paymentDayOfMonth: number;
+    paymentMethod: string;
   };
-  format?: 'png' | 'jpeg' | 'webp';
-  quality?: number;
-}
-
-interface ImageOptimizationResult {
-  success: boolean;
-  outputPath: string;
-  metadata: {
-    format: string;
-    size: number;
-    dimensions: {
-      width: number;
-      height: number;
-    };
-  };
-}
-```
-
-### Brand Assets
-```typescript
-interface BrandImageRequest {
-  brandName: string;
-  type: 'logo' | 'banner' | 'social' | 'favicon';
-  style: string;
-  dimensions: {
-    width: number;
-    height: number;
-  };
-}
-```
-
-Constraints:
-- `name`: minimum length 2 characters
-- `email`: valid email format
-- `description`: minimum length 10 characters
-
-Row Level Security:
-- Anyone can create contacts
-- Only authenticated users can view contacts
-
-### Booking Calendar
-```typescript
-interface BookingSlot {
-  id: string;
-  created_at: string;
-  start_time: string;
-  end_time: string;
-  duration: number; // in minutes
-  status: 'available' | 'booked' | 'blocked';
-  booking_id?: string;
-  user_id: string; // the host user
-}
-
-interface BookingSettings {
-  id: string;
-  user_id: string;
-  timezone: string;
-  default_duration: number; // in minutes
-  buffer_before: number; // in minutes
-  buffer_after: number; // in minutes
-  available_hours: {
-    day: 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 = Sunday
-    start_time: string; // HH:mm format
-    end_time: string; // HH:mm format
+  optionalServices: {
+    name: string;
+    price: number;
+    included: boolean;
   }[];
-  unavailable_dates: string[]; // YYYY-MM-DD format
-}
-
-interface Booking {
-  id: string;
-  created_at: string;
-  slot_id: string;
-  customer_name: string;
-  customer_email: string;
-  customer_company?: string;
-  description?: string;
-  status: 'confirmed' | 'cancelled' | 'completed';
-  meeting_link?: string;
-  calendar_event_id?: string;
 }
 ```
-
-Constraints:
-- `start_time` and `end_time`: ISO 8601 format
-- `customer_email`: valid email format
-- `customer_name`: minimum length 2 characters
-- `description`: maximum length 1000 characters
-
-Row Level Security:
-- Authenticated users can manage their own booking slots and settings
-- Anyone can view available slots and create bookings
-- Only slot owner can view customer details
-
-## Data Flow
-1. User Input → Validation → API Request
-2. API Response → Processing → Optimization
-3. Final Output → Storage/Delivery
-
-## Storage
-- Local file system for temporary storage
-- Environment variables for API keys and configuration
-- Client-side state management (as needed)

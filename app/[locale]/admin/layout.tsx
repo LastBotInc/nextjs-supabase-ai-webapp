@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return generateLocalizedMetadata(locale, 'Admin', {
     title: 'Admin',
-    description: 'LastBot Admin Dashboard',
+    description: 'Innolease Admin Dashboard',
     type: 'website',
     canonicalUrl: '/admin',
     noindex: true // Admin pages should not be indexed

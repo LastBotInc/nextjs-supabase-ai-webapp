@@ -1,95 +1,109 @@
-# AI-Powered Next.js Template for Cursor IDE
+# Innolease: Next.js Business Vehicle Leasing Platform
 
 ## Overview
-A modern, feature-rich Next.js template built with AI capabilities at its core. This template serves as a foundation for building AI-powered web applications with Next.js 15, React 19, TypeScript, and Tailwind CSS, specifically optimized for development in Cursor IDE.
+A modern, comprehensive Next.js web application for Innolease, a Finnish vehicle leasing and fleet management service provider. This platform serves businesses seeking flexible, transparent, and efficient vehicle solutions, built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
-## Development Tools
+## Business Features
 
-### AI Tools
-- Gemini API Integration
-  - Text generation and chat
-  - Image analysis
-  - Structured output
-  - Safety settings
+### Leasing Solutions
+- Financial Leasing
+  - Vehicle-only financing
+  - No mileage restrictions
+  - Customer maintenance control
+  
+- Flexible Leasing
+  - Maintenance costs on one invoice
+  - Market-based residual value
+  - Extension or purchase options at term end
+  
+- Maintenance Leasing
+  - All-inclusive monthly pricing
+  - Predictable total cost of ownership
+  - Comprehensive service package
+  
+- Short-Term Options
+  - MiniLeasing (1-12 months)
+  - Substitute vehicles
+  - Seasonal rentals
 
-- Image Generation
-  - Recraft V3 for digital illustrations
-  - Flux for photorealistic images
-  - Style transfer capabilities
-  - Background removal
+### Fleet Management
+- InnoFleet Manager
+  - Complete fleet overview
+  - Cost tracking and analysis
+  - Contract management
+  - Service scheduling
+  - Vehicle documentation
 
-- Research Tools
-  - Tavily API for web search
-  - Context-aware research
-  - Content enhancement
-  - Structured data extraction
+- Driver Tools
+  - Auto benefit calculator
+  - Electric vehicle comparison
+  - Mileage reporting
+  - Service booking
 
-### Media Tools
-- Image Optimization
-  - Format conversion (PNG, JPEG, WebP)
-  - Automatic resizing
-  - Quality adjustment
-  - Background removal
-  - OG Images (1200x630 WebP)
-    - Home page: /images/og/home.webp
-    - Blog default: /images/og/blog-default.webp
-    - Presentations: /images/og/presentations.webp
+### Business Portal
+- Client dashboard
+  - Fleet overview
+  - Cost analysis
+  - Reports and documents
+- User management
+  - Role-based access
+  - Driver accounts
+  - Admin controls
+- Document center
+  - Contracts
+  - Invoices
+  - Reports
+- Service requests
+  - Maintenance booking
+  - Tire changes
+  - Vehicle inspections
 
-- Content Processing
-  - HTML to Markdown conversion
-  - File downloading utilities
-  - Sitemap generation
-  - Content scraping
-
-### Development Utilities
-- TypeScript configuration
-- Environment management
-- Testing helpers
-- Development workflow tools
-
-## Core Features
+## Technical Features
 
 ### Authentication & Users
 - Supabase Auth integration
-- Social provider support
-- Protected routes
-- Role-based access
-- User profiles
+- Corporate account hierarchy
+- Role-based permissions
+- User profiles for fleet managers and drivers
 
 ### Content Management
-- Blog system with AI assistance
+- Vehicle catalog
+  - Make/model database
+  - Specification sheets
+  - Pricing calculations
+- Blog system with industry updates
 - Media library
-  - Asset organization
-  - AI-powered generation
-  - Optimization pipeline
-- Landing page builder
-- SEO optimization
+  - Vehicle images
+  - Documentation
+  - Marketing materials
+- Leasing calculator
 
 ### Internationalization
-- Multi-language support
-- Translation management
-- Language switching
-- Content localization
+- Finnish, Swedish, and English support
+- Currency and unit formatting
+- Region-specific content
+- Documentation localization
 
 ### Analytics
-- Page view tracking
-- Event tracking
-- Session management
-- User journey analysis
+- Fleet cost tracking
+- Utilization metrics
+- Emissions reporting
+- Contract value analysis
 
 ### Booking System
-- Appointment scheduling
-- Calendar management
-- Timezone support
-- Email notifications
+- Maintenance scheduling
+- Service appointment booking
+- Inspection scheduling
+- Delivery/return coordination
 
-### Real-time Features
-- Live updates
-- Data synchronization
-- Presence indicators
-- Collaborative editing
+### Reporting System
+- Fleet emissions
+- Cost per vehicle
+- Utilization reports
+- Maintenance history
+- Custom export formats
 
-## Technical Features
+## Technical Architecture
 - Modern, responsive UI with Tailwind CSS
 - Dark/light mode support
 - Type-safe development
@@ -97,4 +111,4 @@ A modern, feature-rich Next.js template built with AI capabilities at its core. 
 - Comprehensive testing (Jest/Cypress)
 - Database with Row Level Security
 - API route protection
-- Real-time subscriptions
+- Real-time fleet updates

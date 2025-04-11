@@ -1,5 +1,63 @@
 # AI Changelog
 
+## 2024-07-13
+- **Feat:** Implemented comprehensive Leasing Solutions page with:
+  - Four main leasing types: Financial, Flexible, Maintenance, and MiniLeasing
+  - Interactive monthly payment calculator for Financial Leasing
+  - Detailed feature comparison table between leasing options
+  - Case study showcase for Flexible Leasing
+  - Pricing structure display for MiniLeasing
+  - FAQ section with expandable/collapsible answers
+  - Strong call-to-action section
+- **i18n:** Added translations for Leasing Solutions page in English, Finnish, and Swedish
+- **Navigation:** Updated navigation menu to include the Leasing Solutions page link
+- **Components:** Created reusable UI components:
+  - SectionContainer for consistent section styling
+  - Extended Button component to support multiple variants including "white"
+  - Vehicle-themed icon components
+
+- **Brand:** Created custom Innolease logo with vehicle-themed icon and professional blue/gray color scheme
+- **Update:** Replaced LastBot logo with new Innolease logo in the navigation component
+- **Enhancement:** Used Gemini 2.0 model for higher quality text rendering in the logo
+- **Optimization:** Processed the logo through image optimizer for best quality and performance
+- **UI Improvement:** Created inverted version of the logo with white text and transparent background for better visibility on dark navigation bar
+- **Fix:** Resolved logo transparency issues by creating a truly transparent PNG with white text and icon specifically optimized for dark backgrounds
+- **Solution:** Implemented a pure SVG logo component to guarantee transparency and perfect white rendering on the black navigation bar
+- **Fix:** Corrected SVG text rendering by replacing path-based text with proper SVG text element for better readability and accuracy
+
+## 2024-07-12
+- **Fix:** Improved text visibility throughout the Innolease home page by:
+  - Enhancing text contrast by updating gray color values from light gray to darker variants
+  - Adding appropriate text wrappers with explicit color classes for list items
+  - Enhancing contrast for checkmarks, list labels, and icons
+  - Adjusting color values in the CTA section for better readability
+- **Asset:** Generated new leasing solutions and fleet management images using Gemini 2.0 model for improved text clarity
+- **Enhancement:** Added proper text formatting (font-medium, font-semibold) in various sections
+
+## 2024-07-11
+- **Feat:** Implemented the Innolease home page with the following components:
+  - Hero section with branded background and call-to-action
+  - Leasing solutions section showcasing the four leasing options
+  - Fleet management tools overview with visual representation
+  - Client testimonials section with company references
+  - Service partner network section highlighting Vianor, Euromaster, and A-Katsastus
+  - Environmental responsibility section with emissions savings visualization
+  - Clear call-to-action section for inquiries
+- **Asset:** Generated brand-appropriate imagery for hero background, leasing solutions, and fleet management sections
+- **Enhancement:** Added new icon components to support the UI (IconCar, IconTools, IconChart, etc.)
+- **i18n:** Added translations in English, Finnish, and Swedish for all home page content
+
+## 2024-07-10
+- Rescoped the entire project to focus on Innolease vehicle leasing platform:
+  - Updated brand information in `lib/brand-info.ts` to reflect Innolease's identity, tone, and messaging
+  - Completely revised `docs/description.md` with Innolease's business model and features
+  - Restructured `docs/frontend.md` with B2B vehicle leasing UI/UX patterns
+  - Updated `docs/architecture.md` to focus on vehicle and fleet management architecture
+  - Revised `docs/datamodel.md` with comprehensive vehicle leasing data models
+  - Updated `docs/backend.md` with maintenance, fleet, and financial service integrations
+  - Restructured `docs/todo.md` with a detailed roadmap for Innolease implementation
+  - Emphasized Finnish, Swedish, and English internationalization
+
 ## 2025-03-25
 - Enhanced the Gemini AI tool with advanced capabilities:
   - Added document processing support for PDF, DOCX, and other file types
@@ -43,6 +101,27 @@
 *   Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
 *   Removed unused preload link from `app/layout.tsx`.
 *   Adjusted prose font sizes and colors for better readability on landing page.
+*   Fixed blog seeding script (`scripts/seed-blog.ts`) to use valid `subject` values allowed by the database schema (mapped `leasing-tips` and `ev` to `research`).
+*   Refined Finnish translations (`messages/fi.json`) for public pages (Index, Footer, About, LeasingSolutions, Blog) for natural language, correct phrasing, and standard capitalization.
+*   Modified blog seeding script (`scripts/seed-blog.ts`) to remove image generation/upload and use local image paths (`/images/blog/[slug].webp`) instead.
+*   Generated 8 featured images for blog posts (EN, FI, SV) using the `gemini-image` tool and saved them to `public/images/blog/`.
+*   Fixed `getTranslations` call and client component import path in `app/[locale]/leasing-solutions/page.tsx` to resolve build error.
+*   Replaced "LastBot" references with "Innolease" branding and content across multiple files (code, config, docs). Rewritten `AIBotMessage` component.
+*   Fixed build error in `app/layout.tsx` by removing duplicate static `metadata` export.
+*   Fixed `MISSING_MESSAGE` build error by adding `Index.meta` keys to `messages/en.json`.
 
-// ... existing changelog entries ...
+## 2024-08-13
+- Fixed build error caused by duplicate Icon components in `app/components/Icons.tsx`.
+- Corrected text color and contrast issues in the FAQ section on the Leasing Solutions page.
+- Implemented the Blog page (`app/[locale]/blog/page.tsx`, `app/[locale]/blog/[slug]/page.tsx`):
+    - Updated UI styles to match Innolease branding.
+    - Replaced placeholder/LastBot content.
+    - Updated blog seeding script (`scripts/seed-blog.ts`) with Innolease-relevant articles (Leasing Strategy, EV Transition, Maintenance Leasing, Case Study).
+    - Added necessary translations (EN, FI, SV).
+- Implemented the About Us page (`app/[locale]/about/page.tsx`):
+    - Created page structure with sections for History, Values, Team, Coverage/Stats, Partners, CTA.
+    - Applied Innolease branding and styles.
+    - Added necessary translations (EN, FI, SV).
+    - Fixed Button component type error to accept anchor attributes.
+- Added placeholder Finnish and Swedish versions for two blog articles in `scripts/seed-blog.ts`.
 

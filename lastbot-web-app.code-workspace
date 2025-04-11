@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"name": "lastbot-web-app",
+			"name": "innolease-web-app",
 			"path": "."
 		}
 	],
@@ -24,6 +24,29 @@
 			"fs",
 			"http",
 			"net"
+		],
+		"terminal.integrated.env.osx": {
+			"NODE_ENV": "development"
+		},
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"eslint.validate": [
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		],
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"bradlc.vscode-tailwindcss",
+			"csstools.postcss",
+			"prisma.prisma",
+			"yoavbls.pretty-ts-errors"
 		]
 	}
 }

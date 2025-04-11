@@ -1,59 +1,37 @@
-# LastBot OG Image Specification
+# Innolease OG Image Specification
 
-## Dimensions
-- Width: 1200px
-- Height: 630px
-- Format: PNG with transparency support
-- Resolution: 2x for retina displays
+This document outlines the requirements for Open Graph (OG) images used across the Innolease website.
 
-## Layout
-1. Background
-   - Dark gradient background (#0A0A0A to #1A1A1A)
-   - Subtle neural network pattern overlay (10% opacity)
-   - Subtle Nordic-inspired geometric patterns (5% opacity)
+## General Requirements
 
-2. Logo Area (Top Center)
-   - LastBot logo in white/purple
-   - Size: ~200px width
-   - Position: 40px from top
+- **Dimensions:** 1200 x 630 pixels (1.91:1 aspect ratio)
+- **Format:** WebP (.webp) preferred for optimal compression and quality. PNG or JPG acceptable alternatives.
+- **File Size:** Aim for under 300KB.
+- **Branding:** Include the Innolease logo subtly where appropriate (e.g., corner placement).
+- **Text:** Keep text minimal and highly readable. Use the brand font (Specify font if known). Text should summarize the page content concisely.
+- **Visual Style:** Clean, professional, relevant to vehicle leasing/fleet management. Use high-quality imagery (photos or illustrations).
 
-3. Main Text (Center)
-   - Tagline: "Your Fast Track to Becoming an AI-First Company"
-   - Font: Inter Bold
-   - Size: 48px
-   - Color: White
-   - Max width: 800px
+## Specific Page Images
 
-4. Visual Elements (Bottom)
-   - Abstract representation of AI capabilities
-   - Circuit board patterns merging into business icons
-   - Subtle purple glow effects
-   - Position: Bottom 1/3 of the image
+- **Home:** General branding, showcasing modern vehicles or fleet concepts.
+  - Filename: `og-home.webp`
+- **About Us:** Image reflecting the team, company values, or connection to Autolle.com.
+  - Filename: `og-about.webp`
+- **Leasing Solutions:** Visual representation of different leasing options or benefits (cost, flexibility).
+  - Filename: `og-leasing-solutions.webp`
+- **Blog (Default):** Generic Innolease branding or a collage related to fleet/leasing topics.
+  - Filename: `og-blog-default.webp`
+- **Blog (Individual Post):** Image specific to the article content (e.g., EV for an EV article).
+  - Filename: `og-blog-[slug].webp`
+- **Contact:** Map snippet, contact icons, or a general support graphic.
+  - Filename: `og-contact.webp`
+- **Presentations:** Image representing professional insights or specific presentation topic.
+  - Filename: `og-presentations.webp`
 
-5. Additional Elements
-   - Small "AI-First" badge in top right
-   - "Enterprise Ready" badge in top left
-   - Both using brand purple color
+## Design Considerations
 
-## Color Palette
-- Primary Purple: #6D28D9
-- Background Dark: #0A0A0A
-- Text White: #FFFFFF
-- Accent Colors:
-  * Light Purple: #8B5CF6
-  * Deep Purple: #5B21B6
-
-## Style Guidelines
-- Maintain minimalist, professional aesthetic
-- Use subtle gradients and shadows
-- Ensure text is highly readable
-- Include space for social media platform overlays
-- Optimize contrast for both light and dark modes
-
-## File Organization
-- Source file: /design/og-image.psd
-- Export formats:
-  * og-image.png (1200x630)
-  * og-image@2x.png (2400x1260)
-  * og-image-light.png (light mode variant)
-  * og-image-dark.png (dark mode variant)
+- Ensure key elements are visible even when scaled down.
+- Test readability on various devices and platforms.
+- Maintain brand consistency across all images.
+- Use a white/light or brand-blue background generally.
+- The Innolease logo should be clear but not dominant.

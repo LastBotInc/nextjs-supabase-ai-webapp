@@ -6,22 +6,24 @@
 - Next.js 15.1.3 (React 19)
 - TypeScript
 - Tailwind CSS for styling
-- Geist font family
-- next-intl for internationalization
+- Inter font family
+- next-intl for internationalization (Finnish, Swedish, English)
 
 ### Backend
 - Next.js API Routes
 - Supabase for database and authentication
-- Recraft V3 API integration
-- Tavily API for web search
-- Image processing libraries (Sharp)
-- Send emails with SendGrid and use SENDGRID_API_KEY from env
+- Vehicle data integration via APIs
+- Service provider integrations (maintenance, tires, inspections)
+- PDF generation for contracts and reports
+- Email notifications via SendGrid
+- SMS notifications for service reminders
 
 ### Database
 - PostgreSQL (via Supabase)
 - Row Level Security (RLS) policies
-- Real-time subscriptions
-- Authentication and user management
+- Real-time fleet status updates
+- Corporate hierarchy and permissions management
+- Vehicle and contract data models
 
 ### Development Tools
 - ESLint for code quality
@@ -35,33 +37,44 @@
 
 ```
 ├── app/                  # Next.js app directory
-│   ├── [locale]/        # Locale-specific routes
-│   │   ├── blog/        # Blog feature routes
-│   │   │   ├── [slug]/  # Individual blog post pages
-│   │   │   └── page.tsx # Blog listing page
-│   │   ├── admin/       # Admin routes
-│   │   │   └── blog/    # Blog admin interface
+│   ├── [locale]/        # Locale-specific routes (fi, sv, en)
+│   │   ├── leasing/     # Public leasing information
+│   │   │   ├── [type]/  # Specific leasing type pages
+│   │   │   └── page.tsx # Leasing solutions overview
+│   │   ├── portal/      # Client portal routes
+│   │   │   ├── vehicles/# Vehicle management interface
+│   │   │   ├── contracts/# Contract management
+│   │   │   └── maintenance/# Maintenance booking
+│   │   ├── admin/       # Admin portal routes
+│   │   │   ├── clients/ # Client management
+│   │   │   └── vehicles/# Vehicle fleet management
 │   │   └── auth/        # Authentication routes
 │   └── layout.tsx       # Root layout
 ├── components/          # Reusable React components
 │   ├── auth/           # Authentication components
-│   └── blog/           # Blog-related components
+│   ├── vehicles/       # Vehicle display components
+│   ├── contracts/      # Contract-related components
+│   ├── maintenance/    # Maintenance booking components
+│   └── dashboard/      # Dashboard and reporting components
 ├── i18n/               # Internationalization setup
-├── messages/           # Translation files
+├── messages/           # Translation files (fi, sv, en)
 ├── public/             # Static assets
-│   └── images/         # Optimized images
-├── tools/              # CLI tools
+│   └── images/         # Vehicle and brand images
+├── tools/              # CLI tools and utilities
 ├── types/              # TypeScript type definitions
 └── utils/              # Utility functions
-    └── supabase/       # Supabase client utilities
+    ├── supabase/       # Supabase client utilities
+    ├── vehicles/       # Vehicle data processing
+    ├── contracts/      # Contract calculations
+    └── reports/        # Report generation utilities
 ```
 
 ## Authentication
 
 Authentication is handled by Supabase Auth with the following features:
 - Email/Password authentication
-- Social providers (GitHub)
-- Session management
+- Corporate account hierarchy
+- Role-based access control (Fleet Manager, Driver, Admin)
 - Protected routes via middleware
 - Automatic profile creation
 
@@ -70,30 +83,31 @@ Authentication is handled by Supabase Auth with the following features:
 #### Client Architecture
 - Singleton Supabase client to prevent multiple instances
 - AuthProvider context for centralized auth state management
-- Proper session and loading state handling
-- Automatic redirection based on auth state
+- Corporate hierarchy management
+- Multi-role support for different access levels
 
 #### Components
 - `AuthProvider`: Global auth state manager
   - Manages session state
-  - Handles admin status
+  - Handles role-based access
   - Provides Supabase client instance
   - Manages auth state changes
   - Handles automatic token refresh
 
 - `SignInForm`: Authentication form component
-  - Handles form submission state
+  - Corporate account login
+  - Role selection if applicable
   - Manages loading states
   - Provides error feedback
-  - Handles redirects after successful auth
-  - Implements accessibility features
+  - Handles redirects based on user role
 
 #### State Management
 - Session state: Tracks current user session
+- Company context: Tracks corporate hierarchy
+- User role: Determines access level and available features
 - Loading states:
   - `authLoading`: Initial auth state check
   - `isSubmitting`: Form submission state
-- Admin status: Tracks user's admin privileges
 - Error handling: Form-level error messages
 
 #### Security Features
@@ -101,25 +115,21 @@ Authentication is handled by Supabase Auth with the following features:
 - Secure cookie management
 - Protected route middleware
 - Row Level Security (RLS) policies
-- Session persistence configuration
-- Cloudflare Turnstile integration
-  - Bot protection for registration and contact forms
-  - Server-side token validation
-  - Automatic token expiration handling
-  - Dark mode support with auto theme detection
+- Corporate data isolation
+- IP address tracking for unusual login detection
 
 #### Authentication Flow
 1. Initial auth state check on app load
-2. User submits credentials
+2. User submits corporate credentials
 3. Supabase auth validates credentials
-4. Session established and stored securely
+4. Role and company context established
 5. Auth state updated via event listeners
-6. Admin status checked from profiles table
-7. User redirected based on role
+6. User redirected to appropriate portal (admin, client, or driver)
 
 #### Protected Routes
-- Admin routes require authentication
-- Authentication state checked on every request
+- Admin routes require admin authentication
+- Client portal requires valid company account
+- Driver-specific views for company vehicle users
 - Locale validation and enforcement
 - Middleware handles unauthorized access
 
@@ -128,3 +138,5 @@ Authentication is handled by Supabase Auth with the following features:
 - Secure cookie storage
 - Cross-tab session synchronization
 - Proper cleanup on sign-out
+- Idle timeout for security
+- Session activity logging

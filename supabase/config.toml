@@ -164,13 +164,35 @@ host = "smtp.sendgrid.net"
 port = 587
 user = "apikey"
 pass = "env(SENDGRID_API_KEY)"
-admin_email = "pasi@lastbot.com"
-sender_name = "LastBot"
+admin_email = "info@innolease.com"
+sender_name = "Innolease"
 
 # Uncomment to customize email template
-# [auth.email.template.invite]
-# subject = "You have been invited"
-# content_path = "./supabase/templates/invite.html"
+[auth.email.template.invite]
+enabled = true
+subject = "You have been invited"
+content_path = "./invite-email.html"
+
+[auth.email.template.magic_link]
+enabled = true
+subject = "Your Magic Link"
+content_path = "./magiclink-email.html"
+
+[auth.email.template.recovery]
+enabled = true
+subject = "Reset Your Password"
+content_path = "./recovery-email.html"
+
+[auth.email.template.email_change]
+enabled = true
+subject = "Confirm Your Email Change"
+content_path = "./email-change-email.html"
+
+# This is the email address that emails are sent from
+# To prevent your emails potentially being marked as spam, we recommend using a custom SMTP provider:
+# https://supabase.com/docs/guides/auth/auth-email-templates#custom-smtp-provider-for-auth-emails
+admin_email = "info@innolease.com"
+sender_name = "Innolease"
 
 [auth.sms]
 # Allow/disallow new user signups via SMS to your project.

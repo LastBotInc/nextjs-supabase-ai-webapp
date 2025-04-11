@@ -80,13 +80,23 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
 
 ## Getting Started
 
-1. Clone the repository:
+### Prerequisites
+
+- Node.js >= 18.x
+- npm or yarn or pnpm
+- Supabase account and project
+- Gemini API key (stored in `.env.local` as `GOOGLE_AI_STUDIO_KEY`)
+
+### Installation
+
+1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/LastBotInc/nextjs-ai-webpage.git
-   cd nextjs-ai-webpage
+   git clone https://github.com/Innolease/nextjs-supabase-ai-webapp.git # Assuming repo name change
+   cd nextjs-supabase-ai-webapp
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    npm install
    ```

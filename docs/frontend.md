@@ -5,198 +5,272 @@
 ### Public Pages (`/[locale]`)
 
 1. Home Page (`/`)
-   - Template features showcase
-   - Getting started guide
-   - Documentation links
-   - GitHub repository link
+   - Company introduction
+   - Leasing solution showcase
+   - Client testimonials
+   - Contact information
+   - Fleet highlights
 
-2. Blog Page (`/blog`)
-   - Article listings
-   - Categories
-   - Search functionality
-   - Featured posts
-   - AI-enhanced content
+2. Leasing Solutions (`/leasing-solutions`)
+   - Financial Leasing
+   - Flexible Leasing
+   - Maintenance Leasing
+   - MiniLeasing
+   - Comparison calculator
 
-3. Privacy Page (`/privacy`)
-   - Privacy policy
-   - Data handling
-   - Cookie information
+3. Fleet Management (`/fleet-management`)
+   - InnoFleet Manager overview
+   - Fleet reporting features
+   - Cost tracking tools
+   - Service management
 
-4. Preview Page (`/preview/[id]`)
-   - Content preview
-   - Share functionality
-   - Version comparison
+4. Services (`/services`)
+   - Vehicle maintenance network
+   - Tire service partners
+   - Inspection services
+   - Electric vehicle services
+   - Fleet optimization
 
-5. Public Booking Page (`/book/[userId]`)
-   - Month view calendar
-   - Available time slots for selected date
-   - Timezone selector
-   - Booking form with fields:
-     - Name
-     - Email
-     - Company (optional)
-     - Description/Agenda (optional)
-   - Confirmation screen
-   - Success/Error messages
-   - Responsive design for all devices
+5. About Us (`/about`)
+   - Company history
+   - Team information
+   - Corporate responsibility
+   - Autolle.com Group connection
 
-6. Landing Page (`/[slug]`)
-   - Concept: "AI-Powered Growth Engine"
-   - Theme: Dark theme consistent with admin, using brand gradients for highlights.
-   - Fonts: Geist Sans (headings), Inter (body).
-   - Structure:
-     - Hero Section: Large gradient headline, sub-headline, dynamic abstract background (using `public/images/landing-hero-bg.png`), prominent gradient CTA button.
-     - Problem/Solution Section: Two-column layout contrasting user pain points with AI solutions.
-     - Key Features Section: Grid of dark cards showcasing features like Predictive Keyword Research, Content Optimization, etc.
-     - Social Proof/Trust Section: Logos, testimonials, or key results.
-     - How It Works Section (Optional): Simple 3-step graphic/list.
-     - Final CTA Section: Reinforce value proposition, repeat prominent gradient CTA button, trust statement.
-   - Styling: Tailwind CSS, leveraging configured theme colors and fonts.
+6. Blog (`/blog`)
+   - Industry news
+   - Leasing tips
+   - Fleet management insights
+   - Vehicle industry updates
+   - EV transition guidance
 
-### Admin Pages (`/[locale]/admin`)
+7. Contact Page (`/contact`)
+   - Contact form
+   - Office locations
+   - Service request form
+   - Leasing inquiry form
+
+8. Privacy Policy (`/privacy`)
+   - Data protection information
+   - Cookie policy
+   - GDPR compliance
+
+### Client Portal (`/[locale]/portal`)
+
+1. Dashboard (`/portal`)
+   - Fleet overview
+   - Contract summaries
+   - Upcoming service reminders
+   - Recent activities
+   - Cost analytics
+
+2. Vehicles (`/portal/vehicles`)
+   - Vehicle list with details
+   - Status indicators
+   - Contract information
+   - Document access
+   - Service history
+
+3. Contracts (`/portal/contracts`)
+   - Active contracts
+   - Contract details
+   - Payment schedules
+   - End-of-lease options
+   - Contract documents
+
+4. Maintenance (`/portal/maintenance`)
+   - Service booking
+   - Maintenance history
+   - Tire management
+   - Inspection scheduling
+   - Repair records
+
+5. Reports (`/portal/reports`)
+   - Cost reports
+   - Usage reports
+   - Emissions analytics
+   - Custom report builder
+   - Export options
+
+6. User Management (`/portal/users`)
+   - Driver accounts
+   - Permission settings
+   - Role management
+   - Activity logs
+   - Driver-vehicle assignments
+
+7. Documents (`/portal/documents`)
+   - Contracts
+   - Invoices
+   - Service records
+   - Vehicle documentation
+   - Corporate policies
+
+8. Settings (`/portal/settings`)
+   - Company information
+   - Notification preferences
+   - API integration settings
+   - Multi-factor authentication
+   - Language preferences
+
+### Admin Portal (`/[locale]/admin`)
 
 1. Dashboard (`/admin`)
-   - Overview statistics
-   - Quick actions
-   - Recent activity
+   - Client overview
+   - Contract analytics
+   - Vehicle status summary
+   - Financial metrics
+   - Service provider performance
 
-2. Blog Management (`/admin/blog`)
-   - Post editor with AI assistance
-   - Post list
-   - Category management
-   - Media library
-   - AI image generation
-
-3. User Management (`/admin/users`)
-   - User list
-   - Role management
-   - Access control
-   - Profile management
-
-4. Media Management (`/admin/media`)
-   - Media asset library
-   - Folder organization
-   - AI image generation
-   - Optimization tools
-
-5. Analytics Dashboard (`/admin/analytics`)
-   - Page view tracking
-   - User behavior
-   - Performance metrics
-   - Custom reports
-
-6. Calendar Management (`/admin/calendar`)
-   - Calendar view with booked/available slots
-   - Settings panel:
-     - Default meeting duration
-     - Buffer times
-     - Working hours
-     - Blocked dates
-     - Timezone settings
-   - Upcoming meetings list
-   - Past meetings history
-   - Quick actions:
-     - Block time slots
-     - Cancel meetings
-     - Copy booking link
-
-7. Contact Management (`/admin/contacts`)
-   - Contact list
-   - Status tracking
+2. Client Management (`/admin/clients`)
+   - Client list
+   - Account details
+   - Contract assignments
    - Communication history
-   - Task management
+   - Notes and follow-ups
 
-8. Landing Pages (`/admin/landing-pages`)
-   - Page builder
+3. Vehicle Management (`/admin/vehicles`)
+   - Vehicle inventory
+   - Availability status
+   - Maintenance scheduling
+   - Location tracking
+   - Procurement planning
+
+4. Contract Management (`/admin/contracts`)
+   - Contract creation
    - Template management
-   - SEO settings
-   - Performance tracking
+   - Approval workflows
+   - Renewal tracking
+   - Contract analytics
 
-9. Translation Management (`/admin/translations`)
-   - Language settings
-   - Translation editor
-   - Import/Export
-   - Missing keys tracking
+5. Financial Management (`/admin/finance`)
+   - Invoice generation
+   - Payment tracking
+   - Pricing management
+   - Financial reporting
+   - Expense tracking
+
+6. Service Management (`/admin/services`)
+   - Service provider network
+   - Appointment scheduling
+   - Service quality tracking
+   - Maintenance planning
+   - Service analytics
+
+7. Content Management (`/admin/content`)
+   - Website content editor
+   - Blog post management
+   - Document templates
+   - Email templates
+   - Marketing materials
+
+8. System Settings (`/admin/settings`)
+   - User management
+   - Role configuration
+   - System logs
+   - API management
+   - Integration settings
 
 ## UI/UX Patterns
 
 ### Design System
 - Colors:
-  - Primary Gradient Colors:
-    - Pink: #E078F9
-    - Purple: #B800DF
-    - Indigo: #824BFC
-    - Light Blue: #767FFF
-    - Blue: #2B39FF
-    - Deep Purple: #5D00F8
-    - Cyan: #8BFCFF
-  - Base Colors:
+  - Primary Colors:
+    - Innolease Blue: #0E4C92
+    - Innolease Light Blue: #3A8DDE
+    - Innolease Dark Blue: #072B54
+    - Accent Orange: #F68B1F
+    - Accent Green: #16A75C
+  - Neutral Colors:
     - White: #FFFFFF
-    - Dark Gray: #262626
-    - Medium Gray: #6B6B6B
-  - Gradients:
-    - Primary: bg-gradient-to-r from-[#E078F9] via-[#2B39FF] to-[#8BFCFF]
-    - Secondary: bg-gradient-to-r from-[#E078F9] to-[#2B39FF]
+    - Light Gray: #F5F7FA
+    - Medium Gray: #D1D5DB
+    - Dark Gray: #4B5563
+    - Charcoal: #1E293B
+  - Semantic Colors:
+    - Success: #16A75C
+    - Warning: #F59E0B
+    - Error: #EF4444
+    - Info: #3A8DDE
   - Dark Mode:
-    - Background: #262626
-    - Card Background: #1F1F1F
-    - Text: #FFFFFF
+    - Background: #1E293B
+    - Card Background: #0F172A
+    - Text: #F5F7FA
 
 - Typography:
-  - Headings: Geist Sans
+  - Headings: Inter
   - Body: Inter
-  - Code: Geist Mono
+  - Monospace: Roboto Mono
   
 - Heading Styles:
   - Main Headings (H1):
-    - Font: Geist Sans
-    - Size: text-5xl (3rem) on mobile, text-6xl (3.75rem) on desktop
-    - Weight: font-extrabold
-    - Line Height: leading-[1.1] (1.1)
-    - Gradient: bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
-    - Style: bg-clip-text text-transparent
+    - Font: Inter
+    - Size: text-4xl (2.25rem) on mobile, text-5xl (3rem) on desktop
+    - Weight: font-bold
+    - Color: Innolease Blue (#0E4C92)
+    - Line Height: leading-tight (1.25)
     - Margin Bottom: mb-6
-    - Container: max-w-4xl mx-auto text-center
-    - Tracking: tracking-tight
 
   - Section Headings (H2):
-    - Font: Geist Sans
-    - Size: text-4xl (2.25rem)
-    - Weight: font-bold
-    - Color: text-white with gradient background
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects: 
-      - Scale: transform hover:scale-105
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+    - Font: Inter
+    - Size: text-3xl (1.875rem)
+    - Weight: font-semibold
+    - Color: Innolease Blue (#0E4C92)
+    - Line Height: leading-tight (1.25)
+    - Margin Bottom: mb-4
 
   - Content Headings (H3):
-    - Font: Geist Sans
+    - Font: Inter
     - Size: text-2xl (1.5rem)
-    - Weight: font-bold
-    - Color: text-white
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects:
-      - Scale: transform hover:scale-105
-      - Text Gradient: group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+    - Weight: font-medium
+    - Color: Innolease Dark Blue (#072B54)
+    - Line Height: leading-normal (1.5)
+    - Margin Bottom: mb-3
 
 - Components:
   - Buttons:
-    - Primary: Purple fill
-    - Secondary: Purple outline
-    - Ghost: Transparent with hover
+    - Primary: Innolease Blue with white text
+    - Secondary: White with Innolease Blue border and text
+    - Tertiary: Transparent with Innolease Blue text
+    - Success: Green with white text
+    - Danger: Red with white text
+    - Disabled: Light gray with dark gray text
+    - Hover: Slightly darker shade with smooth transition
+    - Focus: Blue outline with 2px width
+
   - Cards:
-    - White background
-    - Subtle shadow
-    - Rounded corners
+    - Default: White background, light shadow, rounded corners (0.5rem)
+    - Elevated: White background, medium shadow, rounded corners (0.5rem)
+    - Interactive: Hover effect with scale transform and deeper shadow
+    - Vehicle Card: Special design for displaying vehicle information
+    - Contract Card: Special design for displaying contract information
+
   - Forms:
-    - Clean, minimal design
-    - Inline validation
-    - Clear error states
+    - Input fields: Light background, dark border, focus state with blue outline
+    - Dropdowns: Custom styled with chevron icon
+    - Checkboxes: Custom styled with blue check
+    - Radio buttons: Custom styled with blue dot
+    - Toggle switches: Blue when active, gray when inactive
+    - Form validation: Inline error messages in red
+    - Form sections: Logical grouping with clear section headers
+
+  - Tables:
+    - Responsive design for all screen sizes
+    - Sortable columns with indicators
+    - Filterable data
+    - Pagination
+    - Row actions (edit, delete, view)
+    - Expandable rows for additional details
+    - Zebra striping for better readability
+    - Fixed headers for scrollable tables
+
+  - Data Visualization:
+    - Cost charts: Bar and line charts
+    - Fleet composition: Pie and donut charts
+    - Timeline charts: For contract and maintenance tracking
+    - Vehicle status indicators: Color-coded status badges
+    - Emissions dashboard: Environmental impact visualization
+    - Cost comparisons: Side-by-side bar charts
 
 ### Responsive Design
 - Mobile-first approach
@@ -208,10 +282,11 @@
   - 2xl: 1536px
 
 ### Animations
-- Subtle hover effects
-- Smooth page transitions
-- Loading states
-- Micro-interactions
+- Subtle hover effects on interactive elements
+- Loading states with minimal animations
+- Page transitions for a smooth experience
+- Micro-interactions for feedback
+- Chart animations for data presentation
 
 ### Accessibility
 - WCAG 2.1 AA compliance
@@ -219,44 +294,102 @@
 - Screen reader support
 - High contrast mode
 - Focus indicators
+- Accessible form labels
+- Alternative text for images
+- Semantic HTML structure
 
 ## Styling Approach
 
 1. Tailwind CSS
-   - Custom configuration
-   - Component classes
-   - Utility-first approach
+   - Custom configuration for Innolease brand colors
+   - Consistent spacing and sizing
+   - Component-specific utilities
+   - Responsive utility classes
    - Dark mode support
 
 2. CSS Modules
    - For complex components
    - Animation keyframes
    - Custom properties
+   - Vehicle display modules
+   - Fleet dashboard components
 
-3. CSS-in-JS (styled-components)
-   - Dynamic styling
-   - Theme provider
-   - Global styles
+3. Reusable Components
+   - Button variants
+   - Form elements
+   - Card designs
+   - Table components
+   - Modal dialogs
+   - Navigation elements
+   - Vehicle cards
+
+## User Flows
+
+1. Vehicle Selection Process
+   - Browse available vehicles
+   - Compare specifications
+   - View pricing options
+   - Select leasing type
+   - Customize lease terms
+   - Submit inquiry
+
+2. Client Portal Onboarding
+   - Initial login
+   - Profile setup
+   - Vehicle assignment
+   - Dashboard introduction
+   - Feature tour
+   - Notification setup
+
+3. Maintenance Booking
+   - Select vehicle
+   - Choose service type
+   - View available time slots
+   - Select preferred service location
+   - Confirm booking
+   - Receive confirmation
+   - Get reminders
+
+4. End-of-Lease Process
+   - Receive notification of approaching end date
+   - Review end-of-lease options
+   - Schedule vehicle inspection
+   - Complete return checklist
+   - Schedule return appointment
+   - Process contract termination
+   - Explore renewal options
+
+5. Fleet Report Generation
+   - Select report type
+   - Define parameters
+   - Choose visualization options
+   - Generate report
+   - Export in preferred format
+   - Schedule recurring reports
 
 ## Performance Optimization
 
 1. Image Optimization
    - Next.js Image component
-   - Responsive images
-   - WebP format
+   - WebP format for vehicle images
+   - Responsive sizing
    - Lazy loading
+   - Blur placeholders
 
 2. Code Splitting
    - Route-based splitting
    - Component lazy loading
-   - Dynamic imports
+   - Dynamic imports for heavy components
+   - Separate bundles for admin and client portals
 
 3. Caching Strategy
-   - Static page generation
-   - Incremental Static Regeneration
+   - Static generation for public pages
+   - ISR for semi-dynamic content
    - API response caching
+   - Local storage for user preferences
 
 4. Core Web Vitals
-   - LCP optimization
-   - FID improvement
-   - CLS minimization
+   - LCP optimization for vehicle imagery
+   - FID improvement with code splitting
+   - CLS minimization with proper image dimensions
+   - Server-side rendering for data-heavy pages

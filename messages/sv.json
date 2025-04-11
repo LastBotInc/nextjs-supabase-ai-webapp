@@ -1,11 +1,114 @@
 {
   "Index": {
     "hero": {
-      "title": "Bygg smartare webappar med AI",
-      "description": "En modern Next.js-mall med inbyggda AI-funktioner, utvecklingsverktyg och bästa praxis för att bygga skalbara webbapplikationer.",
-      "backgroundAlt": "Abstrakt teknisk bakgrund",
-      "cta": "Visa på GitHub",
-      "docs": "Dokumentation"
+      "title": "Flexibel Fordonsleasing för Varje Företag",
+      "description": "Innolease erbjuder omfattande företagsfordonsleasing-lösningar och fordonsparksadministration anpassade efter dina exakta behov, med transparent prissättning och digitala verktyg som effektiviserar verksamheten.",
+      "backgroundAlt": "Flotta av företagsfordon",
+      "cta": "Begär Offert",
+      "learnMore": "Läs Mer"
+    },
+    "leasing": {
+      "title": "Leasinglösningar",
+      "description": "Välj rätt leasinglösning för ditt företags behov.",
+      "financial": {
+        "title": "Finansiell Leasing",
+        "description": "Finansiera endast fordonet utan körsträckebegränsningar. Kunden hanterar underhåll och restvärde.",
+        "feature1": "Inga körsträckebegränsningar",
+        "feature2": "Kunden underhåller fordonet",
+        "feature3": "Flexibla slutvillkor",
+        "feature4": "Konkurrenskraftig finansiering"
+      },
+      "flexible": {
+        "title": "Flexibel Leasing",
+        "description": "Underhållskostnader inkluderade på en faktura med restvärde baserat på marknadsprognos.",
+        "feature1": "Underhåll ingår",
+        "feature2": "Marknadsbaserat restvärde",
+        "feature3": "En månadsfaktura",
+        "feature4": "Förlängningsalternativ"
+      },
+      "maintenance": {
+        "title": "Underhållsleasing",
+        "description": "All-inclusive månadspris med förutsägbara fordonskostnader och fördefinierade tjänster.",
+        "feature1": "All-inclusive prissättning",
+        "feature2": "Omfattande servicepaket",
+        "feature3": "Fördefinierad körsträcka",
+        "feature4": "Fullständig kostnadsförutsägbarhet"
+      },
+      "mini": {
+        "title": "MiniLeasing",
+        "description": "Korttidsleasing från 1-12 månader, inklusive fordon och försäkring för tillfälliga behov.",
+        "feature1": "1-12 månaders villkor",
+        "feature2": "Försäkring ingår",
+        "feature3": "Inget långsiktigt åtagande",
+        "feature4": "Omedelbar tillgänglighet"
+      },
+      "cta": "Jämför Alternativ"
+    },
+    "fleet": {
+      "title": "Verktyg för Fordonsparkshantering",
+      "description": "Hantera hela din fordonspark effektivt med våra digitala verktyg.",
+      "manager": {
+        "title": "InnoFleet Manager",
+        "description": "Se alla kontrakt, fordon, kostnader och användare i ett enhetligt gränssnitt."
+      },
+      "reports": {
+        "title": "Utsläpps- och Fordonsparksrapporter",
+        "description": "Spåra miljöpåverkan och detaljerad fordonsparksanalys."
+      },
+      "policy": {
+        "title": "Policy och Upphandling",
+        "description": "Optimera kontrakt och hantera fordonsupphandling med lätthet."
+      },
+      "driver": {
+        "title": "Förarverktyg",
+        "description": "Ge anställda tillgång till kalkylatorer, jämförelser och självbetjäningsalternativ."
+      },
+      "cta": "Utforska Verktyg"
+    },
+    "testimonials": {
+      "title": "Betrodd av Företag i Hela Finland",
+      "testimonial1": {
+        "quote": "Innoleases flexibla leasingalternativ och digitala verktyg har dramatiskt förenklat vår fordonsparkshantering. Deras transparenta metod innebär inga överraskningar.",
+        "author": "Matti Virtanen",
+        "company": "Tech Solutions Oy"
+      },
+      "testimonial2": {
+        "quote": "Det all-inclusive underhållsleasingpaketet ger oss fullständig kostnadsförutsägbarhet. Deras servicenätverk är utmärkt i hela Finland.",
+        "author": "Liisa Korhonen",
+        "company": "Nordic Logistics Ab"
+      },
+      "testimonial3": {
+        "quote": "Att byta till elfordon var enkelt med Innoleases vägledning. Deras jämförelseverktyg för elfordon hjälpte oss att fatta välgrundade beslut.",
+        "author": "Juha Mäkinen",
+        "company": "Green Innovations Oy"
+      }
+    },
+    "partners": {
+      "title": "Servicenätverkspartners",
+      "description": "Landsomfattande täckning för underhåll, däck och besiktningar med pålitliga partners.",
+      "vianor": "Däcktjänster och säsongsbyten",
+      "euromaster": "Omfattande underhållstjänster",
+      "katsastus": "Fordonsbesiktningstjänster",
+      "coverage": "800+ serviceplatser över hela Finland"
+    },
+    "environmental": {
+      "title": "Miljöansvar",
+      "description": "Minska ditt koldioxidavtryck med våra el- och hybridfordonsalternativ.",
+      "feature1": "Brett urval av elfordon",
+      "feature2": "Detaljerad utsläppsspårning",
+      "feature3": "Laddningslösningar för elfordon",
+      "feature4": "Rådgivning för elektrifiering av fordonsparken",
+      "cta": "Bli Grönare med Innolease"
+    },
+    "cta": {
+      "title": "Redo att Optimera Din Fordonspark?",
+      "description": "Kontakta oss för en personlig leasinglösning som passar ditt företags behov.",
+      "button": "Begär Offert",
+      "contact": "Eller ring oss på +358 50 123 4567"
+    },
+    "meta": {
+      "title": "Innolease | Företagsfordonsleasing & Fordonsparkshantering",
+      "description": "Omfattande företagsfordonsleasing-lösningar och fordonsparksadministration med transparent prissättning och digitala verktyg som effektiviserar verksamheten."
     },
     "agentic": {
       "title": "Agentic-utvecklingsramverk",
@@ -28,13 +131,6 @@
         "efficiency": "Accelererat utvecklingsflöde",
         "standards": "Upprätthållna kodstandarder och bästa praxis"
       }
-    },
-    "cta": {
-      "button": "VISA PÅ GITHUB"
-    },
-    "meta": {
-      "title": "AI-driven Next.js-mall | Modern webbutveckling",
-      "description": "En modern Next.js-mall med inbyggd AI-funktionalitet, Supabase-integration och utvecklingsverktyg för att bygga skalbara webbapplikationer."
     },
     "description": "LastBot hjälper företag att bli AI-drivna utan att förlora sitt fokus på människor. Vi erbjuder en snabb väg till AI-integration, skapar äkta relationer och levererar autonoma lösningar.",
     "features": {
@@ -189,144 +285,33 @@
     }
   },
   "Blog": {
-    "title": "Blogg",
-    "description": "De senaste insikterna, forskningen och nyheterna från LastBot",
-    "readMore": "Läs mer",
-    "newestPost": "Senaste artikeln",
-    "publishedOn": "Publicerad",
-    "noPosts": "Inga inlägg ännu. Var först med att skriva ett!",
-    "by": "av",
-    "tags": "Taggar",
-    "relatedPosts": "Relaterade inlägg",
-    "similarPosts": "Liknande inlägg",
-    "backToBlog": "Tillbaka till bloggen",
-    "readingTime": "{minutes} min läsning",
-    "sharePost": "Dela detta inlägg",
-    "admin": {
-      "title": "Blogginlägg",
-      "newPost": "Nytt inlägg",
-      "editPost": "Redigera",
-      "deletePost": "Ta bort",
-      "confirmDelete": "Är du säker på att du vill ta bort detta inlägg?",
-      "save": "Spara",
-      "saving": "Sparar...",
-      "cancel": "Avbryt",
-      "generating": "Genererar...",
-      "generateWithAI": "Generera med AI",
-      "generateImage": "Generera bild",
-      "publishPost": "Publicera",
-      "unpublishPost": "Avpublicera",
-      "fields": {
-        "title": "Titel",
-        "slug": "URL-del",
-        "content": "Innehåll",
-        "excerpt": "Sammanfattning",
-        "metaDescription": "Meta-beskrivning",
-        "featuredImage": "Huvudbild",
-        "tags": "Taggar",
-        "locale": "Språkkod",
-        "targetLanguages": "Målspråk",
-        "targetLanguagesHelp": "Välj språk för automatisk översättning",
-        "targetLanguagesOptional": "(valfritt)",
-        "prompt": "Blogginläggs-prompt",
-        "promptPlaceholder": "Ange en prompt för att generera blogginnehåll...",
-        "detectedLanguage": "(upptäckt)"
-      },
-      "editor": {
-        "bold": "Fetstil",
-        "italic": "Kursiv",
-        "strike": "Genomstrykning",
-        "code": "Kod",
-        "heading": "Rubrik",
-        "bulletList": "Punktlista",
-        "orderedList": "Nummerlista",
-        "quote": "Citat",
-        "image": "Infoga bild"
-      },
-      "saveSuccess": "Inlägg sparat framgångsrikt",
-      "saveError": "Det gick inte att spara inlägget",
-      "translationSuccess": "Översättningar skapade framgångsrikt",
-      "translationError": "Det gick inte att skapa översättningar",
-      "deleteSuccess": "Inlägg borttaget framgångsrikt",
-      "deleteError": "Det gick inte att ta bort inlägget",
-      "publishSuccess": "Inlägg publicerat framgångsrikt",
-      "publishError": "Det gick inte att publicera inlägget",
-      "unpublishSuccess": "Inlägg avpublicerat framgångsrikt",
-      "unpublishError": "Det gick inte att avpublicera inlägget",
-      "research": {
-        "title": "Webbforskning",
-        "search": "Sök",
-        "searching": "Söker...",
-        "noResults": "Inga resultat",
-        "error": "Sökningen misslyckades",
-        "retry": "Försök igen",
-        "use": "Använd",
-        "useResult": "Använd resultat",
-        "searchPlaceholder": "Sök på webben efter relevant innehåll...",
-        "results": "Resultat",
-        "source": "Källa",
-        "analyze": "Analysera",
-        "analyzing": "Analyserar...",
-        "summary": "Sammanfattning",
-        "keyPoints": "Viktiga punkter",
-        "scope": {
-          "small": "Litet (3 resultat)",
-          "medium": "Medel (5 resultat)",
-          "large": "Stort (8 resultat)",
-          "huge": "Väldigt stort (10 resultat)"
-        },
-        "selected": "{count} valda",
-        "useSelected": "Använd valda",
-        "extending": "Utökar...",
-        "extend": "Utöka",
-        "error": {
-          "search": "Forskningen misslyckades",
-          "extend": "Det gick inte att utöka innehållet"
-        },
-        "analysis": {
-          "title": "Analys",
-          "readability": "Läsbarhet",
-          "confidence": "Konfidens",
-          "style": "Skrivstil",
-          "audience": "Målgrupp"
-        },
-        "topics": {
-          "title": "Ämnen & Sentiment",
-          "sentiment": "Sentiment",
-          "topics": "Ämnen"
-        }
-      }
-    },
-    "comments": "Kommentarer",
-    "noComments": "Inga kommentarer ännu. Bli den första som kommenterar!",
-    "loginToComment": "Logga in för att lämna en kommentar.",
-    "signIn": "Logga in",
-    "yourComment": "Din kommentar",
-    "commentPlaceholder": "Skriv din kommentar här...",
-    "submitComment": "Skicka kommentar",
-    "submittingComment": "Skickar...",
-    "deleteComment": "Ta bort",
-    "fetchCommentsError": "Det gick inte att ladda kommentarerna. Försök igen.",
-    "deleteCommentError": "Det gick inte att ta bort kommentaren. Försök igen.",
+    "title": "Innolease Blogg",
+    "description": "Håll dig uppdaterad med det senaste inom fordonsleasing, trender inom vagnparkshantering och företagsnyheter.",
     "subjects": {
-      "all": "Alla",
-      "news": "Nyheter",
-      "research": "Forskning",
-      "generative-ai": "Generativ AI",
-      "case-stories": "Case-berättelser"
+      "all": "Alla inlägg",
+      "leasing-tips": "Leasingtips",
+      "ev": "Övergång till elbil",
+      "case-stories": "Kundberättelser",
+      "news": "Företagsnyheter",
+      "research": "Branschforskning"
     },
-    "latestPost": "Senaste inlägg",
-    "meta": {
-      "title": "Blogg | LastBot - Människocentrerade AI-lösningar",
-      "description": "Upptäck de senaste insikterna, trenderna och framgångshistorierna inom AI-integration, digital transformation och människocentrerad teknik."
-    }
+    "noPostsFound": "Inga inlägg hittades",
+    "noPostsDescription": "Det finns för närvarande inga blogginlägg som matchar ditt val. Prova att visa alla inlägg.",
+    "viewAllPosts": "Visa alla inlägg",
+    "readMore": "Läs mer",
+    "backToBlog": "Tillbaka till bloggen",
+    "notFound": "Inlägget hittades inte",
+    "notFoundDescription": "Tyvärr kunde blogginlägget du letar efter inte hittas.",
+    "similarPosts": "Liknande inlägg",
+    "publishedOn": "Publicerad"
   },
   "Navigation": {
     "brand": "LastBot",
     "home": "Hem",
-    "about": "Om",
+    "about": "Om oss",
     "blog": "Blogg",
-    "book": "Boka tid",
+    "book": "Boka samtal",
+    "leasing_solutions": "Leasinglösningar",
     "contact": "Kontakt",
     "admin_link": "Admin",
     "analytics": "Analys",
@@ -355,10 +340,7 @@
       "calendar": "Kalender"
     },
     "account": {
-      "title": "Mitt konto",
-      "settings": "Inställningar",
-      "security": "Säkerhet",
-      "notifications": "Aviseringar"
+      "title": "Konto"
     },
     "solutions": "Lösningar"
   },
@@ -1194,5 +1176,173 @@
       "label": "Välj språk",
       "ariaLabel": "Ändra webbplatsens språk"
     }
+  },
+  "LeasingSolutions": {
+    "meta": {
+      "title": "Leasinglösningar | Innolease",
+      "description": "Utforska våra omfattande fordonsleasing-lösningar för företag, inklusive finansiell, flexibel, underhålls- och minileasing-alternativ."
+    },
+    "hero": {
+      "title": "Leasinglösningar för alla företagsbehov",
+      "description": "Hitta den perfekta finansieringsstrukturen för ditt företags fordonsflotta, från enkel finansiell leasing till heltäckande servicepaket."
+    },
+    "financialLeasing": {
+      "title": "Finansiell Leasing",
+      "subtitle": "Maximal flexibilitet med minimalt åtagande",
+      "description": "Vår finansiella leasinglösning erbjuder okomplicerad fordonsfinansiering utan körsträckebegränsningar. Du hanterar underhåll och restvärde, vilket ger dig full kontroll över fordonsdriften.",
+      "features": {
+        "title": "Nyckelegenskaper",
+        "feature1": "Inga körsträckebegränsningar",
+        "feature2": "Fordonet framgår i företagets balansräkning",
+        "feature3": "Kunden arrangerar underhåll självständigt",
+        "feature4": "Kunden bär restvärdesrisken",
+        "feature5": "Option att köpa vid avtalsperiodens slut"
+      },
+      "idealFor": {
+        "title": "Idealisk för",
+        "type1": "Företag med intern flottstyrning",
+        "type2": "Verksamheter med hög körsträcka",
+        "type3": "Företag som söker balanstillgångar",
+        "type4": "Organisationer som vill ha full kontroll över fordon"
+      },
+      "calculator": {
+        "title": "Beräkna din månatliga betalning",
+        "vehicle": "Fordonspris",
+        "downpayment": "Handpenning",
+        "term": "Leasingperiod (månader)",
+        "residual": "Uppskattat restvärde",
+        "interest": "Räntesats",
+        "calculate": "Beräkna betalning",
+        "result": "Uppskattad månadsbetalning:",
+        "disclaimer": "Denna beräkning är endast för uppskattningssyfte. Kontakta oss för en detaljerad offert."
+      }
+    },
+    "flexibleLeasing": {
+      "title": "Flexibel Leasing",
+      "subtitle": "Balanserad kontroll med servicefördelar",
+      "description": "Vår flexibla leasinglösning kombinerar finansiell leasing med omfattande underhållstjänster på en enda månadsfaktura. Njut av förutsägbara underhållskostnader samtidigt som du behåller flexibilitet i fordonsanvändning.",
+      "features": {
+        "title": "Nyckelegenskaper",
+        "feature1": "Underhållskostnader ingår på en faktura",
+        "feature2": "Marknadsbaserad restvärdesuppskattning",
+        "feature3": "Flexibel körsträckejustering under avtalstiden",
+        "feature4": "Smidiga avtalsförlängningsalternativ",
+        "feature5": "Fordonsersättningsflexibilitet"
+      },
+      "idealFor": {
+        "title": "Idealisk för",
+        "type1": "Medelstora flottor som söker operativ effektivitet",
+        "type2": "Företag med varierande användningsmönster",
+        "type3": "Verksamheter som prioriterar budgetförutsägbarhet",
+        "type4": "Organisationer som går från ägande till leasing"
+      },
+      "caseStudy": {
+        "title": "Fallstudie: Tech Solutions Oy",
+        "challenge": "Tech Solutions Oy behövde en flexibel flottlösning som skulle ge underhållstäckning men tillåta varierande körsträcka mellan fordon.",
+        "solution": "Innolease tillhandahöll ett Flexibelt Leasingpaket med kvartalsvisa körsträckejusteringar och omfattande underhållstäckning.",
+        "result": "Flottkostnader minskade med 18% med förbättrad fordonstillgänglighet och eliminerad underhållsadministration.",
+        "quote": "Flexibiliteten att justera våra avtal när affärsbehoven förändras har varit ovärderlig för vårt växande företag.",
+        "person": "Matti Virtanen, Flottchef"
+      }
+    },
+    "maintenanceLeasing": {
+      "title": "Underhållsleasing",
+      "subtitle": "All-inclusive bekymmersfri lösning",
+      "description": "Vår underhållsleasing ger total sinnesro med en fast månadsbetalning som täcker allt från finansiering till omfattande underhåll, däck och tjänster. Den ultimata bekymmersfria flottlösningen.",
+      "features": {
+        "title": "Nyckelegenskaper",
+        "feature1": "All-inclusive fast månadspris",
+        "feature2": "Omfattande servicepaket (underhåll, däck, reparationer)",
+        "feature3": "Rikstäckande servicenätverk",
+        "feature4": "Ersättningsfordon tillhandahålls",
+        "feature5": "Fullständig kostnadsförutsägbarhet"
+      },
+      "idealFor": {
+        "title": "Idealisk för",
+        "type1": "Företag som söker full kostnadsförutsägbarhet",
+        "type2": "Organisationer utan dedikerad flottstyrning",
+        "type3": "Verksamheter med drift över hela Finland",
+        "type4": "Företag som prioriterar bekymmersfri drift framför flexibilitet"
+      },
+      "comparison": {
+        "title": "Jämför leasingalternativ",
+        "option1": "Finansiell Leasing",
+        "option2": "Flexibel Leasing",
+        "option3": "Underhållsleasing",
+        "financing": "Finansiering",
+        "maintenance": "Underhåll",
+        "tires": "Däck",
+        "repairs": "Reparationer",
+        "insurance": "Försäkring",
+        "roadside": "Vägassistans",
+        "replacement": "Ersättningsfordon",
+        "flexibility": "Avtalsflexibilitet",
+        "included": "Ingår",
+        "optional": "Valfritt",
+        "excluded": "Ingår ej",
+        "high": "Hög",
+        "medium": "Medel",
+        "low": "Låg"
+      }
+    },
+    "miniLeasing": {
+      "title": "MiniLeasing",
+      "subtitle": "Kortsiktig flexibilitet, omedelbar tillgänglighet",
+      "description": "Vår MiniLeasing-lösning erbjuder kortsiktig fordonsleasing från 1-12 månader, inklusive fordon, underhåll och försäkring i ett paket. Perfekt för tillfälliga behov utan långsiktigt åtagande.",
+      "features": {
+        "title": "Nyckelegenskaper",
+        "feature1": "Kortsiktiga kontrakt (1-12 månader)",
+        "feature2": "Försäkring och underhåll ingår",
+        "feature3": "Inget långsiktigt åtagande",
+        "feature4": "Snabb fordonsleverans (ofta samma dag)",
+        "feature5": "Brett utbud av omedelbart tillgängliga fordon"
+      },
+      "idealFor": {
+        "title": "Idealisk för",
+        "type1": "Projektbaserade fordonsbehov",
+        "type2": "Säsongsbetingade affärsfluktuationer",
+        "type3": "Provanställningsperioder för nya anställda",
+        "type4": "Testning av fordonstyper innan långsiktigt åtagande"
+      },
+      "pricing": {
+        "title": "Prisstruktur",
+        "category1": "Personbilar",
+        "price1": "Från €590/månad",
+        "category2": "Skåpbilar & Nyttofordon",
+        "price2": "Från €790/månad",
+        "category3": "Elfordon",
+        "price3": "Från €890/månad",
+        "category4": "Premiumfordon",
+        "price4": "Från €1,190/månad",
+        "note": "Priser inkluderar underhåll, försäkring och 2,000 km/månad. Ytterligare körsträcka tillgänglig."
+      }
+    },
+    "faq": {
+      "title": "Vanliga frågor",
+      "q1": "Vad är den kortaste tillgängliga leasingperioden?",
+      "a1": "Vår MiniLeasing börjar från bara 1 månad, medan våra standardleasinglösningar typiskt börjar vid 12 månader.",
+      "q2": "Kan jag byta mellan leasingtyper under ett avtal?",
+      "a2": "Ja, vi erbjuder flexibilitet att justera din leasinglösning när dina affärsbehov förändras, föremål för avtalsvillkor.",
+      "q3": "Finns elfordon tillgängliga i alla leasingtyper?",
+      "a3": "Ja, vi erbjuder el-, hybrid- och konventionella fordon i alla våra leasinglösningar.",
+      "q4": "Hur omfattande är ert servicenätverk?",
+      "a4": "Vi samarbetar med över 800 serviceplatser över hela Finland, inklusive Vianor, Euromaster och A-Katsastus center.",
+      "q5": "Kan jag inkludera försäkring i mitt leasingpaket?",
+      "a5": "Försäkring ingår som standard i MiniLeasing och kan läggas till som ett alternativ till våra andra leasinglösningar.",
+      "q6": "Vad händer vid slutet av leasingperioden?",
+      "a6": "Du kan välja att returnera fordonet, förlänga leasingen, eller i vissa fall köpa fordonet till dess restvärde.",
+      "q7": "Kan jag inkludera flera fordonstyper i ett avtal?",
+      "a7": "Ja, vi erbjuder flottlösningar som kan rymma olika fordonstyper under ett huvudavtal med individuella scheman."
+    },
+    "cta": {
+      "title": "Redo att hitta din ideala leasinglösning?",
+      "description": "Kontakta våra leasingspecialister för en personlig konsultation och offert.",
+      "button": "Begär offert",
+      "contact": "Eller ring oss på +358 50 123 4567"
+    }
+  },
+  "meta": {
+    "title": "Innolease Blogg",
+    "description": "Senaste nyheter, insikter och tips om fordonsleasing och vagnparkshantering från Innolease."
   }
 }

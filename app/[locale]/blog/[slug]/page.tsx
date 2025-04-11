@@ -4,10 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Database } from '@/types/database'
 import Comments from '@/components/blog/Comments'
-import FloatingNav from '@/components/blog/FloatingNav'
 import StructuredData from '@/components/structured-data'
 import { generateLocalizedMetadata, generateArticleStructuredData } from '@/utils/metadata'
 import BlogContent from '@/components/blog/BlogContent'
+import SectionContainer from '@/app/components/SectionContainer'
 
 type Post = Database['public']['Tables']['posts']['Row']
 type SimilarPost = {
@@ -27,7 +27,7 @@ interface Props {
 
 // Helper function to strip HTML tags from content
 function stripHtmlTags(html: string): string {
-  return html.replace(/<[^>]*>/g, '')
+  return html ? html.replace(/<[^>]*>/g, '') : ''
 }
 
 async function getPost(slug: string, locale: string): Promise<Post | null> {
@@ -38,6 +38,7 @@ async function getPost(slug: string, locale: string): Promise<Post | null> {
     .select('*')
     .eq('slug', slug)
     .eq('locale', locale)
+    .eq('published', true)
     .single()
 
   if (error) {
@@ -71,7 +72,7 @@ export async function generateMetadata({ params }: Props) {
     type: 'article',
     publishedTime: post.created_at,
     modifiedTime: post.updated_at,
-    authors: ['LastBot Team'],
+    authors: ['Innolease Team'],
     tags: post.tags || undefined,
     canonicalUrl
   })
@@ -81,13 +82,15 @@ export async function generateMetadata({ params }: Props) {
 async function getSimilarPosts(postId: string, locale: string): Promise<SimilarPost[]> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || ''
-    // For server-side absolute URLs, ensure we have a valid base URL
     const apiUrl = baseUrl.startsWith('http') 
       ? `${baseUrl}/api/blog/similar` 
       : `/api/blog/similar`
     
-    const response = await fetch(`${apiUrl}?postId=${postId}&locale=${locale}`)
-    if (!response.ok) return []
+    const response = await fetch(`${apiUrl}?postId=${postId}&locale=${locale}`, { cache: 'no-store' })
+    if (!response.ok) {
+      console.error('Similar posts API error:', response.status, await response.text());
+      return [];
+    }
     const { posts } = await response.json()
     return posts
   } catch (error) {
@@ -103,17 +106,19 @@ export default async function BlogPost({ params }: Props) {
 
   if (!post) {
     return (
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{t('notFound')}</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">{t('notFoundDescription')}</p>
-        <Link 
-          href={`/${locale}/blog`} 
-          className="inline-flex items-center text-lg font-semibold text-purple-500 hover:text-purple-400 transition-colors duration-200"
-        >
-          <span className="mr-2">←</span>
-          {t('backToBlog')}
-        </Link>
-      </div>
+      <SectionContainer bgColor="bg-white">
+        <div className="text-center py-16">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{t('notFound')}</h1>
+          <p className="text-lg text-gray-600 mb-8">{t('notFoundDescription')}</p>
+          <Link 
+            href={`/${locale}/blog`} 
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            <span className="mr-2">←</span>
+            {t('backToBlog')}
+          </Link>
+        </div>
+      </SectionContainer>
     )
   }
 
@@ -125,7 +130,7 @@ export default async function BlogPost({ params }: Props) {
     image: post.featured_image || undefined,
     publishedTime: post.created_at,
     modifiedTime: post.updated_at,
-    authors: ['LastBot Team'],
+    authors: ['Innolease Team'],
     tags: post.tags || undefined,
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`
   })
@@ -133,57 +138,94 @@ export default async function BlogPost({ params }: Props) {
   return (
     <>
       <StructuredData data={structuredData} />
-      <article className="container mx-auto px-4 py-12 max-w-5xl">
-        {post.featured_image && (
-          <div className="relative w-full h-[500px] mb-12 rounded-2xl overflow-hidden shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-300">
-            <Image
-              src={post.featured_image}
-              alt={post.title}
-              fill
-              className="object-cover"
-              priority
-            />
+      
+      {/* Post Header */}
+      <section className="bg-gray-100 py-16 md:py-24">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">{post.title}</h1>
+          <div className="text-gray-600 text-sm md:text-base mb-6">
+            <span>{t('publishedOn')} </span>
+            <time dateTime={post.created_at}>
+              {new Date(post.created_at).toLocaleDateString(locale, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+            {post.subject && (
+              <span className="mx-2">|</span>
+            )}
+            {post.subject && (
+              <span className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium text-xs">
+                {t(`subjects.${post.subject}`)}
+              </span>
+            )}
           </div>
-        )}
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{post.title}</h1>
-        <BlogContent content={post.content} />
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-          <Comments postId={post.id} />
+          {post.featured_image && (
+            <div className="relative w-full aspect-video mt-8 mb-12 rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src={post.featured_image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
         </div>
-      </article>
-      <FloatingNav locale={locale} />
+      </section>
+
+      {/* Post Content */}
+      <SectionContainer bgColor="bg-white">
+        <div className="max-w-3xl mx-auto">
+          <BlogContent content={post.content} />
+        </div>
+      </SectionContainer>
+      
+      {/* Similar Posts Section */}
       {similarPosts.length > 0 && (
-        <div className="mt-16 mb-12 max-w-5xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold leading-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{t('similarPosts')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {similarPosts.map((similar: SimilarPost) => (
-              <Link
-                key={similar.id}
-                href={`/${locale}/blog/${similar.slug}`}
-                className="block group"
-              >
-                <div className="border dark:border-gray-800 rounded-2xl p-6 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 bg-white dark:bg-gray-900">
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">
-                    {similar.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
-                    {stripHtmlTags(similar.content).substring(0, 150)}...
-                  </p>
-                </div>
-              </Link>
-            ))}
+        <SectionContainer bgColor="bg-gray-50">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{t('similarPosts')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {similarPosts.map((similar: SimilarPost) => (
+                <Link
+                  key={similar.id}
+                  href={`/${locale}/blog/${similar.slug}`}
+                  className="group block bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"
+                >
+                  <article>
+                    <div className="p-6">
+                      <h3 className="font-semibold text-lg mb-2 text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                        {similar.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                        {stripHtmlTags(similar.content).substring(0, 120)}...
+                      </p>
+                      <span className="text-blue-600 font-medium text-sm group-hover:underline">
+                        {t('readMore')} →
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </SectionContainer>
       )}
-      <div className="text-center mb-12">
-        <Link
-          href={`/${locale}/blog`}
-          className="inline-flex items-center text-lg font-semibold text-purple-500 hover:text-purple-400 transition-colors duration-200"
-        >
-          <span className="mr-2">←</span>
-          {t('backToBlog')}
-        </Link>
-      </div>
+
+      {/* Back to Blog Link */}
+      <SectionContainer bgColor="bg-white">
+        <div className="text-center">
+          <Link
+            href={`/${locale}/blog`}
+            className="inline-flex items-center text-blue-600 hover:underline font-medium"
+          >
+            <span className="mr-2">←</span>
+            {t('backToBlog')}
+          </Link>
+        </div>
+      </SectionContainer>
     </>
   )
 }

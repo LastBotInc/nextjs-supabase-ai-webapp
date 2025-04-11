@@ -1,143 +1,114 @@
 {
   "Index": {
     "hero": {
-      "title": "Build Smarter Web Apps with AI",
-      "description": "A modern Next.js template with built-in AI capabilities, development tools, and best practices for building scalable web applications.",
-      "backgroundAlt": "Abstract technology background",
-      "cta": "View on GitHub",
-      "docs": "Documentation"
+      "title": "Flexible Vehicle Leasing for Every Business",
+      "description": "Innolease provides comprehensive business vehicle leasing solutions and fleet management services tailored to your exact needs, with transparent pricing and digital tools that streamline operations.",
+      "backgroundAlt": "Fleet of business vehicles",
+      "cta": "Request a Quote",
+      "learnMore": "Learn More"
     },
-    "agentic": {
-      "title": "Agentic Development Framework",
-      "subtitle": "for Cursor IDE",
-      "description": "Extend and enhance Cursor's composer agent capabilities with a comprehensive framework for end-to-end development.",
-      "features": {
-        "title": "Enhanced Development Experience",
-        "list": {
-          "rules": "Structured development rules and patterns",
-          "prompts": "Optimized prompts for code generation",
-          "tools": "Integrated development tools and utilities",
-          "validation": "Automated testing and validation",
-          "docs": "Comprehensive documentation generation"
-        }
+    "leasing": {
+      "title": "Leasing Solutions",
+      "description": "Select the right leasing solution for your company's needs.",
+      "financial": {
+        "title": "Financial Leasing",
+        "description": "Finance only the vehicle with no mileage restrictions. Customer handles maintenance and residual value.",
+        "feature1": "No mileage limitations",
+        "feature2": "Customer maintains vehicle",
+        "feature3": "Flexible end terms",
+        "feature4": "Competitive financing"
       },
-      "benefits": {
-        "title": "Key Benefits",
-        "quality": "Improved code quality and consistency",
-        "completeness": "Enhanced feature completeness",
-        "efficiency": "Accelerated development workflow",
-        "standards": "Enforced coding standards and best practices"
+      "flexible": {
+        "title": "Flexible Leasing",
+        "description": "Maintenance costs included on one invoice with residual value based on market estimation.",
+        "feature1": "Maintenance included",
+        "feature2": "Market-based residual value",
+        "feature3": "Single monthly invoice",
+        "feature4": "Extension options"
+      },
+      "maintenance": {
+        "title": "Maintenance Leasing",
+        "description": "All-inclusive monthly price with predictable vehicle costs and pre-defined services.",
+        "feature1": "All-inclusive pricing",
+        "feature2": "Comprehensive service package",
+        "feature3": "Pre-defined mileage",
+        "feature4": "Complete cost predictability"
+      },
+      "mini": {
+        "title": "MiniLeasing",
+        "description": "Short-term leasing from 1-12 months, including vehicle and insurance for temporary needs.",
+        "feature1": "1-12 month terms",
+        "feature2": "Insurance included",
+        "feature3": "No long-term commitment",
+        "feature4": "Immediate availability"
+      },
+      "cta": "Compare Options"
+    },
+    "fleet": {
+      "title": "Fleet Management Tools",
+      "description": "Manage your entire vehicle fleet efficiently with our digital tools.",
+      "manager": {
+        "title": "InnoFleet Manager",
+        "description": "View all contracts, vehicles, costs, and users in one unified interface."
+      },
+      "reports": {
+        "title": "Emission & Fleet Reports",
+        "description": "Track environmental impact and detailed fleet analytics."
+      },
+      "policy": {
+        "title": "Policy & Procurement",
+        "description": "Optimize contracts and manage vehicle procurement with ease."
+      },
+      "driver": {
+        "title": "Driver Tools",
+        "description": "Empower employees with calculators, comparisons, and self-service options."
+      },
+      "cta": "Explore Tools"
+    },
+    "testimonials": {
+      "title": "Trusted by Businesses Across Finland",
+      "testimonial1": {
+        "quote": "Innolease's flexible leasing options and digital tools have dramatically simplified our fleet management. Their transparent approach means no surprises.",
+        "author": "Matti Virtanen",
+        "company": "Tech Solutions Oy"
+      },
+      "testimonial2": {
+        "quote": "The all-inclusive maintenance leasing package gives us complete cost predictability. Their service network is excellent throughout Finland.",
+        "author": "Liisa Korhonen",
+        "company": "Nordic Logistics Ab"
+      },
+      "testimonial3": {
+        "quote": "Switching to electric vehicles was simple with Innolease's guidance. Their EV comparison tools helped us make informed decisions.",
+        "author": "Juha Mäkinen",
+        "company": "Green Innovations Oy"
       }
+    },
+    "partners": {
+      "title": "Service Network Partners",
+      "description": "Nationwide coverage for maintenance, tires, and inspections with trusted partners.",
+      "vianor": "Tire services and seasonal changes",
+      "euromaster": "Comprehensive maintenance services",
+      "katsastus": "Vehicle inspection services",
+      "coverage": "800+ service locations across Finland"
+    },
+    "environmental": {
+      "title": "Environmental Responsibility",
+      "description": "Reduce your carbon footprint with our electric and hybrid vehicle options.",
+      "feature1": "Wide selection of electric vehicles",
+      "feature2": "Detailed emissions tracking",
+      "feature3": "EV charging solutions",
+      "feature4": "Fleet electrification consulting",
+      "cta": "Go Green with Innolease"
     },
     "cta": {
-      "button": "VIEW ON GITHUB"
+      "title": "Ready to Optimize Your Vehicle Fleet?",
+      "description": "Contact us for a personalized leasing solution that fits your business needs.",
+      "button": "Request a Quote",
+      "contact": "Or call us at +358 50 123 4567"
     },
     "meta": {
-      "title": "AI-Powered Next.js Template | Modern Web Development",
-      "description": "A modern Next.js template with built-in AI capabilities, Supabase integration, and development tools for building scalable web applications."
-    },
-    "description": "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.",
-    "features": {
-      "title": "Everything You Need",
-      "description": "A comprehensive set of tools and features to accelerate your development workflow.",
-      "ai": {
-        "title": "AI Integration",
-        "description": "Built-in AI capabilities with Google Gemini, Recraft, and Tavily APIs for content generation, image creation, and intelligent search."
-      },
-      "tools": {
-        "title": "Development Tools",
-        "description": "Modern development tools for image optimization, HTML to Markdown conversion, and efficient file management."
-      },
-      "database": {
-        "title": "Database & Auth",
-        "description": "Seamless Supabase integration for authentication, real-time data, and secure API endpoints."
-      },
-      "i18n": {
-        "title": "Internationalization",
-        "description": "Built-in support for multiple languages with next-intl and efficient translation management."
-      },
-      "performance": {
-        "title": "Performance",
-        "description": "Optimized for speed with server components, edge functions, and efficient caching strategies."
-      },
-      "security": {
-        "title": "Security",
-        "description": "Best practices for secure authentication, API protection, and data handling."
-      }
-    },
-    "coreFeatures": {
-      "title": "Core Features",
-      "description": "Everything you need to build a full-featured web application",
-      "auth": {
-        "title": "Authentication & Users",
-        "description": "Complete user management system with Supabase Auth integration, social providers, protected routes, and role-based access control.",
-        "feature1": "Social provider login",
-        "feature2": "Protected routes",
-        "feature3": "Role-based access",
-        "feature4": "User profiles"
-      },
-      "content": {
-        "title": "Content Management",
-        "description": "Comprehensive content management with AI assistance for content creation and optimization.",
-        "feature1": "AI-assisted blog system",
-        "feature2": "Media library with AI generation",
-        "feature3": "Asset optimization pipeline",
-        "feature4": "Landing page builder",
-        "feature5": "SEO optimization"
-      },
-      "i18n": {
-        "title": "Internationalization",
-        "description": "Built-in support for multiple languages and content localization.",
-        "feature1": "Multi-language support",
-        "feature2": "Translation management",
-        "feature3": "Language switching",
-        "feature4": "Content localization"
-      },
-      "analytics": {
-        "title": "Analytics",
-        "description": "Track and analyze user behavior and application performance.",
-        "feature1": "Page view tracking",
-        "feature2": "Event tracking",
-        "feature3": "Session management",
-        "feature4": "User journey analysis"
-      },
-      "booking": {
-        "title": "Booking System",
-        "description": "Complete appointment scheduling system with calendar management.",
-        "feature1": "Appointment scheduling",
-        "feature2": "Calendar management",
-        "feature3": "Timezone support",
-        "feature4": "Email notifications"
-      },
-      "realtime": {
-        "title": "Real-time Features",
-        "description": "Live updates and collaborative features powered by Supabase.",
-        "feature1": "Live updates",
-        "feature2": "Data synchronization",
-        "feature3": "Presence indicators",
-        "feature4": "Collaborative editing"
-      },
-      "technical": {
-        "title": "Technical Features",
-        "description": "Built with modern technologies and best practices.",
-        "feature1": "Modern UI with Tailwind CSS",
-        "feature2": "Dark/light mode support",
-        "feature3": "Type-safe development",
-        "feature4": "Performance optimization",
-        "feature5": "Comprehensive testing",
-        "feature6": "Row Level Security",
-        "feature7": "API protection",
-        "feature8": "Real-time subscriptions"
-      }
-    },
-    "getStarted": {
-      "title": "Start Building Today",
-      "description": "Get up and running with your next project in minutes, not hours.",
-      "step1": "Clone the repository and install dependencies",
-      "step2": "Configure your environment variables and API keys",
-      "step3": "Start developing with built-in AI capabilities",
-      "cta": "View on GitHub",
-      "imageAlt": "Development tools and features illustration"
+      "title": "Innolease | Business Vehicle Leasing & Fleet Management",
+      "description": "Comprehensive business vehicle leasing solutions and fleet management services with transparent pricing and digital tools to streamline operations."
     }
   },
   "Footer": {
@@ -149,10 +120,56 @@
     "presentations": "Presentations"
   },
   "About": {
-    "title": "About LastBot",
-    "description": "We are a team of AI experts dedicated to making artificial intelligence accessible and useful for businesses of all sizes.",
-    "about": {
-      "cta": "GET STARTED NOW"
+    "title": "About Innolease",
+    "subtitle": "Your partner in flexible and efficient vehicle leasing solutions in Finland.",
+    "description": "Learn about Innolease, our connection to Autolle.com Group, our values, team, and commitment to providing top-tier vehicle leasing services.",
+    "history": {
+      "title": "Our Story & Connection to Autolle.com",
+      "paragraph1": "Innolease Oy is a Finnish growth company specializing in vehicle leasing services. As part of the respected Autolle.com Group, we leverage extensive automotive industry expertise to offer innovative and customer-centric leasing solutions.",
+      "paragraph2": "Our foundation is built on Autolle.com's strong market presence and commitment to quality, allowing us to provide reliable and flexible leasing options tailored to the needs of businesses across Finland.",
+      "autolleButton": "Visit Autolle.com",
+      "imageAlt": "Autolle.com Group office building"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "value1": {
+        "title": "Customer Focus",
+        "description": "We prioritize understanding and meeting our clients' unique needs with tailored solutions."
+      },
+      "value2": {
+        "title": "Flexibility",
+        "description": "We offer adaptable leasing options that evolve with your business requirements."
+      },
+      "value3": {
+        "title": "Reliability",
+        "description": "Backed by Autolle.com Group, we ensure dependable service and high-quality vehicles."
+      }
+    },
+    "team": {
+      "title": "Meet Our Leadership Team",
+      "title1": "CEO",
+      "title2": "Head of Sales",
+      "title3": "Operations Manager"
+    },
+    "coverage": {
+      "title": "Nationwide Service Coverage",
+      "description": "With strategically located partners and a strong network, Innolease provides comprehensive service coverage across Finland, ensuring support wherever your fleet operates.",
+      "mapPlaceholder": "Map of Finland showing service coverage",
+      "mapAlt": "Map of Innolease service coverage in Finland"
+    },
+    "stats": {
+      "fleetSize": "5000+",
+      "fleetSizeLabel": "Vehicles Managed",
+      "satisfactionRate": "98",
+      "satisfactionRateLabel": "Client Satisfaction"
+    },
+    "partners": {
+      "title": "Our Trusted Partners"
+    },
+    "cta": {
+      "title": "Ready to Optimize Your Fleet?",
+      "description": "Contact Innolease today for a personalized consultation and discover how our leasing solutions can benefit your business.",
+      "button": "Request a Consultation"
     },
     "news": {
       "title": "News",
@@ -189,17 +206,29 @@
     }
   },
   "Blog": {
-    "title": "Blog",
-    "description": "Latest insights, research, and news from LastBot",
-    "readMore": "Read more",
-    "newestPost": "Latest Article",
+    "title": "Innolease Blog",
+    "description": "Stay updated with the latest in vehicle leasing, fleet management trends, and company news.",
+    "subjects": {
+      "all": "All Posts",
+      "leasing-tips": "Leasing Tips",
+      "ev": "EV Transition",
+      "case-stories": "Case Stories",
+      "news": "Company News",
+      "research": "Industry Research"
+    },
+    "noPostsFound": "No Posts Found",
+    "noPostsDescription": "There are currently no blog posts matching your selection. Try viewing all posts.",
+    "viewAllPosts": "View All Posts",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "notFound": "Post Not Found",
+    "notFoundDescription": "Sorry, the blog post you are looking for could not be found.",
+    "similarPosts": "Similar Posts",
     "publishedOn": "Published on",
-    "noPosts": "No posts yet. Be the first to write one!",
+    "newestPost": "Latest Article",
     "by": "by",
     "tags": "Tags",
     "relatedPosts": "Related Posts",
-    "similarPosts": "Similar Posts",
-    "backToBlog": "Back to Blog",
     "readingTime": "{minutes} min read",
     "sharePost": "Share this post",
     "admin": {
@@ -308,13 +337,6 @@
     "deleteComment": "Delete",
     "fetchCommentsError": "Failed to load comments. Please try again.",
     "deleteCommentError": "Failed to delete comment. Please try again.",
-    "subjects": {
-      "all": "All",
-      "news": "News",
-      "research": "Research",
-      "generative-ai": "Generative AI",
-      "case-stories": "Case Stories"
-    },
     "latestPost": "Latest Post",
     "meta": {
       "title": "Blog | LastBot - Human-Centric AI Solutions",
@@ -324,9 +346,9 @@
   "Navigation": {
     "brand": "LastBot",
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "blog": "Blog",
-    "book": "Book Appointment",
+    "book": "Book a Call",
     "contact": "Contact",
     "admin_link": "Admin",
     "analytics": "Analytics",
@@ -355,12 +377,10 @@
       "calendar": "Calendar"
     },
     "account": {
-      "title": "My Account",
-      "settings": "Settings",
-      "security": "Security",
-      "notifications": "Notifications"
+      "title": "Account"
     },
-    "solutions": "Solutions"
+    "solutions": "Solutions",
+    "leasing_solutions": "Leasing Solutions"
   },
   "Auth": {
     "email": "Email",
@@ -1196,6 +1216,170 @@
     "languageSelector": {
       "label": "Select Language",
       "ariaLabel": "Change website language"
+    }
+  },
+  "LeasingSolutions": {
+    "meta": {
+      "title": "Leasing Solutions | Innolease",
+      "description": "Explore our comprehensive vehicle leasing solutions for businesses including Financial, Flexible, Maintenance, and MiniLeasing options."
+    },
+    "hero": {
+      "title": "Leasing Solutions for Every Business Need",
+      "description": "Find the perfect financing structure for your company's vehicle fleet, from simple financial leasing to all-inclusive service packages."
+    },
+    "financialLeasing": {
+      "title": "Financial Leasing",
+      "subtitle": "Maximum flexibility with minimal commitment",
+      "description": "Our Financial Leasing solution provides straightforward vehicle financing without mileage restrictions. You handle maintenance and residual value, giving you complete control over vehicle operation.",
+      "features": {
+        "title": "Key Features",
+        "feature1": "No mileage limitations",
+        "feature2": "Vehicle appears on company balance sheet",
+        "feature3": "Customer arranges maintenance independently",
+        "feature4": "Customer bears residual value risk",
+        "feature5": "Option to purchase at end of term"
+      },
+      "idealFor": {
+        "title": "Ideal For",
+        "type1": "Companies with in-house fleet management",
+        "type2": "High-mileage operations",
+        "type3": "Businesses seeking balance sheet assets",
+        "type4": "Organizations that want full control over vehicles"
+      },
+      "calculator": {
+        "title": "Calculate Your Monthly Payment",
+        "vehicle": "Vehicle Price",
+        "downpayment": "Down Payment",
+        "term": "Lease Term (months)",
+        "residual": "Estimated Residual Value",
+        "interest": "Interest Rate",
+        "calculate": "Calculate Payment",
+        "result": "Estimated Monthly Payment:",
+        "disclaimer": "This calculation is for estimation purposes only. Contact us for a detailed quote."
+      }
+    },
+    "flexibleLeasing": {
+      "title": "Flexible Leasing",
+      "subtitle": "Balanced control with service benefits",
+      "description": "Our Flexible Leasing solution combines financial leasing with comprehensive maintenance services on a single monthly invoice. Enjoy predictable maintenance costs while retaining flexibility on vehicle usage.",
+      "features": {
+        "title": "Key Features",
+        "feature1": "Maintenance costs included on single invoice",
+        "feature2": "Market-based residual value estimation",
+        "feature3": "Flexible mileage adjustment during contract",
+        "feature4": "Streamlined contract extension options",
+        "feature5": "Vehicle replacement flexibility"
+      },
+      "idealFor": {
+        "title": "Ideal For",
+        "type1": "Medium-sized fleets seeking operational efficiency",
+        "type2": "Companies with variable usage patterns",
+        "type3": "Businesses prioritizing budget predictability",
+        "type4": "Organizations transitioning from ownership to leasing"
+      },
+      "caseStudy": {
+        "title": "Case Study: Tech Solutions Oy",
+        "challenge": "Tech Solutions Oy needed a flexible fleet solution that would provide maintenance coverage while allowing for varying mileage between vehicles.",
+        "solution": "Innolease provided a Flexible Leasing package with quarterly mileage adjustments and comprehensive maintenance coverage.",
+        "result": "Fleet costs reduced by 18% with improved vehicle availability and eliminated maintenance administration.",
+        "quote": "The flexibility to adjust our contracts as business needs change has been invaluable for our growing company.",
+        "person": "Matti Virtanen, Fleet Manager"
+      }
+    },
+    "maintenanceLeasing": {
+      "title": "Maintenance Leasing",
+      "subtitle": "All-inclusive worry-free solution",
+      "description": "Our Maintenance Leasing provides complete peace of mind with a fixed monthly payment covering everything from financing to comprehensive maintenance, tires, and services. The ultimate hassle-free fleet solution.",
+      "features": {
+        "title": "Key Features",
+        "feature1": "All-inclusive fixed monthly price",
+        "feature2": "Comprehensive service package (maintenance, tires, repairs)",
+        "feature3": "Nationwide service network coverage",
+        "feature4": "Replacement vehicle provision",
+        "feature5": "Complete cost predictability"
+      },
+      "idealFor": {
+        "title": "Ideal For",
+        "type1": "Companies seeking full cost predictability",
+        "type2": "Organizations without dedicated fleet management",
+        "type3": "Businesses with operations across Finland",
+        "type4": "Companies prioritizing hassle-free operations over flexibility"
+      },
+      "comparison": {
+        "title": "Compare Leasing Options",
+        "option1": "Financial Leasing",
+        "option2": "Flexible Leasing",
+        "option3": "Maintenance Leasing",
+        "financing": "Financing",
+        "maintenance": "Maintenance",
+        "tires": "Tires",
+        "repairs": "Repairs",
+        "insurance": "Insurance",
+        "roadside": "Roadside Assistance",
+        "replacement": "Replacement Vehicle",
+        "flexibility": "Contract Flexibility",
+        "included": "Included",
+        "optional": "Optional",
+        "excluded": "Not Included",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
+    "miniLeasing": {
+      "title": "MiniLeasing",
+      "subtitle": "Short-term flexibility, immediate availability",
+      "description": "Our MiniLeasing solution provides short-term vehicle leasing from 1-12 months, including vehicle, maintenance, and insurance in one package. Perfect for temporary needs without long-term commitment.",
+      "features": {
+        "title": "Key Features",
+        "feature1": "Short-term contracts (1-12 months)",
+        "feature2": "Insurance and maintenance included",
+        "feature3": "No long-term commitment",
+        "feature4": "Quick vehicle delivery (often same day)",
+        "feature5": "Wide range of immediately available vehicles"
+      },
+      "idealFor": {
+        "title": "Ideal For",
+        "type1": "Project-based vehicle needs",
+        "type2": "Seasonal business fluctuations",
+        "type3": "New employee probation periods",
+        "type4": "Testing vehicle types before long-term commitment"
+      },
+      "pricing": {
+        "title": "Pricing Structure",
+        "category1": "Passenger Cars",
+        "price1": "From €590/month",
+        "category2": "Vans & Utility Vehicles",
+        "price2": "From €790/month",
+        "category3": "Electric Vehicles",
+        "price3": "From €890/month",
+        "category4": "Premium Vehicles",
+        "price4": "From €1,190/month",
+        "note": "Prices include maintenance, insurance, and 2,000 km/month. Additional mileage available."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "What's the minimum lease term available?",
+      "a1": "Our MiniLeasing starts from just 1 month, while our standard leasing solutions typically begin at 12 months.",
+      "q2": "Can I switch between leasing types during a contract?",
+      "a2": "Yes, we offer flexibility to adjust your leasing solution as your business needs change, subject to contract terms.",
+      "q3": "Are electric vehicles available in all leasing types?",
+      "a3": "Yes, we offer electric, hybrid, and conventional vehicles across all our leasing solutions.",
+      "q4": "How extensive is your service network?",
+      "a4": "We partner with over 800 service locations throughout Finland, including Vianor, Euromaster, and A-Katsastus centers.",
+      "q5": "Can I include insurance in my leasing package?",
+      "a5": "Insurance is included by default in MiniLeasing and can be added as an option to our other leasing solutions.",
+      "q6": "What happens at the end of the lease term?",
+      "a6": "You can choose to return the vehicle, extend the lease, or in some cases, purchase the vehicle at its residual value.",
+      "q7": "Can I include multiple vehicle types in one contract?",
+      "a7": "Yes, we offer fleet solutions that can accommodate various vehicle types under a master agreement with individual schedules."
+    },
+    "cta": {
+      "title": "Ready to find your ideal leasing solution?",
+      "description": "Contact our leasing specialists for a personalized consultation and quote.",
+      "button": "Request a Quote",
+      "contact": "Or call us at +358 50 123 4567"
     }
   }
 }

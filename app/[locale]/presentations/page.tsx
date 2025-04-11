@@ -6,52 +6,48 @@ import { setupServerLocale } from '@/app/i18n/server-utils'
 import { AnimatedOrbs } from '@/app/components/AnimatedOrbs'
 import { generateLocalizedMetadata } from '@/utils/metadata'
 import StructuredData from '@/components/structured-data'
+import { Metadata } from 'next'
 
 interface Props {
-  params: Promise<{
-    locale: Locale
-  }>
+  params: { locale: string }
 }
 
 // Static page
 export const dynamic = 'force-static'
 
-export async function generateMetadata({ params }: Props) {
-  const { locale } = await params;
-  const t = await getTranslations('Presentations')
-
-  return generateLocalizedMetadata(locale, 'Presentations', {
-    title: t('title'),
-    description: t('description'),
-    type: 'website',
-    canonicalUrl: '/presentations'
-  })
+// Metadata generation for Presentations page
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+  return generateLocalizedMetadata({ 
+    locale, 
+    namespace: 'Presentations.meta', // Assuming a meta namespace exists
+    path: '/presentations' // Specify path
+  });
 }
 
 // Static presentation data
 const presentations = [
   {
-    slug: 'ai-in-etail',
-    title: 'AI in eTail - Future Of Commerce',
-    description: "Discover how generative AI is revolutionizing eCommerce, from personalized shopping experiences to intelligent operations and LastBot's cutting-edge solutions.",
-    preview_image: '/images/presentations/ai-etail-preview.webp',
-    slides_count: 6,
-    created_at: '2024-03-19T00:00:00Z'
+    slug: 'ai-leasing-solutions',
+    title: 'AI-Powered Leasing Solutions',
+    description: 'How AI streamlines vehicle leasing and fleet management for Innolease clients.',
+    image: '/images/presentations/ai-leasing.webp'
   },
   {
-    slug: 'navigating-ai-transformation',
-    title: 'Navigating AI Transformation',
-    description: 'A comprehensive guide to understanding how AI is transforming software development, business operations, and user experiences',
-    preview_image: '/images/presentations/ai-transformation-preview.webp',
-    slides_count: 5,
-    created_at: '2024-01-27T00:00:00Z'
+    slug: 'digital-fleet-management',
+    title: 'Innolease Digital Fleet Tools',
+    description: 'Exploring the capabilities of InnoFleet Manager and reporting tools.',
+    image: '/images/presentations/fleet-tools.webp'
+  },
+  {
+    slug: 'ev-transition-strategies',
+    title: 'Strategies for EV Fleet Transition',
+    description: 'Innolease guidance on navigating the shift to electric vehicles.',
+    image: '/images/presentations/ev-transition.webp'
   }
   // Add more presentations here as static data
 ]
 
-export default async function PresentationsPage({ params }: Props) {
-  const { locale } = await params;
-  await setupServerLocale(locale)
+export default async function PresentationsPage({ params: { locale } }: Props) {
   const t = await getTranslations('Presentations')
 
   const structuredData = {
@@ -72,12 +68,8 @@ export default async function PresentationsPage({ params }: Props) {
       '@type': 'PresentationDigitalDocument',
       headline: presentation.title,
       description: presentation.description,
-      image: presentation.preview_image,
+      image: presentation.image,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/presentations/${presentation.slug}`,
-      author: {
-        '@type': 'Organization',
-        name: 'LastBot Team'
-      }
     }))
   }
 
@@ -105,16 +97,15 @@ export default async function PresentationsPage({ params }: Props) {
                 className="group block"
               >
                 <article className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]">
-                  {presentation.preview_image && (
-                    <div className="relative h-48">
-                      <Image
-                        src={presentation.preview_image}
-                        alt={presentation.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
+                  <div className="relative h-48">
+                    <Image
+                      src={presentation.image}
+                      alt={presentation.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <div className="p-6">
                     <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-500">
                       {presentation.title}
@@ -125,18 +116,7 @@ export default async function PresentationsPage({ params }: Props) {
                       </p>
                     )}
                     <div className="mt-4 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                      <time dateTime={presentation.created_at}>
-                        {new Date(presentation.created_at).toLocaleDateString(locale, {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </time>
-                      <div className="flex items-center">
-                        <span className="text-sm">
-                          {presentation.slides_count} {t('slides')}
-                        </span>
-                      </div>
+                      <span className="text-blue-600 group-hover:underline">View Presentation &rarr;</span>
                     </div>
                   </div>
                 </article>

@@ -1,5 +1,50 @@
 # Technical Learnings and Best Practices
 
+## Vehicle Leasing Application Development for Innolease
+
+### Business Domain Modeling
+- Structure vehicle data models with comprehensive technical specifications
+- Implement contract models that support various leasing types (financial, flexible, maintenance)
+- Design database schemas to handle complex corporate hierarchies
+- Implement proper vehicle status lifecycle management
+
+### Vehicle Data Integration
+- Use standardized VIN (Vehicle Identification Number) lookups for vehicle data
+- Implement mileage tracking with validation rules
+- Design efficient vehicle search with multiple filtering options
+- Create views for vehicle availability and assignment status
+
+### Contract Management
+- Design flexible contract templates that support multiple leasing types
+- Implement proper end-of-lease workflows
+- Create validation rules for contract values based on vehicle type
+- Develop residual value calculation algorithms
+
+### Financial Operations
+- Implement invoice generation based on contract terms
+- Design payment tracking systems with overdue notifications
+- Create financial reporting with drill-down capabilities
+- Implement cost allocation across departments
+
+### Fleet Management
+- Design dashboards with real-time vehicle status
+- Implement maintenance scheduling and tracking
+- Create driver-vehicle assignment workflows
+- Develop fleet cost analytics and optimization tools
+
+### Service Provider Integration
+- Design standard API interfaces for maintenance providers (Vianor, Euromaster)
+- Implement service booking workflows
+- Create service quality tracking mechanisms
+- Design invoice matching for service costs
+
+### Multilingual Implementation for Finnish Market
+- Implement proper handling of Finnish special characters
+- Design UI/UX with Finnish business terminology
+- Ensure all documentation and contracts support Finnish
+- Add Swedish language support for bilingual requirements
+- Implement English as a secondary language for international clients
+
 ## Next.js 15 and React 19
 
 ### Server Components and Routing

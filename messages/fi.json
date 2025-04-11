@@ -1,332 +1,373 @@
 {
   "Index": {
     "hero": {
-      "title": "Rakenna fiksumpia verkkosovelluksia tekoälyllä",
-      "description": "Moderni Next.js-malli sisäänrakennetuilla tekoälyominaisuuksilla, kehitystyökaluilla ja parhailla käytännöillä skaalautuvien verkkosovellusten rakentamiseen.",
-      "backgroundAlt": "Abstrakti teknologia tausta",
-      "cta": "Näytä GitHubissa",
-      "docs": "Dokumentaatio"
+      "title": "Joustavaa ajoneuvoleasingia yrityksille",
+      "description": "Innolease tarjoaa kattavia yritysten ajoneuvoleasingratkaisuja ja kalustonhallintapalveluita räätälöitynä tarpeisiisi. Läpinäkyvä hinnoittelu ja toimintaa tehostavat digitaaliset työkalut.",
+      "backgroundAlt": "Yritysautojen kalusto",
+      "cta": "Pyydä tarjous",
+      "learnMore": "Lue lisää"
     },
-    "agentic": {
-      "title": "Agentic-kehityskehys",
-      "subtitle": "Cursor IDE:lle",
-      "description": "Laajenna ja paranna Cursorin composer agent -ominaisuuksia kattavalla kehysratkaisulla, joka tukee koko kehitystyötä alusta loppuun.",
-      "features": {
-        "title": "Parempi kehityskokemus",
-        "list": {
-          "rules": "Rakenteelliset kehityssäännöt ja -mallit",
-          "prompts": "Optimoidut kehotteet koodin luontiin",
-          "tools": "Integroituja kehitystyökaluja ja apuvälineitä",
-          "validation": "Automaattinen testaus ja validointi",
-          "docs": "Kattava dokumentaation generointi"
-        }
+    "leasing": {
+      "title": "Leasingratkaisut",
+      "description": "Valitse yrityksellesi parhaiten sopiva leasingratkaisu.",
+      "financial": {
+        "title": "Rahoitusleasing",
+        "description": "Rahoita vain ajoneuvo ilman kilometrirajoituksia. Hoidat itse huollot ja vastaat jäännösarvosta.",
+        "feature1": "Ei kilometrirajoituksia",
+        "feature2": "Asiakas huoltaa ajoneuvon itse",
+        "feature3": "Joustavat sopimuksen päättymisehdot",
+        "feature4": "Kilpailukykyinen rahoitus"
       },
-      "benefits": {
-        "title": "Keskeiset hyödyt",
-        "quality": "Parempi koodin laatu ja yhtenäisyys",
-        "completeness": "Laajempi ominaisuuksien kattavuus",
-        "efficiency": "Nopeutettu kehitystyönkulku",
-        "standards": "Vakiintuneiden koodausstandardien ja parhaiden käytäntöjen noudattaminen"
+      "flexible": {
+        "title": "Joustoleasing",
+        "description": "Huoltokustannukset sisältyvät yhteen laskuun, ja jäännösarvo perustuu markkinaennusteeseen.",
+        "feature1": "Huollot sisältyvät hintaan",
+        "feature2": "Markkinaperusteinen jäännösarvo",
+        "feature3": "Selkeä kuukausilaskutus",
+        "feature4": "Mahdollisuus jatkaa sopimusta"
+      },
+      "maintenance": {
+        "title": "Huoltoleasing",
+        "description": "Kaiken kattava kuukausihinta sisältää ennakoitavat ajoneuvokustannukset ja ennalta määritellyt palvelut.",
+        "feature1": "Kaikki sisältyy hintaan",
+        "feature2": "Kattava palvelupaketti",
+        "feature3": "Ennalta sovittu kilometrimäärä",
+        "feature4": "Täysin ennakoitavat kustannukset"
+      },
+      "mini": {
+        "title": "Minileasing",
+        "description": "Lyhytaikainen 1-12 kuukauden leasing sisältää ajoneuvon ja vakuutuksen tilapäisiin tarpeisiin.",
+        "feature1": "1-12 kk sopimukset",
+        "feature2": "Vakuutus sisältyy",
+        "feature3": "Ei pitkäaikaista sitoutumista",
+        "feature4": "Nopea saatavuus"
+      },
+      "cta": "Vertaile vaihtoehtoja"
+    },
+    "fleet": {
+      "title": "Kalustonhallinnan työkalut",
+      "description": "Hallitse koko ajoneuvokalustoasi tehokkaasti digitaalisilla työkaluilla.",
+      "manager": {
+        "title": "InnoFleet Manager",
+        "description": "Näe kaikki sopimukset, ajoneuvot, kulut ja käyttäjät yhdessä paikassa."
+      },
+      "reports": {
+        "title": "Päästö- ja kalustoraportointi",
+        "description": "Seuraa ympäristövaikutuksia ja yksityiskohtaista kalustoanalytiikkaa."
+      },
+      "policy": {
+        "title": "Yrityksen autopolitiikka ja hankinta",
+        "description": "Optimoi sopimuksia ja hallitse ajoneuvojen hankintaa vaivattomasti."
+      },
+      "driver": {
+        "title": "Kuljettajan työkalut",
+        "description": "Tarjoa työntekijöillesi laskureita, vertailuja ja itsepalvelutoimintoja."
+      },
+      "cta": "Tutustu työkaluihin"
+    },
+    "testimonials": {
+      "title": "Suomalaisten yritysten luottokumppani",
+      "testimonial1": {
+        "quote": "Innoleasen joustavat leasingvaihtoehdot ja digitaaliset työkalut ovat merkittävästi yksinkertaistaneet kalustonhallintaamme. Heidän läpinäkyvä toimintatapansa tarkoittaa, ettei yllätyksiä tule.",
+        "author": "Matti Virtanen",
+        "company": "Tech Solutions Oy"
+      },
+      "testimonial2": {
+        "quote": "Kaiken kattava huoltoleasingpaketti antaa meille täydellisen kustannusten ennakoitavuuden. Heidän palveluverkostonsa on erinomainen ja kattaa koko Suomen.",
+        "author": "Liisa Korhonen",
+        "company": "Nordic Logistics Oy"
+      },
+      "testimonial3": {
+        "quote": "Siirtyminen sähköautoihin sujui vaivattomasti Innoleasen avulla. Heidän sähköautojen vertailutyökalunsa auttoivat meitä tekemään perusteltuja päätöksiä.",
+        "author": "Juha Mäkinen",
+        "company": "Vihreä Innovaatio Oy"
       }
+    },
+    "partners": {
+      "title": "Palveluverkostomme kumppanit",
+      "description": "Valtakunnallinen kattavuus huolloille, renkaille ja katsastuksille luotettavien kumppaniemme kautta.",
+      "vianor": "Rengaspalvelut ja kausivaihdot",
+      "euromaster": "Kattavat huoltopalvelut",
+      "katsastus": "Ajoneuvojen katsastuspalvelut",
+      "coverage": "Yli 800 huoltopistettä ympäri Suomen"
+    },
+    "environmental": {
+      "title": "Ympäristövastuu",
+      "description": "Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla.",
+      "feature1": "Laaja valikoima sähköautoja",
+      "feature2": "Yksityiskohtainen päästöraportointi",
+      "feature3": "Latausratkaisut sähköautoille",
+      "feature4": "Neuvontaa kaluston sähköistämiseen",
+      "cta": "Kohti vihreämpää kalustoa Innoleasen kanssa"
     },
     "cta": {
-      "button": "KATSO GITHUBISSA"
+      "title": "Valmiina optimoimaan yrityksesi autokanta?",
+      "description": "Ota yhteyttä ja pyydä tarjous yrityksesi tarpeisiin sopivasta leasingratkaisusta.",
+      "button": "Pyydä tarjous",
+      "contact": "Tai soita meille +358 50 123 4567"
     },
     "meta": {
-      "title": "Tekoälyn voimin toimiva Next.js-malli | Modernia verkkokehitystä",
-      "description": "Moderni Next.js-malli, jossa on sisäänrakennettu tekoälytuki, Supabase-integraatio ja kehitystyökaluja skaalautuvien verkkosovellusten rakentamiseen."
-    },
-    "description": "LastBot auttaa yrityksiä siirtymään tekoälykeskeiseen toimintaan ihmisläheisyyden säilyttäen. Tarjoamme nopean tavan toteuttaa tekoälyn integrointia, rakentaa aitoja yhteyksiä ja tarjota itsenäisiä ratkaisuja.",
-    "features": {
-      "title": "Kaikki mitä tarvitset",
-      "description": "Laaja valikoima työkaluja ja ominaisuuksia kehitystyön vauhdittamiseksi.",
-      "ai": {
-        "title": "Tekoälyintegraatio",
-        "description": "Sisäänrakennettu tekoäly Google Gemini-, Recraft- ja Tavily-rajapinnoilla sisällöntuotantoon, kuvien luomiseen ja älykkääseen hakuun."
-      },
-      "tools": {
-        "title": "Kehitystyökalut",
-        "description": "Modernit kehitystyökalut kuvien optimointiin, HTML:n muuntamiseen Markdowniksi ja tehokkaaseen tiedostohallintaan."
-      },
-      "database": {
-        "title": "Tietokanta & Auth",
-        "description": "Saumaton Supabase-integraatio kirjautumiseen, reaaliaikaiseen dataan ja suojattuihin API-rajapintoihin."
-      },
-      "i18n": {
-        "title": "Kansainvälistäminen",
-        "description": "Sisäänrakennettu useiden kielten tuki next-intl:n avulla ja tehokas käännösten hallinta."
-      },
-      "performance": {
-        "title": "Suorituskyky",
-        "description": "Optimoitu nopeuteen palvelinkomponenttien, reunafunktioiden ja tehokkaiden välimuististrategioiden avulla."
-      },
-      "security": {
-        "title": "Turvallisuus",
-        "description": "Parhaat käytännöt turvalliseen tunnistautumiseen, API-suojaukseen ja datan käsittelyyn."
-      }
-    },
-    "coreFeatures": {
-      "title": "Keskeiset ominaisuudet",
-      "description": "Kaikki tarvittava kattavan verkkosovelluksen rakentamiseen",
-      "auth": {
-        "title": "Tunnistautuminen & käyttäjät",
-        "description": "Täydellinen käyttäjähallintajärjestelmä Supabase Auth -integraatiolla, sosiaalikirjautumisilla, suojatuilla reiteillä ja roolipohjaisella käyttöoikeushallinnalla.",
-        "feature1": "Sosiaalikirjautuminen",
-        "feature2": "Suojatut reitit",
-        "feature3": "Roolipohjaiset oikeudet",
-        "feature4": "Käyttäjäprofiilit"
-      },
-      "content": {
-        "title": "Sisällönhallinta",
-        "description": "Kattava sisällönhallinta tekoälyavusteisella sisällön luonnilla ja optimoinnilla.",
-        "feature1": "Tekoälyavusteinen blogijärjestelmä",
-        "feature2": "Mediakirjasto tekoälyavusteisella generoinnilla",
-        "feature3": "Materiaalin optimointiputki",
-        "feature4": "Laskeutumissivujen rakentaja",
-        "feature5": "SEO-optimointi"
-      },
-      "i18n": {
-        "title": "Kansainvälistäminen",
-        "description": "Sisäänrakennettu tuki useille kielille ja sisällön lokalisaatiolle.",
-        "feature1": "Usean kielen tuki",
-        "feature2": "Käännösten hallinta",
-        "feature3": "Kielen vaihto",
-        "feature4": "Sisällön lokalisaatio"
-      },
-      "analytics": {
-        "title": "Analytiikka",
-        "description": "Seuraa ja analysoi käyttäjien toimintaa ja sovelluksen suorituskykyä.",
-        "feature1": "Sivukatselujen seuranta",
-        "feature2": "Tapahtumien seuranta",
-        "feature3": "Istuntojen hallinta",
-        "feature4": "Käyttäjäpolun analysointi"
-      },
-      "booking": {
-        "title": "Varausjärjestelmä",
-        "description": "Täydellinen ajanvarausjärjestelmä kalenterinhallinnalla.",
-        "feature1": "Ajanvaraus",
-        "feature2": "Kalenterinhallinta",
-        "feature3": "Aikavyöhyketuki",
-        "feature4": "Sähköposti-ilmoitukset"
-      },
-      "realtime": {
-        "title": "Reaaliaikaiset ominaisuudet",
-        "description": "Lähetysajan päivitykset ja yhteiskäyttöominaisuudet Supabasen avulla.",
-        "feature1": "Reaaliaikaiset päivitykset",
-        "feature2": "Datan synkronointi",
-        "feature3": "Läsnäolon näyttimet",
-        "feature4": "Yhteismuokkaus"
-      },
-      "technical": {
-        "title": "Tekniset ominaisuudet",
-        "description": "Rakennettu moderneilla teknologioilla ja parhailla käytännöillä.",
-        "feature1": "Moderni käyttöliittymä Tailwind CSS:llä",
-        "feature2": "Vaalea/tumma tila -tuki",
-        "feature3": "Tyypiturvallinen kehitys",
-        "feature4": "Suorituskyvyn optimointi",
-        "feature5": "Kattavat testit",
-        "feature6": "Rivitason suojaus",
-        "feature7": "API-suojaus",
-        "feature8": "Reaaliaikaiset tilaukset"
-      }
-    },
-    "getStarted": {
-      "title": "Aloita rakentaminen jo tänään",
-      "description": "Aloita seuraava projektisi minuuteissa, ei tunneissa.",
-      "step1": "Kloonaa repositorio ja asenna riippuvuudet",
-      "step2": "Määritä ympäristömuuttujat ja API-avaimet",
-      "step3": "Aloita kehitys sisäänrakennettujen tekoälyominaisuuksien avulla",
-      "cta": "Katso GitHubista",
-      "imageAlt": "Kehitystyökalut ja ominaisuudet -kuvitus"
+      "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
+      "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut. Läpinäkyvä hinnoittelu ja tehokkaat digitaaliset työkalut."
     }
   },
   "Footer": {
     "rights": "Kaikki oikeudet pidätetään.",
-    "adminLogin": "Ylläpitäjän kirjautuminen",
-    "privacy": "Tietosuojakäytäntö",
+    "adminLogin": "Ylläpitoon kirjautuminen",
+    "privacy": "Tietosuojaseloste",
     "contact": "Yhteystiedot",
     "terms": "Käyttöehdot",
     "presentations": "Esitykset"
   },
   "About": {
-    "title": "Tietoa LastBotista",
-    "description": "Olemme tekoälyn asiantuntijoiden tiimi, joka keskittyy tekemään tekoälystä kaikkien yritysten ulottuvilla ja hyödyllistä.",
-    "about": {
-      "cta": "ALOITA NYT"
+    "title": "Tietoa Innoleasesta",
+    "subtitle": "Kumppanisi joustavissa ja tehokkaissa ajoneuvojen leasingratkaisuissa.",
+    "description": "Tutustu Innoleaseen, yhteyteemme Autolle.com-konserniin, arvoihimme, tiimiimme ja sitoutumiseemme tarjota ensiluokkaisia leasingpalveluita.",
+    "history": {
+      "title": "Tarinamme ja yhteys Autolle.comiin",
+      "paragraph1": "Innolease Oy on suomalainen ajoneuvojen leasingpalveluihin erikoistunut kasvuyritys. Osana arvostettua Autolle.com-konsernia hyödynnämme laajaa autoalan asiantuntemusta tarjotaksemme innovatiivisia ja asiakaslähtöisiä leasingratkaisuja.",
+      "paragraph2": "Toimintamme perustuu Autolle.comin vahvaan markkina-asemaan ja laatuun sitoutumiseen. Tämä mahdollistaa luotettavien ja joustavien leasingvaihtoehtojen tarjoamisen yritysten tarpeisiin kaikkialla Suomessa.",
+      "autolleButton": "Tutustu Autolle.comiin",
+      "imageAlt": "Autolle.com-konsernin toimistorakennus"
     },
-    "news": {
-      "title": "Uutiset",
-      "viewAll": "Katso kaikki uutiset",
-      "readMore": "Lue lisää"
-    },
-    "contact": {
-      "title": "Ota yhteyttä",
-      "description": "Ota meihin yhteyttä. Kuulemme mielellämme sinusta ja keskustelemme, kuinka voimme auttaa yritystäsi tekoälyn käyttöönotossa.",
-      "info": {
-        "title": "Yhteystiedot"
+    "values": {
+      "title": "Arvomme",
+      "value1": {
+        "title": "Asiakaslähtöisyys",
+        "description": "Ymmärrämme ja vastaamme asiakkaidemme yksilöllisiin tarpeisiin räätälöidyillä ratkaisuilla."
       },
-      "address": {
-        "title": "Osoite",
-        "street": "Kimmeltie 10",
-        "postal": "90630 Oulu",
-        "country": "Suomi"
+      "value2": {
+        "title": "Joustavuus",
+        "description": "Tarjoamme mukautuvia leasingvaihtoehtoja, jotka joustavat liiketoimintasi mukana."
       },
-      "website": "Verkkosivusto",
-      "email": "Sähköposti",
-      "social": {
-        "title": "Seuraa meitä"
-      },
-      "form": {
-        "title": "Lähetä meille viesti"
+      "value3": {
+        "title": "Luotettavuus",
+        "description": "Autolle.com-konsernin tukemana varmistamme luotettavan palvelun ja laadukkaat ajoneuvot."
       }
     },
-    "form": {
-      "title": "Lähetä meille viesti"
+    "team": {
+      "title": "Johtoryhmämme",
+      "title1": "Toimitusjohtaja",
+      "title2": "Myyntijohtaja",
+      "title3": "Operatiivinen johtaja"
+    },
+    "coverage": {
+      "title": "Valtakunnallinen palveluverkosto",
+      "description": "Strategisesti sijoittuneiden kumppaneiden ja vahvan verkoston avulla Innolease tarjoaa kattavan palveluverkoston koko Suomessa. Varmistamme tuen siellä, missä kalustosi liikkuu.",
+      "mapPlaceholder": "Suomen kartta palvelupisteillä",
+      "mapAlt": "Innoleasen palveluverkoston kartta Suomessa"
+    },
+    "stats": {
+      "fleetSize": "5000+",
+      "fleetSizeLabel": "Hallinnoitua ajoneuvoa",
+      "satisfactionRate": "98",
+      "satisfactionRateLabel": "Asiakastyytyväisyys"
+    },
+    "partners": {
+      "title": "Luotetut kumppanimme"
+    },
+    "cta": {
+      "title": "Valmiina optimoimaan kalustosi?",
+      "description": "Ota yhteyttä Innoleaseen jo tänään. Keskustellaan tarpeistasi ja löydetään paras leasingratkaisu yrityksellesi.",
+      "button": "Ota yhteyttä"
     },
     "meta": {
-      "title": "Tietoa | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-      "description": "Tutustu LastBotiin, tehtäväämme inhimillistää tekoälyteknologiaa, asiantuntijatiimiimme ja sitoutumiseemme auttaa yrityksiä menestymään tekoälyaikakaudella."
+      "title": "Tietoa | Innolease - Joustavat leasingratkaisut",
+      "description": "Tutustu Innoleaseen, missioomme tarjota tehokkaita ja räätälöityjä leasingratkaisuja, asiantuntijatiimiimme ja sitoutumiseemme suomalaisiin yrityksiin."
+    }
+  },
+  "LeasingSolutions": {
+    "meta": {
+      "title": "Leasingratkaisut | Innolease",
+      "description": "Tutustu kattaviin yritysautojen leasingratkaisuihimme: rahoitusleasing, joustoleasing, huoltoleasing ja minileasing."
+    },
+    "hero": {
+      "title": "Leasingratkaisut kaikkiin yritystarpeisiin",
+      "description": "Löydä täydellinen rahoitusmalli yrityksesi autokannalle – yksinkertaisesta rahoitusleasingista aina täysin kattaviin huoltopaketteihin."
+    },
+    "financialLeasing": {
+      "title": "Rahoitusleasing",
+      "subtitle": "Joustavuutta ilman suurta sitoutumista",
+      "description": "Rahoitusleasingratkaisumme tarjoaa selkeän ajoneuvorahoituksen ilman kilometrirajoituksia. Hoidat itse huollot ja vastaat jäännösarvosta, mikä antaa sinulle täyden hallinnan ajoneuvon käytöstä.",
+      "features": {
+        "title": "Tärkeimmät ominaisuudet",
+        "feature1": "Ei kilometrirajoituksia",
+        "feature2": "Ajoneuvo yrityksen taseessa",
+        "feature3": "Asiakas järjestää huollot itse",
+        "feature4": "Asiakas kantaa jäännösarvoriskin",
+        "feature5": "Mahdollisuus lunastaa auto sopimuskauden päätyttyä"
+      },
+      "idealFor": {
+        "title": "Sopii erityisesti yrityksille, jotka",
+        "type1": "Hallinnoivat kalustoaan itse",
+        "type2": "Ajavat paljon",
+        "type3": "Haluavat omistuksen kaltaisen ratkaisun taseeseen",
+        "type4": "Haluavat täyden hallinnan ajoneuvoistaan"
+      },
+      "calculator": {
+        "title": "Laske kuukausierä",
+        "vehicle": "Ajoneuvon hinta (€)",
+        "downpayment": "Käsiraha (€)",
+        "term": "Leasingaika (kk)",
+        "residual": "Arvioitu jäännösarvo (€)",
+        "interest": "Korko (%)",
+        "calculate": "Laske kuukausierä",
+        "result": "Arvioitu kuukausierä:",
+        "disclaimer": "Laskelma on suuntaa-antava. Ota yhteyttä saadaksesi tarkan tarjouksen."
+      }
+    },
+    "flexibleLeasing": {
+      "title": "Joustoleasing",
+      "subtitle": "Tasapainoista hallintaa ja huoltoetuja",
+      "description": "Joustoleasingratkaisumme yhdistää rahoituksen ja kattavat huoltopalvelut yhteen kuukausilaskuun. Nauti ennakoitavista huoltokuluista ja säilytä joustavuus auton käytössä.",
+      "features": {
+        "title": "Tärkeimmät ominaisuudet",
+        "feature1": "Huoltokulut yhdellä laskulla",
+        "feature2": "Markkinaperusteinen jäännösarvoarvio",
+        "feature3": "Kilometrimäärää voi muuttaa sopimuskaudella",
+        "feature4": "Sujuvat sopimuksen jatkomahdollisuudet",
+        "feature5": "Joustavuutta auton vaihtoon"
+      },
+      "idealFor": {
+        "title": "Sopii erityisesti yrityksille, jotka",
+        "type1": "Hakevat tehokkuutta keskisuureen kalustoon",
+        "type2": "Tarvitsevat joustavuutta vaihteleviin ajotarpeisiin",
+        "type3": "Arvostavat budjetin ennakoitavuutta",
+        "type4": "Siirtyvät omistuksesta leasingiin"
+      },
+      "caseStudy": {
+        "title": "Asiakastarina: Tech Solutions Oy",
+        "challenge": "Tech Solutions Oy tarvitsi joustavan kalustoratkaisun huoltokattavuudella, mutta ajomäärät vaihtelivat autokohtaisesti.",
+        "solution": "Innolease tarjosi joustoleasingpaketin, jossa kilometrimäärää saattoi säätää neljännesvuosittain, sekä kattavan huolto-ohjelman.",
+        "result": "Kalustokulut laskivat 18 %, autojen käyttöaste parani ja huoltohallinnointiin käytetty aika väheni.",
+        "quote": "Mahdollisuus muokata sopimuksia liiketoiminnan tarpeiden mukaan on ollut korvaamatonta kasvavalle yrityksellemme.",
+        "person": "Matti Virtanen, Kalustopäällikkö"
+      }
+    },
+    "maintenanceLeasing": {
+      "title": "Huoltoleasing",
+      "subtitle": "Kattava ja huoleton ratkaisu",
+      "description": "Huoltoleasing tarjoaa täydellisen mielenrauhan kiinteällä kuukausimaksulla. Se kattaa kaiken rahoituksesta kattavaan huoltoon, renkaisiin ja palveluihin. Täysin vaivaton kalustoratkaisu.",
+      "features": {
+        "title": "Tärkeimmät ominaisuudet",
+        "feature1": "Kaiken kattava kiinteä kuukausihinta",
+        "feature2": "Kattava huoltopaketti (huollot, renkaat, korjaukset)",
+        "feature3": "Valtakunnallinen huoltoverkosto",
+        "feature4": "Sijaisautopalvelu tarvittaessa",
+        "feature5": "Täysi kustannusten ennakoitavuus"
+      },
+      "idealFor": {
+        "title": "Sopii erityisesti yrityksille, jotka",
+        "type1": "Haluavat täysin ennakoitavat kustannukset",
+        "type2": "Eivät halua hallinnoida kalustoa itse",
+        "type3": "Toimivat laajasti Suomessa",
+        "type4": "Arvostavat vaivattomuutta joustavuuden sijaan"
+      },
+      "comparison": {
+        "title": "Vertaile leasingvaihtoehtoja",
+        "option1": "Rahoitusleasing",
+        "option2": "Joustoleasing",
+        "option3": "Huoltoleasing",
+        "financing": "Rahoitus",
+        "maintenance": "Huolto",
+        "tires": "Renkaat",
+        "repairs": "Korjaukset",
+        "insurance": "Vakuutus",
+        "roadside": "Tiepalvelu",
+        "replacement": "Sijaisauto",
+        "flexibility": "Sopimusjoustavuus",
+        "included": "Sisältyy",
+        "optional": "Valinnainen",
+        "excluded": "Ei sisälly",
+        "high": "Korkea",
+        "medium": "Keskitaso",
+        "low": "Matala"
+      }
+    },
+    "miniLeasing": {
+      "title": "Minileasing",
+      "subtitle": "Lyhytaikaista joustavuutta heti saatavilla",
+      "description": "Minileasingratkaisumme tarjoaa lyhytaikaista autoleasingia 1–12 kuukaudeksi. Se sisältää auton, huollon ja vakuutuksen yhdessä paketissa. Täydellinen tilapäisiin tarpeisiin ilman pitkäaikaista sitoutumista.",
+      "features": {
+        "title": "Tärkeimmät ominaisuudet",
+        "feature1": "Lyhyet sopimukset (1-12 kk)",
+        "feature2": "Vakuutus ja huolto sisältyvät",
+        "feature3": "Ei pitkäaikaista sitoutumista",
+        "feature4": "Nopea auton toimitus (usein jopa samana päivänä)",
+        "feature5": "Laaja valikoima heti saatavilla olevia autoja"
+      },
+      "idealFor": {
+        "title": "Sopii erityisesti",
+        "type1": "Projektiluontoiseen autotarpeeseen",
+        "type2": "Kausivaihteluihin",
+        "type3": "Uusien työntekijöiden koeajalle",
+        "type4": "Autotyyppien testaamiseen ennen pitkäaikaista sopimusta"
+      },
+      "pricing": {
+        "title": "Esimerkkihinnoittelu",
+        "category1": "Henkilöautot",
+        "price1": "Alk. 590 €/kk",
+        "category2": "Pakettiautot ja hyötyajoneuvot",
+        "price2": "Alk. 790 €/kk",
+        "category3": "Sähköautot",
+        "price3": "Alk. 890 €/kk",
+        "category4": "Premium-autot",
+        "price4": "Alk. 1190 €/kk",
+        "note": "Hinnat sisältävät huollon, vakuutuksen ja 2000 km/kk. Lisäkilometrit mahdollisia."
+      }
+    },
+    "faq": {
+      "title": "Usein kysytyt kysymykset",
+      "q1": "Mikä on lyhin mahdollinen leasingaika?",
+      "a1": "Minileasing alkaa yhdestä kuukaudesta. Muut leasingratkaisumme alkavat tyypillisesti 12 kuukaudesta.",
+      "q2": "Voiko leasingtyyppiä vaihtaa kesken sopimuskauden?",
+      "a2": "Kyllä, tarjoamme joustavuutta muokata leasingratkaisua liiketoiminnan tarpeiden muuttuessa sopimusehtojen puitteissa.",
+      "q3": "Onko sähköautoja saatavilla kaikissa leasingtyypeissä?",
+      "a3": "Kyllä, tarjoamme sähkö-, hybridi- ja polttomoottoriautoja kaikissa leasingratkaisuissamme.",
+      "q4": "Kuinka laaja huoltoverkostonne on?",
+      "a4": "Teemme yhteistyötä yli 800 huoltopisteen kanssa ympäri Suomen, mukaan lukien Vianor-, Euromaster- ja A-Katsastus-asemat.",
+      "q5": "Voiko vakuutuksen sisällyttää leasingpakettiin?",
+      "a5": "Vakuutus kuuluu oletuksena minileasingiin. Sen voi lisätä valinnaisena myös muihin leasingratkaisuihimme.",
+      "q6": "Mitä tapahtuu leasingkauden päättyessä?",
+      "a6": "Voit palauttaa auton, jatkaa sopimusta tai joissakin tapauksissa lunastaa auton sen jäännösarvolla.",
+      "q7": "Voiko yhteen sopimukseen sisällyttää useita autotyyppejä?",
+      "a7": "Kyllä, tarjoamme kalustoratkaisuja, jotka voivat sisältää erilaisia autotyyppejä yhden pääsopimuksen alla erillisillä ehdoilla."
+    },
+    "cta": {
+      "title": "Valmiina löytämään parhaan leasingratkaisun?",
+      "description": "Ota yhteyttä leasingasiantuntijoihimme, niin keskustellaan tarpeistasi ja tehdään tarjous.",
+      "button": "Pyydä tarjous",
+      "contact": "Tai soita meille +358 50 123 4567"
     }
   },
   "Blog": {
-    "title": "Blogi",
-    "description": "Viimeisimmät oivallukset, tutkimukset ja uutiset LastBotilta",
-    "readMore": "Lue lisää",
-    "newestPost": "Uusin artikkeli",
-    "publishedOn": "Julkaistu",
-    "noPosts": "Ei vielä julkaisuja. Ole ensimmäinen joka kirjoittaa!",
-    "by": "kirjoittanut",
-    "tags": "Tunnisteet",
-    "relatedPosts": "Aiheeseen liittyvät julkaisut",
-    "similarPosts": "Samankaltaiset julkaisut",
-    "backToBlog": "Takaisin blogiin",
-    "readingTime": "{minutes} min lukuaika",
-    "sharePost": "Jaa tämä julkaisu",
-    "admin": {
-      "title": "Blogijulkaisut",
-      "newPost": "Uusi julkaisu",
-      "editPost": "Muokkaa",
-      "deletePost": "Poista",
-      "confirmDelete": "Haluatko varmasti poistaa tämän julkaisun?",
-      "save": "Tallenna",
-      "saving": "Tallennetaan...",
-      "cancel": "Peruuta",
-      "generating": "Luodaan...",
-      "generateWithAI": "Luo tekoälyn avulla",
-      "generateImage": "Luo kuva",
-      "publishPost": "Julkaise",
-      "unpublishPost": "Poista julkaisu",
-      "fields": {
-        "title": "Otsikko",
-        "slug": "URL-osoitteen osa",
-        "content": "Sisältö",
-        "excerpt": "Lyhennelmä",
-        "metaDescription": "Meta-kuvaus",
-        "featuredImage": "Kuva esiin",
-        "tags": "Tunnisteet",
-        "locale": "Kielikoodi",
-        "targetLanguages": "Kohdekielet",
-        "targetLanguagesHelp": "Valitse kielet automaattiseen käännökseen",
-        "targetLanguagesOptional": "(valinnainen)",
-        "prompt": "Blogitekstin kehotus",
-        "promptPlaceholder": "Kirjoita kehotus blogitekstin sisällön luomiseen...",
-        "detectedLanguage": "(havaittu)"
-      },
-      "editor": {
-        "bold": "Lihavointi",
-        "italic": "Kursivointi",
-        "strike": "Yliviivaus",
-        "code": "Koodi",
-        "heading": "Otsikko",
-        "bulletList": "Luettelomerkit",
-        "orderedList": "Numeroitu luettelo",
-        "quote": "Lainaus",
-        "image": "Lisää kuva"
-      },
-      "saveSuccess": "Julkaisu tallennettu onnistuneesti",
-      "saveError": "Julkaisun tallennus epäonnistui",
-      "translationSuccess": "Käännökset luotiin onnistuneesti",
-      "translationError": "Käännösten luonti epäonnistui",
-      "deleteSuccess": "Julkaisu poistettu onnistuneesti",
-      "deleteError": "Julkaisun poisto epäonnistui",
-      "publishSuccess": "Julkaisu julkaistu onnistuneesti",
-      "publishError": "Julkaisun julkaiseminen epäonnistui",
-      "unpublishSuccess": "Julkaisu poistettu julkaisusta onnistuneesti",
-      "unpublishError": "Julkaisun poistaminen julkaisusta epäonnistui",
-      "research": {
-        "title": "Verkkotutkimus",
-        "search": "Hae",
-        "searching": "Haetaan...",
-        "noResults": "Ei tuloksia",
-        "error": "Haku epäonnistui",
-        "retry": "Yritä uudelleen",
-        "use": "Käytä",
-        "useResult": "Käytä tulosta",
-        "searchPlaceholder": "Etsi verkosta aiheeseen liittyvää sisältöä...",
-        "results": "Tulokset",
-        "source": "Lähde",
-        "analyze": "Analysoi",
-        "analyzing": "Analysoidaan...",
-        "summary": "Yhteenveto",
-        "keyPoints": "Keskeiset kohdat",
-        "scope": {
-          "small": "Pieni (3 tulosta)",
-          "medium": "Keskikokoinen (5 tulosta)",
-          "large": "Suuri (8 tulosta)",
-          "huge": "Erittäin suuri (10 tulosta)"
-        },
-        "selected": "{count} valittu",
-        "useSelected": "Käytä valitut",
-        "extending": "Laajennetaan...",
-        "extend": "Laajenna",
-        "error": {
-          "search": "Tutkimus epäonnistui",
-          "extend": "Sisällön laajentaminen epäonnistui"
-        },
-        "analysis": {
-          "title": "Analyysi",
-          "readability": "Luettavuus",
-          "confidence": "Luottamustaso",
-          "style": "Kirjoitustyyli",
-          "audience": "Kohdeyleisö"
-        },
-        "topics": {
-          "title": "Aihealueet & Tunteet",
-          "sentiment": "Tunne",
-          "topics": "Aihealueet"
-        }
-      }
-    },
-    "comments": "Kommentit",
-    "noComments": "Ei kommentteja vielä. Ole ensimmäinen kommentoija!",
-    "loginToComment": "Kirjaudu sisään jättääksesi kommentin.",
-    "signIn": "Kirjaudu sisään",
-    "yourComment": "Kommenttisi",
-    "commentPlaceholder": "Kirjoita kommenttisi tähän...",
-    "submitComment": "Lähetä kommentti",
-    "submittingComment": "Lähetetään...",
-    "deleteComment": "Poista",
-    "fetchCommentsError": "Kommenttien lataus epäonnistui. Yritä uudelleen.",
-    "deleteCommentError": "Kommentin poistaminen epäonnistui. Yritä uudelleen.",
+    "title": "Innolease Blogi",
+    "description": "Pysy ajan tasalla ajoneuvojen leasingista, kalustonhallinnan trendeistä ja yritysuutisista.",
     "subjects": {
-      "all": "Kaikki",
-      "news": "Uutiset",
-      "research": "Tutkimus",
-      "generative-ai": "Generatiivinen tekoäly",
-      "case-stories": "Case-kertomukset"
+      "all": "Kaikki artikkelit",
+      "leasing-tips": "Leasingvinkit",
+      "ev": "Sähköautoilu",
+      "case-stories": "Asiakastarinat",
+      "news": "Yritysuutiset",
+      "research": "Alan tutkimus"
     },
-    "latestPost": "Uusin julkaisu",
-    "meta": {
-      "title": "Blogi | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-      "description": "Tutustu tuoreimpiin oivalluksiin, trendeihin ja menestystarinoihin tekoälyn integroinnissa, digitaalisen muutoksen edistämisessä ja ihmiskeskeisissä teknologiaratkaisuissa."
-    }
+    "noPostsFound": "Artikkeleita ei löytynyt",
+    "noPostsDescription": "Valintaasi vastaavia blogiartikkeleita ei löytynyt. Kokeile tarkastella kaikkia artikkeleita.",
+    "viewAllPosts": "Näytä kaikki artikkelit",
+    "readMore": "Lue lisää",
+    "backToBlog": "Takaisin blogiin",
+    "notFound": "Artikkelia ei löytynyt",
+    "notFoundDescription": "Valitettavasti etsimääsi blogiartikkelia ei löytynyt.",
+    "similarPosts": "Lue myös nämä",
+    "publishedOn": "Julkaistu"
   },
   "Navigation": {
-    "brand": "LastBot",
+    "brand": "Innolease",
     "home": "Etusivu",
-    "about": "Tietoa",
+    "about": "Tietoa meistä",
     "blog": "Blogi",
-    "book": "Varaa aika",
+    "book": "Varaa puhelu",
+    "leasing_solutions": "Leasing-ratkaisut",
     "contact": "Yhteystiedot",
     "admin_link": "Ylläpito",
     "analytics": "Analytiikka",
@@ -355,10 +396,7 @@
       "calendar": "Kalenteri"
     },
     "account": {
-      "title": "Oma tili",
-      "settings": "Asetukset",
-      "security": "Turvallisuus",
-      "notifications": "Ilmoitukset"
+      "title": "Käyttäjätili"
     },
     "solutions": "Ratkaisut"
   },
@@ -376,7 +414,7 @@
     "alreadyHaveAccount": "Onko sinulla jo tili?",
     "redirecting": "Ohjataan ylläpitoon...",
     "loading": "Ladataan...",
-    "accountUsage": "Tämä tili on tarkoitettu LastBot-sivuston ominaisuuksille, kuten kommentoinnille. Lisää ominaisuuksia on tulossa pian.",
+    "accountUsage": "Tämä tili on tarkoitettu Innolease-sivuston toimintoihin. Lisää ominaisuuksia on tulossa pian.",
     "authError": {
       "title": "Tunnistautumisvirhe",
       "description": "Tunnistautumisessa tapahtui virhe. Yritä kirjautua uudelleen.",
@@ -972,8 +1010,8 @@
         "general": "Viestin lähetys epäonnistui. Yritä uudelleen."
       },
       "meta": {
-        "title": "Yhteys | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-        "description": "Ota yhteyttä LastBotiin keskustellaksesi tekoälyn integrointitarpeistasi. Varaa tapaaminen, tutustu toimipisteisiimme tai ota yhteyttä tukipalveluidemme kautta."
+        "title": "Yhteystiedot | Innolease - Leasing & Kalustonhallinta",
+        "description": "Ota yhteyttä Innoleaseen keskustellaksesi leasingtarpeistasi. Varaa tapaaminen, etsi toimipisteemme tai ota yhteyttä tukeen."
       }
     }
   },
@@ -1194,5 +1232,9 @@
       "label": "Valitse kieli",
       "ariaLabel": "Vaihda sivuston kieli"
     }
+  },
+  "meta": {
+    "title": "Innolease Blogi",
+    "description": "Uusimmat uutiset, näkemykset ja vinkit ajoneuvojen leasingista ja kalustonhallinnasta Innoleaselta."
   }
 }

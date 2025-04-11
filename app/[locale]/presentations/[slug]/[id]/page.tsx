@@ -5,12 +5,14 @@ import { setupServerLocale } from '@/app/i18n/server-utils'
 import { generateLocalizedMetadata } from '@/utils/metadata'
 import StructuredData from '@/components/structured-data'
 import PresentationViewer from '@/app/components/presentation/PresentationViewer'
+import { Metadata } from 'next'
 
 interface Props {
-  params: Promise<{
+  params: {
     locale: Locale
     slug: string
-  }>
+    id: string
+  }
 }
 
 interface Slide {
@@ -150,53 +152,56 @@ const presentations: PresentationsData = {
   // Add more presentations here as static data
 }
 
-export async function generateMetadata({ params }: Props) {
-  const { locale, slug } = await params;
-  const t = await getTranslations('Presentations')
-  const presentation = presentations[slug]
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = params.locale;
+  const slug = params.slug;
+  const slideId = params.id;
+  const presentation = presentations[slug];
+  const slide = presentation?.slides.find(s => s.id.toString() === slideId);
 
-  if (!presentation) {
-    return {}
+  if (!presentation || !slide) {
+    return generateLocalizedMetadata({ 
+      locale, 
+      namespace: 'Presentations.meta', 
+      title: 'Presentation Slide Not Found' 
+    }); 
   }
 
-  return generateLocalizedMetadata(locale, presentation.title, {
-    title: presentation.title,
-    description: presentation.description,
-    type: 'website',
-    canonicalUrl: `/presentations/${slug}`,
-    image: presentation.preview_image
-  })
+  return generateLocalizedMetadata({ 
+    locale, 
+    namespace: 'Presentations.slideMeta', 
+    title: slide.title,
+    description: presentation.title,
+    imageUrl: slide.background_image,
+    path: `/presentations/${slug}/${slideId}`,
+    type: 'article' 
+  });
 }
 
-export default async function PresentationPage({ params }: Props) {
-  const { locale, slug } = await params;
-  await setupServerLocale(locale)
-  const t = await getTranslations('Presentations')
-  const presentation = presentations[slug]
+export default async function PresentationSlidePage({ params }: Props) {
+  const locale = params.locale;
+  const slug = params.slug;
+  const slideId = params.id;
+  const presentation = presentations[slug];
+  const slide = presentation?.slides.find(s => s.id.toString() === slideId);
 
-  if (!presentation) {
-    notFound()
+  if (!slide || !presentation) {
+    notFound();
   }
 
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'PresentationDigitalDocument',
-    name: presentation.title,
-    description: presentation.description,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/presentations/${slug}`,
-    image: presentation.preview_image,
+    '@type': 'Article',
+    headline: slide.title,
+    image: slide.background_image,
     publisher: {
       '@type': 'Organization',
-      name: 'LastBot Inc',
+      name: 'Innolease Oy',
       logo: {
         '@type': 'ImageObject',
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/logo.png`,
       },
     },
-    author: {
-      '@type': 'Organization',
-      name: 'LastBot Team'
-    }
   }
 
   return (

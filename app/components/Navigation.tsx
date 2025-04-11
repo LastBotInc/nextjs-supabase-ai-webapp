@@ -9,7 +9,7 @@ import LocaleSwitcher from './LocaleSwitcher';
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { Menu, X, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+import InnoleaseLogo from './InnoleaseLogo';
 
 // Separate AdminSidebar component
 function AdminSidebar({ links, pathname }: { links: Array<{ href: string; label: string }>, pathname?: string }) {
@@ -140,6 +140,7 @@ export default function Navigation() {
   // Define public links without locale prefix (Link component will add it)
   const publicLinks = [
     { href: '/', label: t('home') },
+    { href: '/leasing-solutions', label: t('leasing_solutions') },
     { href: '/blog', label: t('blog') },
     { href: '/about', label: t('about') },
     { href: '/book/initial-consultation', label: t('book') },
@@ -226,13 +227,11 @@ export default function Navigation() {
                 href={(!loading && isAdmin && isAdminPath) ? '/admin/blog' : '/'}
                 className="flex items-center py-2"
               >
-                <Image
-                  src="/images/lastbot-logo-320x90.png"
-                  alt="LastBot"
+                <InnoleaseLogo 
                   width={128}
                   height={36}
                   className="h-9 w-auto"
-                  priority
+                  color="white"
                 />
               </Link>
             </div>
