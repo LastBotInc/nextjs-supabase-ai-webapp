@@ -65,8 +65,8 @@ export async function generateLocalizedMetadata(
 ): Promise<Metadata> {
   const t = await getTranslations(props.namespace)
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.innolease.com' // Changed domain
-  const title = props.title || t('title')
-  const description = props.description || t('description')
+  const title = props.title || t('Index.title')
+  const description = props.description || t('Index.description')
   const locale = props.locale
   const canonicalUrl = props.path ? new URL(props.path, baseUrl).toString() : new URL(`/${locale}`, baseUrl).toString()
   const imageUrl = props.imageUrl || new URL('/images/og/default.webp', baseUrl).toString()
