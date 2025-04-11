@@ -10,6 +10,15 @@
 - [x] Service network partners (Vianor, Euromaster, A-Katsastus)
 - [x] Environmental responsibility section (EV options, emissions tracking)
 - [x] Call-to-action for leasing inquiry
+- [✅] Environmental Focus/EV Section
+- [✅] Final CTA
+- [✅] Add Campaigns section below Hero
+  - [✅] Design specification in `frontend.md`
+  - [✅] Generate placeholder images (Ford Transit, Polestar 2)
+  - [✅] Implement component structure
+  - [✅] Add placeholder translations (EN)
+  - [ ] Add placeholder translations (FI, SV)
+  - [ ] Link CTA buttons when detail pages exist
 
 ### Leasing Solutions Page
 - [x] Financial Leasing section

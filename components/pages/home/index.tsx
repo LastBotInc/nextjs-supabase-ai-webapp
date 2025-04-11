@@ -71,7 +71,7 @@ export default function HomePage({ params }: Props) {
               <Button 
                 size="lg" 
                 href="/leasing-solutions"
-                variant="outline"
+                variant="secondary"
               >
                 {t('hero.learnMore')}
               </Button>
@@ -84,6 +84,75 @@ export default function HomePage({ params }: Props) {
           <svg className="w-6 h-6 text-gray-400" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
+        </div>
+      </section>
+
+      {/* Campaigns Section - New */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            {t('campaigns.title')} 
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Campaign Card 1: Ford Transit */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden group">
+              <div className="relative h-52">
+                <Image 
+                  src="/images/campaigns/ford-transit-custom.webp"
+                  alt="Ford Transit Custom Campaign"
+                  layout="fill"
+                  objectFit="cover"
+                  className="group-hover:scale-105 transition-transform duration-300"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+                <span className="absolute top-4 left-4 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                  {t('campaigns.tagline1')} 
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-1 text-gray-900">Ford Transit Custom</h3>
+                <p className="text-gray-700 text-sm mb-3">{t('campaigns.price1')}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{t('campaigns.tag1_1')}</span> 
+                  <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{t('campaigns.tag1_2')}</span> 
+                   <span className="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{t('campaigns.tag1_3')}</span> 
+                </div>
+                <Button href="#" variant="secondary" size="sm">
+                  {t('campaigns.cta')}
+                </Button>
+              </div>
+            </div>
+
+            {/* Campaign Card 2: Polestar 2 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden group">
+              <div className="relative h-52">
+                <Image 
+                  src="/images/campaigns/polestar-2.webp"
+                  alt="Polestar 2 Campaign"
+                  layout="fill"
+                  objectFit="cover"
+                  className="group-hover:scale-105 transition-transform duration-300"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+                <span className="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                  {t('campaigns.tagline2')}
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-1 text-gray-900">Polestar 2</h3>
+                <p className="text-gray-700 text-sm mb-3">{t('campaigns.price2')}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{t('campaigns.tag2_1')}</span> 
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{t('campaigns.tag2_2')}</span> 
+                </div>
+                <Button href="#" variant="secondary" size="sm">
+                   {t('campaigns.cta')}
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -11,6 +11,7 @@ import { setupServerLocale } from '@/app/i18n/server-utils';
 import { AnimatedOrbs } from '@/app/components/AnimatedOrbs';
 import SectionContainer from '@/app/components/SectionContainer';
 import { generateLocalizedMetadata } from '@/utils/metadata'
+import { Globe, BarChart, Users, ShieldCheck } from 'lucide-react';
 
 interface Props {
   params: Promise<{
@@ -60,20 +61,54 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Company History & Autolle.com Connection */}
+      {/* Introduction / History - Updated */}
       <SectionContainer>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-4">{t('history.title')}</h2>
-            <p className="text-lg text-gray-700 mb-4">{t('history.paragraph1')}</p>
-            <p className="text-gray-700 mb-6">{t('history.paragraph2')}</p>
-            <Button href="https://autolle.com" target="_blank" variant="secondary">
-              {t('history.autolleButton')}
-            </Button>
+            <h2 className="text-3xl font-bold mb-4">{t('intro.title')}</h2>
+            <p className="text-lg text-gray-700 mb-4">{t('intro.paragraph1')}</p>
+            <p className="text-gray-700 mb-6">{t('intro.paragraph2')}</p>
+            <p className="text-gray-700 mb-6">{t('intro.paragraph3')}</p>
+            <p className="font-semibold text-gray-800 mb-6">{t('intro.paragraph4')}</p>
+            <p className="text-gray-700 mb-6">{t('intro.paragraph5')}</p>
           </div>
           <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-            {/* Placeholder for an image related to Autolle.com or Innolease history */}
-            <Image src="/images/office-building.jpg" alt={t('history.imageAlt')} fill className="object-cover" />
+            <Image src="/images/innolease-car.png" alt={t('intro.imageAlt')} fill className="object-contain" />
+          </div>
+        </div>
+      </SectionContainer>
+
+      {/* Autollecom Facts Section - New */}
+      <SectionContainer bgColor="bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-12">{t('facts.title')}</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex items-start p-6 bg-white rounded-lg shadow">
+            <Globe className="w-8 h-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('facts.fact1.title')}</h3>
+              <p className="text-gray-600">{t('facts.fact1.description')}</p>
+            </div>
+          </div>
+          <div className="flex items-start p-6 bg-white rounded-lg shadow">
+            <BarChart className="w-8 h-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('facts.fact2.title')}</h3>
+              <p className="text-gray-600">{t('facts.fact2.description')}</p>
+            </div>
+          </div>
+          <div className="flex items-start p-6 bg-white rounded-lg shadow">
+            <Users className="w-8 h-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('facts.fact3.title')}</h3>
+              <p className="text-gray-600">{t('facts.fact3.description')}</p>
+            </div>
+          </div>
+          <div className="flex items-start p-6 bg-white rounded-lg shadow">
+            <ShieldCheck className="w-8 h-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('facts.fact4.title')}</h3>
+              <p className="text-gray-600">{t('facts.fact4.description')}</p>
+            </div>
           </div>
         </div>
       </SectionContainer>
@@ -84,31 +119,13 @@ export default async function AboutPage({ params }: Props) {
         <div className="grid md:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
             <div key={i} className="text-center p-6 bg-white rounded-lg shadow">
-              {/* Placeholder for icons related to values */}
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-3xl">
-                  {/* Example Icon Placeholder - replace with actual icons */}
                   {i === 1 && '🤝'} {i === 2 && '💡'} {i === 3 && '📈'}
                 </div>
               </div>
               <h3 className="text-xl font-semibold mb-2">{t(`values.value${i}.title`)}</h3>
               <p className="text-gray-600">{t(`values.value${i}.description`)}</p>
-            </div>
-          ))}
-        </div>
-      </SectionContainer>
-
-      {/* Leadership Team */}
-      <SectionContainer>
-        <h2 className="text-3xl font-bold text-center mb-12">{t('team.title')}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden shadow-md">
-                <Image src={member.image} alt={member.name} fill className="object-cover" />
-              </div>
-              <h3 className="font-semibold text-lg">{member.name}</h3>
-              <p className="text-blue-600 text-sm">{member.title}</p>
             </div>
           ))}
         </div>
@@ -132,10 +149,7 @@ export default async function AboutPage({ params }: Props) {
             </div>
           </div>
           <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center">
-            {/* Placeholder for a map image or an interactive map component */}
             <span className="text-gray-500">{t('coverage.mapPlaceholder')}</span>
-            {/* Example using an image:
-            <Image src="/images/finland-map.png" alt={t('coverage.mapAlt')} fill className="object-contain p-4" /> */}
           </div>
         </div>
       </SectionContainer>

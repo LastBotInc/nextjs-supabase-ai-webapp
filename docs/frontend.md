@@ -5,11 +5,24 @@
 ### Public Pages (`/[locale]`)
 
 1. Home Page (`/`)
-   - Company introduction
-   - Leasing solution showcase
-   - Client testimonials
-   - Contact information
-   - Fleet highlights
+   - **Hero Section:** Large background image/video, clear value proposition headline, description, primary CTA ('Request a Quote'), secondary CTA ('Learn More').
+   - **Campaigns Section (New):**
+     - **Location:** Below Hero section.
+     - **Title:** "Current Campaigns" (localized).
+     - **Layout:** Responsive grid (1-col mobile, 2-col tablet/desktop) with light background (e.g., `bg-gray-50`).
+     - **Card Template:** 
+       - Vehicle Image (16:9 ratio).
+       - Tagline Badge (e.g., "Limited Stock!") - styled distinctively.
+       - Vehicle Title (Make/Model) - bold.
+       - Indicative Price (e.g., "From €XXX/month + VAT") - smaller text.
+       - Pill-shaped Tags (e.g., "Van", "Electric").
+       - CTA Button ("View Offer") - standard style.
+   - **Leasing Solutions Overview:** Brief cards summarizing the 4 main leasing types (Financial, Flexible, Maintenance, MiniLeasing) with icons and links.
+   - **Fleet Management Tools Overview:** Cards highlighting key digital tools (InnoFleet Manager, Reporting, etc.).
+   - **Testimonials:** Rotating or static customer quotes.
+   - **Partner Logos:** Display logos of key service partners.
+   - **Environmental Focus/EV Section:** Highlighting EV options and benefits.
+   - **Final CTA:** Clear call-to-action section.
 
 2. Leasing Solutions (`/leasing-solutions`)
    - Financial Leasing
@@ -393,3 +406,5 @@
    - FID improvement with code splitting
    - CLS minimization with proper image dimensions
    - Server-side rendering for data-heavy pages
+
+- **Card Layouts:** Used extensively for summarizing services (Leasing Solutions, Fleet Tools), displaying blog posts, testimonials, and **campaign offers**.

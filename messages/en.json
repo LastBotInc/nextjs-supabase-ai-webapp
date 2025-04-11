@@ -1,4 +1,6 @@
 {
+  "title": "Innolease",
+  "description": "Innolease provides comprehensive business vehicle leasing solutions and fleet management services tailored to your exact needs, with transparent pricing and digital tools that streamline operations.",  
   "Index": {
     "hero": {
       "title": "Flexible Vehicle Leasing for Every Business",
@@ -109,6 +111,19 @@
     "meta": {
       "title": "Innolease | Business Vehicle Leasing & Fleet Management",
       "description": "Comprehensive business vehicle leasing solutions and fleet management services with transparent pricing and digital tools to streamline operations."
+    },
+    "campaigns": {
+      "title": "Current Campaigns",
+      "tagline1": "Few left at discount!",
+      "price1": "From €499/month + VAT",
+      "tag1_1": "Van",
+      "tag1_2": "Diesel",
+      "tag1_3": "Discount",
+      "tagline2": "Ready to Deliver",
+      "price2": "From €649/month + VAT",
+      "tag2_1": "Electric",
+      "tag2_2": "New",
+      "cta": "View Offer"
     }
   },
   "Footer": {
@@ -129,6 +144,34 @@
       "paragraph2": "Our foundation is built on Autolle.com's strong market presence and commitment to quality, allowing us to provide reliable and flexible leasing options tailored to the needs of businesses across Finland.",
       "autolleButton": "Visit Autolle.com",
       "imageAlt": "Autolle.com Group office building"
+    },
+    "intro": {
+      "title": "Customer-Focused Leasing Services",
+      "paragraph1": "Innolease is part of the Autolle concern. We have combined our corporate sales unit with our rental service, allowing us to genuinely offer customers various services from long-term leasing to short-term rentals.",
+      "paragraph2": "Innolease Oy's primary goal is to adapt to customer needs and provide the right solutions for those needs.",
+      "paragraph3": "We have our own rental fleet of approximately 800 vehicles throughout Finland.",
+      "paragraph4": "Our dedicated contact person and digital services provide customers with expert and flexible service in automotive matters.",
+      "paragraph5": "Our goal is to save the customer time and money, reduce risks, and facilitate the management of the customer's vehicle fleet.",
+      "imageAlt": "Innolease company car"
+    },
+    "facts": {
+      "title": "Key Facts About Autolle.com",
+      "fact1": {
+        "title": "Digital Car Sales Leader",
+        "description": "Autolle.com digitalizes car sales across Europe, with a network covering all of Finland."
+      },
+      "fact2": {
+        "title": "Founded in 2014",
+        "description": "Bringing innovation to the automotive market for nearly a decade."
+      },
+      "fact3": {
+        "title": "Comprehensive Services",
+        "description": "Offering online sales, financing, inspection, home delivery, leasing, and warranty services."
+      },
+      "fact4": {
+        "title": "Part of Autollecom Group",
+        "description": "Collaborating with Green Motion, Autoeurooppa, Rahoituskumppani, and Rahoituskauppa."
+      }
     },
     "values": {
       "title": "Our Core Values",

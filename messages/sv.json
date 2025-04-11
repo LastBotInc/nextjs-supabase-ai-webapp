@@ -234,6 +234,37 @@
       "step3": "Börja utveckla med inbyggda AI-funktioner",
       "cta": "Visa på GitHub",
       "imageAlt": "Illustration av utvecklingsverktyg och funktioner"
+    },
+    "intro": {
+      "title": "Kundfokuserade Leasingtjänster",
+      "paragraph1": "Innolease är en del av Autolle-koncernen. Vi har slagit samman vår företagsförsäljningsenhet med vår uthyrningstjänst, vilket gör att vi genuint kan erbjuda kunder olika tjänster från långtidsleasing till korttidsuthyrning.",
+      "paragraph2": "Innolease Oy:s främsta syfte är att anpassa sig efter kundens behov och erbjuda kunden rätt lösningar för dessa behov.",
+      "paragraph3": "Vi har en egen hyrbilsflotta på cirka 800 fordon runt om i Finland.",
+      "paragraph4": "Vår dedikerade kontaktperson och digitala tjänster erbjuder kunder kunnig och flexibel service i bilärenden.",
+      "paragraph5": "Vårt mål är att spara kundens tid och pengar, minska riskerna samt underlätta hanteringen av kundens fordonsflotta.",
+      "imageAlt": "Innolease företagsbil"
+    },
+    "facts": {
+      "title": "Nyckelfakta om Autolle.com",
+      "fact1": {
+        "title": "Ledande inom digital bilförsäljning",
+        "description": "Autolle.com digitaliserar bilförsäljningen i Europa, med ett nätverk som täcker hela Finland."
+      },
+      "fact2": {
+        "title": "Grundat 2014",
+        "description": "Har infört innovationer på fordonsmarknaden i nästan ett decennium."
+      },
+      "fact3": {
+        "title": "Omfattande Tjänster",
+        "description": "Erbjuder onlineförsäljning, finansiering, besiktning, hemleverans, leasing och garantitjänster."
+      },
+      "fact4": {
+        "title": "Del av Autollecom-koncernen",
+        "description": "Samarbetar med Green Motion, Autoeurooppa, Rahoituskumppani och Rahoituskauppa."
+      }
+    },
+    "values": {
+      "title": "Våra kärnvärden"
     }
   },
   "Footer": {

@@ -31,7 +31,7 @@ async function getLandingPage(id: string, locale: string): Promise<LandingPage |
   return page
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, id } = await params;
   const page = await getLandingPage(id, locale)
 
@@ -39,7 +39,9 @@ export async function generateMetadata({ params }: Props) {
     return {}
   }
 
-  return generateLocalizedMetadata(locale, 'preview', {
+  return generateLocalizedMetadata({
+    locale: locale,
+    namespace: 'preview',
     title: page.meta_title || page.title || '',
     description: page.meta_description || page.excerpt || '',
     type: 'website',

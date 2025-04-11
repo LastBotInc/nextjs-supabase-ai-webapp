@@ -109,6 +109,7 @@
 *   Replaced "LastBot" references with "Innolease" branding and content across multiple files (code, config, docs). Rewritten `AIBotMessage` component.
 *   Fixed build error in `app/layout.tsx` by removing duplicate static `metadata` export.
 *   Fixed `MISSING_MESSAGE` build error by adding `Index.meta` keys to `messages/en.json`.
+*   Added new "Campaigns" section to the home page (`components/pages/home/index.tsx`) with two placeholder vehicle campaigns (Ford Transit, Polestar 2) and generated images. Added placeholder translations to `messages/en.json`.
 
 ## 2024-08-13
 - Fixed build error caused by duplicate Icon components in `app/components/Icons.tsx`.
@@ -124,4 +125,7 @@
     - Added necessary translations (EN, FI, SV).
     - Fixed Button component type error to accept anchor attributes.
 - Added placeholder Finnish and Swedish versions for two blog articles in `scripts/seed-blog.ts`.
+
+## 2024-08-14
+- **Fix:** Resolved build errors (`INSUFFICIENT_PATH`) in `utils/metadata.ts` by implementing a helper function (`getNestedTranslation`) to safely handle potentially nested translation keys (`meta.title`/`title`, `meta.description`/`description`) when generating page metadata.
 
