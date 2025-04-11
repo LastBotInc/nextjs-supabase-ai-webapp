@@ -38,7 +38,17 @@
     "generate-video": "NODE_ENV=development tsx tools/generate-video.ts",
     "imagen": "NODE_ENV=development tsx tools/imagen.ts",
     "minimax-image": "NODE_ENV=development tsx tools/minimax-image.ts",
-    "remove-background-advanced": "NODE_ENV=development tsx tools/remove-background-advanced.ts"
+    "remove-background-advanced": "NODE_ENV=development tsx tools/remove-background-advanced.ts",
+    "setup:financial-documents": "tsx scripts/setup-financial-documents-bucket.js",
+    "replicate": "node scripts/replicate.js",
+    "update-blog-images": "tsx scripts/update-blog-images.ts",
+    "add-document-types": "node scripts/add-document-types.js",
+    "supabase:migration:new": "supabase migration new",
+    "supabase:migration:wizard": "supabase migration new -f",
+    "supabase:db:push": "supabase db push",
+    "supabase:db:reset": "supabase db reset",
+    "create-wizard-tables": "supabase migration new create_wizard_tables",
+    "reset:local": "bash ./scripts/reset-local-env.sh"
   },
   "dependencies": {
     "@google/genai": "^0.7.0",
