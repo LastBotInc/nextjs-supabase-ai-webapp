@@ -196,6 +196,7 @@ export default function PresentationViewer({ presentation, locale }: Props) {
         size="icon"
         onClick={() => goToSlide(currentSlide - 1)}
         disabled={currentSlide === 0}
+        aria-label={t('previousSlide')}
         className={cn(
           "absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 transition-opacity w-12 h-12 z-40",
           currentSlide === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
@@ -208,6 +209,7 @@ export default function PresentationViewer({ presentation, locale }: Props) {
         size="icon"
         onClick={() => goToSlide(currentSlide + 1)}
         disabled={currentSlide === slides.length - 1}
+        aria-label={t('nextSlide')}
         className={cn(
           "absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 transition-opacity w-12 h-12 z-40",
           currentSlide === slides.length - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
