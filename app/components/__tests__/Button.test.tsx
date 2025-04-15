@@ -4,9 +4,10 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { Button } from '../Button'
+import { vi } from 'vitest'
 
-// Mock next-intl navigation
-jest.mock('@/app/i18n/navigation', () => ({
+// Mock next-intl navigation using vi
+vi.mock('@/app/i18n/navigation', () => ({
   Link: ({ href, children, className }: any) => (
     <a href={href} className={className}>{children}</a>
   )
@@ -35,7 +36,7 @@ describe('Button', () => {
   it('applies correct variant classes', () => {
     const { rerender } = render(<Button variant="primary">Primary</Button>)
     const primaryButton = screen.getByRole('button', { name: 'Primary' })
-    expect(primaryButton).toHaveClass('bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc]')
+    expect(primaryButton).toHaveClass('bg-[#8B5CF6] text-white hover:bg-[#7C3AED] dark:hover:bg-[#9F7AEA]')
 
     rerender(<Button variant="secondary">Secondary</Button>)
     const secondaryButton = screen.getByRole('button', { name: 'Secondary' })
@@ -47,7 +48,7 @@ describe('Button', () => {
   })
 
   it('handles click events', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     render(<Button onClick={handleClick}>Click me</Button>)
 
     const button = screen.getByRole('button', { name: 'Click me' })
@@ -72,7 +73,7 @@ describe('Button', () => {
   })
 
   it('is keyboard accessible', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     render(<Button onClick={handleClick}>Press me</Button>)
     
     const button = screen.getByRole('button', { name: 'Press me' })
@@ -81,17 +82,19 @@ describe('Button', () => {
     
     fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' })
     expect(handleClick).toHaveBeenCalledTimes(1)
+
+    fireEvent.keyDown(button, { key: ' ', code: 'Space' })
+    expect(handleClick).toHaveBeenCalledTimes(2)
   })
 
   it('applies base styles consistently', () => {
     render(<Button>Test Button</Button>)
     const button = screen.getByRole('button', { name: 'Test Button' })
     
-    // Check all base styles are applied
     expect(button).toHaveClass('rounded-full')
     expect(button).toHaveClass('font-medium')
     expect(button).toHaveClass('transition-colors')
-    expect(button).toHaveClass('flex')
+    expect(button).toHaveClass('inline-flex')
     expect(button).toHaveClass('items-center')
     expect(button).toHaveClass('justify-center')
     expect(button).toHaveClass('gap-2')

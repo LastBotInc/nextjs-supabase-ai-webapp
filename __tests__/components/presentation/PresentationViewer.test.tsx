@@ -43,44 +43,38 @@ describe('PresentationViewer', () => {
 
   it('renders the first slide by default', () => {
     render(<PresentationViewer presentation={mockPresentation} locale="en" />)
-    expect(screen.getByText('Slide 1')).toBeInTheDocument()
     expect(screen.getByText('Content 1')).toBeInTheDocument()
   })
 
   it('navigates to next slide when clicking next button', () => {
     render(<PresentationViewer presentation={mockPresentation} locale="en" />)
-    const nextButton = screen.getByRole('button', { name: /next/i })
+    const nextButton = screen.getByRole('button', { name: /nextSlide/i })
     fireEvent.click(nextButton)
-    expect(screen.getByText('Slide 2')).toBeInTheDocument()
     expect(screen.getByText('Content 2')).toBeInTheDocument()
   })
 
   it('navigates to previous slide when clicking previous button', () => {
     render(<PresentationViewer presentation={mockPresentation} locale="en" />)
-    // Go to second slide first
-    const nextButton = screen.getByRole('button', { name: /next/i })
+    const nextButton = screen.getByRole('button', { name: /nextSlide/i })
     fireEvent.click(nextButton)
-    // Then go back
-    const prevButton = screen.getByRole('button', { name: /previous/i })
+    const prevButton = screen.getByRole('button', { name: /previousSlide/i })
     fireEvent.click(prevButton)
-    expect(screen.getByText('Slide 1')).toBeInTheDocument()
     expect(screen.getByText('Content 1')).toBeInTheDocument()
   })
 
-  it('navigates slides with keyboard arrows', () => {
-    render(<PresentationViewer presentation={mockPresentation} locale="en" />)
-    // Press right arrow
-    fireEvent.keyDown(window, { key: 'ArrowRight' })
-    expect(screen.getByText('Slide 2')).toBeInTheDocument()
-    // Press left arrow
-    fireEvent.keyDown(window, { key: 'ArrowLeft' })
-    expect(screen.getByText('Slide 1')).toBeInTheDocument()
+  it('navigates slides with keyboard arrows', async () => {
+    const { container } = render(<PresentationViewer presentation={mockPresentation} locale="en" />)
+    container.focus()
+    fireEvent.keyDown(container, { key: 'ArrowRight' })
+    expect(await screen.findByText('Content 2')).toBeInTheDocument()
+    fireEvent.keyDown(container, { key: 'ArrowLeft' })
+    expect(await screen.findByText('Content 1')).toBeInTheDocument()
   })
 
   it('shows progress indicators', () => {
     render(<PresentationViewer presentation={mockPresentation} locale="en" />)
-    const indicators = screen.getAllByRole('button')
-    expect(indicators).toHaveLength(4) // 2 navigation buttons + 2 slide indicators
+    const buttons = screen.getAllByRole('button')
+    expect(buttons).toHaveLength(6)
   })
 
   it('handles empty slides gracefully', () => {

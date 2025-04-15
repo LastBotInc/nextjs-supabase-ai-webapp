@@ -4,7 +4,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import ResearchPanel from '../ResearchPanel'
-import { jest, describe, it, expect, beforeEach } from '@jest/globals'
+import { vi, describe, it, expect, beforeEach } from 'vitest'
 import { NextIntlClientProvider } from 'next-intl'
 import { ResearchResult, ResearchScope } from '@/types/research'
 
@@ -13,7 +13,7 @@ process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://test.supabase.co'
 process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'test-key'
 
 // Mock Supabase client
-jest.mock('@supabase/supabase-js', () => ({
+vi.mock('@supabase/supabase-js', () => ({
   createClient: () => ({
     auth: {
       getSession: () => Promise.resolve({
@@ -58,8 +58,8 @@ const renderWithTranslations = (component: React.ReactNode) => {
 }
 
 describe('ResearchPanel', () => {
-  const mockOnSearch = jest.fn() as jest.MockedFunction<(query: string, options?: ResearchScope) => Promise<ResearchResult[]>>
-  const mockOnUseMultipleResults = jest.fn() as jest.MockedFunction<(results: ResearchResult[], query: string) => void>
+  const mockOnSearch = vi.fn() as vi.MockedFunction<(query: string, options?: ResearchScope) => Promise<ResearchResult[]>>
+  const mockOnUseMultipleResults = vi.fn() as vi.MockedFunction<(results: ResearchResult[], query: string) => void>
 
   mockOnSearch.mockResolvedValue([])
 
@@ -69,7 +69,7 @@ describe('ResearchPanel', () => {
   }
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('renders research panel', () => {

@@ -1,5 +1,5 @@
 import { TestSupabaseClient, setupSupabaseMock, setupSupabaseEnv } from './supabase'
-import { expect, describe, it, beforeAll, beforeEach } from '@jest/globals'
+import { expect, describe, it, beforeAll, beforeEach } from 'vitest'
 import '@testing-library/jest-dom'
 
 describe('Supabase Test Utilities', () => {

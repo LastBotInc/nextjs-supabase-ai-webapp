@@ -1,16 +1,17 @@
 /// <reference types="jest" />
 import { createClient } from '@/utils/supabase/client'
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
-// Mock @supabase/ssr
-jest.mock('@supabase/ssr', () => ({
-  createBrowserClient: jest.fn(() => ({
+// Mock @supabase/ssr using vi
+vi.mock('@supabase/ssr', () => ({
+  createBrowserClient: vi.fn(() => ({
     auth: {
-      getSession: jest.fn(),
-      signInWithOAuth: jest.fn(),
-      signOut: jest.fn()
+      getSession: vi.fn(),
+      signInWithOAuth: vi.fn(),
+      signOut: vi.fn()
     },
-    from: jest.fn()
+    from: vi.fn()
   }))
 }))
 
@@ -23,7 +24,7 @@ describe('Supabase Client', () => {
   afterEach(() => {
     delete process.env.NEXT_PUBLIC_SUPABASE_URL
     delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('should create a Supabase client', () => {

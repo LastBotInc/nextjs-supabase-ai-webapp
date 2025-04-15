@@ -4,7 +4,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import RichTextEditor from '../RichTextEditor'
-import { jest, describe, it, expect, beforeEach } from '@jest/globals'
+import { vi, describe, it, expect, beforeEach } from 'vitest'
 import { NextIntlClientProvider } from 'next-intl'
 
 interface ImageProps {
@@ -52,19 +52,19 @@ const mockTranslations = {
 }
 
 // Mock next/image
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
   // eslint-disable-next-line @next/next/no-img-element
   default: (props: ImageProps) => <img {...props} alt={props.alt || ''} />
 }))
 
 // Mock @heroicons/react/24/outline
-jest.mock('@heroicons/react/24/outline', () => ({
+vi.mock('@heroicons/react/24/outline', () => ({
   PhotoIcon: () => <div data-testid="editor-photo-icon" />
 }))
 
 // Mock MediaSelector component
-jest.mock('../MediaSelector', () => ({
+vi.mock('../MediaSelector', () => ({
   __esModule: true,
   default: ({ isOpen, onClose, onSelect }: MediaSelectorProps) => (
     isOpen ? (
@@ -95,7 +95,7 @@ const renderWithTranslations = (component: React.ReactNode) => {
 }
 
 describe('RichTextEditor', () => {
-  const mockOnChange = jest.fn()
+  const mockOnChange = vi.fn()
   const defaultProps = {
     content: '',
     onChange: mockOnChange,
@@ -103,7 +103,7 @@ describe('RichTextEditor', () => {
   }
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('renders the editor with toolbar', () => {
@@ -243,7 +243,7 @@ describe('RichTextEditor', () => {
   // Test error states
   it('handles error when media selector fails', async () => {
     // Mock MediaSelector to simulate an error
-    jest.spyOn(console, 'error').mockImplementation(() => {})
+    vi.spyOn(console, 'error').mockImplementation(() => {})
     
     renderWithTranslations(<RichTextEditor {...defaultProps} />)
     fireEvent.click(screen.getByTitle('Image'))

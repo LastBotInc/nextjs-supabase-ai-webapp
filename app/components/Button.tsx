@@ -41,12 +41,7 @@ export function Button({
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      const syntheticEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        view: window
-      });
-      onClick?.(syntheticEvent as unknown as MouseEvent<HTMLButtonElement>);
+      onClick?.(e as unknown as MouseEvent<HTMLButtonElement>);
     }
   };
 

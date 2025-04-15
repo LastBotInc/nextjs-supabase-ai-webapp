@@ -1,27 +1,26 @@
 /**
  * @jest-environment jsdom
  */
-import { describe, it, expect } from '@jest/globals'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import { UploadZone } from '../UploadZone'
 
-// Mock next-intl
-jest.mock('next-intl', () => ({
+// Mock next-intl using vi
+vi.mock('next-intl', () => ({
   useTranslations: () => (key: string) => key
 }))
 
-// Mock @heroicons/react/24/outline
-jest.mock('@heroicons/react/24/outline', () => ({
+// Mock @heroicons/react/24/outline using vi
+vi.mock('@heroicons/react/24/outline', () => ({
   ArrowUpTrayIcon: () => <div data-testid="upload-icon" />
 }))
 
-// Mock fetch
-global.fetch = jest.fn()
+// Mock fetch using vi
+global.fetch = vi.fn()
 
 // Mock FormData
 class MockFormData {
-  data: Map<string, unknown>
+  data: Map<string, string | Blob>
   constructor() {
     this.data = new Map()
   }
@@ -57,18 +56,18 @@ class MockFormData {
 // @ts-expect-error Mock FormData for testing purposes
 global.FormData = MockFormData
 
-// Mock file input
-window.URL.createObjectURL = jest.fn()
+// Mock file input using vi
+window.URL.createObjectURL = vi.fn()
 
 describe('UploadZone', () => {
-  const mockOnFilesSelected = jest.fn()
+  const mockOnFilesSelected = vi.fn()
   const defaultProps = {
     onFilesSelected: mockOnFilesSelected,
     uploads: []
   }
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('renders upload zone', () => {
