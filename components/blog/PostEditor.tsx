@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { Language } from '@/app/i18n/languages'
 import ResearchPanel from './ResearchPanel'
 import { ResearchScope, ResearchResult } from '@/types/research'
+import { SupabaseClient } from '@supabase/supabase-js'
 
 interface FormData {
   title: string
@@ -29,11 +30,11 @@ type PostEditorProps = {
   post?: Database['public']['Tables']['posts']['Row']
   onSave: (post: FormData) => void
   onCancel: () => void
+  supabaseClient: ReturnType<typeof createClient>
 }
 
-export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) {
+export default function PostEditor({ onSave, onCancel, post, supabaseClient }: PostEditorProps) {
   const t = useTranslations('Blog.admin')
-  const supabase = createClient()
   const [languages, setLanguages] = useState<Language[]>([])
   const [detectedLanguage, setDetectedLanguage] = useState<string>('en')
 
@@ -86,11 +87,36 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
-    setSaving(true)
     setError(null)
+    setSaving(true)
+
+    console.log('[Test Log] handleSubmit triggered')
+
+    // Basic validation
+    const validationErrors: Partial<Record<keyof FormData, string>> = {}
+    if (!formData.title) {
+      validationErrors.title = t('admin.errors.titleRequired')
+    }
+    if (!formData.content) {
+      validationErrors.content = t('admin.errors.contentRequired')
+    }
+    if (formData.slug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(formData.slug)) {
+      validationErrors.slug = t('admin.errors.slugInvalid')
+    }
+
+    console.log('[Test Log] Validation Errors:', validationErrors)
+
+    if (Object.keys(validationErrors).length > 0) {
+      setError(Object.values(validationErrors).join(', '))
+      console.log('[Test Log] Validation failed, setting error:', Object.values(validationErrors).join(', '))
+      setSaving(false)
+      return
+    }
+
+    console.log('[Test Log] Validation passed, proceeding to save...')
 
     try {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabaseClient.auth.getSession()
       if (!session?.access_token) throw new Error('Not authenticated')
 
       // Exclude fields that are not in the database schema
@@ -130,12 +156,15 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
 
       const { data: result } = await response.json()
       onSave?.(result)
+      console.log('[Test Log] onSave called successfully')
     } catch (err) {
+      console.error('Save error:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
+      console.log('[Test Log] Error during onSave:', err instanceof Error ? err.message : 'An error occurred')
     } finally {
       setSaving(false)
     }
-  }, [formData, post, supabase, onSave])
+  }, [formData, post, supabaseClient, onSave])
 
   const generateContent = async () => {
     if (!formData.prompt) return
@@ -145,7 +174,7 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
     
     try {
       // Generate all content with Gemini
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabaseClient.auth.getSession()
       if (!session?.access_token) throw new Error('Not authenticated')
 
       const response = await fetch('/api/gemini', {
@@ -195,7 +224,6 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
           body: JSON.stringify({
             prompt: fields.image_prompt,
             slug: fields.slug,
-            style: imageStyle
           }),
           credentials: 'include'
         })
@@ -230,7 +258,7 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
     setError(null)
     
     try {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabaseClient.auth.getSession()
       if (!session?.access_token) throw new Error('Not authenticated')
 
       const response = await fetch('/api/blog-image', {
@@ -242,7 +270,6 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
         body: JSON.stringify({
           prompt: formData.image_prompt || `Create a featured image for a blog post titled: ${formData.title}`,
           slug: formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-          style: imageStyle
         }),
         credentials: 'include'
       })
@@ -283,7 +310,7 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
 
   const handleResearchSearch = async (query: string, scope?: ResearchScope): Promise<ResearchResult[]> => {
     try {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabaseClient.auth.getSession()
       if (!session?.access_token) throw new Error('Not authenticated')
 
       const response = await fetch('/api/tavily-search', {
@@ -388,6 +415,7 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
       className="space-y-6 bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm"
       role="form"
       onSubmit={handleSubmit}
+      data-testid="post-editor-form"
     >
       {error && (
         <div className="bg-red-50 dark:bg-red-900/50 p-4 rounded-md" role="alert" aria-live="polite">
@@ -397,9 +425,8 @@ export default function PostEditor({ onSave, onCancel, post }: PostEditorProps) 
 
       {!post && (
         <div className="space-y-4">
-          <ResearchPanel 
-            onSearch={handleResearchSearch} 
-            onUseResult={handleResearchUse} 
+          <ResearchPanel
+            onSearch={handleResearchSearch}
             onUseMultipleResults={handleMultipleResearchUse}
           />
 

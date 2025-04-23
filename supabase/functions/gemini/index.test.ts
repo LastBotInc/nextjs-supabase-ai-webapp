@@ -1,6 +1,7 @@
 /// <reference types="jest" />
 
 import { GoogleGenerativeAI, GenerativeModel, GenerationConfig, SafetySetting, GenerateContentResult, GenerateContentStreamResult, ChatSession, CountTokensResponse, EmbedContentResponse, BatchEmbedContentsResponse, BatchEmbedContentsRequest, ModelParams, RequestOptions, CachedContent, EnhancedGenerateContentResponse, Content, BlockReason, HarmCategory, HarmBlockThreshold, HarmProbability } from "@google/generative-ai";
+import { handleRequest } from './index.ts'; // Added .ts extension
 
 // Mock environment variables
 process.env.GOOGLE_AI_STUDIO_KEY = 'test-key';

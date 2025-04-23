@@ -1,24 +1,21 @@
 ---
 description: Description of unit testing design patterns and instructions
 globs: *test*
+alwaysApply: false
 ---
 ---
-description:
+description: implementation pattern for unit tests with vitest
 globs:
 ---
 
-# Your rule content
+# Unit Testing Implementation Patterns (Vitest)
 
-- You can @ files here
-- You can use markdown but dont have to
-
-# Unit Testing Implementation Patterns
-
-This document describes the patterns and best practices for implementing unit tests in our Next.js application, covering both component testing and API route testing.
+This document describes the patterns and best practices for implementing unit tests in our Next.js application using **Vitest**, covering both component testing and API route testing.
 
 ## Test Setup
 
 ### Directory Structure
+(Remains the same)
 ```
 app/
   components/
@@ -34,55 +31,111 @@ app/
 ```
 
 ### Required Dependencies
+Update your `package.json` devDependencies:
 ```json
 {
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.0.0",
-    "jest": "^29.0.0",
-    "jest-environment-jsdom": "^29.0.0",
-    "@types/jest": "^29.0.0"
+    "@testing-library/jest-dom": "^6.4.0", // For DOM matchers
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "^14.5.0",
+    "@vitejs/plugin-react": "^4.2.0", // For Vite + React
+    "jsdom": "^24.0.0", // Test environment
+    "vitest": "^1.5.0", // Test runner
+    "vite-tsconfig-paths": "^4.3.0", // For resolving tsconfig paths
+    "resize-observer-polyfill": "^1.5.1" // Polyfill for JSDOM
   }
 }
+```
+
+### Vitest Configuration (`vitest.config.ts`)
+```typescript
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+export default defineConfig({
+  plugins: [react(), tsconfigPaths()],
+  test: {
+    environment: 'jsdom', // Use JSDOM for browser-like environment
+    setupFiles: ['./vitest.setup.ts'], // Setup file for global configurations
+    include: ['**/*.test.{ts,tsx}'], // Test file pattern
+    globals: true, // Optional: Makes vi, expect, etc. globally available
+  },
+})
+```
+
+### Vitest Setup (`vitest.setup.ts`)
+This file configures testing-library matchers and adds necessary polyfills.
+```typescript
+import '@testing-library/jest-dom'
+import { expect, afterEach } from 'vitest'
+import { cleanup } from '@testing-library/react'
+import * as matchers from '@testing-library/jest-dom/matchers'
+import 'resize-observer-polyfill' // Polyfill for ResizeObserver in JSDOM
+
+// Extend Vitest's expect method with testing-library matchers
+expect.extend(matchers)
+
+// Cleanup after each test case
+afterEach(() => {
+  cleanup()
+})
 ```
 
 ## Component Testing
 
 ### 1. Basic Component Test Structure
 ```typescript
-/**
- * @jest-environment jsdom
- */
+// No environment pragma needed with vitest.config.ts
 import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom' // Matchers are extended in setup
+import { describe, it, expect, beforeEach, vi } from 'vitest' // Import from vitest
 import { ComponentToTest } from '../ComponentToTest'
 
 describe('ComponentToTest', () => {
   // Setup default props and mocks
   const defaultProps = {
-    onAction: jest.fn()
+    onAction: vi.fn() // Use vi.fn()
   }
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks() // Use vi.clearAllMocks()
   })
 
   it('renders correctly', () => {
     render(<ComponentToTest {...defaultProps} />)
-    // Add assertions
+    // Add assertions using expect() extended with jest-dom matchers
+    expect(screen.getByText('Some Text')).toBeInTheDocument()
   })
 })
 ```
 
 ### 2. Testing with Internationalization
+(Pattern remains largely the same, ensure `vi.mock` is used if mocking `next-intl`)
 ```typescript
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
+import { NextIntlClientProvider } from 'next-intl'
+import Component from '../Component' // Assume this is the component using translations
+
 // Mock translations
 const mockTranslations = {
   namespace: {
     key: 'Translated text'
   }
 }
+
+// Mock next-intl if needed (using vi.mock)
+vi.mock('next-intl', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('next-intl')>()
+  return {
+    ...mod,
+    useTranslations: () => (key: string) => mockTranslations.namespace[key] || key,
+    // Mock other exports like NextIntlClientProvider if necessary,
+    // but often letting the real provider work is fine for client components.
+  }
+})
+
 
 // Helper function to render with translations
 const renderWithTranslations = (component: React.ReactNode) => {
@@ -100,41 +153,54 @@ it('renders translated content', () => {
 ```
 
 ### 3. Testing UI Components
-Example from Button component tests:
+Example from Button component tests (using `vi.fn`):
 ```typescript
+import { render, screen, fireEvent } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
+import { Button } from '../Button'
+
 describe('Button', () => {
   it('applies correct size classes', () => {
     const { rerender } = render(<Button size="sm">Small</Button>)
     expect(screen.getByRole('button', { name: 'Small' }))
-      .toHaveClass('text-sm h-8 px-3')
+      .toHaveClass('text-sm h-8 px-3') // jest-dom matcher
 
     rerender(<Button size="md">Medium</Button>)
     expect(screen.getByRole('button', { name: 'Medium' }))
-      .toHaveClass('text-base h-10 px-4')
+      .toHaveClass('text-base h-10 px-4') // jest-dom matcher
   })
 
   it('handles click events', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn() // Use vi.fn()
     render(<Button onClick={handleClick}>Click me</Button>)
 
     fireEvent.click(screen.getByRole('button', { name: 'Click me' }))
-    expect(handleClick).toHaveBeenCalledTimes(1)
+    expect(handleClick).toHaveBeenCalledTimes(1) // jest-dom matcher
   })
 })
 ```
 
 ### 4. Testing Rich Text Editor
-Example from RichTextEditor tests:
+Example from RichTextEditor tests (using `vi.fn`):
 ```typescript
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
+// ... other imports
+
+// Mock child components/hooks using vi.mock
+
 describe('RichTextEditor', () => {
+  const mockOnChange = vi.fn(); // Use vi.fn()
+  const defaultProps = { /* ... */ onChange: mockOnChange }
+
   it('applies text formatting when toolbar buttons are clicked', async () => {
     renderWithTranslations(<RichTextEditor {...defaultProps} />)
-    
+
     fireEvent.click(screen.getByTitle('Bold'))
-    expect(screen.getByTitle('Bold')).toHaveClass('bg-gray-200')
+    expect(screen.getByTitle('Bold')).toHaveClass('bg-gray-200') // jest-dom matcher
 
     fireEvent.click(screen.getByTitle('Italic'))
-    expect(screen.getByTitle('Italic')).toHaveClass('bg-gray-200')
+    expect(screen.getByTitle('Italic')).toHaveClass('bg-gray-200') // jest-dom matcher
   })
 
   it('inserts selected image from media selector', async () => {
@@ -143,7 +209,7 @@ describe('RichTextEditor', () => {
     fireEvent.click(screen.getByTestId('editor-media-selector-select'))
 
     await waitFor(() => {
-      expect(mockOnChange).toHaveBeenCalledWith(
+      expect(mockOnChange).toHaveBeenCalledWith( // jest-dom matcher
         expect.stringContaining('src="test.jpg"')
       )
     })
@@ -155,30 +221,33 @@ describe('RichTextEditor', () => {
 
 ### 1. Basic API Route Test Structure
 ```typescript
-// Set environment variables before importing the route
-process.env.REQUIRED_ENV_VAR = 'test-value'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { POST } from '../route' // Assuming route handler is exported
 
-// Mock external dependencies
-jest.mock('external-package', () => ({
-  someFunction: jest.fn()
+// Mock external dependencies using vi.mock
+vi.mock('external-package', () => ({
+  someFunction: vi.fn()
 }))
-
-import { POST } from '../route'
 
 describe('POST /api/endpoint', () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks() // Use vi
+    // Reset environment variables if modified
+    // process.env.REQUIRED_ENV_VAR = 'test-value';
   })
 
   it('handles successful request', async () => {
+    // Mock Request object
     const request = new Request('http://api/endpoint', {
       method: 'POST',
       body: JSON.stringify({ data: 'test' })
     })
 
+    // Execute the handler
     const response = await POST(request)
     const data = await response.json()
 
+    // Assertions
     expect(response.status).toBe(200)
     expect(data).toEqual(expect.objectContaining({
       success: true
@@ -188,13 +257,23 @@ describe('POST /api/endpoint', () => {
 ```
 
 ### 2. Testing Authentication
-Example from Tavily Search API tests:
+Example using `vi.mock` and `vi.fn`:
 ```typescript
+import { describe, it, expect, vi } from 'vitest'
+import { createClient } from '@/utils/supabase/server' // or client
+import { POST } from '../route'
+
+// Mock Supabase client
+vi.mock('@/utils/supabase/server', () => ({ // or client
+  createClient: vi.fn()
+}))
+
 describe('POST /api/tavily-search', () => {
   it('handles missing authorization header', async () => {
     const request = new Request('http://localhost/api/tavily-search', {
       method: 'POST',
       body: JSON.stringify({ query: 'test' })
+      // No Authorization header
     })
 
     const response = await POST(request)
@@ -205,14 +284,13 @@ describe('POST /api/tavily-search', () => {
   })
 
   it('handles invalid authorization token', async () => {
-    // Mock unauthorized user
-    (createClient as jest.Mock).mockReturnValue({
-      auth: {
-        getUser: jest.fn().mockResolvedValue({ 
-          data: { user: null }, 
-          error: new Error('Invalid token') 
-        })
-      }
+    // Mock getUser to return error or no user
+    const mockGetUser = vi.fn().mockResolvedValue({
+      data: { user: null },
+      error: new Error('Invalid token')
+    })
+    ;(createClient as vi.Mock).mockReturnValue({
+      auth: { getUser: mockGetUser }
     })
 
     const request = new Request('http://localhost/api/tavily-search', {
@@ -225,25 +303,32 @@ describe('POST /api/tavily-search', () => {
 
     const response = await POST(request)
     expect(response.status).toBe(401)
+    // Ensure getUser was called with the token
+    expect(mockGetUser).toHaveBeenCalledWith('invalid-token')
   })
 })
 ```
 
 ### 3. Testing External Service Integration
-Example from Recraft API tests:
+Example using `vi.mock` and `vi.fn`:
 ```typescript
+import { describe, it, expect, vi } from 'vitest'
+import { POST } from '../route'
+import Replicate from 'replicate' // Assuming Replicate is used
+
+// Mock Replicate
+const mockRun = vi.fn()
+vi.mock('replicate', () => ({
+  // Mock the default export if Replicate is default exported
+  default: vi.fn().mockImplementation(() => ({ run: mockRun }))
+  // Or mock named exports if needed
+}))
+
 describe('POST /api/recraft', () => {
   it('generates an image successfully', async () => {
-    const request = new Request('http://localhost/api/recraft', {
-      method: 'POST',
-      body: JSON.stringify({
-        prompt: 'test prompt',
-        style: 'digital_illustration'
-      })
-    })
-
+    const request = new Request('http://localhost/api/recraft', { /* ... */ })
     const mockImageUrl = 'https://example.com/image.png'
-    mockRun.mockResolvedValueOnce([mockImageUrl])
+    mockRun.mockResolvedValueOnce([mockImageUrl]) // Mock the run method
 
     const response = await POST(request)
     const data = await response.json()
@@ -252,21 +337,13 @@ describe('POST /api/recraft', () => {
     expect(data.images).toEqual([mockImageUrl])
     expect(mockRun).toHaveBeenCalledWith(
       'recraft-ai/recraft-v3',
-      expect.objectContaining({
-        input: expect.objectContaining({
-          prompt: 'test prompt'
-        })
-      })
+      expect.objectContaining({ /* ... */ })
     )
   })
 
   it('handles API errors', async () => {
-    const request = new Request('http://localhost/api/recraft', {
-      method: 'POST',
-      body: JSON.stringify({ prompt: 'test prompt' })
-    })
-
-    mockRun.mockRejectedValueOnce(new Error('API error'))
+    const request = new Request('http://localhost/api/recraft', { /* ... */ })
+    mockRun.mockRejectedValueOnce(new Error('API error')) // Mock rejection
 
     const response = await POST(request)
     const data = await response.json()
@@ -280,55 +357,68 @@ describe('POST /api/recraft', () => {
 ## Mocking Patterns
 
 ### 1. Environment Variables
+Setting `process.env` directly might be unreliable in Vitest's environment. Prefer using:
+- **`.env.test` file:** Vitest automatically loads `.env.test`.
+- **Vitest config:** Use `define` or `envDir` options in `vitest.config.ts`.
+- **Mocking modules:** If a module reads `process.env`, mock that module to return test values.
+
+Example using module mocking (if `config.ts` reads env vars):
 ```typescript
-const originalEnv = process.env
+// __mocks__/config.ts
+export const SUPABASE_URL = 'mock-url';
+export const API_KEY = 'mock-key';
 
-beforeAll(() => {
-  process.env = {
-    ...originalEnv,
-    REQUIRED_ENV_VAR: 'test-value'
-  }
-})
-
-afterAll(() => {
-  process.env = originalEnv
-})
+// In test file:
+vi.mock('@/lib/config'); // Vitest automatically uses the __mocks__ version
 ```
 
-### 2. External Dependencies
+### 2. External Dependencies (Modules)
+Use `vi.mock` for mocking modules. Place mocks **before** importing the module under test.
 ```typescript
-// Mock Next.js
-jest.mock('next/headers', () => ({
-  cookies: jest.fn(() => ({
-    get: jest.fn(),
-    set: jest.fn(),
-    delete: jest.fn()
+import { describe, it, expect, vi } from 'vitest'
+
+// Mock Next.js headers
+vi.mock('next/headers', () => ({
+  cookies: vi.fn(() => ({
+    get: vi.fn(),
+    set: vi.fn(),
+    delete: vi.fn()
   }))
 }))
 
-// Mock Supabase
-jest.mock('@/utils/supabase/server', () => ({
-  createClient: jest.fn(() => ({
+// Mock Supabase client
+const mockGetUser = vi.fn()
+vi.mock('@/utils/supabase/server', () => ({
+  createClient: vi.fn(() => ({
     auth: {
-      getUser: jest.fn().mockResolvedValue({
-        data: { user: mockUser },
-        error: null
-      })
+      getUser: mockGetUser.mockResolvedValue({ data: { user: { id: 'test-user' } }, error: null })
     }
   }))
 }))
+
+// Now import the module using the mocked dependencies
+import { someApiHandler } from '../route'
+
+describe('someApiHandler', () => {
+  // ... tests ...
+})
 ```
+**Important:** Be mindful of hoisting. If the module being mocked is used at the top level of the module under test, define mock functions *before* the `vi.mock` call, as seen in `__tests__/components/ContactForm.test.tsx`.
 
 ### 3. Components and Images
 ```typescript
+import { vi } from 'vitest'
+import type { ImageProps } from 'next/image' // Assuming ImageProps type exists
+
 // Mock next/image
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
   default: (props: ImageProps) => <img {...props} alt={props.alt || ''} />
 }))
 
 // Mock child component
-jest.mock('../ChildComponent', () => ({
+// Ensure factory returns { default: MockComponent } for default exports
+vi.mock('../ChildComponent', () => ({
   __esModule: true,
   default: ({ onAction }: { onAction: () => void }) => (
     <button onClick={onAction}>Mock Button</button>
@@ -339,28 +429,33 @@ jest.mock('../ChildComponent', () => ({
 ## Best Practices
 
 ### 1. Test Organization
+(Remains the same)
 - Group tests logically by feature or scenario
-- Use descriptive test names
+- Use descriptive test names (`it('should render correctly when loading')`)
 - Follow the Arrange-Act-Assert pattern
 - Keep tests focused and atomic
 
 ### 2. Mocking Strategy
-- Mock external dependencies at the lowest level possible
-- Use Jest's mock functions to verify calls
-- Keep mock data realistic but minimal
-- Reset mocks between tests
+- Mock external dependencies (APIs, DB) at the boundary.
+- Use `vi.fn()` and `vi.spyOn()` to create mocks and spies.
+- Use `vi.clearAllMocks()` or `vi.resetAllMocks()` in `beforeEach` or `afterEach`.
+- Keep mock data realistic but minimal.
+- **Hoisting:** Be aware that `vi.mock` calls are hoisted. Define helper mock functions *before* the `vi.mock` call if the factory function needs them.
+- **Factory Returns:** For default exports, the `vi.mock` factory must return an object like `{ default: MockImplementation }`.
 
 ### 3. Testing Priorities
+(Remains the same)
 1. Test user interactions and events
-2. Test component rendering and props
+2. Test component rendering based on props/state
 3. Test error states and edge cases
 4. Test accessibility features
-5. Test integration with external services
+5. Test integration points (mocking the external part)
 
 ### 4. Common Patterns
+(Matchers come from `@testing-library/jest-dom` via setup file)
 ```typescript
 // Testing loading states
-it('shows loading state', async () => {
+it('shows loading state', () => {
   render(<Component isLoading={true} />)
   expect(screen.getByRole('progressbar')).toBeInTheDocument()
 })
@@ -375,35 +470,46 @@ it('shows error message', () => {
 it('handles async operation', async () => {
   render(<Component />)
   fireEvent.click(screen.getByRole('button'))
-  await waitFor(() => {
-    expect(screen.getByText('Success')).toBeInTheDocument()
-  })
+  // Use findBy* queries which automatically wait
+  expect(await screen.findByText('Success')).toBeInTheDocument()
+  // Or use waitFor for more complex checks
+  // await waitFor(() => {
+  //   expect(someMockFn).toHaveBeenCalled()
+  // })
 })
 ```
 
 ### 5. Testing Library Query Priority
+(Remains the same - uses Testing Library)
 ```typescript
-// Prefer
-screen.getByRole('button', { name: 'Submit' })
-// Over
+// Prefer semantic queries
+screen.getByRole('button', { name: /Submit/i }) // Use regex for case-insensitivity
+// Over implementation details
 screen.getByTestId('submit-button')
 
-// For text that might include line breaks
-screen.getByText((content) => content.includes('Expected Text'))
+// For text that might include line breaks or extra whitespace
+screen.getByText((content, element) => content.includes('Expected Text'))
 ```
 
 ### 6. Type-Safe Mocks
+Use `vi.Mock` or `vi.MockedFunction` for type safety.
 ```typescript
-const mockCallback = jest.fn() as jest.MockedFunction<
+import { vi } from 'vitest'
+
+const mockCallback = vi.fn() as vi.MockedFunction<
   (value: string) => void
 >
 
-const mockAsyncFunction = jest.fn() as jest.MockedFunction<
+const mockAsyncFunction = vi.fn() as vi.MockedFunction<
   (query: string) => Promise<Result[]>
 >
+
+// For mocked modules/classes
+const mockedCreateClient = vi.mocked(createClient)
 ```
 
 ## References
+- [Vitest Documentation](mdc:https:/vitest.dev/)
 - [Testing Library Documentation](mdc:https:/testing-library.com/docs/react-testing-library/intro)
-- [Jest Documentation](mdc:https:/jestjs.io/docs/getting-started)
+- [@testing-library/jest-dom Matchers](mdc:https:/github.com/testing-library/jest-dom#usage)
 - [Next.js Testing](mdc:https:/nextjs.org/docs/testing)

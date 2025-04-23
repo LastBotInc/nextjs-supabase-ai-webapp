@@ -1,6 +1,7 @@
 import { tavily } from '@tavily/core'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
+import { cookies } from 'next/headers'
 
 interface SearchResult {
   title: string
@@ -18,36 +19,78 @@ interface TavilyResult {
   score?: number
 }
 
-const tavilyClient = tavily({ apiKey: process.env.TAVILY_API_KEY || '' })
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url)
+  const query = searchParams.get('query')
 
-export async function POST(request: Request) {
+  if (!query) {
+    return NextResponse.json({ error: 'Query parameter is required' }, { status: 400 })
+  }
+
+  const tavilyApiKey = process.env.TAVILY_API_KEY
+  if (!tavilyApiKey) {
+    return NextResponse.json({ error: 'Tavily API key is not configured' }, { status: 401 })
+  }
+
   try {
-    // Get authorization token from request headers
-    const authHeader = request.headers.get('Authorization')
-    if (!authHeader?.startsWith('Bearer ')) {
-      return NextResponse.json(
-        { error: 'Missing or invalid authorization header' },
-        { status: 401 }
-      )
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore);
+
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) {
+       console.log("[GET /api/tavily-search] User not logged in, proceeding without user context.");
     }
-    const token = authHeader.split(' ')[1]
 
-    // Create authenticated Supabase client
-    const supabase = await createClient()
+    const tavilyClientCore = tavily({ apiKey: tavilyApiKey })
+    const searchResponse = await tavilyClientCore.search(query, {
+      searchDepth: 'basic',
+      maxResults: 5
+    })
 
-    // Verify the token and get user
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+    const results = (searchResponse.results || []).map((item: TavilyResult) => ({
+      title: item.title || item.url?.split('/').pop() || 'Untitled',
+      url: item.url,
+      snippet: item.content,
+      score: item.score || 1,
+      published_date: item.publishedDate || new Date().toISOString()
+    }))
+
+    return NextResponse.json({ results })
+  } catch (error) {
+    console.error('Tavily search error (GET):', error)
+    const errorMessage = error instanceof Error ? error.message : 'Failed to fetch search results';
+    return NextResponse.json({ error: errorMessage }, { status: 500 })
+  }
+}
+
+export async function POST(request: NextRequest) {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  try {
+    const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {
+      console.error('[POST /api/tavily-search] Auth error or no user:', authError)
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    const { query, type, depth, max_tokens, max_results, topic, days } = await request.json()
+    const {
+      query,
+      type = 'search',
+      depth = 'basic',
+      max_tokens,
+      max_results = 5,
+      topic,
+      days,
+      include_answer = false
+    } = await request.json()
 
-    // Validate required parameters
+    console.log('[POST /api/tavily-search] Request:', { query, type, depth, max_tokens, max_results })
+
     if (!query) {
       return NextResponse.json(
         { error: 'Query parameter is required' },
@@ -55,22 +98,23 @@ export async function POST(request: Request) {
       )
     }
 
-    // Validate max_results
-    if (max_results !== undefined) {
-      if (max_results < 1 || max_results > 50) {
-        return NextResponse.json(
-          { error: 'max_results must be between 1 and 50' },
-          { status: 400 }
-        )
-      }
+    if (type !== 'search' && type !== 'context') {
+      return NextResponse.json(
+        { error: 'Invalid search type' },
+        { status: 400 }
+      )
     }
 
-    console.log('Search request:', { query, type, depth, max_tokens, max_results })
+    const tavilyApiKey = process.env.TAVILY_API_KEY
+    if (!tavilyApiKey) {
+      return NextResponse.json({ error: 'Tavily API key is not configured' }, { status: 401 })
+    }
+
+    const tavilyClientCore = tavily({ apiKey: tavilyApiKey })
 
     let results: SearchResult[] = []
     if (type === 'context') {
-      // Use searchContext for more detailed content
-      const contextResults = await tavilyClient.searchContext(query, {
+      const contextResultsRaw = await tavilyClientCore.searchContext(query, {
         searchDepth: depth,
         maxTokens: max_tokens,
         maxResults: max_results,
@@ -78,70 +122,53 @@ export async function POST(request: Request) {
         days
       })
 
-      console.log('Context search raw response:', contextResults)
+      console.log('[POST /api/tavily-search] Context search raw response:', contextResultsRaw)
 
       try {
-        // Handle the response, which might be a string or already parsed
         let parsedResults: TavilyResult[] = []
-        
-        if (typeof contextResults === 'string') {
-          try {
-            // First parse attempt - for double-stringified JSON
-            const firstParse = JSON.parse(contextResults)
-            console.log('First parse type:', typeof firstParse)
-            
-            if (typeof firstParse === 'string') {
-              // If still a string, parse again
-              parsedResults = JSON.parse(firstParse)
-            } else if (Array.isArray(firstParse)) {
-              parsedResults = firstParse
-            }
-          } catch (parseError) {
-            console.error('Parse error:', parseError)
-            throw parseError
+        if (typeof contextResultsRaw === 'string') {
+          parsedResults = JSON.parse(contextResultsRaw);
+          if (typeof parsedResults === 'string') {
+            parsedResults = JSON.parse(parsedResults);
           }
-        } else if (Array.isArray(contextResults)) {
-          parsedResults = contextResults
-        } else if (typeof contextResults === 'object' && contextResults !== null) {
-          parsedResults = [contextResults as TavilyResult]
+        } else if (Array.isArray(contextResultsRaw)) {
+          parsedResults = contextResultsRaw
+        } else if (typeof contextResultsRaw === 'object' && contextResultsRaw !== null) {
+          parsedResults = [contextResultsRaw as TavilyResult]
         }
 
-        console.log('Parsed results:', parsedResults)
-
-        // Map the results to our expected format
         if (Array.isArray(parsedResults)) {
           results = parsedResults.map(item => ({
-            title: item.title || item.url.split('/').pop() || 'Untitled',
+            title: item.title || item.url?.split('/').pop() || 'Untitled',
             url: item.url,
             snippet: item.content,
             score: item.score || 1,
             published_date: item.publishedDate || new Date().toISOString()
           }))
+        } else {
+           throw new Error("Parsed context results were not an array.")
         }
-
       } catch (error) {
-        console.error('Failed to process context results:', error)
-        // Create a single result with the raw content if parsing fails
+        console.error('[POST /api/tavily-search] Failed to process context results:', error)
         results = [{
-          title: 'Search Results',
-          url: '',
-          snippet: String(contextResults),
+          title: 'Raw Context Results',
+          url: '' as string,
+          snippet: String(contextResultsRaw),
           score: 1,
           published_date: new Date().toISOString()
         }]
       }
     } else {
-      // Regular search
-      const searchResponse = await tavilyClient.search(query, {
+      const searchResponse = await tavilyClientCore.search(query, {
         searchDepth: depth,
         maxResults: max_results,
         topic,
         days,
         includeAnswer: false
       })
-      
+
       results = (searchResponse.results || []).map((item: TavilyResult) => ({
-        title: item.title || item.url.split('/').pop() || 'Untitled',
+        title: item.title || item.url?.split('/').pop() || 'Untitled',
         url: item.url,
         snippet: item.content,
         score: item.score || 1,
@@ -149,12 +176,14 @@ export async function POST(request: Request) {
       }))
     }
 
-    console.log('Final results:', results)
+    console.log('[POST /api/tavily-search] Final results:', results)
     return NextResponse.json({ results })
+
   } catch (error) {
-    console.error('Tavily search error:', error)
+    console.error('Tavily search error (POST):', error)
+    const errorMessage = error instanceof Error ? error.message : 'Failed to perform search';
     return NextResponse.json(
-      { error: 'Failed to perform search' },
+      { error: errorMessage },
       { status: 500 }
     )
   }

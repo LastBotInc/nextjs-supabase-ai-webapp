@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { describe, it, expect } from '@jest/globals'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import MediaSelector from '../MediaSelector'
@@ -12,7 +12,7 @@ import { setupSupabaseEnv } from '@/__tests__/utils/supabase'
 setupSupabaseEnv()
 
 // Mock next-intl
-jest.mock('next-intl', () => ({
+vi.mock('next-intl', () => ({
   useTranslations: () => (key: string) => {
     const translations: Record<string, string> = {
       'Media.title': 'selectMedia',
@@ -25,7 +25,7 @@ jest.mock('next-intl', () => ({
 }))
 
 // Mock Supabase client
-jest.mock('@/utils/supabase/client', () => ({
+vi.mock('@/utils/supabase/client', () => ({
   createClient: () => ({
     from: () => ({
       select: () => ({
@@ -41,7 +41,7 @@ jest.mock('@/utils/supabase/client', () => ({
 }))
 
 // Mock MediaGrid component
-jest.mock('@/app/[locale]/admin/media/MediaGrid', () => ({
+vi.mock('@/app/[locale]/admin/media/MediaGrid', () => ({
   MediaGrid: ({ onAssetSelect }: { onAssetSelect: (asset: MediaAsset) => void }) => {
     const mockAsset: MediaAsset = {
       id: '1',
@@ -78,7 +78,7 @@ jest.mock('@/app/[locale]/admin/media/MediaGrid', () => ({
 }))
 
 // Mock MediaDetails component
-jest.mock('@/app/[locale]/admin/media/MediaDetails', () => ({
+vi.mock('@/app/[locale]/admin/media/MediaDetails', () => ({
   MediaDetails: ({ asset }: { asset: MediaAsset | null }) => {
     if (!asset) return null
     return (
@@ -91,18 +91,18 @@ jest.mock('@/app/[locale]/admin/media/MediaDetails', () => ({
 }))
 
 // Mock UploadZone component
-jest.mock('@/app/[locale]/admin/media/UploadZone', () => ({
+vi.mock('@/app/[locale]/admin/media/UploadZone', () => ({
   UploadZone: () => <div>Upload Zone</div>
 }))
 
 // Mock SearchFilter component
-jest.mock('@/app/[locale]/admin/media/SearchFilter', () => ({
+vi.mock('@/app/[locale]/admin/media/SearchFilter', () => ({
   SearchFilter: () => <div>Search Filter</div>
 }))
 
 describe('MediaSelector', () => {
-  const mockOnSelect = jest.fn()
-  const mockOnClose = jest.fn()
+  const mockOnSelect = vi.fn()
+  const mockOnClose = vi.fn()
   const defaultProps = {
     onSelect: mockOnSelect,
     onClose: mockOnClose,
@@ -110,7 +110,7 @@ describe('MediaSelector', () => {
   }
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('renders media selector', () => {
