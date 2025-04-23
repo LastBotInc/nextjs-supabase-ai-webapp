@@ -1,7 +1,7 @@
 # Innolease: Next.js Business Vehicle Leasing Platform
 
 ## Overview
-A modern, comprehensive Next.js web application for Innolease, a Finnish vehicle leasing and fleet management service provider. This platform serves businesses seeking flexible, transparent, and efficient vehicle solutions, built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
+A modern, comprehensive Next.js web application for Innolease, a Finnish vehicle leasing and fleet management service provider. This platform serves businesses seeking flexible, transparent, and efficient vehicle solutions, built with Next.js 15, React 19, TypeScript, and Tailwind CSS. Innolease emphasizes **Expertise**, **Reliability**, **Customer-centricity**, **Quality**, staying **Up-to-date**, and leveraging extensive **Experience** to deliver exceptional service.
 
 ## Business Features
 

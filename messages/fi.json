@@ -1279,5 +1279,83 @@
   "meta": {
     "title": "Innolease Blogi",
     "description": "Uusimmat uutiset, näkemykset ja vinkit ajoneuvojen leasingista ja kalustonhallinnasta Innoleaselta."
+  },
+  "home": {
+    "meta": {
+      "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
+      "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut läpinäkyvällä hinnoittelulla ja tehokkailla digitaalisilla työkaluilla."
+    },
+    "nav": {
+      "leasingServices": "Leasing-palvelut",
+      "customers": "Asiakkaat",
+      "jobOpening": "Avoin työpaikka",
+      "news": "Ajankohtaista",
+      "contact": "Yhteydenotto"
+    },
+    "hero": {
+      "title": "Innolease – Yrityksesi kumppani leasingasioissa",
+      "description1": "Innoleasen tehtävä tarkoitus on mukautua asiakkaan tarpeisiin ja tarjota suorituskykyä eri vaihtoehdoilla. Joiden pohjalta asiakkaan on helpompi tehdä heidän liiketoimintaan sopiva ratkaisu.",
+      "description2": "Avoin kommunikaatiomme meistä. Mobiililta autokantamme tarjoaa mielenkiintoisen autovalikoiman toimitusnopeudella. Tavoitteenamme on määrästä riippumatta saavuttaa laaja vaihtelu, vehmettä nolasta vaikka kymöttä asuakkaan budjettointia.",
+      "readMore": "Lue lisää"
+    },
+    "leasingOptions": {
+      "leftCard": {
+        "title": "Sinulle sopivin leasingvaihtoehto ja rahoitusmalli",
+        "description": "Meiltä löytyy asiakkaalle aina tilanteeseen sopiva leasingvaihtoehto ja rahoitusmalli.",
+        "readMore": "Lue lisää"
+      },
+      "rightCard": {
+        "title": "Joustaa ja helppoa leasingpalvelua",
+        "description": "Ketteränä toimijana palvelumme on joustavaa. Erityistoiveet aikataulun ja auton varustelun suhteen ovat meille arkipäivää.",
+        "readMore": "Lue lisää"
+      }
+    },
+    "serviceLinks": {
+      "fleetManagerTools": "Autopäättäjän työkalut",
+      "carCalculator": "Autolaskuri",
+      "companyCarGuide": "Työsuhdeautoilijan opas"
+    },
+    "news": {
+      "title": "Ajankohtaista",
+      "card1": {
+        "title": "Uusi Ford Transit Custom",
+        "description": "Kuvaukset saapuvat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Lue lisää"
+      },
+      "card2": {
+        "title": "Tarjoamme kaikki merkit ja mallit",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Lue lisää"
+      },
+      "card3": {
+        "title": "Leasing ratkaisu ETruck",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Lue lisää"
+      },
+      "viewAll": "Katso ajankohtaiset"
+    },
+    "innoFleet": {
+      "title": "InnoFleet Manager",
+      "description1": "Teet autosi yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko autokannastasi antaa sinulle mahdollisuuden hallita autoihisi liittyviä asioita tehokkaasti ja aikaa säästäen.",
+      "description2": "Koko autokantasi ylläpito ja huoltotoiminnallisuus ovat helposti saatavilla myös mobiililaitteellasi.",
+      "readMore": "Lue lisää"
+    },
+    "team": {
+      "title": "Yritysautoilun ja -rahoituksen asiantuntijat palveluksessasi",
+      "role": "Myyntipäällikkö",
+      "email": "etunimi.sukunimi@innolease.fi"
+    },
+    "transparency": {
+      "title": "Leasing-ratkaisujen kustannukset läpinäkyvästi",
+      "description": "Haluamme tehdä leasing-autoilusta mahdollisimman selkeää ja yksinkertaista. Siksi Innoleasen hinnoittelu on läpinäkyvää. Saat meiltä aina todenmukaisen ja selkeän tarjouksen, joka ei sisällä piilotettuja kuluja. Teemme asiat ilman ylimääräistä byrokratiaa ja hoidamme hommat kuntoon.",
+      "readMore": "Lue lisää"
+    },
+    "footer": {
+      "exchange": "VAIHDE",
+      "service": "HUOLTOVARAUS",
+      "openingHours": "Arkisin 8:00-16:30",
+      "publishingPlatform": "JULKAISUALUSTA",
+      "copyright": "© 2023 Innolease Oy"
+    }
   }
 }

@@ -1,0 +1,18 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo mark -->
+  <path d="M30 10 L50 0 A10 10 0 0 1 60 10 L60 40 L40 50 A10 10 0 0 1 30 40 Z" fill="#B87333"/>
+  
+  <!-- Logo text -->
+  <path d="M70 20 L70 40 L75 40 L75 20 Z" fill="#1E1E1E"/>
+  <path d="M85 20 L85 40 L90 40 L90 20 Z" fill="#1E1E1E"/>
+  <path d="M95 20 L95 40 L100 40 L100 20 Z" fill="#1E1E1E"/>
+  <path d="M105 20 L120 20 C125 20 130 25 130 30 C130 35 125 40 120 40 L105 40 Z M110 25 L110 35 L120 35 C122 35 125 33 125 30 C125 27 122 25 120 25 Z" fill="#1E1E1E"/>
+  <path d="M135 20 L135 40 L150 40 C155 40 160 35 160 30 C160 25 155 20 150 20 Z M140 25 L150 25 C152 25 155 27 155 30 C155 33 152 35 150 35 L140 35 Z" fill="#1E1E1E"/>
+  <path d="M165 20 L180 20 L180 25 L170 25 L170 27.5 L177.5 27.5 L177.5 32.5 L170 32.5 L170 35 L180 35 L180 40 L165 40 Z" fill="#1E1E1E"/>
+  <path d="M185 20 L190 20 L197.5 30 L197.5 20 L202.5 20 L202.5 40 L197.5 40 L190 30 L190 40 L185 40 Z" fill="#1E1E1E"/>
+  <path d="M205 20 L220 20 L220 25 L210 25 L210 27.5 L217.5 27.5 L217.5 32.5 L210 32.5 L210 35 L220 35 L220 40 L205 40 Z" fill="#1E1E1E"/>
+  
+  <!-- Registered trademark symbol -->
+  <circle cx="225" cy="22" r="5" fill="none" stroke="#1E1E1E" stroke-width="1"/>
+  <path d="M223 22 L224 23.5 L225 22 L226 23.5 L227 22" fill="none" stroke="#1E1E1E" stroke-width="0.75"/>
+</svg> 

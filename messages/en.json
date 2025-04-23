@@ -1425,5 +1425,83 @@
       "button": "Request a Quote",
       "contact": "Or call us at +358 50 123 4567"
     }
+  },
+  "home": {
+    "meta": {
+      "title": "Innolease | Business Vehicle Leasing & Fleet Management",
+      "description": "Comprehensive business vehicle leasing solutions and fleet management services with transparent pricing and digital tools."
+    },
+    "nav": {
+      "leasingServices": "Leasing Services",
+      "customers": "Customers",
+      "jobOpening": "Job Opening",
+      "news": "News",
+      "contact": "Contact Us"
+    },
+    "hero": {
+      "title": "Innolease – Your Partner in Leasing Solutions",
+      "description1": "Innolease's mission is to adapt to customer needs and offer various options based on which the customer can more easily make a solution suitable for their business.",
+      "description2": "Our open communication about us. Our mobile vehicle fleet offers an interesting vehicle selection with fast delivery. Our goal is to achieve a wide variation regardless of quantity, from zero vegetation to even ten for the customer's budgeting.",
+      "readMore": "Read More"
+    },
+    "leasingOptions": {
+      "leftCard": {
+        "title": "The Most Suitable Leasing Option and Financing Model for You",
+        "description": "We always have a leasing option and financing model suitable for the customer's situation.",
+        "readMore": "Read More"
+      },
+      "rightCard": {
+        "title": "Flexible and Easy Leasing Service",
+        "description": "As an agile operator, our service is flexible. Special requests regarding scheduling and vehicle equipment are everyday matters for us.",
+        "readMore": "Read More"
+      }
+    },
+    "serviceLinks": {
+      "fleetManagerTools": "Fleet Manager Tools",
+      "carCalculator": "Car Calculator",
+      "companyCarGuide": "Company Car Guide"
+    },
+    "news": {
+      "title": "News",
+      "card1": {
+        "title": "New Ford Transit Custom",
+        "description": "Descriptions arriving. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Read More"
+      },
+      "card2": {
+        "title": "We Offer All Makes and Models",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Read More"
+      },
+      "card3": {
+        "title": "Leasing Solution ETruck",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Read More"
+      },
+      "viewAll": "View All News"
+    },
+    "innoFleet": {
+      "title": "InnoFleet Manager",
+      "description1": "Create all the reports your company needs directly from the web service. Up-to-date information about your entire vehicle fleet gives you the opportunity to manage vehicle-related matters efficiently and save time.",
+      "description2": "Maintaining your entire vehicle fleet and service functionality is also easily available on your mobile device.",
+      "readMore": "Read More"
+    },
+    "team": {
+      "title": "Company Car and Finance Experts at Your Service",
+      "role": "Sales Manager",
+      "email": "firstname.lastname@innolease.fi"
+    },
+    "transparency": {
+      "title": "Leasing Solution Costs Transparently",
+      "description": "We want to make leasing cars as clear and simple as possible. That's why Innolease's pricing is transparent. You will always receive a truthful and clear offer from us that does not include hidden costs. We do things without unnecessary bureaucracy and get things done.",
+      "readMore": "Read More"
+    },
+    "footer": {
+      "exchange": "EXCHANGE",
+      "service": "SERVICE BOOKING",
+      "openingHours": "Weekdays 8:00-16:30",
+      "publishingPlatform": "PUBLISHING PLATFORM",
+      "copyright": "© 2023 Innolease Oy"
+    }
   }
 }

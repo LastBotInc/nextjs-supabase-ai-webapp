@@ -189,17 +189,14 @@
 ### Design System
 - Colors:
   - Primary Colors:
-    - Innolease Blue: #0E4C92
-    - Innolease Light Blue: #3A8DDE
-    - Innolease Dark Blue: #072B54
-    - Accent Orange: #F68B1F
-    - Accent Green: #16A75C
+    - Innolease Copper: (Warm, brownish-orange, e.g., `#B87333` - *Placeholder, use actual hex code*) 
+    - Innolease Electric Blue: (Vibrant, saturated blue, e.g., `#0000FF` - *Placeholder, use actual hex code*)
+    - Innolease Pitch Black: (Deep black, e.g., `#000000`)
   - Neutral Colors:
+    - Innolease Beige: (Pale, creamy off-white, e.g., `#F5F5DC` - *Placeholder, use actual hex code*)
+    - Innolease Road Grey: (Light grey, e.g., `#D3D3D3` - *Placeholder, use actual hex code*)
+    - Innolease Concrete Grey: (Medium-dark grey, e.g., `#808080` - *Placeholder, use actual hex code*)
     - White: #FFFFFF
-    - Light Gray: #F5F7FA
-    - Medium Gray: #D1D5DB
-    - Dark Gray: #4B5563
-    - Charcoal: #1E293B
   - Semantic Colors:
     - Success: #16A75C
     - Warning: #F59E0B
@@ -211,13 +208,15 @@
     - Text: #F5F7FA
 
 - Typography:
-  - Headings: Inter
-  - Body: Inter
-  - Monospace: Roboto Mono
+  - Primary Font: Inter Tight
+  - Available Weights: Light, Regular, Bold, Black
+  - Headings: Inter Tight
+  - Body: Inter Tight
+  - Monospace: Roboto Mono (Review if needed, or use Inter Tight)
   
 - Heading Styles:
   - Main Headings (H1):
-    - Font: Inter
+    - Font: Inter Tight
     - Size: text-4xl (2.25rem) on mobile, text-5xl (3rem) on desktop
     - Weight: font-bold
     - Color: Innolease Blue (#0E4C92)
@@ -225,7 +224,7 @@
     - Margin Bottom: mb-6
 
   - Section Headings (H2):
-    - Font: Inter
+    - Font: Inter Tight
     - Size: text-3xl (1.875rem)
     - Weight: font-semibold
     - Color: Innolease Blue (#0E4C92)
@@ -233,7 +232,7 @@
     - Margin Bottom: mb-4
 
   - Content Headings (H3):
-    - Font: Inter
+    - Font: Inter Tight
     - Size: text-2xl (1.5rem)
     - Weight: font-medium
     - Color: Innolease Dark Blue (#072B54)
@@ -335,6 +334,47 @@
    - Modal dialogs
    - Navigation elements
    - Vehicle cards
+
+### Graphical Patterns and Overlays
+
+- **Patterns:** The brand utilizes distinct graphical elements derived from the logo:
+    - A single, curved parallelogram shape.
+    - A wavy pattern formed by repeating and mirroring this shape.
+    - A tiled pattern using variations of the shape.
+    - These are typically rendered in neutral colors like 'Road Grey' or 'Concrete Grey'.
+
+- **Usage:** These patterns can be used subtly as background overlays on containers, images, or sections (e.g., hero sections, feature cards) to reinforce brand identity without overwhelming the content.
+
+- **Implementation (CSS Overlay):**
+    - **Method:** Use CSS pseudo-elements (`::before` or `::after`) on the container element.
+    - **Styling:** Apply the pattern using `background-image` (preferably an SVG for scalability and sharpness) or potentially CSS gradients/masks for simpler patterns. Set `background-repeat`, `background-size`, and `background-position` as needed.
+    - **Subtlety:** Control visibility using the `opacity` property (e.g., `opacity: 0.05` or `opacity: 0.1`).
+    - **Interaction:** Ensure the overlay doesn't interfere with user interaction by setting `pointer-events: none;`.
+    - **Layering:** Use `position: absolute`, `inset: 0`, and potentially `z-index` to position the overlay correctly behind content.
+    - **Blending:** Consider `background-blend-mode` (e.g., `multiply`, `overlay`) for interesting effects when layered over images or colors.
+    - **Centralization:** Store SVG patterns or common CSS overlay utility classes centrally for consistency.
+
+- **Conceptual Example (Pattern Overlay):**
+  ```css
+  .container-with-pattern-overlay {
+    position: relative;
+    overflow: hidden; 
+  }
+
+  .container-with-pattern-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cover entire container */
+    background-image: url('/path/to/innolease-pattern.svg'); 
+    background-repeat: repeat;
+    background-size: 60px 60px; /* Example size */
+    opacity: 0.08; /* Adjust for subtlety */
+    pointer-events: none; 
+    z-index: 0; /* Behind content if needed */
+  }
+  ```
+
+- **Example (Text Overlay):** As seen in some card examples, a simple semi-transparent overlay can be used behind text sections placed over images to ensure readability. This typically uses `background-color` with an alpha value (e.g., `rgba(0, 0, 0, 0.5)`) on a pseudo-element covering the text area.
 
 ## User Flows
 

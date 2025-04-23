@@ -275,24 +275,24 @@ mcp_supabase_query - Run a read-only SQL query to project database
 <documentation>
   ## Documentation and Context Files
   Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `Workspace_rules` for `@*.mdc` files. **Crucially, incorporate relevant details from these into prompts for Gemini.**
-    - `@description.md`: App description, use cases, features.
-    - `@architecture.md`: Tech stack, folder structure, testing frameworks.
-    - `@datamodel.md`: Entities, attributes, relationships.
-    - `@frontend.md`: Views/screens, UI/UX patterns, styling.
-    - `@backend.md`: API endpoints, authentication, service architecture.
-    - `@todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
-    - `@ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
-    - `@learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
-    - `/.cursor/rules/@add-data-model.mdc`: How to add a new data model.
-    - `/.cursor/rules/@admin-api-protection.mdc`: How to protect the admin API.
-    - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
-    - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
-    - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `description.md`: App description, use cases, features.
+    - `architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `datamodel.md`: Entities, attributes, relationships.
+    - `frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `backend.md`: API endpoints, authentication, service architecture.
+    - `todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+    - `/.cursor/rules/add-data-model.mdc`: How to add a new data model.
+    - `/.cursor/rules/admin-api-protection.mdc`: How to protect the admin API.
+    - `/.cursor/rules/implement-frontend-page.mdc`: How to implement a new frontend page.
+    - `/.cursor/rules/implement-nextjs-api.mdc`: How to implement a new NextJS API route.
+    - `/.cursor/rules/implement-unit-tests.mdc`: How to implement unit tests.
     - `@package.json`: List of used npm packages and versions.
     - `lib/@brand-info.ts`: Brand information for content generation.
 
   **Link Handling:**
-    - For `@filename.ext` links: Use `read_file` to access their content. Extract key info for prompts.
+    - For `filename.ext` links: Use `read_file` to access their content. Extract key info for prompts.
     - For `http://` or `https://` links: Use `web_search` or the `gemini` tool with `--url` or `--ground` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume direct access without a tool.
 </documentation>
 
@@ -323,8 +323,8 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   - **Goal:** Understand a task or topic thoroughly before planning.
   - **Steps:**
     1. **Gather Context:**
-        - Read relevant `@*.md` files from `<documentation>` (`read_file`).
-        - Fetch relevant `@*.mdc` rules using `Workspace_rules`.
+        - Read relevant `*.md` files from `<documentation>` (`read_file`).
+        - Fetch relevant `*.mdc` rules using `Workspace_rules`.
         - Use `codebase_search` to find relevant existing code snippets.
         - Use the `gemini` tool (with `--prompt`, `--file`, `--url`, or `--ground`) for targeted analysis, summarization, or Q&A based on specific context or up-to-date info.
         - Use `web_search` for broader exploration or finding specific external resources/documentation.
@@ -349,7 +349,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
    - **Goal:** Translate or adapt content for different locales/languages.
    - **Steps:**
      1. Read available languages from `/messages` folder (`list_dir`, `read_file`).
-     2. Read needed documentation (`@description.md`, etc.) and `lib/@brand-info.ts` (`read_file`) to understand context and brand voice.
+     2. Read needed documentation (`description.md`, etc.) and `lib/brand-info.ts` (`read_file`) to understand context and brand voice.
      3. **Formulate Prompt (for `gemini` tool or `edit_file`):** Define the Task (translate text), provide rich Context (source text, target language, brand voice, target audience, cultural notes), and specify Format (natural tone, local conventions for numbers/dates). Assign a Persona ('You are a native [language] translator...').
      4. Use the `gemini` tool (`run_terminal_cmd`) or `edit_file` to generate/insert translations.
      5. Review generated translations for naturalness and accuracy; iterate if necessary.
@@ -362,7 +362,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
         - Read `@learnings.md` for previous solutions (`read_file`).
         - If error messages contain URLs, use `web_search` or `gemini --url` to understand them.
         - Use `gemini --prompt "[error message]" --ground` or `web_search` for general error resolution info.
-        - Fetch relevant `@*.mdc` rules (`Workspace_rules`).
+        - Fetch relevant `@.mdc` rules (`Workspace_rules`).
         - Use `codebase_search` or `grep_search` to find relevant code.
     2. **Iterative Fixing Loop:**
         a. **Hypothesize:** Based on context, identify 1-2 likely causes.
@@ -370,7 +370,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
         c. **Implement Fix:** Formulate a precise prompt for `edit_file` detailing the code change (Task), referencing context (Context), and expected format (Format).
         d. **Validate Fix:** Use `run_terminal_cmd` to run tests or execute the relevant code path.
         e. **Record Outcome:**
-            - If fixed: Update `@learnings.md` (`edit_file`). Delete `/temp/fix_backlog.md` if exists (`delete_file`).
+            - If fixed: Update `learnings.md` (`edit_file`). Delete `/temp/fix_backlog.md` if exists (`delete_file`).
             - If not fixed: Update `/temp/fix_backlog.md` (`edit_file`). Return to step (a). *Do not loop more than 3 times without asking the user.*
   </fix>
 

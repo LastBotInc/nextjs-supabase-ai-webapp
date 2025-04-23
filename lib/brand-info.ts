@@ -26,26 +26,27 @@ export const brandInfo: BrandVoice = {
   name: "Innolease",
   description: "Innolease, part of the Autolle.com Group, provides comprehensive business vehicle leasing and fleet management solutions tailored to each client's specific needs. With 800+ vehicles nationwide and digital tools like InnoFleet Manager, we empower Finnish businesses to manage mobility with cost-efficiency, clarity, and scalability.",
   tone: {
-    formal: 7,     // Professional but approachable
+    formal: 6,     // Professional but approachable and modern
     friendly: 6,   // Business-friendly but not overly casual
     technical: 7,  // Knowledgeable about vehicles and leasing
-    innovative: 8, // Modern digital tools and services
+    innovative: 8, // Modern digital tools and services, 'On the pulse'
     trustworthy: 9 // High emphasis on transparency and reliability
   },
   personality: {
     primary: [
-      "Professional",
+      "Reliable", // Luotettavuus
+      "Expert", // Asiantuntijuus
+      "Customer-centric", // Asiakaslähtöinen
+      "Quality-focused", // Laadukkuus
+      "Modern" // Ajan hermolla
+    ],
+    secondary: [
+      "Experienced", // Kokemus
       "Transparent",
       "Adaptable",
       "Efficient",
-      "Customer-centric"
-    ],
-    secondary: [
-      "Modern",
       "Digital-forward",
-      "Knowledgeable",
-      "Collaborative",
-      "Reliable"
+      "Collaborative"
     ],
     avoid: [
       "Overly casual",

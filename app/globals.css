@@ -17,6 +17,59 @@
   .animate-fade-in {
     animation: fade-in 0.3s ease-out forwards;
   }
+
+  /* Base container style for image overlays */
+  .has-overlay-pattern {
+    @apply relative overflow-hidden;
+  }
+
+  /* Base pseudo-element style for overlays */
+  .has-overlay-pattern::after {
+    content: '';
+    @apply absolute inset-0 z-10 pointer-events-none;
+    background-repeat: repeat; /* Default repeat */
+    opacity: 0.08; /* Default subtle opacity */
+  }
+
+  /* Specific Pattern Overlays */
+  .overlay-pattern-wavy::after {
+    /* Wavy pattern using two mirrored shapes in one SVG tile */
+    background-image: url('/patterns/innolease-wavy.svg');
+    background-size: 80px 80px; /* Adjust scale as needed */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  .overlay-pattern-shape::after {
+    /* Tiled pattern using the single shape */
+    background-image: url('/patterns/innolease-shape.svg');
+    background-size: 30px 60px; /* Adjust scale as needed */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+  
+  .overlay-pattern-tile-dense::after {
+    /* Dense tile pattern using offset shapes */
+    background-image: url('/patterns/innolease-tile-dense.svg');
+    background-size: 60px 60px; /* Adjust scale as needed */
+     /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+  
+  /* Simple Color Overlay (Example) */
+  .overlay-color-dark-20::after {
+     @apply bg-black/20; /* 20% black overlay */
+  }
+    .overlay-color-dark-50::after {
+     @apply bg-black/50; /* 50% black overlay */
+  }
+
+  /* Opacity Control for Overlays */
+  .overlay-opacity-5::after  { @apply opacity-[0.05]; }
+  .overlay-opacity-8::after  { @apply opacity-[0.08]; }
+  .overlay-opacity-10::after { @apply opacity-[0.1]; }
+  .overlay-opacity-15::after { @apply opacity-[0.15]; }
+  .overlay-opacity-20::after { @apply opacity-[0.2]; }
 }
 
 @layer base {

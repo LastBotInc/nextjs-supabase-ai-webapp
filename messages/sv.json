@@ -1375,5 +1375,83 @@
   "meta": {
     "title": "Innolease Blogg",
     "description": "Senaste nyheter, insikter och tips om fordonsleasing och vagnparkshantering från Innolease."
+  },
+  "home": {
+    "meta": {
+      "title": "Innolease | Företagsfordonsleasing & Fordonsparkshantering",
+      "description": "Omfattande företagsfordonsleasing-lösningar och fordonsparksadministration med transparent prissättning och digitala verktyg."
+    },
+    "nav": {
+      "leasingServices": "Leasingtjänster",
+      "customers": "Kunder",
+      "jobOpening": "Lediga jobb",
+      "news": "Nyheter",
+      "contact": "Kontakta oss"
+    },
+    "hero": {
+      "title": "Innolease – Din partner i leasinglösningar",
+      "description1": "Innoleases uppdrag är att anpassa sig till kundens behov och erbjuda olika alternativ baserat på vilka kunden enklare kan göra en lösning som passar deras verksamhet.",
+      "description2": "Vår öppna kommunikation om oss. Vår mobila fordonsflotta erbjuder ett intressant fordonssortiment med snabb leverans. Vårt mål är att uppnå en bred variation oavsett kvantitet, från noll vegetation till till och med tio för kundens budgetering.",
+      "readMore": "Läs mer"
+    },
+    "leasingOptions": {
+      "leftCard": {
+        "title": "Det mest lämpliga leasingalternativet och finansieringsmodellen för dig",
+        "description": "Vi har alltid ett leasingalternativ och en finansieringsmodell som passar kundens situation.",
+        "readMore": "Läs mer"
+      },
+      "rightCard": {
+        "title": "Flexibel och enkel leasingtjänst",
+        "description": "Som en smidig operatör är vår service flexibel. Särskilda önskemål gällande schema och fordonsutrustning är vardagliga frågor för oss.",
+        "readMore": "Läs mer"
+      }
+    },
+    "serviceLinks": {
+      "fleetManagerTools": "Fordonsparksverktyg",
+      "carCalculator": "Bilkalkylator",
+      "companyCarGuide": "Företagsbilsguide"
+    },
+    "news": {
+      "title": "Nyheter",
+      "card1": {
+        "title": "Nya Ford Transit Custom",
+        "description": "Beskrivningar kommer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Läs mer"
+      },
+      "card2": {
+        "title": "Vi erbjuder alla märken och modeller",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Läs mer"
+      },
+      "card3": {
+        "title": "Leasinglösning ETruck",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "readMore": "Läs mer"
+      },
+      "viewAll": "Visa alla nyheter"
+    },
+    "innoFleet": {
+      "title": "InnoFleet Manager",
+      "description1": "Skapa alla rapporter ditt företag behöver direkt från webbtjänsten. Aktuell information om hela din fordonspark ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
+      "description2": "Underhåll av hela fordonsparken och servicefunktionalitet finns också lättillgängligt på din mobila enhet.",
+      "readMore": "Läs mer"
+    },
+    "team": {
+      "title": "Företagsbils- och finansexperter till din tjänst",
+      "role": "Försäljningschef",
+      "email": "fornamn.efternamn@innolease.fi"
+    },
+    "transparency": {
+      "title": "Leasinglösningskostnader transparent",
+      "description": "Vi vill göra billeasingen så tydlig och enkel som möjligt. Därför är Innoleases prissättning transparent. Du får alltid ett ärligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker och ting utan onödig byråkrati och får jobbet gjort.",
+      "readMore": "Läs mer"
+    },
+    "footer": {
+      "exchange": "VÄXEL",
+      "service": "SERVICEBOKNING",
+      "openingHours": "Vardagar 8:00-16:30",
+      "publishingPlatform": "PUBLICERINGSPLATTFORM",
+      "copyright": "© 2023 Innolease Oy"
+    }
   }
 }
