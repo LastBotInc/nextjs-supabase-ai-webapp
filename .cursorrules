@@ -33,7 +33,7 @@ delete_file - Deletes files
   - Parameters: target_file, explanation
 reapply - Reapplies last edit
   - Parameters: target_file
-fetch_rules - Fetches user-provided rules (@*.mdc files)
+fetch_rules - Fetches user-provided rules (*.mdc files)
   - Parameters: rule_names
 web_search - Searches the web for information
   - Parameters: search_term, explanation
@@ -274,7 +274,7 @@ mcp_supabase_query - Run a read-only SQL query to project database
 
 <documentation>
   ## Documentation and Context Files
-  Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `Workspace_rules` for `@*.mdc` files. **Crucially, incorporate relevant details from these into prompts for Gemini.**
+  Reference these files for understanding the project. Use `read_file` for `*.mdc` files. **Crucially, incorporate relevant details from these into prompts for Gemini.**
     - `description.md`: App description, use cases, features.
     - `architecture.md`: Tech stack, folder structure, testing frameworks.
     - `datamodel.md`: Entities, attributes, relationships.
@@ -288,8 +288,8 @@ mcp_supabase_query - Run a read-only SQL query to project database
     - `/.cursor/rules/implement-frontend-page.mdc`: How to implement a new frontend page.
     - `/.cursor/rules/implement-nextjs-api.mdc`: How to implement a new NextJS API route.
     - `/.cursor/rules/implement-unit-tests.mdc`: How to implement unit tests.
-    - `@package.json`: List of used npm packages and versions.
-    - `lib/@brand-info.ts`: Brand information for content generation.
+    - `package.json`: List of used npm packages and versions.
+    - `lib/brand-info.ts`: Brand information for content generation.
 
   **Link Handling:**
     - For `filename.ext` links: Use `read_file` to access their content. Extract key info for prompts.
@@ -313,7 +313,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   <document>
      - **Goal:** Update documentation files.
      - **Steps:**
-       1. Read relevant documentation files (`@*.md`).
+       1. Read relevant documentation files (`*.md`).
        2. **Formulate Prompt (for `edit_file`):** Clearly state the Task (update needed), Context (based on task, readings), and Format (how the update should look).
        3. Use `edit_file` to propose necessary updates. Focus on specific files mentioned in `<documentation>`.
        4. Review proposed changes and iterate if needed.
@@ -359,10 +359,10 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   - **Goal:** Diagnose and resolve an error precisely.
   - **Steps:**
     1. **Gather Context:**
-        - Read `@learnings.md` for previous solutions (`read_file`).
+        - Read `learnings.md` for previous solutions (`read_file`).
         - If error messages contain URLs, use `web_search` or `gemini --url` to understand them.
         - Use `gemini --prompt "[error message]" --ground` or `web_search` for general error resolution info.
-        - Fetch relevant `@.mdc` rules (`Workspace_rules`).
+        - Fetch relevant `.mdc` rules (`Workspace_rules`).
         - Use `codebase_search` or `grep_search` to find relevant code.
     2. **Iterative Fixing Loop:**
         a. **Hypothesize:** Based on context, identify 1-2 likely causes.
@@ -378,8 +378,8 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   - **Goal:** Implement and run tests, fixing any failures precisely.
   - **Steps:**
     1. **Understand Requirements:**
-        - Read `@architecture.md` (`read_file`).
-        - Fetch `@implement-unit-tests.mdc` rule (`Workspace_rules`).
+        - Read `architecture.md` (`read_file`).
+        - Fetch `implement-unit-tests.mdc` rule (`Workspace_rules`).
     2. **Write Unit Tests:**
         - **Formulate Prompt:** Instruct `edit_file` with Task (write tests for specific component/function), Context (component code, requirements from rules/docs), and Format (using Vitest framework).
         - Use `edit_file` to create/update `__tests__/*.test.ts`.
@@ -392,23 +392,23 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
     5. **Run & Fix E2E Tests:**
         - Execute tests: `run_terminal_cmd "npm run cypress:run"`.
         - If errors: Use the `<fix>` action flow.
-    6. **Document:** Ensure fixes are logged in `@learnings.md` via the `<fix>` action.
+    6. **Document:** Ensure fixes are logged in `learnings.md` via the `<fix>` action.
     7. **Repeat:** Continue until relevant tests pass.
   </validate>
 
   <record>
    - **Goal:** Document completed work and update the task backlog.
    - **Steps:**
-     1. Use `edit_file` (with clear instructions) to add a summary to `@ai_changelog.md`.
-     2. Use `edit_file` (with clear instructions) to update the status (✅, ⏳, ❌) in `@todo.md`. **Do not remove tasks.**
+     1. Use `edit_file` (with clear instructions) to add a summary to `ai_changelog.md`.
+     2. Use `edit_file` (with clear instructions) to update the status (✅, ⏳, ❌) in `todo.md`. **Do not remove tasks.**
   </record>
 
   <design>
    - **Goal:** Design a frontend feature.
    - **Steps:**
-     1. Read `@frontend.md` (`read_file`).
-     2. **Formulate Design Prompt:** Instruct `edit_file` to update `@frontend.md` with Task (describe design), Context (feature requirements, UI/UX guidelines), and Format (components, layout, flow description).
-     3. Use `edit_file` to update `@frontend.md`.
+     1. Read `frontend.md` (`read_file`).
+     2. **Formulate Design Prompt:** Instruct `edit_file` to update `frontend.md` with Task (describe design), Context (feature requirements, UI/UX guidelines), and Format (components, layout, flow description).
+     3. Use `edit_file` to update `frontend.md`.
      4. **Generate Assets:** Use `run_terminal_cmd` with `gemini-image` (prefer `imagen` or `gemini` models). Provide clear prompts (Task: generate image, Context: style, elements, colors, Format: output path like `public/images`, aspect ratio).
      5. **Optimize Assets:** Use `run_terminal_cmd` with `image-optimizer`.
      6. Review design and assets, iterate using `edit_file` or `gemini-image` if needed.
@@ -418,8 +418,8 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   <develop>
    - **Goal:** Implement the code for a feature (frontend/backend).
    - **Steps:**
-     1. Fetch relevant rules (`@implement-*.mdc`) using `Workspace_rules`.
-     2. Read relevant context files (`@description.md`, `@datamodel.md`, etc.) using `read_file`.
+     1. Fetch relevant rules (`implement-*.mdc`) using `Workspace_rules`.
+     2. Read relevant context files (`description.md`, `datamodel.md`, etc.) using `read_file`.
      3. **Formulate Code Prompt:** Instruct `edit_file` with Task (implement feature/component/API), rich Context (requirements from rules/docs, related code snippets, data model), and Format (coding standards, imports). Assign Persona ('You are a Senior NextJS/React Developer...').
      4. Use `edit_file` to propose code changes across necessary files.
      5. Review proposed code and iterate with follow-up `edit_file` prompts if necessary.
@@ -477,7 +477,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
     - **Follow Instructions Precisely:** Execute user instructions exactly as written.
     - **Adhere Strictly:** Follow the specified workflow and action steps rigorously.
     - **Maintain Structure:** Use consistent formatting as specified.
-    - **Leverage Context:** Actively incorporate context from documentation (`@*.md`), rules (`@*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
+    - **Leverage Context:** Actively incorporate context from documentation (`*.md`), rules (`*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
     - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
 
 - **For GPT (OpenAI) and Grok (X.AI):**
@@ -503,8 +503,8 @@ Follow these steps sequentially for **every** user request and follow behavioral
         ```
 3.  **Task Planning (if complex):**
     * For multi-step actions (`<develop>`, `<validate>`, `<design>`), break down into sub-tasks.
-    * Use `edit_file` to add sub-tasks to `@todo.md` (marked ❌). Include development, testing, documentation steps.
-    * Inform the user the plan is in `@todo.md`.
+    * Use `edit_file` to add sub-tasks to `todo.md` (marked ❌). Include development, testing, documentation steps.
+    * Inform the user the plan is in `todo.md`.
 4.  **Action Execution:**
     * State: `Starting Action: <action name>...`
     * Execute steps within the chosen `<action>`, focusing on providing **clear, context-rich prompts** to tools like `edit_file` and `run_terminal_cmd` (especially for `gemini` tools).
@@ -514,5 +514,5 @@ Follow these steps sequentially for **every** user request and follow behavioral
 5.  **Final Recording (on task completion):**
     * Once the *entire* request is fulfilled:
         * Summarize significant changes.
-        * Execute `<record>` action (update `@ai_changelog.md`, `@todo.md`).
-        * Ensure `@learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.
+        * Execute `<record>` action (update `ai_changelog.md`, `todo.md`).
+        * Ensure `learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.
