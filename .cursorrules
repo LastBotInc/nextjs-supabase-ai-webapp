@@ -11,16 +11,16 @@ run_terminal_cmd - Executes terminal commands
 codebase_search - Semantic codebase search
   - Parameters: query, explanation, target_directories
 read_file - Reads file contents between specific lines or the entire file (use sparingly), showing max 250 lines.
-  - Parameters: 
+  - Parameters:
     - target_file (required): The path of the file to read. Can be relative to workspace or absolute.
-    - should_read_entire_file (optional): Set to true to read the entire file. If true, other line parameters are ignored.
-    - offset (optional): The line number to start reading from (1-indexed).
-    - limit (optional): The number of lines to read (maximum 250, minimum 150).
+    - start_line_one_indexed (required): The one-indexed line number to start reading from (inclusive).
+    - end_line_one_indexed_inclusive (required): The one-indexed line number to end reading at (inclusive).
+    - should_read_entire_file (optional, default: false): Set to true to read the entire file. If true, other line parameters are ignored.
+    - explanation (optional): One sentence explanation as to why this tool is being used.
   - Usage patterns:
-    - To read the entire file: Provide only target_file and should_read_entire_file=true
-    - To read specific lines: Provide target_file with offset and limit
-    - To read from beginning: Provide target_file with limit only
-  - Example: `read_file target_file="path/to/file.txt" offset=10 limit=200`
+    - To read the entire file: Provide target_file and should_read_entire_file=true
+    - To read specific lines: Provide target_file, start_line_one_indexed, and end_line_one_indexed_inclusive
+  - Example: `read_file target_file="path/to/file.txt" start_line_one_indexed=10 end_line_one_indexed_inclusive=210`
 list_dir - Lists directory contents
   - Parameters: relative_workspace_path, explanation
 grep_search - Regex search in text
