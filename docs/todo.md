@@ -50,6 +50,7 @@
 - [ ] Driver tools and resources
 - [ ] Vehicle lifecycle management
 - [ ] Integration capabilities
+- [✅] Add multilingual blog articles (FI, SV) to `scripts/seed-blog.ts`
 
 ### Services Page
 - [ ] Vehicle maintenance network
@@ -335,3 +336,178 @@
 - [ ] API for third-party integrations
 - [ ] Custom report builder
 - [ ] English language implementation
+
+## SEO-Optimized Page Implementation
+
+### Finnish Main Navigation Pages
+- [ ] Asiakastarinat (Customer Stories) (`/fi/asiakastarinat`)
+  - [ ] Page structure implementation
+  - [ ] Customer story templates
+  - [ ] Case study components
+- [ ] Kampanjat (Campaigns) (`/fi/kampanjat`)
+  - [ ] Campaign listing page
+  - [ ] Campaign detail templates
+  - [ ] Special offer components
+- [ ] Avoimet työpaikat (Open Positions) (`/fi/tyopaikat`)
+  - [ ] Job listing page
+  - [ ] Job detail templates
+  - [ ] Application form
+- [ ] Asiakaspalvelu (Customer Service) (`/fi/asiakaspalvelu`)
+  - [ ] FAQ section
+  - [ ] Contact methods
+  - [ ] Support request form
+
+### Finnish Service Category Pages
+- [ ] Yritysleasingit (Business Leasing) (`/fi/yritysleasingit`)
+  - [ ] B2B leasing solutions
+  - [ ] Corporate fleet options
+  - [ ] Custom leasing programs
+- [ ] Muut palvelut (Other Services) (`/fi/muut-palvelut`)
+  - [ ] Service overview
+  - [ ] Additional service options
+  - [ ] Partner service integrations
+- [ ] Auton vuokraus (Car Rental) (`/fi/auton-vuokraus`)
+  - [ ] Rental options presentation
+  - [ ] Vehicle class display
+  - [ ] Rental process explanation
+
+### Finnish Service Submenu Pages
+- [ ] Autoleasing (Car Leasing) (`/fi/autoleasing`)
+  - [ ] Personal and corporate options
+  - [ ] Term selection interface
+  - [ ] Vehicle browsing functionality
+- [ ] Huollon varaus (Service Booking) (`/fi/huollon-varaus`)
+  - [ ] Service booking form
+  - [ ] Location selection
+  - [ ] Calendar integration
+- [ ] Autoilijan opas (Driver's Guide) (`/fi/autoilijan-opas`)
+  - [ ] Guidance content structure
+  - [ ] Topic categorization
+  - [ ] Search functionality
+- [ ] Kone- ja laitelasing (Machine Leasing) (`/fi/kone-ja-laitelasing`)
+  - [ ] Equipment categories
+  - [ ] Leasing option details
+  - [ ] Industry-specific solutions
+- [ ] Rengaspalvelut (Tire Services) (`/fi/rengaspalvelut`)
+  - [ ] Service explanation
+  - [ ] Location integration
+  - [ ] Booking functionality
+- [ ] Kalustoraportti (Fleet Report) (`/fi/kalustoraportti`)
+  - [ ] Report templates
+  - [ ] Data visualization
+  - [ ] Export options
+- [ ] Minileasing (`/fi/minileasing`)
+  - [ ] Short-term options
+  - [ ] Process explanation
+  - [ ] Vehicle availability
+- [ ] Autokannan hallinnointi (Fleet Management) (`/fi/autokannan-hallinnointi`)
+  - [ ] Tool overview
+  - [ ] Feature demonstration
+  - [ ] Benefits explanation
+- [ ] Päästöraportti (Emission Report) (`/fi/paastoraportti`)
+  - [ ] Emissions tracking explanation
+  - [ ] Compliance reporting
+  - [ ] Environmental metrics
+- [ ] Kausiauito (Seasonal Car) (`/fi/kausiauito`)
+  - [ ] Seasonal options
+  - [ ] Use case scenarios
+  - [ ] Pricing structure
+- [ ] Opas auton palautukseen (Car Return Guide) (`/fi/auton-palautus`)
+  - [ ] Process documentation
+  - [ ] Checklist integration
+  - [ ] Visual guides
+- [ ] Sijaisautopalvelu (Replacement Car) (`/fi/sijaisautopalvelu`)
+  - [ ] Service explanation
+  - [ ] Vehicle options
+  - [ ] Booking process
+- [ ] Sopimuksen päättyminen (Contract End) (`/fi/sopimuksen-paattyminen`)
+  - [ ] End-of-contract options
+  - [ ] Process documentation
+  - [ ] Next steps guidance
+- [ ] Yhteiskäyttöauto (Shared Use Car) (`/fi/yhteiskayttoauto`)
+  - [ ] Program explanation
+  - [ ] Access methods
+  - [ ] Booking interface
+- [ ] Maastavienti asiakirja (Export Documents) (`/fi/maastavienti-asiakirja`)
+  - [ ] Documentation requirements
+  - [ ] Process guidelines
+  - [ ] Support information
+- [ ] Kilometrien ilmoitus (Mileage Reporting) (`/fi/kilometrien-ilmoitus`)
+  - [ ] Reporting interface
+  - [ ] Tracking visualization
+  - [ ] Notification system
+
+### Multilingual Implementation
+- [ ] Apply Finnish page structure to Swedish locale (`/sv/`)
+- [ ] Apply Finnish page structure to English locale (`/en/`)
+- [ ] Implement language switcher across all pages
+- [ ] Ensure URL structure maintains SEO optimization in all languages
+
+## Navigation Implementation
+
+### Main Navigation
+- [ ] Create `MainNavigation` component
+  - [ ] Implement responsive design (desktop/mobile)
+  - [ ] Add dropdown functionality
+  - [ ] Style according to brand guidelines
+  - [ ] Add animations and transitions
+  - [ ] Ensure keyboard accessibility
+- [ ] Implement dropdown menus for all main categories
+  - [ ] Leasing-palvelut dropdown
+  - [ ] Asiakkaalle dropdown
+  - [ ] Auton vuokraus dropdown
+  - [ ] Ajankohtaista dropdown
+  - [ ] Tietoa meistä dropdown
+- [ ] Add mobile-specific functionality
+  - [ ] Hamburger menu toggle
+  - [ ] Accordion-style dropdown for mobile
+  - [ ] Touch-friendly hit areas
+- [ ] Create active state highlighting
+- [ ] Implement sticky behavior on scroll
+- [ ] Add background transition effect when scrolling
+
+### Footer Implementation
+- [ ] Create `Footer` component
+  - [ ] Implement 4-column layout
+  - [ ] Add responsive stacking for mobile
+  - [ ] Style according to brand guidelines
+- [ ] Implement company information section
+  - [ ] Add logo and company details
+  - [ ] Add copyright information
+- [ ] Add office locations section with links
+- [ ] Implement resources section with links
+- [ ] Add tools section with links
+- [ ] Implement additional footer elements
+  - [ ] Social media icons with links
+  - [ ] Language selector
+  - [ ] Policy links (Privacy, Terms, Cookies)
+  - [ ] Newsletter signup form
+
+### Navigation Integration
+- [ ] Link navigation to all implemented pages
+- [ ] Set up internationalization for navigation items
+- [ ] Add proper URL routing with Next.js
+- [ ] Implement SEO metadata for navigation structure
+- [ ] Create A/B testing for navigation effectiveness
+- [ ] Set up analytics tracking for navigation usage
+
+## Refactoring
+- [✅] Move auth links (Sign In/Out, Account, Admin) from Navigation to Footer
+- [✅] Make LocaleSwitcher in Navigation more compact
+
+## Localization
+- [✅] Update Navigation and Footer translations (EN, FI, SV)
+
+## Client Portal
+
+### Dashboard Development
+- [ ] Fleet overview widgets
+  - [ ] Vehicle status summary
+  - [ ] Contract expiration timeline
+  - [ ] Maintenance alerts
+  - [ ] Cost analytics
+  - [ ] Recent activities log
+- [ ] User-specific dashboards
+  - [ ] Fleet manager view
+  - [ ] Driver view
+  - [ ] Financial admin view

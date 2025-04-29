@@ -135,16 +135,16 @@ export default function LocaleSwitcher() {
         value={locale}
         onChange={handleChange}
         aria-label={t('ariaLabel')}
-        className="h-8 px-2 text-sm bg-transparent border border-black/[.1] dark:border-white/[.1] rounded-md text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-black/[.3] dark:focus:ring-white/[.3] hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+        className="h-8 w-14 px-1 text-sm bg-transparent border border-piki/20 rounded-md text-piki focus:outline-none focus:ring-2 focus:ring-kupari/50 hover:border-kupari transition-colors"
       >
         {languages.map((lang) => (
           <option 
             key={lang.code} 
             value={lang.code} 
-            className="bg-white dark:bg-gray-800"
+            className="bg-white text-piki"
             aria-label={`${lang.name} - ${lang.native_name}`}
           >
-            {lang.native_name}
+            {lang.code.toUpperCase()}
           </option>
         ))}
       </select>

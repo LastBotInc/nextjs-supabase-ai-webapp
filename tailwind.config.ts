@@ -50,6 +50,12 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        kupari: "#C49A6C",
+        piki: "#231F20",
+        sahko: "#4441E8",
+        beige: "#E8E4DA",
+        maantie: "#D9D9D9",
+        betoni: "#6D6E71",
       },
       borderRadius: {
         lg: "var(--radius)",

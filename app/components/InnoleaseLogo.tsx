@@ -11,27 +11,43 @@ export default function InnoleaseLogo({
   className = "",
   width = 128, 
   height = 36,
-  color = "white" 
+  color = "black" 
 }: LogoProps) {
   return (
-    <svg 
-      width={width} 
-      height={height} 
-      viewBox="0 0 180 36" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      {/* Car Icon */}
-      <path 
-        d="M16 12c-3.3 0-6 2.7-6 6v4h-2v4h2v2h4v-2h12v2h4v-2h2v-4h-2v-4c0-3.3-2.7-6-6-6H16zm0 2h14c2.2 0 4 1.8 4 4v4H12v-4c0-2.2 1.8-4 4-4zm-3 10c1.1 0 2 0.9 2 2s-0.9 2-2 2-2-0.9-2-2 0.9-2 2-2zm20 0c1.1 0 2 0.9 2 2s-0.9 2-2 2-2-0.9-2-2 0.9-2 2-2z"
-        fill={color}
-      />
+    <div className={`flex items-center ${className}`} style={{ width, height }}>
+      {/* Logo Mark */}
+      <svg
+        width={height * 0.67} 
+        height={height}
+        viewBox="0 0 53.2539 73.4621"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="mr-2"
+      >
+        <g>
+          <path 
+            d="M21.5858,0L2.5638,14.8036C.9453,16.0631.0017,17.9795.0017,20.0069v32.2672s19.0214-14.7995,19.0214-14.7995c1.6189-1.2595,2.5627-3.1761,2.5627-5.2038V0Z"
+            fill={color}
+          />
+          <path 
+            d="M0,52.2751l15.081,18.6721c1.2832,1.5887,3.2354,2.5149,5.3009,2.5149h32.872s-15.0769-18.6715-15.0769-18.6715c-1.2831-1.5891-3.2356-2.5155-5.3013-2.5155H0Z" 
+            fill="#C49A6C"
+          />
+        </g>
+      </svg>
       
       {/* Innolease text */}
-      <text x="40" y="28" fontFamily="Arial, sans-serif" fontSize="20" fontWeight="600" fill={color}>
+      <span 
+        style={{
+          fontFamily: "'Inter Tight', sans-serif",
+          fontSize: `${height * 0.6}px`,
+          fontWeight: 600,
+          lineHeight: 1,
+          color
+        }}
+      >
         Innolease
-      </text>
-    </svg>
+      </span>
+    </div>
   );
 } 

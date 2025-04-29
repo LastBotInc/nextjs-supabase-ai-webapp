@@ -189,13 +189,13 @@
 ### Design System
 - Colors:
   - Primary Colors:
-    - Innolease Copper: (Warm, brownish-orange, e.g., `#B87333` - *Placeholder, use actual hex code*) 
-    - Innolease Electric Blue: (Vibrant, saturated blue, e.g., `#0000FF` - *Placeholder, use actual hex code*)
-    - Innolease Pitch Black: (Deep black, e.g., `#000000`)
+    - Kupari (Copper): #C49A6C
+    - Piki (Pitch Black): #231F20
+    - Sähkö (Electric Blue): #4441E8
   - Neutral Colors:
-    - Innolease Beige: (Pale, creamy off-white, e.g., `#F5F5DC` - *Placeholder, use actual hex code*)
-    - Innolease Road Grey: (Light grey, e.g., `#D3D3D3` - *Placeholder, use actual hex code*)
-    - Innolease Concrete Grey: (Medium-dark grey, e.g., `#808080` - *Placeholder, use actual hex code*)
+    - Beige: #E8E4DA
+    - Maantie (Road Grey): #D9D9D9
+    - Betoni (Concrete): #6D6E71
     - White: #FFFFFF
   - Semantic Colors:
     - Success: #16A75C
@@ -448,3 +448,311 @@
    - Server-side rendering for data-heavy pages
 
 - **Card Layouts:** Used extensively for summarizing services (Leasing Solutions, Fleet Tools), displaying blog posts, testimonials, and **campaign offers**.
+
+## SEO-Optimized Page Structure (Finnish Site)
+
+### Main Navigation
+
+1. Asiakastarinat (Customer Stories) (`/fi/asiakastarinat`)
+   - Success stories of clients using Innolease services
+   - Case studies categorized by industry and leasing type
+   - Testimonials with measurable results
+
+2. Kampanjat (Campaigns) (`/fi/kampanjat`)
+   - Current vehicle offers
+   - Seasonal promotions
+   - Limited-time deals
+   - Special leasing terms
+
+3. Blogi (Blog) (`/fi/blogi`)
+   - Industry insights
+   - Vehicle information
+   - Leasing advice
+   - Fleet management tips
+
+4. Avoimet työpaikat (Open Positions) (`/fi/tyopaikat`)
+   - Career opportunities
+   - Company culture information
+   - Benefits overview
+   - Application process
+
+5. Asiakaspalvelu (Customer Service) (`/fi/asiakaspalvelu`)
+   - Contact methods
+   - FAQ section
+   - Support request form
+   - Service hours
+
+6. Yhteystiedot (Contact Information) (`/fi/yhteystiedot`)
+   - Office locations
+   - Department contacts
+   - Map integration
+   - Contact form
+
+### Main Service Categories
+
+1. Yritysleasingit (Business Leasing) (`/fi/yritysleasingit`)
+   - B2B leasing solutions
+   - Corporate fleet options
+   - Volume pricing
+   - Custom leasing programs
+
+2. Muut palvelut (Other Services) (`/fi/muut-palvelut`)
+   - Complementary services beyond leasing
+   - Add-on options
+   - Partner services
+   - Special requirements
+
+3. Tietoa meistä (About Us) (`/fi/tietoa-meista`)
+   - Company history
+   - Mission and values
+   - Team information
+   - Corporate responsibility
+
+4. Asiakkaille (For Customers) (`/fi/asiakkaille`)
+   - Client resources
+   - Support materials
+   - Guides and documentation
+   - Self-service tools
+
+5. Auton vuokraus (Car Rental) (`/fi/auton-vuokraus`)
+   - Short-term rental options
+   - Rental process
+   - Vehicle classes
+   - Pricing information
+
+### Service Submenu Items
+
+1. Autoleasing (Car Leasing) (`/fi/autoleasing`)
+   - Personal vehicle leasing
+   - Corporate vehicle leasing
+   - Leasing term options
+   - Vehicle selection
+
+2. Huollon varaus (Service Booking) (`/fi/huollon-varaus`)
+   - Maintenance scheduling
+   - Service center locations
+   - Service types
+   - Online booking system
+
+3. Autoilijan opas (Driver's Guide) (`/fi/autoilijan-opas`)
+   - Vehicle operation tips
+   - Maintenance guidelines
+   - Troubleshooting advice
+   - Emergency procedures
+
+4. Vuokraa auto (Rent a Car) (`/fi/vuokraa-auto`)
+   - Rental process steps
+   - Available vehicles
+   - Rental terms
+   - Reservation system
+
+5. Kone- ja laitelasing (Machine and Equipment Leasing) (`/fi/kone-ja-laitelasing`)
+   - Industrial equipment options
+   - Specialized machinery leasing
+   - Equipment maintenance
+   - Lease-to-own options
+
+6. Rengaspalvelut (Tire Services) (`/fi/rengaspalvelut`)
+   - Seasonal tire change
+   - Tire storage
+   - Tire selection guidance
+   - Tire service locations
+
+7. Kalustoraportti (Fleet Report) (`/fi/kalustoraportti`)
+   - Fleet status reporting
+   - Asset management tools
+   - Usage analytics
+   - Cost tracking
+
+8. Minileasing (`/fi/minileasing`)
+   - Short-term leasing options
+   - Flexible terms
+   - Quick vehicle access
+   - Simplified process
+
+9. Autokannan hallinnointi (Fleet Management) (`/fi/autokannan-hallinnointi`)
+   - Fleet administration tools
+   - Maintenance scheduling
+   - Vehicle lifecycle management
+   - Driver management
+
+10. Päästöraportti (Emission Report) (`/fi/paastoraportti`)
+    - Environmental impact tracking
+    - CO2 emissions monitoring
+    - Sustainability metrics
+    - Regulatory compliance reporting
+
+11. Kausiauito (Seasonal Car) (`/fi/kausiauito`)
+    - Seasonal vehicle options
+    - Short-term availability
+    - Specific-use vehicles
+    - Seasonal pricing
+
+12. Opas auton palautukseen (Guide to Returning a Car) (`/fi/auton-palautus`)
+    - End-of-lease procedures
+    - Return condition requirements
+    - Inspection process
+    - Final settlement information
+
+13. Sijaisautopalvelu (Replacement Car Service) (`/fi/sijaisautopalvelu`)
+    - Temporary vehicle provision
+    - Service vehicle options
+    - Booking process
+    - Availability information
+
+14. Sopimuksen päättyminen (Contract Termination) (`/fi/sopimuksen-paattyminen`)
+    - End-of-contract options
+    - Contract renewal
+    - Vehicle return process
+    - Final payment information
+
+15. Yhteiskäyttöauto (Shared Use Car) (`/fi/yhteiskayttoauto`)
+    - Vehicle sharing programs
+    - Corporate vehicle pooling
+    - Access systems
+    - Booking platform
+
+16. Maastavienti asiakirja (Export Documents) (`/fi/maastavienti-asiakirja`)
+    - Vehicle export documentation
+    - International requirements
+    - Process guidelines
+    - Support services
+
+17. Kilometrien ilmoitus (Mileage Reporting) (`/fi/kilometrien-ilmoitus`)
+    - Mileage tracking system
+    - Reporting methods
+    - Usage monitoring
+    - Excess mileage information
+
+### Authentication
+
+1. Kirjaudu Innoon (Log in to Inno) (`/fi/kirjaudu`)
+   - Client portal access
+   - User authentication
+   - Account management
+   - Secure login system
+
+## Navigation Design
+
+### Main Navigation Structure
+
+The site will use a single main navigation at the top of all pages, with dropdown menus for organizing the extensive page structure.
+
+#### Top-Level Navigation Items
+
+1. **Leasing-palvelut** (Leasing Services) - Dropdown
+   - Autoleasing (Car Leasing)
+   - Kone- ja laitelasing (Machine and Equipment Leasing)
+   - Minileasing
+   - Kausiauito (Seasonal Car)
+   - Sijaisautopalvelu (Replacement Car Service)
+   - Yhteiskäyttöauto (Shared Use Car)
+
+2. **Asiakkaalle** (For Customers) - Dropdown
+   - Autoilijan opas (Driver's Guide)
+   - Opas auton palautukseen (Guide to Returning a Car)
+   - Leaseingauton palautusohje (Leasing Car Return Instructions)
+   - Sopimuksen päättyminen (Contract Termination)
+   - Kilometrien ilmoitus (Mileage Reporting)
+   - Maastavienti asiakirja (Export Documents)
+
+3. **Auton vuokraus** (Car Rental) - Dropdown
+   - Vuokraa auto (Rent a Car)
+   - Huollon varaus (Service Booking)
+   - Rengaspalvelut (Tire Services)
+
+4. **Ajankohtaista** (Current Topics) - Dropdown
+   - Blogi (Blog)
+   - Kampanjat (Campaigns)
+   - Asiakastarinat (Customer Stories)
+   - Avoimet työpaikat (Open Positions)
+
+5. **Tietoa meistä** (About Us) - Dropdown
+   - Yritysleasingit (Business Leasing)
+   - Autokannan hallinnointi (Fleet Management)
+   - Muut palvelut (Other Services)
+   - Asiakaspalvelu (Customer Service)
+
+6. **Yhteystiedot** (Contact Information) - CTA Button
+   - Direct link to contact page
+
+#### Mobile Navigation
+
+- Hamburger menu icon for smaller screens
+- Expandable accordion-style dropdowns for mobile
+- "Yhteystiedot" button remains visible outside menu
+
+#### Navigation Features
+
+- Active state highlighting
+- Dropdown indicator icons
+- Smooth reveal animations for dropdowns
+- Sticky behavior on scroll
+- Transparent to solid background transition when scrolling
+
+### Footer Design
+
+The footer will be organized into four main columns with links to essential pages and information.
+
+#### Column 1: Company Information
+- Logo
+- Company name (Innolease Oy)
+- Address (Katuosoite 10, 01150 Kaupunki)
+- Business ID (Y-tunnus: 2661196-9)
+- Copyright info (© 2025 Innolease Oy)
+
+#### Column 2: Office Locations
+- Helsinki (with link)
+- Oulu (with link)
+- Vantaa (with link)
+- Raisio (with link)
+
+#### Column 3: Resources
+- Kalustoraportointi (Fleet Reporting)
+- Päästöraportti (Emissions Report)
+- Sähköinen ajopalvkirja (Electronic Driving Log)
+- Autoilijan opas (Driver's Guide)
+- Leasingauton palautusohje (Leasing Car Return Guide)
+
+#### Column 4: Tools
+- Autopäättäjän työkalut (Car Decision-maker Tools)
+- Autoetulaskuri (Car Benefit Calculator)
+- Sähköautojen vertailu (Electric Car Comparison)
+
+#### Additional Footer Elements
+- Social media icons (Facebook, Twitter, Instagram)
+- Language selector (FI, SV, EN)
+- Privacy policy link
+- Terms of service link
+- Cookie policy link
+- Newsletter signup
+
+#### Footer Responsive Behavior
+- Columns stack on smaller screens
+- Full width on mobile devices
+- Collapsible sections on mobile for better space usage
+
+### Navigation Implementation
+
+For implementing the navigation and footer, we'll use the following approach:
+
+1. **Main Navigation Component**
+   - Create a reusable `MainNavigation` component
+   - Implement dropdown functionality with React state management
+   - Use CSS transitions for smooth interactions
+   - Handle responsive design with Tailwind breakpoints
+
+2. **Footer Component**
+   - Create a reusable `Footer` component
+   - Implement responsive grid layout
+   - Ensure all links are accessible
+   - Optimize for mobile viewing
+
+3. **Common Features**
+   - All navigation links to use Next.js `Link` component for client-side navigation
+   - Internationalization support for all menu items
+   - SEO-friendly markup structure
+   - Keyboard navigation support
+   - ARIA attributes for accessibility
+
+This navigation structure ensures all important pages are easily accessible while maintaining a clean, uncluttered interface. The dropdown menus organize content logically without overwhelming users with too many top-level options.

@@ -265,7 +265,9 @@
     },
     "values": {
       "title": "Våra kärnvärden"
-    }
+    },
+    "title": "Moderna leasinglösningar för ditt företag",
+    "subtitle": "Skräddarsydda leasingalternativ för företag i alla storlekar"
   },
   "Footer": {
     "rights": "Alla rättigheter förbehållna.",
@@ -273,47 +275,38 @@
     "privacy": "Integritetspolicy",
     "contact": "Kontakt",
     "terms": "Användarvillkor",
-    "presentations": "Presentationer"
+    "presentations": "Presentationer",
+    "office_locations": "Kontor",
+    "resources": "Resurser",
+    "fleet_reporting": "Fordonsflottarapportering",
+    "emissions_report": "Utsläppsrapport",
+    "driving_log": "Körjournal",
+    "leasing_car_return": "Leasingbilsåterlämning",
+    "tools": "Verktyg",
+    "car_decision_tools": "Bilbeslutverktyg",
+    "car_benefit_calculator": "Bilförmånskalkylator",
+    "ev_comparison": "Elbilsjämförelse",
+    "cookies": "Cookiepolicy",
+    "newsletter": {
+      "subscribe": "Prenumerera på vårt nyhetsbrev för att få de senaste leasingerbjudandena och bilindustrins insikter.",
+      "email_placeholder": "Din e-postadress",
+      "button": "Prenumerera"
+    }
   },
   "About": {
-    "title": "Om LastBot",
-    "description": "Vi är ett team av AI-experter som arbetar för att göra artificiell intelligens tillgängligt och användbart för företag i alla storlekar.",
-    "about": {
-      "cta": "KOM IGÅNG NU"
-    },
-    "news": {
-      "title": "Nyheter",
-      "viewAll": "Visa alla nyheter",
-      "readMore": "Läs mer"
-    },
-    "contact": {
-      "title": "Kontakta oss",
-      "description": "Hör av dig. Vi vill gärna höra från dig och diskutera hur vi kan hjälpa ditt företag att implementera AI.",
-      "info": {
-        "title": "Kontaktinformation"
-      },
-      "address": {
-        "title": "Adress",
-        "street": "Kimmeltie 10",
-        "postal": "90630 Uleåborg",
-        "country": "Finland"
-      },
-      "website": "Webbplats",
-      "email": "E-post",
-      "social": {
-        "title": "Följ oss"
-      },
-      "form": {
-        "title": "Skicka oss ett meddelande"
-      }
-    },
-    "form": {
-      "title": "Skicka oss ett meddelande"
-    },
-    "meta": {
-      "title": "Om | LastBot - Människocentrerade AI-lösningar",
-      "description": "Lär känna LastBot, vårt uppdrag att humanisera AI-teknik, vårt experteam och vårt engagemang för att hjälpa företag att lyckas i den AI-drivna eran."
-    }
+    "title": "Om oss",
+    "subtitle": "Din fordonshanteringspartner",
+    "our_story_title": "Vår historia",
+    "our_story": "Grundat 2015 har Auton vuxit till en ledande leverantör av leasingtjänster i hela Norden. Vår uppgift är att göra fordonsägande enkelt, kostnadseffektivt och hållbart för både företag och privatpersoner.",
+    "our_mission_title": "Vår mission",
+    "our_mission": "Vi strävar efter att revolutionera fordonsleasing genom innovation, transparens och utmärkt kundservice. Genom att erbjuda flexibla, skräddarsydda lösningar hjälper vi våra kunder att uppnå sina transportmål samtidigt som de minskar sin miljöpåverkan.",
+    "our_values_title": "Våra värderingar",
+    "our_values": "Hållbarhet, innovation och kundfokus står i centrum för allt vi gör. Vi tror på att bygga långsiktiga relationer med våra kunder, leverantörer och teammedlemmar baserat på tillit, ärlighet och ömsesidig respekt.",
+    "key_figures_title": "Nyckeltal",
+    "vehicles_count": "Fordon",
+    "customers_count": "Kunder",
+    "team_count": "Teammedlemmar",
+    "co2_saved": "ton CO2 sparade årligen"
   },
   "Blog": {
     "title": "Innolease Blogg",
@@ -373,7 +366,38 @@
     "account": {
       "title": "Konto"
     },
-    "solutions": "Lösningar"
+    "solutions": "Lösningar",
+    "leasing_services": "Leasingtjänster",
+    "car_leasing": "Billeasing",
+    "machine_leasing": "Maskinleasing",
+    "minileasing": "Mini-Leasing",
+    "seasonal_car": "Säsongsbilar",
+    "replacement_car": "Ersättningsbilar",
+    "shared_car": "Delningsbilar",
+    "for_customers": "För kunder",
+    "drivers_guide": "Förarguide",
+    "car_return_guide": "Guide för bilretur",
+    "leasing_car_return": "Retur av leasingbil",
+    "contract_termination": "Uppsägning av avtal",
+    "mileage_reporting": "Körsträckerapportering",
+    "export_documents": "Exportdokument",
+    "car_rental": "Biluthyrning",
+    "rent_car": "Hyr bil",
+    "service_booking": "Servicebokning",
+    "tire_services": "Däcktjänster",
+    "current_topics": "Aktuellt",
+    "blog": "Blogg",
+    "campaigns": "Kampanjer",
+    "customer_stories": "Kundberättelser",
+    "open_positions": "Lediga tjänster",
+    "about_us": "Om oss",
+    "business_leasing": "Företagsleasing",
+    "fleet_management": "Fordonshantering",
+    "other_services": "Övriga tjänster",
+    "customer_service": "Kundtjänst",
+    "contact_info": "Kontaktuppgifter",
+    "admin_link": "Administratörspanel",
+    "backToSite": "Tillbaka till sidan"
   },
   "Auth": {
     "email": "E-post",
@@ -1205,8 +1229,9 @@
   "Common": {
     "languageSelector": {
       "label": "Välj språk",
-      "ariaLabel": "Ändra webbplatsens språk"
-    }
+      "ariaLabel": "Byt webbplatsens språk"
+    },
+    "learnMore": "Läs mer"
   },
   "LeasingSolutions": {
     "meta": {
@@ -1373,85 +1398,117 @@
     }
   },
   "meta": {
-    "title": "Innolease Blogg",
-    "description": "Senaste nyheter, insikter och tips om fordonsleasing och vagnparkshantering från Innolease."
+    "title": "Auton | Moderna leasinglösningar",
+    "description": "Auton erbjuder flexibla och effektiva leasinglösningar för företag och privatpersoner. Utforska våra alternativ för billeasing, flottstyrning och maskinfinansiering."
   },
   "home": {
     "meta": {
-      "title": "Innolease | Företagsfordonsleasing & Fordonsparkshantering",
-      "description": "Omfattande företagsfordonsleasing-lösningar och fordonsparksadministration med transparent prissättning och digitala verktyg."
+      "title": "Innolease | Företagsleasing och Fordonshantering",
+      "description": "Omfattande leasinglösningar för företagsfordon och fordonshanteringstjänster med transparent prissättning och effektiva digitala verktyg."
     },
     "nav": {
       "leasingServices": "Leasingtjänster",
       "customers": "Kunder",
-      "jobOpening": "Lediga jobb",
+      "jobOpening": "Lediga tjänster",
       "news": "Nyheter",
-      "contact": "Kontakta oss"
+      "contact": "Kontakt"
     },
     "hero": {
-      "title": "Innolease – Din partner i leasinglösningar",
-      "description1": "Innoleases uppdrag är att anpassa sig till kundens behov och erbjuda olika alternativ baserat på vilka kunden enklare kan göra en lösning som passar deras verksamhet.",
-      "description2": "Vår öppna kommunikation om oss. Vår mobila fordonsflotta erbjuder ett intressant fordonssortiment med snabb leverans. Vårt mål är att uppnå en bred variation oavsett kvantitet, från noll vegetation till till och med tio för kundens budgetering.",
-      "readMore": "Läs mer"
+      "heading": "Innolease",
+      "subheading": "– Din partner för företagsleasing",
+      "paragraph1": "Innoleases främsta syfte är att anpassa sig efter kundens behov och erbjuda olika alternativ som gör det lättare för kunden att fatta beslut som passar deras situation.",
+      "paragraph2": "Vår transparenta verksamhetsmodell gör att vi tillsammans med kunden kan definiera servicepaket som tillgodoser kundens behov. Vårt mål är att spara kundens tid och pengar, minska risker och underlätta budgetering av fordonsflottan.",
+      "readMore": "Läs mer",
+      "backgroundAlt": "Affärspartner som skakar hand"
     },
     "leasingOptions": {
-      "leftCard": {
-        "title": "Det mest lämpliga leasingalternativet och finansieringsmodellen för dig",
-        "description": "Vi har alltid ett leasingalternativ och en finansieringsmodell som passar kundens situation.",
-        "readMore": "Läs mer"
-      },
-      "rightCard": {
-        "title": "Flexibel och enkel leasingtjänst",
-        "description": "Som en smidig operatör är vår service flexibel. Särskilda önskemål gällande schema och fordonsutrustning är vardagliga frågor för oss.",
-        "readMore": "Läs mer"
-      }
+      "personalizedTitle": "Det mest lämpliga leasingalternativet och finansieringsmodellen för dig",
+      "personalizedDescription": "Vi har alltid ett leasingalternativ och en finansieringsmodell som passar kundens situation. Vårt mål är att erbjuda flexibilitet och skräddarsydda lösningar.",
+      "flexibleTitle": "Flexibel och enkel leasingtjänst",
+      "flexibleDescription": "Som en smidig operatör är vår service flexibel. Särskilda önskemål gällande tidplan och fordonsutrustning är vardagliga ärenden för oss.",
+      "learnMore": "Läs mer"
     },
     "serviceLinks": {
-      "fleetManagerTools": "Fordonsparksverktyg",
+      "fleetManagerTools": "Flottstyrningsverktyg",
       "carCalculator": "Bilkalkylator",
-      "companyCarGuide": "Företagsbilsguide"
+      "companyCarGuide": "Företagsbilsguide",
+      "businessLeasing": "Företagsleasing",
+      "personalLeasing": "Privatleasing"
     },
     "news": {
       "title": "Nyheter",
       "card1": {
         "title": "Nya Ford Transit Custom",
         "description": "Beskrivningar kommer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "readMore": "Läs mer"
+        "readMore": "Läs mer",
+        "imageAlt": "Ford Transit"
       },
       "card2": {
         "title": "Vi erbjuder alla märken och modeller",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "readMore": "Läs mer"
+        "readMore": "Läs mer",
+        "imageAlt": "Sportbilar"
       },
       "card3": {
         "title": "Leasinglösning ETruck",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "readMore": "Läs mer"
+        "readMore": "Läs mer",
+        "imageAlt": "Elektrisk lastbil"
       },
       "viewAll": "Visa alla nyheter"
     },
     "innoFleet": {
       "title": "InnoFleet Manager",
-      "description1": "Skapa alla rapporter ditt företag behöver direkt från webbtjänsten. Aktuell information om hela din fordonspark ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
-      "description2": "Underhåll av hela fordonsparken och servicefunktionalitet finns också lättillgängligt på din mobila enhet.",
-      "readMore": "Läs mer"
+      "description1": "Skapa alla rapporter som ditt företag behöver direkt från webbtjänsten. Uppdaterad information om hela din fordonspark ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
+      "description2": "Underhåll av hela din fordonspark och servicefunktionalitet är också enkelt tillgängligt på din mobila enhet.",
+      "readMore": "Läs mer",
+      "imageAlt": "InnoFleet Manager-app"
     },
     "team": {
-      "title": "Företagsbils- och finansexperter till din tjänst",
+      "title": "Företagsbilar och finansieringsexperter till din tjänst",
       "role": "Försäljningschef",
-      "email": "fornamn.efternamn@innolease.fi"
+      "email": "förnamn.efternamn@innolease.fi",
+      "memberAlt": "Teammedlem",
+      "member1": {
+        "name": "Jukka Mäkinen",
+        "phone": "+358 50 123 4567"
+      },
+      "member2": {
+        "name": "Liisa Korhonen",
+        "phone": "+358 50 123 4568"
+      },
+      "member3": {
+        "name": "Mikko Nieminen", 
+        "phone": "+358 50 123 4569"
+      },
+      "member4": {
+        "name": "Anna Virtanen",
+        "phone": "+358 50 123 4570"
+      }
     },
     "transparency": {
       "title": "Leasinglösningskostnader transparent",
-      "description": "Vi vill göra billeasingen så tydlig och enkel som möjligt. Därför är Innoleases prissättning transparent. Du får alltid ett ärligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker och ting utan onödig byråkrati och får jobbet gjort.",
-      "readMore": "Läs mer"
+      "description": "Vi vill göra leasing av bilar så tydligt och enkelt som möjligt. Det är därför Innoleases prissättning är transparent. Du får alltid ett sanningsenligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker utan onödig byråkrati och får saker gjorda.",
+      "readMore": "Läs mer",
+      "imageAlt": "Mörk bil"
     },
     "footer": {
       "exchange": "VÄXEL",
       "service": "SERVICEBOKNING",
       "openingHours": "Vardagar 8:00-16:30",
       "publishingPlatform": "PUBLICERINGSPLATTFORM",
-      "copyright": "© 2023 Innolease Oy"
+      "copyright": "© 2023 Innolease Oy",
+      "address": {
+        "street": "Lehtikatu 1",
+        "city": "01750 Vantaa"
+      },
+      "businessId": "Y-tunnus 2354-234-9",
+      "exchangePhone": "020 123 4567",
+      "exchangeEmail": "info@innolease.fi",
+      "servicePhone": "020 123 4568",
+      "serviceEmail": "huolto@innolease.fi",
+      "publishingCompany": "Tmi Verkkokauppa",
+      "publishingEmail": "design@verkkokauppa.fi"
     }
   }
 }

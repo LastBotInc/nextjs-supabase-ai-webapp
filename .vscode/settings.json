@@ -20,5 +20,12 @@
   ],
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
-  }
+  },
+  "i18n-ally.localesPaths": [
+    "messages",
+    "app/i18n",
+    "app/api/i18n",
+    "app/api/languages",
+    "coverage/app/i18n"
+  ]
 }
