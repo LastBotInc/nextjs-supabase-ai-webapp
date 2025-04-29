@@ -53,7 +53,7 @@
   "dependencies": {
     "@google/genai": "^0.7.0",
     "@google/generative-ai": "^0.21.0",
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.10.0",
     "@next/bundle-analyzer": "15.1.4",
@@ -135,7 +135,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@eslint/eslintrc": "^3",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.5.0",
     "@types/cli-progress": "^3.11.6",
     "@types/highlight.js": "^9.12.4",
