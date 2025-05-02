@@ -256,6 +256,113 @@ mcp_supabase_query - Run a read-only SQL query to project database
       },
       "requires": ["sharp package"],
       "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
+    },
+    "shopify_cli": {
+      "description": "Manages Shopify themes, apps, and development stores using the Shopify CLI",
+      "tool": "run_terminal_cmd",
+      "command": "shopify",
+      "options": {
+        "login": "Log in to a Shopify account",
+        "logout": "Log out of the current Shopify account",
+        "switch": "Switch between different Shopify accounts or organizations",
+        "whoami": "Display the current Shopify account and store",
+        "theme": {
+          "dev": "Start a local development server for a theme",
+          "pull": "Download theme files from Shopify",
+          "push": "Upload theme files to Shopify",
+          "serve": "Alias for 'theme dev'",
+          "list": "List themes in your store",
+          "check": "Validate the theme",
+          "package": "Package your theme into a .zip file",
+          "publish": "Set a remote theme as the live theme"
+        },
+        "app": {
+          "dev": "Start a local development server for an app",
+          "build": "Build the app, including extensions",
+          "deploy": "Deploy your Shopify app",
+          "info": "Display information about your app"
+        },
+        "hydrogen": {
+            "dev": "Runs Hydrogen storefront in an Oxygen worker for development",
+            "build": "Builds a Hydrogen storefront for production",
+            "deploy": "Builds and deploys a Hydrogen storefront to Oxygen"
+        },
+        "populate": {
+          "products": "Add sample products to your store",
+          "customers": "Add sample customers to your store",
+          "orders": "Add sample orders to your store"
+        }
+      },
+      "example": "shopify theme dev"
+    },
+    "shopify_product": {
+      "description": "Manages products in a Shopify store using the Admin API (via custom app credentials).",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-product-tool.js",
+      "subcommands": {
+        "get": {
+          "description": "Get a product by its GID.",
+          "options": {
+            "id": "Required: Product GID (e.g., gid://shopify/Product/123456789)"
+          },
+          "example": "node tools/shopify-product-tool.js get --id gid://shopify/Product/12345"
+        },
+        "list": {
+          "description": "List products with optional filters.",
+          "options": {
+            "limit": "(Optional) Number of products to list (default: 10).",
+            "status": "(Optional) Filter by status (ACTIVE, ARCHIVED, DRAFT)."
+          },
+          "example": "node tools/shopify-product-tool.js list --limit 5 --status ACTIVE"
+        },
+        "create": {
+          "description": "Create a new product.",
+          "options": {
+            "title": "Required: Product title.",
+            "bodyHtml": "(Optional) Product description (HTML string).",
+            "vendor": "(Optional) Product vendor.",
+            "productType": "(Optional) Product type.",
+            "status": "(Optional) Product status (ACTIVE, ARCHIVED, DRAFT - default: DRAFT).",
+            "tags": "(Optional) Comma-separated list of tags."
+          },
+          "example": "node tools/shopify-product-tool.js create --title \"Awesome New Gadget\" --vendor \"GadgetCo\" --status ACTIVE"
+        },
+        "update": {
+          "description": "Update an existing product by its GID.",
+          "options": {
+            "id": "Required: Product GID to update.",
+            "title": "(Optional) New product title.",
+            "status": "(Optional) New product status (ACTIVE, ARCHIVED, DRAFT)."
+          },
+          "example": "node tools/shopify-product-tool.js update --id gid://shopify/Product/12345 --title \"Even Awesomer Gadget V2\" --status ARCHIVED"
+        },
+        "delete": {
+          "description": "Delete a product by its GID.",
+          "options": {
+            "id": "Required: Product GID to delete."
+          },
+          "example": "node tools/shopify-product-tool.js delete --id gid://shopify/Product/12345"
+        },
+        "generate": {
+          "description": "Generate and create products using AI (Gemini for text, Imagen 3 for images).",
+          "options": {
+            "amount": "Required: Number of products to generate.",
+            "instructions": "Required: Text instructions describing the desired products (e.g., 'vintage t-shirts', 'modern kitchen gadgets').",
+            "status": "(Optional) Status for created products (ACTIVE, ARCHIVED, DRAFT - default: DRAFT).",
+            "img-folder": "(Optional) Folder to save generated images (default: public/images/generated_products)."
+          },
+          "example": "node tools/shopify-product-tool.js generate --amount 5 --instructions \"handmade ceramic mugs with unique glazes\" --status ACTIVE"
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local (e.g., your-store.myshopify.com)",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local (Admin API token, starts with shpat_)",
+        "SHOPIFY_API_KEY in .env.local (Custom App API Key)",
+        "SHOPIFY_API_SECRET in .env.local (Custom App API Secret)",
+        "@shopify/shopify-api package",
+        "dotenv package",
+        "commander package"
+      ]
     }
   }
 }

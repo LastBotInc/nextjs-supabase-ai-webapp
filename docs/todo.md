@@ -826,3 +826,14 @@ Next Priority Tasks:
 -   ✅ Fix landing page editor fields being empty on edit
 -   ✅ Redesign public landing page view
 -   ✅ Add dynamic CTA content management to landing pages
+
+- [✅] Implement AI-powered product generation for Shopify (`shopify_product generate`)
+  - [✅] Generate product text details using Gemini (including realistic pricing/variants)
+  - [✅] Generate product image using Imagen 3
+  - [✅] Create product in Shopify via Admin API
+  - [✅] Upload generated image to Shopify
+  - [✅] Associate uploaded image with the created product
+- ✅ Fix Shopify product generation (price and description issues) - Price fixed, description requires metafields.
+
+### Shopify Tool Enhancements
+- ✅ Fix Shopify product generation (`generate`) to correctly handle description via metafields and adapt to API 2025-04 changes (`productSet`, `productVariantsBulkUpdate`).

@@ -1,0 +1,36 @@
+# codegen.yml
+# Configuration for GraphQL Code Generator (https://the-guild.dev/graphql/codegen)
+
+# Environment variables are needed for the schema endpoint header
+# Ensure SHOPIFY_ADMIN_ACCESS_TOKEN is set in your environment or .env file
+# (This might be a custom app token or obtained via OAuth for development)
+require:
+  - dotenv/config # Load .env file if present
+
+overwrite: true # Overwrite existing files on generation
+
+schema:
+  - https://${env:HOST}/admin/api/2025-04/graphql.json: # Use the specific API version
+      headers:
+        X-Shopify-Access-Token: ${env:SHOPIFY_ADMIN_ACCESS_TOKEN} # Needs Admin API access token
+
+documents: "graphql/shopify/operations/**/*.graphql" # Path to your .graphql files
+
+generates:
+  graphql/shopify/generated/types.ts: # Output path for generated types
+    preset: client # Use the client preset for simplified config (includes common plugins)
+    presetConfig:
+      gqlTagName: gql # Optional: specify gql tag name if using tagged templates
+    # plugins: # Explicit plugins if not using preset
+    #   - typescript
+    #   - typescript-operations
+    config:
+      # Optional: Configure specific plugin options here if needed
+      # Example: avoidOptionals: true
+      scalars: # Map Shopify custom scalars to TypeScript types if needed
+        DateTime: string # Example: Treat DateTime as string
+        Decimal: number # Example: Treat Decimal as number
+        HTML: string
+        URL: string
+        JSON: Record<string, unknown> | string # Allow object or string representation
+        # Add other custom scalars used by Shopify Admin API as necessary 

@@ -1,0 +1,6 @@
+# graphql/shopify/operations/GetShopName.graphql
+query GetShopName {
+  shop {
+    name
+  }
+} 

@@ -44,5 +44,34 @@
 *   Removed unused preload link from `app/layout.tsx`.
 *   Adjusted prose font sizes and colors for better readability on landing page.
 
-// ... existing changelog entries ...
+## 2025-04-29
+- **Fix `shopify_product` tool:**
+  - Updated `@google/genai` package and corrected `GoogleGenAI` initialization.
+  - Refined Gemini API response parsing to handle different JSON structures (`{products: []}`, `{product: {}}`, bare object).
+  - Implemented full image upload flow for the `generate` command:
+    - Used `stagedUploadsCreate` to get upload target.
+    - Performed POST upload using `fetch` and `FormData`.
+    - Used `fileCreate` to register the uploaded file.
+    - Replaced incorrect `productUpdate` with `productCreateMedia` to associate image.
+  - Improved GraphQL error handling in `shopifyGraphQL` helper.
+  - Further refined Gemini API response parsing to handle direct array results.
+
+## [Current Date] - Refactor Shopify Product Generation
+
+- **Goal:** Fix the `shopify_product` tool's `generate` command to reliably create products with price and description.
+- **Issue:** Encountered numerous Shopify GraphQL API errors related to deprecated fields (`productVariantUpdate`), invalid input fields (`bodyHtml` on `ProductInput` and `ProductSetInput`), and syntax errors.
+- **Solution:**
+    - Refactored product creation to use the `productSet` mutation.
+    - Simplified the Gemini LLM prompt/schema to request flat product data.
+    - Implemented mapping logic in the tool to convert the flat LLM response to the nested `productSetInput` required by Shopify, including creating the default variant structure.
+    - Added fallback logic for the price if the LLM fails to provide it.
+    - Separated image upload/association steps from the core product creation.
+    - Identified that `bodyHtml` (description) cannot be set directly via `productSet` or `productUpdate` in the current API version (2025-04) and requires a separate metafield update (to be implemented later).
+- **Outcome:** The `generate` command now reliably creates products with title, tags, vendor, status, price (with fallback), and associated image. Description update needs to be handled via metafields.
+
+*   **Refactored Shopify Product Tool (`generate`):** Updated the product generation command (`node tools/shopify-product-tool.js generate`) to comply with Shopify Admin GraphQL API version 2025-04. This involved:
+    *   Switching from `bodyHtml` to a custom metafield (`custom.description_html`) for product descriptions, using the `metafieldsSet` mutation after product creation.
+    *   Adapting the product creation mutation to use `productSet` correctly for the new API version.
+    *   Adapting the variant price update logic to use the `productVariantsBulkUpdate` mutation.
+    *   Fixing various GraphQL schema errors related to input types and field names (`ProductSetInput` vs `ProductInput`, `defaultVariant` vs `variants` connection).
 

@@ -53,3 +53,4 @@ next-env.d.ts
 
 # Compiled tools
 dist/tools/
+.shopify
