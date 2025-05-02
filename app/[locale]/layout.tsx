@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google'
 import { NextIntlClientProvider, AbstractIntlMessages } from 'next-intl'
 import { staticLocales as locales, defaultLocale } from '../i18n/config'
 import Navigation from '@/app/components/Navigation'
@@ -6,8 +5,6 @@ import { ThemeProvider } from 'next-themes'
 import { AuthProvider } from '@/components/auth/AuthProvider'
 import getI18nConfig from '@/app/i18n'
 import { dedupingServerFetch } from '@/lib/utils/server-deduplication'
-
-const inter = Inter({ subsets: ['latin'] })
 
 type Props = {
   children: React.ReactNode
@@ -73,7 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <AuthProvider>
           <Navigation />
-          <main className={inter.className}>{children}</main>
+          <main>{children}</main>
         </AuthProvider>
       </ThemeProvider>
     </NextIntlClientProvider>

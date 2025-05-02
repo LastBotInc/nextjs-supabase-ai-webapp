@@ -93,6 +93,10 @@
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
+    /* Define font variables here */
+    --font-sans: "__Inter_Tight_Fallback", "Inter Tight"; /* Use fallback name from next/font */
+    --font-mono: "__GeistMono_Fallback", "Geist Mono"; /* Use fallback name from next/font */
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 

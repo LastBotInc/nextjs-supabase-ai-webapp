@@ -212,7 +212,7 @@
   - Available Weights: Light, Regular, Bold, Black
   - Headings: Inter Tight
   - Body: Inter Tight
-  - Monospace: Roboto Mono (Review if needed, or use Inter Tight)
+  - Monospace: Inter Tight
   
 - Heading Styles:
   - Main Headings (H1):

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter_Tight, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { Providers } from '@/app/providers'
@@ -10,13 +10,13 @@ import FooterWrapper from '@/app/components/FooterWrapper'
 import AIBotMessageWrapper from '@/components/AIBotMessageWrapper'
 import { cn } from '@/lib/utils'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const interTight = Inter_Tight({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -104,7 +104,9 @@ export default function RootLayout({
         {/* Remove unused preload link */}
         {/* <link rel="preload" href="/images/hero-bg-abstract-new.webp" as="image" /> */}
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={cn(
+        "antialiased"
+      )}>
         <AIBotMessageWrapper />
         <Providers>
           {children}
