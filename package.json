@@ -31,6 +31,7 @@
     "import-translations:local": "tsx scripts/import-translations.ts --env dev",
     "import-translations:prod": "NODE_ENV=production tsx scripts/import-translations.ts --env prod",
     "check-translations": "tsx scripts/check-translations.ts",
+    "split-locales": "node scripts/split-locales.js",
     "invert-colors": "NODE_ENV=development tsx tools/invert-colors.ts",
     "presentations:generate-images": "bash scripts/generate-presentation-images.sh",
     "presentations:setup": "npm run presentations:generate-images",

@@ -48,6 +48,10 @@
 │   └── blog/           # Blog-related components
 ├── i18n/               # Internationalization setup
 ├── messages/           # Translation files
+│   ├── en/            # English translations by namespace
+│   ├── fi/            # Finnish translations by namespace
+│   ├── sv/            # Swedish translations by namespace
+│   └── backup/        # Backup of original locale files
 ├── public/             # Static assets
 │   └── images/         # Optimized images
 ├── tools/              # CLI tools
@@ -128,3 +132,32 @@ Authentication is handled by Supabase Auth with the following features:
 - Secure cookie storage
 - Cross-tab session synchronization
 - Proper cleanup on sign-out
+
+## Internationalization Structure
+
+The project uses next-intl for internationalization with the following structure:
+
+- Supported locales: English (en), Finnish (fi), Swedish (sv)
+- Translation files organized by namespace and locale:
+  ```
+  messages/
+  ├── en/                  # English translations
+  │   ├── Index.json       # Homepage translations
+  │   ├── Blog.json        # Blog-related translations
+  │   ├── Footer.json      # Footer translations
+  │   └── ...              # Other namespaces
+  ├── fi/                  # Finnish translations
+  │   ├── Index.json
+  │   ├── Blog.json
+  │   └── ...
+  ├── sv/                  # Swedish translations
+  │   ├── Index.json
+  │   ├── Blog.json
+  │   └── ...
+  └── backup/              # Backup of original monolithic files
+  ```
+- Each namespace file contains translations for a specific feature or component
+- Maintenance scripts:
+  - `npm run split-locales`: Splits monolithic locale files into namespace-based files
+  - `npm run check-translations`: Checks for missing translations between locales
+  - `npm run import-translations:local/prod`: Imports translations from external sources

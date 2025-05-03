@@ -260,8 +260,10 @@ export default function Navigation() {
               )}
             </div>
 
-            <div className="flex items-center space-x-4">
-              <LocaleSwitcher />
+            <div className="flex items-center space-x-5">
+              <div className="min-w-[120px]">
+                <LocaleSwitcher />
+              </div>
               {showLoading ? (
                 <div className="animate-pulse w-16 h-6 bg-gray-700 rounded" />
               ) : (
@@ -375,7 +377,7 @@ export default function Navigation() {
 
           {/* Mobile auth buttons */}
           <div className="pt-4 border-t border-gray-700">
-            <div className="flex items-center justify-between px-3 py-2">
+            <div className="flex items-center justify-between px-3 py-3">
               <LocaleSwitcher />
             </div>
             {!showLoading && (

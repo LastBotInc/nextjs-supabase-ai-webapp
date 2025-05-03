@@ -1,0 +1,25 @@
+{
+  "title": "Profiiliasetukset",
+  "description": "Hallinnoi tilisi asetuksia ja mieltymyksiä",
+  "menu": {},
+  "tabs": {
+    "general": "Yleiset",
+    "security": "Turvallisuus",
+    "preferences": "Asetukset"
+  },
+  "sections": {
+    "general": {},
+    "security": {},
+    "preferences": {}
+  },
+  "fields": {
+    "username": "Käyttäjätunnus",
+    "email": "Sähköposti",
+    "fullName": "Koko nimi",
+    "fullNamePlaceholder": "Syötä koko nimesi"
+  },
+  "actions": {
+    "save": "Tallenna muutokset"
+  },
+  "messages": {}
+}

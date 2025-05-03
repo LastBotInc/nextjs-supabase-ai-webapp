@@ -55,7 +55,8 @@ mcp_supabase_query - Run a read-only SQL query to project database
       "options": {
         "check-translations": "Compare English, Finnish and Swedish translation files for completeness and missing keys",
         "import-translations:local": "Import translations for local development environment",
-        "import-translations:prod": "Import translations for production environment"
+        "import-translations:prod": "Import translations for production environment",
+        "split-locales": "Split monolithic locale files into separate namespace-based files for each locale (en, fi, sv)"
       }
     },
     "seed": {
@@ -405,6 +406,55 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
       4. **Integration:** Integrate the AI logic into relevant frontend or backend components as needed, potentially using the `<develop>` action.
       5. **Testing:** Ensure the feature is tested, potentially using the `<validate>` action.
   </implement_ai>
+
+  <localize>
+    - **Goal:** Create or update translations for the application with natural, culturally appropriate phrasing.
+    - **Steps:**
+      1. **Understand Context:**
+         - Read `messages/README.md` to understand the localization structure.
+         - Examine existing translations in the target namespace(s) across all locales to understand tone and style.
+         - Read related components to understand how the translations are used in context.
+      
+      2. **Translation Approach:**
+         - **DO NOT** translate word-for-word. Prioritize natural, idiomatic expressions in each target language.
+         - Consider cultural context for each language (Finnish, Swedish, English).
+         - Maintain consistent terminology within each feature/namespace.
+         - Preserve placeholders (e.g., `{count}`, `{name}`) and formatting tags.
+         - Ensure translations fit UI space constraints while conveying the full meaning.
+      
+      3. **Language-Specific Guidance:**
+         - **Finnish (fi):**
+           - Use shorter constructions where possible (Finnish words tend to be longer).
+           - Consider compound word formation rules (yhdyssanat).
+           - Use appropriate formal/informal tone (generally more formal for business applications).
+           - Handle cases properly (Finnish has 15 grammatical cases).
+         
+         - **Swedish (sv):**
+           - Pay attention to definite/indefinite forms.
+           - Use appropriate formal/informal tone ("ni" vs "du").
+           - Consider gender agreement in adjectives.
+           - Maintain natural word order in questions and statements.
+         
+         - **English (en):**
+           - Use clear, concise phrasing.
+           - Follow American English conventions unless otherwise specified.
+           - Avoid idioms that may not translate well.
+
+      4. **Implementation:**
+         - Identify the correct namespace file for each locale (`en/`, `fi/`, `sv/`).
+         - Use `edit_file` to add new translations or update existing ones.
+         - Maintain JSON structure and formatting consistency.
+         - Keep translations organized by logical sections within the namespace.
+      
+      5. **Validation:**
+         - Run `npm run check-translations` to verify translation completeness.
+         - If possible, have native speakers review translations (or note this as a post-implementation recommendation).
+         - Test in the UI to ensure proper rendering and context appropriateness.
+      
+      6. **Documentation:**
+         - Update the localization report if needed.
+         - Note any challenging translations or decisions in comments.
+  </localize>
 </actions>
 
 ## Request Processing Steps

@@ -1,0 +1,23 @@
+{
+  "home": "Etusivu",
+  "about": "Tietoa",
+  "blog": "Blogi",
+  "book": "Varaa aika",
+  "admin_link": "Ylläpito",
+  "signIn": "Kirjaudu sisään",
+  "signOut": "Kirjaudu ulos",
+  "backToSite": "Takaisin sivustolle",
+  "admin": {
+    "blog": "Blogi‑ylläpito",
+    "contacts": "Yhteydenotot",
+    "analytics": "Analytiikka",
+    "translations": "Käännökset",
+    "media": "Media",
+    "users": "Käyttäjät",
+    "landingPages": "Landing‑sivut",
+    "calendar": "Kalenteri"
+  },
+  "account": {
+    "title": "Oma tili"
+  }
+}

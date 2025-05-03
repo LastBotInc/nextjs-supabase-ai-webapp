@@ -1,0 +1,96 @@
+{
+  "title": "Landing‑sidor",
+  "preview": "Förhandsgranska sidan",
+  "publish": "Publicera",
+  "unpublish": "Avpublicera",
+  "description": "Skapa och hantera landing‑sidor",
+  "notFound": "Sidan hittades inte",
+  "notFoundDescription": "Den begärda landing‑sidan kunde inte hittas.",
+  "createPage": "Skapa landing‑sida",
+  "createPageDescription": "Skapa en ny landing‑sida med anpassat innehåll, SEO‑inställningar och analys.",
+  "editPage": "Redigera landing‑sida",
+  "editPageDescription": "Redigera innehåll, inställningar och spårning för denna sida.",
+  "generateContent": "Generera innehåll",
+  "generateImage": "Generera bild",
+  "analytics": {
+    "enableAnalytics": "Aktivera analys",
+    "enableAnalyticsDescription": "Aktivera analys för denna sida",
+    "gaMeasurementId": "Google Analytics‑ID",
+    "gtmContainerId": "Google Tag Manager‑ID",
+    "fbPixelId": "Facebook Pixel‑ID",
+    "linkedinPixelId": "LinkedIn Pixel‑ID"
+  },
+  "form": {
+    "title": "Titel",
+    "slug": "URL‑slug",
+    "content": "Innehåll",
+    "excerpt": "Utdrag",
+    "featuredImage": "Omslagsbild",
+    "tags": "Taggar",
+    "prompt": "Prompt för landing‑sida",
+    "promptPlaceholder": "Ange en prompt för att generera innehåll...",
+    "generating": "Genererar...",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "createPage": "Skapa sida",
+    "published": "Publicerad"
+  },
+  "validation": {},
+  "success": {
+    "imageGenerated": "Bild genererades"
+  },
+  "tabs": {
+    "content": "Innehåll",
+    "seo": "SEO‑inställningar",
+    "cta": "Call to Action",
+    "code": "Anpassad kod"
+  },
+  "error": {
+    "load": "Kunde inte ladda landing‑sidan"
+  },
+  "generating": "Genererar...",
+  "search": "Sök landing‑sidor...",
+  "status": "Status",
+  "lastModified": "Senast ändrad",
+  "actions": "Åtgärder",
+  "edit": "Redigera",
+  "view": "Visa",
+  "noPages": "Inga landing‑sidor hittades. Skapa din första!",
+  "noSearchResults": "Inga landing‑sidor matchade din sökning.",
+  "editor": {
+    "cta": {
+      "title": "Call to Action",
+      "headline": {
+        "label": "Rubrik",
+        "placeholder": "Ange din rubrik"
+      },
+      "description": {
+        "label": "Beskrivning",
+        "placeholder": "Ange en beskrivning"
+      },
+      "buttonText": {
+        "label": "Knapptext",
+        "placeholder": "Ange knapptext"
+      },
+      "buttonLink": {
+        "label": "Knapp‑länk",
+        "placeholder": "Ange URL"
+      },
+      "secondaryText": {
+        "label": "Sekundär text",
+        "placeholder": "Ange sekundär text"
+      }
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta‑titel",
+    "metaDescription": "Meta‑beskrivning",
+    "ogImage": "OG‑bild",
+    "keywords": "Nyckelord"
+  },
+  "code": {
+    "customHead": "Anpassad head‑kod",
+    "customCss": "Anpassad CSS",
+    "customJs": "Anpassad JavaScript"
+  }
+}

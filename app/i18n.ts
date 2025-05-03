@@ -1,5 +1,8 @@
 import type { Locale } from './i18n/config'
 
+// Check if we're running on the server
+const isServer = typeof window === 'undefined';
+
 // Define nested record type for translations
 type NestedRecord = {
   [key: string]: string | string[] | NestedRecord | NestedRecord[]
@@ -97,25 +100,178 @@ async function getTranslationsWithCache(locale: Locale, forceRefresh = false): P
   return messages
 }
 
+// Load namespaces using dynamic imports - works in both client and server
+async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
+  log('📁 [i18n] Loading namespace files for locale using dynamic imports:', locale)
+  
+  const namespaces: Messages = {}
+  
+  try {
+    // Try to load common namespaces that are likely to exist
+    const commonNamespaces = [
+      'Navigation', 
+      'Common', 
+      'Footer', 
+      'Auth', 
+      'Blog', 
+      'Index',
+      'CookieConsent',
+      'Booking',
+      'Account',
+      'Admin',
+      'Analytics',
+      'LandingPage',
+      'Contact',
+      'Media',
+      'Profile',
+      'Security',
+      'User'
+    ]
+    
+    for (const namespace of commonNamespaces) {
+      try {
+        const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default)
+        namespaces[namespace] = module
+        log(`✅ [i18n] Loaded namespace: ${namespace}`)
+      } catch (error) {
+        // Continue with other namespaces
+        log(`⚠️ [i18n] Namespace not found: ${namespace}`)
+      }
+    }
+    
+    return namespaces
+  } catch (error) {
+    log(`❌ [i18n] Error loading namespaces using import for ${locale}:`, error)
+    throw error
+  }
+}
+
+// Helper function to load all namespace files from a locale directory - server only
+async function loadNamespacesFromFiles(locale: Locale): Promise<Messages> {
+  log('📁 [i18n] Loading namespace files from filesystem for locale:', locale)
+  
+  // Only run on server
+  if (!isServer) {
+    log('⚠️ [i18n] Attempted to use filesystem on client side')
+    return {}
+  }
+  
+  try {
+    // For server-side rendering, dynamically import fs modules
+    const { promises: fs } = await import('fs')
+    const path = await import('path')
+    
+    const namespaceDirPath = path.join(process.cwd(), 'messages', locale)
+    let namespaceFiles: string[] = []
+    
+    try {
+      // Check if directory exists and read files
+      namespaceFiles = await fs.readdir(namespaceDirPath)
+        .then(files => files.filter((file: string) => file.endsWith('.json')))
+    } catch (dirError) {
+      log(`❌ [i18n] Namespace directory for ${locale} does not exist or cannot be read`)
+      throw dirError
+    }
+    
+    if (namespaceFiles.length === 0) {
+      log(`⚠️ [i18n] No namespace files found for locale: ${locale}`)
+      throw new Error(`No namespace files found for locale: ${locale}`)
+    }
+    
+    // Load and combine all namespace files
+    const messages: Messages = {}
+    
+    for (const file of namespaceFiles) {
+      const namespaceName = path.basename(file, '.json')
+      const filePath = path.join(namespaceDirPath, file)
+      
+      try {
+        const fileContent = await fs.readFile(filePath, 'utf8')
+        const namespaceData = JSON.parse(fileContent)
+        messages[namespaceName] = namespaceData
+        log(`✅ [i18n] Loaded namespace: ${namespaceName}`)
+      } catch (fileError) {
+        log(`❌ [i18n] Error loading namespace file ${file}:`, fileError)
+        // Continue with other files
+      }
+    }
+    
+    return messages
+  } catch (error) {
+    log(`❌ [i18n] Error loading namespace files for ${locale}:`, error)
+    throw error
+  }
+}
+
+// Fallback to loading monolithic translation file
+async function loadMonolithicFile(locale: Locale): Promise<Messages> {
+  log('📄 [i18n] Loading monolithic file for locale:', locale)
+  
+  try {
+    // Try dynamic import that works in both client and server
+    try {
+      const messages = (await import(`@/messages/${locale}.json`)).default
+      log('✅ [i18n] Loaded monolithic file successfully')
+      return messages
+    } catch (error) {
+      log(`❌ [i18n] No monolithic file found for ${locale}`)
+      
+      // If not the default locale, try the default locale
+      if (locale !== 'en') {
+        log('⚠️ [i18n] Falling back to English...')
+        try {
+          const messages = (await import(`@/messages/en.json`)).default
+          log('✅ [i18n] Loaded English fallback successfully')
+          return messages
+        } catch (fallbackError) {
+          log('❌ [i18n] Failed to load English fallback:', fallbackError)
+        }
+      }
+      
+      // Return empty object if all attempts fail
+      return {}
+    }
+  } catch (error) {
+    log(`❌ [i18n] Error loading monolithic file for ${locale}:`, error)
+    return {}
+  }
+}
+
 async function loadTranslations(locale: Locale): Promise<Messages> {
   log('\n🌍 [i18n] ===== TRANSLATION LOADING START =====')
   log('🔍 [i18n] Loading translations for locale:', locale)
   
-  // First load translations from JSON files as base
-  let messages = {} as Messages
-  
+  // First try to load translations from namespace-based folder structure
+  let messages: Messages = {}
   try {
-    messages = (await import(`@/messages/${locale}.json`)).default
-    log('\n📄 [i18n] JSON translations loaded')
-  } catch {
-    log(`❌ [i18n] No JSON translations found for ${locale}, trying English...`)
-    if (locale !== 'en') {
+    // First try using dynamic imports (works on both client and server)
+    messages = await loadNamespacesUsingImport(locale)
+    
+    // If we got some namespaces, great! 
+    if (Object.keys(messages).length > 0) {
+      log('📁 [i18n] Namespace files loaded successfully using imports')
+    } 
+    // If no namespaces were found and we're on server, try filesystem
+    else if (isServer) {
       try {
-        messages = (await import(`@/messages/en.json`)).default
-        log('\n📄 [i18n] English fallback JSON loaded')
-      } catch (fallbackError) {
-        console.error('❌ [i18n] Failed to load fallback translations:', fallbackError)
+        messages = await loadNamespacesFromFiles(locale)
+        log('📁 [i18n] Namespace files loaded successfully using filesystem')
+      } catch (fsError) {
+        throw fsError
       }
+    } 
+    // If client-side and dynamic imports failed, throw to trigger fallback
+    else {
+      throw new Error('Dynamic imports failed and cannot use filesystem on client')
+    }
+  } catch (namespaceError) {
+    log('⚠️ [i18n] Failed to load namespace files, falling back to monolithic file')
+    try {
+      messages = await loadMonolithicFile(locale)
+    } catch (monolithicError) {
+      log('❌ [i18n] Failed to load monolithic file')
+      // If we've tried both methods and failed, let's create an empty messages object
+      messages = {}
     }
   }
 
@@ -184,9 +340,9 @@ async function loadTranslations(locale: Locale): Promise<Messages> {
     return messages
   }
 
-  // If no translations at all, throw error
+  // If no translations at all, log a warning
   if (Object.keys(messages).length === 0) {
-    throw new Error(`❌ [i18n] No translations found for locale: ${locale}`)
+    console.warn(`⚠️ [i18n] No translations found for locale: ${locale}`)
   }
 
   log('\n✅ [i18n] Translation loading completed successfully')
@@ -205,20 +361,10 @@ export default async function getI18nConfig({ locale }: { locale: Locale }) {
     }
   } catch (error) {
     console.error('Error loading translations:', error)
-    // Fallback to static JSON files
-    try {
-      const messages = (await import(`@/messages/${locale}.json`)).default
-      return {
-        messages,
-        locale
-      }
-    } catch (staticError) {
-      console.error('Error loading static translations:', staticError)
-      // Final fallback - empty messages
-      return {
-        messages: {},
-        locale
-      }
+    // Fallback to empty messages
+    return {
+      messages: {},
+      locale
     }
   }
 }

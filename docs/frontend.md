@@ -238,6 +238,46 @@
    - Theme provider
    - Global styles
 
+## Internationalization
+
+The application supports multiple languages using next-intl with a modular namespace-based approach:
+
+### Locale File Structure
+
+```
+messages/
+├── en/                  # English translations
+│   ├── Index.json       # Homepage-related translations
+│   ├── Footer.json      # Footer-related translations
+│   ├── Blog.json        # Blog-related translations
+│   └── ...              # Other feature namespaces
+├── fi/                  # Finnish translations (same namespace structure)
+├── sv/                  # Swedish translations (same namespace structure)
+├── backup/              # Backup of original monolithic files
+├── localization-report.md  # Report on namespace coverage across locales
+└── README.md            # Documentation about the localization structure
+```
+
+### Using Translations
+
+Translations are organized by namespace, making it easier to:
+- Locate translations for specific features
+- Compare translations across languages
+- Maintain consistency within logical sections
+
+### Translation Workflow
+
+1. Identify the appropriate namespace for the UI element
+2. Add the key to the corresponding namespace file in all supported locales
+3. Use namespaced keys in components: `t('Namespace.section.key')`
+4. Run `npm run check-translations` periodically to ensure completeness
+
+### Translation Management Scripts
+
+- `npm run split-locales`: Splits monolithic locale files into namespace-based files
+- `npm run check-translations`: Validates translation completeness across locales
+- `npm run import-translations:local/prod`: Imports translations from external sources
+
 ## Performance Optimization
 
 1. Image Optimization

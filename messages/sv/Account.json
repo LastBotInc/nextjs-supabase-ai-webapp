@@ -1,0 +1,54 @@
+{
+  "settings": {
+    "title": "Kontoinställningar",
+    "profile": "Profilinformation",
+    "preferences": "Inställningar",
+    "theme": "Tema",
+    "language": "Språk",
+    "fullName": "Fullständigt namn",
+    "fullNamePlaceholder": "Ange ditt fullständiga namn",
+    "save": "Spara ändringar"
+  },
+  "security": {
+    "title": "Säkerhetsinställningar",
+    "description": "Hantera säkerhetsinställningar och aktiva sessioner",
+    "newPassword": "Nytt lösenord",
+    "confirmPassword": "Bekräfta lösenord",
+    "updatePassword": "Uppdatera lösenord",
+    "updating": "Uppdaterar...",
+    "passwordMismatch": "Lösenorden matchar inte",
+    "passwordTooShort": "Lösenordet måste vara minst 6 tecken",
+    "updateError": "Kunde inte uppdatera lösenordet. Försök igen.",
+    "sessions": "Aktiva sessioner",
+    "currentSession": "Information om din nuvarande session:",
+    "lastSignIn": "Senaste inloggning",
+    "browser": "Webbläsare",
+    "unknown": "Okänd"
+  },
+  "notifications": {},
+  "appointments": {
+    "title": "Bokningstyper",
+    "createNew": "Skapa ny bokningstyp",
+    "existingTypes": "Dina bokningstyper",
+    "loading": "Laddar bokningstyper...",
+    "noTypes": "Du har inte skapat några bokningstyper ännu",
+    "form": {
+      "name": "Namn",
+      "description": "Beskrivning",
+      "duration": "Längd (minuter)",
+      "isFree": "Gratis bokning",
+      "price": "Pris (kr)",
+      "create": "Skapa bokningstyp",
+      "creating": "Skapar..."
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "duration": "Längd",
+    "minutes": "min",
+    "price": "Pris",
+    "free": "Gratis",
+    "viewBookingPage": "Visa bokningssida"
+  }
+}

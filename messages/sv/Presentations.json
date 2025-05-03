@@ -1,0 +1,15 @@
+{
+  "title": "Presentationer",
+  "description": "Utforska våra interaktiva presentationer om AI‑omvandling och tekniktrender",
+  "noPresentations": "Inga presentationer tillgängliga",
+  "slides": "bilder",
+  "navigatingAI": {
+    "sections": {
+      "development": {},
+      "agents": {},
+      "ux": {},
+      "company": {},
+      "lastbot": {}
+    }
+  }
+}

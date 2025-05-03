@@ -1,0 +1,138 @@
+{
+  "hero": {
+    "title": "Bygg smartare webbappar med AI",
+    "description": "En modern Next.js‑mall med inbyggda AI‑funktioner, utvecklingsverktyg och bästa praxis för att skapa skalbara webbapplikationer.",
+    "backgroundAlt": "Abstrakt teknologibakgrund",
+    "cta": "Se på GitHub",
+    "docs": "Dokumentation"
+  },
+  "agentic": {
+    "title": "Agentramverk för utveckling",
+    "subtitle": "för Cursor IDE",
+    "description": "Utöka och förbättra Cursors composer‑agent med ett heltäckande ramverk för end‑to‑end‑utveckling.",
+    "features": {
+      "title": "Förbättrad utvecklarupplevelse",
+      "list": {
+        "rules": "Strukturerade utvecklingsregler och mönster",
+        "prompts": "Optimerade prompts för kodgenerering",
+        "tools": "Integrerade verktyg och hjälpmedel",
+        "validation": "Automatiserade tester och validering",
+        "docs": "Omfattande dokumentationsgenerering"
+      }
+    },
+    "benefits": {
+      "title": "Viktigaste fördelar",
+      "quality": "Bättre kodkvalitet och konsekvens",
+      "completeness": "Större funktionsomfång",
+      "efficiency": "Snabbare utvecklingsflöde",
+      "standards": "Tvingande kodstandarder och best practice"
+    }
+  },
+  "cta": {},
+  "meta": {
+    "title": "AI‑driven Next.js‑mall | Modern webb­utveckling",
+    "description": "En modern Next.js‑mall med inbyggd AI‑integration, Supabase‑stöd och utvecklingsverktyg för att bygga skalbara webbapplikationer."
+  },
+  "features": {
+    "title": "Allt du behöver",
+    "description": "Ett komplett verktygs‑ och funktionspaket som snabbar upp ditt arbetsflöde.",
+    "ai": {
+      "title": "AI‑integration",
+      "description": "Inbyggt stöd för Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
+    },
+    "tools": {
+      "title": "Utvecklingsverktyg",
+      "description": "Moderna verktyg för bildoptimering, HTML‑till‑Markdown‑konvertering och effektiv filhantering."
+    },
+    "database": {
+      "title": "Databas & Auth",
+      "description": "Sömlös Supabase‑integration för autentisering, realtidsdata och säkra API‑endpoints."
+    },
+    "i18n": {
+      "title": "Internationalisering",
+      "description": "Inbyggt flerspråksstöd med next‑intl och effektiv översättningshantering."
+    },
+    "performance": {
+      "title": "Prestanda",
+      "description": "Optimerad för hastighet med serverkomponenter, edge‑funktioner och smart cachning."
+    },
+    "security": {
+      "title": "Säkerhet",
+      "description": "Bästa praxis för säker autentisering, API‑skydd och databehandling."
+    }
+  },
+  "coreFeatures": {
+    "title": "Kärnfunktioner",
+    "description": "Allt du behöver för en fullfjädrad webbapplikation",
+    "auth": {
+      "title": "Autentisering & Användare",
+      "description": "Komplett användarhantering med Supabase Auth, social login, skyddade rutter och rollbaserad åtkomstkontroll.",
+      "feature1": "Social inloggning",
+      "feature2": "Skyddade rutter",
+      "feature3": "Rollbaserad åtkomst",
+      "feature4": "Användarprofiler"
+    },
+    "content": {
+      "title": "Innehållshantering",
+      "description": "Omfattande innehållshantering med AI‑assistans för skapande och optimering.",
+      "feature1": "AI‑assisterat bloggsystem",
+      "feature2": "Mediabibliotek med AI‑generering",
+      "feature3": "Resursoptimerings‑pipeline",
+      "feature4": "Landing‑page‑byggare",
+      "feature5": "SEO‑optimering"
+    },
+    "i18n": {
+      "title": "Internationalisering",
+      "description": "Inbyggt stöd för flera språk och innehållslokalisering.",
+      "feature1": "Flerspråksstöd",
+      "feature2": "Översättningshantering",
+      "feature3": "Språkväxling",
+      "feature4": "Innehållslokalisering"
+    },
+    "analytics": {
+      "title": "Analys",
+      "description": "Spåra och analysera användarbeteende och appens prestanda.",
+      "feature1": "Sidvisningsspårning",
+      "feature2": "Händelsespårning",
+      "feature3": "Sessionshantering",
+      "feature4": "Användarresa‑analys"
+    },
+    "booking": {
+      "title": "Bokningssystem",
+      "description": "Komplett tidsboknings­system med kalenderhantering.",
+      "feature1": "Tidsbokning",
+      "feature2": "Kalenderhantering",
+      "feature3": "Tidszonstöd",
+      "feature4": "E‑postnotiser"
+    },
+    "realtime": {
+      "title": "Realtidsfunktioner",
+      "description": "Live‑uppdateringar och samarbetsfunktioner med Supabase.",
+      "feature1": "Live‑uppdateringar",
+      "feature2": "Datasynkronisering",
+      "feature3": "Närvaromarkörer",
+      "feature4": "Samarbetsredigering"
+    },
+    "technical": {
+      "title": "Tekniska Funktioner",
+      "description": "Byggd med moderna tekniker och best practice.",
+      "feature1": "Modern UI med Tailwind CSS",
+      "feature2": "Ljust/mörkt läge",
+      "feature3": "Typesäker utveckling",
+      "feature4": "Prestandaoptimering",
+      "feature5": "Omfattande tester",
+      "feature6": "Row Level Security",
+      "feature7": "API‑skydd",
+      "feature8": "Realtidsprenumerationer"
+    }
+  },
+  "getStarted": {
+    "title": "Kom igång idag",
+    "description": "Starta ditt nästa projekt på några minuter, inte timmar.",
+    "step1": "Klona repo‑t och installera beroenden",
+    "step2": "Konfigurera miljövariabler och API‑nycklar",
+    "step3": "Börja utveckla med inbyggd AI‑kraft",
+    "cta": "Se på GitHub",
+    "imageAlt": "Illustration av utvecklingsverktyg och funktioner"
+  }
+}

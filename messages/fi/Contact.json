@@ -1,0 +1,22 @@
+{
+  "info": {},
+  "address": {},
+  "social": {},
+  "form": {
+    "description": "Täytä lomake, niin otamme yhteyttä mahdollisimman pian.",
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "company": "Yritys",
+    "submit": "Lähetä viesti",
+    "submitting": "Lähetetään...",
+    "success": {
+      "title": "Viesti lähetetty",
+      "message": "Kiitos viestistäsi. Palaamme pian."
+    },
+    "error": {
+      "captcha": "Täytä captcha‑varmennus.",
+      "captchaValidation": "Captcha‑varmennus epäonnistui. Yritä uudelleen."
+    },
+    "meta": {}
+  }
+}

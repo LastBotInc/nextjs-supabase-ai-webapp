@@ -1,0 +1,138 @@
+{
+  "hero": {
+    "title": "Build Smarter Web Apps with AI",
+    "description": "A modern Next.js template with built-in AI capabilities, development tools, and best practices for building scalable web applications.",
+    "backgroundAlt": "Abstract technology background",
+    "cta": "View on GitHub",
+    "docs": "Documentation"
+  },
+  "agentic": {
+    "title": "Agentic Development Framework",
+    "subtitle": "for Cursor IDE",
+    "description": "Extend and enhance Cursor's composer agent capabilities with a comprehensive framework for end-to-end development.",
+    "features": {
+      "title": "Enhanced Development Experience",
+      "list": {
+        "rules": "Structured development rules and patterns",
+        "prompts": "Optimized prompts for code generation",
+        "tools": "Integrated development tools and utilities",
+        "validation": "Automated testing and validation",
+        "docs": "Comprehensive documentation generation"
+      }
+    },
+    "benefits": {
+      "title": "Key Benefits",
+      "quality": "Improved code quality and consistency",
+      "completeness": "Enhanced feature completeness",
+      "efficiency": "Accelerated development workflow",
+      "standards": "Enforced coding standards and best practices"
+    }
+  },
+  "cta": {},
+  "meta": {
+    "title": "AI-Powered Next.js Template | Modern Web Development",
+    "description": "A modern Next.js template with built-in AI capabilities, Supabase integration, and development tools for building scalable web applications."
+  },
+  "features": {
+    "title": "Everything You Need",
+    "description": "A comprehensive set of tools and features to accelerate your development workflow.",
+    "ai": {
+      "title": "AI Integration",
+      "description": "Built-in AI capabilities with Google Gemini, Recraft, and Tavily APIs for content generation, image creation, and intelligent search."
+    },
+    "tools": {
+      "title": "Development Tools",
+      "description": "Modern development tools for image optimization, HTML to Markdown conversion, and efficient file management."
+    },
+    "database": {
+      "title": "Database & Auth",
+      "description": "Seamless Supabase integration for authentication, real-time data, and secure API endpoints."
+    },
+    "i18n": {
+      "title": "Internationalization",
+      "description": "Built-in support for multiple languages with next-intl and efficient translation management."
+    },
+    "performance": {
+      "title": "Performance",
+      "description": "Optimized for speed with server components, edge functions, and efficient caching strategies."
+    },
+    "security": {
+      "title": "Security",
+      "description": "Best practices for secure authentication, API protection, and data handling."
+    }
+  },
+  "coreFeatures": {
+    "title": "Core Features",
+    "description": "Everything you need to build a full-featured web application",
+    "auth": {
+      "title": "Authentication & Users",
+      "description": "Complete user management system with Supabase Auth integration, social providers, protected routes, and role-based access control.",
+      "feature1": "Social provider login",
+      "feature2": "Protected routes",
+      "feature3": "Role-based access",
+      "feature4": "User profiles"
+    },
+    "content": {
+      "title": "Content Management",
+      "description": "Comprehensive content management with AI assistance for content creation and optimization.",
+      "feature1": "AI-assisted blog system",
+      "feature2": "Media library with AI generation",
+      "feature3": "Asset optimization pipeline",
+      "feature4": "Landing page builder",
+      "feature5": "SEO optimization"
+    },
+    "i18n": {
+      "title": "Internationalization",
+      "description": "Built-in support for multiple languages and content localization.",
+      "feature1": "Multi-language support",
+      "feature2": "Translation management",
+      "feature3": "Language switching",
+      "feature4": "Content localization"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Track and analyze user behavior and application performance.",
+      "feature1": "Page view tracking",
+      "feature2": "Event tracking",
+      "feature3": "Session management",
+      "feature4": "User journey analysis"
+    },
+    "booking": {
+      "title": "Booking System",
+      "description": "Complete appointment scheduling system with calendar management.",
+      "feature1": "Appointment scheduling",
+      "feature2": "Calendar management",
+      "feature3": "Timezone support",
+      "feature4": "Email notifications"
+    },
+    "realtime": {
+      "title": "Real-time Features",
+      "description": "Live updates and collaborative features powered by Supabase.",
+      "feature1": "Live updates",
+      "feature2": "Data synchronization",
+      "feature3": "Presence indicators",
+      "feature4": "Collaborative editing"
+    },
+    "technical": {
+      "title": "Technical Features",
+      "description": "Built with modern technologies and best practices.",
+      "feature1": "Modern UI with Tailwind CSS",
+      "feature2": "Dark/light mode support",
+      "feature3": "Type-safe development",
+      "feature4": "Performance optimization",
+      "feature5": "Comprehensive testing",
+      "feature6": "Row Level Security",
+      "feature7": "API protection",
+      "feature8": "Real-time subscriptions"
+    }
+  },
+  "getStarted": {
+    "title": "Start Building Today",
+    "description": "Get up and running with your next project in minutes, not hours.",
+    "step1": "Clone the repository and install dependencies",
+    "step2": "Configure your environment variables and API keys",
+    "step3": "Start developing with built-in AI capabilities",
+    "cta": "View on GitHub",
+    "imageAlt": "Development tools and features illustration"
+  }
+}

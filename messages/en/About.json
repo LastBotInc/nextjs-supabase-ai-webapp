@@ -1,0 +1,30 @@
+{
+  "title": "About LastBot",
+  "description": "We are a team of AI experts dedicated to making artificial intelligence accessible and useful for businesses of all sizes.",
+  "about": {},
+  "news": {
+    "title": "News",
+    "viewAll": "View all news",
+    "readMore": "Read more"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "info": {
+      "title": "Contact Information"
+    },
+    "address": {
+      "title": "Address",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Oulu",
+      "country": "Finland"
+    },
+    "social": {
+      "title": "Follow Us"
+    },
+    "form": {
+      "title": "Send us a message"
+    }
+  },
+  "form": {},
+  "meta": {}
+}
