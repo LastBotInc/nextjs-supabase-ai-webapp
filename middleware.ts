@@ -25,7 +25,8 @@ export async function middleware(request: NextRequest) {
   if (
     request.nextUrl.pathname.startsWith('/_next') ||
     request.nextUrl.pathname.startsWith('/images/') ||
-    request.nextUrl.pathname === '/favicon.ico'
+    request.nextUrl.pathname === '/favicon.ico' ||
+    request.nextUrl.pathname === '/auth/callback'  // Skip for auth callback path
   ) {
     return NextResponse.next()
   }
@@ -64,7 +65,7 @@ export async function middleware(request: NextRequest) {
               options.domain = 'localhost'
             } else {
               options.secure = true
-              options.sameSite = 'strict'
+              options.sameSite = 'lax'
             }
 
             // Set longer expiry for refresh token and session
@@ -92,7 +93,7 @@ export async function middleware(request: NextRequest) {
             maxAge: 0,
             domain: process.env.NODE_ENV === 'development' ? 'localhost' : undefined,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'strict'
+            sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'lax'
           })
           
           // Also try to delete it
