@@ -87,9 +87,14 @@ async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> 
   }
 
   try {
-    // Only import fs and path when needed on the server
-    // This prevents client-side errors
-    const { promises: fs } = await import('fs');
+    // Only import fs and path in a server context
+    if (typeof process === 'undefined') {
+      console.error('Cannot import fs/path: Not in a Node.js environment');
+      return {};
+    }
+    
+    // Dynamic imports with additional server-side check
+    const fs = (await import('fs')).promises;
     const path = await import('path');
     
     // Get the absolute path to the namespace directory
@@ -189,13 +194,39 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
 // Fallback to loading monolithic translation file if namespace-based loading fails
 async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages> {
   try {
-    console.warn(`Attempting to load monolithic translation file for ${locale}...`);
+    console.warn(`Attempting to load translations for ${locale}...`);
     
-    // Try to use a dynamic import that works in both client and server
+    // Try to use dynamic imports of namespace files since we no longer have monolithic files
     try {
-      return (await import(`@/messages/${locale}.json`)).default;
-    } catch (error) {
-      // If that fails, fallback to default locale
+      // We'll try to load namespaces directly using the namespace folder structure
+      console.log('Using namespace-based imports as fallback');
+      
+      const namespaces: NestedMessages = {};
+      
+      // Try to load some common namespaces
+      const commonNamespaces = [
+        'Navigation', 
+        'Common', 
+        'Footer', 
+        'Auth', 
+        'Blog', 
+        'Index'
+      ];
+      
+      for (const namespace of commonNamespaces) {
+        try {
+          const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default);
+          namespaces[namespace] = module;
+        } catch (nsError) {
+          // Continue with other namespaces
+        }
+      }
+      
+      if (Object.keys(namespaces).length > 0) {
+        return namespaces;
+      }
+      
+      // If we couldn't load any namespaces and this isn't the default locale, try default locale
       if (locale !== defaultLocale) {
         console.warn(`Falling back to default locale (${defaultLocale})`);
         return loadMonolithicTranslation(defaultLocale);
@@ -204,9 +235,12 @@ async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages
       // If we're already at the default locale and it failed, return an empty object
       console.error('Critical error: Failed to load even the default locale translation');
       return {};
+    } catch (error) {
+      console.error(`Failed to load translations for ${locale}:`, error);
+      return {};
     }
   } catch (error) {
-    console.error(`Failed to load monolithic translation for ${locale}:`, error);
+    console.error(`Failed to load translations for ${locale}:`, error);
     return {};
   }
 }
