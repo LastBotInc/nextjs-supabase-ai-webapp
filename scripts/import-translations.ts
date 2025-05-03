@@ -153,43 +153,72 @@ async function importTranslations() {
       console.log('✅ All translations deleted successfully');
     }
     
-    // Read all translation files
+    // Read all locales
     const messagesDir = path.join(process.cwd(), 'messages')
-    const files = fs.readdirSync(messagesDir)
-    
-    for (const file of files) {
-      if (!file.endsWith('.json')) continue
-      
-      const locale = path.basename(file, '.json')
-      const filePath = path.join(messagesDir, file)
-      console.log(`\nProcessing ${locale} translations from ${filePath}`)
-      
-      const content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-      console.log('Content loaded successfully')
-      
-      // Flatten the nested JSON structure
-      const flatTranslations = flattenObject(content)
-      console.log(`Flattened ${Object.keys(flatTranslations).length} translations`)
-      
-      // Prepare translations for batch insert
-      const translations = Object.entries(flatTranslations).map(([key, value]) => {
-        const [namespace, ...keyParts] = key.split('.')
-        return {
-          namespace,
-          key: keyParts.join('.'),
-          locale,
-          value,
-          is_html: value.includes('<') && value.includes('>')
-        }
+    const locales = fs.readdirSync(messagesDir)
+      .filter(item => {
+        const itemPath = path.join(messagesDir, item)
+        return fs.statSync(itemPath).isDirectory()
       })
+    
+    console.log(`Found locales: ${locales.join(', ')}`)
+    
+    // Process each locale directory
+    for (const locale of locales) {
+      const localeDir = path.join(messagesDir, locale)
       
-      console.log(`Prepared ${translations.length} translations for import`)
+      // Check if it's a directory
+      if (!fs.statSync(localeDir).isDirectory()) {
+        continue
+      }
+      
+      console.log(`\nProcessing locale: ${locale}`)
+      
+      // Get all JSON files in the locale directory
+      const namespaceFiles = fs.readdirSync(localeDir)
+        .filter(file => file.endsWith('.json'))
+      
+      console.log(`Found ${namespaceFiles.length} namespace files`)
+      
+      let allTranslations: any[] = []
+      
+      // Process each namespace file
+      for (const namespaceFile of namespaceFiles) {
+        const namespace = path.basename(namespaceFile, '.json')
+        const filePath = path.join(localeDir, namespaceFile)
+        
+        console.log(`\nProcessing namespace: ${namespace} from ${filePath}`)
+        
+        // Read the namespace file
+        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+        
+        // Flatten the nested JSON structure
+        const flatTranslations = flattenObject(content)
+        console.log(`Flattened ${Object.keys(flatTranslations).length} translations`)
+        
+        // Prepare translations for batch insert
+        const translations = Object.entries(flatTranslations).map(([key, value]) => {
+          return {
+            namespace,
+            key,
+            locale,
+            value,
+            is_html: value.includes('<') && value.includes('>')
+          }
+        })
+        
+        allTranslations = [...allTranslations, ...translations]
+        console.log(`Added ${translations.length} translations to batch (Total: ${allTranslations.length})`)
+      }
       
       // Insert translations in batches of 100
-      for (let i = 0; i < translations.length; i += 100) {
-        const batch = translations.slice(i, i + 100)
+      for (let i = 0; i < allTranslations.length; i += 100) {
+        const batch = allTranslations.slice(i, i + 100)
         console.log(`\nInserting batch ${Math.floor(i/100) + 1} (${batch.length} items)`)
-        console.log('First item in batch:', batch[0])
+        
+        if (options.debug) {
+          console.log('First item in batch:', batch[0])
+        }
         
         const { error, data, status, statusText } = await supabase
           .from('translations')
@@ -198,7 +227,11 @@ async function importTranslations() {
           })
           .select()
         
-        console.log('Supabase response:', { status, statusText, data })
+        if (options.debug) {
+          console.log('Supabase response:', { status, statusText, data })
+        } else {
+          console.log('Supabase response status:', status)
+        }
         
         if (error) {
           console.error(`Error importing translations for ${locale}:`, error)
