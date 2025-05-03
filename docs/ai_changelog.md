@@ -43,6 +43,7 @@
 *   Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
 *   Removed unused preload link from `app/layout.tsx`.
 *   Adjusted prose font sizes and colors for better readability on landing page.
+*   Fixed i18n-ally translation detection issue by standardizing translation key paths in analytics components. Added missing translation keys for analytics fields (gaMeasurementId, gtmContainerId, fbPixelId, linkedinPixelId) to all language files.
 
 // ... existing changelog entries ...
 

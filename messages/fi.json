@@ -1,97 +1,94 @@
 {
   "Index": {
     "hero": {
-      "title": "Rakenna fiksumpia verkkosovelluksia tekoälyllä",
-      "description": "Moderni Next.js-malli sisäänrakennetuilla tekoälyominaisuuksilla, kehitystyökaluilla ja parhailla käytännöillä skaalautuvien verkkosovellusten rakentamiseen.",
-      "backgroundAlt": "Abstrakti teknologia tausta",
-      "cta": "Näytä GitHubissa",
+      "title": "Rakenna älykkäitä verkkosovelluksia tekoälyn avulla",
+      "description": "Moderni Next.js‑pohjainen malli, jossa on valmiit tekoälyominaisuudet, kehitystyökalut ja parhaat käytännöt skaalautuvien web‑sovellusten rakentamiseen.",
+      "backgroundAlt": "Abstrakti teknologiatausta",
+      "cta": "Katso GitHubissa",
       "docs": "Dokumentaatio"
     },
     "agentic": {
-      "title": "Agentic-kehityskehys",
+      "title": "Agenttimainen Kehityskehys",
       "subtitle": "Cursor IDE:lle",
-      "description": "Laajenna ja paranna Cursorin composer agent -ominaisuuksia kattavalla kehysratkaisulla, joka tukee koko kehitystyötä alusta loppuun.",
+      "description": "Laajenna ja tehosta Cursorin composer‑agenttia kattavalla päästä‑päähän‑kehityskehyksellä.",
       "features": {
-        "title": "Parempi kehityskokemus",
+        "title": "Parempi Kehityskokemus",
         "list": {
-          "rules": "Rakenteelliset kehityssäännöt ja -mallit",
-          "prompts": "Optimoidut kehotteet koodin luontiin",
-          "tools": "Integroituja kehitystyökaluja ja apuvälineitä",
+          "rules": "Rakenteelliset kehityssäännöt ja ‑mallit",
+          "prompts": "Optimoidut kehotteet koodin generointiin",
+          "tools": "Integroituja työkaluja ja apuohjelmia",
           "validation": "Automaattinen testaus ja validointi",
-          "docs": "Kattava dokumentaation generointi"
+          "docs": "Kattava dokumentaatiogenerointi"
         }
       },
       "benefits": {
-        "title": "Keskeiset hyödyt",
+        "title": "Keskeiset Hyödyt",
         "quality": "Parempi koodin laatu ja yhtenäisyys",
         "completeness": "Laajempi ominaisuuksien kattavuus",
-        "efficiency": "Nopeutettu kehitystyönkulku",
-        "standards": "Vakiintuneiden koodausstandardien ja parhaiden käytäntöjen noudattaminen"
+        "efficiency": "Nopeutettu kehitysprosessi",
+        "standards": "Vahvistetut koodausstandardit ja parhaat käytännöt"
       }
     },
-    "cta": {
-      "button": "KATSO GITHUBISSA"
-    },
+    "cta": {},
     "meta": {
-      "title": "Tekoälyn voimin toimiva Next.js-malli | Modernia verkkokehitystä",
-      "description": "Moderni Next.js-malli, jossa on sisäänrakennettu tekoälytuki, Supabase-integraatio ja kehitystyökaluja skaalautuvien verkkosovellusten rakentamiseen."
+      "title": "Tekoälyä hyödyntävä Next.js‑malli | Moderni web‑kehitys",
+      "description": "Moderni Next.js‑malli, jossa on sisäänrakennettu tekoälytuki, Supabase‑integraatio ja kehitystyökalut skaalautuvien verkkosovellusten luomiseen."
     },
-    "description": "LastBot auttaa yrityksiä siirtymään tekoälykeskeiseen toimintaan ihmisläheisyyden säilyttäen. Tarjoamme nopean tavan toteuttaa tekoälyn integrointia, rakentaa aitoja yhteyksiä ja tarjota itsenäisiä ratkaisuja.",
     "features": {
       "title": "Kaikki mitä tarvitset",
-      "description": "Laaja valikoima työkaluja ja ominaisuuksia kehitystyön vauhdittamiseksi.",
+      "description": "Laaja valikoima työkaluja ja ominaisuuksia kehityksen nopeuttamiseen.",
       "ai": {
         "title": "Tekoälyintegraatio",
-        "description": "Sisäänrakennettu tekoäly Google Gemini-, Recraft- ja Tavily-rajapinnoilla sisällöntuotantoon, kuvien luomiseen ja älykkääseen hakuun."
+        "description": "Valmiit integraatiot Google Gemini‑, Recraft‑ ja Tavily‑API‑rajapintoihin sisällön luontia, kuvan­tuotantoa ja älykästä hakua varten."
       },
       "tools": {
         "title": "Kehitystyökalut",
-        "description": "Modernit kehitystyökalut kuvien optimointiin, HTML:n muuntamiseen Markdowniksi ja tehokkaaseen tiedostohallintaan."
+        "description": "Modernit työkalut kuvien optimointiin, HTML‑>Markdown‑muunnokseen ja tehokkaaseen tiedostonhallintaan."
       },
       "database": {
         "title": "Tietokanta & Auth",
-        "description": "Saumaton Supabase-integraatio kirjautumiseen, reaaliaikaiseen dataan ja suojattuihin API-rajapintoihin."
+        "description": "Saumaton Supabase‑integraatio autentikointiin, reaaliaikaisiin datoihin ja suojattuihin API‑päätepisteisiin."
       },
       "i18n": {
         "title": "Kansainvälistäminen",
-        "description": "Sisäänrakennettu useiden kielten tuki next-intl:n avulla ja tehokas käännösten hallinta."
+        "description": "Sisäänrakennettu monikielisyystuki next‑intl‑kirjastolla ja tehokas käännösten hallinta."
       },
       "performance": {
         "title": "Suorituskyky",
-        "description": "Optimoitu nopeuteen palvelinkomponenttien, reunafunktioiden ja tehokkaiden välimuististrategioiden avulla."
+        "description": "Optimoitu nopeuteen palvelin­komponenttien, edge‑funktioiden ja tehokkaiden välimuististrategioiden avulla."
       },
       "security": {
         "title": "Turvallisuus",
-        "description": "Parhaat käytännöt turvalliseen tunnistautumiseen, API-suojaukseen ja datan käsittelyyn."
+        "description": "Parhaat käytännöt turvalliseen autentikointiin, API‑suojaan ja datan käsittelyyn."
       }
     },
     "coreFeatures": {
-      "title": "Keskeiset ominaisuudet",
-      "description": "Kaikki tarvittava kattavan verkkosovelluksen rakentamiseen",
+      "title": "Ydinominaisuudet",
+      "description": "Kaikki mitä tarvitset täysiverisen verkkosovelluksen rakentamiseen",
       "auth": {
-        "title": "Tunnistautuminen & käyttäjät",
-        "description": "Täydellinen käyttäjähallintajärjestelmä Supabase Auth -integraatiolla, sosiaalikirjautumisilla, suojatuilla reiteillä ja roolipohjaisella käyttöoikeushallinnalla.",
-        "feature1": "Sosiaalikirjautuminen",
+        "title": "Autentikointi & Käyttäjät",
+        "description": "Täydellinen käyttäjähallinta Supabase Auth‑integraatiolla, sosiaalisilla kirjautumisilla, suojatuilla reiteillä ja roolipohjaisella käyttöoikeudella.",
+        "feature1": "Sosiaalinen kirjautuminen",
         "feature2": "Suojatut reitit",
-        "feature3": "Roolipohjaiset oikeudet",
+        "feature3": "Roolipohjainen käyttöoikeus",
         "feature4": "Käyttäjäprofiilit"
       },
       "content": {
         "title": "Sisällönhallinta",
-        "description": "Kattava sisällönhallinta tekoälyavusteisella sisällön luonnilla ja optimoinnilla.",
+        "description": "Kattava sisällönhallinta tekoälyavusteisella luomisella ja optimoinnilla.",
         "feature1": "Tekoälyavusteinen blogijärjestelmä",
-        "feature2": "Mediakirjasto tekoälyavusteisella generoinnilla",
-        "feature3": "Materiaalin optimointiputki",
-        "feature4": "Laskeutumissivujen rakentaja",
-        "feature5": "SEO-optimointi"
+        "feature2": "Mediakirjasto tekoäly­generoinnilla",
+        "feature3": "Resurssien optimointiputki",
+        "feature4": "Landing‑sivujen rakentaja",
+        "feature5": "Hakukoneoptimointi"
       },
       "i18n": {
         "title": "Kansainvälistäminen",
-        "description": "Sisäänrakennettu tuki useille kielille ja sisällön lokalisaatiolle.",
-        "feature1": "Usean kielen tuki",
+        "description": "Sisäänrakennettu monikielisyys ja sisällön lokalisointi.",
+        "feature1": "Monikielinen tuki",
         "feature2": "Käännösten hallinta",
-        "feature3": "Kielen vaihto",
-        "feature4": "Sisällön lokalisaatio"
+        "feature3": "Kielenvaihto",
+        "feature4": "Sisällön lokalisointi"
       },
       "analytics": {
         "title": "Analytiikka",
@@ -99,45 +96,45 @@
         "feature1": "Sivukatselujen seuranta",
         "feature2": "Tapahtumien seuranta",
         "feature3": "Istuntojen hallinta",
-        "feature4": "Käyttäjäpolun analysointi"
+        "feature4": "Käyttäjäpolkujen analyysi"
       },
       "booking": {
         "title": "Varausjärjestelmä",
-        "description": "Täydellinen ajanvarausjärjestelmä kalenterinhallinnalla.",
+        "description": "Täydellinen ajanvaraus­järjestelmä kalenterinhallinnalla.",
         "feature1": "Ajanvaraus",
         "feature2": "Kalenterinhallinta",
         "feature3": "Aikavyöhyketuki",
-        "feature4": "Sähköposti-ilmoitukset"
+        "feature4": "Sähköposti­ilmoitukset"
       },
       "realtime": {
-        "title": "Reaaliaikaiset ominaisuudet",
-        "description": "Lähetysajan päivitykset ja yhteiskäyttöominaisuudet Supabasen avulla.",
-        "feature1": "Reaaliaikaiset päivitykset",
-        "feature2": "Datan synkronointi",
-        "feature3": "Läsnäolon näyttimet",
+        "title": "Reaaliaikaiset Ominaisuudet",
+        "description": "Live‑päivitykset ja yhteistyö­ominaisuudet Supabasen voimalla.",
+        "feature1": "Live‑päivitykset",
+        "feature2": "Datasykronointi",
+        "feature3": "Läsnäolo­indikaattorit",
         "feature4": "Yhteismuokkaus"
       },
       "technical": {
-        "title": "Tekniset ominaisuudet",
+        "title": "Tekniset Ominaisuudet",
         "description": "Rakennettu moderneilla teknologioilla ja parhailla käytännöillä.",
         "feature1": "Moderni käyttöliittymä Tailwind CSS:llä",
-        "feature2": "Vaalea/tumma tila -tuki",
-        "feature3": "Tyypiturvallinen kehitys",
-        "feature4": "Suorituskyvyn optimointi",
-        "feature5": "Kattavat testit",
-        "feature6": "Rivitason suojaus",
-        "feature7": "API-suojaus",
+        "feature2": "Tumma/vaalea tila",
+        "feature3": "Tyyppiturvallinen kehitys",
+        "feature4": "Suorituskyky­optimointi",
+        "feature5": "Kattava testaus",
+        "feature6": "Row Level Security",
+        "feature7": "API‑suojaus",
         "feature8": "Reaaliaikaiset tilaukset"
       }
     },
     "getStarted": {
-      "title": "Aloita rakentaminen jo tänään",
-      "description": "Aloita seuraava projektisi minuuteissa, ei tunneissa.",
+      "title": "Aloita Rakentaminen Tänään",
+      "description": "Pääset vauhtiin minuuteissa, ei tunneissa.",
       "step1": "Kloonaa repositorio ja asenna riippuvuudet",
-      "step2": "Määritä ympäristömuuttujat ja API-avaimet",
-      "step3": "Aloita kehitys sisäänrakennettujen tekoälyominaisuuksien avulla",
-      "cta": "Katso GitHubista",
-      "imageAlt": "Kehitystyökalut ja ominaisuudet -kuvitus"
+      "step2": "Määritä ympäristömuuttujat ja API‑avaimet",
+      "step3": "Aloita kehitys sisäänrakennetulla tekoälytuella",
+      "cta": "Katso GitHubissa",
+      "imageAlt": "Illustratio kehitystyökaluista ja ominaisuuksista"
     }
   },
   "Footer": {
@@ -150,18 +147,15 @@
   },
   "About": {
     "title": "Tietoa LastBotista",
-    "description": "Olemme tekoälyn asiantuntijoiden tiimi, joka keskittyy tekemään tekoälystä kaikkien yritysten ulottuvilla ja hyödyllistä.",
-    "about": {
-      "cta": "ALOITA NYT"
-    },
+    "description": "Olemme tekoälyn asiantuntijatiimi, joka tekee tekoälystä hyödyllistä ja helposti saavutettavaa kaikenkokoisille yrityksille.",
+    "about": {},
     "news": {
       "title": "Uutiset",
-      "viewAll": "Katso kaikki uutiset",
+      "viewAll": "Näytä kaikki uutiset",
       "readMore": "Lue lisää"
     },
     "contact": {
-      "title": "Ota yhteyttä",
-      "description": "Ota meihin yhteyttä. Kuulemme mielellämme sinusta ja keskustelemme, kuinka voimme auttaa yritystäsi tekoälyn käyttöönotossa.",
+      "title": "Ota Yhteyttä",
       "info": {
         "title": "Yhteystiedot"
       },
@@ -171,66 +165,46 @@
         "postal": "90630 Oulu",
         "country": "Suomi"
       },
-      "website": "Verkkosivusto",
-      "email": "Sähköposti",
       "social": {
-        "title": "Seuraa meitä"
+        "title": "Seuraa Meitä"
       },
       "form": {
         "title": "Lähetä meille viesti"
       }
     },
-    "form": {
-      "title": "Lähetä meille viesti"
-    },
-    "meta": {
-      "title": "Tietoa | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-      "description": "Tutustu LastBotiin, tehtäväämme inhimillistää tekoälyteknologiaa, asiantuntijatiimiimme ja sitoutumiseemme auttaa yrityksiä menestymään tekoälyaikakaudella."
-    }
+    "form": {},
+    "meta": {}
   },
   "Blog": {
     "title": "Blogi",
-    "description": "Viimeisimmät oivallukset, tutkimukset ja uutiset LastBotilta",
-    "readMore": "Lue lisää",
-    "newestPost": "Uusin artikkeli",
-    "publishedOn": "Julkaistu",
-    "noPosts": "Ei vielä julkaisuja. Ole ensimmäinen joka kirjoittaa!",
-    "by": "kirjoittanut",
-    "tags": "Tunnisteet",
-    "relatedPosts": "Aiheeseen liittyvät julkaisut",
-    "similarPosts": "Samankaltaiset julkaisut",
+    "description": "Viimeisimmät näkemykset, tutkimus ja uutiset LastBotilta",
+    "noPosts": "Ei vielä artikkeleita. Kirjoita ensimmäinen!",
+    "similarPosts": "Samankaltaiset artikkelit",
     "backToBlog": "Takaisin blogiin",
-    "readingTime": "{minutes} min lukuaika",
-    "sharePost": "Jaa tämä julkaisu",
     "admin": {
-      "title": "Blogijulkaisut",
-      "newPost": "Uusi julkaisu",
+      "title": "Blogiartikkelit",
+      "newPost": "Uusi artikkeli",
       "editPost": "Muokkaa",
-      "deletePost": "Poista",
-      "confirmDelete": "Haluatko varmasti poistaa tämän julkaisun?",
       "save": "Tallenna",
       "saving": "Tallennetaan...",
       "cancel": "Peruuta",
-      "generating": "Luodaan...",
-      "generateWithAI": "Luo tekoälyn avulla",
-      "generateImage": "Luo kuva",
       "publishPost": "Julkaise",
-      "unpublishPost": "Poista julkaisu",
+      "unpublishPost": "Piilota julkaisu",
       "fields": {
         "title": "Otsikko",
-        "slug": "URL-osoitteen osa",
+        "slug": "URL‑osoite",
         "content": "Sisältö",
         "excerpt": "Lyhennelmä",
-        "metaDescription": "Meta-kuvaus",
-        "featuredImage": "Kuva esiin",
-        "tags": "Tunnisteet",
-        "locale": "Kielikoodi",
+        "metaDescription": "Meta‑kuvaus",
+        "featuredImage": "Pääkuva",
+        "tags": "Tägät",
+        "locale": "Kieli",
         "targetLanguages": "Kohdekielet",
         "targetLanguagesHelp": "Valitse kielet automaattiseen käännökseen",
         "targetLanguagesOptional": "(valinnainen)",
-        "prompt": "Blogitekstin kehotus",
-        "promptPlaceholder": "Kirjoita kehotus blogitekstin sisällön luomiseen...",
-        "detectedLanguage": "(havaittu)"
+        "prompt": "Blogipostauksen kehotus",
+        "promptPlaceholder": "Kirjoita kehotus sisällön generointiin...",
+        "detectedLanguage": "(tunnistettu)"
       },
       "editor": {
         "bold": "Lihavointi",
@@ -238,68 +212,35 @@
         "strike": "Yliviivaus",
         "code": "Koodi",
         "heading": "Otsikko",
-        "bulletList": "Luettelomerkit",
-        "orderedList": "Numeroitu luettelo",
+        "bulletList": "Luettelomerkki",
+        "orderedList": "Numeroitu lista",
         "quote": "Lainaus",
         "image": "Lisää kuva"
       },
-      "saveSuccess": "Julkaisu tallennettu onnistuneesti",
-      "saveError": "Julkaisun tallennus epäonnistui",
-      "translationSuccess": "Käännökset luotiin onnistuneesti",
+      "translationSuccess": "Käännökset luotu onnistuneesti",
       "translationError": "Käännösten luonti epäonnistui",
-      "deleteSuccess": "Julkaisu poistettu onnistuneesti",
-      "deleteError": "Julkaisun poisto epäonnistui",
-      "publishSuccess": "Julkaisu julkaistu onnistuneesti",
-      "publishError": "Julkaisun julkaiseminen epäonnistui",
-      "unpublishSuccess": "Julkaisu poistettu julkaisusta onnistuneesti",
-      "unpublishError": "Julkaisun poistaminen julkaisusta epäonnistui",
+      "publishSuccess": "Artikkeli julkaistu",
+      "publishError": "Julkaisu epäonnistui",
+      "unpublishSuccess": "Artikkeli piilotettu",
+      "unpublishError": "Piilotus epäonnistui",
       "research": {
         "title": "Verkkotutkimus",
         "search": "Hae",
         "searching": "Haetaan...",
-        "noResults": "Ei tuloksia",
-        "error": "Haku epäonnistui",
-        "retry": "Yritä uudelleen",
-        "use": "Käytä",
-        "useResult": "Käytä tulosta",
+        "error": {},
         "searchPlaceholder": "Etsi verkosta aiheeseen liittyvää sisältöä...",
-        "results": "Tulokset",
-        "source": "Lähde",
-        "analyze": "Analysoi",
-        "analyzing": "Analysoidaan...",
-        "summary": "Yhteenveto",
-        "keyPoints": "Keskeiset kohdat",
-        "scope": {
-          "small": "Pieni (3 tulosta)",
-          "medium": "Keskikokoinen (5 tulosta)",
-          "large": "Suuri (8 tulosta)",
-          "huge": "Erittäin suuri (10 tulosta)"
-        },
+        "scope": {},
         "selected": "{count} valittu",
-        "useSelected": "Käytä valitut",
+        "useSelected": "Käytä valittuja",
         "extending": "Laajennetaan...",
         "extend": "Laajenna",
-        "error": {
-          "search": "Tutkimus epäonnistui",
-          "extend": "Sisällön laajentaminen epäonnistui"
-        },
-        "analysis": {
-          "title": "Analyysi",
-          "readability": "Luettavuus",
-          "confidence": "Luottamustaso",
-          "style": "Kirjoitustyyli",
-          "audience": "Kohdeyleisö"
-        },
-        "topics": {
-          "title": "Aihealueet & Tunteet",
-          "sentiment": "Tunne",
-          "topics": "Aihealueet"
-        }
+        "analysis": {},
+        "topics": {}
       }
     },
     "comments": "Kommentit",
-    "noComments": "Ei kommentteja vielä. Ole ensimmäinen kommentoija!",
-    "loginToComment": "Kirjaudu sisään jättääksesi kommentin.",
+    "noComments": "Ei vielä kommentteja. Ole ensimmäinen!",
+    "loginToComment": "Kirjaudu sisään kommentoidaksesi.",
     "signIn": "Kirjaudu sisään",
     "yourComment": "Kommenttisi",
     "commentPlaceholder": "Kirjoita kommenttisi tähän...",
@@ -307,128 +248,85 @@
     "submittingComment": "Lähetetään...",
     "deleteComment": "Poista",
     "fetchCommentsError": "Kommenttien lataus epäonnistui. Yritä uudelleen.",
-    "deleteCommentError": "Kommentin poistaminen epäonnistui. Yritä uudelleen.",
-    "subjects": {
-      "all": "Kaikki",
-      "news": "Uutiset",
-      "research": "Tutkimus",
-      "generative-ai": "Generatiivinen tekoäly",
-      "case-stories": "Case-kertomukset"
-    },
-    "latestPost": "Uusin julkaisu",
-    "meta": {
-      "title": "Blogi | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-      "description": "Tutustu tuoreimpiin oivalluksiin, trendeihin ja menestystarinoihin tekoälyn integroinnissa, digitaalisen muutoksen edistämisessä ja ihmiskeskeisissä teknologiaratkaisuissa."
-    }
+    "deleteCommentError": "Kommentin poisto epäonnistui. Yritä uudelleen.",
+    "subjects": {},
+    "meta": {}
   },
   "Navigation": {
-    "brand": "LastBot",
     "home": "Etusivu",
     "about": "Tietoa",
     "blog": "Blogi",
     "book": "Varaa aika",
-    "contact": "Yhteystiedot",
     "admin_link": "Ylläpito",
-    "analytics": "Analytiikka",
     "signIn": "Kirjaudu sisään",
     "signOut": "Kirjaudu ulos",
     "backToSite": "Takaisin sivustolle",
-    "translations": "Käännökset",
-    "login": "Kirjaudu",
-    "profile": "Profiili",
-    "Profile": {
-      "menu": {
-        "general": "Yleiset asetukset",
-        "security": "Tietoturva & yksityisyys",
-        "preferences": "Asetukset",
-        "backToSite": "Takaisin sivustolle"
-      }
-    },
     "admin": {
-      "blog": "Blogin hallinta",
+      "blog": "Blogi‑ylläpito",
       "contacts": "Yhteydenotot",
       "analytics": "Analytiikka",
       "translations": "Käännökset",
       "media": "Media",
       "users": "Käyttäjät",
-      "landingPages": "Laskeutumissivut",
+      "landingPages": "Landing‑sivut",
       "calendar": "Kalenteri"
     },
     "account": {
-      "title": "Oma tili",
-      "settings": "Asetukset",
-      "security": "Turvallisuus",
-      "notifications": "Ilmoitukset"
-    },
-    "solutions": "Ratkaisut"
+      "title": "Oma tili"
+    }
   },
   "Auth": {
     "email": "Sähköposti",
     "password": "Salasana",
-    "signIn": "Kirjaudu sisään",
-    "signUp": "Rekisteröidy",
+    "signIn": "Kirjaudu tilillesi",
     "signingIn": "Kirjaudutaan...",
-    "signingUp": "Rekisteröidään...",
     "signingOut": "Kirjaudutaan ulos",
-    "pleaseWait": "Odota, kun kirjaudumme ulos...",
-    "continueWith": "Jatka käyttäen",
-    "dontHaveAccount": "Eikö sinulla ole tiliä?",
-    "alreadyHaveAccount": "Onko sinulla jo tili?",
-    "redirecting": "Ohjataan ylläpitoon...",
+    "pleaseWait": "Odota hetki, kirjaudutaan ulos...",
+    "continueWith": "Jatka palvelulla",
+    "redirecting": "Uudelleenohjataan...",
     "loading": "Ladataan...",
-    "accountUsage": "Tämä tili on tarkoitettu LastBot-sivuston ominaisuuksille, kuten kommentoinnille. Lisää ominaisuuksia on tulossa pian.",
+    "accountUsage": "Tätä tiliä käytetään LastBot‑sivuston ominaisuuksiin kuten kommentointiin. Lisää toimintoja tulossa pian.",
     "authError": {
-      "title": "Tunnistautumisvirhe",
-      "description": "Tunnistautumisessa tapahtui virhe. Yritä kirjautua uudelleen.",
+      "title": "Autentikointivirhe",
+      "description": "Autentikointiprosessissa ilmeni ongelma. Yritä kirjautua uudelleen.",
       "backToSignIn": "Takaisin kirjautumiseen"
     },
-    "signIn": "Kirjaudu sisään tilillesi",
     "register": "Rekisteröidy",
-    "noAccount": "Eikö sinulla ole vielä tiliä?",
-    "haveAccount": "Onko sinulla jo tili?",
-    "forgotPassword": "Unohditko salasanasi?",
+    "noAccount": "Eikö sinulla ole tiliä?",
     "fullName": "Koko nimi",
     "company": "Yritys",
     "newsletter": "Tilaa uutiskirjeemme",
-    "marketing": "Annan luvan vastaanottaa markkinointiviestintää",
-    "privacyNotice": "Yhteystietojasi ei jaeta tai myydä kolmansille osapuolille.",
-    "signingIn": "Kirjaudutaan...",
+    "marketing": "Annan suostumuksen markkinointiviesteihin",
+    "privacyNotice": "Yhteystietojasi ei jaeta eikä myydä kolmansille osapuolille.",
     "creatingAccount": "Luodaan tiliä...",
     "checkEmail": "Tarkista sähköpostisi",
-    "emailSent": "Lähetimme sinulle sähköpostin vahvistuslinkillä.",
+    "emailSent": "Lähetimme sinulle vahvistuslinkin sisältävän sähköpostin.",
     "checkSpam": "Jos et näe viestiä, tarkista roskapostikansio.",
     "backToSignIn": "Takaisin kirjautumiseen",
-    "redirecting": "Ohjataan...",
     "error": {
-      "login": "Kirjautumisessa tapahtui virhe",
       "register": "Rekisteröinti epäonnistui. Yritä uudelleen.",
-      "captcha": "Ole hyvä ja suorita captcha-varmennus.",
-      "captchaValidation": "Captchan vahvistus epäonnistui. Yritä uudelleen."
+      "captcha": "Täytä captcha‑varmennus.",
+      "captchaValidation": "Captcha‑varmennus epäonnistui. Yritä uudelleen."
     }
   },
   "Admin": {
-    "title": "Ylläpito",
     "analytics": {
-      "title": "Analytiikka-hallintapaneeli",
+      "title": "Analytiikkapaneeli",
       "tabs": {
         "pageViews": "Sivukatselut",
         "topPages": "Suosituimmat sivut"
       },
-      "cards": {
-        "activeSessions": "Aktiiviset istunnot",
-        "pageViews": "Sivukatselut (viimeiset 7 päivää)",
-        "topPages": "Suosituimmat sivut (viimeiset 30 päivää)"
-      },
+      "cards": {},
       "error": {
         "title": "Analytiikkavirhe",
-        "description": "Analytiikkadatan latauksessa ilmeni ongelma. Yritä uudelleen.",
+        "description": "Analytiikkatietojen lataus epäonnistui. Yritä uudelleen.",
         "retry": "Yritä uudelleen"
       }
     },
     "contacts": {
       "title": "Yhteydenottopyynnöt",
       "table": {
-        "date": "Päivämäärä",
+        "date": "Päiväys",
         "name": "Nimi",
         "company": "Yritys",
         "email": "Sähköposti",
@@ -443,33 +341,23 @@
         "archived": "Arkistoitu"
       },
       "delete": "Poista",
-      "deleteConfirmation": "Haluatko varmasti poistaa tämän yhteydenoton? Tätä toimintoa ei voi perua.",
+      "deleteConfirmation": "Haluatko varmasti poistaa tämän yhteydenoton? Toimintoa ei voi perua.",
       "loading": "Ladataan yhteydenottoja...",
       "retry": "Yritä uudelleen"
     },
     "translations": {
-      "title": "Käännökset",
-      "description": "Hallitse käännöksiä kaikille tuetuille kielille",
-      "shortcuts": {
-        "title": "Pikanäppäimet",
-        "enter": "Paina Enter muokataksesi",
-        "save": "Paina Ctrl/Cmd + Enter tallentaaksesi",
-        "cancel": "Paina Escape peruuttaaksesi"
-      },
-      "table": {
-        "namespace": "Namespace",
-        "key": "Avain"
-      },
+      "shortcuts": {},
+      "table": {},
       "editor": {
         "save": "Tallenna",
         "saving": "Tallennetaan...",
         "cancel": "Peruuta",
         "edit": "Klikkaa muokataksesi",
         "empty": "Tyhjä",
-        "placeholder": "Kirjoita käännös",
+        "placeholder": "Syötä käännös",
         "success": "Käännös tallennettu",
-        "error": "Käännöksen tallentaminen epäonnistui",
-        "generate": "Luo käännös tekoälyn avulla"
+        "error": "Käännöksen tallennus epäonnistui",
+        "generate": "Generoi käännös tekoälyllä"
       },
       "languages": {
         "title": "Kielet",
@@ -478,133 +366,89 @@
         "disabled": "Pois käytöstä",
         "form": {
           "code": "Kielikoodi",
-          "name": "Englanninkielinen nimi",
-          "nativeName": "Nimen kirjoitus omalla kielellä",
-          "codeHelp": "Kaksikirjaiminen kielikoodi (esim. en, fi)",
           "add": "Lisää kieli",
           "cancel": "Peruuta",
-          "select": "Valitse kieli...",
-          "generating": "Luodaan käännöksiä..."
+          "select": "Valitse kieli..."
         },
-        "addSuccess": "Kieli lisätty onnistuneesti",
-        "addError": "Kielen lisääminen epäonnistui",
+        "addSuccess": "Kieli lisätty",
+        "addError": "Kielen lisäys epäonnistui",
         "enableSuccess": "Kieli otettu käyttöön",
         "disableSuccess": "Kieli poistettu käytöstä",
         "updateError": "Kielen päivitys epäonnistui",
-        "translationSuccess": "Käännökset luotiin onnistuneesti",
-        "translationError": "Kaikkia käännöksiä ei voitu luoda",
+        "translationSuccess": "Käännökset generoitu onnistuneesti",
+        "translationError": "Jotkin käännökset epäonnistuivat",
         "remove": "Poista",
         "removing": "Poistetaan...",
-        "removeSuccess": "Kieli poistettu onnistuneesti",
-        "removeError": "Kielen poistaminen epäonnistui",
+        "removeSuccess": "Kieli poistettu",
+        "removeError": "Kielen poisto epäonnistui",
         "removeConfirmTitle": "Poista kieli",
-        "removeConfirmMessage": "Haluatko varmasti poistaa tämän kielen? Tämä poistaa kaikki kyseisen kielen käännökset. Tätä toimintoa ei voi perua.",
+        "removeConfirmMessage": "Haluatko varmasti poistaa tämän kielen? Kaikki käännökset poistetaan. Tätä ei voi perua.",
         "removeConfirm": "Kyllä, poista kieli"
       },
       "search": {
-        "placeholder": "Etsi käännöksiä..."
+        "placeholder": "Hae käännöksiä..."
       },
-      "generating": "Luodaan käännöksiä..."
+      "generating": "Generoidaan käännöksiä..."
     },
     "users": {
       "title": "Käyttäjähallinta",
       "email": "Sähköposti",
       "id": "ID",
       "created": "Luotu",
-      "lastSignIn": "Viimeisin kirjautuminen",
+      "lastSignIn": "Viimeinen kirjautuminen",
       "never": "Ei koskaan",
       "loading": "Ladataan käyttäjiä...",
-      "error": "Käyttäjien lataaminen epäonnistui",
       "retry": "Yritä uudelleen",
       "previous": "Edellinen",
       "next": "Seuraava",
       "page": "Sivu"
     },
-    "editor": {
-      "title": "Laskeutumissivujen muokkaus",
-      "tabs": {
-        "content": "Sisältö",
-        "seo": "SEO-asetukset",
-        "code": "Oma koodi",
-        "analytics": "Analytiikka"
-      }
-    },
-    "seo": {
-      "metaTitle": "Meta-otsikko",
-      "metaDescription": "Meta-kuvaus",
-      "ogImage": "OG-kuva",
-      "keywords": "Avainsanat",
-      "canonicalUrl": "Kanoninen URL-osoite"
-    },
-    "code": {
-      "customHead": "Mukautettu Head-koodi",
-      "customCss": "Mukautettu CSS",
-      "customJs": "Mukautettu JavaScript"
-    },
+    "seo": {},
+    "code": {},
     "calendar": {
       "title": "Kalenterinhallinta",
-      "description": "Hallitse varattavia aikoja ja asetuksia",
+      "description": "Hallinnoi varattavia aikoja ja asetuksia",
       "loading": "Ladataan kalenteria...",
       "tabs": {
-        "calendar": "Kalenteri & ajat",
+        "calendar": "Kalenteri & Aikavälit",
         "settings": "Asetukset",
         "appointmentTypes": "Ajanvaraustyypit"
       },
       "slots": {
-        "loading": "Ladataan aikoja...",
-        "timeSlots": "Saatavilla olevat ajat",
+        "loading": "Ladataan aikavälejä...",
         "availableSlots": "Vapaat ajat",
         "createSlots": "Luo uusia aikoja",
-        "noSlots": "Ei vapaita aikoja tälle päivälle",
-        "title": "Aikavälit",
+        "noSlots": "Tälle päivälle ei ole vapaita aikoja",
         "selectDate": "Valitse päivämäärä",
-        "startDate": "Alkamispäivä",
+        "startDate": "Aloituspäivä",
         "cancel": "Peruuta aika",
-        "endDate": "Päättymispäivä",
+        "endDate": "Lopetuspäivä",
         "create": "Luo ajat",
         "creating": "Luodaan aikoja...",
-        "availableHours": "Saatavilla olevat tunnit",
-        "unavailableDates": "Ei saatavilla olevat päivämäärät",
-        "slotDuration": "Aikavälin kesto (minuuttia)",
+        "slotDuration": "Aikavälin kesto (min)",
         "bookedSlots": "Varatut ajat",
-        "cancelBooking": "Peruuta varaus",
-        "slots": "Aikavälit",
-        "status": {
-          "available": "Vapaa",
-          "booked": "Varattu",
-          "cancelled": "Peruutettu"
-        },
+        "cancelBooking": "Peru varaus",
+        "slots": "Ajat",
+        "status": {},
         "actions": {
-          "cancel": "Peruuta",
-          "generate": "Luo vapaat ajat",
-          "generating": "Luodaan aikoja...",
-          "success": "Aikavälit luotu",
-          "error": "Aikavälien luonti epäonnistui"
+          "generate": "Generoi vapaat ajat",
+          "generating": "Generoidaan aikoja..."
         }
       },
       "settings": {
         "endTime": "Päättymisaika",
         "startTime": "Aloitusaika",
         "loading": "Ladataan asetuksia...",
-        "title": "Kalenteriasetukset",
         "timezone": "Aikavyöhyke",
-        "defaultDuration": "Oletusajanvarauksen kesto",
-        "durationError": "Keston on oltava vähintään 15 minuuttia",
-        "bufferTime": "Puskuri",
+        "defaultDuration": "Oletusvarauksen kesto",
         "bufferBefore": "Puskuri ennen",
         "bufferAfter": "Puskuri jälkeen",
         "saving": "Tallennetaan asetuksia...",
-        "saved": "Asetukset tallennettu",
-        "error": "Asetusten tallentaminen epäonnistui",
-        "before": "Ennen",
-        "after": "Jälkeen",
         "save": "Tallenna asetukset",
-        "saveSuccess": "Asetukset tallennettu onnistuneesti",
-        "saveError": "Asetusten tallentaminen epäonnistui",
         "remove": "Poista",
-        "noWorkingDays": "Ei valittuja työpäiviä. Lisää työpäivä napsauttamalla 'Lisää työpäivä'.",
+        "noWorkingDays": "Ei työpäiviä valittuna. Klikkaa 'Lisää työpäivä' lisätäksesi aukioloajat.",
         "addWorkingDay": "Lisää työpäivä",
-        "updateSuccess": "Asetukset päivitetty onnistuneesti",
+        "updateSuccess": "Asetukset päivitetty",
         "workingHours": "Työajat",
         "day": "Päivä",
         "days": {
@@ -619,89 +463,71 @@
       },
       "appointmentTypes": {
         "createNew": "Luo uusi ajanvaraustyyppi",
-        "existingTypes": "Olemassa olevat ajanvaraustyypit",
-        "loading": "Ladataan ajanvaraustyyppejä...",
-        "noTypes": "Et ole vielä luonut yhtään ajanvaraustyyppiä",
+        "noTypes": "Et ole vielä luonut ajanvaraustyyppejä",
         "form": {
           "name": "Nimi",
           "description": "Kuvaus",
-          "duration": "Kesto (minuuttia)",
-          "isFree": "Tämä on ilmainen ajanvaraustyyppi",
-          "price": "Hinta ($)",
-          "create": "Luo ajanvaraustyyppi",
+          "duration": "Kesto (min)",
+          "isFree": "Ilmainen ajanvaraus",
+          "price": "Hinta (€)",
+          "create": "Luo ajanvaraus",
           "creating": "Luodaan...",
-          "edit": "Muokkaa ajanvaraustyyppiä",
-          "delete": "Poista ajanvaraustyyppi",
-          "isActive": "Käytössä",
-          "slug": "Polkutunniste"
+          "edit": "Muokkaa ajan­varaustyyppiä",
+          "delete": "Poista ajan­varaustyyppi",
+          "isActive": "Aktiivinen",
+          "slug": "Slug"
         },
         "status": {
           "active": "Aktiivinen",
           "inactive": "Ei aktiivinen"
         },
-        "duration": "Kesto",
         "minutes": "minuuttia",
-        "price": "Hinta",
         "free": "Ilmainen",
-        "viewBookingPage": "Näytä ajanvarausnäkymä"
+        "viewBookingPage": "Näytä varaus­sivu"
       }
     }
   },
   "Media": {
-    "title": "Mediakirjasto",
+    "title": "Otsikko",
     "selectMedia": "Valitse media",
     "close": "Sulje",
     "select": "Valitse",
     "cancel": "Peruuta",
     "noMedia": "Mediaa ei löytynyt",
-    "uploadPrompt": "Aloita lähettämällä ensimmäinen mediatiedostosi",
-    "details": "Median tiedot",
-    "title": "Otsikko",
+    "uploadPrompt": "Aloita lataamalla ensimmäinen tiedosto",
+    "details": "Mediatiedot",
     "description": "Kuvaus",
-    "altText": "Alt-teksti",
+    "altText": "Alt‑teksti",
     "fileInfo": "Tiedoston tiedot",
-    "uploaded": "Lähetetty",
+    "uploaded": "Ladattu",
     "edit": "Muokkaa",
     "delete": "Poista",
-    "deleteConfirm": "Haluatko varmasti poistaa tämän mediatiedoston?",
-    "deleteError": "Mediatiedoston poistaminen epäonnistui",
-    "updateError": "Mediatiedoston päivitys epäonnistui",
+    "deleteConfirm": "Haluatko varmasti poistaa tämän tiedoston?",
+    "deleteError": "Tiedoston poisto epäonnistui",
+    "updateError": "Tiedoston päivitys epäonnistui",
     "saving": "Tallennetaan...",
     "save": "Tallenna",
-    "upload": "Lähetä",
-    "uploading": "Lähetetään...",
-    "dragDrop": "Vedä ja pudota tiedostot tähän tai napsauta valitaksesi",
-    "success": "Tiedosto ladattu onnistuneesti",
     "error": "Lataus epäonnistui",
-    "deleteSuccess": "Tiedosto poistettu onnistuneesti",
-    "generateNew": "Luo uusi kuva",
-    "generateImage": "Luo kuva",
-    "generationError": "Kuvan luonti epäonnistui",
-    "generatingImage": "Luodaan kuvaa...",
-    "dropzoneText": "Vedä ja pudota tiedostot tähän tai napsauta valitaksesi",
-    "supportedFormats": "Tuetut tiedostomuodot: PNG, JPG, GIF ja WebP",
-    "searchPlaceholder": "Etsi mediasta...",
+    "generateNew": "Generoi uusi kuva",
+    "generateImage": "Generoi kuva",
+    "generationError": "Kuvan generointi epäonnistui",
+    "dropzoneText": "Raahaa tiedostoja tähän tai klikkaa valitaksesi",
+    "supportedFormats": "Tukee PNG‑, JPG‑, GIF‑ ja WebP‑tiedostoja",
+    "searchPlaceholder": "Hae mediasta...",
     "sortNewest": "Uusimmat ensin",
     "sortOldest": "Vanhimmat ensin",
-    "sortNameAZ": "Nimi A–Ö",
-    "sortNameZA": "Nimi Ö–A",
-    "sortSizeLarge": "Koko: suurin ensin",
-    "sortSizeSmall": "Koko: pienin ensin",
-    "noAssets": "Ei mediatiedostoja",
-    "loadError": "Mediatiedostojen lataaminen epäonnistui",
-    "assetDetails": "Tiedoston tiedot",
-    "dimensions": "Mitat",
-    "fileSize": "Tiedostokoko",
-    "fileType": "Tiedostotyyppi",
-    "unknown": "Tuntematon",
+    "sortNameAZ": "Nimi A‑Ö",
+    "sortNameZA": "Nimi Ö‑A",
+    "sortSizeLarge": "Koko: Suurin",
+    "sortSizeSmall": "Koko: Pienin",
     "prompt": "Kuvaus",
     "promptPlaceholder": "Kuvaile haluamasi kuva...",
     "style": "Tyyli",
     "size": "Koko",
-    "negativePrompt": "Ei-toivottu sisältö",
-    "negativePromptPlaceholder": "Asiat, joita ei pitäisi olla kuvassa...",
-    "generate": "Luo",
-    "generating": "Luodaan..."
+    "negativePrompt": "Negatiivinen kuvaus",
+    "negativePromptPlaceholder": "Asiat, joita kuvassa ei saa olla...",
+    "generate": "Generoi",
+    "generating": "Generoidaan..."
   },
   "CookieConsent": {
     "message": "Käytämme evästeitä parantaaksemme käyttökokemustasi.",
@@ -710,62 +536,63 @@
     "accepted": "Evästeasetukset tallennettu",
     "declined": "Evästeasetukset tallennettu",
     "privacyPolicy": "Lue tietosuojakäytäntömme",
-    "privacyPolicyAriaLabel": "Lue tietosuojakäytäntömme saadaksesi lisätietoa tietojen käsittelystä"
+    "privacyPolicyAriaLabel": "Lue tietosuojakäytäntömme saadaksesi tietoa datankäsittelystä"
   },
   "Privacy": {
     "title": "Tietosuojakäytäntö",
     "introduction": {
       "title": "Johdanto",
-      "content": "Tämä tietosuojakäytäntö selittää, miten keräämme, käytämme ja suojaamme henkilötietojasi, kun käytät verkkosivustoamme."
+      "content": "Tässä tietosuojakäytännössä kerromme, miten keräämme, käytämme ja suojaamme henkilötietojasi, kun käytät verkkosivustoamme."
     },
     "information": {
-      "title": "Keräämämme tiedot",
+      "title": "Keräämämme Tiedot",
       "analytics": {
         "title": "Analytiikkatiedot",
-        "description": "Keräämme analytiikkatietoja palvelujemme ja käyttökokemuksesi parantamiseksi.",
+        "description": "Keräämme analytiikkadataa palveluidemme ja käyttökokemuksen parantamiseksi.",
         "items": [
           "Sivukatselut ja navigointipolut",
-          "Istuntotiedot ja kesto",
-          "Laitetyyppi ja selaintiedot",
+          "Istunnon tiedot ja kesto",
+          "Laite‑ ja selain­tiedot",
           "Kieliasetukset",
-          "Lähdesivustot"
+          "Viittaavat lähteet"
         ]
       },
       "session": {
-        "title": "Istuntotiedot",
-        "description": "Kun käytät sivustoamme, keräämme automaattisesti:",
         "items": [
           "Istuntotunnisteet",
-          "IP-osoite (anonymisoitu)",
-          "Selaimen tyyppi ja versio",
+          "IP‑osoite (anonymisoitu)",
+          "Selaintyyppi ja versio",
           "Käyttöjärjestelmä",
-          "Aikavyöhyke ja kieliasetukset"
+          "Aikavyöhyke‑ ja kieliasetukset"
         ]
       }
     },
     "cookies": {
-      "title": "Evästeiden käyttö",
-      "description": "Käytämme evästeitä parantaaksemme selailukokemustasi. Voit hallita evästeasetuksia selaimesi asetuksista.",
+      "title": "Evästeiden Käyttö",
+      "description": "Käytämme evästeitä parantaaksemme selauskokemustasi. Voit hallita evästeitä selaimesi asetuksista.",
       "types": [
         {
           "name": "Välttämättömät evästeet",
-          "description": "Tarvitaan sivuston perustoimintoihin, tunnistautumiseen ja turvallisuuteen"
+          "description": "Tarvitaan sivuston perustoimintoihin, autentikointiin ja turvallisuuteen"
         },
         {
           "name": "Analytiikkaevästeet",
-          "description": "Auttaa meitä ymmärtämään, miten kävijät ovat vuorovaikutuksessa sivustomme kanssa"
+          "description": "Auttaa meitä ymmärtämään, miten kävijät käyttävät sivustoa"
         },
         {
-          "name": "Asetusevästeet",
-          "description": "Tallentavat kieli- ja näyttöasetuksesi"
+          "name": "Preferenssievästeet",
+          "description": "Tallentaa kieli‑ ja näyttöasetuksesi"
         }
-      ]
+      ],
+      "types[0]": {},
+      "types[1]": {},
+      "types[2]": {}
     },
     "usage": {
-      "title": "Miten käytämme tietojasi",
-      "description": "Käytämme keräämiämme tietoja:",
+      "title": "Miten Käytämme Tietojasi",
+      "description": "Käytämme kerättyjä tietoja:",
       "items": [
-        "Palvelujemme tarjoamiseen ja parantamiseen",
+        "Palveluidemme tarjoamiseen ja kehittämiseen",
         "Sivuston käyttömallien analysointiin",
         "Kokemuksesi personointiin",
         "Sivuston turvallisuuden ylläpitoon",
@@ -773,155 +600,108 @@
       ]
     },
     "protection": {
-      "title": "Tietojen suojaus",
-      "content": "Käytämme asianmukaisia turvatoimia tietojesi suojaamiseksi. Tiedot tallennetaan turvallisesti Supabasen infrastruktuuriin, jossa on salaus levossa ja siirron aikana."
+      "title": "Tietoturva",
+      "content": "Käytämme asianmukaisia turvatoimia tietojesi suojaamiseksi. Data tallennetaan turvallisesti Supabasen infrastruktuuriin ja salataan lepotilassa ja siirron aikana."
     },
     "rights": {
       "title": "Oikeutesi",
-      "description": "Sinulla on seuraavat oikeudet liittyen tietoihisi:",
+      "description": "Sinulla on seuraavat oikeudet:",
       "items": [
-        "Pyytää pääsyä omiin henkilötietoihisi",
-        "Pyytää virheellisten tietojen oikaisua",
+        "Saada pääsy omiin tietoihisi",
+        "Pyytää virheellisten tietojen korjausta",
         "Pyytää tietojesi poistamista",
-        "Kieltäytyä analytiikan seurannasta",
+        "Kieltäytyä analytiikkaseurannasta",
         "Hallita evästeasetuksia",
         "Peruuttaa suostumuksesi milloin tahansa"
       ]
     },
     "preferences": {
-      "title": "Valintasi",
-      "content": "Voit hallita evästeasetuksiasi milloin tahansa evästeilmoituksestamme tai selaimesi asetuksista."
+      "title": "Asetuksesi",
+      "content": "Voit hallita evästeasetuksia milloin tahansa evästebannerista tai selaimen asetuksista."
     },
     "updates": {
-      "title": "Käytännön päivitykset",
-      "content": "Voimme päivittää tätä tietosuojakäytäntöä ajoittain. Mahdolliset muutokset julkaistaan tällä sivulla uudella päivityspäivämäärällä."
+      "title": "Käytännön Päivitykset",
+      "content": "Saatamme päivittää tätä tietosuojakäytäntöä ajoittain. Muutokset julkaistaan tällä sivulla päivityspäivämäärän kera."
     },
     "contact": {
-      "title": "Ota yhteyttä",
-      "description": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä tai siitä, miten käsittelemme tietojasi, ota meihin yhteyttä:",
-      "info": {
-        "title": "Yhteystiedot"
-      },
+      "title": "Yhteydenotto",
+      "description": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä tai datankäsittelystämme, ota yhteyttä:",
+      "info": {},
       "address": {
         "title": "Osoite",
         "street": "Kimmeltie 10",
         "postal": "90630 Oulu",
         "country": "Suomi"
       },
-      "website": "Verkkosivusto",
-      "email": "Sähköposti",
-      "social": {
-        "title": "Seuraa meitä"
-      },
-      "form": {
-        "title": "Lähetä meille viesti"
-      }
+      "email": "Sähköposti"
     },
-    "form": {
-      "title": "Lähetä meille viesti"
-    }
+    "form": {}
   },
   "Profile": {
     "title": "Profiiliasetukset",
-    "description": "Hallitse tilisi asetuksia ja mieltymyksiä",
-    "menu": {
-      "title": "Profiilivalikko",
-      "general": "Yleiset asetukset",
-      "security": "Tietoturva & yksityisyys",
-      "preferences": "Asetukset",
-      "backToSite": "Takaisin sivustolle"
-    },
+    "description": "Hallinnoi tilisi asetuksia ja mieltymyksiä",
+    "menu": {},
     "tabs": {
       "general": "Yleiset",
-      "security": "Tietoturva",
+      "security": "Turvallisuus",
       "preferences": "Asetukset"
     },
     "sections": {
-      "general": {
-        "title": "Yleiset tiedot",
-        "description": "Muokkaa perusprofiilitietojasi"
-      },
-      "security": {
-        "title": "Tietoturva-asetukset",
-        "description": "Hallitse tilisi turvallisuutta ja yksityisyysasetuksia"
-      },
-      "preferences": {
-        "title": "Käyttäjäasetukset",
-        "description": "Mukauta käyttökokemustasi"
-      }
+      "general": {},
+      "security": {},
+      "preferences": {}
     },
     "fields": {
       "username": "Käyttäjätunnus",
       "email": "Sähköposti",
       "fullName": "Koko nimi",
-      "fullNamePlaceholder": "Syötä koko nimesi",
-      "language": "Ensisijainen kieli",
-      "theme": "Ulkoasuasetus",
-      "notifications": "Sähköposti-ilmoitukset",
-      "currentPassword": "Nykyinen salasana",
-      "newPassword": "Uusi salasana",
-      "confirmPassword": "Vahvista uusi salasana"
+      "fullNamePlaceholder": "Syötä koko nimesi"
     },
     "actions": {
-      "save": "Tallenna muutokset",
-      "cancel": "Peruuta",
-      "changePassword": "Vaihda salasana",
-      "updateEmail": "Päivitä sähköposti",
-      "enable2FA": "Ota kaksivaiheinen tunnistautuminen käyttöön",
-      "disable2FA": "Poista kaksivaiheinen tunnistautuminen käytöstä"
+      "save": "Tallenna muutokset"
     },
-    "messages": {
-      "saved": "Muutokset tallennettu onnistuneesti",
-      "error": "Tapahtui virhe tallennettaessa muutoksia",
-      "passwordChanged": "Salasana vaihdettu onnistuneesti",
-      "emailChanged": "Sähköposti vaihdettu onnistuneesti"
-    }
+    "messages": {}
   },
   "Account": {
-    "title": "Oma tili",
     "settings": {
-      "title": "Tilin asetukset",
+      "title": "Tiliasetukset",
       "profile": "Profiilitiedot",
       "preferences": "Asetukset",
-      "theme": "Ulkoasu",
+      "theme": "Teema",
       "language": "Kieli",
       "fullName": "Koko nimi",
       "fullNamePlaceholder": "Syötä koko nimesi",
       "save": "Tallenna muutokset"
     },
     "security": {
-      "title": "Tietoturva-asetukset",
-      "description": "Hallitse tilisi tietoturva-asetuksia ja aktiivisia istuntoja",
+      "title": "Turvallisuusasetukset",
+      "description": "Hallinnoi tilisi turvallisuusasetuksia ja aktiivisia istuntoja",
       "newPassword": "Uusi salasana",
       "confirmPassword": "Vahvista salasana",
       "updatePassword": "Päivitä salasana",
       "updating": "Päivitetään...",
       "passwordMismatch": "Salasanat eivät täsmää",
-      "passwordTooShort": "Salasanan on oltava vähintään 6 merkkiä pitkä",
+      "passwordTooShort": "Salasanan on oltava vähintään 6 merkkiä",
       "updateError": "Salasanan päivitys epäonnistui. Yritä uudelleen.",
       "sessions": "Aktiiviset istunnot",
       "currentSession": "Nykyisen istunnon tiedot:",
-      "lastSignIn": "Viimeisin kirjautuminen",
+      "lastSignIn": "Viimeinen kirjautuminen",
       "browser": "Selain",
       "unknown": "Tuntematon"
     },
-    "notifications": {
-      "title": "Ilmoitusasetukset",
-      "email": "Sähköposti-ilmoitukset",
-      "push": "Push-ilmoitukset"
-    },
+    "notifications": {},
     "appointments": {
       "title": "Ajanvaraustyypit",
       "createNew": "Luo uusi ajanvaraustyyppi",
-      "existingTypes": "Olemassa olevat ajanvaraustyypit",
+      "existingTypes": "Aiemmat ajanvaraustyypit",
       "loading": "Ladataan ajanvaraustyyppejä...",
-      "noTypes": "Et ole vielä luonut yhtään ajanvaraustyyppiä",
+      "noTypes": "Et ole vielä luonut ajanvaraustyyppejä",
       "form": {
         "name": "Nimi",
         "description": "Kuvaus",
-        "duration": "Kesto (minuuttia)",
-        "isFree": "Tämä on ilmainen ajanvaraus",
-        "price": "Hinta ($)",
+        "duration": "Kesto (min)",
+        "isFree": "Ilmainen ajanvaraus",
+        "price": "Hinta (€)",
         "create": "Luo ajanvaraustyyppi",
         "creating": "Luodaan..."
       },
@@ -930,269 +710,149 @@
         "inactive": "Ei aktiivinen"
       },
       "duration": "Kesto",
-      "minutes": "minuuttia",
+      "minutes": "min",
       "price": "Hinta",
       "free": "Ilmainen",
-      "viewBookingPage": "Näytä ajanvarausnäkymä"
+      "viewBookingPage": "Näytä varaus­sivu"
     }
   },
   "Contact": {
-    "title": "Ota yhteyttä",
-    "description": "Ota meihin yhteyttä. Kuulemme mielellämme sinusta ja keskustelemme, kuinka voimme auttaa yritystäsi tekoälyn käyttöönotossa.",
-    "info": {
-      "title": "Yhteystiedot"
-    },
-    "address": {
-      "title": "Osoite",
-      "street": "Kimmeltie 10",
-      "postal": "90630 Oulu",
-      "country": "Suomi"
-    },
-    "website": "Verkkosivusto",
-    "email": "Sähköposti",
-    "social": {
-      "title": "Seuraa meitä"
-    },
+    "info": {},
+    "address": {},
+    "social": {},
     "form": {
-      "title": "Lähetä meille viesti",
-      "description": "Täytä alla oleva lomake, niin palaamme asiaan mahdollisimman pian.",
+      "description": "Täytä lomake, niin otamme yhteyttä mahdollisimman pian.",
       "name": "Nimi",
       "email": "Sähköposti",
       "company": "Yritys",
-      "message": "Viesti",
       "submit": "Lähetä viesti",
       "submitting": "Lähetetään...",
       "success": {
         "title": "Viesti lähetetty",
-        "message": "Kiitos viestistäsi. Otamme sinuun pian yhteyttä."
+        "message": "Kiitos viestistäsi. Palaamme pian."
       },
       "error": {
-        "captcha": "Ole hyvä ja suorita captcha-varmennus.",
-        "captchaValidation": "Captchan vahvistus epäonnistui. Yritä uudelleen.",
-        "general": "Viestin lähetys epäonnistui. Yritä uudelleen."
+        "captcha": "Täytä captcha‑varmennus.",
+        "captchaValidation": "Captcha‑varmennus epäonnistui. Yritä uudelleen."
       },
-      "meta": {
-        "title": "Yhteys | LastBot - Ihmiskeskeiset tekoälyratkaisut",
-        "description": "Ota yhteyttä LastBotiin keskustellaksesi tekoälyn integrointitarpeistasi. Varaa tapaaminen, tutustu toimipisteisiimme tai ota yhteyttä tukipalveluidemme kautta."
-      }
+      "meta": {}
     }
   },
   "LandingPages": {
-    "title": "Laskeutumissivut",
-    "preview": "Esikatsele laskeutumissivua",
+    "title": "Landing‑sivut",
+    "preview": "Esikatsele sivua",
     "publish": "Julkaise",
-    "unpublish": "Poista julkaisu",
-    "description": "Luo ja hallitse laskeutumissivuja",
-    "content": "Sisältö",
-    "notFound": "Sivua ei löydy",
-    "notFoundDescription": "Pyydettyä laskeutumissivua ei löytynyt.",
-    "createPage": "Luo laskeutumissivu",
-    "createPageDescription": "Luo uusi laskeutumissivu mukautetulla sisällöllä, SEO-asetuksilla ja analytiikkaseurannalla.",
-    "editPage": "Muokkaa laskeutumissivua",
-    "editPageDescription": "Muokkaa tämän laskeutumissivun sisältöä, asetuksia ja seurantaa.",
-    "deletePage": "Poista laskeutumissivu",
-    "previewPage": "Esikatsele sivua",
-    "publishPage": "Julkaise sivu",
-    "unpublishPage": "Poista sivun julkaisu",
-    "generateContent": "Luo sisältö",
-    "generateImage": "Luo kuva",
-    "seoSettings": "SEO-asetukset",
-    "customCode": "Mukautettu koodi",
+    "unpublish": "Piilota",
+    "description": "Luo ja hallinnoi landing‑sivuja",
+    "notFound": "Sivua ei löytynyt",
+    "notFoundDescription": "Pyydettyä landing‑sivua ei löytynyt.",
+    "createPage": "Luo landing‑sivu",
+    "createPageDescription": "Luo uusi landing‑sivu mukautetulla sisällöllä, SEO‑asetuksilla ja analytiikalla.",
+    "editPage": "Muokkaa landing‑sivua",
+    "editPageDescription": "Muokkaa sisällön, asetusten ja seurannan tietoja.",
+    "generateContent": "Generoi sisältö",
+    "generateImage": "Generoi kuva",
     "analytics": {
-      "title": "Analytiikka",
-      "description": "Määritä laskeutumissivun analytiikka-asetukset",
       "enableAnalytics": "Ota analytiikka käyttöön",
-      "enableAnalyticsDescription": "Ota käyttöön analytiikan seuranta tälle laskeutumissivulle"
+      "enableAnalyticsDescription": "Ota analytiikan seuranta tälle sivulle",
+      "gaMeasurementId": "Google Analytics ‑mittaus‑ID",
+      "gtmContainerId": "Google Tag Manager ‑kontti‑ID",
+      "fbPixelId": "Facebook Pixel ‑ID",
+      "linkedinPixelId": "LinkedIn Pixel ‑ID"
     },
-    "deleteConfirm": "Haluatko varmasti poistaa tämän laskeutumissivun?",
-    "publishConfirm": "Haluatko varmasti julkaista tämän laskeutumissivun?",
-    "unpublishConfirm": "Haluatko varmasti poistaa tämän laskeutumissivun julkaisun?",
     "form": {
       "title": "Otsikko",
-      "slug": "URL-osoitteen osa",
+      "slug": "URL‑osoite",
       "content": "Sisältö",
       "excerpt": "Lyhennelmä",
-      "metaDescription": "Meta-kuvaus",
       "featuredImage": "Pääkuva",
-      "tags": "Tunnisteet",
-      "template": "Malli",
-      "customCss": "Mukautettu CSS",
-      "customJs": "Mukautettu JavaScript",
-      "customHead": "Mukautettu Head-sisältö",
-      "customScripts": "Lisäskriptit",
-      "seoData": "SEO-tiedot",
-      "analyticsData": "Analytiikkatiedot",
-      "prompt": "Laskeutumissivun kehotus",
-      "promptPlaceholder": "Kirjoita kehotus laskeutumissivun sisällön luomiseen...",
-      "generating": "Luodaan...",
-      "validation": {
-        "titleRequired": "Otsikko on pakollinen",
-        "slugRequired": "URL-osoitteen osa on pakollinen",
-        "contentRequired": "Sisältö on pakollinen",
-        "slugFormat": "URL-osoitteen osa voi sisältää vain pieniä kirjaimia, numeroita ja yhdysviivoja",
-        "slugUnique": "Tämä URL-osoitteen osa on jo käytössä"
-      },
-      "success": {
-        "created": "Laskeutumissivu luotu onnistuneesti",
-        "updated": "Laskeutumissivu päivitetty onnistuneesti",
-        "deleted": "Laskeutumissivu poistettu onnistuneesti",
-        "published": "Laskeutumissivu julkaistu onnistuneesti",
-        "unpublished": "Laskeutumissivun julkaisu poistettu onnistuneesti"
-      },
-      "error": {
-        "create": "Laskeutumissivun luonti epäonnistui",
-        "update": "Laskeutumissivun päivitys epäonnistui",
-        "delete": "Laskeutumissivun poisto epäonnistui",
-        "publish": "Laskeutumissivun julkaisu epäonnistui",
-        "unpublish": "Laskeutumissivun julkaisun poistaminen epäonnistui",
-        "load": "Laskeutumissivun lataaminen epäonnistui"
-      },
+      "tags": "Tägät",
+      "prompt": "Landing‑sivun kehotus",
+      "promptPlaceholder": "Kirjoita kehotus sisällön generointiin...",
+      "generating": "Generoidaan...",
       "cancel": "Peruuta",
       "save": "Tallenna",
       "createPage": "Luo sivu",
-      "generateContent": "Luo sisältö",
-      "generateImage": "Luo kuva",
-      "generating": "Luodaan...",
-      "search": "Etsi laskeutumissivuja...",
-      "status": "Tila",
-      "lastModified": "Viimeksi muokattu",
-      "actions": "Toiminnot",
-      "edit": "Muokkaa",
-      "view": "Näytä",
-      "published": "Julkaistu",
-      "draft": "Luonnos",
-      "noPages": "Ei laskeutumissivuja. Luo ensimmäinen sivu!",
-      "noSearchResults": "Hakuasi vastaavia laskeutumissivuja ei löytynyt.",
-      "seo": {
-        "metaTitle": "Meta-otsikko",
-        "metaDescription": "Meta-kuvaus",
-        "ogImage": "OG-kuva",
-        "keywords": "Avainsanat",
-        "canonicalUrl": "Kanoninen URL-osoite"
-      },
-      "code": {
-        "customHead": "Mukautettu Head-koodi",
-        "customCss": "Mukautettu CSS",
-        "customJs": "Mukautettu JavaScript"
-      }
+      "published": "Julkaistu"
     },
-    "validation": {
-      "titleRequired": "Otsikko on pakollinen",
-      "slugRequired": "URL-osoitteen osa on pakollinen",
-      "contentRequired": "Sisältö on pakollinen",
-      "slugFormat": "URL-osoitteen osa voi sisältää vain pieniä kirjaimia, numeroita ja yhdysviivoja",
-      "slugUnique": "Tämä URL-osoitteen osa on jo käytössä"
-    },
+    "validation": {},
     "success": {
-      "created": "Laskeutumissivu luotu onnistuneesti",
-      "updated": "Laskeutumissivu päivitetty onnistuneesti",
-      "deleted": "Laskeutumissivu poistettu onnistuneesti",
-      "published": "Laskeutumissivu julkaistu onnistuneesti",
-      "unpublished": "Laskeutumissivun julkaisu poistettu onnistuneesti",
-      "imageGenerated": "Kuva luotu onnistuneesti"
+      "imageGenerated": "Kuva generoitu onnistuneesti"
     },
     "tabs": {
       "content": "Sisältö",
-      "seo": "SEO-asetukset",
-      "cta": "Call to Action",
+      "seo": "SEO‑asetukset",
+      "cta": "Kehotus toimintaan",
       "code": "Mukautettu koodi"
     },
     "error": {
-      "create": "Laskeutumissivun luonti epäonnistui",
-      "update": "Laskeutumissivun päivitys epäonnistui",
-      "delete": "Laskeutumissivun poisto epäonnistui",
-      "publish": "Laskeutumissivun julkaisu epäonnistui",
-      "unpublish": "Laskeutumissivun julkaisun poistaminen epäonnistui",
-      "load": "Laskeutumissivun lataaminen epäonnistui"
+      "load": "Landing‑sivun lataus epäonnistui"
     },
-    "cancel": "Peruuta",
-    "save": "Tallenna",
-    "generating": "Luodaan...",
-    "search": "Etsi laskeutumissivuja...",
+    "generating": "Generoidaan...",
+    "search": "Hae landing‑sivuja...",
     "status": "Tila",
     "lastModified": "Viimeksi muokattu",
     "actions": "Toiminnot",
     "edit": "Muokkaa",
     "view": "Näytä",
-    "published": "Julkaistu",
-    "draft": "Luonnos",
-    "noPages": "Ei laskeutumissivuja. Luo ensimmäinen sivu!",
-    "noSearchResults": "Hakuasi vastaavia laskeutumissivuja ei löytynyt.",
+    "noPages": "Ei landing‑sivuja. Luo ensimmäinen!",
+    "noSearchResults": "Ei hakutuloksia.",
     "editor": {
-      "title": "Laskeutumissivun muokkain",
       "cta": {
-        "title": "Call to Action",
+        "title": "Kehotus toimintaan",
         "headline": {
           "label": "Otsikko",
-          "placeholder": "Kirjoita otsikko tähän"
+          "placeholder": "Syötä otsikko"
         },
         "description": {
           "label": "Kuvaus",
-          "placeholder": "Kirjoita kuvaus tähän"
+          "placeholder": "Syötä kuvaus"
         },
         "buttonText": {
           "label": "Painikkeen teksti",
-          "placeholder": "Kirjoita painikkeen teksti"
+          "placeholder": "Syötä teksti"
         },
         "buttonLink": {
           "label": "Painikkeen linkki",
-          "placeholder": "Syötä URL-osoite"
+          "placeholder": "Syötä URL"
         },
         "secondaryText": {
           "label": "Toissijainen teksti",
-          "placeholder": "Kirjoita toissijainen teksti"
+          "placeholder": "Syötä teksti"
         }
       }
     },
     "seo": {
-      "metaTitle": "Meta-otsikko",
-      "metaDescription": "Meta-kuvaus",
-      "ogImage": "OG-kuva",
-      "keywords": "Avainsanat",
-      "canonicalUrl": "Kanoninen URL-osoite"
+      "metaTitle": "Meta‑otsikko",
+      "metaDescription": "Meta‑kuvaus",
+      "ogImage": "OG‑kuva",
+      "keywords": "Avainsanat"
     },
     "code": {
-      "customHead": "Mukautettu Head-koodi",
+      "customHead": "Mukautettu head‑koodi",
       "customCss": "Mukautettu CSS",
       "customJs": "Mukautettu JavaScript"
     }
   },
   "Presentations": {
     "title": "Esitykset",
-    "description": "Tutustu interaktiivisiin esityksiimme tekoälymuutoksesta ja teknologiatrendeistä",
-    "noPresentations": "Ei saatavilla esityksiä",
+    "description": "Tutustu interaktiivisiin esityksiimme tekoäly‑muutoksesta ja teknologiatrendeistä",
+    "noPresentations": "Ei esityksiä saatavilla",
     "slides": "diaa",
     "navigatingAI": {
-      "title": "Tekoälymuutoksen navigointi",
-      "description": "Kattava opas tekoälyn vaikutuksesta ohjelmistokehitykseen, liiketoiminnan toimintaan ja käyttäjäkokemuksiin",
       "sections": {
-        "development": {
-          "title": "Tekoälyavusteinen kehitys",
-          "description": "Kuinka tekoäly mullistaa tapaa rakentaa ohjelmistoja"
-        },
-        "agents": {
-          "title": "Tekoälyagenttien integrointi",
-          "description": "Tekoälyagenttien nousu ja niiden vaikutus järjestelmäarkkitehtuuriin"
-        },
-        "ux": {
-          "title": "Käyttäjäkokemuksen muutos",
-          "description": "Miten tekoäly muuttaa käyttäjien odotuksia ja kokemuksia"
-        },
-        "company": {
-          "title": "Yrityksen transformaatio",
-          "description": "Askeleet, jotka yritysten on otettava omaksuakseen tekoälymuutos"
-        },
-        "lastbot": {
-          "title": "LastBotin ratkaisut",
-          "description": "Kuinka LastBot auttaa yrityksiä navigoimaan tekoälypolullaan"
-        }
+        "development": {},
+        "agents": {},
+        "ux": {},
+        "company": {},
+        "lastbot": {}
       }
     }
   },
   "Common": {
     "languageSelector": {
       "label": "Valitse kieli",
-      "ariaLabel": "Vaihda sivuston kieli"
+      "ariaLabel": "Vaihda sivuston kieltä"
     }
   }
 }

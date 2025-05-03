@@ -23,9 +23,9 @@ export default function Analytics({ page, locale }: Props) {
     <div className="space-y-6 p-6">
       <div className="flex items-center justify-between">
         <div className="space-y-0.5">
-          <Label htmlFor="enable_analytics">{t('editor.analytics.enableAnalytics')}</Label>
+          <Label htmlFor="enable_analytics">{t('analytics.enableAnalytics')}</Label>
           <p className="text-sm text-muted-foreground">
-            {t('editor.analytics.enableAnalyticsDescription')}
+            {t('analytics.enableAnalyticsDescription')}
           </p>
         </div>
         <Switch
@@ -38,7 +38,7 @@ export default function Analytics({ page, locale }: Props) {
       {watch('enable_analytics') && (
         <>
           <div className="space-y-2">
-            <Label htmlFor="ga_measurement_id">{t('editor.analytics.gaMeasurementId')}</Label>
+            <Label htmlFor="ga_measurement_id">{t('analytics.gaMeasurementId')}</Label>
             <Input
               id="ga_measurement_id"
               {...register('ga_measurement_id')}
@@ -48,7 +48,7 @@ export default function Analytics({ page, locale }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="gtm_container_id">{t('editor.analytics.gtmContainerId')}</Label>
+            <Label htmlFor="gtm_container_id">{t('analytics.gtmContainerId')}</Label>
             <Input
               id="gtm_container_id"
               {...register('gtm_container_id')}
@@ -58,7 +58,7 @@ export default function Analytics({ page, locale }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="fb_pixel_id">{t('editor.analytics.fbPixelId')}</Label>
+            <Label htmlFor="fb_pixel_id">{t('analytics.fbPixelId')}</Label>
             <Input
               id="fb_pixel_id"
               {...register('fb_pixel_id')}
@@ -68,7 +68,7 @@ export default function Analytics({ page, locale }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="linkedin_pixel_id">{t('editor.analytics.linkedinPixelId')}</Label>
+            <Label htmlFor="linkedin_pixel_id">{t('analytics.linkedinPixelId')}</Label>
             <Input
               id="linkedin_pixel_id"
               {...register('linkedin_pixel_id')}
