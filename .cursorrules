@@ -4,44 +4,25 @@ This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Jest
 
 <tools>
 # Internal Tools: Core capabilities available directly.
-run_terminal_cmd - Executes terminal commands
-  - Parameters: command, is_background, explanation
-codebase_search - Semantic codebase search
-  - Parameters: query, explanation, target_directories
-read_file - Reads file contents
-  - Parameters: target_file, start_line_one_indexed, end_line_one_indexed_inclusive, should_read_entire_file, explanation
-list_dir - Lists directory contents
-  - Parameters: relative_workspace_path, explanation
-grep_search - Fast text-based regex search within files
-  - Parameters: query, case_sensitive (optional), include_pattern (optional), exclude_pattern (optional), explanation
-edit_file - Propose an edit to an existing file
-  - Parameters: target_file, instructions, code_edit
-file_search - Fast fuzzy file path search
-  - Parameters: query, explanation
-delete_file - Delete a file at the specified path
-  - Parameters: target_file, explanation
-reapply - Calls a smarter model to apply the last edit to the specified file
-  - Parameters: target_file
-fetch_rules - Fetches user-provided rules (@*.mdc files)
-  - Parameters: rule_names
-web_search - Searches the web for information
-  - Parameters: search_term, explanation
-mcp_puppeteer_puppeteer_navigate - Navigate to a URL
-  - Parameters: url
-mcp_puppeteer_puppeteer_screenshot - Take a screenshot
-  - Parameters: name, selector, width, height
-mcp_puppeteer_puppeteer_click - Click an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_fill - Fill out an input field
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_select - Select an element
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_hover - Hover an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
-  - Parameters: script
-mcp_supabase_query - Run a read-only SQL query to project database
-  - Parameters: sql
+run_terminal_cmd
+codebase_search
+read_file
+list_dir
+grep_search
+edit_file
+file_search
+delete_file
+reapply
+fetch_rules
+web_search
+mcp_puppeteer_puppeteer_navigate
+mcp_puppeteer_puppeteer_screenshot
+mcp_puppeteer_puppeteer_click
+mcp_puppeteer_puppeteer_fill
+mcp_puppeteer_puppeteer_select
+mcp_puppeteer_puppeteer_hover
+mcp_puppeteer_puppeteer_evaluate
+mcp_supabase_query
 </tools>
 
 <command_line_tools>
@@ -257,6 +238,229 @@ mcp_supabase_query - Run a read-only SQL query to project database
       },
       "requires": ["sharp package"],
       "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
+    },
+    "openai-image": {
+      "description": "Generate and edit images using OpenAI's GPT-image-1 and DALL-E models",
+      "tool": "run_terminal_cmd",
+      "command": "npm run openai-image",
+      "subcommands": {
+        "generate": {
+          "description": "Generate an image using OpenAI's image generation models",
+          "options": {
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "quality": "(Optional) Image quality: standard or hd - DALL-E only (default: standard)",
+            "number": "(Optional) Number of images to generate (1-4) - DALL-E only (default: 1)",
+            "reference-image": "(Optional) Reference image path for gpt-image-1 with reference",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- generate -p \"A futuristic cityscape at sunset with flying cars\" -m gpt-image-1 -s 1792x1024 -c vivid"
+        },
+        "edit": {
+          "description": "Edit an existing image using OpenAI's models",
+          "options": {
+            "input-image": "Required: Path to the input image to edit",
+            "edit-prompt": "Required: Text prompt describing the edit to apply",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- edit -i input.jpg -p \"Change the background to a tropical beach\" -m gpt-image-1"
+        }
+      },
+      "requires": [
+        "OPENAI_API_KEY in .env.local",
+        "openai package",
+        "axios package",
+        "ora package",
+        "chalk package"
+      ]
+    },
+    "vercel-cli": {
+      "description": "Directly interact with Vercel deployment platform for project management, environment variables, and domains",
+      "tool": "run_terminal_cmd",
+      "command": "npm run vercel",
+      "options": {
+        "deploy": {
+          "description": "Deploy the application to Vercel",
+          "options": {
+            "environment": "(Optional) Deployment environment: production, preview, or development (default: preview)",
+            "project": "(Optional) Project name (defaults to directory name)",
+            "prod": "(Optional) Deploy to production (shorthand for --environment production)"
+          }
+        },
+        "list": {
+          "description": "List recent deployments",
+          "options": {
+            "count": "(Optional) Number of deployments to show (default: 5)"
+          }
+        },
+        "logs": {
+          "description": "Show logs for the current project",
+          "options": {
+            "follow": "(Optional) Follow logs in real time",
+            "deployment": "(Optional) Deployment ID"
+          }
+        },
+        "domains": {
+          "description": "Manage domains for your Vercel projects",
+          "options": {
+            "add": "(Optional) Add a domain",
+            "remove": "(Optional) Remove a domain",
+            "list": "(Optional) List all domains"
+          }
+        },
+        "env": {
+          "description": "Manage environment variables",
+          "options": {
+            "add": "(Optional) Add an environment variable (format: key=value)",
+            "remove": "(Optional) Remove an environment variable",
+            "list": "(Optional) List all environment variables",
+            "environment": "(Optional) Environment: development, preview, or production (default: development)"
+          }
+        },
+        "promote": {
+          "description": "Promote a deployment to production",
+          "arguments": "<url-or-id>: Deployment URL or ID to promote"
+        }
+      },
+      "requires": [
+        "Vercel CLI (will be auto-installed if not present)",
+        "Vercel account authentication"
+      ],
+      "example": "npm run vercel -- deploy --prod"
+    },
+    "github-cli": {
+      "description": "Interact with GitHub repositories, pull requests, issues, and workflows directly from the command line",
+      "tool": "run_terminal_cmd",
+      "command": "npm run github",
+      "options": {
+        "auth": {
+          "description": "Manage GitHub authentication",
+          "options": {
+            "login": "(Optional) Log in to GitHub (-l, --login)",
+            "status": "(Optional) View authentication status (-s, --status)",
+            "refresh": "(Optional) Refresh stored authentication credentials (-r, --refresh)",
+            "logout": "(Optional) Log out of GitHub (-o, --logout)"
+          }
+        },
+        "pr-create": {
+          "description": "Create a pull request",
+          "options": {
+            "title": "(Optional) Pull request title",
+            "body": "(Optional) Pull request body",
+            "base": "(Optional) Base branch name",
+            "draft": "(Optional) Create draft pull request",
+            "fill": "(Optional) Use commit info for title/body"
+          }
+        },
+        "pr-list": {
+          "description": "List and filter pull requests",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, merged, all (default: open)",
+            "limit": "(Optional) Maximum number of items to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "base": "(Optional) Filter by base branch",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "pr-view": {
+          "description": "View pull request details",
+          "arguments": "[number]: PR number or URL, if omitted the PR from the current branch is displayed",
+          "options": {
+            "web": "(Optional) Open in web browser"
+          }
+        },
+        "issue-create": {
+          "description": "Create a new issue",
+          "options": {
+            "title": "(Optional) Issue title",
+            "body": "(Optional) Issue body",
+            "assignee": "(Optional) Assign people by their login",
+            "label": "(Optional) Add labels by name",
+            "project": "(Optional) Add issue to project",
+            "milestone": "(Optional) Add issue to milestone",
+            "web": "(Optional) Open new issue in the web browser"
+          }
+        },
+        "issue-list": {
+          "description": "List and filter issues",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, all (default: open)",
+            "limit": "(Optional) Maximum number of issues to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "label": "(Optional) Filter by label",
+            "milestone": "(Optional) Filter by milestone",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "release-create": {
+          "description": "Create a new release",
+          "arguments": "<tag>: Tag name for the release",
+          "options": {
+            "title": "(Optional) Release title",
+            "notes": "(Optional) Release notes",
+            "notes-file": "(Optional) Read release notes from file",
+            "draft": "(Optional) Save release as draft instead of publishing",
+            "prerelease": "(Optional) Mark release as prerelease",
+            "generate-notes": "(Optional) Automatically generate release notes"
+          }
+        },
+        "release-list": {
+          "description": "List releases in a repository",
+          "options": {
+            "limit": "(Optional) Maximum number of releases to fetch (default: 30)"
+          }
+        },
+        "repo": {
+          "description": "Manage repositories",
+          "options": {
+            "create": "(Optional) Create a new repository",
+            "description": "(Optional) Repository description",
+            "homepage": "(Optional) Repository homepage URL",
+            "private": "(Optional) Make the repository private",
+            "team": "(Optional) The name of the organization team to grant access to",
+            "view": "(Optional) View repository details",
+            "web": "(Optional) Open in web browser",
+            "list": "(Optional) List your repositories"
+          }
+        },
+        "workflow": {
+          "description": "Manage GitHub Actions workflows",
+          "options": {
+            "list": "(Optional) List workflows",
+            "run": "(Optional) Run a workflow by name or ID",
+            "view": "(Optional) View a specific workflow",
+            "enable": "(Optional) Enable a workflow by name or ID",
+            "disable": "(Optional) Disable a workflow by name or ID"
+          }
+        },
+        "tasks": {
+          "description": "List and manage tasks from GitHub Projects and Issues",
+          "options": {
+            "project": "(Optional) Specify project ID or number to list tasks from",
+            "repository": "(Optional) Specify repository in owner/repo format (default: current repository)",
+            "status": "(Optional) Filter by status: open, closed, all (default: open)",
+            "label": "(Optional) Filter by label",
+            "assignee": "(Optional) Filter by assignee",
+            "limit": "(Optional) Maximum number of tasks to fetch (default: 30)",
+            "format": "(Optional) Output format: table, json, or simple (default: table)",
+            "web": "(Optional) Open tasks in the web browser"
+          }
+        }
+      },
+      "requires": [
+        "GitHub CLI (will be auto-installed if not present)",
+        "GitHub account authentication"
+      ],
+      "example": "npm run github -- pr-create --title \"New feature\" --body \"This PR adds a new feature\""
     }
   }
 }
@@ -278,6 +482,10 @@ mcp_supabase_query - Run a read-only SQL query to project database
     - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
     - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
     - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `/.cursor/rules/@nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
+    - `/.cursor/rules/@supabase-auth-implementation.mdc`: How to implement Supabase authentication.
+    - `/.cursor/rules/@translation-guidelines.mdc`: Guidelines for translations.
+    - `/.cursor/rules/@translation-management-tools.mdc`: Tools for managing translations.
     - `@package.json`: List of used npm packages and versions.
     - `lib/@brand-info.ts`: Brand information for content generation.
 

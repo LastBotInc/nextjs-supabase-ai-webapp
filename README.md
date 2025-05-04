@@ -101,6 +101,9 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
    - `REPLICATE_API_TOKEN`: Get from [Replicate](https://replicate.com)
    - `GOOGLE_AI_STUDIO_KEY`: Get from [Google AI Studio](https://makersuite.google.com)
    - `TAVILY_API_KEY`: Get from [Tavily](https://tavily.com)
+   - `OPENAI_API_KEY`: Get from [OpenAI](https://platform.openai.com/api-keys)
+
+   **Email:**
    - `SENDGRID_API_KEY`: Get from [SendGrid](https://sendgrid.com)
 
    **Security:**

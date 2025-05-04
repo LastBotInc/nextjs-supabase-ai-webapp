@@ -56,5 +56,17 @@
 *   Adjusted prose font sizes and colors for better readability on landing page.
 *   Fixed i18n-ally translation detection issue by standardizing translation key paths in analytics components. Added missing translation keys for analytics fields (gaMeasurementId, gtmContainerId, fbPixelId, linkedinPixelId) to all language files.
 
-// ... existing changelog entries ...
+## AI Changes Log
+
+### 2025-04-20: Added OpenAI GPT-image-1 and DALL-E Image Generation Tool
+
+- Created a new command-line tool for both image generation and editing using OpenAI's latest models
+- Added support for GPT-image-1 and DALL-E 3 models
+- Implemented advanced prompt optimization using GPT-4 Vision
+- Added reference image support for GPT-image-1
+- Configured various options for customization (size, style, quality)
+- Updated package.json with necessary dependencies
+- Added documentation in .cursorrules
+
+### 2025-04-14: Enhanced GitHub CLI Tool with Task Management
 
