@@ -1,0 +1,54 @@
+{
+  "settings": {
+    "title": "Account Settings",
+    "profile": "Profile Information",
+    "preferences": "Preferences",
+    "theme": "Theme",
+    "language": "Language",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "save": "Save Changes"
+  },
+  "security": {
+    "title": "Security Settings",
+    "description": "Manage your account security settings and active sessions",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "updating": "Updating...",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 6 characters long",
+    "updateError": "Failed to update password. Please try again.",
+    "sessions": "Active Sessions",
+    "currentSession": "Your current session information:",
+    "lastSignIn": "Last sign in",
+    "browser": "Browser",
+    "unknown": "Unknown"
+  },
+  "notifications": {},
+  "appointments": {
+    "title": "Appointment Types",
+    "createNew": "Create New Appointment Type",
+    "existingTypes": "Your Appointment Types",
+    "loading": "Loading appointment types...",
+    "noTypes": "You haven't created any appointment types yet",
+    "form": {
+      "name": "Name",
+      "description": "Description",
+      "duration": "Duration (minutes)",
+      "isFree": "This is a free appointment",
+      "price": "Price ($)",
+      "create": "Create Appointment Type",
+      "creating": "Creating..."
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "duration": "Duration",
+    "minutes": "minutes",
+    "price": "Price",
+    "free": "Free",
+    "viewBookingPage": "View Booking Page"
+  }
+}

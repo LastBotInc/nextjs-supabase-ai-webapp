@@ -1,5 +1,6 @@
 import { createClient } from '@/utils/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 export async function GET(request: Request) {
   try {
@@ -32,12 +33,8 @@ export async function GET(request: Request) {
 
     console.log('✅ User authenticated:', user.id)
 
-    // After authentication, use service role client for database operations
-    console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
-
     // Check if user is admin by querying the profiles table
-    const { data: profile } = await supabase
+    const { data: profile } = await authClient
       .from('profiles')
       .select('is_admin')
       .eq('id', user.id)
@@ -50,15 +47,28 @@ export async function GET(request: Request) {
       )
     }
 
-    // Fetch users using service role client
-    const { data: { users }, error } = await supabase.auth.admin.listUsers({
+    // Create admin client directly
+    console.log('🔑 Creating admin client...')
+    const supabaseAdmin = createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false
+        }
+      }
+    )
+
+    // Fetch users using admin client
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers({
       page: page,
       perPage: perPage,
     })
 
     if (error) throw error
 
-    return NextResponse.json({ users })
+    return NextResponse.json({ users: data.users })
   } catch (error) {
     console.error('Error in users API route:', error)
     return new NextResponse(

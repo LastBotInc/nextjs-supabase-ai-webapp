@@ -1,0 +1,9 @@
+{
+  "message": "Käytämme evästeitä parantaaksemme käyttökokemustasi.",
+  "accept": "Hyväksy",
+  "decline": "Hylkää",
+  "accepted": "Evästeasetukset tallennettu",
+  "declined": "Evästeasetukset tallennettu",
+  "privacyPolicy": "Lue tietosuojakäytäntömme",
+  "privacyPolicyAriaLabel": "Lue tietosuojakäytäntömme saadaksesi tietoa datankäsittelystä"
+}

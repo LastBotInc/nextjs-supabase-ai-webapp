@@ -167,6 +167,15 @@ const supabase = await createClient(true)
   3. Add warning when falling back to default locale
   4. Check for enabled locales with missing files
 
+### Translation Path Resolution for i18n-ally
+- Issue: i18n-ally VSCode extension not finding translations when paths are inconsistent
+- Solution:
+  1. Ensure consistent translation path structure across components
+  2. If using nested paths like `analytics.enableAnalytics`, use this format in all components
+  3. Add missing translation keys to all language files (en.json, fi.json, sv.json)
+  4. Use the same translation access pattern across similar components
+  5. Avoid mixing direct key access (`t('key')`) with nested access (`t('parent.key')`) for the same keys
+
 ### Common Issues
 - Error: "useTranslations not callable in async component"
 - Solution: Use getTranslations from 'next-intl/server'

@@ -1,5 +1,7 @@
 import { getRequestConfig } from 'next-intl/server';
+import { AbstractIntlMessages } from 'next-intl';
 import { defaultLocale, locales, type Locale } from './config';
+import getI18nConfig from '@/app/i18n';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
@@ -10,9 +12,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = defaultLocale;
   }
 
+  // Get the messages and locale using our getI18nConfig function
+  const { messages } = await getI18nConfig({ locale: locale as Locale });
+
   return {
     locale, // Explicitly return the locale
-    messages: (await import(`@/messages/${locale}.json`)).default,
+    messages: messages as AbstractIntlMessages,
     timeZone: 'Europe/Helsinki'
   };
 }); 

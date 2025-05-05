@@ -1,0 +1,99 @@
+{
+  "title": "Privacy Policy",
+  "introduction": {
+    "title": "Introduction",
+    "content": "This Privacy Policy explains how we collect, use, and protect your personal information when you use our website."
+  },
+  "information": {
+    "title": "Information We Collect",
+    "analytics": {
+      "title": "Analytics Information",
+      "description": "We collect analytics data to improve our services and user experience.",
+      "items": [
+        "Page views and navigation patterns",
+        "Session information and duration",
+        "Device type and browser information",
+        "Language preferences",
+        "Referral sources"
+      ]
+    },
+    "session": {
+      "items": [
+        "Session identifiers",
+        "IP address (anonymized)",
+        "Browser type and version",
+        "Operating system",
+        "Time zone and language settings"
+      ]
+    }
+  },
+  "cookies": {
+    "title": "Cookie Usage",
+    "description": "We use cookies to enhance your browsing experience. You can control cookie preferences through your browser settings.",
+    "types": [
+      {
+        "name": "Essential Cookies",
+        "description": "Required for basic website functionality, authentication, and security"
+      },
+      {
+        "name": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website"
+      },
+      {
+        "name": "Preference Cookies",
+        "description": "Store your language and display preferences"
+      }
+    ],
+    "types[0]": {},
+    "types[1]": {},
+    "types[2]": {}
+  },
+  "usage": {
+    "title": "How We Use Your Information",
+    "description": "We use the collected information for:",
+    "items": [
+      "Providing and improving our services",
+      "Analyzing website usage patterns",
+      "Personalizing your experience",
+      "Maintaining website security",
+      "Communicating important updates"
+    ]
+  },
+  "protection": {
+    "title": "Data Protection",
+    "content": "We implement appropriate security measures to protect your information. Data is stored securely on Supabase's infrastructure with encryption at rest and in transit."
+  },
+  "rights": {
+    "title": "Your Rights",
+    "description": "You have the following rights regarding your data:",
+    "items": [
+      "Access your personal information",
+      "Request correction of inaccurate data",
+      "Request deletion of your data",
+      "Opt-out of analytics tracking",
+      "Control cookie preferences",
+      "Withdraw consent at any time"
+    ]
+  },
+  "preferences": {
+    "title": "Your Preferences",
+    "content": "You can manage your cookie preferences at any time through our cookie consent banner or your browser settings."
+  },
+  "updates": {
+    "title": "Policy Updates",
+    "content": "We may update this Privacy Policy periodically. Any changes will be posted on this page with an updated revision date."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "If you have any questions about this Privacy Policy or how we handle your data, please contact us:",
+    "info": {},
+    "address": {
+      "title": "Address",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Oulu",
+      "country": "Finland"
+    },
+    "email": "Email"
+  },
+  "form": {}
+}

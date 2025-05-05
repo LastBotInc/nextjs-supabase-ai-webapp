@@ -1,58 +1,28 @@
-# Optimized Agentic Coding Instructions for Gemini
-
 <project>
-This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Vitest and Cypress test frameworks.
+This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Jest and Cypress test frameworks.
 </project>
 
 <tools>
 # Internal Tools: Core capabilities available directly.
-run_terminal_cmd - Executes terminal commands
-  - Parameters: command, is_background, explanation
-codebase_search - Semantic codebase search
-  - Parameters: query, explanation, target_directories
-read_file - Reads file contents between specific lines or the entire file (use sparingly), showing max 250 lines.
-  - Parameters: 
-    - target_file (required): The path of the file to read. Can be relative to workspace or absolute.
-    - should_read_entire_file (optional): Set to true to read the entire file. If true, other line parameters are ignored.
-    - offset (optional): The line number to start reading from (1-indexed).
-    - limit (optional): The number of lines to read (maximum 250, minimum 150).
-  - Usage patterns:
-    - To read the entire file: Provide only target_file and should_read_entire_file=true
-    - To read specific lines: Provide target_file with offset and limit
-    - To read from beginning: Provide target_file with limit only
-  - Example: `read_file target_file="path/to/file.txt" offset=10 limit=200`
-list_dir - Lists directory contents
-  - Parameters: relative_workspace_path, explanation
-grep_search - Regex search in text
-  - Parameters: query, case_sensitive, exclude_pattern, explanation, include_pattern
-edit_file - Proposes file edits
-  - Parameters: code_edit, instructions, target_file
-file_search - Fuzzy file path search
-  - Parameters: explanation, query
-delete_file - Deletes files
-  - Parameters: target_file, explanation
-reapply - Reapplies last edit
-  - Parameters: target_file
-fetch_rules - Fetches user-provided rules (*.mdc files)
-  - Parameters: rule_names
-web_search - Searches the web for information
-  - Parameters: search_term, explanation
-mcp_puppeteer_puppeteer_navigate - Navigate to a URL
-  - Parameters: url
-mcp_puppeteer_puppeteer_screenshot - Take a screenshot
-  - Parameters: name, height, selector, width
-mcp_puppeteer_puppeteer_click - Click an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_fill - Fill out an input field
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_select - Select an element
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_hover - Hover an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
-  - Parameters: script
-mcp_supabase_query - Run a read-only SQL query to project database
-  - Parameters: sql
+run_terminal_cmd
+codebase_search
+read_file
+list_dir
+grep_search
+edit_file
+file_search
+delete_file
+reapply
+fetch_rules
+web_search
+mcp_puppeteer_puppeteer_navigate
+mcp_puppeteer_puppeteer_screenshot
+mcp_puppeteer_puppeteer_click
+mcp_puppeteer_puppeteer_fill
+mcp_puppeteer_puppeteer_select
+mcp_puppeteer_puppeteer_hover
+mcp_puppeteer_puppeteer_evaluate
+mcp_supabase_query
 </tools>
 
 <command_line_tools>
@@ -66,7 +36,8 @@ mcp_supabase_query - Run a read-only SQL query to project database
       "options": {
         "check-translations": "Compare English, Finnish and Swedish translation files for completeness and missing keys",
         "import-translations:local": "Import translations for local development environment",
-        "import-translations:prod": "Import translations for production environment"
+        "import-translations:prod": "Import translations for production environment",
+        "split-locales": "Split monolithic locale files into separate namespace-based files for each locale (en, fi, sv)"
       }
     },
     "seed": {
@@ -130,7 +101,7 @@ mcp_supabase_query - Run a read-only SQL query to project database
       "example": "npm run html-to-md -- --url https://example.com --output docs/scraped.md --selector main"
     },
     "gemini": {
-      "description": "Interacts with Google's Gemini API for text generation, chat, multimodal tasks, document analysis, and grounded search. **Gemini Prompting Tip:** Structure prompts clearly defining the **Task**, providing relevant **Context** (from files, URLs, codebase), desired **Format**, and optionally a **Persona**. Use the `--ground` flag for answers needing up-to-date web info.",
+      "description": "Interacts with Google's Gemini API for text generation, chat, multimodal tasks, document analysis, and grounded search",
       "tool": "run_terminal_cmd",
       "command": "npm run gemini",
       "options": {
@@ -155,35 +126,35 @@ mcp_supabase_query - Run a read-only SQL query to project database
         "@google/genai package",
         "node-fetch package"
       ],
-      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash-001 --temperature 0.7",
+      "example": "npm run gemini -- --prompt "What is the capital of France?" --model gemini-2.0-flash-001 --temperature 0.7",
       "advanced_examples": [
         "# Process a PDF document from a URL",
-        "npm run gemini -- --prompt \"Summarize this document in 5 key points\" --url \"https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf\"",
+        "npm run gemini -- --prompt "Summarize this document in 5 key points" --url "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"",
         "",
         "# Process a local PDF file",
-        "npm run gemini -- --prompt \"What is this document about?\" --file test/data/sample.pdf",
+        "npm run gemini -- --prompt "What is this document about?" --file test/data/sample.pdf",
         "",
         "# Process a text file with specific MIME type",
-        "npm run gemini -- --prompt \"Expand on this information\" --file test/data/sample.txt --mime-type text/plain",
+        "npm run gemini -- --prompt "Expand on this information" --file test/data/sample.txt --mime-type text/plain",
         "",
         "# Get grounded search results with real-time information",
-        "npm run gemini -- --prompt \"When is the next total solar eclipse in North America?\" --ground --show-search-data",
+        "npm run gemini -- --prompt "When is the next total solar eclipse in North America?" --ground --show-search-data",
         "",
         "# Generate structured JSON data with predefined schema (recipes)",
-        "npm run gemini -- --prompt \"List 3 popular cookie recipes\" --json recipes",
+        "npm run gemini -- --prompt "List 3 popular cookie recipes" --json recipes",
         "",
         "# Generate structured JSON data with predefined schema (tasks)",
-        "npm run gemini -- --prompt \"Create a task list for planning a vacation\" --json tasks",
+        "npm run gemini -- --prompt "Create a task list for planning a vacation" --json tasks",
         "",
         "# Generate structured JSON data with predefined schema (products)",
-        "npm run gemini -- --prompt \"List 3 smartphone models\" --json products",
+        "npm run gemini -- --prompt "List 3 smartphone models" --json products",
         "",
         "# Use a custom JSON schema for structured output",
-        "npm run gemini -- --prompt \"List 3 programming languages and their use cases\" --json custom --schema '{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"language\":{\"type\":\"string\"},\"year\":{\"type\":\"integer\"},\"useCases\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"language\",\"useCases\"]}}'"
+        "npm run gemini -- --prompt "List 3 programming languages and their use cases" --json custom --schema '{"type":"array","items":{"type":"object","properties":{"language":{"type":"string"},"year":{"type":"integer"},"useCases":{"type":"array","items":{"type":"string"}}},"required":["language","useCases"]}}'"
       ]
     },
     "gemini-image": {
-      "description": "Generates and edits images using Google Gemini and Imagen models. **Gemini Prompting Tip:** Be descriptive in your **Prompt** (Task), specify **Model** and visual **Context** (style, colors, elements), and desired **Format** (output file, aspect ratio).",
+      "description": "Generates and edits images using Google Gemini and Imagen models",
       "tool": "run_terminal_cmd",
       "command": "node tools/gemini-image-tool.js",
       "subcommands": {
@@ -198,7 +169,7 @@ mcp_supabase_query - Run a read-only SQL query to project database
             "negative-prompt": "(Optional) Negative prompt (Imagen 3 only)",
             "aspect-ratio": "(Optional) Aspect ratio (Imagen 3 only, default: 1:1, options: 1:1, 16:9, 9:16, 4:3, 3:4)"
           },
-          "example": "node tools/gemini-image-tool.js generate -p \"A futuristic car\" -m imagen-3.0 -n 2 --aspect-ratio 16:9 -o car.png"
+          "example": "node tools/gemini-image-tool.js generate -p "A futuristic car" -m imagen-3.0 -n 2 --aspect-ratio 16:9 -o car.png"
         },
         "edit": {
           "description": "Edit an existing image using Gemini 2.0",
@@ -208,7 +179,7 @@ mcp_supabase_query - Run a read-only SQL query to project database
             "output": "(Optional) Output file path (default: gemini-edited-image.png)",
             "folder": "(Optional) Output folder path (default: public/images)"
           },
-          "example": "node tools/gemini-image-tool.js edit -i input.png -p \"Add sunglasses to the person\" -o edited.png"
+          "example": "node tools/gemini-image-tool.js edit -i input.png -p "Add sunglasses to the person" -o edited.png"
         }
       },
       "requires": [
@@ -254,7 +225,7 @@ mcp_supabase_query - Run a read-only SQL query to project database
         "ora package",
         "chalk package"
       ],
-      "example": "npm run generate-video -- --prompt \"A serene ocean wave rolling onto a beach\" --model minimax --duration 5 --output beach-wave.mp4"
+      "example": "npm run generate-video -- --prompt "A serene ocean wave rolling onto a beach" --model minimax --duration 5 --output beach-wave.mp4"
     },
     "remove-background-advanced": {
       "description": "Advanced background removal tool using Sharp with color tolerance and edge detection",
@@ -267,6 +238,229 @@ mcp_supabase_query - Run a read-only SQL query to project database
       },
       "requires": ["sharp package"],
       "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
+    },
+    "openai-image": {
+      "description": "Generate and edit images using OpenAI's GPT-image-1 and DALL-E models",
+      "tool": "run_terminal_cmd",
+      "command": "npm run openai-image",
+      "subcommands": {
+        "generate": {
+          "description": "Generate an image using OpenAI's image generation models",
+          "options": {
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "quality": "(Optional) Image quality: standard or hd - DALL-E only (default: standard)",
+            "number": "(Optional) Number of images to generate (1-4) - DALL-E only (default: 1)",
+            "reference-image": "(Optional) Reference image path for gpt-image-1 with reference",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- generate -p \"A futuristic cityscape at sunset with flying cars\" -m gpt-image-1 -s 1792x1024 -c vivid"
+        },
+        "edit": {
+          "description": "Edit an existing image using OpenAI's models",
+          "options": {
+            "input-image": "Required: Path to the input image to edit",
+            "edit-prompt": "Required: Text prompt describing the edit to apply",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- edit -i input.jpg -p \"Change the background to a tropical beach\" -m gpt-image-1"
+        }
+      },
+      "requires": [
+        "OPENAI_API_KEY in .env.local",
+        "openai package",
+        "axios package",
+        "ora package",
+        "chalk package"
+      ]
+    },
+    "vercel-cli": {
+      "description": "Directly interact with Vercel deployment platform for project management, environment variables, and domains",
+      "tool": "run_terminal_cmd",
+      "command": "npm run vercel",
+      "options": {
+        "deploy": {
+          "description": "Deploy the application to Vercel",
+          "options": {
+            "environment": "(Optional) Deployment environment: production, preview, or development (default: preview)",
+            "project": "(Optional) Project name (defaults to directory name)",
+            "prod": "(Optional) Deploy to production (shorthand for --environment production)"
+          }
+        },
+        "list": {
+          "description": "List recent deployments",
+          "options": {
+            "count": "(Optional) Number of deployments to show (default: 5)"
+          }
+        },
+        "logs": {
+          "description": "Show logs for the current project",
+          "options": {
+            "follow": "(Optional) Follow logs in real time",
+            "deployment": "(Optional) Deployment ID"
+          }
+        },
+        "domains": {
+          "description": "Manage domains for your Vercel projects",
+          "options": {
+            "add": "(Optional) Add a domain",
+            "remove": "(Optional) Remove a domain",
+            "list": "(Optional) List all domains"
+          }
+        },
+        "env": {
+          "description": "Manage environment variables",
+          "options": {
+            "add": "(Optional) Add an environment variable (format: key=value)",
+            "remove": "(Optional) Remove an environment variable",
+            "list": "(Optional) List all environment variables",
+            "environment": "(Optional) Environment: development, preview, or production (default: development)"
+          }
+        },
+        "promote": {
+          "description": "Promote a deployment to production",
+          "arguments": "<url-or-id>: Deployment URL or ID to promote"
+        }
+      },
+      "requires": [
+        "Vercel CLI (will be auto-installed if not present)",
+        "Vercel account authentication"
+      ],
+      "example": "npm run vercel -- deploy --prod"
+    },
+    "github-cli": {
+      "description": "Interact with GitHub repositories, pull requests, issues, and workflows directly from the command line",
+      "tool": "run_terminal_cmd",
+      "command": "npm run github",
+      "options": {
+        "auth": {
+          "description": "Manage GitHub authentication",
+          "options": {
+            "login": "(Optional) Log in to GitHub (-l, --login)",
+            "status": "(Optional) View authentication status (-s, --status)",
+            "refresh": "(Optional) Refresh stored authentication credentials (-r, --refresh)",
+            "logout": "(Optional) Log out of GitHub (-o, --logout)"
+          }
+        },
+        "pr-create": {
+          "description": "Create a pull request",
+          "options": {
+            "title": "(Optional) Pull request title",
+            "body": "(Optional) Pull request body",
+            "base": "(Optional) Base branch name",
+            "draft": "(Optional) Create draft pull request",
+            "fill": "(Optional) Use commit info for title/body"
+          }
+        },
+        "pr-list": {
+          "description": "List and filter pull requests",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, merged, all (default: open)",
+            "limit": "(Optional) Maximum number of items to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "base": "(Optional) Filter by base branch",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "pr-view": {
+          "description": "View pull request details",
+          "arguments": "[number]: PR number or URL, if omitted the PR from the current branch is displayed",
+          "options": {
+            "web": "(Optional) Open in web browser"
+          }
+        },
+        "issue-create": {
+          "description": "Create a new issue",
+          "options": {
+            "title": "(Optional) Issue title",
+            "body": "(Optional) Issue body",
+            "assignee": "(Optional) Assign people by their login",
+            "label": "(Optional) Add labels by name",
+            "project": "(Optional) Add issue to project",
+            "milestone": "(Optional) Add issue to milestone",
+            "web": "(Optional) Open new issue in the web browser"
+          }
+        },
+        "issue-list": {
+          "description": "List and filter issues",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, all (default: open)",
+            "limit": "(Optional) Maximum number of issues to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "label": "(Optional) Filter by label",
+            "milestone": "(Optional) Filter by milestone",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "release-create": {
+          "description": "Create a new release",
+          "arguments": "<tag>: Tag name for the release",
+          "options": {
+            "title": "(Optional) Release title",
+            "notes": "(Optional) Release notes",
+            "notes-file": "(Optional) Read release notes from file",
+            "draft": "(Optional) Save release as draft instead of publishing",
+            "prerelease": "(Optional) Mark release as prerelease",
+            "generate-notes": "(Optional) Automatically generate release notes"
+          }
+        },
+        "release-list": {
+          "description": "List releases in a repository",
+          "options": {
+            "limit": "(Optional) Maximum number of releases to fetch (default: 30)"
+          }
+        },
+        "repo": {
+          "description": "Manage repositories",
+          "options": {
+            "create": "(Optional) Create a new repository",
+            "description": "(Optional) Repository description",
+            "homepage": "(Optional) Repository homepage URL",
+            "private": "(Optional) Make the repository private",
+            "team": "(Optional) The name of the organization team to grant access to",
+            "view": "(Optional) View repository details",
+            "web": "(Optional) Open in web browser",
+            "list": "(Optional) List your repositories"
+          }
+        },
+        "workflow": {
+          "description": "Manage GitHub Actions workflows",
+          "options": {
+            "list": "(Optional) List workflows",
+            "run": "(Optional) Run a workflow by name or ID",
+            "view": "(Optional) View a specific workflow",
+            "enable": "(Optional) Enable a workflow by name or ID",
+            "disable": "(Optional) Disable a workflow by name or ID"
+          }
+        },
+        "tasks": {
+          "description": "List and manage tasks from GitHub Projects and Issues",
+          "options": {
+            "project": "(Optional) Specify project ID or number to list tasks from",
+            "repository": "(Optional) Specify repository in owner/repo format (default: current repository)",
+            "status": "(Optional) Filter by status: open, closed, all (default: open)",
+            "label": "(Optional) Filter by label",
+            "assignee": "(Optional) Filter by assignee",
+            "limit": "(Optional) Maximum number of tasks to fetch (default: 30)",
+            "format": "(Optional) Output format: table, json, or simple (default: table)",
+            "web": "(Optional) Open tasks in the web browser"
+          }
+        }
+      },
+      "requires": [
+        "GitHub CLI (will be auto-installed if not present)",
+        "GitHub account authentication"
+      ],
+      "example": "npm run github -- pr-create --title \"New feature\" --body \"This PR adds a new feature\""
     }
   }
 }
@@ -274,245 +468,247 @@ mcp_supabase_query - Run a read-only SQL query to project database
 
 <documentation>
   ## Documentation and Context Files
-  Reference these files for understanding the project. Use `read_file` for `*.mdc` files. **Crucially, incorporate relevant details from these into prompts for Gemini.**
-    - `description.md`: App description, use cases, features.
-    - `architecture.md`: Tech stack, folder structure, testing frameworks.
-    - `datamodel.md`: Entities, attributes, relationships.
-    - `frontend.md`: Views/screens, UI/UX patterns, styling.
-    - `backend.md`: API endpoints, authentication, service architecture.
-    - `todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
-    - `ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
-    - `learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
-    - `/.cursor/rules/add-data-model.mdc`: How to add a new data model.
-    - `/.cursor/rules/admin-api-protection.mdc`: How to protect the admin API.
-    - `/.cursor/rules/implement-frontend-page.mdc`: How to implement a new frontend page.
-    - `/.cursor/rules/implement-nextjs-api.mdc`: How to implement a new NextJS API route.
-    - `/.cursor/rules/implement-unit-tests.mdc`: How to implement unit tests.
-    - `package.json`: List of used npm packages and versions.
-    - `lib/brand-info.ts`: Brand information for content generation.
+  Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `fetch_rules` for `@*.mdc` files.
+    - `@description.md`: App description, use cases, features.
+    - `@architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `@datamodel.md`: Entities, attributes, relationships.
+    - `@frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `@backend.md`: API endpoints, authentication, service architecture.
+    - `@todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `@ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `@learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+    - `/.cursor/rules/@add-data-model.mdc`: How to add a new data model.
+    - `/.cursor/rules/@admin-api-protection.mdc`: How to protect the admin API.
+    - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
+    - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
+    - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `/.cursor/rules/@nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
+    - `/.cursor/rules/@supabase-auth-implementation.mdc`: How to implement Supabase authentication.
+    - `/.cursor/rules/@translation-guidelines.mdc`: Guidelines for translations.
+    - `/.cursor/rules/@translation-management-tools.mdc`: Tools for managing translations.
+    - `@package.json`: List of used npm packages and versions.
+    - `lib/@brand-info.ts`: Brand information for content generation.
 
   **Link Handling:**
-    - For `filename.ext` links: Use `read_file` to access their content. Extract key info for prompts.
-    - For `http://` or `https://` links: Use `web_search` or the `gemini` tool with `--url` or `--ground` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume direct access without a tool.
+    - For `@filename.ext` links: Use `read_file` to access their content.
+    - For `http://` or `https://` links: Use `web_search` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume you can directly access or parse the content without `web_search`.
 </documentation>
 
 ## Core Actions & Workflow
-Define high-level tasks. Follow the `## Request Processing Steps` below to execute these. **Focus on clear, precise instructions and leverage context for Gemini.**
+Define high-level tasks. Follow the `## Request Processing Steps` below to execute these.
 
 <actions>
   <use_tools>
     - **Goal:** Execute project-specific tools listed under `<command_line_tools>`.
     - **Steps:**
       1. Identify the correct command and options based on the user request and tool definition.
-      2. **Formulate Prompt (for `gemini` tools):** Structure the prompt clearly using Persona, Task, Context, Format (PTCF).
-      3. Explain *why* the tool is being used and *how* the prompt is structured.
-      4. Use `run_terminal_cmd` to execute the command.
-      5. Review output and iterate with refined prompts if necessary.
+      2. Use `run_terminal_cmd` to execute the command.
   </use_tools>
 
   <document>
      - **Goal:** Update documentation files.
      - **Steps:**
-       1. Read relevant documentation files (`*.md`).
-       2. **Formulate Prompt (for `edit_file`):** Clearly state the Task (update needed), Context (based on task, readings), and Format (how the update should look).
-       3. Use `edit_file` to propose necessary updates. Focus on specific files mentioned in `<documentation>`.
-       4. Review proposed changes and iterate if needed.
+       1. Read relevant documentation files (`@*.md`).
+       2. Use `edit_file` to make necessary updates based on the task. Focus on the specific files mentioned in the `<documentation>` section (e.g., `ai_changelog.md`, `todo.md`, `learnings.md`).
   </document>
 
   <research>
   - **Goal:** Understand a task or topic thoroughly before planning.
   - **Steps:**
     1. **Gather Context:**
-        - Read relevant `*.md` files from `<documentation>` (`read_file`).
-        - Fetch relevant `*.mdc` rules using `Workspace_rules`.
+        - Read relevant `@*.md` files from `<documentation>`.
+        - Fetch relevant `@*.mdc` rules using `fetch_rules`.
         - Use `codebase_search` to find relevant existing code snippets.
-        - Use the `gemini` tool (with `--prompt`, `--file`, `--url`, or `--ground`) for targeted analysis, summarization, or Q&A based on specific context or up-to-date info.
-        - Use `web_search` for broader exploration or finding specific external resources/documentation.
+        - Use `web_search` for external information, documentation, or examples (perform at least one search).
     2. **Analyze & Plan:**
         - Synthesize gathered information.
-        - Outline the plan: What needs to be done? What tools are required? How will prompts be structured?
+        - Outline the plan: What needs to be done? What tools are required?
         - Identify any missing information needed from the user.
     3. **Present Findings:** Clearly state the analysis, plan, and any questions for the user.
   </research>
 
-  <complete>
-   - **Goal:** Complete a full task independently, following instructions precisely.
-   - **Steps:**
-     1. Break down the overall goal into clear, sequential sub-tasks.
-     2. Execute sub-tasks using appropriate actions and tools, providing precise instructions and context in prompts.
-     3. Iterate on sub-task outputs if refinement is needed.
-     4. Continue until all sub-tasks are completed.
-     5. Return and respond to user with the completed result.
-  </complete>
-
-  <localise>
-   - **Goal:** Translate or adapt content for different locales/languages.
-   - **Steps:**
-     1. Read available languages from `/messages` folder (`list_dir`, `read_file`).
-     2. Read needed documentation (`description.md`, etc.) and `lib/brand-info.ts` (`read_file`) to understand context and brand voice.
-     3. **Formulate Prompt (for `gemini` tool or `edit_file`):** Define the Task (translate text), provide rich Context (source text, target language, brand voice, target audience, cultural notes), and specify Format (natural tone, local conventions for numbers/dates). Assign a Persona ('You are a native [language] translator...').
-     4. Use the `gemini` tool (`run_terminal_cmd`) or `edit_file` to generate/insert translations.
-     5. Review generated translations for naturalness and accuracy; iterate if necessary.
-  </localise>
-
   <fix>
-  - **Goal:** Diagnose and resolve an error precisely.
+  - **Goal:** Diagnose and resolve an error.
   - **Steps:**
     1. **Gather Context:**
-        - Read `learnings.md` for previous solutions (`read_file`).
-        - If error messages contain URLs, use `web_search` or `gemini --url` to understand them.
-        - Use `gemini --prompt "[error message]" --ground` or `web_search` for general error resolution info.
-        - Fetch relevant `.mdc` rules (`Workspace_rules`).
-        - Use `codebase_search` or `grep_search` to find relevant code.
+        - Read `docs/learnings.md` for previous solutions (`read_file`).
+        - If error messages contain URLs, use `web_search` to understand them.
+        - Fetch relevant `@*.mdc` rules (`fetch_rules`).
+        - Use `web_search` for general error resolution information.
     2. **Iterative Fixing Loop:**
         a. **Hypothesize:** Based on context, identify 1-2 likely causes.
-        b. **Validate Hypothesis (Optional):** Use `edit_file` (with clear instructions) to add temporary logging, then use `run_terminal_cmd` to run relevant tests/code and observe logs.
-        c. **Implement Fix:** Formulate a precise prompt for `edit_file` detailing the code change (Task), referencing context (Context), and expected format (Format).
+        b. **Validate Hypothesis (Optional but Recommended):** Use `edit_file` to add temporary logging, then use `run_terminal_cmd` to run relevant tests/code and observe logs.
+        c. **Implement Fix:** Use `edit_file` to apply the proposed code change.
         d. **Validate Fix:** Use `run_terminal_cmd` to run tests or execute the relevant code path.
         e. **Record Outcome:**
-            - If fixed: Update `learnings.md` (`edit_file`). Delete `/temp/fix_backlog.md` if exists (`delete_file`).
-            - If not fixed: Update `/temp/fix_backlog.md` (`edit_file`). Return to step (a). *Do not loop more than 3 times without asking the user.*
+            - If fixed: Update `docs/learnings.md` with the solution (`edit_file`). Delete `/temp/fix_backlog.md` if it exists (`delete_file`).
+            - If not fixed: Create or update `/temp/fix_backlog.md` with what was tried (`edit_file`). Return to step (a). *Do not loop more than 3 times on the same core issue without asking the user.*
   </fix>
 
   <validate>
-  - **Goal:** Implement and run tests, fixing any failures precisely.
+  - **Goal:** Implement and run tests, fixing any failures.
   - **Steps:**
     1. **Understand Requirements:**
-        - Read `architecture.md` (`read_file`).
-        - Fetch `implement-unit-tests.mdc` rule (`Workspace_rules`).
+        - Read `docs/architecture.md` for testing practices (`read_file`).
+        - Fetch `@implement-unit-tests.mdc` rule (`fetch_rules`).
     2. **Write Unit Tests:**
-        - **Formulate Prompt:** Instruct `edit_file` with Task (write tests for specific component/function), Context (component code, requirements from rules/docs), and Format (using Vitest framework).
-        - Use `edit_file` to create/update `__tests__/*.test.ts`.
+        - Use `edit_file` to create/update unit test files (e.g., `__tests__/*.test.ts`).
     3. **Run & Fix Unit Tests:**
-        - Execute tests: `run_terminal_cmd "npm test"`.
-        - If errors: Use the `<fix>` action flow.
+        - Execute tests using `run_terminal_cmd` (e.g., `npm test`).
+        - If errors occur, use the `<fix>` action flow to resolve them.
     4. **Write E2E Tests:**
-        - **Formulate Prompt:** Instruct `edit_file` with Task (write E2E test for user flow), Context (relevant pages/components, user story), and Format (using Cypress).
-        - Use `edit_file` to create/update `cypress/`.
+        - Use `edit_file` to create/update E2E test files (e.g., in `cypress/`).
     5. **Run & Fix E2E Tests:**
-        - Execute tests: `run_terminal_cmd "npm run cypress:run"`.
-        - If errors: Use the `<fix>` action flow.
-    6. **Document:** Ensure fixes are logged in `learnings.md` via the `<fix>` action.
-    7. **Repeat:** Continue until relevant tests pass.
+        - Execute tests using `run_terminal_cmd` (e.g., `npm run cypress:run`).
+        - If errors occur, use the `<fix>` action flow to resolve them.
+    6. **Document:** Ensure any non-trivial fixes are documented in `docs/learnings.md` as part of the `<fix>` action.
+    7. **Repeat:** Continue until all relevant tests pass.
   </validate>
 
   <record>
    - **Goal:** Document completed work and update the task backlog.
    - **Steps:**
-     1. Use `edit_file` (with clear instructions) to add a summary to `ai_changelog.md`.
-     2. Use `edit_file` (with clear instructions) to update the status (✅, ⏳, ❌) in `todo.md`. **Do not remove tasks.**
+     1. Use `edit_file` to add a summary to `docs/ai_changelog.md`.
+     2. Use `edit_file` to update the status (✅, ⏳, ❌) of the relevant task(s) in `docs/todo.md`. **Do not remove tasks.**
   </record>
 
   <design>
    - **Goal:** Design a frontend feature.
    - **Steps:**
-     1. Read `frontend.md` (`read_file`).
-     2. **Formulate Design Prompt:** Instruct `edit_file` to update `frontend.md` with Task (describe design), Context (feature requirements, UI/UX guidelines), and Format (components, layout, flow description).
-     3. Use `edit_file` to update `frontend.md`.
-     4. **Generate Assets:** Use `run_terminal_cmd` with `gemini-image` (prefer `imagen` or `gemini` models). Provide clear prompts (Task: generate image, Context: style, elements, colors, Format: output path like `public/images`, aspect ratio).
-     5. **Optimize Assets:** Use `run_terminal_cmd` with `image-optimizer`.
-     6. Review design and assets, iterate using `edit_file` or `gemini-image` if needed.
-     7. Briefly summarize the design and assets for the user.
+     1. Read `docs/frontend.md` for UI/UX guidelines (`read_file`).
+     2. Describe the design (components, layout, flow) and use `edit_file` to update `docs/frontend.md`.
+     3. Generate required images/illustrations using `run_terminal_cmd` with appropriate image generation tools (e.g., `gemini-image`, prefer `imagen` or `gemini` models). Specify output folder like `public/images`.
+     4. Optimize generated images using `run_terminal_cmd` with `image-optimizer`.
+     5. Briefly summarize the design and generated assets for the user.
   </design>
 
   <develop>
    - **Goal:** Implement the code for a feature (frontend/backend).
    - **Steps:**
-     1. Fetch relevant rules (`implement-*.mdc`) using `Workspace_rules`.
-     2. Read relevant context files (`description.md`, `datamodel.md`, etc.) using `read_file`.
-     3. **Formulate Code Prompt:** Instruct `edit_file` with Task (implement feature/component/API), rich Context (requirements from rules/docs, related code snippets, data model), and Format (coding standards, imports). Assign Persona ('You are a Senior NextJS/React Developer...').
-     4. Use `edit_file` to propose code changes across necessary files.
-     5. Review proposed code and iterate with follow-up `edit_file` prompts if necessary.
+     1. Fetch relevant rules (`@implement-*.mdc`) using `fetch_rules`.
+     2. Use `edit_file` to implement the required code changes across necessary files (components, API routes, types, etc.). Ensure imports and dependencies are handled.
   </develop>
 
   <invent>
     - **Goal:** Create a new command-line tool.
     - **Steps:**
-      1. **Formulate Implementation Prompt:** Instruct `edit_file` with Task (implement script logic), Context (tool purpose, desired functionality), and Format (Node.js script in `tools/`).
-      2. Implement the tool script using `edit_file`.
-      3. **Formulate Definition Prompt:** Instruct `edit_file` to update the `<command_line_tools>` section of *this file* with the new tool definition (Task), ensuring `tool: "run_terminal_cmd"`.
-      4. Add/update the tool definition using `edit_file`.
-      5. Test the new tool using `run_terminal_cmd`.
-      6. Use the `<fix>` action flow to debug until successful execution.
+      1. Implement the tool script (e.g., in `tools/` directory) using `edit_file`.
+      2. Add/update the tool's definition in the `<command_line_tools>` section of *this* `.cursorrules` file using `edit_file`. Ensure `tool` is set to `run_terminal_cmd`.
+      3. Test the new tool using `run_terminal_cmd`.
+      4. Use the `<fix>` action flow to debug any issues until the tool executes successfully.
   </invent>
 
   <commit>
     - **Goal:** Commit current changes to git.
     - **Steps:**
       1. Use `run_terminal_cmd` to run `git add .`.
-      2. Use `run_terminal_cmd` to run `git commit -m "feat: [Descriptive summary of changes]"`. Adapt prefix (e.g., `fix:`, `docs:`, `chore:`) as appropriate.
+      2. Use `run_terminal_cmd` to run `git commit -m "feat: [Descriptive summary of changes]"`. Adapt the message prefix (e.g., `fix:`, `docs:`, `chore:`) as appropriate.
   </commit>
 
   <implement_ai>
-    - **Goal:** Implement AI/LLM features using Gemini.
+    - **Goal:** Implement AI/LLM features, like Gemini prompts or functions.
     - **Steps:**
-      1. **Review Examples:** Read `tools/gemini.ts` (`read_file`) if exists.
-      2. **Formulate AI Logic Prompt:** Instruct `edit_file` with Task (implement Gemini interaction logic), Context (feature goal, desired input/output, using `@google/genai` library), and Format (Typescript function/class). Apply PTCF principles to the prompts *within* the code being written.
-      3. Implement the AI logic using `edit_file`. **Crucially: Use `@google/genai`, not `generativeai`.**
-      4. **Integrate:** Use the `<develop>` action to integrate the AI logic into relevant components/routes.
-      5. **Test:** Use the `<validate>` action to ensure the feature works correctly.
-      6. Review and iterate on prompts and code as needed.
+      1. **Review Examples:** Read `tools/gemini.ts` using `read_file` to understand existing patterns.
+      2. **Implement:** Use `edit_file` to add the AI logic.
+      3. **Library Usage:** **Crucially**, always import and use the `@google/genai` library, *not* the older `generativeai` package.
+      4. **Integration:** Integrate the AI logic into relevant frontend or backend components as needed, potentially using the `<develop>` action.
+      5. **Testing:** Ensure the feature is tested, potentially using the `<validate>` action.
   </implement_ai>
+
+  <localize>
+    - **Goal:** Create or update translations for the application with natural, culturally appropriate phrasing.
+    - **Steps:**
+      1. **Understand Context:**
+         - Read `messages/README.md` to understand the localization structure.
+         - Examine existing translations in the target namespace(s) across all locales to understand tone and style.
+         - Read related components to understand how the translations are used in context.
+      
+      2. **Translation Approach:**
+         - **DO NOT** translate word-for-word. Prioritize natural, idiomatic expressions in each target language.
+         - Consider cultural context for each language (Finnish, Swedish, English).
+         - Maintain consistent terminology within each feature/namespace.
+         - Preserve placeholders (e.g., `{count}`, `{name}`) and formatting tags.
+         - Ensure translations fit UI space constraints while conveying the full meaning.
+      
+      3. **Language-Specific Guidance:**
+         - **Finnish (fi):**
+           - Use shorter constructions where possible (Finnish words tend to be longer).
+           - Consider compound word formation rules (yhdyssanat).
+           - Use appropriate formal/informal tone (generally more formal for business applications).
+           - Handle cases properly (Finnish has 15 grammatical cases).
+         
+         - **Swedish (sv):**
+           - Pay attention to definite/indefinite forms.
+           - Use appropriate formal/informal tone ("ni" vs "du").
+           - Consider gender agreement in adjectives.
+           - Maintain natural word order in questions and statements.
+         
+         - **English (en):**
+           - Use clear, concise phrasing.
+           - Follow American English conventions unless otherwise specified.
+           - Avoid idioms that may not translate well.
+
+      4. **Implementation:**
+         - Identify the correct namespace file for each locale (`en/`, `fi/`, `sv/`).
+         - Use `edit_file` to add new translations or update existing ones.
+         - Maintain JSON structure and formatting consistency.
+         - Keep translations organized by logical sections within the namespace.
+      
+      5. **Validation:**
+         - Run `npm run check-translations` to verify translation completeness.
+         - If possible, have native speakers review translations (or note this as a post-implementation recommendation).
+         - Test in the UI to ensure proper rendering and context appropriateness.
+      
+      6. **Documentation:**
+         - Update the localization report if needed.
+         - Note any challenging translations or decisions in comments.
+  </localize>
 </actions>
 
-<behavioral_rules>
-- **Existing Project:** NEVER create a new project. Analyze existing structure.
-- **Up-to-date Info:** Do NOT rely solely on internal knowledge. ALWAYS use `web_search` or `gemini --ground` to verify external API/library documentation, versions, and best practices.
-- **Latest Libraries:** Prefer latest stable versions for dependencies.
-- **Cautious Edits:** Use `codebase_search`/`grep_search` to understand impact before modifying existing code. Avoid deletions unless clearly required.
-- **Follow Instructions:** Adhere precisely to `<action>` steps and these rules.
-- **Persistence:** Be persistent, do not give up. Don't stop when you have not completed the task. 
-- **Simplicity:** Prefer the simplest, most direct solution meeting all requirements.
-- **Tool Usage:** Use provided tools appropriately. Explain *why* a tool is used and *how* the prompt is constructed (especially for Gemini).
-- **Clarity:** Communicate plans, actions, results clearly. Ask clarifying questions if ambiguous.
-
-### Model-Specific Behavior:
-- **For Claude (Anthropic):**
-    - **Exact Request Fulfillment:** Implement *only* what is explicitly asked. No extras.
-    - Confirm all parts of the request are addressed, nothing more.
-    - Ask: "Am I adding anything not explicitly requested?" If yes, remove it.
-    - Avoid suggesting alternatives unless asked.
-
-- **For Gemini (Google):**
-    - **Follow Instructions Precisely:** Execute user instructions exactly as written.
-    - **Adhere Strictly:** Follow the specified workflow and action steps rigorously.
-    - **Maintain Structure:** Use consistent formatting as specified.
-    - **Leverage Context:** Actively incorporate context from documentation (`*.md`), rules (`*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
-    - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
-
-- **For GPT (OpenAI) and Grok (X.AI):**
-    - Be complete, aim for full task completion per run.
-    - Only ask user for major decisions.
-</behavioral_rules>
 ## Request Processing Steps
-Follow these steps sequentially for **every** user request and follow behavioral rules above:
+Follow these steps sequentially for **every** user request:
 
-1.  **Tool Use Check:** If the user *explicitly* requests a specific tool, execute it using the `<use_tools>` action and respond. **Stop processing here.**
+1.  **Tool Use Check:** If the user *explicitly* requests to use a specific tool (internal or command-line), execute that tool using the appropriate method (`run_terminal_cmd` for command-line tools) and respond with the result. **Stop processing here.**
 2.  **Initial Analysis:**
-    * Read the user request carefully.
-    * Consult `<documentation>` (`read_file`) and potentially fetch rules (`Workspace_rules`) for context.
-    * Identify the primary goal.
-    * Determine the most relevant `<action>`. Default to `<research>` if unclear.
-    * List affected architecture areas.
-    * **Present Analysis:**
+    *   Read the user request carefully.
+    *   Consult `<documentation>` (`read_file`) and potentially fetch relevant rules (`fetch_rules`) to understand context.
+    *   Identify the primary goal (e.g., fix a bug, develop a feature, answer a question).
+    *   Determine the most relevant `<action>` (e.g., `<fix>`, `<develop>`, `<research>`). If no single action fits perfectly, default to `<research>` to gather more information or clarify.
+    *   List affected architecture areas (frontend, backend, database, tests, docs).
+    *   **Present Analysis:**
         ```
-        Request type: [Inferred type]
-        Primary Action: [<Chosen action>]
+        Request type: [Inferred type, e.g., Bug Fix, Feature Development, Documentation Update, Tool Execution, Research]
+        Primary Action: [<Chosen action, e.g., fix>]
         Affected Areas: [List areas]
-        Plan Overview: [Briefly mention key steps/tools, e.g., "Read docs, formulate prompt for edit_file, run tests"]
         ```
 3.  **Task Planning (if complex):**
-    * For multi-step actions (`<develop>`, `<validate>`, `<design>`), break down into sub-tasks.
-    * Use `edit_file` to add sub-tasks to `todo.md` (marked ❌). Include development, testing, documentation steps.
-    * Inform the user the plan is in `todo.md`.
+    *   If the required action involves multiple steps or sub-tasks (especially for `<develop>`, `<validate>`, `<design>`), break it down.
+    *   Use `edit_file` to add these sub-tasks to `docs/todo.md` under a relevant heading, marking them as ❌ (not started). Include necessary steps like development, testing, and documentation updates for each sub-task.
+    *   Inform the user that the plan has been added to `docs/todo.md`.
 4.  **Action Execution:**
-    * State: `Starting Action: <action name>...`
-    * Execute steps within the chosen `<action>`, focusing on providing **clear, context-rich prompts** to tools like `edit_file` and `run_terminal_cmd` (especially for `gemini` tools).
-    * Adhere strictly to `<behavior_rules>`.
-    * Review outputs and iterate with follow-up prompts if necessary.
-    * State: `Completed Action: <action name>.`
-5.  **Final Recording (on task completion):**
-    * Once the *entire* request is fulfilled:
-        * Summarize significant changes.
-        * Execute `<record>` action (update `ai_changelog.md`, `todo.md`).
-        * Ensure `learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.
+    *   State: `Starting Action: <action name>...`
+    *   Execute the steps defined within the chosen `<action>` in the section above. Follow instructions within the action description carefully, including reading required files and using specified tools.
+    *   Adhere strictly to the `<behavior_rules>` during execution.
+    *   State: `Completed Action: <action name>.`
+5.  **Confirmation & Iteration:**
+    *   If the task involved multiple planned sub-tasks (from step 3) or the primary action implies follow-up (like `<research>` often leads to `<develop>` or `<fix>`), ask: "Would you like to proceed to the next step/action ([mention next logical step if clear]) or do you need any adjustments?"
+    *   **Wait for explicit user confirmation ('yes', 'proceed', 'continue', etc.) before starting the next action or major step.** If the user requests adjustments, go back to step 2 for re-analysis based on the new input.
+6.  **Final Recording (on task completion):**
+    *   Once the *entire* user request is fulfilled (which might involve multiple actions and confirmations):
+        *   Summarize all significant changes made.
+        *   Execute the `<record>` action to update `ai_changelog.md` and `todo.md`.
+        *   If applicable (e.g., after a `<fix>` or `<invent>`), ensure `learnings.md` was updated during the relevant action.
+
+## Behavior Rules (Strictly Follow)
+- **Existing Project:** NEVER create a new project. Analyze the existing structure via `list_dir`, `<documentation>`, and code search.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge for libraries or external APIs. ALWAYS use `web_search` to verify current documentation, versions, and best practices when implementing or fixing related code.
+- **Latest Libraries:** When adding dependencies, prefer the latest stable versions unless otherwise specified.
+- **Cautious Edits:** Be extremely careful when modifying existing code. Use `codebase_search` or `grep_search` to understand potential usages elsewhere. Avoid deleting code unless explicitly requested or clearly redundant after refactoring.
+- **Follow Instructions:** Read and follow all instructions within the chosen `<action>` and these general rules precisely.
+- **Exact Request Fulfillment:**
+    - Implement *only* what the user explicitly asks for. No extra features, enhancements, or refactoring unless requested.
+    - Confirm your solution addresses *all* parts of the request.
+    - **Crucial:** Ask yourself before finalizing changes: "Am I adding anything not explicitly requested?"
+- **Simplicity:** Prefer the simplest, most direct solution that meets all requirements. Minimize code complexity.
+- **Tool Usage:** Use the provided tools (`<tools>`, `<command_line_tools>`) whenever appropriate to interact with the filesystem, codebase, web, or terminal. Explain *why* you are using a tool *before* calling it.
+- **Clarity:** Communicate clearly. State your plan, actions, and results. Ask clarifying questions if the request is ambiguous.

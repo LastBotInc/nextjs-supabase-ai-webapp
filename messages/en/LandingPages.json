@@ -1,0 +1,96 @@
+{
+  "title": "Landing Pages",
+  "preview": "Preview landing page",
+  "publish": "Publish",
+  "unpublish": "Unpublish",
+  "description": "Create and manage landing pages",
+  "notFound": "Page Not Found",
+  "notFoundDescription": "The requested landing page could not be found.",
+  "createPage": "Create Landing Page",
+  "createPageDescription": "Create a new landing page with custom content, SEO settings, and analytics tracking.",
+  "editPage": "Edit Landing Page",
+  "editPageDescription": "Modify the content, settings, and tracking for this landing page.",
+  "generateContent": "Generate Content",
+  "generateImage": "Generate Image",
+  "analytics": {
+    "enableAnalytics": "Enable Analytics",
+    "enableAnalyticsDescription": "Enable analytics tracking for this landing page",
+    "gaMeasurementId": "Google Analytics Measurement ID",
+    "gtmContainerId": "Google Tag Manager Container ID",
+    "fbPixelId": "Facebook Pixel ID",
+    "linkedinPixelId": "LinkedIn Pixel ID"
+  },
+  "form": {
+    "title": "Title",
+    "slug": "URL Slug",
+    "content": "Content",
+    "excerpt": "Excerpt",
+    "featuredImage": "Featured Image",
+    "tags": "Tags",
+    "prompt": "Landing Page Prompt",
+    "promptPlaceholder": "Enter a prompt to generate landing page content...",
+    "generating": "Generating...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "createPage": "Create Page",
+    "published": "Published"
+  },
+  "validation": {},
+  "success": {
+    "imageGenerated": "Image generated successfully"
+  },
+  "tabs": {
+    "content": "Content",
+    "seo": "SEO Settings",
+    "cta": "Call to Action",
+    "code": "Custom Code"
+  },
+  "error": {
+    "load": "Failed to load landing page"
+  },
+  "generating": "Generating...",
+  "search": "Search landing pages...",
+  "status": "Status",
+  "lastModified": "Last Modified",
+  "actions": "Actions",
+  "edit": "Edit",
+  "view": "View",
+  "noPages": "No landing pages found. Create your first one!",
+  "noSearchResults": "No landing pages found matching your search.",
+  "editor": {
+    "cta": {
+      "title": "Call to Action",
+      "headline": {
+        "label": "Headline",
+        "placeholder": "Enter your headline here"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter your description here"
+      },
+      "buttonText": {
+        "label": "Button Text",
+        "placeholder": "Enter button text"
+      },
+      "buttonLink": {
+        "label": "Button Link",
+        "placeholder": "Enter URL"
+      },
+      "secondaryText": {
+        "label": "Secondary Text",
+        "placeholder": "Enter secondary text"
+      }
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta Title",
+    "metaDescription": "Meta Description",
+    "ogImage": "OG Image",
+    "keywords": "Keywords"
+  },
+  "code": {
+    "customHead": "Custom Head Code",
+    "customCss": "Custom CSS",
+    "customJs": "Custom JavaScript"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Om LastBot",
+  "description": "Vi är ett team av AI‑experter som gör artificiell intelligens tillgänglig och användbar för företag i alla storlekar.",
+  "about": {},
+  "news": {
+    "title": "Nyheter",
+    "viewAll": "Visa alla nyheter",
+    "readMore": "Läs mer"
+  },
+  "contact": {
+    "title": "Kontakta oss",
+    "info": {
+      "title": "Kontaktinformation"
+    },
+    "address": {
+      "title": "Adress",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Uleåborg",
+      "country": "Finland"
+    },
+    "social": {
+      "title": "Följ oss"
+    },
+    "form": {
+      "title": "Skicka ett meddelande"
+    }
+  },
+  "form": {},
+  "meta": {}
+}

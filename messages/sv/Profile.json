@@ -1,0 +1,25 @@
+{
+  "title": "Profilinställningar",
+  "description": "Hantera dina kontoinställningar och preferenser",
+  "menu": {},
+  "tabs": {
+    "general": "Allmänt",
+    "security": "Säkerhet",
+    "preferences": "Inställningar"
+  },
+  "sections": {
+    "general": {},
+    "security": {},
+    "preferences": {}
+  },
+  "fields": {
+    "username": "Användarnamn",
+    "email": "E‑post",
+    "fullName": "Fullständigt namn",
+    "fullNamePlaceholder": "Ange ditt fullständiga namn"
+  },
+  "actions": {
+    "save": "Spara ändringar"
+  },
+  "messages": {}
+}

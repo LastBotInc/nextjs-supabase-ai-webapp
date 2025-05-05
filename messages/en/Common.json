@@ -1,0 +1,6 @@
+{
+  "languageSelector": {
+    "label": "Select Language",
+    "ariaLabel": "Change website language"
+  }
+}

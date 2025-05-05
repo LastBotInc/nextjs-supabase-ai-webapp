@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "about": "About",
+  "blog": "Blog",
+  "book": "Book Appointment",
+  "admin_link": "Admin",
+  "signIn": "Sign In",
+  "signOut": "Sign Out",
+  "backToSite": "Back to Site",
+  "admin": {
+    "blog": "Blog Admin",
+    "contacts": "Contacts",
+    "analytics": "Analytics",
+    "translations": "Translations",
+    "media": "Media",
+    "users": "Users",
+    "landingPages": "Landing Pages",
+    "calendar": "Calendar"
+  },
+  "account": {
+    "title": "My Account"
+  }
+}

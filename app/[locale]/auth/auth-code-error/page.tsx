@@ -1,38 +1,53 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
-export const dynamic = 'force-dynamic'
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
-
-export default function AuthCodeError() {
+export default function AuthCodeErrorPage() {
   const t = useTranslations('Auth')
-  const pathname = usePathname()
-  const locale = pathname.split('/')[1]
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    // Extract error query parameter if present
+    const urlParams = new URLSearchParams(window.location.search)
+    const errorParam = urlParams.get('error')
+    setError(errorParam)
+  }, [])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-            {t('authError.title')}
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-            {t('authError.description')}
+    <div className="flex flex-col items-center justify-center min-h-[70vh] p-4">
+      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 className="text-2xl font-bold text-center mb-6 text-red-600 dark:text-red-400">
+          {t('authErrorTitle')}
+        </h1>
+        
+        <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-md mb-6">
+          <p className="text-center text-gray-700 dark:text-gray-300 mb-4">
+            {t('authErrorMessage')}
           </p>
+          
+          {error && (
+            <div className="text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded overflow-auto max-h-32">
+              <code className="text-red-600 dark:text-red-400 break-all">{error}</code>
+            </div>
+          )}
         </div>
-        <div className="mt-8 space-y-6">
-          <div className="text-center">
-            <Link
-              href={`${SITE_URL}/${locale}/auth/sign-in`}
-              className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              {t('authError.backToSignIn')}
-            </Link>
-          </div>
+        
+        <div className="flex flex-col gap-4">
+          <Link 
+            href="/auth/sign-in" 
+            className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-center transition-colors"
+          >
+            {t('tryAgain')}
+          </Link>
+          
+          <Link 
+            href="/" 
+            className="w-full py-2 px-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-md text-center transition-colors"
+          >
+            {t('backToHome')}
+          </Link>
         </div>
       </div>
     </div>
