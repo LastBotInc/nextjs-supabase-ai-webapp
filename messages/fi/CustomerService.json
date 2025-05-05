@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Asiakaspalvelu | Innolease",
+    "description": "Ota yhteyttä Innoleasesin asiakaspalveluun saadaksesi henkilökohtaista apua leasing- ja autokantasi hallintaan."
+  },
+  "hero": {
+    "heading": "Asiakaspalvelu",
+    "subheading": "Autamme sinua kaikissa leasing- ja autokannan hallintaan liittyvissä asioissa",
+    "backgroundAlt": "Asiakaspalvelun edustajia"
+  },
+  "intro": {
+    "title": "Kuinka voimme auttaa?",
+    "paragraph1": "Innoleasella olemme sitoutuneet tarjoamaan erinomaista asiakaspalvelua. Asiantuntijatiimimme on valmiina auttamaan sinua kaikissa ajoneuvojen leasingiin ja autokannan hallintaan liittyvissä kysymyksissä ja huolenaiheissa.",
+    "paragraph2": "Tarvitsetpa apua huoltojen aikataulutuksessa, laskutukseen liittyvissä kyselyissä tai sopimusasioissa, olemme vain puhelinsoiton tai viestin päässä."
+  },
+  "quickHelp": {
+    "title": "Pikayhteydenotto",
+    "phone": "+358 9 123 4567",
+    "email": "asiakaspalvelu@innolease.fi",
+    "hours": "Ma-Pe: 8:00 - 18:00",
+    "contactButton": "Ota yhteyttä"
+  },
+  "supportCategories": {
+    "title": "Palvelukategoriat",
+    "description": "Asiakaspalvelutiimimme on erikoistunut eri osa-alueisiin tarjotakseen asiantuntevaa apua kaikissa mahdollisissa tilanteissa.",
+    "learnMore": "Lue lisää",
+    "categories": {
+      "leasing": {
+        "title": "Leasing-tuki",
+        "description": "Saat apua sopimusehtoihin, leasingvaihtoehtoihin ja sopimusten päättymiseen liittyvissä asioissa."
+      },
+      "maintenance": {
+        "title": "Huoltopalvelut",
+        "description": "Varaa huolto, renkaanvaihto tai katsastus leasing-ajoneuvoillesi."
+      },
+      "billing": {
+        "title": "Laskutus ja maksut",
+        "description": "Apua laskutukseen, maksutapoihin ja taloudellisiin kysymyksiin."
+      },
+      "accounts": {
+        "title": "Tilin hallinta",
+        "description": "Apua InnoFleet Manager -tilisi, käyttöoikeuksien ja asetusten kanssa."
+      }
+    }
+  },
+  "offices": {
+    "title": "Toimipisteemme",
+    "description": "Käy jossakin toimipisteessämme ympäri Suomea saadaksesi henkilökohtaista palvelua.",
+    "viewMap": "Katso kartalla",
+    "helsinki": {
+      "name": "Helsingin toimisto",
+      "address": "Aleksanterinkatu 15, 00100 Helsinki",
+      "phone": "+358 9 123 4567",
+      "email": "helsinki@innolease.fi",
+      "hours": "Ma-Pe: 9:00 - 17:00"
+    },
+    "tampere": {
+      "name": "Tampereen toimisto",
+      "address": "Hämeenkatu 10, 33200 Tampere",
+      "phone": "+358 3 456 7890",
+      "email": "tampere@innolease.fi",
+      "hours": "Ma-Pe: 9:00 - 16:00"
+    },
+    "oulu": {
+      "name": "Oulun toimisto",
+      "address": "Isokatu 35, 90100 Oulu",
+      "phone": "+358 8 789 0123",
+      "email": "oulu@innolease.fi",
+      "hours": "Ma-Pe: 9:00 - 16:00"
+    }
+  },
+  "contactForm": {
+    "title": "Ota yhteyttä",
+    "description": "Täytä alla oleva lomake, ja tiimimme ottaa sinuun yhteyttä mahdollisimman pian.",
+    "formTitle": "Yhteydenottolomake",
+    "firstName": "Etunimi",
+    "lastName": "Sukunimi",
+    "email": "Sähköpostiosoite",
+    "phone": "Puhelinnumero",
+    "subject": "Aihe",
+    "selectSubject": "Valitse aihe",
+    "subjects": {
+      "leasing": "Leasing-tiedustelu",
+      "maintenance": "Huoltopalvelu",
+      "billing": "Laskutuskysymys",
+      "other": "Muu asia"
+    },
+    "message": "Viestisi",
+    "privacyConsent": "Hyväksyn, että Innolease käsittelee tietojani tietosuojakäytännön mukaisesti.",
+    "submit": "Lähetä viesti",
+    "faq": {
+      "question1": "Mitä tietoja kannattaa olla valmiina ottaessani yhteyttä asiakaspalveluun?",
+      "answer1": "On hyödyllistä, jos sinulla on sopimusnumero, ajoneuvon tiedot ja mahdollisesti tarvittavat asiakirjat valmiina nopeuttaaksesi palvelua.",
+      "question2": "Kuinka nopeasti voin odottaa vastausta kyselyyni?",
+      "answer2": "Pyrimme vastaamaan kaikkiin tiedusteluihin arkipäivisin 24 tunnin kuluessa. Kiireelliset asiat priorisoidaan ja hoidetaan tyypillisesti muutaman tunnin sisällä.",
+      "question3": "Voinko varata huollon asiakaspalvelun kautta?",
+      "answer3": "Kyllä, asiakaspalvelutiimimme auttaa sinua varaamaan huoltopalveluja, renkaanvaihtoja ja katsastuksia leasing-ajoneuvoillesi yhteistyökumppaneidemme huoltopisteissä."
+    }
+  },
+  "cta": {
+    "title": "Valmiina optimoimaan autokannan hallintaa?",
+    "description": "Tutustu, kuinka autokannan hallintaratkaisumme voivat säästää yrityksesi aikaa ja kustannuksia.",
+    "backgroundAlt": "Yritysajoneuvojen autokanta",
+    "fleetButton": "Tutustu autokantaratkaisuihin",
+    "leasingButton": "Katso leasing-vaihtoehdot"
+  }
+} 

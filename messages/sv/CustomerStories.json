@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Kundberättelser | Innolease",
+    "description": "Upptäck hur företag i hela Finland har optimerat sin fordonsadministration och minskat kostnaderna med Innoleases leasinglösningar."
+  },
+  "hero": {
+    "heading": "Kundernas framgångshistorier",
+    "subheading": "Verkliga företag som uppnår verkliga resultat med Innoleases lösningar"
+  },
+  "featured": {
+    "label": "Utvald berättelse",
+    "company": "Nordic Logistics AB",
+    "title": "Hur Nordic Logistics minskade flottkostnaderna med 22% med Innolease",
+    "summary": "Nordic Logistics samarbetade med Innolease för att optimera sin flotta med 120 fordon, vilket resulterade i betydande kostnadsbesparingar och förbättrad driftseffektivitet.",
+    "quote": "Övergången till Innoleases fordonsadministrationslösning var sömlös. Enbart datainsikterna har förändrat hur vi fattar beslut om vår fordonsflotta.",
+    "personName": "Maria Korhonen",
+    "personTitle": "Flottoperativ direktör, Nordic Logistics",
+    "readMore": "Läs hela berättelsen",
+    "results": {
+      "stat1": "22%",
+      "label1": "Kostnadsminskning",
+      "stat2": "15%",
+      "label2": "Förbättrad bränsleeffektivitet",
+      "stat3": "4.8/5",
+      "label3": "Förarbelåtenhet"
+    }
+  },
+  "testimonial": {
+    "quote": "Innolease förvandlade vår fordonsadministration från en komplex börda till en strategisk fördel. Deras digitala verktyg och proaktiva service har varit avgörande för vår verksamhet.",
+    "author": "Henrik Virtanen",
+    "position": "COO, TechFinland Solutions"
+  },
+  "storiesSection": {
+    "title": "Fler kundberättelser",
+    "description": "Upptäck hur företag av alla storlekar och branscher har dragit nytta av våra skräddarsydda leasinglösningar.",
+    "loadMore": "Ladda fler berättelser"
+  },
+  "stories": {
+    "readMore": "Läs hela berättelsen",
+    "story1": {
+      "company": "TechFinland Solutions",
+      "title": "Digital transformation av flottstyring",
+      "industry": "Teknologi",
+      "excerpt": "TechFinland Solutions implementerade Innoleases InnoFleet Manager för att digitalisera sina fordonshanteringsprocesser, vilket resulterade i effektivare verksamhet och betydande kostnadsbesparingar."
+    },
+    "story2": {
+      "company": "EcoConstruct AB",
+      "title": "Bygga en hållbar fordonsflotta",
+      "industry": "Bygg",
+      "excerpt": "EcoConstruct övergick till elfordon genom Innoleases flexibla leasingalternativ, vilket minskade deras koldioxidavtryck samtidigt som de behöll sin operativa kapacitet."
+    },
+    "story3": {
+      "company": "Nordic Healthcare Group",
+      "title": "Tillförlitlig mobilitet för kritiska tjänster",
+      "industry": "Sjukvård",
+      "excerpt": "Nordic Healthcare Group förlitar sig på Innolease för att säkerställa att deras vårdgivare alltid har tillförlitlig transport, med specialanpassade fordon och underhållstjänster."
+    },
+    "story4": {
+      "company": "Fresh Delivery Express",
+      "title": "Skalning av flottstorlek med affärstillväxt",
+      "industry": "Logistik",
+      "excerpt": "När Fresh Delivery Express expanderade sin verksamhet tillhandahöll Innolease skalbara flottlösningar som gjorde det möjligt för dem att justera fordonskapaciteten efter säsongsbehov."
+    },
+    "story5": {
+      "company": "Retail Innovators AB",
+      "title": "Optimering av kostnad per kilometer",
+      "industry": "Detaljhandel",
+      "excerpt": "Retail Innovators samarbetade med Innolease för att analysera och optimera sina leveransrutter och fordonsval, vilket minskade deras kostnad per kilometer med 18%."
+    },
+    "story6": {
+      "company": "Arctic Tours",
+      "title": "Specialfordon för unika förhållanden",
+      "industry": "Turism",
+      "excerpt": "Arctic Tours samarbetade med Innolease för att hitta och underhålla specialfordon som kan prestera i extrema nordliga förhållanden för deras turistverksamhet."
+    }
+  },
+  "filters": {
+    "industryLabel": "Filtrera efter bransch",
+    "sortLabel": "Sortera efter",
+    "industries": {
+      "all": "Alla branscher",
+      "logistics": "Logistik",
+      "manufacturing": "Tillverkning",
+      "services": "Tjänster",
+      "retail": "Detaljhandel",
+      "construction": "Bygg"
+    },
+    "sortOptions": {
+      "newest": "Nyaste först",
+      "oldest": "Äldsta först",
+      "company": "Företagsnamn"
+    }
+  },
+  "cta": {
+    "title": "Redo att skriva din framgångshistoria?",
+    "description": "Gå med i det växande antalet företag som har transformerat sin fordonsadministration med Innoleases lösningar.",
+    "backgroundAlt": "Flotta av moderna företagsfordon",
+    "contactButton": "Kontakta oss",
+    "leasingButton": "Utforska leasinglösningar"
+  }
+} 

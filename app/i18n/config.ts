@@ -112,7 +112,10 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
       'Media',
       'Profile',
       'Security',
-      'User'
+      'User',
+      'CustomerService',
+      'CarBenefitCalculator',
+      'CustomerStories'
     ];
     
     for (const namespace of commonNamespaces) {

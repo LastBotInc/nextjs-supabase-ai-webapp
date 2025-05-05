@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Kundtjänst | Innolease",
+    "description": "Kontakta Innoleases kundtjänst för personlig hjälp med dina leasing- och fordonsadministrationsbehov."
+  },
+  "hero": {
+    "heading": "Kundtjänst",
+    "subheading": "Vi hjälper dig med alla dina leasing- och fordonsadministrationsbehov",
+    "backgroundAlt": "Kundtjänstrepresentanter"
+  },
+  "intro": {
+    "title": "Hur kan vi hjälpa dig?",
+    "paragraph1": "På Innolease är vi engagerade i att erbjuda exceptionell kundservice. Vårt team av experter är redo att hjälpa dig med alla frågor eller funderingar gällande dina fordonsleasing-arrangemang och fordonsadministration.",
+    "paragraph2": "Oavsett om du behöver hjälp med att schemalägga underhåll, fakturafrågor eller avtalsinformation, är vi bara ett telefonsamtal eller meddelande bort."
+  },
+  "quickHelp": {
+    "title": "Snabbhjälp",
+    "phone": "+358 9 123 4567",
+    "email": "kundtjanst@innolease.fi",
+    "hours": "Mån-Fre: 8:00 - 18:00",
+    "contactButton": "Kontakta oss"
+  },
+  "supportCategories": {
+    "title": "Supportkategorier",
+    "description": "Vårt kundtjänstteam är specialiserat inom olika områden för att ge dig experthjälp för alla problem du kan stöta på.",
+    "learnMore": "Läs mer",
+    "categories": {
+      "leasing": {
+        "title": "Leasingsupport",
+        "description": "Få hjälp med avtalsvillkor, leasingalternativ och arrangemang vid leasingperiodens slut."
+      },
+      "maintenance": {
+        "title": "Underhållstjänster",
+        "description": "Planera underhåll, däckbyten eller besiktningar för dina leasade fordon."
+      },
+      "billing": {
+        "title": "Fakturering & Betalningar",
+        "description": "Hjälp med fakturor, betalningsalternativ och ekonomiska frågor."
+      },
+      "accounts": {
+        "title": "Kontohantering",
+        "description": "Hjälp med ditt InnoFleet Manager-konto, användaråtkomst och inställningar."
+      }
+    }
+  },
+  "offices": {
+    "title": "Våra kontor",
+    "description": "Besök oss på något av våra kontor i Finland för personlig hjälp.",
+    "viewMap": "Visa på karta",
+    "helsinki": {
+      "name": "Helsingforskontoret",
+      "address": "Aleksanterinkatu 15, 00100 Helsingfors",
+      "phone": "+358 9 123 4567",
+      "email": "helsinki@innolease.fi",
+      "hours": "Mån-Fre: 9:00 - 17:00"
+    },
+    "tampere": {
+      "name": "Tammerforskontoret",
+      "address": "Hämeenkatu 10, 33200 Tammerfors",
+      "phone": "+358 3 456 7890",
+      "email": "tampere@innolease.fi",
+      "hours": "Mån-Fre: 9:00 - 16:00"
+    },
+    "oulu": {
+      "name": "Uleåborgskontoret",
+      "address": "Isokatu 35, 90100 Uleåborg",
+      "phone": "+358 8 789 0123",
+      "email": "oulu@innolease.fi",
+      "hours": "Mån-Fre: 9:00 - 16:00"
+    }
+  },
+  "contactForm": {
+    "title": "Kontakta oss",
+    "description": "Fyll i formuläret nedan, så återkommer vårt team till dig så snart som möjligt.",
+    "formTitle": "Kontaktformulär",
+    "firstName": "Förnamn",
+    "lastName": "Efternamn",
+    "email": "E-postadress",
+    "phone": "Telefonnummer",
+    "subject": "Ämne",
+    "selectSubject": "Välj ett ämne",
+    "subjects": {
+      "leasing": "Leasingförfrågan",
+      "maintenance": "Underhållstjänst",
+      "billing": "Faktureringsfråga",
+      "other": "Annat"
+    },
+    "message": "Ditt meddelande",
+    "privacyConsent": "Jag godkänner att Innolease hanterar mina uppgifter enligt integritetspolicyn.",
+    "submit": "Skicka meddelande",
+    "faq": {
+      "question1": "Vilken information bör jag ha tillgänglig när jag kontaktar kundtjänst?",
+      "answer1": "Det är bra att ha ditt avtalsnummer, fordonsuppgifter och eventuell relevant dokumentation redo när du kontaktar oss för snabbare hjälp.",
+      "question2": "Hur snabbt kan jag förvänta mig ett svar på min förfrågan?",
+      "answer2": "Vi strävar efter att svara på alla förfrågningar inom 24 timmar under arbetsdagar. Brådskande ärenden prioriteras och hanteras vanligtvis inom några timmar.",
+      "question3": "Kan jag boka underhåll genom kundtjänst?",
+      "answer3": "Ja, vårt kundtjänstteam kan hjälpa dig att boka underhållstjänster, däckbyten och besiktningar för dina leasade fordon hos våra servicepartners."
+    }
+  },
+  "cta": {
+    "title": "Redo att optimera din fordonsflotta?",
+    "description": "Upptäck hur våra lösningar för fordonsadministration kan hjälpa ditt företag att spara tid och minska kostnader.",
+    "backgroundAlt": "Flotta av företagsfordon",
+    "fleetButton": "Utforska flottalösningar",
+    "leasingButton": "Visa leasingalternativ"
+  }
+} 

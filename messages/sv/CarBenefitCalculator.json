@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Bilförmånskalkylator | Innolease",
+    "description": "Beräkna och jämför bilförmånsalternativ för ditt företags fordon. Hitta den mest kostnadseffektiva leasinglösningen för ditt företags behov."
+  },
+  "hero": {
+    "heading": "Bilförmånskalkylator",
+    "subheading": "Beräkna och jämför olika bilförmånsalternativ för att hitta den mest kostnadseffektiva lösningen för ditt företag",
+    "backgroundAlt": "Affärsmän som granskar bilförmånsalternativ"
+  },
+  "intro": {
+    "title": "Optimera ditt företags bilförmåner",
+    "description": "Använd vår kalkylator för att jämföra fri bilförmån, begränsad bilförmån och kilometerersättning. Fatta välgrundade beslut om ditt företags fordonspolicy baserat på exakta data.",
+    "getStarted": "Börja beräkna"
+  },
+  "calculator": {
+    "title": "Bilförmånskalkylator",
+    "description": "Justera parametrarna nedan för att se hur olika alternativ påverkar kostnader för både arbetsgivare och anställd. Kalkylatorn ger realtidsjämförelser baserade på aktuella skattebestämmelser.",
+    "selectBenefitType": "Välj förmånstyp",
+    "tabs": {
+      "free": "Fri bilförmån",
+      "limited": "Begränsad bilförmån"
+    },
+    "parameters": {
+      "title": "Indata",
+      "carValue": "Bilens värde (€)",
+      "annualDriving": "Årlig körsträcka (km)",
+      "homeToWork": "Avstånd hem till arbete (km)",
+      "monthlyCost": "Månadskostnad (€)",
+      "fuelCost": "Bränslepris (€/liter)",
+      "fuelConsumption": "Bränsleförbrukning (l/100km)"
+    },
+    "results": {
+      "title": "Resultat",
+      "monthlyTitle": "Månadskostnader",
+      "annualTitle": "Årskostnader",
+      "employerCost": "Arbetsgivarkostnad",
+      "employeeCost": "Anställdkostnad",
+      "totalCost": "Total kostnad",
+      "comparisonTitle": "Kostnadsjämförelse",
+      "savingsTitle": "Potentiella besparingar",
+      "recommendation": "Rekommendation",
+      "taxBenefit": "Skattepliktig förmån",
+      "fuelCosts": "Bränslekostnader",
+      "maintenanceCosts": "Underhållskostnader",
+      "insuranceCosts": "Försäkringskostnader",
+      "taxImpact": "Skatteeffekt",
+      "netCost": "Nettomånadskostnad"
+    },
+    "freeBenefit": {
+      "description": "Fri bilförmån innebär att arbetsgivaren betalar alla kostnader relaterade till bilen, inklusive bränsle för privat bruk.",
+      "advantages": "Fördelar",
+      "advantage1": "Förenklad utgiftshantering",
+      "advantage2": "Förutsägbara månadskostnader",
+      "advantage3": "Inget behov av att spåra privat vs. tjänstekörning",
+      "considerations": "Att tänka på",
+      "consideration1": "Högre skattepliktig förmån för den anställde",
+      "consideration2": "Kanske inte kostnadseffektivt vid låg årlig körsträcka",
+      "consideration3": "Mindre incitament för bränsleeffektiva körvanor"
+    },
+    "limitedBenefit": {
+      "description": "Begränsad bilförmån innebär att arbetsgivaren tillhandahåller bilen, men den anställde betalar för bränsle som används vid privatkörning.",
+      "advantages": "Fördelar",
+      "advantage1": "Lägre skattepliktig förmån för den anställde",
+      "advantage2": "Ofta mer kostnadseffektivt totalt sett",
+      "advantage3": "Uppmuntrar till bränsleeffektiv körning",
+      "considerations": "Att tänka på",
+      "consideration1": "Kräver spårning av tjänste- vs. privatkörning",
+      "consideration2": "Mindre förutsägbara kostnader för den anställde",
+      "consideration3": "Mer komplex utgiftshantering"
+    },
+    "kmAllowance": {
+      "title": "Kilometerersättning",
+      "description": "Istället för en tjänstebil använder anställda sin egen bil och får skattefri kilometerersättning för tjänsteresor.",
+      "rate": "Aktuell taxa: 0,53 €/km för de första 5 000 km, därefter 0,48 €/km",
+      "advantages": "Fördelar",
+      "advantage1": "Enkel administrativ lösning",
+      "advantage2": "Ingen skattepliktig förmån för anställda",
+      "advantage3": "Flexibilitet i fordonsvalet för anställda",
+      "considerations": "Att tänka på",
+      "consideration1": "Kräver detaljerad registrering av tjänsteresor",
+      "consideration2": "Totalkostnaderna kan bli högre vid omfattande tjänsteresor",
+      "consideration3": "Den anställde bär risken för fordonsägande"
+    }
+  },
+  "optimizationTips": {
+    "title": "Optimeringstips",
+    "tip1": {
+      "title": "Välj el- eller hybridfordon",
+      "description": "Lägre beskattningsvärden och minskade driftskostnader gör el- och hybridfordon till ett utmärkt val för företags bilflottor."
+    },
+    "tip2": {
+      "title": "Matcha bilen till faktiska behov",
+      "description": "Välj fordon som matchar faktiska verksamhetsbehov istället för att välja prestigemodeller med onödiga funktioner."
+    },
+    "tip3": {
+      "title": "Beakta årlig körsträcka",
+      "description": "För anställda med hög årlig körsträcka blir fri bilförmån ofta mer kostnadseffektiv än begränsad förmån."
+    },
+    "tip4": {
+      "title": "Implementera tydliga policyer",
+      "description": "Skapa tydliga tjänstebilspolicyer som hjälper till att optimera kostnader samtidigt som de uppfyller de anställdas behov."
+    }
+  },
+  "taxInfo": {
+    "title": "Skatteinformation",
+    "description": "Aktuella regler för bilförmånsbeskattning i Finland för 2023-2024. Dessa värden används i kalkylatorns beräkningar.",
+    "disclaimer": "Observera: För exakt skatteplanering, konsultera alltid en skatteexpert eftersom reglerna kan ändras.",
+    "freeBenefit": {
+      "title": "Fri bilförmån",
+      "formula": "Månatligt beskattningsvärde = Grundvärde + 1,4% av återanskaffningspriset",
+      "baseValues": "Grundvärden (2023):",
+      "ageGroups": {
+        "group1": "Åldersgrupp A (2021-2023): 300 €/månad",
+        "group2": "Åldersgrupp B (2018-2020): 315 €/månad",
+        "group3": "Åldersgrupp C (2015-2017): 330 €/månad"
+      }
+    },
+    "limitedBenefit": {
+      "title": "Begränsad bilförmån",
+      "formula": "Månatligt beskattningsvärde = Grundvärde + 1,4% av återanskaffningspriset - bränslekostnadsjustering",
+      "baseValues": "Grundvärden (2023):",
+      "ageGroups": {
+        "group1": "Åldersgrupp A (2021-2023): 135 €/månad",
+        "group2": "Åldersgrupp B (2018-2020): 150 €/månad",
+        "group3": "Åldersgrupp C (2015-2017): 165 €/månad"
+      }
+    },
+    "electricVehicles": {
+      "title": "Elfordon",
+      "description": "För helelektriska fordon (BEV) reduceras det beskattningsbara värdet med 170 €/månad (2023)."
+    }
+  },
+  "cta": {
+    "title": "Redo att optimera din företagsbilsstrategi?",
+    "description": "Våra fordonsförvaltningsexperter kan hjälpa dig att implementera den mest kostnadseffektiva bilförmånsstrukturen baserad på ditt företags specifika behov.",
+    "contactButton": "Kontakta våra experter",
+    "learnMoreButton": "Läs om våra leasinglösningar"
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "questions": {
+      "question1": "Vad är skillnaden mellan fri och begränsad bilförmån?",
+      "answer1": "Med fri bilförmån täcker arbetsgivaren alla bilrelaterade kostnader inklusive bränsle för privat bruk. Med begränsad bilförmån betalar den anställde för bränslet som används vid privat körning. Detta resulterar i olika skattekonsekvenser och kostnadsstrukturer.",
+      "question2": "Hur exakta är beräkningarna?",
+      "answer2": "Kalkylatorn använder aktuella finska skattebestämmelser och standardkostnadsuppskattningar. Även om den ger en bra uppskattning kan faktiska kostnader variera baserat på specifika omständigheter. För exakt ekonomisk planering, konsultera våra leasingexperter.",
+      "question3": "Kan jag använda denna kalkylator för elfordon?",
+      "answer3": "Ja, kalkylatorn tar hänsyn till de särskilda skatteförmånerna för elfordon i Finland. När du beräknar för elfordon, justera bränsleförbrukningen för att representera elkostnader per km.",
+      "question4": "Hur ofta uppdateras skattevärdena?",
+      "answer4": "Vi uppdaterar vår kalkylator när den finska Skatteförvaltningen publicerar nya bilförmånsvärden, vanligtvis årligen. Den nuvarande kalkylatorn återspeglar värdena för 2023-2024."
+    }
+  }
+} 
