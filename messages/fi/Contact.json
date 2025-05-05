@@ -1,22 +1,41 @@
 {
-  "info": {},
-  "address": {},
-  "social": {},
+  "title": "Ota yhteyttä",
+  "description": "Ota meihin yhteyttä. Kuulemme mielellämme sinusta ja keskustelemme, kuinka voimme auttaa yritystäsi tekoälyn käyttöönotossa.",
+  "info": {
+    "title": "Yhteystiedot"
+  },
+  "address": {
+    "title": "Osoite",
+    "street": "Kimmeltie 10",
+    "postal": "90630 Oulu",
+    "country": "Suomi"
+  },
+  "website": "Verkkosivusto",
+  "email": "Sähköposti",
+  "social": {
+    "title": "Seuraa meitä"
+  },
   "form": {
-    "description": "Täytä lomake, niin otamme yhteyttä mahdollisimman pian.",
+    "title": "Lähetä meille viesti",
+    "description": "Täytä alla oleva lomake, niin palaamme asiaan mahdollisimman pian.",
     "name": "Nimi",
     "email": "Sähköposti",
     "company": "Yritys",
+    "message": "Viesti",
     "submit": "Lähetä viesti",
     "submitting": "Lähetetään...",
     "success": {
       "title": "Viesti lähetetty",
-      "message": "Kiitos viestistäsi. Palaamme pian."
+      "message": "Kiitos viestistäsi. Otamme sinuun pian yhteyttä."
     },
     "error": {
-      "captcha": "Täytä captcha‑varmennus.",
-      "captchaValidation": "Captcha‑varmennus epäonnistui. Yritä uudelleen."
+      "captcha": "Ole hyvä ja suorita captcha-varmennus.",
+      "captchaValidation": "Captchan vahvistus epäonnistui. Yritä uudelleen.",
+      "general": "Viestin lähetys epäonnistui. Yritä uudelleen."
     },
-    "meta": {}
+    "meta": {
+      "title": "Yhteystiedot | Innolease - Leasing & Kalustonhallinta",
+      "description": "Ota yhteyttä Innoleaseen keskustellaksesi leasingtarpeistasi. Varaa tapaaminen, etsi toimipisteemme tai ota yhteyttä tukeen."
+    }
   }
 }

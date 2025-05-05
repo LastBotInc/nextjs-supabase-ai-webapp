@@ -1,25 +1,56 @@
 {
   "title": "Profile Settings",
   "description": "Manage your account settings and preferences",
-  "menu": {},
+  "menu": {
+    "title": "Profile Menu",
+    "general": "General Settings",
+    "security": "Security & Privacy",
+    "preferences": "Preferences",
+    "backToSite": "Back to Site"
+  },
   "tabs": {
     "general": "General",
     "security": "Security",
     "preferences": "Preferences"
   },
   "sections": {
-    "general": {},
-    "security": {},
-    "preferences": {}
+    "general": {
+      "title": "General Information",
+      "description": "Manage your basic profile information"
+    },
+    "security": {
+      "title": "Security Settings",
+      "description": "Manage your account security and privacy settings"
+    },
+    "preferences": {
+      "title": "User Preferences",
+      "description": "Customize your experience"
+    }
   },
   "fields": {
     "username": "Username",
     "email": "Email",
     "fullName": "Full Name",
-    "fullNamePlaceholder": "Enter your full name"
+    "fullNamePlaceholder": "Enter your full name",
+    "language": "Preferred Language",
+    "theme": "Theme Preference",
+    "notifications": "Email Notifications",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password"
   },
   "actions": {
-    "save": "Save Changes"
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "changePassword": "Change Password",
+    "updateEmail": "Update Email",
+    "enable2FA": "Enable Two-Factor Authentication",
+    "disable2FA": "Disable Two-Factor Authentication"
   },
-  "messages": {}
+  "messages": {
+    "saved": "Changes saved successfully",
+    "error": "An error occurred while saving changes",
+    "passwordChanged": "Password updated successfully",
+    "emailChanged": "Email updated successfully"
+  }
 }

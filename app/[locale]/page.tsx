@@ -21,21 +21,22 @@ type Props = {
   }
 }
 
-export async function generateMetadata({ params }: Props) {
-  const { locale } = params
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   await setupServerLocale(locale)
-  const t = await getTranslations({ locale, namespace: 'home.meta' })
+  const tMeta = await getTranslations({ locale, namespace: 'Home.meta' })
   
   return {
-    title: t('title'),
-    description: t('description'),
+    title: tMeta('title'),
+    description: tMeta('description'),
   }
 }
 
 export default async function Page({ params }: Props) {
-  const locale = params.locale
+  const { locale } = await params;
   await setupServerLocale(locale)
-  const t = await getTranslations({ locale, namespace: 'home' })
+  const t = await getTranslations({ locale, namespace: 'Home' })
+  const tCommon = await getTranslations({ locale, namespace: 'Common' })
 
   // Fetch the latest 3 news blog posts
   const supabase = await createClient()
@@ -134,7 +135,7 @@ export default async function Page({ params }: Props) {
               <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.fleetManagerTools")}</h3>
               <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
               <div className="mt-auto text-sm font-medium flex items-center">
-                {t("common.learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
+                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
               </div>
             </div>
           </Link>
@@ -147,7 +148,7 @@ export default async function Page({ params }: Props) {
               <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.carCalculator")}</h3>
               <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
               <div className="mt-auto text-sm font-medium flex items-center">
-                {t("common.learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
+                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
               </div>
             </div>
           </Link>
@@ -160,7 +161,7 @@ export default async function Page({ params }: Props) {
               <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.companyCarGuide")}</h3>
               <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
               <div className="mt-auto text-sm font-medium flex items-center">
-                {t("common.learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
+                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
               </div>
             </div>
           </Link>

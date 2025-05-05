@@ -1,14 +1,19 @@
 {
+  "title": "Admin",
   "analytics": {
-    "title": "Analysdashboard",
+    "title": "Analysöversikt",
     "tabs": {
       "pageViews": "Sidvisningar",
-      "topPages": "Toppsidor"
+      "topPages": "Topp-sidor"
     },
-    "cards": {},
+    "cards": {
+      "activeSessions": "Aktiva sessioner",
+      "pageViews": "Sidvisningar (senaste 7 dagarna)",
+      "topPages": "Topp-sidor (senaste 30 dagarna)"
+    },
     "error": {
       "title": "Analysfel",
-      "description": "Kunde inte ladda analysdata. Försök igen.",
+      "description": "Ett problem uppstod när analysdata skulle laddas. Försök igen.",
       "retry": "Försök igen"
     }
   },
@@ -18,7 +23,7 @@
       "date": "Datum",
       "name": "Namn",
       "company": "Företag",
-      "email": "E‑post",
+      "email": "E-post",
       "description": "Meddelande",
       "status": "Status",
       "actions": "Åtgärder"
@@ -29,14 +34,24 @@
       "completed": "Avslutad",
       "archived": "Arkiverad"
     },
-    "delete": "Radera",
-    "deleteConfirmation": "Är du säker på att du vill radera denna kontakt? Detta kan inte ångras.",
+    "delete": "Ta bort",
+    "deleteConfirmation": "Är du säker på att du vill ta bort denna kontakt? Detta kan inte ångras.",
     "loading": "Laddar kontakter...",
     "retry": "Försök igen"
   },
   "translations": {
-    "shortcuts": {},
-    "table": {},
+    "title": "Översättningar",
+    "description": "Hantera översättningar för alla stödda språk",
+    "shortcuts": {
+      "title": "Tangentbordsgenvägar",
+      "enter": "Tryck på Enter för att redigera",
+      "save": "Tryck på Ctrl/Cmd + Enter för att spara",
+      "cancel": "Tryck på Escape för att avbryta"
+    },
+    "table": {
+      "namespace": "Namnrymd",
+      "key": "Nyckel"
+    },
     "editor": {
       "save": "Spara",
       "saving": "Sparar...",
@@ -44,100 +59,144 @@
       "edit": "Klicka för att redigera",
       "empty": "Tom",
       "placeholder": "Ange översättning",
-      "success": "Översättningen sparad",
-      "error": "Kunde inte spara översättningen",
+      "success": "Översättning sparad",
+      "error": "Det gick inte att spara översättningen",
       "generate": "Generera översättning med AI"
     },
     "languages": {
       "title": "Språk",
       "addButton": "Lägg till språk",
       "enabled": "Aktiverad",
-      "disabled": "Avaktiverad",
+      "disabled": "Inaktiverad",
       "form": {
         "code": "Språkkod",
+        "name": "Engelskt namn",
+        "nativeName": "Namn på det egna språket",
+        "codeHelp": "Tvåbokstavskod (t.ex. en, fi)",
         "add": "Lägg till språk",
         "cancel": "Avbryt",
-        "select": "Välj språk..."
+        "select": "Välj ett språk...",
+        "generating": "Genererar översättningar..."
       },
-      "addSuccess": "Språk tillagt",
-      "addError": "Kunde inte lägga till språk",
-      "enableSuccess": "Språk aktiverat",
-      "disableSuccess": "Språk avaktiverat",
-      "updateError": "Kunde inte uppdatera språk",
-      "translationSuccess": "Översättningar genererades",
-      "translationError": "Vissa översättningar misslyckades",
+      "addSuccess": "Språket lades till framgångsrikt",
+      "addError": "Det gick inte att lägga till språket",
+      "enableSuccess": "Språket aktiverades",
+      "disableSuccess": "Språket inaktiverades",
+      "updateError": "Det gick inte att uppdatera språket",
+      "translationSuccess": "Översättningar skapades framgångsrikt",
+      "translationError": "Vissa översättningar kunde inte skapas",
       "remove": "Ta bort",
       "removing": "Tar bort...",
-      "removeSuccess": "Språk borttaget",
-      "removeError": "Kunde inte ta bort språk",
+      "removeSuccess": "Språket togs bort framgångsrikt",
+      "removeError": "Det gick inte att ta bort språket",
       "removeConfirmTitle": "Ta bort språk",
-      "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Alla översättningar kommer tas bort. Detta kan inte ångras.",
-      "removeConfirm": "Ja, ta bort språk"
+      "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Detta tar bort alla översättningar för språket. Denna åtgärd kan inte ångras.",
+      "removeConfirm": "Ja, ta bort språket"
     },
     "search": {
-      "placeholder": "Sök översättningar..."
+      "placeholder": "Sök efter översättningar..."
     },
     "generating": "Genererar översättningar..."
   },
   "users": {
     "title": "Användarhantering",
-    "email": "E‑post",
+    "email": "E-post",
     "id": "ID",
     "created": "Skapad",
     "lastSignIn": "Senaste inloggning",
     "never": "Aldrig",
     "loading": "Laddar användare...",
+    "error": "Det gick inte att ladda användare",
     "retry": "Försök igen",
     "previous": "Föregående",
     "next": "Nästa",
     "page": "Sida"
   },
-  "seo": {},
-  "code": {},
+  "editor": {
+    "title": "Landningssidoredigerare",
+    "tabs": {
+      "content": "Innehåll",
+      "seo": "SEO-inställningar",
+      "code": "Anpassad kod",
+      "analytics": "Analys"
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta-titel",
+    "metaDescription": "Meta-beskrivning",
+    "ogImage": "OG-bild",
+    "keywords": "Nyckelord",
+    "canonicalUrl": "Kanonisk URL"
+  },
+  "code": {
+    "customHead": "Anpassad Head-kod",
+    "customCss": "Anpassad CSS",
+    "customJs": "Anpassad JavaScript"
+  },
   "calendar": {
     "title": "Kalenderhantering",
     "description": "Hantera bokningsbara tider och inställningar",
     "loading": "Laddar kalender...",
     "tabs": {
-      "calendar": "Kalender & Slots",
+      "calendar": "Kalender & tider",
       "settings": "Inställningar",
-      "appointmentTypes": "Bokningstyper"
+      "appointmentTypes": "Typer av bokningar"
     },
     "slots": {
       "loading": "Laddar tider...",
-      "availableSlots": "Lediga tider",
+      "timeSlots": "Tillgängliga tidsluckor",
+      "availableSlots": "Tillgängliga tider",
       "createSlots": "Skapa nya tider",
-      "noSlots": "Inga lediga tider för valt datum",
+      "noSlots": "Inga tillgängliga tider för detta datum",
+      "title": "Tidsluckor",
       "selectDate": "Välj datum",
       "startDate": "Startdatum",
-      "cancel": "Avbryt tid",
+      "cancel": "Avboka tid",
       "endDate": "Slutdatum",
       "create": "Skapa tider",
       "creating": "Skapar tider...",
-      "slotDuration": "Tidslängd (minuter)",
+      "availableHours": "Tillgängliga timmar",
+      "unavailableDates": "Ej tillgängliga datum",
+      "slotDuration": "Varaktighet (minuter)",
       "bookedSlots": "Bokade tider",
-      "cancelBooking": "Avbryt bokning",
+      "cancelBooking": "Avboka",
       "slots": "Tider",
-      "status": {},
+      "status": {
+        "available": "Tillgänglig",
+        "booked": "Bokad",
+        "cancelled": "Avbokad"
+      },
       "actions": {
-        "generate": "Generera lediga tider",
-        "generating": "Genererar tider..."
+        "cancel": "Avbryt",
+        "generate": "Generera tillgängliga tider",
+        "generating": "Genererar tider...",
+        "success": "Tider skapade",
+        "error": "Det gick inte att generera tider"
       }
     },
     "settings": {
       "endTime": "Sluttid",
       "startTime": "Starttid",
       "loading": "Laddar inställningar...",
+      "title": "Kalenderinställningar",
       "timezone": "Tidszon",
-      "defaultDuration": "Standardlängd",
-      "bufferBefore": "Buffert före",
+      "defaultDuration": "Standardlängd för bokning",
+      "durationError": "Varaktigheten måste vara minst 15 minuter",
+      "bufferTime": "Bufferttid",
+      "bufferBefore": "Buffert innan",
       "bufferAfter": "Buffert efter",
       "saving": "Sparar inställningar...",
+      "saved": "Inställningar sparade",
+      "error": "Det gick inte att spara inställningarna",
+      "before": "Innan",
+      "after": "Efter",
       "save": "Spara inställningar",
+      "saveSuccess": "Inställningarna sparades framgångsrikt",
+      "saveError": "Det gick inte att spara inställningarna",
       "remove": "Ta bort",
-      "noWorkingDays": "Inga arbetsdagar valda. Klicka 'Lägg till arbetsdag' för att ange öppettider.",
+      "noWorkingDays": "Inga arbetsdagar valda. Klicka på 'Lägg till arbetsdag' för att lägga till tillgängliga timmar.",
       "addWorkingDay": "Lägg till arbetsdag",
-      "updateSuccess": "Inställningarna uppdaterades",
+      "updateSuccess": "Inställningarna uppdaterades framgångsrikt",
       "workingHours": "Arbetstider",
       "day": "Dag",
       "days": {
@@ -152,17 +211,19 @@
     },
     "appointmentTypes": {
       "createNew": "Skapa ny bokningstyp",
+      "existingTypes": "Befintliga bokningstyper",
+      "loading": "Laddar bokningstyper...",
       "noTypes": "Du har inte skapat några bokningstyper ännu",
       "form": {
         "name": "Namn",
         "description": "Beskrivning",
-        "duration": "Längd (minuter)",
-        "isFree": "Gratis bokning",
-        "price": "Pris (kr)",
+        "duration": "Varaktighet (minuter)",
+        "isFree": "Detta är en kostnadsfri bokningstyp",
+        "price": "Pris ($)",
         "create": "Skapa bokningstyp",
         "creating": "Skapar...",
         "edit": "Redigera bokningstyp",
-        "delete": "Radera bokningstyp",
+        "delete": "Ta bort bokningstyp",
         "isActive": "Aktiv",
         "slug": "Slug"
       },
@@ -170,7 +231,9 @@
         "active": "Aktiv",
         "inactive": "Inaktiv"
       },
+      "duration": "Varaktighet",
       "minutes": "minuter",
+      "price": "Pris",
       "free": "Gratis",
       "viewBookingPage": "Visa bokningssida"
     }

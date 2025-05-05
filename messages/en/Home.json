@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Innolease | Business Vehicle Leasing & Fleet Management",
+    "description": "Comprehensive business vehicle leasing solutions and fleet management services with transparent pricing and digital tools to streamline operations."
+  },
+  "hero": {
+    "heading": "Innolease",
+    "subheading": "– Your Business Leasing Partner",
+    "paragraph1": "Innolease's primary purpose is to adapt to the customer's needs and offer the customer different options based on which it is easier for the customer to make a solution suitable for their situation.",
+    "paragraph2": "Our open operating model where we define a service package that serves the customer's needs together with the customer. Our goal is to save the customer's time and money, reduce risks, and facilitate the budgeting of the customer's car fleet.",
+    "readMore": "Read More",
+    "backgroundAlt": "Business partners shaking hands"
+  },
+  "leasingOptions": {
+    "personalizedTitle": "The most suitable leasing option and financing model for you",
+    "personalizedDescription": "We always have a leasing option and financing model suitable for the customer's situation. Our goal is to offer flexibility and tailored solutions.",
+    "flexibleTitle": "Flexible and easy leasing service",
+    "flexibleDescription": "As an agile operator, our service is flexible. Special requests regarding schedule and car equipment are everyday for us.",
+    "learnMore": "Read More"
+  },
+  "serviceLinks": {
+    "fleetManagerTools": "Fleet Manager Tools",
+    "carCalculator": "Car Calculator",
+    "companyCarGuide": "Company Car Guide",
+    "businessLeasing": "Business Leasing",
+    "personalLeasing": "Personal Leasing"
+  },
+  "news": {
+    "title": "Latest News",
+    "card1": {
+      "title": "New Ford Transit Custom",
+      "description": "Descriptions arriving. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Read More",
+      "imageAlt": "Ford Transit"
+    },
+    "card2": {
+      "title": "We offer all makes and models",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Read More",
+      "imageAlt": "Sports cars"
+    },
+    "card3": {
+      "title": "Leasing solution ETruck",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Read More",
+      "imageAlt": "Electric truck"
+    },
+    "viewAll": "View all news"
+  },
+  "innoFleet": {
+    "title": "InnoFleet Manager",
+    "description1": "You make the reports your company needs for your car directly from the online service. Up-to-date information about your entire car fleet gives you the opportunity to manage car-related matters efficiently and time-saving.",
+    "description2": "The entire maintenance of your car fleet and maintenance functionality are easily available on your mobile device.",
+    "readMore": "Read More",
+    "imageAlt": "InnoFleet Manager app"
+  },
+  "team": {
+    "title": "Company car and financing experts at your service",
+    "role": "Sales Manager",
+    "email": "firstname.lastname@innolease.fi",
+    "memberAlt": "Team member",
+    "member1": {
+      "name": "John Smith",
+      "phone": "+358 50 123 4567"
+    },
+    "member2": {
+      "name": "Lisa Johnson",
+      "phone": "+358 50 123 4568"
+    },
+    "member3": {
+      "name": "Mike Wilson",
+      "phone": "+358 50 123 4569"
+    },
+    "member4": {
+      "name": "Anna Brown",
+      "phone": "+358 50 123 4570"
+    }
+  },
+  "transparency": {
+    "title": "Leasing solution costs transparently",
+    "description": "We want to make leasing driving as clear and simple as possible. That's why Innolease's pricing is transparent. You will always receive a truthful and clear offer from us, which does not include hidden costs. We do things without extra bureaucracy and get things fixed.",
+    "readMore": "Read More",
+    "imageAlt": "Dark car"
+  },
+  "footer": {
+    "exchange": "EXCHANGE",
+    "service": "SERVICE BOOKING",
+    "openingHours": "Weekdays 8:00-16:30",
+    "publishingPlatform": "PUBLISHING PLATFORM",
+    "copyright": "© 2023 Innolease Oy",
+    "address": {
+      "street": "Lehtikatu 1",
+      "city": "01750 Vantaa"
+    },
+    "businessId": "Business ID 2354-234-9",
+    "exchangePhone": "020 123 4567",
+    "exchangeEmail": "info@innolease.fi",
+    "servicePhone": "020 123 4568",
+    "serviceEmail": "service@innolease.fi",
+    "publishingCompany": "Tmi Verkkokauppa",
+    "publishingEmail": "design@verkkokauppa.fi"
+  }
+}

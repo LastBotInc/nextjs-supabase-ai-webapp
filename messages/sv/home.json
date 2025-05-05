@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Innolease | Företagsleasing och Fordonshantering",
+    "description": "Omfattande leasinglösningar för företagsfordon och fordonshanteringstjänster med transparent prissättning och effektiva digitala verktyg."
+  },
+  "nav": {
+    "leasingServices": "Leasingtjänster",
+    "customers": "Kunder",
+    "jobOpening": "Lediga tjänster",
+    "news": "Nyheter",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "heading": "Innolease",
+    "subheading": "– Din partner för företagsleasing",
+    "paragraph1": "Innoleases främsta syfte är att anpassa sig efter kundens behov och erbjuda olika alternativ som gör det lättare för kunden att fatta beslut som passar deras situation.",
+    "paragraph2": "Vår transparenta verksamhetsmodell gör att vi tillsammans med kunden kan definiera servicepaket som tillgodoser kundens behov. Vårt mål är att spara kundens tid och pengar, minska risker och underlätta budgetering av fordonsflottan.",
+    "readMore": "Läs mer",
+    "backgroundAlt": "Affärspartner som skakar hand"
+  },
+  "leasingOptions": {
+    "personalizedTitle": "Det mest lämpliga leasingalternativet och finansieringsmodellen för dig",
+    "personalizedDescription": "Vi har alltid ett leasingalternativ och en finansieringsmodell som passar kundens situation. Vårt mål är att erbjuda flexibilitet och skräddarsydda lösningar.",
+    "flexibleTitle": "Flexibel och enkel leasingtjänst",
+    "flexibleDescription": "Som en smidig operatör är vår service flexibel. Särskilda önskemål gällande tidplan och fordonsutrustning är vardagliga ärenden för oss.",
+    "learnMore": "Läs mer"
+  },
+  "serviceLinks": {
+    "fleetManagerTools": "Flottstyrningsverktyg",
+    "carCalculator": "Bilkalkylator",
+    "companyCarGuide": "Företagsbilsguide",
+    "businessLeasing": "Företagsleasing",
+    "personalLeasing": "Privatleasing"
+  },
+  "news": {
+    "title": "Nyheter",
+    "card1": {
+      "title": "Nya Ford Transit Custom",
+      "description": "Beskrivningar kommer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Läs mer",
+      "imageAlt": "Ford Transit"
+    },
+    "card2": {
+      "title": "Vi erbjuder alla märken och modeller",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Läs mer",
+      "imageAlt": "Sportbilar"
+    },
+    "card3": {
+      "title": "Leasinglösning ETruck",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "readMore": "Läs mer",
+      "imageAlt": "Elektrisk lastbil"
+    },
+    "viewAll": "Visa alla nyheter"
+  },
+  "innoFleet": {
+    "title": "InnoFleet Manager",
+    "description1": "Skapa alla rapporter som ditt företag behöver direkt från webbtjänsten. Uppdaterad information om hela din fordonspark ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
+    "description2": "Underhåll av hela din fordonspark och servicefunktionalitet är också enkelt tillgängligt på din mobila enhet.",
+    "readMore": "Läs mer",
+    "imageAlt": "InnoFleet Manager-app"
+  },
+  "team": {
+    "title": "Företagsbilar och finansieringsexperter till din tjänst",
+    "role": "Försäljningschef",
+    "email": "förnamn.efternamn@innolease.fi",
+    "memberAlt": "Teammedlem",
+    "member1": {
+      "name": "Jukka Mäkinen",
+      "phone": "+358 50 123 4567"
+    },
+    "member2": {
+      "name": "Liisa Korhonen",
+      "phone": "+358 50 123 4568"
+    },
+    "member3": {
+      "name": "Mikko Nieminen",
+      "phone": "+358 50 123 4569"
+    },
+    "member4": {
+      "name": "Anna Virtanen",
+      "phone": "+358 50 123 4570"
+    }
+  },
+  "transparency": {
+    "title": "Leasinglösningskostnader transparent",
+    "description": "Vi vill göra leasing av bilar så tydligt och enkelt som möjligt. Det är därför Innoleases prissättning är transparent. Du får alltid ett sanningsenligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker utan onödig byråkrati och får saker gjorda.",
+    "readMore": "Läs mer",
+    "imageAlt": "Mörk bil"
+  },
+  "footer": {
+    "exchange": "VÄXEL",
+    "service": "SERVICEBOKNING",
+    "openingHours": "Vardagar 8:00-16:30",
+    "publishingPlatform": "PUBLICERINGSPLATTFORM",
+    "copyright": "© 2023 Innolease Oy",
+    "address": {
+      "street": "Lehtikatu 1",
+      "city": "01750 Vantaa"
+    },
+    "businessId": "Y-tunnus 2354-234-9",
+    "exchangePhone": "020 123 4567",
+    "exchangeEmail": "info@innolease.fi",
+    "servicePhone": "020 123 4568",
+    "serviceEmail": "huolto@innolease.fi",
+    "publishingCompany": "Tmi Verkkokauppa",
+    "publishingEmail": "design@verkkokauppa.fi"
+  }
+}

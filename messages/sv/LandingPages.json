@@ -1,95 +1,178 @@
 {
-  "title": "Landing‑sidor",
-  "preview": "Förhandsgranska sidan",
+  "title": "Landningssidor",
+  "preview": "Förhandsgranska landningssida",
   "publish": "Publicera",
   "unpublish": "Avpublicera",
-  "description": "Skapa och hantera landing‑sidor",
-  "notFound": "Sidan hittades inte",
-  "notFoundDescription": "Den begärda landing‑sidan kunde inte hittas.",
-  "createPage": "Skapa landing‑sida",
-  "createPageDescription": "Skapa en ny landing‑sida med anpassat innehåll, SEO‑inställningar och analys.",
-  "editPage": "Redigera landing‑sida",
-  "editPageDescription": "Redigera innehåll, inställningar och spårning för denna sida.",
+  "description": "Skapa och hantera landningssidor",
+  "content": "Innehåll",
+  "notFound": "Sidan kunde inte hittas",
+  "notFoundDescription": "Den efterfrågade landningssidan kunde inte hittas.",
+  "createPage": "Skapa landningssida",
+  "createPageDescription": "Skapa en ny landningssida med anpassat innehåll, SEO-inställningar och analysdata.",
+  "editPage": "Redigera landningssida",
+  "editPageDescription": "Redigera innehåll, inställningar och spårning för denna landningssida.",
+  "deletePage": "Ta bort landningssida",
+  "previewPage": "Förhandsgranska sida",
+  "publishPage": "Publicera sida",
+  "unpublishPage": "Avpublicera sida",
   "generateContent": "Generera innehåll",
   "generateImage": "Generera bild",
+  "seoSettings": "SEO-inställningar",
+  "customCode": "Anpassad kod",
   "analytics": {
+    "title": "Analys",
+    "description": "Konfigurera analysinställningar för din landningssida",
     "enableAnalytics": "Aktivera analys",
-    "enableAnalyticsDescription": "Aktivera analys för denna sida",
-    "gaMeasurementId": "Google Analytics‑ID",
-    "gtmContainerId": "Google Tag Manager‑ID",
-    "fbPixelId": "Facebook Pixel‑ID",
-    "linkedinPixelId": "LinkedIn Pixel‑ID"
+    "enableAnalyticsDescription": "Aktivera analys för denna landningssida"
   },
+  "deleteConfirm": "Är du säker på att du vill ta bort denna landningssida?",
+  "publishConfirm": "Är du säker på att du vill publicera denna landningssida?",
+  "unpublishConfirm": "Är du säker på att du vill avpublicera denna landningssida?",
   "form": {
     "title": "Titel",
-    "slug": "URL‑slug",
+    "slug": "URL-del",
     "content": "Innehåll",
-    "excerpt": "Utdrag",
-    "featuredImage": "Omslagsbild",
+    "excerpt": "Sammanfattning",
+    "metaDescription": "Meta-beskrivning",
+    "featuredImage": "Huvudbild",
     "tags": "Taggar",
-    "prompt": "Prompt för landing‑sida",
-    "promptPlaceholder": "Ange en prompt för att generera innehåll...",
+    "template": "Mall",
+    "customCss": "Anpassad CSS",
+    "customJs": "Anpassad JavaScript",
+    "customHead": "Anpassad Head",
+    "customScripts": "Ytterligare skript",
+    "seoData": "SEO-data",
+    "analyticsData": "Analysdata",
+    "prompt": "Prompt för landningssida",
+    "promptPlaceholder": "Skriv en prompt för att generera innehåll för landningssidan...",
     "generating": "Genererar...",
+    "validation": {
+      "titleRequired": "Titel är obligatoriskt",
+      "slugRequired": "URL-del är obligatoriskt",
+      "contentRequired": "Innehåll är obligatoriskt",
+      "slugFormat": "URL-delen kan bara innehålla gemener, siffror och bindestreck",
+      "slugUnique": "Denna URL-del används redan"
+    },
+    "success": {
+      "created": "Landningssidan skapades framgångsrikt",
+      "updated": "Landningssidan uppdaterades framgångsrikt",
+      "deleted": "Landningssidan togs bort framgångsrikt",
+      "published": "Landningssidan publicerades framgångsrikt",
+      "unpublished": "Landningssidan avpublicerades framgångsrikt"
+    },
+    "error": {
+      "create": "Det gick inte att skapa landningssidan",
+      "update": "Det gick inte att uppdatera landningssidan",
+      "delete": "Det gick inte att ta bort landningssidan",
+      "publish": "Det gick inte att publicera landningssidan",
+      "unpublish": "Det gick inte att avpublicera landningssidan",
+      "load": "Det gick inte att ladda landningssidan"
+    },
     "cancel": "Avbryt",
     "save": "Spara",
     "createPage": "Skapa sida",
-    "published": "Publicerad"
+    "generateContent": "Generera innehåll",
+    "generateImage": "Generera bild",
+    "search": "Sök bland landningssidor...",
+    "status": "Status",
+    "lastModified": "Senast ändrad",
+    "actions": "Åtgärder",
+    "edit": "Redigera",
+    "view": "Visa",
+    "published": "Publicerad",
+    "draft": "Utkast",
+    "noPages": "Inga landningssidor. Skapa din första!",
+    "noSearchResults": "Inga landningssidor matchade din sökning.",
+    "seo": {
+      "metaTitle": "Meta-titel",
+      "metaDescription": "Meta-beskrivning",
+      "ogImage": "OG-bild",
+      "keywords": "Nyckelord",
+      "canonicalUrl": "Kanonisk URL"
+    },
+    "code": {
+      "customHead": "Anpassad Head-kod",
+      "customCss": "Anpassad CSS",
+      "customJs": "Anpassad JavaScript"
+    }
   },
-  "validation": {},
+  "validation": {
+    "titleRequired": "Titel är obligatoriskt",
+    "slugRequired": "URL-del är obligatoriskt",
+    "contentRequired": "Innehåll är obligatoriskt",
+    "slugFormat": "URL-delen kan bara innehålla gemener, siffror och bindestreck",
+    "slugUnique": "Denna URL-del används redan"
+  },
   "success": {
-    "imageGenerated": "Bild genererades"
+    "created": "Landningssidan skapades framgångsrikt",
+    "updated": "Landningssidan uppdaterades framgångsrikt",
+    "deleted": "Landningssidan togs bort framgångsrikt",
+    "published": "Landningssidan publicerades framgångsrikt",
+    "unpublished": "Landningssidan avpublicerades framgångsrikt",
+    "imageGenerated": "Bild genererades framgångsrikt"
   },
   "tabs": {
     "content": "Innehåll",
-    "seo": "SEO‑inställningar",
+    "seo": "SEO-inställningar",
     "cta": "Call to Action",
     "code": "Anpassad kod"
   },
   "error": {
-    "load": "Kunde inte ladda landing‑sidan"
+    "create": "Det gick inte att skapa landningssidan",
+    "update": "Det gick inte att uppdatera landningssidan",
+    "delete": "Det gick inte att ta bort landningssidan",
+    "publish": "Det gick inte att publicera landningssidan",
+    "unpublish": "Det gick inte att avpublicera landningssidan",
+    "load": "Det gick inte att ladda landningssidan"
   },
+  "cancel": "Avbryt",
+  "save": "Spara",
   "generating": "Genererar...",
-  "search": "Sök landing‑sidor...",
+  "search": "Sök bland landningssidor...",
   "status": "Status",
   "lastModified": "Senast ändrad",
   "actions": "Åtgärder",
   "edit": "Redigera",
   "view": "Visa",
-  "noPages": "Inga landing‑sidor hittades. Skapa din första!",
-  "noSearchResults": "Inga landing‑sidor matchade din sökning.",
+  "published": "Publicerad",
+  "draft": "Utkast",
+  "noPages": "Inga landningssidor. Skapa din första!",
+  "noSearchResults": "Inga landningssidor matchade din sökning.",
   "editor": {
+    "title": "Landningssidoredigerare",
     "cta": {
       "title": "Call to Action",
       "headline": {
         "label": "Rubrik",
-        "placeholder": "Ange din rubrik"
+        "placeholder": "Skriv din rubrik här"
       },
       "description": {
         "label": "Beskrivning",
-        "placeholder": "Ange en beskrivning"
+        "placeholder": "Skriv din beskrivning här"
       },
       "buttonText": {
         "label": "Knapptext",
-        "placeholder": "Ange knapptext"
+        "placeholder": "Skriv knapptext"
       },
       "buttonLink": {
-        "label": "Knapp‑länk",
+        "label": "Knappens länk",
         "placeholder": "Ange URL"
       },
       "secondaryText": {
         "label": "Sekundär text",
-        "placeholder": "Ange sekundär text"
+        "placeholder": "Skriv sekundär text"
       }
     }
   },
   "seo": {
-    "metaTitle": "Meta‑titel",
-    "metaDescription": "Meta‑beskrivning",
-    "ogImage": "OG‑bild",
-    "keywords": "Nyckelord"
+    "metaTitle": "Meta-titel",
+    "metaDescription": "Meta-beskrivning",
+    "ogImage": "OG-bild",
+    "keywords": "Nyckelord",
+    "canonicalUrl": "Kanonisk URL"
   },
   "code": {
-    "customHead": "Anpassad head‑kod",
+    "customHead": "Anpassad Head-kod",
     "customCss": "Anpassad CSS",
     "customJs": "Anpassad JavaScript"
   }

@@ -78,67 +78,6 @@ function mergeTranslations(...objects: NestedMessages[]): NestedMessages {
 // Check if we're running on the server
 const isServer = typeof window === 'undefined';
 
-// Load namespaces from individual files - server only function
-async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> {
-  // Only run this on the server
-  if (!isServer) {
-    console.warn('Attempted to load namespace files on the client side.');
-    return {};
-  }
-
-  try {
-    // Only import fs and path in a server context
-    if (typeof process === 'undefined') {
-      console.error('Cannot import fs/path: Not in a Node.js environment');
-      return {};
-    }
-    
-    // Dynamic imports with additional server-side check
-    const fs = (await import('fs')).promises;
-    const path = await import('path');
-    
-    // Get the absolute path to the namespace directory
-    const namespaceDirPath = path.join(process.cwd(), 'messages', locale);
-    
-    try {
-      // Check if the directory exists
-      await fs.access(namespaceDirPath);
-    } catch (error) {
-      console.error(`Namespace directory for ${locale} does not exist:`, namespaceDirPath);
-      throw error;
-    }
-    
-    // Read all JSON files in the directory
-    const files = await fs.readdir(namespaceDirPath);
-    const jsonFiles = files.filter(file => file.endsWith('.json'));
-    
-    // Load each namespace file
-    const namespaces: NestedMessages = {};
-    
-    for (const file of jsonFiles) {
-      const namespaceName = path.basename(file, '.json');
-      const filePath = path.join(namespaceDirPath, file);
-      const content = await fs.readFile(filePath, 'utf8');
-      
-      try {
-        // Parse the JSON content
-        const namespaceContent = JSON.parse(content);
-        
-        // Create a namespace object with the namespace name as the key
-        namespaces[namespaceName] = namespaceContent;
-      } catch (error) {
-        console.error(`Error parsing JSON file ${filePath}:`, error);
-        // Continue with other files
-      }
-    }
-    
-    return namespaces;
-  } catch (error) {
-    console.error(`Error loading namespace files for ${locale}:`, error);
-    throw error;
-  }
-}
-
 // Load namespaces using dynamic imports - works in both client and server
 async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages> {
   console.log(`Loading namespaces using dynamic imports for ${locale}`);
@@ -162,6 +101,7 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
       'Auth', 
       'Blog', 
       'Index',
+      'Home',
       'CookieConsent',
       'Booking',
       'Account',
@@ -177,9 +117,12 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
     
     for (const namespace of commonNamespaces) {
       try {
+        console.log(`Loading namespace: ${namespace} for locale: ${locale}`);
         const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default);
         namespaces[namespace] = module;
       } catch (error) {
+        // Log specific import errors
+        console.error(`Failed to import namespace '${namespace}' for locale '${locale}':`, error);
         // Continue with other namespaces
       }
     }
@@ -210,7 +153,8 @@ async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages
         'Footer', 
         'Auth', 
         'Blog', 
-        'Index'
+        'Index',
+        'Home'
       ];
       
       for (const namespace of commonNamespaces) {
@@ -258,19 +202,15 @@ export async function getI18nConfig({ locale }: { locale: Locale }): Promise<I18
       // If we got some namespaces, use them
       if (Object.keys(messages).length > 0) {
         console.log(`Successfully loaded namespace-based translations for ${locale} using imports`);
+        console.log(`Loaded namespaces: ${Object.keys(messages).join(', ')}`);
       } else {
-        // If no namespaces were found, attempt server-side file loading
-        if (isServer) {
-          messages = await loadNamespacesFromFiles(locale);
-          console.log(`Successfully loaded namespace-based translations for ${locale} using filesystem`);
-        } else {
-          throw new Error(`No namespace files found for locale: ${locale}`);
-        }
+        // If imports didn't find anything, throw an error to trigger fallback
+        throw new Error(`No namespace files found via dynamic import for locale: ${locale}`);
       }
     } catch (error) {
       console.warn(`Failed to load namespace-based translations for ${locale}:`, error);
       
-      // Fallback to monolithic translation file
+      // Fallback to monolithic translation file (which now tries namespaces again)
       messages = await loadMonolithicTranslation(locale);
     }
     

@@ -1,6 +1,6 @@
 # Localization Report
 
-Generated on: 2025-05-03T09:33:57.073Z
+Generated on: 2025-05-05T04:29:20.014Z
 
 ## Namespace Coverage
 
@@ -17,25 +17,28 @@ Generated on: 2025-05-03T09:33:57.073Z
 | Footer |  ✅ |  ✅ |  ✅ |
 | Index |  ✅ |  ✅ |  ✅ |
 | LandingPages |  ✅ |  ✅ |  ✅ |
+| LeasingSolutions |  ✅ |  ✅ |  ✅ |
 | Media |  ✅ |  ✅ |  ✅ |
 | Navigation |  ✅ |  ✅ |  ✅ |
 | Presentations |  ✅ |  ✅ |  ✅ |
 | Privacy |  ✅ |  ✅ |  ✅ |
 | Profile |  ✅ |  ✅ |  ✅ |
+| home |  ✅ |  ✅ |  ✅ |
+| meta |  ✅ |  ✅ |  ✅ |
 
 ## Summary
 
-Total namespaces across all locales: 16
+Total namespaces across all locales: 19
 
 ### en
-- Namespaces: 16
+- Namespaces: 19
 - Missing namespaces: None
 
 ### fi
-- Namespaces: 16
+- Namespaces: 19
 - Missing namespaces: None
 
 ### sv
-- Namespaces: 16
+- Namespaces: 19
 - Missing namespaces: None
 

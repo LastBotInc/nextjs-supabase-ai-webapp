@@ -4,5 +4,22 @@
   "privacy": "Privacy Policy",
   "contact": "Contact",
   "terms": "Terms of Service",
-  "presentations": "Presentations"
+  "presentations": "Presentations",
+  "office_locations": "Office Locations",
+  "resources": "Resources",
+  "fleet_reporting": "Fleet Reporting",
+  "emissions_report": "Emissions Report",
+  "driving_log": "Driving Log",
+  "drivers_guide": "Driver's Guide",
+  "leasing_car_return": "Leasing Car Return",
+  "tools": "Tools",
+  "car_decision_tools": "Car Decision Tools",
+  "car_benefit_calculator": "Car Benefit Calculator",
+  "ev_comparison": "EV Comparison",
+  "newsletter": {
+    "subscribe": "Subscribe to our newsletter for the latest leasing offers and automotive insights.",
+    "email_placeholder": "Your email address",
+    "button": "Subscribe"
+  },
+  "cookies": "Cookie Policy"
 }

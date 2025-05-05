@@ -1,8 +1,24 @@
 {
   "rights": "Kaikki oikeudet pidätetään.",
-  "adminLogin": "Ylläpitäjän kirjautuminen",
-  "privacy": "Tietosuojakäytäntö",
+  "adminLogin": "Ylläpitoon kirjautuminen",
+  "privacy": "Tietosuojaseloste",
   "contact": "Yhteystiedot",
   "terms": "Käyttöehdot",
-  "presentations": "Esitykset"
+  "presentations": "Esitykset",
+  "office_locations": "Toimistot",
+  "resources": "Resurssit",
+  "fleet_reporting": "Autokantaraportointi",
+  "emissions_report": "Päästöraportti",
+  "driving_log": "Ajopäiväkirja",
+  "leasing_car_return": "Leasing-auton palautus",
+  "tools": "Työkalut",
+  "car_decision_tools": "Autoilun päätöstyökalut",
+  "car_benefit_calculator": "Autoedulaskin",
+  "ev_comparison": "Sähköautovertailu",
+  "cookies": "Evästekäytäntö",
+  "newsletter": {
+    "subscribe": "Tilaa uutiskirjeemme saadaksesi uusimmat leasing-tarjoukset ja autoalan näkemykset.",
+    "email_placeholder": "Sähköpostiosoitteesi",
+    "button": "Tilaa"
+  }
 }

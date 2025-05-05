@@ -1,30 +1,15 @@
 {
-  "title": "Om LastBot",
-  "description": "Vi är ett team av AI‑experter som gör artificiell intelligens tillgänglig och användbar för företag i alla storlekar.",
-  "about": {},
-  "news": {
-    "title": "Nyheter",
-    "viewAll": "Visa alla nyheter",
-    "readMore": "Läs mer"
-  },
-  "contact": {
-    "title": "Kontakta oss",
-    "info": {
-      "title": "Kontaktinformation"
-    },
-    "address": {
-      "title": "Adress",
-      "street": "Kimmeltie 10",
-      "postal": "90630 Uleåborg",
-      "country": "Finland"
-    },
-    "social": {
-      "title": "Följ oss"
-    },
-    "form": {
-      "title": "Skicka ett meddelande"
-    }
-  },
-  "form": {},
-  "meta": {}
+  "title": "Om oss",
+  "subtitle": "Din fordonshanteringspartner",
+  "our_story_title": "Vår historia",
+  "our_story": "Grundat 2015 har Auton vuxit till en ledande leverantör av leasingtjänster i hela Norden. Vår uppgift är att göra fordonsägande enkelt, kostnadseffektivt och hållbart för både företag och privatpersoner.",
+  "our_mission_title": "Vår mission",
+  "our_mission": "Vi strävar efter att revolutionera fordonsleasing genom innovation, transparens och utmärkt kundservice. Genom att erbjuda flexibla, skräddarsydda lösningar hjälper vi våra kunder att uppnå sina transportmål samtidigt som de minskar sin miljöpåverkan.",
+  "our_values_title": "Våra värderingar",
+  "our_values": "Hållbarhet, innovation och kundfokus står i centrum för allt vi gör. Vi tror på att bygga långsiktiga relationer med våra kunder, leverantörer och teammedlemmar baserat på tillit, ärlighet och ömsesidig respekt.",
+  "key_figures_title": "Nyckeltal",
+  "vehicles_count": "Fordon",
+  "customers_count": "Kunder",
+  "team_count": "Teammedlemmar",
+  "co2_saved": "ton CO2 sparade årligen"
 }

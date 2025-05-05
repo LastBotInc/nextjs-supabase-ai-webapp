@@ -107,26 +107,14 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
   const namespaces: Messages = {}
   
   try {
-    // Try to load common namespaces that are likely to exist
+    // Updated list based on actual files in messages/en/
     const commonNamespaces = [
-      'Navigation', 
-      'Common', 
-      'Footer', 
-      'Auth', 
-      'Blog', 
-      'Index',
-      'CookieConsent',
-      'Booking',
-      'Account',
-      'Admin',
-      'Analytics',
-      'LandingPage',
-      'Contact',
-      'Media',
-      'Profile',
-      'Security',
-      'User'
-    ]
+      'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
+      'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
+      'Media', 'Navigation', 'Presentations', 'Privacy', 'Profile', 
+      'Footer', 'Index'
+      // Removed: 'Booking', 'Analytics', 'Security', 'User' (if they don't have corresponding files)
+    ];
     
     for (const namespace of commonNamespaces) {
       try {
@@ -208,12 +196,34 @@ async function loadMonolithicFile(locale: Locale): Promise<Messages> {
   log('📄 [i18n] Attempting to load translations for:', locale)
   
   try {
-    // Try to load namespaces directly first (since we now use a folder structure)
+    // Updated list based on actual files in messages/en/
+    const commonNamespaces = [
+      'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
+      'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
+      'Media', 'Navigation', 'Presentations', 'Privacy', 'Profile', 
+      'Footer', 'Index'
+      // Removed: 'Booking', 'Analytics', 'Security', 'User'
+    ];
+    
+    // Try to use dynamic imports of namespace files since we no longer have monolithic files
     try {
-      // Since we no longer have monolithic files and only use the namespace folder structure,
-      // we'll directly try to load namespace files
-      log('📁 [i18n] No monolithic file exists, trying to load namespace files instead')
-      return await loadNamespacesUsingImport(locale)
+      // We'll try to load namespaces directly using the namespace folder structure
+      console.log('Using namespace-based imports as fallback');
+      
+      const namespaces: Messages = {};
+      
+      for (const namespace of commonNamespaces) {
+        try {
+          const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default)
+          namespaces[namespace] = module
+          log(`✅ [i18n] Loaded namespace: ${namespace}`)
+        } catch (error) {
+          // Continue with other namespaces
+          log(`⚠️ [i18n] Namespace not found: ${namespace}`)
+        }
+      }
+      
+      return namespaces;
     } catch (error) {
       log(`❌ [i18n] Failed to load namespaces for ${locale}`)
       

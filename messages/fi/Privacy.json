@@ -2,57 +2,56 @@
   "title": "Tietosuojakäytäntö",
   "introduction": {
     "title": "Johdanto",
-    "content": "Tässä tietosuojakäytännössä kerromme, miten keräämme, käytämme ja suojaamme henkilötietojasi, kun käytät verkkosivustoamme."
+    "content": "Tämä tietosuojakäytäntö selittää, miten keräämme, käytämme ja suojaamme henkilötietojasi, kun käytät verkkosivustoamme."
   },
   "information": {
-    "title": "Keräämämme Tiedot",
+    "title": "Keräämämme tiedot",
     "analytics": {
       "title": "Analytiikkatiedot",
-      "description": "Keräämme analytiikkadataa palveluidemme ja käyttökokemuksen parantamiseksi.",
+      "description": "Keräämme analytiikkatietoja palvelujemme ja käyttökokemuksesi parantamiseksi.",
       "items": [
         "Sivukatselut ja navigointipolut",
-        "Istunnon tiedot ja kesto",
-        "Laite‑ ja selain­tiedot",
+        "Istuntotiedot ja kesto",
+        "Laitetyyppi ja selaintiedot",
         "Kieliasetukset",
-        "Viittaavat lähteet"
+        "Lähdesivustot"
       ]
     },
     "session": {
+      "title": "Istuntotiedot",
+      "description": "Kun käytät sivustoamme, keräämme automaattisesti:",
       "items": [
         "Istuntotunnisteet",
-        "IP‑osoite (anonymisoitu)",
-        "Selaintyyppi ja versio",
+        "IP-osoite (anonymisoitu)",
+        "Selaimen tyyppi ja versio",
         "Käyttöjärjestelmä",
-        "Aikavyöhyke‑ ja kieliasetukset"
+        "Aikavyöhyke ja kieliasetukset"
       ]
     }
   },
   "cookies": {
-    "title": "Evästeiden Käyttö",
-    "description": "Käytämme evästeitä parantaaksemme selauskokemustasi. Voit hallita evästeitä selaimesi asetuksista.",
+    "title": "Evästeiden käyttö",
+    "description": "Käytämme evästeitä parantaaksemme selailukokemustasi. Voit hallita evästeasetuksia selaimesi asetuksista.",
     "types": [
       {
         "name": "Välttämättömät evästeet",
-        "description": "Tarvitaan sivuston perustoimintoihin, autentikointiin ja turvallisuuteen"
+        "description": "Tarvitaan sivuston perustoimintoihin, tunnistautumiseen ja turvallisuuteen"
       },
       {
         "name": "Analytiikkaevästeet",
-        "description": "Auttaa meitä ymmärtämään, miten kävijät käyttävät sivustoa"
+        "description": "Auttaa meitä ymmärtämään, miten kävijät ovat vuorovaikutuksessa sivustomme kanssa"
       },
       {
-        "name": "Preferenssievästeet",
-        "description": "Tallentaa kieli‑ ja näyttöasetuksesi"
+        "name": "Asetusevästeet",
+        "description": "Tallentavat kieli- ja näyttöasetuksesi"
       }
-    ],
-    "types[0]": {},
-    "types[1]": {},
-    "types[2]": {}
+    ]
   },
   "usage": {
-    "title": "Miten Käytämme Tietojasi",
-    "description": "Käytämme kerättyjä tietoja:",
+    "title": "Miten käytämme tietojasi",
+    "description": "Käytämme keräämiämme tietoja:",
     "items": [
-      "Palveluidemme tarjoamiseen ja kehittämiseen",
+      "Palvelujemme tarjoamiseen ja parantamiseen",
       "Sivuston käyttömallien analysointiin",
       "Kokemuksesi personointiin",
       "Sivuston turvallisuuden ylläpitoon",
@@ -60,40 +59,51 @@
     ]
   },
   "protection": {
-    "title": "Tietoturva",
-    "content": "Käytämme asianmukaisia turvatoimia tietojesi suojaamiseksi. Data tallennetaan turvallisesti Supabasen infrastruktuuriin ja salataan lepotilassa ja siirron aikana."
+    "title": "Tietojen suojaus",
+    "content": "Käytämme asianmukaisia turvatoimia tietojesi suojaamiseksi. Tiedot tallennetaan turvallisesti Supabasen infrastruktuuriin, jossa on salaus levossa ja siirron aikana."
   },
   "rights": {
     "title": "Oikeutesi",
-    "description": "Sinulla on seuraavat oikeudet:",
+    "description": "Sinulla on seuraavat oikeudet liittyen tietoihisi:",
     "items": [
-      "Saada pääsy omiin tietoihisi",
-      "Pyytää virheellisten tietojen korjausta",
+      "Pyytää pääsyä omiin henkilötietoihisi",
+      "Pyytää virheellisten tietojen oikaisua",
       "Pyytää tietojesi poistamista",
-      "Kieltäytyä analytiikkaseurannasta",
+      "Kieltäytyä analytiikan seurannasta",
       "Hallita evästeasetuksia",
       "Peruuttaa suostumuksesi milloin tahansa"
     ]
   },
   "preferences": {
-    "title": "Asetuksesi",
-    "content": "Voit hallita evästeasetuksia milloin tahansa evästebannerista tai selaimen asetuksista."
+    "title": "Valintasi",
+    "content": "Voit hallita evästeasetuksiasi milloin tahansa evästeilmoituksestamme tai selaimesi asetuksista."
   },
   "updates": {
-    "title": "Käytännön Päivitykset",
-    "content": "Saatamme päivittää tätä tietosuojakäytäntöä ajoittain. Muutokset julkaistaan tällä sivulla päivityspäivämäärän kera."
+    "title": "Käytännön päivitykset",
+    "content": "Voimme päivittää tätä tietosuojakäytäntöä ajoittain. Mahdolliset muutokset julkaistaan tällä sivulla uudella päivityspäivämäärällä."
   },
   "contact": {
-    "title": "Yhteydenotto",
-    "description": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä tai datankäsittelystämme, ota yhteyttä:",
-    "info": {},
+    "title": "Ota yhteyttä",
+    "description": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä tai siitä, miten käsittelemme tietojasi, ota meihin yhteyttä:",
+    "info": {
+      "title": "Yhteystiedot"
+    },
     "address": {
       "title": "Osoite",
       "street": "Kimmeltie 10",
       "postal": "90630 Oulu",
       "country": "Suomi"
     },
-    "email": "Sähköposti"
+    "website": "Verkkosivusto",
+    "email": "Sähköposti",
+    "social": {
+      "title": "Seuraa meitä"
+    },
+    "form": {
+      "title": "Lähetä meille viesti"
+    }
   },
-  "form": {}
+  "form": {
+    "title": "Lähetä meille viesti"
+  }
 }

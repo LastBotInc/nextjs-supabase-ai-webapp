@@ -1,22 +1,41 @@
 {
-  "info": {},
-  "address": {},
-  "social": {},
+  "title": "Kontakta oss",
+  "description": "Hör av dig. Vi vill gärna höra från dig och diskutera hur vi kan hjälpa ditt företag att implementera AI.",
+  "info": {
+    "title": "Kontaktinformation"
+  },
+  "address": {
+    "title": "Adress",
+    "street": "Kimmeltie 10",
+    "postal": "90630 Uleåborg",
+    "country": "Finland"
+  },
+  "website": "Webbplats",
+  "email": "E-post",
+  "social": {
+    "title": "Följ oss"
+  },
   "form": {
-    "description": "Fyll i formuläret så återkommer vi så snart som möjligt.",
+    "title": "Skicka oss ett meddelande",
+    "description": "Fyll i formuläret nedan så återkommer vi till dig så snart som möjligt.",
     "name": "Namn",
-    "email": "E‑post",
+    "email": "E-post",
     "company": "Företag",
+    "message": "Meddelande",
     "submit": "Skicka meddelande",
     "submitting": "Skickar...",
     "success": {
-      "title": "Meddelandet skickat",
-      "message": "Tack för ditt meddelande. Vi hör av oss snart."
+      "title": "Meddelandet har skickats",
+      "message": "Tack för ditt meddelande. Vi återkommer snart."
     },
     "error": {
-      "captcha": "Slutför captcha‑verifieringen.",
-      "captchaValidation": "Captcha‑verifiering misslyckades. Försök igen."
+      "captcha": "Vänligen fyll i captcha-verifieringen.",
+      "captchaValidation": "Captchan validerades inte. Försök igen.",
+      "general": "Det gick inte att skicka meddelandet. Försök igen."
     },
-    "meta": {}
+    "meta": {
+      "title": "Kontakt | LastBot - Människocentrerade AI-lösningar",
+      "description": "Ta kontakt med LastBot för att diskutera dina AI-behov. Boka en konsultation, hitta våra kontorsplatser eller nå oss via våra supportkanaler."
+    }
   }
 }

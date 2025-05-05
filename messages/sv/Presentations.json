@@ -1,15 +1,32 @@
 {
   "title": "Presentationer",
-  "description": "Utforska våra interaktiva presentationer om AI‑omvandling och tekniktrender",
+  "description": "Utforska våra interaktiva presentationer om AI-transformation och tekniktrender",
   "noPresentations": "Inga presentationer tillgängliga",
-  "slides": "bilder",
+  "slides": "slides",
   "navigatingAI": {
+    "title": "Navigera AI-transformationen",
+    "description": "En omfattande guide till hur AI omformar mjukvaruutveckling, affärsprocesser och användarupplevelser",
     "sections": {
-      "development": {},
-      "agents": {},
-      "ux": {},
-      "company": {},
-      "lastbot": {}
+      "development": {
+        "title": "AI-assisterad utveckling",
+        "description": "Hur AI revolutionerar sättet vi bygger mjukvara"
+      },
+      "agents": {
+        "title": "Integrering av AI-agenter",
+        "description": "AI-agenternas framväxt och deras inverkan på systemarkitektur"
+      },
+      "ux": {
+        "title": "Förändrad användarupplevelse",
+        "description": "Hur AI förändrar användarnas förväntningar och upplevelser"
+      },
+      "company": {
+        "title": "Företagstransformation",
+        "description": "Steg företag måste ta för att anamma AI-transformationen"
+      },
+      "lastbot": {
+        "title": "LastBots lösningar",
+        "description": "Hur LastBot hjälper företag att navigera sin AI-resa"
+      }
     }
   }
 }

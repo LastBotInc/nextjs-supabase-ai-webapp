@@ -1,12 +1,27 @@
 {
-  "info": {},
-  "address": {},
-  "social": {},
+  "title": "Contact Us",
+  "description": "Get in touch with us. We'd love to hear from you and discuss how we can help transform your business with AI.",
+  "info": {
+    "title": "Contact Information"
+  },
+  "address": {
+    "title": "Address",
+    "street": "Kimmeltie 10",
+    "postal": "90630 Oulu",
+    "country": "Finland"
+  },
+  "website": "Website",
+  "email": "Email",
+  "social": {
+    "title": "Follow Us"
+  },
   "form": {
+    "title": "Send us a message",
     "description": "Fill out the form below and we'll get back to you as soon as possible.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
+    "message": "Message",
     "submit": "Send Message",
     "submitting": "Sending...",
     "success": {
@@ -15,8 +30,12 @@
     },
     "error": {
       "captcha": "Please complete the captcha verification.",
-      "captchaValidation": "Captcha validation failed. Please try again."
+      "captchaValidation": "Captcha validation failed. Please try again.",
+      "general": "Failed to send message. Please try again."
     },
-    "meta": {}
+    "meta": {
+      "title": "Contact | LastBot - Human-Centric AI Solutions",
+      "description": "Connect with LastBot to discuss your AI integration needs. Schedule a consultation, find our office locations, or reach out through our support channels."
+    }
   }
 }

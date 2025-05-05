@@ -1,4 +1,5 @@
 {
+  "title": "My Account",
   "settings": {
     "title": "Account Settings",
     "profile": "Profile Information",
@@ -25,7 +26,11 @@
     "browser": "Browser",
     "unknown": "Unknown"
   },
-  "notifications": {},
+  "notifications": {
+    "title": "Notification Settings",
+    "email": "Email Notifications",
+    "push": "Push Notifications"
+  },
   "appointments": {
     "title": "Appointment Types",
     "createNew": "Create New Appointment Type",

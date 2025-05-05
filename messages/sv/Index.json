@@ -1,72 +1,171 @@
 {
   "hero": {
-    "title": "Bygg smartare webbappar med AI",
-    "description": "En modern Next.js‑mall med inbyggda AI‑funktioner, utvecklingsverktyg och bästa praxis för att skapa skalbara webbapplikationer.",
-    "backgroundAlt": "Abstrakt teknologibakgrund",
-    "cta": "Se på GitHub",
-    "docs": "Dokumentation"
+    "title": "Flexibel Fordonsleasing för Varje Företag",
+    "description": "Innolease erbjuder omfattande företagsfordonsleasing-lösningar och fordonsparksadministration anpassade efter dina exakta behov, med transparent prissättning och digitala verktyg som effektiviserar verksamheten.",
+    "backgroundAlt": "Flotta av företagsfordon",
+    "cta": "Begär Offert",
+    "learnMore": "Läs Mer"
+  },
+  "leasing": {
+    "title": "Leasinglösningar",
+    "description": "Välj rätt leasinglösning för ditt företags behov.",
+    "financial": {
+      "title": "Finansiell Leasing",
+      "description": "Finansiera endast fordonet utan körsträckebegränsningar. Kunden hanterar underhåll och restvärde.",
+      "feature1": "Inga körsträckebegränsningar",
+      "feature2": "Kunden underhåller fordonet",
+      "feature3": "Flexibla slutvillkor",
+      "feature4": "Konkurrenskraftig finansiering"
+    },
+    "flexible": {
+      "title": "Flexibel Leasing",
+      "description": "Underhållskostnader inkluderade på en faktura med restvärde baserat på marknadsprognos.",
+      "feature1": "Underhåll ingår",
+      "feature2": "Marknadsbaserat restvärde",
+      "feature3": "En månadsfaktura",
+      "feature4": "Förlängningsalternativ"
+    },
+    "maintenance": {
+      "title": "Underhållsleasing",
+      "description": "All-inclusive månadspris med förutsägbara fordonskostnader och fördefinierade tjänster.",
+      "feature1": "All-inclusive prissättning",
+      "feature2": "Omfattande servicepaket",
+      "feature3": "Fördefinierad körsträcka",
+      "feature4": "Fullständig kostnadsförutsägbarhet"
+    },
+    "mini": {
+      "title": "MiniLeasing",
+      "description": "Korttidsleasing från 1-12 månader, inklusive fordon och försäkring för tillfälliga behov.",
+      "feature1": "1-12 månaders villkor",
+      "feature2": "Försäkring ingår",
+      "feature3": "Inget långsiktigt åtagande",
+      "feature4": "Omedelbar tillgänglighet"
+    },
+    "cta": "Jämför Alternativ"
+  },
+  "fleet": {
+    "title": "Verktyg för Fordonsparkshantering",
+    "description": "Hantera hela din fordonspark effektivt med våra digitala verktyg.",
+    "manager": {
+      "title": "InnoFleet Manager",
+      "description": "Se alla kontrakt, fordon, kostnader och användare i ett enhetligt gränssnitt."
+    },
+    "reports": {
+      "title": "Utsläpps- och Fordonsparksrapporter",
+      "description": "Spåra miljöpåverkan och detaljerad fordonsparksanalys."
+    },
+    "policy": {
+      "title": "Policy och Upphandling",
+      "description": "Optimera kontrakt och hantera fordonsupphandling med lätthet."
+    },
+    "driver": {
+      "title": "Förarverktyg",
+      "description": "Ge anställda tillgång till kalkylatorer, jämförelser och självbetjäningsalternativ."
+    },
+    "cta": "Utforska Verktyg"
+  },
+  "testimonials": {
+    "title": "Betrodd av Företag i Hela Finland",
+    "testimonial1": {
+      "quote": "Innoleases flexibla leasingalternativ och digitala verktyg har dramatiskt förenklat vår fordonsparkshantering. Deras transparenta metod innebär inga överraskningar.",
+      "author": "Matti Virtanen",
+      "company": "Tech Solutions Oy"
+    },
+    "testimonial2": {
+      "quote": "Det all-inclusive underhållsleasingpaketet ger oss fullständig kostnadsförutsägbarhet. Deras servicenätverk är utmärkt i hela Finland.",
+      "author": "Liisa Korhonen",
+      "company": "Nordic Logistics Ab"
+    },
+    "testimonial3": {
+      "quote": "Att byta till elfordon var enkelt med Innoleases vägledning. Deras jämförelseverktyg för elfordon hjälpte oss att fatta välgrundade beslut.",
+      "author": "Juha Mäkinen",
+      "company": "Green Innovations Oy"
+    }
+  },
+  "partners": {
+    "title": "Servicenätverkspartners",
+    "description": "Landsomfattande täckning för underhåll, däck och besiktningar med pålitliga partners.",
+    "vianor": "Däcktjänster och säsongsbyten",
+    "euromaster": "Omfattande underhållstjänster",
+    "katsastus": "Fordonsbesiktningstjänster",
+    "coverage": "800+ serviceplatser över hela Finland"
+  },
+  "environmental": {
+    "title": "Miljöansvar",
+    "description": "Minska ditt koldioxidavtryck med våra el- och hybridfordonsalternativ.",
+    "feature1": "Brett urval av elfordon",
+    "feature2": "Detaljerad utsläppsspårning",
+    "feature3": "Laddningslösningar för elfordon",
+    "feature4": "Rådgivning för elektrifiering av fordonsparken",
+    "cta": "Bli Grönare med Innolease"
+  },
+  "cta": {
+    "title": "Redo att Optimera Din Fordonspark?",
+    "description": "Kontakta oss för en personlig leasinglösning som passar ditt företags behov.",
+    "button": "Begär Offert",
+    "contact": "Eller ring oss på +358 50 123 4567"
+  },
+  "meta": {
+    "title": "Innolease | Företagsfordonsleasing & Fordonsparkshantering",
+    "description": "Omfattande företagsfordonsleasing-lösningar och fordonsparksadministration med transparent prissättning och digitala verktyg som effektiviserar verksamheten."
   },
   "agentic": {
-    "title": "Agentramverk för utveckling",
+    "title": "Agentic-utvecklingsramverk",
     "subtitle": "för Cursor IDE",
-    "description": "Utöka och förbättra Cursors composer‑agent med ett heltäckande ramverk för end‑to‑end‑utveckling.",
+    "description": "Utöka och förbättra Cursors composer agent-funktioner med ett heltäckande ramverk för end-to-end-utveckling.",
     "features": {
-      "title": "Förbättrad utvecklarupplevelse",
+      "title": "Förbättrad utvecklingsupplevelse",
       "list": {
         "rules": "Strukturerade utvecklingsregler och mönster",
         "prompts": "Optimerade prompts för kodgenerering",
-        "tools": "Integrerade verktyg och hjälpmedel",
+        "tools": "Integrerade utvecklingsverktyg och hjälpmedel",
         "validation": "Automatiserade tester och validering",
         "docs": "Omfattande dokumentationsgenerering"
       }
     },
     "benefits": {
-      "title": "Viktigaste fördelar",
-      "quality": "Bättre kodkvalitet och konsekvens",
-      "completeness": "Större funktionsomfång",
-      "efficiency": "Snabbare utvecklingsflöde",
-      "standards": "Tvingande kodstandarder och best practice"
+      "title": "Viktiga fördelar",
+      "quality": "Förbättrad kodkvalitet och konsekvens",
+      "completeness": "Utökad funktionstäckning",
+      "efficiency": "Accelererat utvecklingsflöde",
+      "standards": "Upprätthållna kodstandarder och bästa praxis"
     }
   },
-  "cta": {},
-  "meta": {
-    "title": "AI‑driven Next.js‑mall | Modern webb­utveckling",
-    "description": "En modern Next.js‑mall med inbyggd AI‑integration, Supabase‑stöd och utvecklingsverktyg för att bygga skalbara webbapplikationer."
-  },
+  "description": "LastBot hjälper företag att bli AI-drivna utan att förlora sitt fokus på människor. Vi erbjuder en snabb väg till AI-integration, skapar äkta relationer och levererar autonoma lösningar.",
   "features": {
     "title": "Allt du behöver",
-    "description": "Ett komplett verktygs‑ och funktionspaket som snabbar upp ditt arbetsflöde.",
+    "description": "Ett heltäckande paket med verktyg och funktioner som påskyndar din utvecklingsprocess.",
     "ai": {
-      "title": "AI‑integration",
-      "description": "Inbyggt stöd för Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
+      "title": "AI-integration",
+      "description": "Inbyggda AI-funktioner med Google Gemini, Recraft och Tavily API:er för innehållsgenerering, bildskapande och intelligent sökning."
     },
     "tools": {
       "title": "Utvecklingsverktyg",
-      "description": "Moderna verktyg för bildoptimering, HTML‑till‑Markdown‑konvertering och effektiv filhantering."
+      "description": "Moderna verktyg för bildoptimering, konvertering av HTML till Markdown samt effektiv filhantering."
     },
     "database": {
       "title": "Databas & Auth",
-      "description": "Sömlös Supabase‑integration för autentisering, realtidsdata och säkra API‑endpoints."
+      "description": "Sömlös integration med Supabase för autentisering, realtidsdata och säkra API-slutpunkter."
     },
     "i18n": {
       "title": "Internationalisering",
-      "description": "Inbyggt flerspråksstöd med next‑intl och effektiv översättningshantering."
+      "description": "Inbyggt stöd för flera språk med next-intl och effektiv hantering av översättningar."
     },
     "performance": {
       "title": "Prestanda",
-      "description": "Optimerad för hastighet med serverkomponenter, edge‑funktioner och smart cachning."
+      "description": "Optimerad för snabbhet med serverkomponenter, edge-funktioner och effektiv cachehantering."
     },
     "security": {
       "title": "Säkerhet",
-      "description": "Bästa praxis för säker autentisering, API‑skydd och databehandling."
+      "description": "Bästa praxis för säker autentisering, API-skydd och databehandling."
     }
   },
   "coreFeatures": {
-    "title": "Kärnfunktioner",
-    "description": "Allt du behöver för en fullfjädrad webbapplikation",
+    "title": "Centrala funktioner",
+    "description": "Allt du behöver för att bygga en fullfjädrad webbapplikation",
     "auth": {
-      "title": "Autentisering & Användare",
-      "description": "Komplett användarhantering med Supabase Auth, social login, skyddade rutter och rollbaserad åtkomstkontroll.",
+      "title": "Autentisering & användare",
+      "description": "Komplett användarhanteringssystem med Supabase Auth-integration, social inloggning, skyddade rutter och rollbaserad åtkomst.",
       "feature1": "Social inloggning",
       "feature2": "Skyddade rutter",
       "feature3": "Rollbaserad åtkomst",
@@ -74,65 +173,98 @@
     },
     "content": {
       "title": "Innehållshantering",
-      "description": "Omfattande innehållshantering med AI‑assistans för skapande och optimering.",
-      "feature1": "AI‑assisterat bloggsystem",
-      "feature2": "Mediabibliotek med AI‑generering",
-      "feature3": "Resursoptimerings‑pipeline",
-      "feature4": "Landing‑page‑byggare",
-      "feature5": "SEO‑optimering"
+      "description": "Omfattande innehållshantering med AI-stöd för innehållsskapande och optimering.",
+      "feature1": "AI-assisterat bloggsystem",
+      "feature2": "Mediabibliotek med AI-generering",
+      "feature3": "Pipeline för optimering av resurser",
+      "feature4": "Byggare för landningssidor",
+      "feature5": "SEO-optimering"
     },
     "i18n": {
       "title": "Internationalisering",
       "description": "Inbyggt stöd för flera språk och innehållslokalisering.",
-      "feature1": "Flerspråksstöd",
-      "feature2": "Översättningshantering",
+      "feature1": "Stöd för flera språk",
+      "feature2": "Hantering av översättningar",
       "feature3": "Språkväxling",
-      "feature4": "Innehållslokalisering"
+      "feature4": "Lokalanpassning av innehåll"
     },
     "analytics": {
       "title": "Analys",
-      "description": "Spåra och analysera användarbeteende och appens prestanda.",
+      "description": "Spåra och analysera användarbeteende och applikationsprestanda.",
       "feature1": "Sidvisningsspårning",
       "feature2": "Händelsespårning",
       "feature3": "Sessionshantering",
-      "feature4": "Användarresa‑analys"
+      "feature4": "Analys av användarresor"
     },
     "booking": {
       "title": "Bokningssystem",
-      "description": "Komplett tidsboknings­system med kalenderhantering.",
-      "feature1": "Tidsbokning",
+      "description": "Fullständigt system för tidsbokningar med kalenderhantering.",
+      "feature1": "Tidsbokningar",
       "feature2": "Kalenderhantering",
-      "feature3": "Tidszonstöd",
-      "feature4": "E‑postnotiser"
+      "feature3": "Stöd för tidszoner",
+      "feature4": "E-postaviseringar"
     },
     "realtime": {
       "title": "Realtidsfunktioner",
-      "description": "Live‑uppdateringar och samarbetsfunktioner med Supabase.",
-      "feature1": "Live‑uppdateringar",
+      "description": "Direktuppdateringar och samarbetsfunktioner med hjälp av Supabase.",
+      "feature1": "Realtidsuppdateringar",
       "feature2": "Datasynkronisering",
-      "feature3": "Närvaromarkörer",
+      "feature3": "Närvarovisning",
       "feature4": "Samarbetsredigering"
     },
     "technical": {
-      "title": "Tekniska Funktioner",
-      "description": "Byggd med moderna tekniker och best practice.",
-      "feature1": "Modern UI med Tailwind CSS",
-      "feature2": "Ljust/mörkt läge",
-      "feature3": "Typesäker utveckling",
+      "title": "Tekniska funktioner",
+      "description": "Byggd med moderna tekniker och bästa praxis.",
+      "feature1": "Modernt UI med Tailwind CSS",
+      "feature2": "Stöd för mörkt/ljust läge",
+      "feature3": "Typsäker utveckling",
       "feature4": "Prestandaoptimering",
-      "feature5": "Omfattande tester",
+      "feature5": "Omfattande testning",
       "feature6": "Row Level Security",
-      "feature7": "API‑skydd",
+      "feature7": "API-skydd",
       "feature8": "Realtidsprenumerationer"
     }
   },
   "getStarted": {
-    "title": "Kom igång idag",
-    "description": "Starta ditt nästa projekt på några minuter, inte timmar.",
-    "step1": "Klona repo‑t och installera beroenden",
-    "step2": "Konfigurera miljövariabler och API‑nycklar",
-    "step3": "Börja utveckla med inbyggd AI‑kraft",
-    "cta": "Se på GitHub",
+    "title": "Börja bygga redan idag",
+    "description": "Kom igång med ditt nästa projekt på några minuter, inte timmar.",
+    "step1": "Klona repot och installera beroenden",
+    "step2": "Konfigurera miljövariabler och API-nycklar",
+    "step3": "Börja utveckla med inbyggda AI-funktioner",
+    "cta": "Visa på GitHub",
     "imageAlt": "Illustration av utvecklingsverktyg och funktioner"
-  }
+  },
+  "intro": {
+    "title": "Kundfokuserade Leasingtjänster",
+    "paragraph1": "Innolease är en del av Autolle-koncernen. Vi har slagit samman vår företagsförsäljningsenhet med vår uthyrningstjänst, vilket gör att vi genuint kan erbjuda kunder olika tjänster från långtidsleasing till korttidsuthyrning.",
+    "paragraph2": "Innolease Oy:s främsta syfte är att anpassa sig efter kundens behov och erbjuda kunden rätt lösningar för dessa behov.",
+    "paragraph3": "Vi har en egen hyrbilsflotta på cirka 800 fordon runt om i Finland.",
+    "paragraph4": "Vår dedikerade kontaktperson och digitala tjänster erbjuder kunder kunnig och flexibel service i bilärenden.",
+    "paragraph5": "Vårt mål är att spara kundens tid och pengar, minska riskerna samt underlätta hanteringen av kundens fordonsflotta.",
+    "imageAlt": "Innolease företagsbil"
+  },
+  "facts": {
+    "title": "Nyckelfakta om Autolle.com",
+    "fact1": {
+      "title": "Ledande inom digital bilförsäljning",
+      "description": "Autolle.com digitaliserar bilförsäljningen i Europa, med ett nätverk som täcker hela Finland."
+    },
+    "fact2": {
+      "title": "Grundat 2014",
+      "description": "Har infört innovationer på fordonsmarknaden i nästan ett decennium."
+    },
+    "fact3": {
+      "title": "Omfattande Tjänster",
+      "description": "Erbjuder onlineförsäljning, finansiering, besiktning, hemleverans, leasing och garantitjänster."
+    },
+    "fact4": {
+      "title": "Del av Autollecom-koncernen",
+      "description": "Samarbetar med Green Motion, Autoeurooppa, Rahoituskumppani och Rahoituskauppa."
+    }
+  },
+  "values": {
+    "title": "Våra kärnvärden"
+  },
+  "title": "Moderna leasinglösningar för ditt företag",
+  "subtitle": "Skräddarsydda leasingalternativ för företag i alla storlekar"
 }

@@ -1,15 +1,16 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 
-type LeasingOptionsCardsProps = {
+interface LeasingOptionsCardsProps {
   className?: string;
 }
 
 export function LeasingOptionsCards({ className = "" }: LeasingOptionsCardsProps) {
-  const t = useTranslations('home.leasingOptions')
+  const t = useTranslations('Home')
   const locale = useLocale()
   
   return (
@@ -19,17 +20,17 @@ export function LeasingOptionsCards({ className = "" }: LeasingOptionsCardsProps
         <div className="p-6 pb-16 relative">
           <div className="max-w-[50%]">
             <h3 className="text-2xl font-bold mb-2 text-left leading-tight">
-              {t('personalizedTitle')}
+              {t('leasingOptions.personalizedTitle')}
             </h3>
             <p className="text-sm mb-4 text-left">
-              {t('personalizedDescription')}
+              {t('leasingOptions.personalizedDescription')}
             </p>
             
             <Link 
               href={`/${locale}/personal-leasing`} 
               className="inline-block bg-white text-piki px-4 py-1.5 rounded-full font-medium hover:bg-opacity-90 transition-all text-sm"
             >
-              {t('learnMore')}
+              {t('leasingOptions.learnMore')}
             </Link>
           </div>
         </div>
@@ -51,17 +52,17 @@ export function LeasingOptionsCards({ className = "" }: LeasingOptionsCardsProps
         <div className="p-6 pb-16 relative">
           <div className="max-w-[50%]">
             <h3 className="text-2xl font-bold mb-2 text-left leading-tight">
-              {t('flexibleTitle')}
+              {t('leasingOptions.flexibleTitle')}
             </h3>
             <p className="text-sm mb-4 text-left">
-              {t('flexibleDescription')}
+              {t('leasingOptions.flexibleDescription')}
             </p>
             
             <Link 
               href={`/${locale}/business-leasing`}
               className="inline-block bg-kupari text-white px-4 py-1.5 rounded-full font-medium hover:bg-opacity-90 transition-all text-sm"
             >
-              {t('learnMore')}
+              {t('leasingOptions.learnMore')}
             </Link>
           </div>
         </div>

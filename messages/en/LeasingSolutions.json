@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "title": "Leasing Solutions | Innolease",
+    "description": "Explore our comprehensive vehicle leasing solutions for businesses including Financial, Flexible, Maintenance, and MiniLeasing options."
+  },
+  "hero": {
+    "title": "Leasing Solutions for Every Business Need",
+    "description": "Find the perfect financing structure for your company's vehicle fleet, from simple financial leasing to all-inclusive service packages."
+  },
+  "financialLeasing": {
+    "title": "Financial Leasing",
+    "subtitle": "Maximum flexibility with minimal commitment",
+    "description": "Our Financial Leasing solution provides straightforward vehicle financing without mileage restrictions. You handle maintenance and residual value, giving you complete control over vehicle operation.",
+    "features": {
+      "title": "Key Features",
+      "feature1": "No mileage limitations",
+      "feature2": "Vehicle appears on company balance sheet",
+      "feature3": "Customer arranges maintenance independently",
+      "feature4": "Customer bears residual value risk",
+      "feature5": "Option to purchase at end of term"
+    },
+    "idealFor": {
+      "title": "Ideal For",
+      "type1": "Companies with in-house fleet management",
+      "type2": "High-mileage operations",
+      "type3": "Businesses seeking balance sheet assets",
+      "type4": "Organizations that want full control over vehicles"
+    },
+    "calculator": {
+      "title": "Calculate Your Monthly Payment",
+      "vehicle": "Vehicle Price",
+      "downpayment": "Down Payment",
+      "term": "Lease Term (months)",
+      "residual": "Estimated Residual Value",
+      "interest": "Interest Rate",
+      "calculate": "Calculate Payment",
+      "result": "Estimated Monthly Payment:",
+      "disclaimer": "This calculation is for estimation purposes only. Contact us for a detailed quote."
+    }
+  },
+  "flexibleLeasing": {
+    "title": "Flexible Leasing",
+    "subtitle": "Balanced control with service benefits",
+    "description": "Our Flexible Leasing solution combines financial leasing with comprehensive maintenance services on a single monthly invoice. Enjoy predictable maintenance costs while retaining flexibility on vehicle usage.",
+    "features": {
+      "title": "Key Features",
+      "feature1": "Maintenance costs included on single invoice",
+      "feature2": "Market-based residual value estimation",
+      "feature3": "Flexible mileage adjustment during contract",
+      "feature4": "Streamlined contract extension options",
+      "feature5": "Vehicle replacement flexibility"
+    },
+    "idealFor": {
+      "title": "Ideal For",
+      "type1": "Medium-sized fleets seeking operational efficiency",
+      "type2": "Companies with variable usage patterns",
+      "type3": "Businesses prioritizing budget predictability",
+      "type4": "Organizations transitioning from ownership to leasing"
+    },
+    "caseStudy": {
+      "title": "Case Study: Tech Solutions Oy",
+      "challenge": "Tech Solutions Oy needed a flexible fleet solution that would provide maintenance coverage while allowing for varying mileage between vehicles.",
+      "solution": "Innolease provided a Flexible Leasing package with quarterly mileage adjustments and comprehensive maintenance coverage.",
+      "result": "Fleet costs reduced by 18% with improved vehicle availability and eliminated maintenance administration.",
+      "quote": "The flexibility to adjust our contracts as business needs change has been invaluable for our growing company.",
+      "person": "Matti Virtanen, Fleet Manager"
+    }
+  },
+  "maintenanceLeasing": {
+    "title": "Maintenance Leasing",
+    "subtitle": "All-inclusive worry-free solution",
+    "description": "Our Maintenance Leasing provides complete peace of mind with a fixed monthly payment covering everything from financing to comprehensive maintenance, tires, and services. The ultimate hassle-free fleet solution.",
+    "features": {
+      "title": "Key Features",
+      "feature1": "All-inclusive fixed monthly price",
+      "feature2": "Comprehensive service package (maintenance, tires, repairs)",
+      "feature3": "Nationwide service network coverage",
+      "feature4": "Replacement vehicle provision",
+      "feature5": "Complete cost predictability"
+    },
+    "idealFor": {
+      "title": "Ideal For",
+      "type1": "Companies seeking full cost predictability",
+      "type2": "Organizations without dedicated fleet management",
+      "type3": "Businesses with operations across Finland",
+      "type4": "Companies prioritizing hassle-free operations over flexibility"
+    },
+    "comparison": {
+      "title": "Compare Leasing Options",
+      "option1": "Financial Leasing",
+      "option2": "Flexible Leasing",
+      "option3": "Maintenance Leasing",
+      "financing": "Financing",
+      "maintenance": "Maintenance",
+      "tires": "Tires",
+      "repairs": "Repairs",
+      "insurance": "Insurance",
+      "roadside": "Roadside Assistance",
+      "replacement": "Replacement Vehicle",
+      "flexibility": "Contract Flexibility",
+      "included": "Included",
+      "optional": "Optional",
+      "excluded": "Not Included",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    }
+  },
+  "miniLeasing": {
+    "title": "MiniLeasing",
+    "subtitle": "Short-term flexibility, immediate availability",
+    "description": "Our MiniLeasing solution provides short-term vehicle leasing from 1-12 months, including vehicle, maintenance, and insurance in one package. Perfect for temporary needs without long-term commitment.",
+    "features": {
+      "title": "Key Features",
+      "feature1": "Short-term contracts (1-12 months)",
+      "feature2": "Insurance and maintenance included",
+      "feature3": "No long-term commitment",
+      "feature4": "Quick vehicle delivery (often same day)",
+      "feature5": "Wide range of immediately available vehicles"
+    },
+    "idealFor": {
+      "title": "Ideal For",
+      "type1": "Project-based vehicle needs",
+      "type2": "Seasonal business fluctuations",
+      "type3": "New employee probation periods",
+      "type4": "Testing vehicle types before long-term commitment"
+    },
+    "pricing": {
+      "title": "Pricing Structure",
+      "category1": "Passenger Cars",
+      "price1": "From €590/month",
+      "category2": "Vans & Utility Vehicles",
+      "price2": "From €790/month",
+      "category3": "Electric Vehicles",
+      "price3": "From €890/month",
+      "category4": "Premium Vehicles",
+      "price4": "From €1,190/month",
+      "note": "Prices include maintenance, insurance, and 2,000 km/month. Additional mileage available."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "What's the minimum lease term available?",
+    "a1": "Our MiniLeasing starts from just 1 month, while our standard leasing solutions typically begin at 12 months.",
+    "q2": "Can I switch between leasing types during a contract?",
+    "a2": "Yes, we offer flexibility to adjust your leasing solution as your business needs change, subject to contract terms.",
+    "q3": "Are electric vehicles available in all leasing types?",
+    "a3": "Yes, we offer electric, hybrid, and conventional vehicles across all our leasing solutions.",
+    "q4": "How extensive is your service network?",
+    "a4": "We partner with over 800 service locations throughout Finland, including Vianor, Euromaster, and A-Katsastus centers.",
+    "q5": "Can I include insurance in my leasing package?",
+    "a5": "Insurance is included by default in MiniLeasing and can be added as an option to our other leasing solutions.",
+    "q6": "What happens at the end of the lease term?",
+    "a6": "You can choose to return the vehicle, extend the lease, or in some cases, purchase the vehicle at its residual value.",
+    "q7": "Can I include multiple vehicle types in one contract?",
+    "a7": "Yes, we offer fleet solutions that can accommodate various vehicle types under a master agreement with individual schedules."
+  },
+  "cta": {
+    "title": "Ready to find your ideal leasing solution?",
+    "description": "Contact our leasing specialists for a personalized consultation and quote.",
+    "button": "Request a Quote",
+    "contact": "Or call us at +358 50 123 4567"
+  }
+}

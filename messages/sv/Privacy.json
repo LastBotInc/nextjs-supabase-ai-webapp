@@ -2,15 +2,15 @@
   "title": "Integritetspolicy",
   "introduction": {
     "title": "Introduktion",
-    "content": "Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar dina personuppgifter när du använder vår webbplats."
+    "content": "Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar din personliga information när du använder vår webbplats."
   },
   "information": {
-    "title": "Vilken information vi samlar in",
+    "title": "Information vi samlar in",
     "analytics": {
-      "title": "Analysinformation",
-      "description": "Vi samlar in analysdata för att förbättra våra tjänster och din användarupplevelse.",
+      "title": "Analysdata",
+      "description": "Vi samlar in analysdata för att förbättra våra tjänster och din upplevelse.",
       "items": [
-        "Sidvisningar och navigationsmönster",
+        "Sidvisningar och navigeringsmönster",
         "Sessionsinformation och varaktighet",
         "Enhetstyp och webbläsarinformation",
         "Språkinställningar",
@@ -18,18 +18,20 @@
       ]
     },
     "session": {
+      "title": "Sessionsinformation",
+      "description": "När du använder vår webbplats samlar vi automatiskt in:",
       "items": [
-        "Sessions‑ID",
-        "IP‑adress (anonymiserad)",
+        "Sessionsidentifierare",
+        "IP-adress (anonymiserad)",
         "Webbläsartyp och version",
         "Operativsystem",
-        "Tidszon‑ och språkinställningar"
+        "Tidszon och språkinställningar"
       ]
     }
   },
   "cookies": {
-    "title": "Cookie‑användning",
-    "description": "Vi använder cookies för att förbättra din surfupplevelse. Du kan kontrollera cookies i din webbläsare.",
+    "title": "Användning av cookies",
+    "description": "Vi använder cookies för att förbättra din upplevelse. Du kan hantera cookie-inställningar via din webbläsares inställningar.",
     "types": [
       {
         "name": "Nödvändiga cookies",
@@ -37,63 +39,71 @@
       },
       {
         "name": "Analyscookies",
-        "description": "Hjälper oss förstå hur besökare interagerar med webbplatsen"
+        "description": "Hjälper oss förstå hur besökare interagerar med vår webbplats"
       },
       {
         "name": "Preferenscookies",
-        "description": "Sparar dina språk‑ och visningsinställningar"
+        "description": "Sparar dina språk- och visningsinställningar"
       }
-    ],
-    "types[0]": {},
-    "types[1]": {},
-    "types[2]": {}
+    ]
   },
   "usage": {
     "title": "Hur vi använder din information",
-    "description": "Vi använder insamlad information för:",
+    "description": "Vi använder den insamlade informationen för:",
     "items": [
       "Att tillhandahålla och förbättra våra tjänster",
-      "Att analysera webbplatsanvändning",
-      "Att personalisera din upplevelse",
+      "Att analysera hur vår webbplats används",
+      "Att anpassa din upplevelse",
       "Att upprätthålla webbplatsens säkerhet",
       "Att kommunicera viktiga uppdateringar"
     ]
   },
   "protection": {
-    "title": "Dataskydd",
-    "content": "Vi använder lämpliga säkerhetsåtgärder för att skydda din information. Data lagras säkert på Supabases infrastruktur och krypteras i vila och under överföring."
+    "title": "Datasäkerhet",
+    "content": "Vi tillämpar lämpliga säkerhetsåtgärder för att skydda din information. Uppgifter lagras säkert på Supabases infrastruktur med kryptering vid vila och under överföring."
   },
   "rights": {
     "title": "Dina rättigheter",
-    "description": "Du har följande rättigheter gällande dina data:",
+    "description": "Du har följande rättigheter gällande dina uppgifter:",
     "items": [
-      "Få tillgång till dina personuppgifter",
-      "Begära korrigering av felaktiga uppgifter",
-      "Begära radering av dina uppgifter",
-      "Välja bort analys­spårning",
-      "Kontrollera cookie‑inställningar",
-      "Återkalla samtycke när som helst"
+      "Att begära åtkomst till din personliga information",
+      "Att begära rättelse av felaktiga uppgifter",
+      "Att begära radering av dina uppgifter",
+      "Att avstå från analysspårning",
+      "Att hantera cookie-inställningar",
+      "Att återkalla samtycke när som helst"
     ]
   },
   "preferences": {
-    "title": "Dina inställningar",
-    "content": "Du kan hantera dina cookie‑inställningar när som helst via vår cookie‑banner eller webbläsarens inställningar."
+    "title": "Dina val",
+    "content": "Du kan när som helst hantera dina cookie-inställningar via vårt cookie-samtyckesverktyg eller din webbläsares inställningar."
   },
   "updates": {
-    "title": "Policy‑uppdateringar",
-    "content": "Vi kan uppdatera denna integritetspolicy då och då. Ändringar publiceras på denna sida med uppdaterat datum."
+    "title": "Policyns uppdateringar",
+    "content": "Vi kan uppdatera denna integritetspolicy då och då. Eventuella ändringar publiceras på denna sida med ett uppdaterat datum."
   },
   "contact": {
     "title": "Kontakta oss",
-    "description": "Har du frågor om denna integritetspolicy eller hur vi hanterar data? Kontakta oss:",
-    "info": {},
+    "description": "Om du har några frågor om denna integritetspolicy eller hur vi hanterar dina uppgifter, kontakta oss:",
+    "info": {
+      "title": "Kontaktinformation"
+    },
     "address": {
       "title": "Adress",
       "street": "Kimmeltie 10",
       "postal": "90630 Uleåborg",
       "country": "Finland"
     },
-    "email": "E‑post"
+    "website": "Webbplats",
+    "email": "E-post",
+    "social": {
+      "title": "Följ oss"
+    },
+    "form": {
+      "title": "Skicka oss ett meddelande"
+    }
   },
-  "form": {}
+  "form": {
+    "title": "Skicka oss ett meddelande"
+  }
 }

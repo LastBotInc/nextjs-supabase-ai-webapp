@@ -2,8 +2,8 @@
   "message": "Vi använder cookies för att förbättra din upplevelse.",
   "accept": "Acceptera",
   "decline": "Neka",
-  "accepted": "Cookie‑inställningar sparade",
-  "declined": "Cookie‑inställningar sparade",
+  "accepted": "Dina cookie-inställningar har sparats",
+  "declined": "Dina cookie-inställningar har sparats",
   "privacyPolicy": "Läs vår integritetspolicy",
   "privacyPolicyAriaLabel": "Läs vår integritetspolicy för att se hur vi hanterar dina data"
 }
