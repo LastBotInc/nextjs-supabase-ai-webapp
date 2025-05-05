@@ -1,5 +1,205 @@
 ---
-description:
-globs:
+description: Whwn ever user wants to perform localisations or translations
+globs: 
 alwaysApply: false
 ---
+# Next.js Internationalization Implementation
+
+This guide explains how to use translations in Next.js with next-intl and the namespace-based JSON structure.
+
+## Translation File Structure
+
+The project uses a namespace-based organization:
+
+```
+messages/
+├── en/                   # English translations
+│   ├── Index.json        # Home page translations
+│   ├── Blog.json         # Blog-related translations
+│   └── ...               # Other feature namespaces
+├── fi/                   # Finnish translations (same structure)
+├── sv/                   # Swedish translations (same structure)
+└── ...
+```
+
+## Using Translations in Code
+
+### Client Components
+
+Use the `useTranslations` hook:
+
+```tsx
+'use client';
+import { useTranslations } from 'next-intl';
+
+export default function MyComponent() {
+  // Specify the namespace to use
+  const t = useTranslations('Blog');
+  
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
+      
+      {/* Accessing nested keys */}
+      <button>{t('actions.save')}</button>
+      
+      {/* With placeholders */}
+      <p>{t('welcome', { name: 'User', count: 5 })}</p>
+    </div>
+  );
+}
+```
+
+### Server Components
+
+Use the `getTranslations` function:
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+export default async function MyServerComponent() {
+  // Specify the namespace to use
+  const t = await getTranslations('Blog');
+  
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
+    </div>
+  );
+}
+```
+
+### Page Metadata
+
+For page metadata (title, description), use `getTranslations` in `generateMetadata`:
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(
+  { params }: { params: { locale: string } }
+): Promise<Metadata> {
+  const t = await getTranslations('Blog');
+  
+  return {
+    title: t('meta.title'),
+    description: t('meta.description')
+  };
+}
+```
+
+## Rich Text Formatting
+
+For rich text with HTML:
+
+```tsx
+// In your component
+<div dangerouslySetInnerHTML={{ __html: t('richTextContent') }} />
+
+// In your JSON
+{
+  "richTextContent": "This is <strong>bold</strong> and this is <em>italic</em>"
+}
+```
+
+## Handling Pluralization
+
+For pluralization, use ICU message format:
+
+```tsx
+// In your component
+<p>{t('itemCount', { count: items.length })}</p>
+
+// In your JSON
+{
+  "itemCount": "{count, plural, =0{No items} one{# item} other{# items}}"
+}
+```
+
+## Translation Format Best Practices
+
+1. **Structured Organization**:
+   ```json
+   {
+     "section": {
+       "subsection": {
+         "key": "Value"
+       }
+     }
+   }
+   ```
+
+2. **Consistent Naming**:
+   - Use camelCase for all keys
+   - Group related items under common parents
+   - Keep hierarchy no more than 3-4 levels deep for readability
+
+3. **Common Patterns**:
+   - Use "title", "description", "label", "placeholder", "button" consistently
+   - Group form fields under a "fields" key
+   - Group error messages under "errors"
+   - Group UI actions under "actions"
+
+4. **Metadata Pattern**:
+   ```json
+   {
+     "meta": {
+       "title": "Page Title for SEO",
+       "description": "Page description for SEO"
+     },
+     "content": {
+       // Actual page content
+     }
+   }
+   ```
+
+## Special Characters and Encoding
+
+1. Handle special characters correctly:
+   - Use Unicode directly (e.g., "ä", "ö", "å")
+   - Escape quotes: `"quote": "They said \"hello\""`
+   - Escape backticks: `"code": "Use the \`npm\` command"`
+
+2. Use proper line breaks with `\n`:
+   ```json
+   {
+     "multiline": "First line\nSecond line"
+   }
+   ```
+
+## Troubleshooting
+
+1. **Missing Translation Key**:
+   - Check if key exists in all locale files
+   - Verify correct namespace is being used
+   - Check capitalization (keys are case-sensitive)
+
+2. **Placeholder Not Working**:
+   - Ensure the same placeholder is in all translations
+   - Check formatting `{name}` vs `{{name}}`
+
+3. **Date/Number Formatting**:
+   Use built-in formatters:
+   ```tsx
+   const t = useTranslations('Common');
+   const format = useFormatter();
+   
+   // Format date according to the current locale
+   format.dateTime(new Date(), { dateStyle: 'full' });
+   
+   // Format number according to the current locale
+   format.number(1000, { style: 'currency', currency: 'EUR' });
+   ```
+
+## Adding New Translations
+
+1. When adding a new key:
+   - Add to all locale files to maintain consistency
+   - Run `npm run check-translations` to verify completeness
+
+2. When adding a new namespace:
+   - Create parallel files in all locale directories
+   - Follow the established naming patterns

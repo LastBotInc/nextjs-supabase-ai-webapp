@@ -1,5 +1,5 @@
 ---
-description: 
+description: Always when need client-server authentication
 globs: 
 alwaysApply: false
 ---
