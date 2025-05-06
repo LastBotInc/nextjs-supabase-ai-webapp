@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 
-const { GoogleGenAI } = require("@google/genai");
-const fs = require("fs");
-const path = require("path");
-const { Command } = require("commander");
-const axios = require("axios");
-require("dotenv").config({ path: path.resolve(__dirname, '../.env.local') }); // Explicitly load .env.local
+import { GoogleGenAI } from "@google/genai";
+import fs from "fs";
+import path from "path";
+import { Command } from "commander";
+import axios from "axios";
+import dotenv from "dotenv";
+import { fileURLToPath } from 'url';
+
+// Get dirname equivalent in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load environment variables
+dotenv.config({ path: path.resolve(__dirname, '../.env.local') }); // Explicitly load .env.local
 
 const program = new Command();
 

@@ -1,4 +1,4 @@
-const { tavily } = require('@tavily/core');
+import { tavily } from '@tavily/core';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import dotenv from 'dotenv';
