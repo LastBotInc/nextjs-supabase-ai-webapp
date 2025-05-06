@@ -8,6 +8,9 @@ export const staticLocales: Locale[] = ['en', 'fi', 'sv'];
 // Export locales for next-intl
 export const locales = staticLocales;
 
+// Check if we're running on the server
+const isServer = typeof window === 'undefined';
+
 // Function to get enabled locales from the database
 export async function getEnabledLocales(): Promise<Locale[]> {
   // During build time or when NEXT_PUBLIC_SITE_URL is not available, use static locales
@@ -75,69 +78,9 @@ function mergeTranslations(...objects: NestedMessages[]): NestedMessages {
   return result;
 }
 
-// Check if we're running on the server
-const isServer = typeof window === 'undefined';
-
 // Load namespaces from individual files - server only function
-async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> {
-  // Only run this on the server
-  if (!isServer) {
-    console.warn('Attempted to load namespace files on the client side.');
-    return {};
-  }
-
-  try {
-    // Only import fs and path in a server context
-    if (typeof process === 'undefined') {
-      console.error('Cannot import fs/path: Not in a Node.js environment');
-      return {};
-    }
-    
-    // Dynamic imports with additional server-side check
-    const fs = (await import('fs')).promises;
-    const path = await import('path');
-    
-    // Get the absolute path to the namespace directory
-    const namespaceDirPath = path.join(process.cwd(), 'messages', locale);
-    
-    try {
-      // Check if the directory exists
-      await fs.access(namespaceDirPath);
-    } catch (error) {
-      console.error(`Namespace directory for ${locale} does not exist:`, namespaceDirPath);
-      throw error;
-    }
-    
-    // Read all JSON files in the directory
-    const files = await fs.readdir(namespaceDirPath);
-    const jsonFiles = files.filter(file => file.endsWith('.json'));
-    
-    // Load each namespace file
-    const namespaces: NestedMessages = {};
-    
-    for (const file of jsonFiles) {
-      const namespaceName = path.basename(file, '.json');
-      const filePath = path.join(namespaceDirPath, file);
-      const content = await fs.readFile(filePath, 'utf8');
-      
-      try {
-        // Parse the JSON content
-        const namespaceContent = JSON.parse(content);
-        
-        // Create a namespace object with the namespace name as the key
-        namespaces[namespaceName] = namespaceContent;
-      } catch (error) {
-        console.error(`Error parsing JSON file ${filePath}:`, error);
-        // Continue with other files
-      }
-    }
-    
-    return namespaces;
-  } catch (error) {
-    console.error(`Error loading namespace files for ${locale}:`, error);
-    throw error;
-  }
-}
+// This was removed because it requires filesystem access that's not available during build
+// async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> { ... }
 
 // Load namespaces using dynamic imports - works in both client and server
 async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages> {
@@ -248,43 +191,44 @@ async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages
 export async function getI18nConfig({ locale }: { locale: Locale }): Promise<I18nConfig> {
   console.log(`Loading translations for locale: ${locale}`);
   
+  let messages: NestedMessages = {};
+  
   try {
-    let messages: NestedMessages = {};
-    
-    // Try loading using dynamic imports first (works in both client/server)
-    try {
-      messages = await loadNamespacesUsingImport(locale);
-      
-      // If we got some namespaces, use them
-      if (Object.keys(messages).length > 0) {
-        console.log(`Successfully loaded namespace-based translations for ${locale} using imports`);
-      } else {
-        // If no namespaces were found, attempt server-side file loading
-        if (isServer) {
-          messages = await loadNamespacesFromFiles(locale);
-          console.log(`Successfully loaded namespace-based translations for ${locale} using filesystem`);
-        } else {
-          throw new Error(`No namespace files found for locale: ${locale}`);
-        }
-      }
-    } catch (error) {
-      console.warn(`Failed to load namespace-based translations for ${locale}:`, error);
-      
-      // Fallback to monolithic translation file
+    // First try to load translations using dynamic imports (this works in both client and server)
+    messages = await loadNamespacesUsingImport(locale);
+    console.log(`Successfully loaded namespace-based translations for ${locale} using imports`);
+
+    // If no translations were loaded, fall back to monolithic translation
+    if (Object.keys(messages).length === 0) {
+      console.warn(`No translations loaded for ${locale}, trying monolithic fallback`);
       messages = await loadMonolithicTranslation(locale);
     }
-    
-    return {
-      messages,
-      timeZone: 'Europe/Helsinki'
-    };
   } catch (error) {
-    console.error(`Critical error loading translations:`, error);
+    console.error(`Error loading translations for ${locale}:`, error);
     
-    // Emergency fallback to an empty object
-    return {
-      messages: {},
-      timeZone: 'Europe/Helsinki'
-    };
+    // Try monolithic translation as a last resort
+    try {
+      console.warn(`Trying monolithic fallback for ${locale}`);
+      messages = await loadMonolithicTranslation(locale);
+    } catch (fallbackError) {
+      console.error(`Failed to load even monolithic fallback for ${locale}:`, fallbackError);
+      
+      // If all else fails, try default locale
+      if (locale !== defaultLocale) {
+        console.warn(`Attempting to use default locale (${defaultLocale}) as last resort`);
+        try {
+          messages = await loadNamespacesUsingImport(defaultLocale);
+        } catch (defLocaleError) {
+          console.error(`Failed to load default locale:`, defLocaleError);
+          // If everything fails, return empty messages
+          messages = {};
+        }
+      }
+    }
   }
+  
+  return {
+    messages,
+    timeZone: 'Europe/Helsinki', // Default time zone
+  };
 } 

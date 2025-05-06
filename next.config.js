@@ -75,14 +75,6 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    serverExternalPackages: [
-      '@google/generative-ai',
-      'turndown',
-      'sharp',
-      '@tavily/core',
-      'next/dist/server/app-render/work-unit-async-storage.external',
-      'next/dist/server/app-render'
-    ]
   },
   typescript: {
     ignoreBuildErrors: true,
