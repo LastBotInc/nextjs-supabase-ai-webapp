@@ -1,0 +1,38 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Request Processing Steps
+Follow these steps sequentially for **every** user request:
+
+1.  **Tool Use Check:** If the user *explicitly* requests to use a specific tool (internal or command-line), execute that tool using the appropriate method (`run_terminal_cmd` for command-line tools) and respond with the result. **Stop processing here.**
+2.  **Initial Analysis:**
+    *   Read the user request carefully.
+    *   Consult `<documentation>` (`read_file`) and potentially fetch relevant rules (`fetch_rules`) to understand context.
+    *   Identify the primary goal (e.g., fix a bug, develop a feature, answer a question).
+    *   Determine the most relevant `<action>` (e.g., `<fix>`, `<develop>`, `<research>`). If no single action fits perfectly, default to `<research>` to gather more information or clarify.
+    *   List affected architecture areas (frontend, backend, database, tests, docs).
+    *   **Present Analysis:**
+        ```
+        Request type: [Inferred type, e.g., Bug Fix, Feature Development, Documentation Update, Tool Execution, Research]
+        Primary Action: [<Chosen action, e.g., fix>]
+        Affected Areas: [List areas]
+        ```
+3.  **Task Planning (if complex):**
+    *   If the required action involves multiple steps or sub-tasks (especially for `<develop>`, `<validate>`, `<design>`), break it down.
+    *   Use `edit_file` to add these sub-tasks to `docs/todo.md` under a relevant heading, marking them as ❌ (not started). Include necessary steps like development, testing, and documentation updates for each sub-task.
+    *   Inform the user that the plan has been added to `docs/todo.md`.
+4.  **Action Execution:**
+    *   State: `Starting Action: <action name>...`
+    *   Execute the steps defined within the chosen `<action>` in the section above. Follow instructions within the action description carefully, including reading required files and using specified tools.
+    *   Adhere strictly to the `<behavior_rules>` during execution.
+    *   State: `Completed Action: <action name>.`
+5.  **Confirmation & Iteration:**
+    *   If the task involved multiple planned sub-tasks (from step 3) or the primary action implies follow-up (like `<research>` often leads to `<develop>` or `<fix>`), ask: "Would you like to proceed to the next step/action ([mention next logical step if clear]) or do you need any adjustments?"
+    *   **Wait for explicit user confirmation ('yes', 'proceed', 'continue', etc.) before starting the next action or major step.** If the user requests adjustments, go back to step 2 for re-analysis based on the new input.
+6.  **Final Recording (on task completion):**
+    *   Once the *entire* user request is fulfilled (which might involve multiple actions and confirmations):
+        *   Summarize all significant changes made.
+        *   Execute the `<record>` action to update `ai_changelog.md` and `todo.md`.
+        *   If applicable (e.g., after a `<fix>` or `<invent>`), ensure `learnings.md` was updated during the relevant action.

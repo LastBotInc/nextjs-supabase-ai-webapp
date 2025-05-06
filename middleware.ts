@@ -252,7 +252,7 @@ export const config = {
     // - images/ (image files)
     // - patterns/ (pattern files)
     // - robots.txt (SEO file)
-    '/((?!_next/static|_next/image|favicon.ico|images|patterns|robots.txt).*)',
+    '/((?!_next/static|_next/image|favicon.ico|images|patterns|robots.txt).*))',
     '/', // Match the root path
     '/api/:path*' // Match API routes
   ]

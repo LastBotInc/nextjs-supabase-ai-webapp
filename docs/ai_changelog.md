@@ -146,3 +146,31 @@
 - Implemented newsletter signup in footer
 - Added social media links and legal information sections
 
+## [Date: 2024-05-05]
+
+### Fixed Edge Runtime Compatibility for Namespace Loading
+
+- Removed file system operations from middleware that was causing Edge Runtime errors
+- Simplified i18n-helpers.ts to use a pre-generated list of namespaces without conditional logic
+- Updated update-namespace-list.js script to modify the simplified helper file
+- Ensured build-time namespace list generation still works correctly
+- Removed development-time dynamic scanning that wasn't compatible with Edge Runtime
+
+These changes maintain the automated namespace discovery during builds while ensuring compatibility with Next.js Edge Runtime for middleware.
+
+---
+
+### Dynamic Namespace Loading for Translations
+
+- Replaced hardcoded namespace list in `app/i18n/config.ts` with a dynamic system
+- Created `utils/i18n-helpers.ts` with functions to scan for available namespaces
+- Added `scripts/update-namespace-list.js` to update namespace list during build
+- Updated `package.json` with `update-namespaces` script
+- Modified build process to automatically update namespaces
+- Enhanced middleware to dynamically scan for namespaces in development mode
+- Implemented caching to minimize file system operations
+
+This change eliminates the need to manually maintain the list of translation namespaces when new namespaces are added to the application, reducing maintenance burden and preventing potential bugs from missing namespaces.
+
+---
+

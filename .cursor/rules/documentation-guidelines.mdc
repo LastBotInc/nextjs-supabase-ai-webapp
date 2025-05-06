@@ -1,0 +1,32 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+<documentation>
+  ## Documentation and Context Files
+  Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `fetch_rules` for `@*.mdc` files.
+    - `@description.md`: App description, use cases, features.
+    - `@architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `@datamodel.md`: Entities, attributes, relationships.
+    - `@frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `@backend.md`: API endpoints, authentication, service architecture.
+    - `@todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `@ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `@learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+    - `/.cursor/rules/@add-data-model.mdc`: How to add a new data model.
+    - `/.cursor/rules/@admin-api-protection.mdc`: How to protect the admin API.
+    - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
+    - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
+    - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `/.cursor/rules/@nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
+    - `/.cursor/rules/@supabase-auth-implementation.mdc`: How to implement Supabase authentication.
+    - `/.cursor/rules/@translation-guidelines.mdc`: Guidelines for translations.
+    - `/.cursor/rules/@translation-management-tools.mdc`: Tools for managing translations.
+    - `@package.json`: List of used npm packages and versions.
+    - `lib/@brand-info.ts`: Brand information for content generation.
+
+  **Link Handling:**
+    - For `@filename.ext` links: Use `read_file` to access their content.
+    - For `http://` or `https://` links: Use `web_search` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume you can directly access or parse the content without `web_search`.
+</documentation>

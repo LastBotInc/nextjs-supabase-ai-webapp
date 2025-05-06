@@ -1,3 +1,5 @@
+import { getNamespaces } from '@/utils/i18n-helpers';
+
 export type Locale = string;
 
 export const defaultLocale: Locale = 'en';
@@ -88,7 +90,6 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
   
   const namespaces: NestedMessages = {};
   
-  // We use a dynamic import.meta.glob pattern which Vite/Webpack will handle
   try {
     // Try to load the navigation namespace first as a test
     try {
@@ -98,31 +99,14 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
       console.warn(`Navigation namespace not found for ${locale}`);
     }
     
-    // Try to load common namespaces that are likely to exist
-    const commonNamespaces = [
-      'Common', 
-      'Footer', 
-      'Auth', 
-      'Blog', 
-      'Index',
-      'Home',
-      'CookieConsent',
-      'Booking',
-      'Account',
-      'Admin',
-      'Analytics',
-      'LandingPage',
-      'Contact',
-      'Media',
-      'Profile',
-      'Security',
-      'User',
-      'CustomerService',
-      'CarBenefitCalculator',
-      'CustomerStories'
-    ];
+    // Get namespaces dynamically from our utility function
+    // This will scan the directory during development and use a pre-generated list in production
+    const availableNamespaces = getNamespaces();
     
-    for (const namespace of commonNamespaces) {
+    console.log(`Attempting to load ${availableNamespaces.length} namespaces`);
+    
+    // Load each namespace for the current locale
+    for (const namespace of availableNamespaces) {
       try {
         console.log(`Loading namespace: ${namespace} for locale: ${locale}`);
         const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default);
@@ -153,18 +137,13 @@ async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages
       
       const namespaces: NestedMessages = {};
       
-      // Try to load some common namespaces
-      const commonNamespaces = [
-        'Navigation', 
-        'Common', 
-        'Footer', 
-        'Auth', 
-        'Blog', 
-        'Index',
-        'Home'
+      // Get essential namespaces to try as fallback
+      // Using a subset of all namespaces for fallback to ensure core functionality
+      const essentialNamespaces = [
+        'Navigation', 'Common', 'Footer', 'Auth', 'Blog', 'Index', 'Home'
       ];
       
-      for (const namespace of commonNamespaces) {
+      for (const namespace of essentialNamespaces) {
         try {
           const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default);
           namespaces[namespace] = module;

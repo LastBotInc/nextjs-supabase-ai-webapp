@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_ENV=production next build",
-    "prestart": "NODE_ENV=production next build",
+    "update-namespaces": "node scripts/update-namespace-list.js",
+    "build": "npm run update-namespaces && NODE_ENV=production next build",
+    "prestart": "npm run update-namespaces && NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "recraft": "NODE_ENV=development tsx tools/recraft.ts",
