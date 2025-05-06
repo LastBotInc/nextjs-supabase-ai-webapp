@@ -36,8 +36,6 @@
     "check-translations": "tsx scripts/check-translations.ts",
     "split-locales": "node scripts/split-locales.js",
     "invert-colors": "NODE_ENV=development tsx tools/invert-colors.ts",
-    "presentations:generate-images": "bash scripts/generate-presentation-images.sh",
-    "presentations:setup": "npm run presentations:generate-images",
     "submit-sitemap": "NODE_ENV=development tsx tools/submit-sitemap.ts",
     "generate-video": "NODE_ENV=development tsx tools/generate-video.ts",
     "imagen": "NODE_ENV=development tsx tools/imagen.ts",

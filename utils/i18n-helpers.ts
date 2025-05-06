@@ -16,7 +16,7 @@ export const getNamespaces = (): string[] => {
     'Blog', 'CarBenefitCalculator', 'Common', 'Contact',
     'CookieConsent', 'CustomerService', 'CustomerStories', 'Footer',
     'Home', 'Index', 'LandingPages', 'LeasingSolutions',
-    'Media', 'Meta', 'Navigation', 'Presentations',
+    'Media', 'Meta', 'Navigation',
     'Privacy', 'Profile'
   ];
 }; 

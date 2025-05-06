@@ -111,7 +111,7 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
     const commonNamespaces = [
       'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
       'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
-      'Media', 'Navigation', 'Presentations', 'Privacy', 'Profile', 
+      'Media', 'Navigation', 'Privacy', 'Profile', 
       'Footer', 'Index'
       // Removed: 'Booking', 'Analytics', 'Security', 'User' (if they don't have corresponding files)
     ];
@@ -161,7 +161,7 @@ async function loadMonolithicFile(locale: Locale): Promise<Messages> {
     const commonNamespaces = [
       'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
       'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
-      'Media', 'Navigation', 'Presentations', 'Privacy', 'Profile', 
+      'Media', 'Navigation', 'Privacy', 'Profile', 
       'Footer', 'Index'
       // Removed: 'Booking', 'Analytics', 'Security', 'User'
     ];
