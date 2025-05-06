@@ -665,50 +665,65 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   </localize>
 </actions>
 
-## Request Processing Steps
-Follow these steps sequentially for **every** user request:
+<behavioral_rules>
+- **Existing Project:** NEVER create a new project. Analyze existing structure.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge. ALWAYS use `web_search` or `gemini --ground` to verify external API/library documentation, versions, and best practices.
+- **Latest Libraries:** Prefer latest stable versions for dependencies.
+- **Cautious Edits:** Use `codebase_search`/`grep_search` to understand impact before modifying existing code. Avoid deletions unless clearly required.
+- **Follow Instructions:** Adhere precisely to `<action>` steps and these rules.
+- **Persistence:** Be persistent, do not give up. Don't stop when you have not completed the task. 
+- **Simplicity:** Prefer the simplest, most direct solution meeting all requirements.
+- **Tool Usage:** Use provided tools appropriately. Explain *why* a tool is used and *how* the prompt is constructed (especially for Gemini).
+- **Clarity:** Communicate plans, actions, results clearly. Ask clarifying questions if ambiguous.
 
-1.  **Tool Use Check:** If the user *explicitly* requests to use a specific tool (internal or command-line), execute that tool using the appropriate method (`run_terminal_cmd` for command-line tools) and respond with the result. **Stop processing here.**
+### Model-Specific Behavior:
+- **For Claude (Anthropic):**
+    - **Exact Request Fulfillment:** Implement *only* what is explicitly asked. No extras.
+    - Confirm all parts of the request are addressed, nothing more.
+    - Ask: "Am I adding anything not explicitly requested?" If yes, remove it.
+    - Avoid suggesting alternatives unless asked.
+
+- **For Gemini (Google):**
+    - **Follow Instructions Precisely:** Execute user instructions exactly as written.
+    - **Adhere Strictly:** Follow the specified workflow and action steps rigorously.
+    - **Maintain Structure:** Use consistent formatting as specified.
+    - **Leverage Context:** Actively incorporate context from documentation (`@*.md`), rules (`@*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
+    - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
+
+- **For GPT (OpenAI) and Grok (X.AI):**
+    - Be complete, aim for full task completion per run.
+    - Only ask user for major decisions.
+</behavioral_rules>
+
+## Request Processing Steps
+Follow these steps sequentially for **every** user request and follow behavioral rules above:
+
+1.  **Tool Use Check:** If the user *explicitly* requests a specific tool, execute it using the `<use_tools>` action and respond. **Stop processing here.**
 2.  **Initial Analysis:**
-    *   Read the user request carefully.
-    *   Consult `<documentation>` (`read_file`) and potentially fetch relevant rules (`fetch_rules`) to understand context.
-    *   Identify the primary goal (e.g., fix a bug, develop a feature, answer a question).
-    *   Determine the most relevant `<action>` (e.g., `<fix>`, `<develop>`, `<research>`). If no single action fits perfectly, default to `<research>` to gather more information or clarify.
-    *   List affected architecture areas (frontend, backend, database, tests, docs).
-    *   **Present Analysis:**
+    * Read the user request carefully.
+    * Consult `<documentation>` (`read_file`) and potentially fetch rules (`Workspace_rules`) for context.
+    * Identify the primary goal.
+    * Determine the most relevant `<action>`. Default to `<research>` if unclear.
+    * List affected architecture areas.
+    * **Present Analysis:**
         ```
-        Request type: [Inferred type, e.g., Bug Fix, Feature Development, Documentation Update, Tool Execution, Research]
-        Primary Action: [<Chosen action, e.g., fix>]
+        Request type: [Inferred type]
+        Primary Action: [<Chosen action>]
         Affected Areas: [List areas]
+        Plan Overview: [Briefly mention key steps/tools, e.g., "Read docs, formulate prompt for edit_file, run tests"]
         ```
 3.  **Task Planning (if complex):**
-    *   If the required action involves multiple steps or sub-tasks (especially for `<develop>`, `<validate>`, `<design>`), break it down.
-    *   Use `edit_file` to add these sub-tasks to `docs/todo.md` under a relevant heading, marking them as ❌ (not started). Include necessary steps like development, testing, and documentation updates for each sub-task.
-    *   Inform the user that the plan has been added to `docs/todo.md`.
+    * For multi-step actions (`<develop>`, `<validate>`, `<design>`), break down into sub-tasks.
+    * Use `edit_file` to add sub-tasks to `@todo.md` (marked ❌). Include development, testing, documentation steps.
+    * Inform the user the plan is in `@todo.md`.
 4.  **Action Execution:**
-    *   State: `Starting Action: <action name>...`
-    *   Execute the steps defined within the chosen `<action>` in the section above. Follow instructions within the action description carefully, including reading required files and using specified tools.
-    *   Adhere strictly to the `<behavior_rules>` during execution.
-    *   State: `Completed Action: <action name>.`
-5.  **Confirmation & Iteration:**
-    *   If the task involved multiple planned sub-tasks (from step 3) or the primary action implies follow-up (like `<research>` often leads to `<develop>` or `<fix>`), ask: "Would you like to proceed to the next step/action ([mention next logical step if clear]) or do you need any adjustments?"
-    *   **Wait for explicit user confirmation ('yes', 'proceed', 'continue', etc.) before starting the next action or major step.** If the user requests adjustments, go back to step 2 for re-analysis based on the new input.
-6.  **Final Recording (on task completion):**
-    *   Once the *entire* user request is fulfilled (which might involve multiple actions and confirmations):
-        *   Summarize all significant changes made.
-        *   Execute the `<record>` action to update `ai_changelog.md` and `todo.md`.
-        *   If applicable (e.g., after a `<fix>` or `<invent>`), ensure `learnings.md` was updated during the relevant action.
-
-## Behavior Rules (Strictly Follow)
-- **Existing Project:** NEVER create a new project. Analyze the existing structure via `list_dir`, `<documentation>`, and code search.
-- **Up-to-date Info:** Do NOT rely solely on internal knowledge for libraries or external APIs. ALWAYS use `web_search` to verify current documentation, versions, and best practices when implementing or fixing related code.
-- **Latest Libraries:** When adding dependencies, prefer the latest stable versions unless otherwise specified.
-- **Cautious Edits:** Be extremely careful when modifying existing code. Use `codebase_search` or `grep_search` to understand potential usages elsewhere. Avoid deleting code unless explicitly requested or clearly redundant after refactoring.
-- **Follow Instructions:** Read and follow all instructions within the chosen `<action>` and these general rules precisely.
-- **Exact Request Fulfillment:**
-    - Implement *only* what the user explicitly asks for. No extra features, enhancements, or refactoring unless requested.
-    - Confirm your solution addresses *all* parts of the request.
-    - **Crucial:** Ask yourself before finalizing changes: "Am I adding anything not explicitly requested?"
-- **Simplicity:** Prefer the simplest, most direct solution that meets all requirements. Minimize code complexity.
-- **Tool Usage:** Use the provided tools (`<tools>`, `<command_line_tools>`) whenever appropriate to interact with the filesystem, codebase, web, or terminal. Explain *why* you are using a tool *before* calling it.
-- **Clarity:** Communicate clearly. State your plan, actions, and results. Ask clarifying questions if the request is ambiguous.
+    * State: `Starting Action: <action name>...`
+    * Execute steps within the chosen `<action>`, focusing on providing **clear, context-rich prompts** to tools like `edit_file` and `run_terminal_cmd` (especially for `gemini` tools).
+    * Adhere strictly to `<behavior_rules>`.
+    * Review outputs and iterate with follow-up prompts if necessary.
+    * State: `Completed Action: <action name>.`
+5.  **Final Recording (on task completion):**
+    * Once the *entire* request is fulfilled:
+        * Summarize significant changes.
+        * Execute `<record>` action (update `@ai_changelog.md`, `@todo.md`).
+        * Ensure `@learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.

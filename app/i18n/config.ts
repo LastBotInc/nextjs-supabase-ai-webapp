@@ -8,6 +8,9 @@ export const staticLocales: Locale[] = ['en', 'fi', 'sv'];
 // Export locales for next-intl
 export const locales = staticLocales;
 
+// Check if we're running on the server
+const isServer = typeof window === 'undefined';
+
 // Function to get enabled locales from the database
 export async function getEnabledLocales(): Promise<Locale[]> {
   // During build time or when NEXT_PUBLIC_SITE_URL is not available, use static locales
@@ -75,8 +78,9 @@ function mergeTranslations(...objects: NestedMessages[]): NestedMessages {
   return result;
 }
 
-// Check if we're running on the server
-const isServer = typeof window === 'undefined';
+// Load namespaces from individual files - server only function
+// This was removed because it requires filesystem access that's not available during build
+// async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> { ... }
 
 // Load namespaces using dynamic imports - works in both client and server
 async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages> {
@@ -195,39 +199,44 @@ async function loadMonolithicTranslation(locale: Locale): Promise<NestedMessages
 export async function getI18nConfig({ locale }: { locale: Locale }): Promise<I18nConfig> {
   console.log(`Loading translations for locale: ${locale}`);
   
+  let messages: NestedMessages = {};
+  
   try {
-    let messages: NestedMessages = {};
-    
-    // Try loading using dynamic imports first (works in both client/server)
-    try {
-      messages = await loadNamespacesUsingImport(locale);
-      
-      // If we got some namespaces, use them
-      if (Object.keys(messages).length > 0) {
-        console.log(`Successfully loaded namespace-based translations for ${locale} using imports`);
-        console.log(`Loaded namespaces: ${Object.keys(messages).join(', ')}`);
-      } else {
-        // If imports didn't find anything, throw an error to trigger fallback
-        throw new Error(`No namespace files found via dynamic import for locale: ${locale}`);
-      }
-    } catch (error) {
-      console.warn(`Failed to load namespace-based translations for ${locale}:`, error);
-      
-      // Fallback to monolithic translation file (which now tries namespaces again)
+    // First try to load translations using dynamic imports (this works in both client and server)
+    messages = await loadNamespacesUsingImport(locale);
+    console.log(`Successfully loaded namespace-based translations for ${locale} using imports`);
+
+    // If no translations were loaded, fall back to monolithic translation
+    if (Object.keys(messages).length === 0) {
+      console.warn(`No translations loaded for ${locale}, trying monolithic fallback`);
       messages = await loadMonolithicTranslation(locale);
     }
-    
-    return {
-      messages,
-      timeZone: 'Europe/Helsinki'
-    };
   } catch (error) {
-    console.error(`Critical error loading translations:`, error);
+    console.error(`Error loading translations for ${locale}:`, error);
     
-    // Emergency fallback to an empty object
-    return {
-      messages: {},
-      timeZone: 'Europe/Helsinki'
-    };
+    // Try monolithic translation as a last resort
+    try {
+      console.warn(`Trying monolithic fallback for ${locale}`);
+      messages = await loadMonolithicTranslation(locale);
+    } catch (fallbackError) {
+      console.error(`Failed to load even monolithic fallback for ${locale}:`, fallbackError);
+      
+      // If all else fails, try default locale
+      if (locale !== defaultLocale) {
+        console.warn(`Attempting to use default locale (${defaultLocale}) as last resort`);
+        try {
+          messages = await loadNamespacesUsingImport(defaultLocale);
+        } catch (defLocaleError) {
+          console.error(`Failed to load default locale:`, defLocaleError);
+          // If everything fails, return empty messages
+          messages = {};
+        }
+      }
+    }
   }
+  
+  return {
+    messages,
+    timeZone: 'Europe/Helsinki', // Default time zone
+  };
 } 
