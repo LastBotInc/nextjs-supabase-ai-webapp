@@ -7,10 +7,10 @@ import StructuredData from '@/components/structured-data'
 import PresentationViewer from '@/app/components/presentation/PresentationViewer'
 
 interface Props {
-  params: Promise<{
+  params: {
     locale: Locale
     slug: string
-  }>
+  }
 }
 
 // Types for presentations
@@ -39,7 +39,7 @@ interface Presentations {
   [key: string]: Presentation
 }
 
-// Static page
+// Force static generation for this page
 export const dynamic = 'force-static'
 
 // Static presentation data
@@ -1269,7 +1269,7 @@ const presentations: Presentations = {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { locale, slug } = await params;
+  const { locale, slug } = params;
   const presentationKey = `${slug}${locale === 'en' ? '' : '-' + locale}`
   const presentation = presentations[presentationKey]
 
@@ -1301,7 +1301,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PresentationPage({ params }: Props) {
-  const { locale, slug } = await params;
+  const { locale, slug } = params;
   await setupServerLocale(locale)
   const t = await getTranslations('Presentations')
   const presentationKey = `${slug}${locale === 'en' ? '' : '-' + locale}`

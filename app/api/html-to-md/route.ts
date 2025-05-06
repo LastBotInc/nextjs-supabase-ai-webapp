@@ -4,6 +4,14 @@ export const runtime = 'edge'
 export const maxDuration = 60 // 1 minute
 
 export async function POST(req: NextRequest) {
+  // Skip in production environment
+  if (process.env.NODE_ENV === 'production') {
+    return new Response(
+      JSON.stringify({ error: 'This endpoint is only available in development' }), 
+      { status: 404, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
+  
   try {
     const { html, selector } = await req.json()
     
