@@ -73,9 +73,9 @@ function caffitellaToShopify(source: CaffitellaProduct): ShopifyProduct & { desc
     status: 'active',
     variants: [variant],
     description: source.description,
+    description_html_fi: source.description,
     image_link: source.image_link,
     title_fi: source.title_fi,
-    description_html_fi: source.description_html_fi
   };
 }
 
@@ -511,18 +511,22 @@ async function createShopifyProduct(product: ShopifyProduct & { description?: st
       `--tags=${product.tags.join(',')}`
     ];
 
-    // Add description if available
-    if (product.description) {
+    // Add description if available, otherwise a placeholder
+    if (product.description && product.description.trim() !== '') {
       args.push(`--bodyHtml=${product.description}`);
+    } else {
+      args.push("--bodyHtml=<p>Placeholder: Description to be updated.</p>");
     }
 
     // Add Finnish translations if available
     if (product.title_fi) {
       args.push(`--titleFi=${product.title_fi}`);
     }
-    if (product.description_html_fi) {
+    // BodyHtmlFi handling: only add if product.description_html_fi has a value
+    // (which is currently mapped from source.description)
+    if (product.description_html_fi && product.description_html_fi.trim() !== '') {
       args.push(`--bodyHtmlFi=${product.description_html_fi}`);
-    }
+    } // If it's empty, we don't pass --bodyHtmlFi, so no Finnish desc translation will be attempted
     
     console.log(`Executing: node ${args.join(' ')}`);
     
@@ -542,15 +546,15 @@ async function createShopifyProduct(product: ShopifyProduct & { description?: st
     child.on('close', async (code) => {
       if (code === 0) {
         try {
-          // Try to extract the product ID from the output
-          const match = output.match(/id": "([^"]+)"/);
-          const productId = match ? match[1] : undefined;
+          // Try to extract the product ID and defaultVariantId from the output
+          // The output from shopify-product-tool.cjs create is now a JSON string
+          const creationOutput = JSON.parse(output.substring(output.indexOf('{'))); 
+          const productId = creationOutput?.id;
+          const variantId = creationOutput?.defaultVariantId; // Use the new field
           
-          // Handle price update if needed - first extract variant ID
-          const variantMatch = output.match(/variants":\s*{\s*"nodes":\s*\[\s*{\s*"id":\s*"([^"]+)"/);
-          const variantId = variantMatch ? variantMatch[1] : undefined;
-          
-          // If we have a product ID, first update price if needed
+          console.log(`Parsed from creation output - ProductID: ${productId}, DefaultVariantID: ${variantId}`);
+
+          // If we have a product ID and variantId, first update price if needed
           if (productId && variantId && product.variants && product.variants.length > 0 && product.variants[0].price !== '0.00') {
             console.log(`Updating price for variant ${variantId} to ${product.variants[0].price}...`);
             

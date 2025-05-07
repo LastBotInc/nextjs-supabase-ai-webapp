@@ -625,6 +625,7 @@ program
           status
           vendor
           productType
+          descriptionHtml
           createdAt
           updatedAt
           variants(first: 5) {
@@ -637,11 +638,26 @@ program
               }
             }
           }
+          # Corrected translations query for Finnish
+          finnishTranslations: translations(locale: "fi") {
+            key
+            value
+          }
         }
       }
     `;
     try {
       const data = await shopifyGraphQL(query, { id: options.id });
+      // Adjust parsing for the new translations structure
+      if (data.product && data.product.finnishTranslations) {
+        const titleEntry = data.product.finnishTranslations.find(t => t.key === 'title');
+        data.product.titleFi = titleEntry ? titleEntry.value : null;
+
+        const descriptionEntry = data.product.finnishTranslations.find(t => t.key === 'body_html');
+        data.product.descriptionFi = descriptionEntry ? descriptionEntry.value : null;
+        
+        delete data.product.finnishTranslations; // Clean up the raw translations array
+      }
       console.log(JSON.stringify(data, null, 2));
     } catch (error) {
         console.error(`Failed to get product ${options.id}`);
@@ -711,7 +727,7 @@ program
     console.log(`Creating product manually: ${options.title}`);
     const input = {
       title: options.title,
-      bodyHtml: options.bodyHtml,
+      descriptionHtml: options.bodyHtml,
       vendor: options.vendor,
       productType: options.productType,
       status: options.status.toUpperCase(),
@@ -725,6 +741,12 @@ program
             title
             handle
             status
+            # Fetch the first variant's ID
+            variants(first: 1) {
+              nodes {
+                id
+              }
+            }
           }
           userErrors {
             field
@@ -740,6 +762,10 @@ program
       } else {
         console.log('Product created successfully:');
         const createdProduct = data.productCreate.product;
+        // Extract and add defaultVariantId to the output object
+        if (createdProduct && createdProduct.variants && createdProduct.variants.nodes && createdProduct.variants.nodes.length > 0) {
+          createdProduct.defaultVariantId = createdProduct.variants.nodes[0].id;
+        }
         console.log(JSON.stringify(createdProduct, null, 2));
         const productId = createdProduct?.id;
 
@@ -1286,6 +1312,56 @@ program
         // This catches errors from the productUpdate GraphQL call if it was the only operation
         // or errors not caught by the image processing block's try/catch.
         console.error(`Failed to update product ${options.id}: `, error.message);
+        process.exitCode = 1;
+    }
+  });
+
+// --- New Update Price Command ---
+program
+  .command('update-price')
+  .description('Update the price of a specific product variant')
+  .requiredOption('--productId <gid>', 'Product GID (e.g., gid://shopify/Product/12345)')
+  .requiredOption('--variantId <gid>', 'Product Variant GID (e.g., gid://shopify/ProductVariant/12345)')
+  .requiredOption('--price <price>', 'New price for the variant (e.g., 19.99)')
+  .action(async (options) => {
+    console.log(`Updating price for variant ${options.variantId} of product ${options.productId} to ${options.price}`);
+    const variantBulkUpdateMutation = `
+        mutation productVariantsBulkUpdate($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+            productVariantsBulkUpdate(productId: $productId, variants: $variants) {
+                productVariants {
+                    id
+                    price
+                }
+                userErrors {
+                    field
+                    message
+                }
+            }
+        }
+    `;
+    const variantUpdateInput = {
+        id: options.variantId,
+        price: options.price
+    };
+
+    try {
+        const data = await shopifyGraphQL(
+             variantBulkUpdateMutation,
+             { productId: options.productId, variants: [variantUpdateInput] }
+        );
+
+        if (data.productVariantsBulkUpdate?.userErrors?.length > 0) {
+            console.error(`❌ Error setting price for variant ${options.variantId}:`, data.productVariantsBulkUpdate.userErrors);
+            process.exitCode = 1;
+        } else if (data.productVariantsBulkUpdate?.productVariants?.[0]?.id) {
+            console.log(`   ✅ Price set successfully for variant ${options.variantId} to ${data.productVariantsBulkUpdate.productVariants[0].price}.`);
+            console.log(JSON.stringify(data.productVariantsBulkUpdate.productVariants[0], null, 2));
+        } else {
+            console.warn(`   ⚠️ Price set mutation ran, but no confirmation ID received.`, data);
+            process.exitCode = 1; // Consider this a failure
+        }
+    } catch (error) {
+        console.error(`   ❌ Exception occurred while setting price for variant ${options.variantId}:`, error);
         process.exitCode = 1;
     }
   });
