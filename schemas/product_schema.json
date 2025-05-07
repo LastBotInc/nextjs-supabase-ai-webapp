@@ -1,0 +1,56 @@
+{
+  "feed_url": "https://caffitella.fi/wp-content/uploads/woo-product-feed-pro/xml/fsFOKgWFjXKeNM08RyAKV7fX1gihMxoE.xml",
+  "json_schema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Unique identifier for the product."
+      },
+      "title": {
+        "type": "string",
+        "description": "The title or name of the product."
+      },
+      "description": {
+        "type": "string",
+        "description": "A detailed description of the product (can be null)."
+      },
+      "link": {
+        "type": "string",
+        "description": "The URL link to the product page on the website."
+      },
+      "image_link": {
+        "type": "string",
+        "description": "The URL link to the product image."
+      },
+      "price": {
+        "type": "string",
+        "description": "The price of the product as a string."
+      },
+      "categories": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of categories that the product belongs to."
+          }
+        },
+        "description": "Object containing product categories."
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "link",
+      "image_link",
+      "price",
+      "categories"
+    ]
+  },
+  "name": "Product",
+  "description": "Schema for a product item with details such as ID, title, description, link, image link, price, and categories.",
+  "identifier": "product_schema"
+}

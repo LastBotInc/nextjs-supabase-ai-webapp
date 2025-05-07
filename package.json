@@ -69,7 +69,11 @@
     "github:release-list": "NODE_ENV=development tsx tools/github-cli.ts release-list",
     "github:repo": "NODE_ENV=development tsx tools/github-cli.ts repo",
     "github:workflow": "NODE_ENV=development tsx tools/github-cli.ts workflow",
-    "github:tasks": "NODE_ENV=development tsx tools/github-cli.ts tasks"
+    "github:tasks": "NODE_ENV=development tsx tools/github-cli.ts tasks",
+    "schema-detector": "NODE_ENV=development tsx tools/schema-detector.ts",
+    "schema-mapper": "NODE_ENV=development tsx tools/schema-mapper-tool.ts",
+    "feed-to-shopify": "NODE_ENV=development tsx tools/feed-to-shopify-exporter.ts",
+    "shopify-product": "NODE_ENV=development node tools/shopify-product-tool.cjs"
   },
   "dependencies": {
     "@google/genai": "^0.10.0",
@@ -112,6 +116,7 @@
     "@types/react-dom": "^18.2.17",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
+    "@vercel/edge": "^1.1.1",
     "axios": "^1.9.0",
     "bcrypt": "^5.1.1",
     "chalk": "^5.3.0",
@@ -159,6 +164,7 @@
     "typescript": "^5.3.3",
     "ua-parser-js": "^2.0.0",
     "uuid": "^11.0.4",
+    "xml2js": "^0.6.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -183,6 +189,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/testing-library__jest-dom": "^5.14.9",
     "@types/turndown": "^5.0.4",
+    "@types/xml2js": "^0.4.14",
     "@types/yargs": "^17.0.32",
     "@vitejs/plugin-react": "^4.2.0",
     "cli-progress": "^3.12.0",

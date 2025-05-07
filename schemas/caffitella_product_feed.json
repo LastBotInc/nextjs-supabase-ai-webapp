@@ -1,0 +1,56 @@
+{
+  "feed_url": "https://caffitella.fi/wp-content/uploads/woo-product-feed-pro/xml/fsFOKgWFjXKeNM08RyAKV7fX1gihMxoE.xml",
+  "json_schema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "The unique identifier for the product from Caffitella."
+      },
+      "title": {
+        "type": "string",
+        "description": "The title of the product."
+      },
+      "link": {
+        "type": "string",
+        "description": "The URL link to the product page on the Caffitella website."
+      },
+      "image_link": {
+        "type": "string",
+        "description": "The URL link to the product image."
+      },
+      "price": {
+        "type": "string",
+        "description": "The price of the product as a string."
+      },
+      "categories": {
+        "type": "object",
+        "description": "An object containing the categories the product belongs to.",
+        "properties": {
+          "category": {
+            "type": "array",
+            "description": "An array of category strings that the product belongs to.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": {
+        "type": "string",
+        "description": "A detailed description of the product."
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "link",
+      "image_link",
+      "price",
+      "categories"
+    ]
+  },
+  "name": "Caffitella Product Feed",
+  "description": "Schema for product data feed from the vendor Caffitella.",
+  "identifier": "caffitella_product_feed"
+}

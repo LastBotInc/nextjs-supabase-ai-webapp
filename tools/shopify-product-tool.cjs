@@ -159,14 +159,52 @@ It is CRITICAL that you provide ALL fields, including Finnish translations (titl
         }
 
         const responseText = modelResponse.candidates[0].content.parts[0].text;
-        const cleanedText = responseText.replace(/^```json\n?|\n?```$/g, '');
+        let jsonToParse = responseText; // Default to the full text
+
+        // Try to extract from ```json ... ``` block
+        const jsonBlockMatch = responseText.match(/```json\s*([\s\S]*?)\s*```/);
+        if (jsonBlockMatch && jsonBlockMatch[1]) {
+            jsonToParse = jsonBlockMatch[1];
+        } else {
+            // Fallback: if no ```json ``` block, assume the text *might* be raw JSON
+            // or JSON with some leading/trailing whitespace or minor non-JSON artifacts.
+            // Attempt to find the start and end of a JSON structure by matching outermost brackets/braces.
+            const firstJsonCharMatch = responseText.match(/^\s*([\[{])/);
+            if (firstJsonCharMatch) {
+                const startChar = firstJsonCharMatch[1];
+                const endChar = startChar === '[' ? ']' : '}';
+                let depth = 0;
+                let startIndex = responseText.indexOf(startChar);
+                let endIndex = -1;
+
+                if (startIndex !== -1) {
+                    for (let i = startIndex; i < responseText.length; i++) {
+                        if (responseText[i] === startChar) {
+                            depth++;
+                        } else if (responseText[i] === endChar) {
+                            depth--;
+                            if (depth === 0) {
+                                endIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                    if (endIndex !== -1) {
+                        jsonToParse = responseText.substring(startIndex, endIndex + 1);
+                    }
+                }
+                // If this fallback doesn't refine jsonToParse, JSON.parse will use the original responseText
+                // or the result from the jsonBlockMatch if that was successful earlier but somehow invalid.
+            }
+        }
         
         let generatedData;
         try {
-            generatedData = JSON.parse(cleanedText);
+            generatedData = JSON.parse(jsonToParse);
         } catch (parseError) {
             console.error("Error parsing JSON response from Gemini:", parseError);
-            console.error("Original cleaned text:", cleanedText);
+            console.error("Original text from API:", responseText); // Log original for better debug
+            console.error("Attempted to parse:", jsonToParse);    // Log what was actually parsed
             throw new Error("Failed to parse JSON response from Gemini.");
         }
 
@@ -175,20 +213,21 @@ It is CRITICAL that you provide ALL fields, including Finnish translations (titl
         if (generatedData && generatedData.products && Array.isArray(generatedData.products)) {
             // Case 1: Standard { products: [...] } structure
             finalProductArray = generatedData.products;
-        } else if (Array.isArray(generatedData) && generatedData.length === 1 && 
+        } else if (Array.isArray(generatedData) && generatedData.length > 0 && 
                    typeof generatedData[0] === 'object' && 
                    generatedData[0].title && generatedData[0].description_html && 
                    typeof generatedData[0].price === 'number' && Array.isArray(generatedData[0].tags) &&
                    generatedData[0].title_fi && generatedData[0].description_html_fi) {
-            // Case 2: Direct array with one valid product object [{...}]
-            console.warn("Parsed data was a single-element array.");
+            // Case 2: Direct array with one or more valid product object [{...}]
             finalProductArray = generatedData; 
-        } else if (amount === 1 && generatedData && typeof generatedData === 'object' && 
+        } else if (generatedData && typeof generatedData === 'object' && 
                    generatedData.title && generatedData.description_html && 
                    typeof generatedData.price === 'number' && Array.isArray(generatedData.tags) &&
                    generatedData.title_fi && generatedData.description_html_fi) { 
-            // Case 3: Single object {...} - needs wrapping
-            console.warn("Parsed data was a single object, wrapping in array.");
+            // Case 3: Single valid product object {...} - wrap it in an array
+            if (amount > 1) {
+                console.warn(`⚠️ Requested ${amount} products, but Gemini returned data for only 1. Processing the single product.`);
+            }
             finalProductArray = [generatedData];
         } else {
             // None of the expected structures matched
@@ -413,6 +452,157 @@ async function associateMediaWithProduct(productId, resourceUrl, altText) {
     }
 }
 
+// --- Helper function to download an image ---
+/**
+ * Downloads an image from a URL to a temporary local path.
+ * @param {string} imageUrl - The URL of the image to download.
+ * @param {string} [folder='temp_images'] - The temporary folder to save the image.
+ * @returns {Promise<string|null>} - The local path to the downloaded image, or null on error.
+ */
+async function downloadImage(imageUrl, folder = 'temp_images') {
+    if (!imageUrl) {
+        console.warn("No image URL provided for download.");
+        return null;
+    }
+    try {
+        if (!fs.existsSync(folder)) {
+            fs.mkdirSync(folder, { recursive: true });
+        }
+        const filename = path.basename(new URL(imageUrl).pathname);
+        // Add a timestamp to ensure filename uniqueness if multiple products use same image name
+        const uniqueFilename = `${Date.now()}-${filename}`;
+        const outputPath = path.join(folder, uniqueFilename);
+
+        console.log(`Downloading image from ${imageUrl} to ${outputPath}...`);
+        const response = await axios({
+            url: imageUrl,
+            method: 'GET',
+            responseType: 'stream'
+        });
+
+        const writer = fs.createWriteStream(outputPath);
+        response.data.pipe(writer);
+
+        return new Promise((resolve, reject) => {
+            writer.on('finish', () => {
+                console.log(`✅ Image downloaded successfully: ${outputPath}`);
+                resolve(outputPath);
+            });
+            writer.on('error', (err) => {
+                console.error(`❌ Error writing downloaded image to disk:`, err);
+                fs.unlink(outputPath, () => {}); // Attempt to delete partial file
+                reject(null);
+            });
+        });
+    } catch (error) {
+        console.error(`❌ Error downloading image from ${imageUrl}:`, error.message);
+        return null;
+    }
+}
+
+// --- Helper function to fetch translatable content digests ---
+/**
+ * Fetches digests for translatable content of a resource.
+ * @param {string} productId - The GID of the Shopify product.
+ * @param {string[]} keysToFetch - Array of keys to fetch digests for (e.g., ['title', 'body_html']).
+ * @returns {Promise<object|null>} - An object mapping keys to digests, or null on error/no digests.
+ */
+async function fetchTranslatableDigests(productId, keysToFetch = ['title', 'body_html']) {
+    console.log(`   Fetching digests for product ${productId} for keys: ${keysToFetch.join(', ')}...`);
+    const translatableResourceQuery = `
+        query($resourceId: ID!) {
+            translatableResource(resourceId: $resourceId) {
+                resourceId
+                translatableContent {
+                    key
+                    digest
+                    locale
+                    value # For debugging
+                }
+            }
+        }
+    `;
+    try {
+        const digestResult = await shopifyGraphQL(translatableResourceQuery, { resourceId: productId });
+        console.log(`      Full digestResult from Shopify:`, JSON.stringify(digestResult, null, 2));
+
+        const originalContent = digestResult?.translatableResource?.translatableContent;
+        const digests = {};
+        let foundAllKeys = true;
+
+        if (originalContent && Array.isArray(originalContent)) {
+            keysToFetch.forEach(key => {
+                const contentEntry = originalContent.find(c => c.key === key && c.locale === 'en');
+                if (contentEntry && contentEntry.digest) {
+                    digests[key] = contentEntry.digest;
+                    console.log(`      Digest found for '${key}': ${contentEntry.digest}`);
+                } else {
+                    console.warn(`      Digest not found for key '${key}' in EN locale.`);
+                    foundAllKeys = false;
+                }
+            });
+        } else {
+            console.warn(`      No translatable content found for product ${productId}.`);
+            return null;
+        }
+        
+        return foundAllKeys ? digests : null; // Return null if not all requested digests were found
+    } catch (digestError) {
+        console.error(`      Error fetching digests for product ${productId}:`, digestError);
+        return null;
+    }
+}
+
+// --- Helper function to register translations ---
+/**
+ * Registers translations for a Shopify resource.
+ * @param {string} productId - The GID of the Shopify product.
+ * @param {Array<object>} translationsInput - Array of translation objects for the mutation.
+ * @returns {Promise<boolean>} - True if registration was successful or no errors, false otherwise.
+ */
+async function registerTranslations(productId, translationsInput) {
+    if (!translationsInput || translationsInput.length === 0) {
+        console.log("   No translations provided to register.");
+        return true; // Nothing to do
+    }
+    console.log(`   Registering ${translationsInput.length} translation(s) for product ${productId}...`);
+    const translationsRegisterMutation = `
+        mutation translationsRegister($resourceId: ID!, $translations: [TranslationInput!]!) {
+            translationsRegister(resourceId: $resourceId, translations: $translations) {
+                translations {
+                    locale
+                    key
+                    value
+                }
+                userErrors {
+                    field
+                    message
+                }
+            }
+        }
+    `;
+    try {
+        const transResult = await shopifyGraphQL(
+            translationsRegisterMutation,
+            { resourceId: productId, translations: translationsInput }
+        );
+
+        if (transResult.translationsRegister?.userErrors?.length > 0) {
+            console.error(`   ❌ Error registering translations:`, transResult.translationsRegister.userErrors);
+            return false;
+        } else if (transResult.translationsRegister?.translations?.length > 0) {
+            console.log(`   ✅ Translations registered successfully.`);
+            return true;
+        } else {
+            console.warn(`   ⚠️ Translation registration ran, but no confirmation received.`, transResult);
+            return true; // Consider it a non-failure if API didn't error
+        }
+    } catch (transError) {
+        console.error(`   ❌ Exception occurred while registering translations:`, transError);
+        return false;
+    }
+}
+
 // --- Commander Setup ---
 program
   .name('shopify-product-tool')
@@ -515,6 +705,8 @@ program
   .option('--productType <type>', 'Product type')
   .option('--status <status>', 'Product status (ACTIVE, ARCHIVED, DRAFT)', 'DRAFT')
   .option('--tags <tags>', 'Comma-separated list of tags')
+  .option('--titleFi <title_fi>', 'Finnish translation for the title')
+  .option('--bodyHtmlFi <body_html_fi>', 'Finnish translation for the description (HTML)')
   .action(async (options) => {
     console.log(`Creating product manually: ${options.title}`);
     const input = {
@@ -547,7 +739,48 @@ program
         process.exitCode = 1;
       } else {
         console.log('Product created successfully:');
-        console.log(JSON.stringify(data.productCreate.product, null, 2));
+        const createdProduct = data.productCreate.product;
+        console.log(JSON.stringify(createdProduct, null, 2));
+        const productId = createdProduct?.id;
+
+        // --- Register Finnish Translations if provided ---
+        if (productId && (options.titleFi || options.bodyHtmlFi)) {
+            console.log(`   Attempting to register Finnish translations for new product ${productId}...`);
+            const digestsToFetch = [];
+            if (options.titleFi) digestsToFetch.push('title');
+            if (options.bodyHtmlFi) digestsToFetch.push('body_html');
+
+            if (digestsToFetch.length > 0) {
+                // Wait a moment for product to be fully available for translation
+                console.log("   Waiting 3 seconds before fetching digests for new product...");
+                await new Promise(resolve => setTimeout(resolve, 3000));
+
+                const digests = await fetchTranslatableDigests(productId, digestsToFetch);
+
+                if (digests) {
+                    const translationsInput = [];
+                    if (options.titleFi && digests.title) {
+                        translationsInput.push({
+                            locale: "fi", key: "title", value: options.titleFi,
+                            translatableContentDigest: digests.title
+                        });
+                    }
+                    if (options.bodyHtmlFi && digests.body_html) {
+                        translationsInput.push({
+                            locale: "fi", key: "body_html", value: options.bodyHtmlFi,
+                            translatableContentDigest: digests.body_html
+                        });
+                    }
+                    if (translationsInput.length > 0) {
+                        await registerTranslations(productId, translationsInput);
+                    } else {
+                         console.warn("   ⚠️ No valid digests found for provided Finnish translations. Skipping registration.");
+                    }
+                } else {
+                    console.error(`   ❌ Failed to fetch required digests for new product ${productId}. Skipping translation registration.`);
+                }
+            }
+        }
       }
     } catch (error) {
         console.error(`Failed to create product`);
@@ -713,97 +946,24 @@ program
           // --- Register Finnish Translations (if available and product created) ---
           if (productId && titleFi && descriptionHtmlFi) {
              console.log(`   Attempting to register Finnish translations for product ${productId}...`);
-             let titleDigest = null;
-             let descriptionDigest = null;
-             let digestsFound = false;
-             const maxRetries = 3;
-             const retryDelay = 3000; // 3 seconds
-
-             for (let attempt = 1; attempt <= maxRetries; attempt++) {
-                 console.log(`      Attempt ${attempt}/${maxRetries}: Fetching digests for EN title and descriptionHtml...`);
-                 try {
-                     const translatableResourceQuery = `
-                         query($resourceId: ID!) {
-                             translatableResource(resourceId: $resourceId) {
-                                 resourceId
-                                 translatableContent {
-                                     key
-                                     digest
-                                     locale
-                                 }
-                             }
-                         }
-                     `;
-                     const digestResult = await shopifyGraphQL(translatableResourceQuery, { resourceId: productId });
-                     const originalContent = digestResult.translatableResource?.translatableContent;
-                     
-                     if (originalContent && Array.isArray(originalContent)) {
-                        originalContent.forEach(content => {
-                           if (content.key === 'title' && content.locale === 'en') titleDigest = content.digest;
-                           if (content.key === 'descriptionHtml' && content.locale === 'en') descriptionDigest = content.digest;
-                        });
-                     }
-
-                     if (titleDigest && descriptionDigest) {
-                         console.log(`      Digests found successfully.`);
-                         digestsFound = true;
-                         break; // Exit loop if digests are found
-                     } else {
-                         console.warn(`      Digests not found on attempt ${attempt}.`);
-                     }
-
-                 } catch (digestError) {
-                     console.error(`      Error fetching digests on attempt ${attempt}:`, digestError);
-                     // Don't break loop on error, allow retries
-                 }
-                 
-                 if (attempt < maxRetries) {
-                     console.log(`      Waiting ${retryDelay / 1000}s before next attempt...`);
-                     await new Promise(resolve => setTimeout(resolve, retryDelay));
-                 }
-             } // End retry loop
+             const digests = await fetchTranslatableDigests(productId, ['title', 'body_html']);
 
              // Proceed only if digests were found
-             if (digestsFound) {
-                 try {
-                     console.log(`      Registering translations with digests...`);
-                     const translationsRegisterMutation = `
-                         mutation translationsRegister($resourceId: ID!, $translations: [TranslationInput!]!) {
-                             translationsRegister(resourceId: $resourceId, translations: $translations) {
-                                 translations {
-                                     locale
-                                     key
-                                     value
-                                 }
-                                 userErrors {
-                                     field
-                                     message
-                                 }
-                             }
-                         }
-                     `;
-                     const translationsInput = [
-                         { locale: "fi", key: "title", value: titleFi, translatableContentDigest: titleDigest },
-                         { locale: "fi", key: "descriptionHtml", value: descriptionHtmlFi, translatableContentDigest: descriptionDigest }
-                     ];
-
-                     const transResult = await shopifyGraphQL(
-                         translationsRegisterMutation, 
-                         { resourceId: productId, translations: translationsInput }
-                     );
-
-                     if (transResult.translationsRegister?.userErrors?.length > 0) {
-                         console.error(`   ❌ Error registering Finnish translations:`, transResult.translationsRegister.userErrors);
-                     } else if (transResult.translationsRegister?.translations?.length > 0) {
-                         console.log(`   ✅ Finnish translations registered successfully.`);
-                     } else {
-                         console.warn(`   ⚠️ Translation registration ran, but no confirmation received.`, transResult);
-                     }
-                 } catch (transError) {
-                     console.error(`   ❌ Exception occurred while registering Finnish translations:`, transError);
-                 }
+             if (digests && digests.title && digests.body_html) {
+                 const translationsInput = [
+                     { locale: "fi", key: "title", value: titleFi, translatableContentDigest: digests.title },
+                     { locale: "fi", key: "body_html", value: descriptionHtmlFi, translatableContentDigest: digests.body_html }
+                 ];
+                 await registerTranslations(productId, translationsInput);
              } else {
-                  console.error(`   ❌ Failed to fetch required digests after ${maxRetries} attempts. Skipping translation.`);
+                  console.error(`   ❌ Failed to fetch required digests for product ${productId}. Skipping translation.`);
+                  if (!digests?.title) { // Adjusted check
+                    console.error(`      - Title digest for EN was not found.`);
+                  }
+                  if (!digests?.body_html) { // Adjusted check
+                    console.error(`      - Description HTML digest for EN was not found.`);
+                  }
+                  // The full digestResult was already logged by fetchTranslatableDigests
              }
           } else if (productId) {
               console.warn(`   ⚠️ Skipping Finnish translation registration (missing title_fi or description_html_fi from AI).`);
@@ -831,7 +991,13 @@ program
               console.log(`Attempting to upload and associate image: ${imagePath}`);
               const imageFilename = path.basename(imagePath);
               const imageStats = fs.statSync(imagePath);
-              const imageMimeType = 'image/png'; // Assuming PNG from Imagen
+              let imageMimeType = 'image/jpeg'; // Default
+              const ext = path.extname(imageFilename).toLowerCase();
+              if (ext === '.png') imageMimeType = 'image/png';
+              else if (ext === '.gif') imageMimeType = 'image/gif';
+              else if (ext === '.webp') imageMimeType = 'image/webp';
+              
+              console.log(`Image details: path=${imagePath}, filename=${imageFilename}, size=${imageStats.size}, mime=${imageMimeType}`);
 
               // --- Step 4.1: Staged Upload Create ---
               const stagedUploadsQuery = `
@@ -921,6 +1087,7 @@ program
   .requiredOption('--id <gid>', 'Product GID to update (e.g., gid://shopify/Product/12345)')
   .option('--title <title>', 'New product title')
   .option('--status <status>', 'New product status (ACTIVE, ARCHIVED, DRAFT)')
+  .option('--image <url>', 'URL of an image to attach to the product')
   // Add more options as needed
   .action(async (options) => {
     console.log(`Updating product: ${options.id}`);
@@ -934,8 +1101,8 @@ program
     // Remove undefined fields from input
     Object.keys(input).forEach(key => input[key] === undefined && delete input[key]);
 
-    if (Object.keys(input).length <= 1) {
-        console.error("Error: No update fields provided besides ID.");
+    if (Object.keys(input).length <= 1 && !options.image) {
+        console.error("Error: No update fields provided besides ID, and no image URL specified.");
         process.exit(1);
     }
 
@@ -957,16 +1124,168 @@ program
     `;
 
     try {
-      const data = await shopifyGraphQL(mutation, { input });
-      if (data.productUpdate?.userErrors?.length > 0) {
-        console.error('Error updating product:', JSON.stringify(data.productUpdate.userErrors, null, 2));
-        process.exitCode = 1;
+      if (Object.keys(input).length > 1) { // Only run productUpdate if there are fields other than ID
+        const data = await shopifyGraphQL(mutation, { input });
+        if (data.productUpdate?.userErrors?.length > 0) {
+          console.error('Error updating product metadata:', JSON.stringify(data.productUpdate.userErrors, null, 2));
+          // Decide if to proceed with image upload or exit
+        } else {
+          console.log('Product metadata updated successfully:');
+          console.log(JSON.stringify(data.productUpdate.product, null, 2));
+        }
       } else {
-        console.log('Product updated successfully:');
-        console.log(JSON.stringify(data.productUpdate.product, null, 2));
+        console.log("No metadata fields to update. Checking for image upload.");
       }
+
+      // --- Image Upload Logic ---
+      if (options.image) {
+        console.log(`Processing image upload from URL: ${options.image} for product ${options.id}`);
+        let localImagePath = null;
+        try {
+          localImagePath = await downloadImage(options.image);
+          if (!localImagePath) {
+            throw new Error("Failed to download image.");
+          }
+
+          const imageFilename = path.basename(localImagePath);
+          const imageStats = fs.statSync(localImagePath);
+          // Determine MIME type, default or from extension
+          let imageMimeType = 'image/jpeg'; // Default
+          const ext = path.extname(imageFilename).toLowerCase();
+          if (ext === '.png') imageMimeType = 'image/png';
+          else if (ext === '.gif') imageMimeType = 'image/gif';
+          else if (ext === '.webp') imageMimeType = 'image/webp';
+          
+          console.log(`Image details: path=${localImagePath}, filename=${imageFilename}, size=${imageStats.size}, mime=${imageMimeType}`);
+
+          // Step 1: Staged Upload Create
+          const stagedUploadsQuery = `
+              mutation stagedUploadsCreate($input: [StagedUploadInput!]!) {
+                  stagedUploadsCreate(input: $input) {
+                      stagedTargets {
+                          url
+                          resourceUrl
+                          parameters {
+                              name
+                              value
+                          }
+                      }
+                      userErrors {
+                          field
+                          message
+                      }
+                  }
+              }
+          `;
+          const stagedUploadInput = [{
+              resource: "IMAGE",
+              filename: imageFilename,
+              mimeType: imageMimeType,
+              httpMethod: 'POST',
+              fileSize: imageStats.size.toString(),
+          }];
+
+          console.log("Requesting staged upload target...");
+          const stagedUploadResult = await shopifyGraphQL(stagedUploadsQuery, { input: stagedUploadInput });
+
+          if (stagedUploadResult.stagedUploadsCreate?.userErrors?.length > 0) {
+              console.error("❌ Staged upload creation failed:", stagedUploadResult.stagedUploadsCreate.userErrors);
+              throw new Error("Staged upload creation failed.");
+          }
+
+          const target = stagedUploadResult.stagedUploadsCreate?.stagedTargets?.[0];
+          if (!target || !target.url || !target.parameters || !target.resourceUrl) {
+              console.error("❌ Invalid staged upload target received:", target);
+              throw new Error("Invalid staged upload target received.");
+          }
+          console.log("✅ Staged upload target received.");
+
+          // Step 2: Upload File to Target URL
+          const uploadSuccess = await uploadToShopifyTarget(target.url, target.parameters, localImagePath, imageFilename);
+          if (!uploadSuccess) {
+              throw new Error("Image upload to Shopify target failed.");
+          }
+
+          // Step 3: Create File Record in Shopify
+          const altTextForImage = options.title || `Product image for ${options.id}`; // Use product title or GID for alt text
+          const fileCreateResult = await createFileRecord(target.resourceUrl, altTextForImage);
+          if (!fileCreateResult) {
+              throw new Error("Shopify file creation failed.");
+          }
+           // Ensure createdFile.id is available for productMediaCreate
+          if (!fileCreateResult.id) {
+             console.error("❌ File record created, but ID is missing. Cannot associate with product.", fileCreateResult);
+             throw new Error("File record created without an ID.");
+          }
+          console.log(`✅ File record created successfully, ID: ${fileCreateResult.id}, URL: ${fileCreateResult?.image?.url}`);
+
+
+          // Step 4: Associate Image with Product (using productMediaCreate)
+          // This mutation is generally preferred for associating new media.
+          const productMediaCreateMutation = `
+            mutation productCreateMedia($media: [CreateMediaInput!]!, $productId: ID!) {
+              productCreateMedia(media: $media, productId: $productId) {
+                media {
+                  id
+                  status
+                  ... on MediaImage {
+                    image {
+                      url
+                    }
+                  }
+                }
+                mediaUserErrors {
+                  field
+                  message
+                  code
+                }
+              }
+            }
+          `;
+          const mediaInput = [{
+            alt: altTextForImage,
+            mediaContentType: "IMAGE", // Corrected from "IMAGE" to mediaContentType
+            originalSource: target.resourceUrl, // This is what links the uploaded file
+          }];
+          
+          console.log(`Associating media with product ${options.id} using resourceUrl: ${target.resourceUrl}`);
+          const mediaCreateResult = await shopifyGraphQL(productMediaCreateMutation, { media: mediaInput, productId: options.id });
+
+          if (mediaCreateResult.productCreateMedia?.mediaUserErrors?.length > 0) {
+            console.error("❌ Error associating media with product:", mediaCreateResult.productCreateMedia.mediaUserErrors);
+            // Log error but consider product update (if any) successful
+          } else if (mediaCreateResult.productCreateMedia?.media?.[0]?.id) {
+            console.log(`✅ Media associated successfully with product. Media ID: ${mediaCreateResult.productCreateMedia.media[0].id}, Status: ${mediaCreateResult.productCreateMedia.media[0].status}`);
+          } else {
+            console.warn("Media association mutation ran, but no confirmation ID or error received.", mediaCreateResult)
+          }
+
+        } catch (imgError) {
+          console.error(`❌ Failed during image processing for product ${options.id}: `, imgError.message);
+          // Decide if this should cause the entire update to fail
+        } finally {
+          if (localImagePath) {
+            try {
+              fs.unlinkSync(localImagePath); // Clean up downloaded file
+              console.log(`Temporary image file ${localImagePath} deleted.`);
+              // Also attempt to remove the temp_images folder if it's empty
+              const tempDir = path.dirname(localImagePath);
+              if (fs.readdirSync(tempDir).length === 0) {
+                  fs.rmdirSync(tempDir);
+                  console.log(`Temporary directory ${tempDir} deleted.`);
+              }
+            } catch (cleanupError) {
+              console.warn(`Warning: Could not delete temporary image file ${localImagePath}: `, cleanupError.message);
+            }
+          }
+        }
+      }
+      // If we reached here, and no prior exit, it means updates (if any) and image upload (if any) are processed.
+      // The process.exitCode would have been set by shopifyGraphQL on hard errors.
     } catch (error) {
-        console.error(`Failed to update product ${options.id}`);
+        // This catches errors from the productUpdate GraphQL call if it was the only operation
+        // or errors not caught by the image processing block's try/catch.
+        console.error(`Failed to update product ${options.id}: `, error.message);
         process.exitCode = 1;
     }
   });

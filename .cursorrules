@@ -190,6 +190,23 @@ mcp_supabase_query
         "dotenv package"
       ]
     },
+    "schema-detector": {
+      "description": "Detects JSON schema from a feed URL using Gemini LLM, extracts first 5 items, and saves schema to /schemas/{identifier}.json.",
+      "tool": "run_terminal_cmd",
+      "command": "npm run schema-detector --",
+      "options": {
+        "url": "Required: URL of the feed (e.g., product feed) to detect schema from. Expects JSON.",
+        "output-dir": "(Optional) Directory to save the generated schema file (default: schemas)"
+      },
+      "requires": [
+        "GOOGLE_AI_STUDIO_KEY in .env.local",
+        "@google/genai package",
+        "commander package",
+        "node-fetch package",
+        "dotenv package"
+      ],
+      "example": "npm run schema-detector -- --url https://example.com/api/products.json --output-dir custom_schemas"
+    },
     "download-file": {
       "description": "Downloads files from URLs with progress tracking, automatic file type detection, and customizable output paths",
       "tool": "run_terminal_cmd",
@@ -461,6 +478,72 @@ mcp_supabase_query
         "GitHub account authentication"
       ],
       "example": "npm run github -- pr-create --title \"New feature\" --body \"This PR adds a new feature\""
+    },
+    "shopify-product": {
+      "description": "Manage Shopify products using the Admin API with support for AI-powered product generation",
+      "tool": "run_terminal_cmd",
+      "command": "npm run shopify-product",
+      "options": {
+        "get": {
+          "description": "Get a product by its ID",
+          "options": {
+            "id": "Required: Product GID (e.g., gid://shopify/Product/12345)"
+          }
+        },
+        "list": {
+          "description": "List products",
+          "options": {
+            "limit": "(Optional) Number of products to list (default: 10)",
+            "status": "(Optional) Filter by status (ACTIVE, ARCHIVED, DRAFT)"
+          }
+        },
+        "create": {
+          "description": "Create a new product manually",
+          "options": {
+            "title": "Required: Product title",
+            "bodyHtml": "(Optional) Product description (HTML)",
+            "vendor": "(Optional) Product vendor",
+            "productType": "(Optional) Product type",
+            "status": "(Optional) Product status (ACTIVE, ARCHIVED, DRAFT) (default: DRAFT)",
+            "tags": "(Optional) Comma-separated list of tags"
+          }
+        },
+        "generate": {
+          "description": "Generate and create products using AI",
+          "options": {
+            "amount": "Required: Number of products to generate (-a, --amount)",
+            "instructions": "Required: Instructions for the type of products to generate (-i, --instructions)",
+            "status": "(Optional) Status for generated products (ACTIVE, ARCHIVED, DRAFT) (default: DRAFT)",
+            "img-folder": "(Optional) Folder to save generated images (default: public/images/generated_products)"
+          }
+        },
+        "update": {
+          "description": "Update an existing product",
+          "options": {
+            "id": "Required: Product GID to update (e.g., gid://shopify/Product/12345)",
+            "title": "(Optional) New product title",
+            "status": "(Optional) New product status (ACTIVE, ARCHIVED, DRAFT)"
+          }
+        },
+        "delete": {
+          "description": "Delete a product by its ID",
+          "options": {
+            "id": "Required: Product GID to delete (e.g., gid://shopify/Product/12345)"
+          }
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local",
+        "SHOPIFY_API_KEY in .env.local",
+        "SHOPIFY_API_SECRET in .env.local",
+        "GEMINI_API_KEY or GOOGLE_AI_STUDIO_KEY in .env.local (for AI generation)",
+        "@shopify/shopify-api package",
+        "@google/genai package",
+        "commander package",
+        "axios package"
+      ],
+      "example": "npm run shopify-product -- generate -a 3 -i \"High-quality eco-friendly water bottles\""
     }
   }
 }

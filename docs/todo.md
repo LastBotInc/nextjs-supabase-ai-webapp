@@ -837,3 +837,7 @@ Next Priority Tasks:
 
 ### Shopify Tool Enhancements
 - ✅ Fix Shopify product generation (`generate`) to correctly handle description via metafields and adapt to API 2025-04 changes (`productSet`, `productVariantsBulkUpdate`).
+
+- ✅ Further enhance `schema-detector` to extract vendor from URL and use it to influence schema naming and filename (e.g., `caffitella_product_feed.json`).
+
+- ✅ Generate and save a JSON schema file for Shopify products including variants (`schemas/shopify_product_variants_schema.json`).

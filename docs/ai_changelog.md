@@ -86,3 +86,40 @@
     *   Adapting the variant price update logic to use the `productVariantsBulkUpdate` mutation.
     *   Fixing various GraphQL schema errors related to input types and field names (`ProductSetInput` vs `ProductInput`, `defaultVariant` vs `variants` connection).
 
+## 2025-05-04
+- Invented a new command-line tool `schema-detector` (implemented in `tools/schema-detector.ts` and defined in `.cursorrules` and `package.json`) that uses Gemini to detect a JSON schema from a given feed URL. The tool fetches the first 5 items from the feed, constructs a prompt for Gemini, and saves the resulting schema to the `/schemas` directory.
+
+## 2025-05-05
+- Enhanced `schema-detector` tool:
+  - Added support for XML feeds (using `xml2js` for parsing).
+  - The output JSON file now includes the original `feed_url` at the root level.
+  - Improved the prompt to Gemini to encourage more descriptive field details in the generated schema.
+
+- Further enhanced `schema-detector` tool:
+  - Implemented vendor name extraction from the feed URL.
+  - Updated the Gemini prompt to use the extracted vendor name, guiding it to produce more specific schema `name`, `description`, and `identifier` (e.g., `caffitella_product_feed`).
+  - The output filename is now more context-aware based on the Gemini-generated identifier (e.g., `caffitella_product_feed.json`).
+
+## 2025-05-06
+- Generated a JSON schema for Shopify products and variants using the Gemini tool and saved it to `schemas/shopify_product_variants_schema.json`. The schema includes product details (id, title, vendor, etc.) and an array of variants with their respective fields (id, price, sku, etc.).
+
+## 2025-05-07
+- Implemented a new `schema-mapper-tool` in `tools/schema-mapper-tool.ts` that:
+  - Takes a source schema (e.g., a product feed schema from `schema-detector`) and a target schema (e.g., Shopify product schema)
+  - Uses Gemini AI to generate a TypeScript mapper function between the two schemas
+  - Outputs the mapper to the `components/mappers` directory
+  - Includes TypeScript interfaces, error handling, and JSDoc comments
+  - Added an npm script `schema-mapper` in package.json
+- Created an example mapper `components/mappers/caffitellaToShopify.ts` manually as a reference
+- Generated a complete mapper `components/mappers/caffitellaToShopifyMapper.ts` using the tool
+
+## 2025-05-08
+- Implemented a new `feed-to-shopify-exporter` tool that:
+  - Takes product feed data (directly from URL or from a schema file) and exports it to Shopify
+  - Uses the `caffitellaToShopify` mapper to transform feed data to Shopify format
+  - Supports dry-run mode for testing without creating actual products
+  - Includes user confirmation, error handling, and results summary
+  - Features configurable product limits to control batch size
+  - Added as an npm script: `npm run feed-to-shopify`
+- Successfully tested the exporter with Caffitella product feed data
+
