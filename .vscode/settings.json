@@ -27,5 +27,6 @@
     "app/api/i18n",
     "app/api/languages",
     "coverage/app/i18n"
-  ]
+  ],
+  "i18n-ally.keystyle": "nested"
 }

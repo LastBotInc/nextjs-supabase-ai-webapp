@@ -1,0 +1,191 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Translation Management Tools and Workflows
+
+This guide covers the practical aspects of managing translations in the project, including tools, scripts, and workflows.
+
+## Available Translation Management Scripts
+
+The project includes several npm scripts to help manage translations:
+
+```bash
+# Split monolithic locale files into namespace-based files
+npm run split-locales
+
+# Check for missing translations between locales
+npm run check-translations
+
+# Import translations from external sources for local development
+npm run import-translations:local
+
+# Import translations from external sources for production
+npm run import-translations:prod
+```
+
+## Working with Namespaced Translation Files
+
+After running `split-locales`, the translation files are organized by namespace under locale-specific directories:
+
+```
+messages/
+├── en/                  # English translations
+│   ├── Index.json       # Homepage translations
+│   ├── Blog.json        # Blog-related translations
+│   └── ...
+├── fi/                  # Finnish translations
+├── sv/                  # Swedish translations
+└── ...
+```
+
+Each namespace file contains translations for a specific feature or component, making them easier to manage and update.
+
+## Translation Workflow
+
+### Adding New Content
+
+1. **Identify the Namespace**:
+   - Determine which namespace the new content belongs to (e.g., `Blog`, `Auth`, `Common`)
+   - If no suitable namespace exists, consider creating a new one
+
+2. **Update Each Locale**:
+   - Add the new keys and English translations to `en/[Namespace].json`
+   - Add corresponding translations to `fi/[Namespace].json` and `sv/[Namespace].json`
+   - Maintain the same key structure across all locale files
+
+3. **Verify Completeness**:
+   - Run `npm run check-translations` to ensure all translations are present
+   - Address any missing translations identified by the script
+
+### Updating Existing Translations
+
+1. **Locate the Keys**:
+   - Identify the namespace containing the keys to update
+   - Open the corresponding files in each locale directory
+
+2. **Make Coordinated Changes**:
+   - Update translations in all locale files to maintain consistency
+   - Ensure any placeholders are preserved across all translations
+   - When changing keys, update all references in code as well
+
+3. **Verify Changes**:
+   - Test the updated translations in the UI
+   - Run `npm run check-translations` to verify completeness
+
+## Translation Report
+
+The `localization-report.md` file provides a comprehensive overview of translation coverage:
+
+```markdown
+# Localization Report
+
+Generated on: 2025-05-03T09:33:57.073Z
+
+## Namespace Coverage
+
+| Namespace | en | fi | sv |
+|----------|-----|-----|-----|
+| About    |  ✅ |  ✅ |  ✅ |
+| Account  |  ✅ |  ✅ |  ✅ |
+| ...      |  ✅ |  ✅ |  ✅ |
+
+## Summary
+
+Total namespaces across all locales: 16
+
+### en
+- Namespaces: 16
+- Missing namespaces: None
+
+...
+```
+
+Use this report to identify:
+- Missing namespaces in specific locales
+- Translation coverage across the application
+- Areas that need attention
+
+## Best Practices for Translation Management
+
+### Version Control
+
+1. **Commit Translations Separately**:
+   - Keep translation changes in separate commits from code changes
+   - Use descriptive commit messages: `feat(i18n): Add blog post editor translations`
+
+2. **Review Process**:
+   - Have translations reviewed by native speakers when possible
+   - Create separate PRs for significant translation updates
+
+### Organization
+
+1. **Consistent Hierarchy**:
+   - Keep translations organized in a logical hierarchy
+   - Limit nesting to 3-4 levels for readability
+   - Use consistent naming conventions for similar elements
+
+2. **Comments for Context**:
+   - Add comments in code to provide context for translators
+   - Include sample usage or screenshots if needed
+
+### Maintenance
+
+1. **Regular Audits**:
+   - Run `npm run check-translations` regularly to catch missing translations
+   - Review translation quality periodically
+   - Remove unused translation keys
+
+2. **Backup Strategy**:
+   - The `backup/` directory contains the original monolithic files
+   - Create additional backups before making significant changes
+
+## Troubleshooting Common Issues
+
+### Missing Translations
+
+If `check-translations` reports missing translations:
+
+1. **Identify the Gap**:
+   - Note which keys are missing in which locales
+   - Check if entire namespaces are missing or just specific keys
+
+2. **Fill the Gaps**:
+   - Add the missing translations to the appropriate files
+   - Use placeholder text if actual translations aren't ready
+
+3. **Verify Fixes**:
+   - Run `check-translations` again to ensure all issues are resolved
+
+### Namespace Synchronization
+
+If namespaces become out of sync:
+
+1. **Run `split-locales` Again**:
+   - This will regenerate the report and highlight discrepancies
+   - Check the report for missing namespaces
+
+2. **Manual Fixes**:
+   - Create any missing namespace files
+   - Copy structure from existing locales and add appropriate translations
+
+## Adding a New Language
+
+To add support for a new language:
+
+1. **Create Directory Structure**:
+   - Create a new directory for the locale (e.g., `messages/de/` for German)
+   - Copy all namespace files from an existing locale (e.g., English)
+
+2. **Translate Content**:
+   - Translate all content in each namespace file
+   - Preserve key structure and placeholders
+
+3. **Update Configuration**:
+   - Add the new locale to the supported locales list in the i18n configuration
+   - Add the locale to scripts that manage translations
+
+4. **Verify Setup**:
+   - Run `npm run check-translations` to ensure completeness
+   - Test the new locale in the UI

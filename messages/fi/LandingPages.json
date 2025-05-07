@@ -1,0 +1,96 @@
+{
+  "title": "Landing‑sivut",
+  "preview": "Esikatsele sivua",
+  "publish": "Julkaise",
+  "unpublish": "Piilota",
+  "description": "Luo ja hallinnoi landing‑sivuja",
+  "notFound": "Sivua ei löytynyt",
+  "notFoundDescription": "Pyydettyä landing‑sivua ei löytynyt.",
+  "createPage": "Luo landing‑sivu",
+  "createPageDescription": "Luo uusi landing‑sivu mukautetulla sisällöllä, SEO‑asetuksilla ja analytiikalla.",
+  "editPage": "Muokkaa landing‑sivua",
+  "editPageDescription": "Muokkaa sisällön, asetusten ja seurannan tietoja.",
+  "generateContent": "Generoi sisältö",
+  "generateImage": "Generoi kuva",
+  "analytics": {
+    "enableAnalytics": "Ota analytiikka käyttöön",
+    "enableAnalyticsDescription": "Ota analytiikan seuranta tälle sivulle",
+    "gaMeasurementId": "Google Analytics ‑mittaus‑ID",
+    "gtmContainerId": "Google Tag Manager ‑kontti‑ID",
+    "fbPixelId": "Facebook Pixel ‑ID",
+    "linkedinPixelId": "LinkedIn Pixel ‑ID"
+  },
+  "form": {
+    "title": "Otsikko",
+    "slug": "URL‑osoite",
+    "content": "Sisältö",
+    "excerpt": "Lyhennelmä",
+    "featuredImage": "Pääkuva",
+    "tags": "Tägät",
+    "prompt": "Landing‑sivun kehotus",
+    "promptPlaceholder": "Kirjoita kehotus sisällön generointiin...",
+    "generating": "Generoidaan...",
+    "cancel": "Peruuta",
+    "save": "Tallenna",
+    "createPage": "Luo sivu",
+    "published": "Julkaistu"
+  },
+  "validation": {},
+  "success": {
+    "imageGenerated": "Kuva generoitu onnistuneesti"
+  },
+  "tabs": {
+    "content": "Sisältö",
+    "seo": "SEO‑asetukset",
+    "cta": "Kehotus toimintaan",
+    "code": "Mukautettu koodi"
+  },
+  "error": {
+    "load": "Landing‑sivun lataus epäonnistui"
+  },
+  "generating": "Generoidaan...",
+  "search": "Hae landing‑sivuja...",
+  "status": "Tila",
+  "lastModified": "Viimeksi muokattu",
+  "actions": "Toiminnot",
+  "edit": "Muokkaa",
+  "view": "Näytä",
+  "noPages": "Ei landing‑sivuja. Luo ensimmäinen!",
+  "noSearchResults": "Ei hakutuloksia.",
+  "editor": {
+    "cta": {
+      "title": "Kehotus toimintaan",
+      "headline": {
+        "label": "Otsikko",
+        "placeholder": "Syötä otsikko"
+      },
+      "description": {
+        "label": "Kuvaus",
+        "placeholder": "Syötä kuvaus"
+      },
+      "buttonText": {
+        "label": "Painikkeen teksti",
+        "placeholder": "Syötä teksti"
+      },
+      "buttonLink": {
+        "label": "Painikkeen linkki",
+        "placeholder": "Syötä URL"
+      },
+      "secondaryText": {
+        "label": "Toissijainen teksti",
+        "placeholder": "Syötä teksti"
+      }
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta‑otsikko",
+    "metaDescription": "Meta‑kuvaus",
+    "ogImage": "OG‑kuva",
+    "keywords": "Avainsanat"
+  },
+  "code": {
+    "customHead": "Mukautettu head‑koodi",
+    "customCss": "Mukautettu CSS",
+    "customJs": "Mukautettu JavaScript"
+  }
+}

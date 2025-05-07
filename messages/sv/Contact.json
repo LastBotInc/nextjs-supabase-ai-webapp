@@ -1,0 +1,22 @@
+{
+  "info": {},
+  "address": {},
+  "social": {},
+  "form": {
+    "description": "Fyll i formuläret så återkommer vi så snart som möjligt.",
+    "name": "Namn",
+    "email": "E‑post",
+    "company": "Företag",
+    "submit": "Skicka meddelande",
+    "submitting": "Skickar...",
+    "success": {
+      "title": "Meddelandet skickat",
+      "message": "Tack för ditt meddelande. Vi hör av oss snart."
+    },
+    "error": {
+      "captcha": "Slutför captcha‑verifieringen.",
+      "captchaValidation": "Captcha‑verifiering misslyckades. Försök igen."
+    },
+    "meta": {}
+  }
+}

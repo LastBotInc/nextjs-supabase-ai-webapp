@@ -12,7 +12,7 @@ export const createClient = () => {
           name: 'sb-session',
           path: '/',
           domain: process.env.NODE_ENV === 'development' ? 'localhost' : undefined,
-          sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'strict',
+          sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'lax',
           secure: process.env.NODE_ENV === 'production',
           maxAge: 60 * 60 * 24 * 7 // 7 days
         },

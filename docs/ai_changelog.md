@@ -1,5 +1,16 @@
 # AI Changelog
 
+## 2025-05-03
+- **Feat:** Implemented namespace-based localization structure:
+  - Created a script (`scripts/split-locales.js`) to split monolithic locale files into separate namespace files
+  - Organized translations by feature/component under locale-specific folders (en/, fi/, sv/)
+  - Added backup mechanism to preserve original locale files
+  - Generated comprehensive localization report showing namespace coverage across all locales
+  - Added npm script `split-locales` to package.json
+  - Created detailed README.md in the messages directory documenting the new structure
+  - Updated documentation in architecture.md, frontend.md, and .cursorrules
+  - Added new `<localize>` action to .cursorrules with language-specific guidance for translations
+
 ## 2025-03-25
 - Enhanced the Gemini AI tool with advanced capabilities:
   - Added document processing support for PDF, DOCX, and other file types

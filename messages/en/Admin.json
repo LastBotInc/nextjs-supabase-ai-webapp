@@ -1,0 +1,178 @@
+{
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "tabs": {
+      "pageViews": "Page Views",
+      "topPages": "Top Pages"
+    },
+    "cards": {},
+    "error": {
+      "title": "Analytics Error",
+      "description": "There was a problem loading the analytics data. Please try again.",
+      "retry": "Try Again"
+    }
+  },
+  "contacts": {
+    "title": "Contact Requests",
+    "table": {
+      "date": "Date",
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "description": "Message",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "new": "New",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "delete": "Delete",
+    "deleteConfirmation": "Are you sure you want to delete this contact? This action cannot be undone.",
+    "loading": "Loading contacts...",
+    "retry": "Try Again"
+  },
+  "translations": {
+    "shortcuts": {},
+    "table": {},
+    "editor": {
+      "save": "Save",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Click to edit",
+      "empty": "Empty",
+      "placeholder": "Enter translation",
+      "success": "Translation saved",
+      "error": "Failed to save translation",
+      "generate": "Generate translation using AI"
+    },
+    "languages": {
+      "title": "Languages",
+      "addButton": "Add Language",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "form": {
+        "code": "Language Code",
+        "add": "Add Language",
+        "cancel": "Cancel",
+        "select": "Select a language..."
+      },
+      "addSuccess": "Language added successfully",
+      "addError": "Failed to add language",
+      "enableSuccess": "Language enabled",
+      "disableSuccess": "Language disabled",
+      "updateError": "Failed to update language",
+      "translationSuccess": "Translations generated successfully",
+      "translationError": "Failed to generate some translations",
+      "remove": "Remove",
+      "removing": "Removing...",
+      "removeSuccess": "Language removed successfully",
+      "removeError": "Failed to remove language",
+      "removeConfirmTitle": "Remove Language",
+      "removeConfirmMessage": "Are you sure you want to remove this language? This will delete all translations for this language. This action cannot be undone.",
+      "removeConfirm": "Yes, remove language"
+    },
+    "search": {
+      "placeholder": "Search translations..."
+    },
+    "generating": "Generating translations..."
+  },
+  "users": {
+    "title": "User Management",
+    "email": "Email",
+    "id": "ID",
+    "created": "Created At",
+    "lastSignIn": "Last Sign In",
+    "never": "Never",
+    "loading": "Loading users...",
+    "retry": "Retry",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
+  },
+  "seo": {},
+  "code": {},
+  "calendar": {
+    "title": "Calendar Management",
+    "description": "Manage bookable times and settings",
+    "loading": "Loading calendar...",
+    "tabs": {
+      "calendar": "Calendar & Slots",
+      "settings": "Settings",
+      "appointmentTypes": "Appointment Types"
+    },
+    "slots": {
+      "loading": "Loading slots...",
+      "availableSlots": "Available Slots",
+      "createSlots": "Create New Slots",
+      "noSlots": "No available time slots for this date",
+      "selectDate": "Select Date",
+      "startDate": "Start Date",
+      "cancel": "Cancel slot",
+      "endDate": "End Date",
+      "create": "Create Slots",
+      "creating": "Creating slots...",
+      "slotDuration": "Slot Duration (minutes)",
+      "bookedSlots": "Booked Slots",
+      "cancelBooking": "Cancel Booking",
+      "slots": "Slots",
+      "status": {},
+      "actions": {
+        "generate": "Generate Available Slots",
+        "generating": "Generating slots..."
+      }
+    },
+    "settings": {
+      "endTime": "End Time",
+      "startTime": "Start Time",
+      "loading": "Loading settings...",
+      "timezone": "Timezone",
+      "defaultDuration": "Default Booking Duration",
+      "bufferBefore": "Buffer Time Before",
+      "bufferAfter": "Buffer Time After",
+      "saving": "Saving settings...",
+      "save": "Save Settings",
+      "remove": "Remove",
+      "noWorkingDays": "No working days selected. Click 'Add working day' to add available hours.",
+      "addWorkingDay": "Add working day",
+      "updateSuccess": "Settings updated successfully",
+      "workingHours": "Working Hours",
+      "day": "Day",
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    },
+    "appointmentTypes": {
+      "createNew": "Create New Appointment Type",
+      "noTypes": "You haven't created any appointment types yet",
+      "form": {
+        "name": "Name",
+        "description": "Description",
+        "duration": "Duration (minutes)",
+        "isFree": "This is a free appointment type",
+        "price": "Price ($)",
+        "create": "Create Appointment Type",
+        "creating": "Creating...",
+        "edit": "Edit Appointment Type",
+        "delete": "Delete Appointment Type",
+        "isActive": "Is Active",
+        "slug": "Slug"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "minutes": "minutes",
+      "free": "Free",
+      "viewBookingPage": "View Booking Page"
+    }
+  }
+}

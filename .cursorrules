@@ -4,44 +4,25 @@ This is a NextJS 15 / React 19 / Typescript / Tailwind CSS application with Jest
 
 <tools>
 # Internal Tools: Core capabilities available directly.
-run_terminal_cmd - Executes terminal commands
-  - Parameters: command, is_background, explanation
-codebase_search - Semantic codebase search
-  - Parameters: query, explanation, target_directories
-read_file - Reads file contents
-  - Parameters: target_file, start_line_one_indexed, end_line_one_indexed_inclusive, should_read_entire_file, explanation
-list_dir - Lists directory contents
-  - Parameters: relative_workspace_path, explanation
-grep_search - Fast text-based regex search within files
-  - Parameters: query, case_sensitive (optional), include_pattern (optional), exclude_pattern (optional), explanation
-edit_file - Propose an edit to an existing file
-  - Parameters: target_file, instructions, code_edit
-file_search - Fast fuzzy file path search
-  - Parameters: query, explanation
-delete_file - Delete a file at the specified path
-  - Parameters: target_file, explanation
-reapply - Calls a smarter model to apply the last edit to the specified file
-  - Parameters: target_file
-fetch_rules - Fetches user-provided rules (@*.mdc files)
-  - Parameters: rule_names
-web_search - Searches the web for information
-  - Parameters: search_term, explanation
-mcp_puppeteer_puppeteer_navigate - Navigate to a URL
-  - Parameters: url
-mcp_puppeteer_puppeteer_screenshot - Take a screenshot
-  - Parameters: name, selector, width, height
-mcp_puppeteer_puppeteer_click - Click an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_fill - Fill out an input field
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_select - Select an element
-  - Parameters: selector, value
-mcp_puppeteer_puppeteer_hover - Hover an element
-  - Parameters: selector
-mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
-  - Parameters: script
-mcp_supabase_query - Run a read-only SQL query to project database
-  - Parameters: sql
+run_terminal_cmd
+codebase_search
+read_file
+list_dir
+grep_search
+edit_file
+file_search
+delete_file
+reapply
+fetch_rules
+web_search
+mcp_puppeteer_puppeteer_navigate
+mcp_puppeteer_puppeteer_screenshot
+mcp_puppeteer_puppeteer_click
+mcp_puppeteer_puppeteer_fill
+mcp_puppeteer_puppeteer_select
+mcp_puppeteer_puppeteer_hover
+mcp_puppeteer_puppeteer_evaluate
+mcp_supabase_query
 </tools>
 
 <command_line_tools>
@@ -55,7 +36,8 @@ mcp_supabase_query - Run a read-only SQL query to project database
       "options": {
         "check-translations": "Compare English, Finnish and Swedish translation files for completeness and missing keys",
         "import-translations:local": "Import translations for local development environment",
-        "import-translations:prod": "Import translations for production environment"
+        "import-translations:prod": "Import translations for production environment",
+        "split-locales": "Split monolithic locale files into separate namespace-based files for each locale (en, fi, sv)"
       }
     },
     "seed": {
@@ -257,112 +239,228 @@ mcp_supabase_query - Run a read-only SQL query to project database
       "requires": ["sharp package"],
       "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
     },
-    "shopify_cli": {
-      "description": "Manages Shopify themes, apps, and development stores using the Shopify CLI",
+    "openai-image": {
+      "description": "Generate and edit images using OpenAI's GPT-image-1 and DALL-E models",
       "tool": "run_terminal_cmd",
-      "command": "shopify",
-      "options": {
-        "login": "Log in to a Shopify account",
-        "logout": "Log out of the current Shopify account",
-        "switch": "Switch between different Shopify accounts or organizations",
-        "whoami": "Display the current Shopify account and store",
-        "theme": {
-          "dev": "Start a local development server for a theme",
-          "pull": "Download theme files from Shopify",
-          "push": "Upload theme files to Shopify",
-          "serve": "Alias for 'theme dev'",
-          "list": "List themes in your store",
-          "check": "Validate the theme",
-          "package": "Package your theme into a .zip file",
-          "publish": "Set a remote theme as the live theme"
-        },
-        "app": {
-          "dev": "Start a local development server for an app",
-          "build": "Build the app, including extensions",
-          "deploy": "Deploy your Shopify app",
-          "info": "Display information about your app"
-        },
-        "hydrogen": {
-            "dev": "Runs Hydrogen storefront in an Oxygen worker for development",
-            "build": "Builds a Hydrogen storefront for production",
-            "deploy": "Builds and deploys a Hydrogen storefront to Oxygen"
-        },
-        "populate": {
-          "products": "Add sample products to your store",
-          "customers": "Add sample customers to your store",
-          "orders": "Add sample orders to your store"
-        }
-      },
-      "example": "shopify theme dev"
-    },
-    "shopify_product": {
-      "description": "Manages products in a Shopify store using the Admin API (via custom app credentials).",
-      "tool": "run_terminal_cmd",
-      "command": "node tools/shopify-product-tool.js",
+      "command": "npm run openai-image",
       "subcommands": {
-        "get": {
-          "description": "Get a product by its GID.",
-          "options": {
-            "id": "Required: Product GID (e.g., gid://shopify/Product/123456789)"
-          },
-          "example": "node tools/shopify-product-tool.js get --id gid://shopify/Product/12345"
-        },
-        "list": {
-          "description": "List products with optional filters.",
-          "options": {
-            "limit": "(Optional) Number of products to list (default: 10).",
-            "status": "(Optional) Filter by status (ACTIVE, ARCHIVED, DRAFT)."
-          },
-          "example": "node tools/shopify-product-tool.js list --limit 5 --status ACTIVE"
-        },
-        "create": {
-          "description": "Create a new product.",
-          "options": {
-            "title": "Required: Product title.",
-            "bodyHtml": "(Optional) Product description (HTML string).",
-            "vendor": "(Optional) Product vendor.",
-            "productType": "(Optional) Product type.",
-            "status": "(Optional) Product status (ACTIVE, ARCHIVED, DRAFT - default: DRAFT).",
-            "tags": "(Optional) Comma-separated list of tags."
-          },
-          "example": "node tools/shopify-product-tool.js create --title \"Awesome New Gadget\" --vendor \"GadgetCo\" --status ACTIVE"
-        },
-        "update": {
-          "description": "Update an existing product by its GID.",
-          "options": {
-            "id": "Required: Product GID to update.",
-            "title": "(Optional) New product title.",
-            "status": "(Optional) New product status (ACTIVE, ARCHIVED, DRAFT)."
-          },
-          "example": "node tools/shopify-product-tool.js update --id gid://shopify/Product/12345 --title \"Even Awesomer Gadget V2\" --status ARCHIVED"
-        },
-        "delete": {
-          "description": "Delete a product by its GID.",
-          "options": {
-            "id": "Required: Product GID to delete."
-          },
-          "example": "node tools/shopify-product-tool.js delete --id gid://shopify/Product/12345"
-        },
         "generate": {
-          "description": "Generate and create products using AI (Gemini for text, Imagen 3 for images).",
+          "description": "Generate an image using OpenAI's image generation models",
           "options": {
-            "amount": "Required: Number of products to generate.",
-            "instructions": "Required: Text instructions describing the desired products (e.g., 'vintage t-shirts', 'modern kitchen gadgets').",
-            "status": "(Optional) Status for created products (ACTIVE, ARCHIVED, DRAFT - default: DRAFT).",
-            "img-folder": "(Optional) Folder to save generated images (default: public/images/generated_products)."
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "quality": "(Optional) Image quality: standard or hd - DALL-E only (default: standard)",
+            "number": "(Optional) Number of images to generate (1-4) - DALL-E only (default: 1)",
+            "reference-image": "(Optional) Reference image path for gpt-image-1 with reference",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
           },
-          "example": "node tools/shopify-product-tool.js generate --amount 5 --instructions \"handmade ceramic mugs with unique glazes\" --status ACTIVE"
+          "example": "npm run openai-image -- generate -p \"A futuristic cityscape at sunset with flying cars\" -m gpt-image-1 -s 1792x1024 -c vivid"
+        },
+        "edit": {
+          "description": "Edit an existing image using OpenAI's models",
+          "options": {
+            "input-image": "Required: Path to the input image to edit",
+            "edit-prompt": "Required: Text prompt describing the edit to apply",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- edit -i input.jpg -p \"Change the background to a tropical beach\" -m gpt-image-1"
         }
       },
       "requires": [
-        "SHOPIFY_SHOP_DOMAIN in .env.local (e.g., your-store.myshopify.com)",
-        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local (Admin API token, starts with shpat_)",
-        "SHOPIFY_API_KEY in .env.local (Custom App API Key)",
-        "SHOPIFY_API_SECRET in .env.local (Custom App API Secret)",
-        "@shopify/shopify-api package",
-        "dotenv package",
-        "commander package"
+        "OPENAI_API_KEY in .env.local",
+        "openai package",
+        "axios package",
+        "ora package",
+        "chalk package"
       ]
+    },
+    "vercel-cli": {
+      "description": "Directly interact with Vercel deployment platform for project management, environment variables, and domains",
+      "tool": "run_terminal_cmd",
+      "command": "npm run vercel",
+      "options": {
+        "deploy": {
+          "description": "Deploy the application to Vercel",
+          "options": {
+            "environment": "(Optional) Deployment environment: production, preview, or development (default: preview)",
+            "project": "(Optional) Project name (defaults to directory name)",
+            "prod": "(Optional) Deploy to production (shorthand for --environment production)"
+          }
+        },
+        "list": {
+          "description": "List recent deployments",
+          "options": {
+            "count": "(Optional) Number of deployments to show (default: 5)"
+          }
+        },
+        "logs": {
+          "description": "Show logs for the current project",
+          "options": {
+            "follow": "(Optional) Follow logs in real time",
+            "deployment": "(Optional) Deployment ID"
+          }
+        },
+        "domains": {
+          "description": "Manage domains for your Vercel projects",
+          "options": {
+            "add": "(Optional) Add a domain",
+            "remove": "(Optional) Remove a domain",
+            "list": "(Optional) List all domains"
+          }
+        },
+        "env": {
+          "description": "Manage environment variables",
+          "options": {
+            "add": "(Optional) Add an environment variable (format: key=value)",
+            "remove": "(Optional) Remove an environment variable",
+            "list": "(Optional) List all environment variables",
+            "environment": "(Optional) Environment: development, preview, or production (default: development)"
+          }
+        },
+        "promote": {
+          "description": "Promote a deployment to production",
+          "arguments": "<url-or-id>: Deployment URL or ID to promote"
+        }
+      },
+      "requires": [
+        "Vercel CLI (will be auto-installed if not present)",
+        "Vercel account authentication"
+      ],
+      "example": "npm run vercel -- deploy --prod"
+    },
+    "github-cli": {
+      "description": "Interact with GitHub repositories, pull requests, issues, and workflows directly from the command line",
+      "tool": "run_terminal_cmd",
+      "command": "npm run github",
+      "options": {
+        "auth": {
+          "description": "Manage GitHub authentication",
+          "options": {
+            "login": "(Optional) Log in to GitHub (-l, --login)",
+            "status": "(Optional) View authentication status (-s, --status)",
+            "refresh": "(Optional) Refresh stored authentication credentials (-r, --refresh)",
+            "logout": "(Optional) Log out of GitHub (-o, --logout)"
+          }
+        },
+        "pr-create": {
+          "description": "Create a pull request",
+          "options": {
+            "title": "(Optional) Pull request title",
+            "body": "(Optional) Pull request body",
+            "base": "(Optional) Base branch name",
+            "draft": "(Optional) Create draft pull request",
+            "fill": "(Optional) Use commit info for title/body"
+          }
+        },
+        "pr-list": {
+          "description": "List and filter pull requests",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, merged, all (default: open)",
+            "limit": "(Optional) Maximum number of items to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "base": "(Optional) Filter by base branch",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "pr-view": {
+          "description": "View pull request details",
+          "arguments": "[number]: PR number or URL, if omitted the PR from the current branch is displayed",
+          "options": {
+            "web": "(Optional) Open in web browser"
+          }
+        },
+        "issue-create": {
+          "description": "Create a new issue",
+          "options": {
+            "title": "(Optional) Issue title",
+            "body": "(Optional) Issue body",
+            "assignee": "(Optional) Assign people by their login",
+            "label": "(Optional) Add labels by name",
+            "project": "(Optional) Add issue to project",
+            "milestone": "(Optional) Add issue to milestone",
+            "web": "(Optional) Open new issue in the web browser"
+          }
+        },
+        "issue-list": {
+          "description": "List and filter issues",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, all (default: open)",
+            "limit": "(Optional) Maximum number of issues to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "label": "(Optional) Filter by label",
+            "milestone": "(Optional) Filter by milestone",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "release-create": {
+          "description": "Create a new release",
+          "arguments": "<tag>: Tag name for the release",
+          "options": {
+            "title": "(Optional) Release title",
+            "notes": "(Optional) Release notes",
+            "notes-file": "(Optional) Read release notes from file",
+            "draft": "(Optional) Save release as draft instead of publishing",
+            "prerelease": "(Optional) Mark release as prerelease",
+            "generate-notes": "(Optional) Automatically generate release notes"
+          }
+        },
+        "release-list": {
+          "description": "List releases in a repository",
+          "options": {
+            "limit": "(Optional) Maximum number of releases to fetch (default: 30)"
+          }
+        },
+        "repo": {
+          "description": "Manage repositories",
+          "options": {
+            "create": "(Optional) Create a new repository",
+            "description": "(Optional) Repository description",
+            "homepage": "(Optional) Repository homepage URL",
+            "private": "(Optional) Make the repository private",
+            "team": "(Optional) The name of the organization team to grant access to",
+            "view": "(Optional) View repository details",
+            "web": "(Optional) Open in web browser",
+            "list": "(Optional) List your repositories"
+          }
+        },
+        "workflow": {
+          "description": "Manage GitHub Actions workflows",
+          "options": {
+            "list": "(Optional) List workflows",
+            "run": "(Optional) Run a workflow by name or ID",
+            "view": "(Optional) View a specific workflow",
+            "enable": "(Optional) Enable a workflow by name or ID",
+            "disable": "(Optional) Disable a workflow by name or ID"
+          }
+        },
+        "tasks": {
+          "description": "List and manage tasks from GitHub Projects and Issues",
+          "options": {
+            "project": "(Optional) Specify project ID or number to list tasks from",
+            "repository": "(Optional) Specify repository in owner/repo format (default: current repository)",
+            "status": "(Optional) Filter by status: open, closed, all (default: open)",
+            "label": "(Optional) Filter by label",
+            "assignee": "(Optional) Filter by assignee",
+            "limit": "(Optional) Maximum number of tasks to fetch (default: 30)",
+            "format": "(Optional) Output format: table, json, or simple (default: table)",
+            "web": "(Optional) Open tasks in the web browser"
+          }
+        }
+      },
+      "requires": [
+        "GitHub CLI (will be auto-installed if not present)",
+        "GitHub account authentication"
+      ],
+      "example": "npm run github -- pr-create --title \"New feature\" --body \"This PR adds a new feature\""
     }
   }
 }
@@ -384,6 +482,10 @@ mcp_supabase_query - Run a read-only SQL query to project database
     - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
     - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
     - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
+    - `/.cursor/rules/@nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
+    - `/.cursor/rules/@supabase-auth-implementation.mdc`: How to implement Supabase authentication.
+    - `/.cursor/rules/@translation-guidelines.mdc`: Guidelines for translations.
+    - `/.cursor/rules/@translation-management-tools.mdc`: Tools for managing translations.
     - `@package.json`: List of used npm packages and versions.
     - `lib/@brand-info.ts`: Brand information for content generation.
 
@@ -512,52 +614,116 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
       4. **Integration:** Integrate the AI logic into relevant frontend or backend components as needed, potentially using the `<develop>` action.
       5. **Testing:** Ensure the feature is tested, potentially using the `<validate>` action.
   </implement_ai>
+
+  <localize>
+    - **Goal:** Create or update translations for the application with natural, culturally appropriate phrasing.
+    - **Steps:**
+      1. **Understand Context:**
+         - Read `messages/README.md` to understand the localization structure.
+         - Examine existing translations in the target namespace(s) across all locales to understand tone and style.
+         - Read related components to understand how the translations are used in context.
+      
+      2. **Translation Approach:**
+         - **DO NOT** translate word-for-word. Prioritize natural, idiomatic expressions in each target language.
+         - Consider cultural context for each language (Finnish, Swedish, English).
+         - Maintain consistent terminology within each feature/namespace.
+         - Preserve placeholders (e.g., `{count}`, `{name}`) and formatting tags.
+         - Ensure translations fit UI space constraints while conveying the full meaning.
+      
+      3. **Language-Specific Guidance:**
+         - **Finnish (fi):**
+           - Use shorter constructions where possible (Finnish words tend to be longer).
+           - Consider compound word formation rules (yhdyssanat).
+           - Use appropriate formal/informal tone (generally more formal for business applications).
+           - Handle cases properly (Finnish has 15 grammatical cases).
+         
+         - **Swedish (sv):**
+           - Pay attention to definite/indefinite forms.
+           - Use appropriate formal/informal tone ("ni" vs "du").
+           - Consider gender agreement in adjectives.
+           - Maintain natural word order in questions and statements.
+         
+         - **English (en):**
+           - Use clear, concise phrasing.
+           - Follow American English conventions unless otherwise specified.
+           - Avoid idioms that may not translate well.
+
+      4. **Implementation:**
+         - Identify the correct namespace file for each locale (`en/`, `fi/`, `sv/`).
+         - Use `edit_file` to add new translations or update existing ones.
+         - Maintain JSON structure and formatting consistency.
+         - Keep translations organized by logical sections within the namespace.
+      
+      5. **Validation:**
+         - Run `npm run check-translations` to verify translation completeness.
+         - If possible, have native speakers review translations (or note this as a post-implementation recommendation).
+         - Test in the UI to ensure proper rendering and context appropriateness.
+      
+      6. **Documentation:**
+         - Update the localization report if needed.
+         - Note any challenging translations or decisions in comments.
+  </localize>
 </actions>
 
-## Request Processing Steps
-Follow these steps sequentially for **every** user request:
+<behavioral_rules>
+- **Existing Project:** NEVER create a new project. Analyze existing structure.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge. ALWAYS use `web_search` or `gemini --ground` to verify external API/library documentation, versions, and best practices.
+- **Latest Libraries:** Prefer latest stable versions for dependencies.
+- **Cautious Edits:** Use `codebase_search`/`grep_search` to understand impact before modifying existing code. Avoid deletions unless clearly required.
+- **Follow Instructions:** Adhere precisely to `<action>` steps and these rules.
+- **Persistence:** Be persistent, do not give up. Don't stop when you have not completed the task. 
+- **Simplicity:** Prefer the simplest, most direct solution meeting all requirements.
+- **Tool Usage:** Use provided tools appropriately. Explain *why* a tool is used and *how* the prompt is constructed (especially for Gemini).
+- **Clarity:** Communicate plans, actions, results clearly. Ask clarifying questions if ambiguous.
 
-1.  **Tool Use Check:** If the user *explicitly* requests to use a specific tool (internal or command-line), execute that tool using the appropriate method (`run_terminal_cmd` for command-line tools) and respond with the result. **Stop processing here.**
+### Model-Specific Behavior:
+- **For Claude (Anthropic):**
+    - **Exact Request Fulfillment:** Implement *only* what is explicitly asked. No extras.
+    - Confirm all parts of the request are addressed, nothing more.
+    - Ask: "Am I adding anything not explicitly requested?" If yes, remove it.
+    - Avoid suggesting alternatives unless asked.
+
+- **For Gemini (Google):**
+    - **Follow Instructions Precisely:** Execute user instructions exactly as written.
+    - **Adhere Strictly:** Follow the specified workflow and action steps rigorously.
+    - **Maintain Structure:** Use consistent formatting as specified.
+    - **Leverage Context:** Actively incorporate context from documentation (`@*.md`), rules (`@*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
+    - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
+
+- **For GPT (OpenAI) and Grok (X.AI):**
+    - Be complete, aim for full task completion per run.
+    - Only ask user for major decisions.
+</behavioral_rules>
+
+## Request Processing Steps
+Follow these steps sequentially for **every** user request and follow behavioral rules above:
+
+1.  **Tool Use Check:** If the user *explicitly* requests a specific tool, execute it using the `<use_tools>` action and respond. **Stop processing here.**
 2.  **Initial Analysis:**
-    *   Read the user request carefully.
-    *   Consult `<documentation>` (`read_file`) and potentially fetch relevant rules (`fetch_rules`) to understand context.
-    *   Identify the primary goal (e.g., fix a bug, develop a feature, answer a question).
-    *   Determine the most relevant `<action>` (e.g., `<fix>`, `<develop>`, `<research>`). If no single action fits perfectly, default to `<research>` to gather more information or clarify.
-    *   List affected architecture areas (frontend, backend, database, tests, docs).
-    *   **Present Analysis:**
+    * Read the user request carefully.
+    * Consult `<documentation>` (`read_file`) and potentially fetch rules (`Workspace_rules`) for context.
+    * Identify the primary goal.
+    * Determine the most relevant `<action>`. Default to `<research>` if unclear.
+    * List affected architecture areas.
+    * **Present Analysis:**
         ```
-        Request type: [Inferred type, e.g., Bug Fix, Feature Development, Documentation Update, Tool Execution, Research]
-        Primary Action: [<Chosen action, e.g., fix>]
+        Request type: [Inferred type]
+        Primary Action: [<Chosen action>]
         Affected Areas: [List areas]
+        Plan Overview: [Briefly mention key steps/tools, e.g., "Read docs, formulate prompt for edit_file, run tests"]
         ```
 3.  **Task Planning (if complex):**
-    *   If the required action involves multiple steps or sub-tasks (especially for `<develop>`, `<validate>`, `<design>`), break it down.
-    *   Use `edit_file` to add these sub-tasks to `docs/todo.md` under a relevant heading, marking them as ❌ (not started). Include necessary steps like development, testing, and documentation updates for each sub-task.
-    *   Inform the user that the plan has been added to `docs/todo.md`.
+    * For multi-step actions (`<develop>`, `<validate>`, `<design>`), break down into sub-tasks.
+    * Use `edit_file` to add sub-tasks to `@todo.md` (marked ❌). Include development, testing, documentation steps.
+    * Inform the user the plan is in `@todo.md`.
 4.  **Action Execution:**
-    *   State: `Starting Action: <action name>...`
-    *   Execute the steps defined within the chosen `<action>` in the section above. Follow instructions within the action description carefully, including reading required files and using specified tools.
-    *   Adhere strictly to the `<behavior_rules>` during execution.
-    *   State: `Completed Action: <action name>.`
-5.  **Confirmation & Iteration:**
-    *   If the task involved multiple planned sub-tasks (from step 3) or the primary action implies follow-up (like `<research>` often leads to `<develop>` or `<fix>`), ask: "Would you like to proceed to the next step/action ([mention next logical step if clear]) or do you need any adjustments?"
-    *   **Wait for explicit user confirmation ('yes', 'proceed', 'continue', etc.) before starting the next action or major step.** If the user requests adjustments, go back to step 2 for re-analysis based on the new input.
-6.  **Final Recording (on task completion):**
-    *   Once the *entire* user request is fulfilled (which might involve multiple actions and confirmations):
-        *   Summarize all significant changes made.
-        *   Execute the `<record>` action to update `ai_changelog.md` and `todo.md`.
-        *   If applicable (e.g., after a `<fix>` or `<invent>`), ensure `learnings.md` was updated during the relevant action.
-
-## Behavior Rules (Strictly Follow)
-- **Existing Project:** NEVER create a new project. Analyze the existing structure via `list_dir`, `<documentation>`, and code search.
-- **Up-to-date Info:** Do NOT rely solely on internal knowledge for libraries or external APIs. ALWAYS use `web_search` to verify current documentation, versions, and best practices when implementing or fixing related code.
-- **Latest Libraries:** When adding dependencies, prefer the latest stable versions unless otherwise specified.
-- **Cautious Edits:** Be extremely careful when modifying existing code. Use `codebase_search` or `grep_search` to understand potential usages elsewhere. Avoid deleting code unless explicitly requested or clearly redundant after refactoring.
-- **Follow Instructions:** Read and follow all instructions within the chosen `<action>` and these general rules precisely.
-- **Exact Request Fulfillment:**
-    - Implement *only* what the user explicitly asks for. No extra features, enhancements, or refactoring unless requested.
-    - Confirm your solution addresses *all* parts of the request.
-    - **Crucial:** Ask yourself before finalizing changes: "Am I adding anything not explicitly requested?"
-- **Simplicity:** Prefer the simplest, most direct solution that meets all requirements. Minimize code complexity.
-- **Tool Usage:** Use the provided tools (`<tools>`, `<command_line_tools>`) whenever appropriate to interact with the filesystem, codebase, web, or terminal. Explain *why* you are using a tool *before* calling it.
-- **Clarity:** Communicate clearly. State your plan, actions, and results. Ask clarifying questions if the request is ambiguous.
+    * State: `Starting Action: <action name>...`
+    * Execute steps within the chosen `<action>`, focusing on providing **clear, context-rich prompts** to tools like `edit_file` and `run_terminal_cmd` (especially for `gemini` tools).
+    * Adhere strictly to `<behavior_rules>`.
+    * Review outputs and iterate with follow-up prompts if necessary.
+    * State: `Completed Action: <action name>.`
+5.  **Final Recording (on task completion):**
+    * Once the *entire* request is fulfilled:
+        * Summarize significant changes.
+        * Execute `<record>` action (update `@ai_changelog.md`, `@todo.md`).
+        * Ensure `@learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.

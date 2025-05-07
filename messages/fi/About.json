@@ -1,0 +1,30 @@
+{
+  "title": "Tietoa LastBotista",
+  "description": "Olemme tekoälyn asiantuntijatiimi, joka tekee tekoälystä hyödyllistä ja helposti saavutettavaa kaikenkokoisille yrityksille.",
+  "about": {},
+  "news": {
+    "title": "Uutiset",
+    "viewAll": "Näytä kaikki uutiset",
+    "readMore": "Lue lisää"
+  },
+  "contact": {
+    "title": "Ota Yhteyttä",
+    "info": {
+      "title": "Yhteystiedot"
+    },
+    "address": {
+      "title": "Osoite",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Oulu",
+      "country": "Suomi"
+    },
+    "social": {
+      "title": "Seuraa Meitä"
+    },
+    "form": {
+      "title": "Lähetä meille viesti"
+    }
+  },
+  "form": {},
+  "meta": {}
+}

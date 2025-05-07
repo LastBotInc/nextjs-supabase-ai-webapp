@@ -1,0 +1,99 @@
+{
+  "title": "Integritetspolicy",
+  "introduction": {
+    "title": "Introduktion",
+    "content": "Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar dina personuppgifter när du använder vår webbplats."
+  },
+  "information": {
+    "title": "Vilken information vi samlar in",
+    "analytics": {
+      "title": "Analysinformation",
+      "description": "Vi samlar in analysdata för att förbättra våra tjänster och din användarupplevelse.",
+      "items": [
+        "Sidvisningar och navigationsmönster",
+        "Sessionsinformation och varaktighet",
+        "Enhetstyp och webbläsarinformation",
+        "Språkinställningar",
+        "Referenskällor"
+      ]
+    },
+    "session": {
+      "items": [
+        "Sessions‑ID",
+        "IP‑adress (anonymiserad)",
+        "Webbläsartyp och version",
+        "Operativsystem",
+        "Tidszon‑ och språkinställningar"
+      ]
+    }
+  },
+  "cookies": {
+    "title": "Cookie‑användning",
+    "description": "Vi använder cookies för att förbättra din surfupplevelse. Du kan kontrollera cookies i din webbläsare.",
+    "types": [
+      {
+        "name": "Nödvändiga cookies",
+        "description": "Krävs för grundläggande webbplatsfunktioner, autentisering och säkerhet"
+      },
+      {
+        "name": "Analyscookies",
+        "description": "Hjälper oss förstå hur besökare interagerar med webbplatsen"
+      },
+      {
+        "name": "Preferenscookies",
+        "description": "Sparar dina språk‑ och visningsinställningar"
+      }
+    ],
+    "types[0]": {},
+    "types[1]": {},
+    "types[2]": {}
+  },
+  "usage": {
+    "title": "Hur vi använder din information",
+    "description": "Vi använder insamlad information för:",
+    "items": [
+      "Att tillhandahålla och förbättra våra tjänster",
+      "Att analysera webbplatsanvändning",
+      "Att personalisera din upplevelse",
+      "Att upprätthålla webbplatsens säkerhet",
+      "Att kommunicera viktiga uppdateringar"
+    ]
+  },
+  "protection": {
+    "title": "Dataskydd",
+    "content": "Vi använder lämpliga säkerhetsåtgärder för att skydda din information. Data lagras säkert på Supabases infrastruktur och krypteras i vila och under överföring."
+  },
+  "rights": {
+    "title": "Dina rättigheter",
+    "description": "Du har följande rättigheter gällande dina data:",
+    "items": [
+      "Få tillgång till dina personuppgifter",
+      "Begära korrigering av felaktiga uppgifter",
+      "Begära radering av dina uppgifter",
+      "Välja bort analys­spårning",
+      "Kontrollera cookie‑inställningar",
+      "Återkalla samtycke när som helst"
+    ]
+  },
+  "preferences": {
+    "title": "Dina inställningar",
+    "content": "Du kan hantera dina cookie‑inställningar när som helst via vår cookie‑banner eller webbläsarens inställningar."
+  },
+  "updates": {
+    "title": "Policy‑uppdateringar",
+    "content": "Vi kan uppdatera denna integritetspolicy då och då. Ändringar publiceras på denna sida med uppdaterat datum."
+  },
+  "contact": {
+    "title": "Kontakta oss",
+    "description": "Har du frågor om denna integritetspolicy eller hur vi hanterar data? Kontakta oss:",
+    "info": {},
+    "address": {
+      "title": "Adress",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Uleåborg",
+      "country": "Finland"
+    },
+    "email": "E‑post"
+  },
+  "form": {}
+}

@@ -1,0 +1,23 @@
+{
+  "home": "Hem",
+  "about": "Om",
+  "blog": "Blogg",
+  "book": "Boka tid",
+  "admin_link": "Admin",
+  "signIn": "Logga in",
+  "signOut": "Logga ut",
+  "backToSite": "Tillbaka till sidan",
+  "admin": {
+    "blog": "Blogg‑admin",
+    "contacts": "Kontakter",
+    "analytics": "Analys",
+    "translations": "Översättningar",
+    "media": "Media",
+    "users": "Användare",
+    "landingPages": "Landing‑sidor",
+    "calendar": "Kalender"
+  },
+  "account": {
+    "title": "Mitt konto"
+  }
+}

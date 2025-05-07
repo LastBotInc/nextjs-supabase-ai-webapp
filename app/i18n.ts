@@ -1,5 +1,8 @@
 import type { Locale } from './i18n/config'
 
+// Check if we're running on the server
+const isServer = typeof window === 'undefined';
+
 // Define nested record type for translations
 type NestedRecord = {
   [key: string]: string | string[] | NestedRecord | NestedRecord[]
@@ -97,129 +100,170 @@ async function getTranslationsWithCache(locale: Locale, forceRefresh = false): P
   return messages
 }
 
+// Load namespaces using dynamic imports - works in both client and server
+async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
+  log('📁 [i18n] Loading namespace files for locale using dynamic imports:', locale)
+  
+  const namespaces: Messages = {}
+  
+  try {
+    // Try to load common namespaces that are likely to exist
+    const commonNamespaces = [
+      'Navigation', 
+      'Common', 
+      'Footer', 
+      'Auth', 
+      'Blog', 
+      'Index',
+      'CookieConsent',
+      'Booking',
+      'Account',
+      'Admin',
+      'Analytics',
+      'LandingPage',
+      'Contact',
+      'Media',
+      'Profile',
+      'Security',
+      'User'
+    ]
+    
+    for (const namespace of commonNamespaces) {
+      try {
+        const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default)
+        namespaces[namespace] = module
+        log(`✅ [i18n] Loaded namespace: ${namespace}`)
+      } catch (error) {
+        // Continue with other namespaces
+        log(`⚠️ [i18n] Namespace not found: ${namespace}`)
+      }
+    }
+    
+    return namespaces
+  } catch (error) {
+    log(`❌ [i18n] Error loading namespaces using import for ${locale}:`, error)
+    throw error
+  }
+}
+
+// Helper function to load all namespace files from a locale directory - server only
+// We skip this implementation for client-side rendering
+// This function requires fs module which is only available in Node.js environment
+async function loadNamespacesFromFiles(locale: Locale): Promise<Messages> {
+  log('📁 [i18n] Loading namespace files from filesystem for locale:', locale)
+  
+  // Only run on server
+  if (!isServer) {
+    log('⚠️ [i18n] Attempted to use filesystem on client side')
+    return {}
+  }
+  
+  // This function is implemented on the server only
+  // For build time, we'll rely on import method instead
+  log('⚠️ [i18n] File system operations are not available during build')
+  return loadNamespacesUsingImport(locale)
+}
+
+// Fallback to loading monolithic translation file
+async function loadMonolithicFile(locale: Locale): Promise<Messages> {
+  log('📄 [i18n] Attempting to load translations for:', locale)
+  
+  try {
+    // Try to load namespaces directly first (since we now use a folder structure)
+    try {
+      // Since we no longer have monolithic files and only use the namespace folder structure,
+      // we'll directly try to load namespace files
+      log('📁 [i18n] No monolithic file exists, trying to load namespace files instead')
+      return await loadNamespacesUsingImport(locale)
+    } catch (error) {
+      log(`❌ [i18n] Failed to load namespaces for ${locale}`)
+      
+      // If not the default locale, try the default locale
+      if (locale !== 'en') {
+        log('⚠️ [i18n] Falling back to English...')
+        try {
+          return await loadNamespacesUsingImport('en')
+        } catch (fallbackError) {
+          log('❌ [i18n] Failed to load English fallback:', fallbackError)
+        }
+      }
+      
+      // Return empty object if all attempts fail
+      return {}
+    }
+  } catch (error) {
+    log(`❌ [i18n] Error loading translations for ${locale}:`, error)
+    return {}
+  }
+}
+
 async function loadTranslations(locale: Locale): Promise<Messages> {
   log('\n🌍 [i18n] ===== TRANSLATION LOADING START =====')
   log('🔍 [i18n] Loading translations for locale:', locale)
   
-  // First load translations from JSON files as base
-  let messages = {} as Messages
-  
+  // First try to load translations from namespace-based folder structure
+  let messages: Messages = {}
   try {
-    messages = (await import(`@/messages/${locale}.json`)).default
-    log('\n📄 [i18n] JSON translations loaded')
-  } catch {
-    log(`❌ [i18n] No JSON translations found for ${locale}, trying English...`)
-    if (locale !== 'en') {
-      try {
-        messages = (await import(`@/messages/en.json`)).default
-        log('\n📄 [i18n] English fallback JSON loaded')
-      } catch (fallbackError) {
-        console.error('❌ [i18n] Failed to load fallback translations:', fallbackError)
-      }
-    }
-  }
-
-  // Then get translations from database to override JSON values
-  log('\n🔌 [i18n] Fetching database translations for locale:', locale)
-  
-  try {
-    // Check if we're in a browser environment
-    const baseUrl = typeof window !== 'undefined' 
-      ? window.location.origin 
-      : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-    const response = await fetch(`${baseUrl}/api/i18n?locale=${locale}`)
+    // First try using dynamic imports (works on both client and server)
+    messages = await loadNamespacesUsingImport(locale)
     
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    
-    const contentType = response.headers.get('content-type')
-    if (!contentType || !contentType.includes('application/json')) {
-      throw new Error(`Expected JSON response but got ${contentType}`)
-    }
-
-    const { data: dbTranslations, error } = await response.json()
-
-    if (error) {
-      console.error('\n❌ [i18n] Database translations error:', error)
-      // If database fetch fails, return JSON translations
-      log('⚠️ [i18n] Using JSON translations as fallback')
+    // If we got some namespaces, great! 
+    if (Object.keys(messages).length > 0) {
+      log('✅ [i18n] Successfully loaded namespace-based translations for', locale, 'using imports')
       return messages
     }
-
-    if (dbTranslations) {
-      log('\n💾 [i18n] Database translations received')
-      
-      // Process each namespace's translations
-      Object.entries(dbTranslations).forEach(([namespace, translations]) => {
-        log('\n🔄 [i18n] Processing namespace:', namespace)
+    
+    // If dynamic imports didn't yield results, try API (on client) or file system (on server)
+    log('⚠️ [i18n] No namespaces loaded using imports, trying alternative methods')
+    
+    if (!isServer) {
+      // On client-side, try to fetch from translation API
+      try {
+        log('🔍 [i18n] Fetching translations from API for', locale)
+        const apiUrl = `/api/translations?locale=${locale}`
+        const response = await fetch(apiUrl)
+        const data = await response.json()
         
-        // Convert the translations to a flat object with proper keys
-        const flatTranslations: Record<string, string> = {}
-        Object.entries(translations as Record<string, string>).forEach(([key, value]) => {
-          // Remove namespace prefix if it exists in the key
-          const cleanKey = key.startsWith(`${namespace}.`) ? key.slice(namespace.length + 1) : key
-          flatTranslations[cleanKey] = value
-        })
-        
-        // Convert flat translations to nested structure
-        const nestedTranslations = flatToNested(flatTranslations)
-        
-        // Merge with existing messages
-        if (!messages[namespace]) {
-          messages[namespace] = {}
+        if (data.error) {
+          throw new Error(data.error)
         }
-        messages[namespace] = deepMerge(
-          messages[namespace] as NestedRecord,
-          nestedTranslations
-        ) as Messages
-      })
-    } else {
-      log('\n⚠️ [i18n] No database translations received')
+        
+        if (data.translations && Object.keys(data.translations).length > 0) {
+          log('✅ [i18n] Successfully loaded translations from API for', locale)
+          return data.translations
+        }
+        
+        log('⚠️ [i18n] API returned empty translations for', locale)
+      } catch (apiError) {
+        log('❌ [i18n] Error fetching translations from API:', apiError)
+      }
     }
-  } catch (queryError) {
-    console.error('\n❌ [i18n] Database query error:', queryError)
-    // Return JSON translations on error
-    return messages
+    
+    // Fallback to monolithic file as a last resort (we might not have this anymore)
+    log('⚠️ [i18n] Falling back to monolithic file for', locale)
+    return loadMonolithicFile(locale)
+  } catch (error) {
+    log(`❌ [i18n] Error loading namespace-based translations for ${locale}:`, error)
+    
+    // If namespace-based loading fails, try monolithic file
+    log('⚠️ [i18n] Attempting to load monolithic file as fallback for', locale)
+    return loadMonolithicFile(locale)
+  } finally {
+    log('🌍 [i18n] ===== TRANSLATION LOADING END =====\n')
   }
+}
 
-  // If no translations at all, throw error
-  if (Object.keys(messages).length === 0) {
-    throw new Error(`❌ [i18n] No translations found for locale: ${locale}`)
-  }
-
-  log('\n✅ [i18n] Translation loading completed successfully')
-  log('🌍 [i18n] ===== TRANSLATION LOADING END =====\n')
-
-  return messages
+export async function getTranslations(locale: Locale): Promise<Messages> {
+  return getTranslationsWithCache(locale)
 }
 
 export default async function getI18nConfig({ locale }: { locale: Locale }) {
-  try {
-    // Always try to get translations from cache first
-    const messages = await getTranslationsWithCache(locale)
-    return {
-      messages,
-      locale
-    }
-  } catch (error) {
-    console.error('Error loading translations:', error)
-    // Fallback to static JSON files
-    try {
-      const messages = (await import(`@/messages/${locale}.json`)).default
-      return {
-        messages,
-        locale
-      }
-    } catch (staticError) {
-      console.error('Error loading static translations:', staticError)
-      // Final fallback - empty messages
-      return {
-        messages: {},
-        locale
-      }
-    }
+  const messages = await getTranslations(locale)
+  
+  return {
+    messages,
+    // Default timeZone - can be overridden per-user if needed
+    timeZone: 'Europe/Helsinki',
   }
 }
 

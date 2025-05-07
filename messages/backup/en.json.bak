@@ -29,14 +29,11 @@
         "standards": "Enforced coding standards and best practices"
       }
     },
-    "cta": {
-      "button": "VIEW ON GITHUB"
-    },
+    "cta": {},
     "meta": {
       "title": "AI-Powered Next.js Template | Modern Web Development",
       "description": "A modern Next.js template with built-in AI capabilities, Supabase integration, and development tools for building scalable web applications."
     },
-    "description": "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.",
     "features": {
       "title": "Everything You Need",
       "description": "A comprehensive set of tools and features to accelerate your development workflow.",
@@ -151,9 +148,7 @@
   "About": {
     "title": "About LastBot",
     "description": "We are a team of AI experts dedicated to making artificial intelligence accessible and useful for businesses of all sizes.",
-    "about": {
-      "cta": "GET STARTED NOW"
-    },
+    "about": {},
     "news": {
       "title": "News",
       "viewAll": "View all news",
@@ -161,7 +156,6 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with us. We'd love to hear from you and discuss how we can help transform your business with AI.",
       "info": {
         "title": "Contact Information"
       },
@@ -171,8 +165,6 @@
         "postal": "90630 Oulu",
         "country": "Finland"
       },
-      "website": "Website",
-      "email": "Email",
       "social": {
         "title": "Follow Us"
       },
@@ -180,40 +172,22 @@
         "title": "Send us a message"
       }
     },
-    "form": {
-      "title": "Send us a message"
-    },
-    "meta": {
-      "title": "About | LastBot - Human-Centric AI Solutions",
-      "description": "Get to know LastBot, our mission to humanize AI technology, our expert team, and our commitment to helping businesses succeed in the AI-first era."
-    }
+    "form": {},
+    "meta": {}
   },
   "Blog": {
     "title": "Blog",
     "description": "Latest insights, research, and news from LastBot",
-    "readMore": "Read more",
-    "newestPost": "Latest Article",
-    "publishedOn": "Published on",
     "noPosts": "No posts yet. Be the first to write one!",
-    "by": "by",
-    "tags": "Tags",
-    "relatedPosts": "Related Posts",
     "similarPosts": "Similar Posts",
     "backToBlog": "Back to Blog",
-    "readingTime": "{minutes} min read",
-    "sharePost": "Share this post",
     "admin": {
       "title": "Blog Posts",
       "newPost": "New Post",
       "editPost": "Edit",
-      "deletePost": "Delete",
-      "confirmDelete": "Are you sure you want to delete this post?",
       "save": "Save",
       "saving": "Saving...",
       "cancel": "Cancel",
-      "generating": "Generating...",
-      "generateWithAI": "Generate with AI",
-      "generateImage": "Generate Image",
       "publishPost": "Publish",
       "unpublishPost": "Unpublish",
       "fields": {
@@ -243,12 +217,8 @@
         "quote": "Quote",
         "image": "Insert Image"
       },
-      "saveSuccess": "Post saved successfully",
-      "saveError": "Failed to save post",
       "translationSuccess": "Translations created successfully",
       "translationError": "Failed to create translations",
-      "deleteSuccess": "Post deleted successfully",
-      "deleteError": "Failed to delete post",
       "publishSuccess": "Post published successfully",
       "publishError": "Failed to publish post",
       "unpublishSuccess": "Post unpublished successfully",
@@ -257,44 +227,15 @@
         "title": "Web Research",
         "search": "Search",
         "searching": "Searching...",
-        "noResults": "No results found",
-        "error": "Search failed",
-        "retry": "Try again",
-        "use": "Use",
-        "useResult": "Use result",
+        "error": {},
         "searchPlaceholder": "Search the web for relevant content...",
-        "results": "Results",
-        "source": "Source",
-        "analyze": "Analyze",
-        "analyzing": "Analyzing...",
-        "summary": "Summary",
-        "keyPoints": "Key Points",
-        "scope": {
-          "small": "Small (3 results)",
-          "medium": "Medium (5 results)",
-          "large": "Large (8 results)",
-          "huge": "Huge (10 results)"
-        },
+        "scope": {},
         "selected": "{count} selected",
         "useSelected": "Use Selected",
         "extending": "Extending...",
         "extend": "Extend",
-        "error": {
-          "search": "Failed to perform research",
-          "extend": "Failed to extend content"
-        },
-        "analysis": {
-          "title": "Analysis",
-          "readability": "Readability",
-          "confidence": "Confidence",
-          "style": "Writing Style",
-          "audience": "Target Audience"
-        },
-        "topics": {
-          "title": "Topics & Sentiment",
-          "sentiment": "Sentiment",
-          "topics": "Topics"
-        }
+        "analysis": {},
+        "topics": {}
       }
     },
     "comments": "Comments",
@@ -308,42 +249,18 @@
     "deleteComment": "Delete",
     "fetchCommentsError": "Failed to load comments. Please try again.",
     "deleteCommentError": "Failed to delete comment. Please try again.",
-    "subjects": {
-      "all": "All",
-      "news": "News",
-      "research": "Research",
-      "generative-ai": "Generative AI",
-      "case-stories": "Case Stories"
-    },
-    "latestPost": "Latest Post",
-    "meta": {
-      "title": "Blog | LastBot - Human-Centric AI Solutions",
-      "description": "Explore the latest insights, trends, and success stories in AI integration, digital transformation, and human-centric technology solutions."
-    }
+    "subjects": {},
+    "meta": {}
   },
   "Navigation": {
-    "brand": "LastBot",
     "home": "Home",
     "about": "About",
     "blog": "Blog",
     "book": "Book Appointment",
-    "contact": "Contact",
     "admin_link": "Admin",
-    "analytics": "Analytics",
     "signIn": "Sign In",
     "signOut": "Sign Out",
     "backToSite": "Back to Site",
-    "translations": "Translations",
-    "login": "Login",
-    "profile": "Profile",
-    "Profile": {
-      "menu": {
-        "general": "General Settings",
-        "security": "Security & Privacy",
-        "preferences": "Preferences",
-        "backToSite": "Back to Site"
-      }
-    },
     "admin": {
       "blog": "Blog Admin",
       "contacts": "Contacts",
@@ -355,26 +272,18 @@
       "calendar": "Calendar"
     },
     "account": {
-      "title": "My Account",
-      "settings": "Settings",
-      "security": "Security",
-      "notifications": "Notifications"
-    },
-    "solutions": "Solutions"
+      "title": "My Account"
+    }
   },
   "Auth": {
     "email": "Email",
     "password": "Password",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
+    "signIn": "Sign in to your account",
     "signingIn": "Signing in...",
-    "signingUp": "Signing Up...",
     "signingOut": "Signing Out",
     "pleaseWait": "Please wait while we sign you out...",
     "continueWith": "Continue with",
-    "dontHaveAccount": "Don't have an account?",
-    "alreadyHaveAccount": "Already have an account?",
-    "redirecting": "Redirecting to admin...",
+    "redirecting": "Redirecting...",
     "loading": "Loading...",
     "accountUsage": "This account is for LastBot website features like commenting. More features will be added soon.",
     "authError": {
@@ -382,43 +291,32 @@
       "description": "There was a problem with the authentication process. Please try signing in again.",
       "backToSignIn": "Back to Sign In"
     },
-    "signIn": "Sign in to your account",
     "register": "Register",
     "noAccount": "Don't have an account yet?",
-    "haveAccount": "Already have an account?",
-    "forgotPassword": "Forgot your password?",
     "fullName": "Full Name",
     "company": "Company",
     "newsletter": "Subscribe to our newsletter",
     "marketing": "I consent to receiving marketing communications",
     "privacyNotice": "Your contact information will not be shared or sold to any third parties.",
-    "signingIn": "Signing in...",
     "creatingAccount": "Creating account...",
     "checkEmail": "Check your email",
     "emailSent": "We've sent you an email with a verification link.",
     "checkSpam": "If you don't see it, please check your spam folder.",
     "backToSignIn": "Back to sign in",
-    "redirecting": "Redirecting...",
     "error": {
-      "login": "An error occurred during login",
       "register": "Registration failed. Please try again.",
       "captcha": "Please complete the captcha verification.",
       "captchaValidation": "Captcha validation failed. Please try again."
     }
   },
   "Admin": {
-    "title": "Admin",
     "analytics": {
       "title": "Analytics Dashboard",
       "tabs": {
         "pageViews": "Page Views",
         "topPages": "Top Pages"
       },
-      "cards": {
-        "activeSessions": "Active Sessions",
-        "pageViews": "Page Views (Last 7 Days)",
-        "topPages": "Top Pages (Last 30 Days)"
-      },
+      "cards": {},
       "error": {
         "title": "Analytics Error",
         "description": "There was a problem loading the analytics data. Please try again.",
@@ -448,18 +346,8 @@
       "retry": "Try Again"
     },
     "translations": {
-      "title": "Translations",
-      "description": "Manage translations for all supported languages",
-      "shortcuts": {
-        "title": "Keyboard Shortcuts",
-        "enter": "Press Enter to edit",
-        "save": "Press Ctrl/Cmd + Enter to save",
-        "cancel": "Press Escape to cancel"
-      },
-      "table": {
-        "namespace": "Namespace",
-        "key": "Key"
-      },
+      "shortcuts": {},
+      "table": {},
       "editor": {
         "save": "Save",
         "saving": "Saving...",
@@ -478,13 +366,9 @@
         "disabled": "Disabled",
         "form": {
           "code": "Language Code",
-          "name": "English Name",
-          "nativeName": "Native Name",
-          "codeHelp": "Two-letter language code (e.g. en, fi)",
           "add": "Add Language",
           "cancel": "Cancel",
-          "select": "Select a language...",
-          "generating": "Generating translations..."
+          "select": "Select a language..."
         },
         "addSuccess": "Language added successfully",
         "addError": "Failed to add language",
@@ -514,94 +398,53 @@
       "lastSignIn": "Last Sign In",
       "never": "Never",
       "loading": "Loading users...",
-      "error": "Failed to load users",
       "retry": "Retry",
       "previous": "Previous",
       "next": "Next",
       "page": "Page"
     },
-    "editor": {
-      "title": "Landing Page Editor",
-      "tabs": {
-        "content": "Content",
-        "seo": "SEO Settings",
-        "code": "Custom Code",
-        "analytics": "Analytics"
-      }
-    },
-    "seo": {
-      "metaTitle": "Meta Title",
-      "metaDescription": "Meta Description",
-      "ogImage": "OG Image",
-      "keywords": "Keywords",
-      "canonicalUrl": "Canonical URL"
-    },
-    "code": {
-      "customHead": "Custom Head Code",
-      "customCss": "Custom CSS",
-      "customJs": "Custom JavaScript"
-    },
+    "seo": {},
+    "code": {},
     "calendar": {
       "title": "Calendar Management",
       "description": "Manage bookable times and settings",
       "loading": "Loading calendar...",
       "tabs": {
-        "calendar": "Calendar & Slots", 
+        "calendar": "Calendar & Slots",
         "settings": "Settings",
         "appointmentTypes": "Appointment Types"
       },
-    
       "slots": {
         "loading": "Loading slots...",
-        "timeSlots": "Available Time Slots", 
         "availableSlots": "Available Slots",
         "createSlots": "Create New Slots",
         "noSlots": "No available time slots for this date",
-        "title": "Time Slots",
         "selectDate": "Select Date",
         "startDate": "Start Date",
         "cancel": "Cancel slot",
         "endDate": "End Date",
         "create": "Create Slots",
         "creating": "Creating slots...",
-        "availableHours": "Available Hours",
-        "unavailableDates": "Unavailable Dates",
         "slotDuration": "Slot Duration (minutes)",
         "bookedSlots": "Booked Slots",
         "cancelBooking": "Cancel Booking",
         "slots": "Slots",
-        "status": {
-          "available": "Available",
-          "booked": "Booked", 
-          "cancelled": "Cancelled"
-        },
+        "status": {},
         "actions": {
-          "cancel": "Cancel",
           "generate": "Generate Available Slots",
-          "generating": "Generating slots...",
-          "success": "Slots generated",
-          "error": "Failed to generate slots"
+          "generating": "Generating slots..."
         }
       },
       "settings": {
         "endTime": "End Time",
         "startTime": "Start Time",
         "loading": "Loading settings...",
-        "title": "Calendar Settings",
         "timezone": "Timezone",
         "defaultDuration": "Default Booking Duration",
-        "durationError": "Duration must be at least 15 minutes",
-        "bufferTime": "Buffer Time",
         "bufferBefore": "Buffer Time Before",
         "bufferAfter": "Buffer Time After",
         "saving": "Saving settings...",
-        "saved": "Settings saved",
-        "error": "Failed to save settings",
-        "before": "Before",
-        "after": "After",
         "save": "Save Settings",
-        "saveSuccess": "Settings saved successfully",
-        "saveError": "Failed to save settings",
         "remove": "Remove",
         "noWorkingDays": "No working days selected. Click 'Add working day' to add available hours.",
         "addWorkingDay": "Add working day",
@@ -618,11 +461,8 @@
           "sunday": "Sunday"
         }
       },
-     
       "appointmentTypes": {
         "createNew": "Create New Appointment Type",
-        "existingTypes": "Your Appointment Types",
-        "loading": "Loading appointment types...",
         "noTypes": "You haven't created any appointment types yet",
         "form": {
           "name": "Name",
@@ -641,16 +481,14 @@
           "active": "Active",
           "inactive": "Inactive"
         },
-        "duration": "Duration",
         "minutes": "minutes",
-        "price": "Price",
         "free": "Free",
         "viewBookingPage": "View Booking Page"
       }
     }
   },
   "Media": {
-    "title": "Media Library",
+    "title": "Title",
     "selectMedia": "Select Media",
     "close": "Close",
     "select": "Select",
@@ -658,7 +496,6 @@
     "noMedia": "No media found",
     "uploadPrompt": "Get started by uploading your first media file",
     "details": "Media Details",
-    "title": "Title",
     "description": "Description",
     "altText": "Alt Text",
     "fileInfo": "File Information",
@@ -670,16 +507,10 @@
     "updateError": "Failed to update media file",
     "saving": "Saving...",
     "save": "Save",
-    "upload": "Upload",
-    "uploading": "Uploading...",
-    "dragDrop": "Drag and drop files here, or click to select",
-    "success": "File uploaded successfully",
     "error": "Upload failed",
-    "deleteSuccess": "File deleted successfully",
     "generateNew": "Generate new image",
     "generateImage": "Generate image",
     "generationError": "Image generation failed",
-    "generatingImage": "Generating image...",
     "dropzoneText": "Drag and drop files here, or click to select",
     "supportedFormats": "Supports PNG, JPG, GIF and WebP formats",
     "searchPlaceholder": "Search media...",
@@ -689,13 +520,6 @@
     "sortNameZA": "Name Z-A",
     "sortSizeLarge": "Size: Largest",
     "sortSizeSmall": "Size: Smallest",
-    "noAssets": "No media files",
-    "loadError": "Failed to load media files",
-    "assetDetails": "File details",
-    "dimensions": "Dimensions",
-    "fileSize": "File size",
-    "fileType": "File type",
-    "unknown": "Unknown",
     "prompt": "Description",
     "promptPlaceholder": "Describe the image you want...",
     "style": "Style",
@@ -734,8 +558,6 @@
         ]
       },
       "session": {
-        "title": "Session Information",
-        "description": "When you use our website, we automatically collect:",
         "items": [
           "Session identifiers",
           "IP address (anonymized)",
@@ -761,7 +583,10 @@
           "name": "Preference Cookies",
           "description": "Store your language and display preferences"
         }
-      ]
+      ],
+      "types[0]": {},
+      "types[1]": {},
+      "types[2]": {}
     },
     "usage": {
       "title": "How We Use Your Information",
@@ -801,86 +626,43 @@
     "contact": {
       "title": "Contact Us",
       "description": "If you have any questions about this Privacy Policy or how we handle your data, please contact us:",
-      "info": {
-        "title": "Contact Information"
-      },
+      "info": {},
       "address": {
         "title": "Address",
         "street": "Kimmeltie 10",
         "postal": "90630 Oulu",
         "country": "Finland"
       },
-      "website": "Website",
-      "email": "Email",
-      "social": {
-        "title": "Follow Us"
-      },
-      "form": {
-        "title": "Send us a message"
-      }
+      "email": "Email"
     },
-    "form": {
-      "title": "Send us a message"
-    }
+    "form": {}
   },
   "Profile": {
     "title": "Profile Settings",
     "description": "Manage your account settings and preferences",
-    "menu": {
-      "title": "Profile Menu",
-      "general": "General Settings",
-      "security": "Security & Privacy",
-      "preferences": "Preferences",
-      "backToSite": "Back to Site"
-    },
+    "menu": {},
     "tabs": {
       "general": "General",
       "security": "Security",
       "preferences": "Preferences"
     },
     "sections": {
-      "general": {
-        "title": "General Information",
-        "description": "Manage your basic profile information"
-      },
-      "security": {
-        "title": "Security Settings",
-        "description": "Manage your account security and privacy settings"
-      },
-      "preferences": {
-        "title": "User Preferences",
-        "description": "Customize your experience"
-      }
+      "general": {},
+      "security": {},
+      "preferences": {}
     },
     "fields": {
       "username": "Username",
       "email": "Email",
       "fullName": "Full Name",
-      "fullNamePlaceholder": "Enter your full name",
-      "language": "Preferred Language",
-      "theme": "Theme Preference",
-      "notifications": "Email Notifications",
-      "currentPassword": "Current Password",
-      "newPassword": "New Password",
-      "confirmPassword": "Confirm New Password"
+      "fullNamePlaceholder": "Enter your full name"
     },
     "actions": {
-      "save": "Save Changes",
-      "cancel": "Cancel",
-      "changePassword": "Change Password",
-      "updateEmail": "Update Email",
-      "enable2FA": "Enable Two-Factor Authentication",
-      "disable2FA": "Disable Two-Factor Authentication"
+      "save": "Save Changes"
     },
-    "messages": {
-      "saved": "Changes saved successfully",
-      "error": "An error occurred while saving changes",
-      "passwordChanged": "Password updated successfully",
-      "emailChanged": "Email updated successfully"
-    }
+    "messages": {}
   },
   "Account": {
-    "title": "My Account",
     "settings": {
       "title": "Account Settings",
       "profile": "Profile Information",
@@ -907,11 +689,7 @@
       "browser": "Browser",
       "unknown": "Unknown"
     },
-    "notifications": {
-      "title": "Notification Settings",
-      "email": "Email Notifications",
-      "push": "Push Notifications"
-    },
+    "notifications": {},
     "appointments": {
       "title": "Appointment Types",
       "createNew": "Create New Appointment Type",
@@ -939,29 +717,14 @@
     }
   },
   "Contact": {
-    "title": "Contact Us",
-    "description": "Get in touch with us. We'd love to hear from you and discuss how we can help transform your business with AI.",
-    "info": {
-      "title": "Contact Information"
-    },
-    "address": {
-      "title": "Address",
-      "street": "Kimmeltie 10",
-      "postal": "90630 Oulu",
-      "country": "Finland"
-    },
-    "website": "Website",
-    "email": "Email",
-    "social": {
-      "title": "Follow Us"
-    },
+    "info": {},
+    "address": {},
+    "social": {},
     "form": {
-      "title": "Send us a message",
       "description": "Fill out the form below and we'll get back to you as soon as possible.",
       "name": "Name",
       "email": "Email",
       "company": "Company",
-      "message": "Message",
       "submit": "Send Message",
       "submitting": "Sending...",
       "success": {
@@ -970,13 +733,9 @@
       },
       "error": {
         "captcha": "Please complete the captcha verification.",
-        "captchaValidation": "Captcha validation failed. Please try again.",
-        "general": "Failed to send message. Please try again."
+        "captchaValidation": "Captcha validation failed. Please try again."
       },
-      "meta": {
-        "title": "Contact | LastBot - Human-Centric AI Solutions",
-        "description": "Connect with LastBot to discuss your AI integration needs. Schedule a consultation, find our office locations, or reach out through our support channels."
-      }
+      "meta": {}
     }
   },
   "LandingPages": {
@@ -985,113 +744,39 @@
     "publish": "Publish",
     "unpublish": "Unpublish",
     "description": "Create and manage landing pages",
-    "content": "Content",
     "notFound": "Page Not Found",
     "notFoundDescription": "The requested landing page could not be found.",
     "createPage": "Create Landing Page",
     "createPageDescription": "Create a new landing page with custom content, SEO settings, and analytics tracking.",
     "editPage": "Edit Landing Page",
     "editPageDescription": "Modify the content, settings, and tracking for this landing page.",
-    "deletePage": "Delete Landing Page",
-    "previewPage": "Preview Page",
-    "publishPage": "Publish Page",
-    "unpublishPage": "Unpublish Page",
     "generateContent": "Generate Content",
     "generateImage": "Generate Image",
-    "seoSettings": "SEO Settings",
-    "customCode": "Custom Code",
     "analytics": {
-      "title": "Analytics",
-      "description": "Configure analytics settings for your landing page",
       "enableAnalytics": "Enable Analytics",
-      "enableAnalyticsDescription": "Enable analytics tracking for this landing page"
+      "enableAnalyticsDescription": "Enable analytics tracking for this landing page",
+      "gaMeasurementId": "Google Analytics Measurement ID",
+      "gtmContainerId": "Google Tag Manager Container ID",
+      "fbPixelId": "Facebook Pixel ID",
+      "linkedinPixelId": "LinkedIn Pixel ID"
     },
-    "deleteConfirm": "Are you sure you want to delete this landing page?",
-    "publishConfirm": "Are you sure you want to publish this landing page?",
-    "unpublishConfirm": "Are you sure you want to unpublish this landing page?",
     "form": {
       "title": "Title",
       "slug": "URL Slug",
       "content": "Content",
       "excerpt": "Excerpt",
-      "metaDescription": "Meta Description",
       "featuredImage": "Featured Image",
       "tags": "Tags",
-      "template": "Template",
-      "customCss": "Custom CSS",
-      "customJs": "Custom JavaScript",
-      "customHead": "Custom Head Content",
-      "customScripts": "Additional Scripts",
-      "seoData": "SEO Data",
-      "analyticsData": "Analytics Data",
       "prompt": "Landing Page Prompt",
       "promptPlaceholder": "Enter a prompt to generate landing page content...",
       "generating": "Generating...",
-      "validation": {
-        "titleRequired": "Title is required",
-        "slugRequired": "URL slug is required",
-        "contentRequired": "Content is required",
-        "slugFormat": "URL slug can only contain lowercase letters, numbers, and hyphens",
-        "slugUnique": "This URL slug is already in use"
-      },
-      "success": {
-        "created": "Landing page created successfully",
-        "updated": "Landing page updated successfully",
-        "deleted": "Landing page deleted successfully",
-        "published": "Landing page published successfully",
-        "unpublished": "Landing page unpublished successfully"
-      },
-      "error": {
-        "create": "Failed to create landing page",
-        "update": "Failed to update landing page",
-        "delete": "Failed to delete landing page",
-        "publish": "Failed to publish landing page",
-        "unpublish": "Failed to unpublish landing page",
-        "load": "Failed to load landing page"
-      },
       "cancel": "Cancel",
       "save": "Save",
       "createPage": "Create Page",
-      "generateContent": "Generate Content",
-      "generateImage": "Generate Image",
-      "generating": "Generating...",
-      "search": "Search landing pages...",
-      "status": "Status",
-      "lastModified": "Last Modified",
-      "actions": "Actions",
-      "edit": "Edit",
-      "view": "View",
-      "published": "Published",
-      "draft": "Draft",
-      "noPages": "No landing pages found. Create your first one!",
-      "noSearchResults": "No landing pages found matching your search.",
-      
-      "seo": {
-        "metaTitle": "Meta Title",
-        "metaDescription": "Meta Description",
-        "ogImage": "OG Image",
-        "keywords": "Keywords",
-        "canonicalUrl": "Canonical URL"
-      },
-      "code": {
-        "customHead": "Custom Head Code",
-        "customCss": "Custom CSS",
-        "customJs": "Custom JavaScript"
-      }
+      "published": "Published"
     },
-    "validation": {
-      "titleRequired": "Title is required",
-      "slugRequired": "URL slug is required",
-      "contentRequired": "Content is required",
-      "slugFormat": "URL slug can only contain lowercase letters, numbers, and hyphens",
-      "slugUnique": "This URL slug is already in use"
-    },
+    "validation": {},
     "success": {
-      "created": "Landing page created successfully",
-      "updated": "Landing page updated successfully",
-      "deleted": "Landing page deleted successfully",
-      "published": "Landing page published successfully",
-      "unpublished": "Landing page unpublished successfully",
       "imageGenerated": "Image generated successfully"
     },
     "tabs": {
@@ -1101,15 +786,8 @@
       "code": "Custom Code"
     },
     "error": {
-      "create": "Failed to create landing page",
-      "update": "Failed to update landing page",
-      "delete": "Failed to delete landing page",
-      "publish": "Failed to publish landing page",
-      "unpublish": "Failed to unpublish landing page",
       "load": "Failed to load landing page"
     },
-    "cancel": "Cancel",
-    "save": "Save",
     "generating": "Generating...",
     "search": "Search landing pages...",
     "status": "Status",
@@ -1117,12 +795,9 @@
     "actions": "Actions",
     "edit": "Edit",
     "view": "View",
-    "published": "Published",
-    "draft": "Draft",
     "noPages": "No landing pages found. Create your first one!",
     "noSearchResults": "No landing pages found matching your search.",
     "editor": {
-      "title": "Landing Page Editor",
       "cta": {
         "title": "Call to Action",
         "headline": {
@@ -1139,7 +814,7 @@
         },
         "buttonLink": {
           "label": "Button Link",
-          "placeholder":"Enter URL"
+          "placeholder": "Enter URL"
         },
         "secondaryText": {
           "label": "Secondary Text",
@@ -1151,8 +826,7 @@
       "metaTitle": "Meta Title",
       "metaDescription": "Meta Description",
       "ogImage": "OG Image",
-      "keywords": "Keywords",
-      "canonicalUrl": "Canonical URL"
+      "keywords": "Keywords"
     },
     "code": {
       "customHead": "Custom Head Code",
@@ -1166,29 +840,12 @@
     "noPresentations": "No presentations available",
     "slides": "slides",
     "navigatingAI": {
-      "title": "Navigating AI Transformation",
-      "description": "A comprehensive guide to understanding how AI is transforming software development, business operations, and user experiences",
       "sections": {
-        "development": {
-          "title": "AI-Assisted Development",
-          "description": "How AI is revolutionizing the way we build software"
-        },
-        "agents": {
-          "title": "AI Agents Integration",
-          "description": "The rise of AI agents and their impact on system architecture"
-        },
-        "ux": {
-          "title": "UX Transformation",
-          "description": "How AI is changing user expectations and experiences"
-        },
-        "company": {
-          "title": "Company Transformation",
-          "description": "Steps companies must take to embrace AI transformation"
-        },
-        "lastbot": {
-          "title": "LastBot Solutions",
-          "description": "How LastBot helps companies navigate their AI journey"
-        }
+        "development": {},
+        "agents": {},
+        "ux": {},
+        "company": {},
+        "lastbot": {}
       }
     }
   },

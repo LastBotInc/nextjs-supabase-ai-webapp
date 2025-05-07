@@ -1,0 +1,99 @@
+{
+  "title": "Tietosuojakäytäntö",
+  "introduction": {
+    "title": "Johdanto",
+    "content": "Tässä tietosuojakäytännössä kerromme, miten keräämme, käytämme ja suojaamme henkilötietojasi, kun käytät verkkosivustoamme."
+  },
+  "information": {
+    "title": "Keräämämme Tiedot",
+    "analytics": {
+      "title": "Analytiikkatiedot",
+      "description": "Keräämme analytiikkadataa palveluidemme ja käyttökokemuksen parantamiseksi.",
+      "items": [
+        "Sivukatselut ja navigointipolut",
+        "Istunnon tiedot ja kesto",
+        "Laite‑ ja selain­tiedot",
+        "Kieliasetukset",
+        "Viittaavat lähteet"
+      ]
+    },
+    "session": {
+      "items": [
+        "Istuntotunnisteet",
+        "IP‑osoite (anonymisoitu)",
+        "Selaintyyppi ja versio",
+        "Käyttöjärjestelmä",
+        "Aikavyöhyke‑ ja kieliasetukset"
+      ]
+    }
+  },
+  "cookies": {
+    "title": "Evästeiden Käyttö",
+    "description": "Käytämme evästeitä parantaaksemme selauskokemustasi. Voit hallita evästeitä selaimesi asetuksista.",
+    "types": [
+      {
+        "name": "Välttämättömät evästeet",
+        "description": "Tarvitaan sivuston perustoimintoihin, autentikointiin ja turvallisuuteen"
+      },
+      {
+        "name": "Analytiikkaevästeet",
+        "description": "Auttaa meitä ymmärtämään, miten kävijät käyttävät sivustoa"
+      },
+      {
+        "name": "Preferenssievästeet",
+        "description": "Tallentaa kieli‑ ja näyttöasetuksesi"
+      }
+    ],
+    "types[0]": {},
+    "types[1]": {},
+    "types[2]": {}
+  },
+  "usage": {
+    "title": "Miten Käytämme Tietojasi",
+    "description": "Käytämme kerättyjä tietoja:",
+    "items": [
+      "Palveluidemme tarjoamiseen ja kehittämiseen",
+      "Sivuston käyttömallien analysointiin",
+      "Kokemuksesi personointiin",
+      "Sivuston turvallisuuden ylläpitoon",
+      "Tärkeiden päivitysten viestimiseen"
+    ]
+  },
+  "protection": {
+    "title": "Tietoturva",
+    "content": "Käytämme asianmukaisia turvatoimia tietojesi suojaamiseksi. Data tallennetaan turvallisesti Supabasen infrastruktuuriin ja salataan lepotilassa ja siirron aikana."
+  },
+  "rights": {
+    "title": "Oikeutesi",
+    "description": "Sinulla on seuraavat oikeudet:",
+    "items": [
+      "Saada pääsy omiin tietoihisi",
+      "Pyytää virheellisten tietojen korjausta",
+      "Pyytää tietojesi poistamista",
+      "Kieltäytyä analytiikkaseurannasta",
+      "Hallita evästeasetuksia",
+      "Peruuttaa suostumuksesi milloin tahansa"
+    ]
+  },
+  "preferences": {
+    "title": "Asetuksesi",
+    "content": "Voit hallita evästeasetuksia milloin tahansa evästebannerista tai selaimen asetuksista."
+  },
+  "updates": {
+    "title": "Käytännön Päivitykset",
+    "content": "Saatamme päivittää tätä tietosuojakäytäntöä ajoittain. Muutokset julkaistaan tällä sivulla päivityspäivämäärän kera."
+  },
+  "contact": {
+    "title": "Yhteydenotto",
+    "description": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä tai datankäsittelystämme, ota yhteyttä:",
+    "info": {},
+    "address": {
+      "title": "Osoite",
+      "street": "Kimmeltie 10",
+      "postal": "90630 Oulu",
+      "country": "Suomi"
+    },
+    "email": "Sähköposti"
+  },
+  "form": {}
+}

@@ -84,7 +84,10 @@ async function generateVideo(options: VideoGenerationOptions) {
     }
 
     spinner.text = 'Generating video...';
-    const output = await replicate.run(`${selectedModel.model}` as const, { input });
+    const output = await replicate.run(
+      selectedModel.model as unknown as `${string}/${string}`,
+      { input }
+    );
 
     if (!output || typeof output !== 'string') {
       throw new Error('Failed to generate video: Invalid output from API');
@@ -163,8 +166,11 @@ async function main() {
   }
 }
 
-if (require.main === module) {
-  main();
-}
+// Replace the CommonJS require.main check with a direct call
+// This is a common pattern in ESM to detect the entry module
+main().catch(error => {
+  console.error(error);
+  process.exit(1);
+});
 
 export { generateVideo, SUPPORTED_MODELS }; 

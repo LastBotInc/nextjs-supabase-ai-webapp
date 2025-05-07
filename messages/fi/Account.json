@@ -1,0 +1,54 @@
+{
+  "settings": {
+    "title": "Tiliasetukset",
+    "profile": "Profiilitiedot",
+    "preferences": "Asetukset",
+    "theme": "Teema",
+    "language": "Kieli",
+    "fullName": "Koko nimi",
+    "fullNamePlaceholder": "Syötä koko nimesi",
+    "save": "Tallenna muutokset"
+  },
+  "security": {
+    "title": "Turvallisuusasetukset",
+    "description": "Hallinnoi tilisi turvallisuusasetuksia ja aktiivisia istuntoja",
+    "newPassword": "Uusi salasana",
+    "confirmPassword": "Vahvista salasana",
+    "updatePassword": "Päivitä salasana",
+    "updating": "Päivitetään...",
+    "passwordMismatch": "Salasanat eivät täsmää",
+    "passwordTooShort": "Salasanan on oltava vähintään 6 merkkiä",
+    "updateError": "Salasanan päivitys epäonnistui. Yritä uudelleen.",
+    "sessions": "Aktiiviset istunnot",
+    "currentSession": "Nykyisen istunnon tiedot:",
+    "lastSignIn": "Viimeinen kirjautuminen",
+    "browser": "Selain",
+    "unknown": "Tuntematon"
+  },
+  "notifications": {},
+  "appointments": {
+    "title": "Ajanvaraustyypit",
+    "createNew": "Luo uusi ajanvaraustyyppi",
+    "existingTypes": "Aiemmat ajanvaraustyypit",
+    "loading": "Ladataan ajanvaraustyyppejä...",
+    "noTypes": "Et ole vielä luonut ajanvaraustyyppejä",
+    "form": {
+      "name": "Nimi",
+      "description": "Kuvaus",
+      "duration": "Kesto (min)",
+      "isFree": "Ilmainen ajanvaraus",
+      "price": "Hinta (€)",
+      "create": "Luo ajanvaraustyyppi",
+      "creating": "Luodaan..."
+    },
+    "status": {
+      "active": "Aktiivinen",
+      "inactive": "Ei aktiivinen"
+    },
+    "duration": "Kesto",
+    "minutes": "min",
+    "price": "Hinta",
+    "free": "Ilmainen",
+    "viewBookingPage": "Näytä varaus­sivu"
+  }
+}

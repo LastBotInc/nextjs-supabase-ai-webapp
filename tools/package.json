@@ -1,0 +1,7 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "CLI tools for the project",
+  "type": "module",
+  "private": true
+} 

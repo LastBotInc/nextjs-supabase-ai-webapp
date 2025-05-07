@@ -1,0 +1,25 @@
+{
+  "title": "Profile Settings",
+  "description": "Manage your account settings and preferences",
+  "menu": {},
+  "tabs": {
+    "general": "General",
+    "security": "Security",
+    "preferences": "Preferences"
+  },
+  "sections": {
+    "general": {},
+    "security": {},
+    "preferences": {}
+  },
+  "fields": {
+    "username": "Username",
+    "email": "Email",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name"
+  },
+  "actions": {
+    "save": "Save Changes"
+  },
+  "messages": {}
+}

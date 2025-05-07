@@ -70,7 +70,7 @@ export default function SettingsPanel({
   isSaving
 }: SettingsPanelProps) {
   const { session } = useAuth()
-  const t = useTranslations('Admin.calendar')
+  const t = useTranslations('Admin')
 
   const defaultAvailableHours: AvailableHour[] = [
     { day: 1, startTime: '09:00', endTime: '17:00' }, // Monday
@@ -82,13 +82,13 @@ export default function SettingsPanel({
 
   // Reorder days to start from Monday
   const dayNames = [
-    t('days.monday'),
-    t('days.tuesday'),
-    t('days.wednesday'),
-    t('days.thursday'),
-    t('days.friday'),
-    t('days.saturday'),
-    t('days.sunday')
+    t('calendar.settings.days.monday'),
+    t('calendar.settings.days.tuesday'),
+    t('calendar.settings.days.wednesday'),
+    t('calendar.settings.days.thursday'),
+    t('calendar.settings.days.friday'),
+    t('calendar.settings.days.saturday'),
+    t('calendar.settings.days.sunday')
   ]
 
   // Convert Sunday-based day number (0-6) to Monday-based (1-7)
@@ -153,10 +153,10 @@ export default function SettingsPanel({
 
     try {
       await onUpdate(data)
-      toast.success(t('settings.updateSuccess'))
+      toast.success(t('calendar.settings.updateSuccess'))
     } catch (error) {
       console.error('Error updating settings:', error)
-      toast.error(t('settings.updateError'))
+      toast.error(t('calendar.settings.updateError'))
     }
   }
 
