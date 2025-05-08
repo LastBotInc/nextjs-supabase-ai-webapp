@@ -25,7 +25,7 @@
 
   /* Base pseudo-element style for overlays */
   .has-overlay-pattern::after {
-    content: '';
+    content: "";
     @apply absolute inset-0 z-10 pointer-events-none;
     background-repeat: repeat; /* Default repeat */
     opacity: 0.08; /* Default subtle opacity */
@@ -34,7 +34,7 @@
   /* Specific Pattern Overlays */
   .overlay-pattern-wavy::after {
     /* Wavy pattern using two mirrored shapes in one SVG tile */
-    background-image: url('/patterns/innolease-wavy.svg');
+    background-image: url("/patterns/innolease-wavy.svg");
     background-size: 80px 80px; /* Adjust scale as needed */
     /* Set pattern color via text color and opacity utility */
     @apply text-gray-400; /* Example base color */
@@ -42,50 +42,60 @@
 
   .overlay-pattern-shape::after {
     /* Tiled pattern using the single shape */
-    background-image: url('/patterns/innolease-shape.svg');
+    background-image: url("/patterns/innolease-shape.svg");
     background-size: 30px 60px; /* Adjust scale as needed */
     /* Set pattern color via text color and opacity utility */
     @apply text-gray-400; /* Example base color */
   }
-  
+
   .overlay-pattern-tile-dense::after {
     /* Dense tile pattern using offset shapes */
-    background-image: url('/patterns/innolease-tile-dense.svg');
+    background-image: url("/patterns/innolease-tile-dense.svg");
     background-size: 60px 60px; /* Adjust scale as needed */
-     /* Set pattern color via text color and opacity utility */
+    /* Set pattern color via text color and opacity utility */
     @apply text-gray-400; /* Example base color */
   }
-  
+
   .overlay-pattern-polka-dots::after {
     /* Polka dot pattern */
-    background-image: url('/patterns/polka-dots.svg');
+    background-image: url("/patterns/polka-dots.svg");
     background-size: 100px 100px; /* Match SVG dimensions */
     /* Set pattern color via text color and opacity utility */
     @apply text-gray-400; /* Example base color */
   }
-  
+
   .overlay-pattern-diamonds::after {
     /* Diamond pattern */
-    background-image: url('/patterns/diamond-pattern.svg');
+    background-image: url("/patterns/diamond-pattern.svg");
     background-size: 100px 100px; /* Match SVG dimensions */
     /* Set pattern color via text color and opacity utility */
     @apply text-gray-400; /* Example base color */
   }
-  
+
   /* Simple Color Overlay (Example) */
   .overlay-color-dark-20::after {
-     @apply bg-black/20; /* 20% black overlay */
+    @apply bg-black/20; /* 20% black overlay */
   }
-    .overlay-color-dark-50::after {
-     @apply bg-black/50; /* 50% black overlay */
+  .overlay-color-dark-50::after {
+    @apply bg-black/50; /* 50% black overlay */
   }
 
   /* Opacity Control for Overlays */
-  .overlay-opacity-5::after  { @apply opacity-[0.05]; }
-  .overlay-opacity-8::after  { @apply opacity-[0.08]; }
-  .overlay-opacity-10::after { @apply opacity-[0.1]; }
-  .overlay-opacity-15::after { @apply opacity-[0.15]; }
-  .overlay-opacity-20::after { @apply opacity-[0.2]; }
+  .overlay-opacity-5::after {
+    @apply opacity-[0.05];
+  }
+  .overlay-opacity-8::after {
+    @apply opacity-[0.08];
+  }
+  .overlay-opacity-10::after {
+    @apply opacity-[0.1];
+  }
+  .overlay-opacity-15::after {
+    @apply opacity-[0.15];
+  }
+  .overlay-opacity-20::after {
+    @apply opacity-[0.2];
+  }
 }
 
 @layer base {
@@ -173,12 +183,7 @@
   body {
     @apply bg-background text-foreground;
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   }
 }
 
@@ -186,11 +191,7 @@
   @layer base {
     body {
       color: rgb(var(--foreground-rgb));
-      background: linear-gradient(
-          to bottom,
-          transparent,
-          rgb(var(--background-end-rgb))
-        )
+      background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
         rgb(var(--background-start-rgb));
     }
   }
@@ -203,7 +204,7 @@
 }
 
 .has-overlay-pattern::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -234,47 +235,47 @@
 }
 
 .overlay-pattern-grid::before {
-  background-image: url('/patterns/blue-grid.svg');
+  background-image: url("/patterns/blue-grid.svg");
   background-size: 500px 500px;
 }
 
 .overlay-pattern-dots::before {
-  background-image: url('/patterns/pink-grid.svg');
+  background-image: url("/patterns/pink-grid.svg");
   background-size: 500px 500px;
 }
 
 .overlay-pattern-wavy::before {
-  background-image: url('/patterns/innolease-wavy.svg');
+  background-image: url("/patterns/innolease-wavy.svg");
   background-size: 80px 80px;
 }
 
 .overlay-pattern-tile-dense::before {
-  background-image: url('/patterns/innolease-tile-dense.svg');
+  background-image: url("/patterns/innolease-tile-dense.svg");
   background-size: 60px 60px;
 }
 
 .overlay-pattern-shape::before {
-  background-image: url('/patterns/innolease-shape.svg');
+  background-image: url("/patterns/innolease-shape.svg");
   background-size: 30px 60px;
 }
 
 .overlay-pattern-polka-dots::before {
-  background-image: url('/patterns/polka-dots.svg');
+  background-image: url("/patterns/polka-dots.svg");
   background-size: 100px 100px;
 }
 
 .overlay-pattern-diamonds::before {
-  background-image: url('/patterns/diamond-pattern.svg');
+  background-image: url("/patterns/diamond-pattern.svg");
   background-size: 100px 100px;
 }
 
 .overlay-pattern-pink-grid-small::before {
-  background-image: url('/patterns/pink-grid-small.svg');
+  background-image: url("/patterns/pink-grid-small.svg");
   background-size: 400px 400px;
 }
 
 .overlay-pattern-car-grid::before {
-  background-image: url('/patterns/car-grid-overlay.svg');
+  background-image: url("/patterns/car-grid-overlay.svg");
   background-size: 600px 600px;
   mix-blend-mode: soft-light;
   opacity: var(--overlay-opacity, 0.3);
@@ -282,7 +283,7 @@
 }
 
 .overlay-pattern-leasing-grid::before {
-  background-image: url('/patterns/leasing-grid-overlay.svg');
+  background-image: url("/patterns/leasing-grid-overlay.svg");
   background-size: 600px 600px;
   mix-blend-mode: soft-light;
   opacity: var(--overlay-opacity, 0.25);
@@ -290,7 +291,7 @@
 }
 
 .overlay-pattern-fi-grid::before {
-  background-image: url('/patterns/fi-leasing-grid.svg');
+  background-image: url("/patterns/fi-leasing-grid.svg");
   background-size: 400px 400px;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
@@ -298,7 +299,7 @@
 }
 
 .overlay-pattern-fi-grid-dark::before {
-  background-image: url('/patterns/fi-leasing-grid-dark.svg');
+  background-image: url("/patterns/fi-leasing-grid-dark.svg");
   background-size: 400px 400px;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.2);
@@ -307,7 +308,7 @@
 
 /* Innolease graphics patterns */
 .overlay-pattern-innolease-1::before {
-  background-image: url('/patterns/Innolease_grafiikka1.svg');
+  background-image: url("/patterns/Innolease_grafiikka1.svg");
   background-size: 400px 160px;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
@@ -315,9 +316,38 @@
 }
 
 .overlay-pattern-innolease-2::before {
-  background-image: url('/patterns/Innolease_grafiikka2.svg');
+  background-image: url("/patterns/Innolease_grafiikka2.svg");
   background-size: 600px 900px;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
   z-index: 0;
+}
+
+.card-content-aligned-top-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.bottom-right-text-float {
+  --shape: polygon(0% 100%, 100% 100%);
+  shape-outside: var(--shape) content-box;
+  -webkit-shape-outside: var(--shape) content-box;
+  clip-path: var(--shape);
+  float: right;
+  padding-top: 14%;
+  width: 67%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  img {
+    width: 100%;
+  }
+}
+.mercedes-car-text-float {
+  --shape: polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%);
+}
+.pickup-truck-text-float {
+  --shape: polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%);
 }
