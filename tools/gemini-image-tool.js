@@ -57,10 +57,10 @@ program
         // Create a function to handle image generation
         const generateImageWithGemini = async (promptText) => {
           const result = await genAI.models.generateContent({
-            model: "gemini-2.0-flash-exp-image-generation",
+            model: "gemini-2.0-flash-preview-image-generation",
             contents: promptText,
             config: {
-              responseModalities: ['Text', 'Image']
+              responseModalities: ['TEXT', 'IMAGE']
             },
           });
 
@@ -138,7 +138,7 @@ program
 
     try {
         const ai = new GoogleGenAI({ apiKey: apiKey });
-        const modelName = 'gemini-2.0-flash-exp-image-generation'; // Use example model
+        const modelName = 'gemini-2.0-flash-preview-image-generation'; // Use example model
 
         console.log(`Using model for editing: ${modelName} as per example structure`);
 
@@ -162,7 +162,7 @@ program
              model: modelName, // Pass model name here
              contents: editingContents, // Use structured contents for edit
              config: { // Add config block back as per example
-                 responseModalities: ['Text', 'Image']
+                 responseModalities: ['TEXT', 'IMAGE']
              },
          });
 
