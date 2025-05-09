@@ -351,3 +351,14 @@
 .pickup-truck-text-float {
   --shape: polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%);
 }
+
+.image-container-with-aspect-ratio-5-3 {
+  width: 100%;
+  aspect-ratio: 5/3;
+  position: relative;
+  > * {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
