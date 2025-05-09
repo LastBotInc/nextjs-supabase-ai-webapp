@@ -150,14 +150,11 @@ export default function LocaleSwitcher() {
     <div className="relative" ref={elementRef}>
       <button
         onClick={() => toggleDropdown()}
-        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center ${
+        className={`capitalize px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center ${
           isOpen ? "text-white bg-piki" : "text-piki hover:text-piki/80 hover:bg-gray-100"
         }`}
         aria-label={t("ariaLabel")}
         aria-expanded={isOpen}
-        style={{
-          textTransform: "capitalize",
-        }}
       >
         {locale}
         {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
