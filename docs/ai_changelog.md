@@ -58,6 +58,27 @@
 
 ## AI Changes Log
 
+### 2025-06-04: Enhanced Video Generation Tool with Integrated Image Generation
+
+- Enhanced the generate-video tool to support integrated image-to-video workflow
+- Added `--image-prompt` parameter to generate an image with OpenAI GPT-image-1 before video creation
+- Added support for image style and size parameters for generated images
+- Improved URL handling for Replicate models that require image URLs
+- Fixed compatibility issues between different model image input requirements
+- Added warning for local image files which may not be supported by all models
+- Added OpenAI dependency for image generation functionality
+
+### 2025-06-03: Enhanced Video Generation Tool with Kling AI Models
+
+- Updated the generate-video tool to support more Replicate video generation models
+- Added support for Kling v1.6 standard and Kling v2.0 models
+- Made Kling v1.6 the default model (previously minimax)
+- Added support for aspect ratio selection (16:9, 9:16, 1:1) for supported models
+- Enhanced image-to-video capabilities with proper parameter handling per model
+- Added negative prompt and cfg_scale parameters for finer control
+- Improved TypeScript typing with a ModelConfig interface
+- Fixed module import issues for better compatibility
+
 ### 2025-04-20: Added OpenAI GPT-image-1 and DALL-E Image Generation Tool
 
 - Created a new command-line tool for both image generation and editing using OpenAI's latest models
@@ -74,4 +95,13 @@
 - Added inngest client in lib/inngest-client.ts.
 - Added sample background function in lib/inngest-functions.ts.
 - Added API route handler in app/api/inngest/route.ts for Inngest event/function execution.
+
+## 2025-06-05: Enhanced Homepage with AI-Generated Video Background
+
+- Added the AI-generated video as a dynamic background on the homepage
+- Implemented a fallback mechanism that shows a static image until the video loads
+- Added graceful error handling to try multiple paths for video loading
+- Improved loading experience with smooth opacity transitions
+- Ensured the video is responsive across all device sizes
+- Enhanced code with proper TypeScript typing and useRef for video control
 
