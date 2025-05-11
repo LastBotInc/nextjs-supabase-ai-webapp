@@ -826,3 +826,9 @@ Next Priority Tasks:
 -   ✅ Fix landing page editor fields being empty on edit
 -   ✅ Redesign public landing page view
 -   ✅ Add dynamic CTA content management to landing pages
+
+- ✅ Install inngest library for background task/event support
+- ✅ Add inngest client in lib/inngest-client.ts
+- ✅ Add sample background function in lib/inngest-functions.ts
+- ✅ Add API route handler in app/api/inngest/route.ts for Inngest event/function execution
+- ✅ Document Inngest setup in ai_changelog.md

@@ -60,6 +60,16 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
 - Presence indicators
 - Collaborative editing
 
+### 🔄 Background Jobs & Event Processing
+- **Inngest Integration**
+  - Event-driven background job processing
+  - Serverless function execution
+  - Queue management
+  - Scheduled tasks and cron jobs
+  - Reliable event delivery
+  - Local development with Inngest Dev Server
+  - Retries and error handling
+
 ## Tech Stack
 
 - **Frontend**: Next.js 15.1.3, React 19
@@ -74,6 +84,7 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
 - **Security**: Cloudflare Turnstile
 - **Database**: Supabase with Row Level Security
 - **Internationalization**: next-intl
+- **Background Jobs**: Inngest
 - **Development**: TypeScript, ESLint
 - **Testing**: Jest, Cypress
 - **Performance**: Built-in image optimization, responsive design
@@ -119,6 +130,10 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
    - `SUPABASE_S3_SECRET_KEY`: S3 compatible storage secret key
    - `SUPABASE_S3_REGION`: S3 region (use 'local' for development)
 
+   **Background Jobs (Inngest):**
+   - `INNGEST_EVENT_KEY`: Your Inngest event key (optional for local development)
+   - `INNGEST_SIGNING_KEY`: Your Inngest signing key (optional for local development)
+
    **Test Data Configuration:**
    - `SEED_TEST_USER_EMAIL`: Email for test user (default: test@example.com)
    - `SEED_TEST_USER_PASSWORD`: Password for test user
@@ -157,7 +172,84 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
    npm run dev
    ```
 
+   This will:
+   - Generate namespace manifests for translations
+   - Start the Next.js development server
+   - Start the Inngest development server (for background jobs)
+
 6. Open [http://localhost:3000](http://localhost:3000) to view the application
+
+## Using Inngest for Background Jobs
+
+This project uses [Inngest](https://www.inngest.com/) for handling background jobs, scheduled tasks, and event-driven processing in a serverless environment.
+
+### What is Inngest?
+
+Inngest is a developer platform that lets you run reliable background jobs and workflows in your web app without managing infrastructure. Features include:
+
+- **Event-driven functions**: Trigger jobs based on events in your application
+- **Scheduled jobs**: Set up cron-like schedules for recurring tasks
+- **Retries and error handling**: Automatic retries with backoff for failed jobs
+- **Local development**: Test your background jobs locally before deployment
+- **Observability**: Monitor job execution, performance, and errors
+
+### Local Development with Inngest
+
+When you run `npm run dev`, the Inngest development server starts automatically alongside Next.js. The development server runs on port 8290 by default.
+
+You can also start the servers separately:
+- Next.js only: `npm run dev:next`
+- Inngest only: `npm run dev:inngest`
+
+### Viewing the Inngest Dev UI
+
+The Inngest Dev UI is available at [http://localhost:8290/dev](http://localhost:8290/dev) when the Inngest server is running. This interface allows you to:
+
+- View registered functions
+- See event history
+- Manually trigger events
+- Inspect execution details
+- Debug job failures
+
+### Creating Inngest Functions
+
+Inngest functions are defined in the `app/inngest` directory. To create a new function:
+
+1. Define your function in a file within the `app/inngest` directory
+2. Export it as part of the Inngest client
+3. Register it in the `/api/inngest` route handler
+
+Example function definition:
+```typescript
+// app/inngest/example.ts
+import { inngest } from './client';
+
+// Define a function that runs when 'app/example.event' occurs
+export const exampleFunction = inngest.createFunction(
+  { id: 'example-function' },
+  { event: 'app/example.event' },
+  async ({ event, step }) => {
+    // Process the event
+    const result = await step.run('process-data', async () => {
+      // Your logic here
+      return { processed: true };
+    });
+    
+    return { success: true, data: result };
+  }
+);
+```
+
+### Production Deployment
+
+For production, you need to:
+
+1. Sign up for an Inngest account at [https://www.inngest.com/](https://www.inngest.com/)
+2. Get your API keys from the Inngest dashboard
+3. Add the following environment variables to your production environment:
+   - `INNGEST_EVENT_KEY`: Your Inngest event key
+   - `INNGEST_SIGNING_KEY`: Your Inngest signing key
+4. Deploy your application as normal
 
 ## Available Scripts
 

@@ -70,3 +70,8 @@
 
 ### 2025-04-14: Enhanced GitHub CLI Tool with Task Management
 
+- Installed inngest library for background task/event support.
+- Added inngest client in lib/inngest-client.ts.
+- Added sample background function in lib/inngest-functions.ts.
+- Added API route handler in app/api/inngest/route.ts for Inngest event/function execution.
+
