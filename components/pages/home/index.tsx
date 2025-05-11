@@ -8,6 +8,7 @@ import { AnimatedOrbs } from '@/app/components/AnimatedOrbs'
 import { IconCode, IconBrain, IconDatabase, IconGlobe, IconRocket, IconShield } from '@/app/components/Icons'
 import heroBackground from '@/public/images/hero-bg-template.webp'
 import featuresIllustration from '@/public/images/features-illustration.webp'
+import gettingStartedVisual from '@/public/images/getting-started-visual.png'
 import HeroVideo from '@/components/HeroVideo'
 
 // Pre-calculate blur data URL for better performance
@@ -29,7 +30,11 @@ export default function HomePage({ params }: Props) {
       <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[80vh] bg-gray-900 text-white overflow-hidden">
         {/* Left Column: Video */}
         <div className="relative h-full w-full">
-          <HeroVideo fallbackImage={heroBackground} alt={t('hero.altText')} />
+          <HeroVideo 
+            fallbackImage={heroBackground} 
+            alt={t('hero.altText')} 
+            videoSrc="/lastbot-hero.mp4"
+          />
         </div>
 
         {/* Right Column: Text Content */}
@@ -413,11 +418,10 @@ export default function HomePage({ params }: Props) {
             </div>
             <div className="relative h-[500px] group">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Image
-                src={featuresIllustration}
-                alt={t('getStarted.imageAlt')}
-                fill
-                className="object-cover rounded-xl shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-300"
+              <HeroVideo 
+                fallbackImage={'/images/getting-started-visual.png'}
+                alt={t('getStarted.imageAlt')} 
+                videoSrc="/videos/getting-started-animation.mp4"
               />
             </div>
           </div>

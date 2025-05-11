@@ -6,16 +6,16 @@ import Image from 'next/image'
 interface HeroVideoProps {
   fallbackImage: any; // Consider using a more specific type if possible, e.g., StaticImageData
   alt: string;
+  videoSrc: string; // Added videoSrc prop
 }
 
-export default function HeroVideo({ fallbackImage, alt }: HeroVideoProps) {
+export default function HeroVideo({ fallbackImage, alt, videoSrc }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const videoSrc = '/lastbot-hero.mp4'; // Direct path to the video in the public folder
 
   useEffect(() => {
-    console.log('[HeroVideo] useEffect triggered');
+    console.log('[HeroVideo] useEffect triggered with videoSrc:', videoSrc);
     const videoElement = videoRef.current;
 
     if (videoElement) {
