@@ -8,7 +8,7 @@ import { AnimatedOrbs } from '@/app/components/AnimatedOrbs'
 import { IconCode, IconBrain, IconDatabase, IconGlobe, IconRocket, IconShield } from '@/app/components/Icons'
 import heroBackground from '@/public/images/hero-bg-template.webp'
 import featuresIllustration from '@/public/images/features-illustration.webp'
-import { useState, useEffect, useRef } from 'react'
+import HeroVideo from '@/components/HeroVideo'
 
 // Pre-calculate blur data URL for better performance
 const blurDataURL = 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAQCdASoBAAEADsD+JaQAA3AA/uaKSAB4AAAAVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AA/uaKSAB4AA=='
@@ -22,112 +22,46 @@ interface Props {
 export default function HomePage({ params }: Props) {
   const { locale } = params
   const t = useTranslations('Index')
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  const [videoError, setVideoError] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  const handleVideoLoaded = () => {
-    console.log("Video loaded successfully");
-    setVideoLoaded(true);
-  };
-
-  const handleVideoError = (e: any) => {
-    console.error('Video failed to load', e);
-    setVideoError(true);
-  };
 
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <section className="relative min-h-[95vh] overflow-hidden bg-gray-900">
-        {/* Background gradient for the entire section */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/60 z-10" />
-        
-        {/* Content split into two columns */}
-        <div className="relative z-20 grid grid-cols-1 md:grid-cols-2 min-h-[95vh]">
-          {/* Left Side - Text Content */}
-          <div className="flex flex-col justify-center px-6 md:px-12 py-10">
-            <div className="max-w-lg mx-auto md:mx-0 text-center md:text-left">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">
-                  {t('hero.title')}
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-                {t('hero.description')}
-              </p>
-              <div className="flex gap-4 justify-center md:justify-start">
-                <Button 
-                  size="lg" 
-                  href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
-                  variant="gradient"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t('hero.cta')}
-                </Button>
-                <Button 
-                  size="lg" 
-                  href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
-                  variant="outline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t('hero.docs')}
-                </Button>
-              </div>
-            </div>
-          </div>
-          
-          {/* Right Side - Video */}
-          <div className="relative h-full w-full overflow-hidden">
-            {/* Video container */}
-            <div className="absolute inset-0">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onLoadedData={handleVideoLoaded}
-                onError={handleVideoError}
-                className="object-cover h-full w-full opacity-90"
-                style={{
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                  transform: 'translate3d(0, 0, 0)', // Force GPU acceleration
-                }}
-                poster={heroBackground.src}
-              >
-                <source src="/api/video" type="video/mp4" />
-              </video>
-              
-              {/* Fallback image */}
-              {!videoLoaded && (
-                <Image
-                  src={heroBackground}
-                  alt={t('hero.backgroundAlt')}
-                  fill
-                  priority
-                  quality={85}
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
-                  sizes="100vw"
-                  className="object-cover opacity-80"
-                />
-              )}
-              
-              {/* Gradient overlay for video/image */}
-              <div className="absolute inset-0 bg-gradient-to-l from-gray-900/40 via-gray-900/20 to-transparent" />
-            </div>
-          </div>
+      {/* Hero Section - Two Column Layout */}
+      <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[80vh] bg-gray-900 text-white overflow-hidden">
+        {/* Left Column: Video */}
+        <div className="relative h-full w-full">
+          <HeroVideo fallbackImage={heroBackground} alt={t('hero.altText')} />
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-          <svg className="w-6 h-6 text-gray-400" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+        {/* Right Column: Text Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center md:items-start p-8 md:p-16 text-center md:text-left">
+          <div className="max-w-xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">
+                {t('hero.title')}
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+              {t('hero.description')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Button 
+                size="lg" 
+                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp" // Update this link if necessary
+                variant="gradient"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('hero.cta')}
+              </Button>
+              <Button 
+                size="lg" 
+                href="/docs" // Update this link to your actual docs page
+                variant="outline"
+              >
+                {t('hero.docs')}
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -4,6 +4,17 @@ import fs from 'fs';
 import { promises as fsPromises } from 'fs';
 import { Readable } from 'stream';
 
+/**
+ * NOTE: This API route works locally but won't work on Vercel's serverless environment.
+ * 
+ * On Vercel, serverless functions don't have direct filesystem access to static files in the public directory.
+ * For production use, we should:
+ * 1. Use direct static paths for videos (e.g., /videos/your-video.mp4) 
+ * 2. Or store videos in a cloud storage service like AWS S3, Cloudinary, etc.
+ * 
+ * The homepage has been updated to use direct static paths.
+ */
+
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {

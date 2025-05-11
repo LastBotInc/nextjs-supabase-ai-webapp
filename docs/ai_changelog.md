@@ -105,3 +105,12 @@
 - Ensured the video is responsive across all device sizes
 - Enhanced code with proper TypeScript typing and useRef for video control
 
+## 2025-06-05: Fixed Homepage Hero Layout with Static Image
+
+- Replaced video hero with static image solution due to persistent video loading issues
+- Created separate StaticHero component for better maintainability
+- Preserved the split-screen layout with text on left and visual element on right
+- Optimized image loading with proper sizing attributes
+- Added fallback gradient overlays for improved text readability
+- Made the solution compatible with both local development and production deployment
+

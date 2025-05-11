@@ -23,7 +23,7 @@ export default function TestVideoPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-xl mb-2">Video from API route:</h2>
+          <h2 className="text-xl mb-2">Video from root public folder:</h2>
           <video
             ref={videoRef}
             autoPlay
@@ -36,7 +36,7 @@ export default function TestVideoPage() {
             onError={handleVideoError}
             className="border border-gray-300 rounded"
           >
-            <source src="/api/video" type="video/mp4" />
+            <source src="/lastbot-combined-generation.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="mt-2">
@@ -45,7 +45,7 @@ export default function TestVideoPage() {
         </div>
         
         <div>
-          <h2 className="text-xl mb-2">Video from direct path:</h2>
+          <h2 className="text-xl mb-2">Video from videos folder:</h2>
           <video
             autoPlay
             loop
@@ -55,26 +55,18 @@ export default function TestVideoPage() {
             height="auto"
             className="border border-gray-300 rounded"
           >
-            <source src="/lastbot-combined-generation.mp4" type="video/mp4" />
+            <source src="/videos/lastbot-combined-generation.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
       
-      <div className="mt-8">
-        <h2 className="text-xl mb-2">Video from videos folder:</h2>
-        <video
-          autoPlay
-          loop
-          muted
-          controls
-          width="100%"
-          height="auto"
-          className="border border-gray-300 rounded"
-        >
-          <source src="/videos/lastbot-combined-generation.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <div className="mt-8 p-4 bg-yellow-100 text-yellow-800 rounded">
+        <h3 className="font-bold mb-2">⚠️ Vercel Deployment Note:</h3>
+        <p>
+          When deploying to Vercel, always use direct static paths to videos stored in the public folder.
+          API routes that try to access the filesystem won't work in Vercel's serverless environment.
+        </p>
       </div>
     </div>
   );

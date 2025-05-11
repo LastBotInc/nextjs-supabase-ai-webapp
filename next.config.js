@@ -201,8 +201,8 @@ const nextConfig = {
               "font-src 'self' data: https://fonts.gstatic.com",
               // Connect - allow specific APIs and websockets
               "connect-src 'self' https://*.vercel-insights.com https://*.va.vercel-scripts.com https://va.vercel-scripts.com https://*.supabase.co https://dnhlnmjbjspbgogkywnf.supabase.co wss://*.supabase.co wss://dnhlnmjbjspbgogkywnf.supabase.co http://127.0.0.1:54321 http://localhost:54321 ws://127.0.0.1:54321 ws://localhost:54321",
-              // Media - restrict to self
-              "media-src 'self'",
+              // Media - allow self and specific domains
+              "media-src 'self' blob: data: https://*.lastbot.net https://*.vercel.app http://localhost:* http://127.0.0.1:*",
               // Object - restrict entirely
               "object-src 'none'",
               // Frame - allow self and Cloudflare Turnstile
