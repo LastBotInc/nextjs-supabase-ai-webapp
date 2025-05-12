@@ -141,9 +141,10 @@ export function CardWithTopImageAndTimestamp({
   customClassNames = {},
 }: CardPropsWithImage & { date: string }) {
   const defaultClassNames = "rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white";
-  customClassNames.card = `${customClassNames.card || ""} ${defaultClassNames}`;
+  const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
+
   return (
-    <Card className={customClassNames.card}>
+    <Card className={cardClassName}>
       <div className="image-container-with-aspect-ratio-5-3 relative">
         <div className=" bg-beige"></div>
         <Image
@@ -177,9 +178,9 @@ export function CardWithTopImageAndTimestamp({
  */
 export function LinkCardWithTexts({ title, text, link, customClassNames = {} }: LinkCard) {
   const defaultClassNames = "rounded-lg overflow-hidden block p-6 bg-beige text-piki hover:opacity-90 transition-all";
-  customClassNames.link = `${customClassNames.link || ""} ${defaultClassNames}`;
+  const linkClassName = `${customClassNames.link || ""} ${defaultClassNames}`;
   return (
-    <Link href={link.href} className={customClassNames.link}>
+    <Link href={link.href} className={linkClassName}>
       <div className="flex flex-col h-full">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-sm mb-4">{text}</p>
@@ -209,11 +210,11 @@ export function CardForFullWidthImageAndExtraChild({
 }: CardPropsWithImageAndExtraChild) {
   const defaultClassNames = "w-full py-16 text-white relative";
   const defaultLinkClassNames = "bg-kupari hover:bg-kupari/90 text-white px-8 py-3 text-lg";
-  customClassNames.card = `${customClassNames.card || ""} ${defaultClassNames}`;
-  customClassNames.link = `${customClassNames.link || ""} ${defaultLinkClassNames}`;
+  const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
+  const linkClassName = `${customClassNames.link || ""} ${defaultLinkClassNames}`;
   const textArray = Array.isArray(text) ? text : [text];
   return (
-    <section className={customClassNames.card}>
+    <section className={cardClassName}>
       {/* Dark background image with car */}
       <div className="absolute inset-0">
         <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="100vw" quality={90} />
@@ -231,7 +232,7 @@ export function CardForFullWidthImageAndExtraChild({
             ))}
 
             {link && (
-              <Button variant="default" size="lg" className={customClassNames.link}>
+              <Button variant="default" size="lg" className={linkClassName}>
                 {link.text}
               </Button>
             )}
