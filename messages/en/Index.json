@@ -1,10 +1,11 @@
 {
   "hero": {
-    "title": "Build Smarter Web Apps with AI",
-    "description": "A modern Next.js template with built-in AI capabilities, development tools, and best practices for building scalable web applications.",
+    "title": "Build Faster, Smarter, Together.",
+    "subtitle": "LastBot is an AI-augmented Next.js 15 boilerplate with Supabase, Tailwind CSS, and a suite of development tools designed to accelerate your web application development.",
     "backgroundAlt": "Abstract technology background",
-    "cta": "View on GitHub",
-    "docs": "Documentation"
+    "cta": "Get Started",
+    "docs": "Documentation",
+    "altText": "Abstract background video with code and network animations"
   },
   "agentic": {
     "title": "Agentic Development Framework",

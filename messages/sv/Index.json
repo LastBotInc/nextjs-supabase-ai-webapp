@@ -1,10 +1,11 @@
 {
   "hero": {
-    "title": "Bygg smartare webbappar med AI",
-    "description": "En modern Next.js‑mall med inbyggda AI‑funktioner, utvecklingsverktyg och bästa praxis för att skapa skalbara webbapplikationer.",
+    "title": "Bygg snabbare, smartare, tillsammans.",
+    "subtitle": "LastBot är en AI-förstärkt Next.js 15-boilerplate med Supabase, Tailwind CSS och en uppsättning utvecklingsverktyg utformade för att påskynda utvecklingen av dina webbapplikationer.",
     "backgroundAlt": "Abstrakt teknologibakgrund",
-    "cta": "Se på GitHub",
-    "docs": "Dokumentation"
+    "cta": "Kom igång",
+    "docs": "Dokumentation",
+    "altText": "Abstrakt bakgrundsvideo med kod- och nätverksanimationer"
   },
   "agentic": {
     "title": "Agentramverk för utveckling",

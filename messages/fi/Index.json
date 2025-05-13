@@ -4,7 +4,8 @@
     "description": "Moderni Next.js‑pohjainen malli, jossa on valmiit tekoälyominaisuudet, kehitystyökalut ja parhaat käytännöt skaalautuvien web‑sovellusten rakentamiseen.",
     "backgroundAlt": "Abstrakti teknologiatausta",
     "cta": "Katso GitHubissa",
-    "docs": "Dokumentaatio"
+    "docs": "Dokumentaatio",
+    "altText": "Abstrakti taustavideo koodi- ja verkkoanimaatioilla"
   },
   "agentic": {
     "title": "Agenttimainen Kehityskehys",
