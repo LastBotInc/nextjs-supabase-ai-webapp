@@ -8,6 +8,8 @@ import { AnimatedOrbs } from '@/app/components/AnimatedOrbs'
 import { IconCode, IconBrain, IconDatabase, IconGlobe, IconRocket, IconShield } from '@/app/components/Icons'
 import heroBackground from '@/public/images/hero-bg-template.webp'
 import featuresIllustration from '@/public/images/features-illustration.webp'
+import gettingStartedVisual from '@/public/images/getting-started-visual.png'
+import HeroVideo from '@/components/HeroVideo'
 
 // Pre-calculate blur data URL for better performance
 const blurDataURL = 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAQCdASoBAAEADsD+JaQAA3AA/uaKSAB4AAAAVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AA/uaKSAB4AA=='
@@ -24,47 +26,32 @@ export default function HomePage({ params }: Props) {
 
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-gray-900">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <Image
-            src={heroBackground}
-            alt={t('hero.backgroundAlt')}
-            fill
-            priority
-            quality={85}
-            placeholder="blur"
-            blurDataURL={blurDataURL}
-            sizes="100vw"
-            className="object-cover opacity-40"
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-              transform: 'translate3d(0, 0, 0)', // Force GPU acceleration
-            }}
-          />
-          <div 
-            className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/50 to-gray-900/80" 
-            style={{ willChange: 'opacity' }}
+      {/* Hero Section - Two Column Layout */}
+      <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[80vh] bg-gray-900 text-white overflow-hidden">
+        {/* Left Column: Video */}
+        <div className="relative h-full w-full">
+          <HeroVideo 
+            fallbackImage={heroBackground} 
+            alt={t('hero.altText')} 
+            videoSrc="/lastbot-hero.mp4"
           />
         </div>
 
-        {/* Content */}
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        {/* Right Column: Text Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center md:items-start p-8 md:p-16 text-center md:text-left">
+          <div className="max-w-xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">
                 {t('hero.title')}
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
               {t('hero.description')}
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button 
                 size="lg" 
-                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
+                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp" // Update this link if necessary
                 variant="gradient"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,22 +60,13 @@ export default function HomePage({ params }: Props) {
               </Button>
               <Button 
                 size="lg" 
-                href="https://github.com/LastBotInc/nextjs-supabase-ai-webapp"
+                href="/docs" // Update this link to your actual docs page
                 variant="outline"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 {t('hero.docs')}
               </Button>
             </div>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-gray-400" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
         </div>
       </section>
 
@@ -440,11 +418,10 @@ export default function HomePage({ params }: Props) {
             </div>
             <div className="relative h-[500px] group">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Image
-                src={featuresIllustration}
-                alt={t('getStarted.imageAlt')}
-                fill
-                className="object-cover rounded-xl shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-300"
+              <HeroVideo 
+                fallbackImage={'/images/getting-started-visual.png'}
+                alt={t('getStarted.imageAlt')} 
+                videoSrc="/videos/getting-started-animation.mp4"
               />
             </div>
           </div>

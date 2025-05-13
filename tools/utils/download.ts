@@ -1,5 +1,5 @@
 import axios from 'axios';
-import fs from 'fs';
+import * as fs from 'fs';
 import { pipeline } from 'stream/promises';
 
 export async function downloadFile(url: string, outputPath: string): Promise<void> {

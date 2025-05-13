@@ -1,4 +1,5 @@
 import type { Locale } from './i18n/config'
+import { availableNamespaces } from '@/app/i18n/generated/namespaces';
 
 // Check if we're running on the server
 const isServer = typeof window === 'undefined';
@@ -107,41 +108,23 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
   const namespaces: Messages = {}
   
   try {
-    // Try to load common namespaces that are likely to exist
-    const commonNamespaces = [
-      'Navigation', 
-      'Common', 
-      'Footer', 
-      'Auth', 
-      'Blog', 
-      'Index',
-      'CookieConsent',
-      'Booking',
-      'Account',
-      'Admin',
-      'Analytics',
-      'LandingPage',
-      'Contact',
-      'Media',
-      'Profile',
-      'Security',
-      'User'
-    ]
-    
-    for (const namespace of commonNamespaces) {
+    // Use the dynamically generated list of namespaces
+    for (const namespace of availableNamespaces) { 
       try {
         const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default)
         namespaces[namespace] = module
         log(`✅ [i18n] Loaded namespace: ${namespace}`)
       } catch (error) {
         // Continue with other namespaces
-        log(`⚠️ [i18n] Namespace not found: ${namespace}`)
+        const errorMessage = error instanceof Error ? error.message : String(error)
+        log(`⚠️ [i18n] Namespace not found or failed to load: ${namespace} for locale ${locale}. Error: ${errorMessage}`)
       }
     }
     
     return namespaces
   } catch (error) {
-    log(`❌ [i18n] Error loading namespaces using import for ${locale}:`, error)
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    log(`❌ [i18n] Error loading namespaces using import for ${locale}:`, errorMessage)
     throw error
   }
 }

@@ -1,9 +1,9 @@
 export type Locale = string;
 
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'fi';
 
 // This is used for static generation and initial config
-export const staticLocales: Locale[] = ['en', 'fi', 'sv'];
+export const staticLocales: Locale[] = ['fi', 'en', 'sv'];
 
 // Export locales for next-intl
 export const locales = staticLocales;
@@ -83,6 +83,7 @@ function mergeTranslations(...objects: NestedMessages[]): NestedMessages {
 // async function loadNamespacesFromFiles(locale: Locale): Promise<NestedMessages> { ... }
 
 // Load namespaces using dynamic imports - works in both client and server
+import { availableNamespaces } from '@/app/i18n/generated/namespaces'; // Path relative to config.ts
 async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages> {
   console.log(`Loading namespaces using dynamic imports for ${locale}`);
   
@@ -90,46 +91,25 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<NestedMessages
   
   // We use a dynamic import.meta.glob pattern which Vite/Webpack will handle
   try {
-    // Try to load the navigation namespace first as a test
-    try {
-      const Navigation = await import(`@/messages/${locale}/Navigation.json`).then(m => m.default);
-      namespaces.Navigation = Navigation;
-    } catch (error) {
-      console.warn(`Navigation namespace not found for ${locale}`);
-    }
-    
-    // Try to load common namespaces that are likely to exist
-    const commonNamespaces = [
-      'Common', 
-      'Footer', 
-      'Auth', 
-      'Blog', 
-      'Index',
-      'CookieConsent',
-      'Booking',
-      'Account',
-      'Admin',
-      'Analytics',
-      'LandingPage',
-      'Contact',
-      'Media',
-      'Profile',
-      'Security',
-      'User'
-    ];
-    
-    for (const namespace of commonNamespaces) {
+    // Remove the test load for Navigation if it's covered by availableNamespaces
+    // Or keep it if it serves a specific purpose (e.g., early test)
+    // For now, let's rely on the generated list for all.
+
+    for (const namespace of availableNamespaces) {
       try {
         const module = await import(`@/messages/${locale}/${namespace}.json`).then(m => m.default);
         namespaces[namespace] = module;
       } catch (error) {
         // Continue with other namespaces
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.warn(`[i18n] Namespace not found or failed to load in config.ts: ${namespace} for locale ${locale}. Error: ${errorMessage}`);
       }
     }
     
     return namespaces;
   } catch (error) {
-    console.error(`Error loading namespaces using import for ${locale}:`, error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`Error loading namespaces using import for ${locale} in config.ts:`, errorMessage);
     throw error;
   }
 }

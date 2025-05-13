@@ -245,8 +245,11 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|images|robots.txt).*)',
+    // Match all routes except for static assets, images, specific files, and video paths
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|manifest.json|images/|videos/|.*\\.mp4$).*)',
+    // Explicitly match the root path if not covered by the above
     '/',
+    // Continue to match API routes as they might need auth/locale
     '/api/:path*'
   ]
 }
