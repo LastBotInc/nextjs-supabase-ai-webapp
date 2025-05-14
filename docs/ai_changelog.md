@@ -123,3 +123,152 @@
   - Added as an npm script: `npm run feed-to-shopify`
 - Successfully tested the exporter with Caffitella product feed data
 
+## 2025-05-09
+- Invented `shopify-localisation-tool` (script: `tools/shopify-localisation-tool.cjs` and definition in `.cursorrules`) for managing Shopify store translations. Initial commands include listing locales, updating locale status, and pulling/pushing translations for specific resource GIDs.
+
+## DATE TBD
+
+*   **Enhanced `shopify-orders-tool.cjs` with Fulfillment Management:**
+    *   Added `read_fulfillments` and `write_fulfillments` to Shopify API scopes.
+    *   Implemented `get-fulfillment` command to retrieve fulfillment details by GID.
+    *   Implemented `get-fulfillment-order` command to retrieve fulfillment order details by GID.
+    *   Implemented `create-fulfillment` command (using `fulfillmentCreateV2` mutation) to create new fulfillments, with options for line items, tracking info, and customer notification.
+    *   Updated `.cursorrules` to include these new subcommands and their options.
+
+- Enhanced `tools/shopify-product-tool.cjs` with commands for managing Shopify collections, price lists, and inventory (get-collection, get-price-list, get-inventory-item, get-inventory-level, adjust-inventory, set-inventory). Updated API scopes.
+
+- **Date:** $(date +'%Y-%m-%d')
+  - **Summary:** Implemented `data-source-importer` tool and debugged execution.
+  - **Details:**
+    - Created `tools/data-source-importer.ts` script to fetch a feed URL, detect its schema via Gemini, and store it in the `data_sources` Supabase table.
+    - Added `data-source-importer` script to `package.json` (using `tsx`).
+    - Attempted to add tool definition to `.cursorrules` (failed due to linter/parsing issues with `edit_file` on this specific file, manual addition required by user).
+    - Tested the tool: Feed fetching and schema detection by Gemini work successfully.
+    - **Issue:** Supabase insert operation consistently fails with an empty error object `{}`, despite using service role key and trying various troubleshooting steps (minimal insert, explicit fetch). Further local debugging by the user is recommended to resolve the Supabase connection/insert issue.
+
+## Rebranded project to Brancoy HI Engine: Updated `lib/brand-info.ts`, `docs/description.md`, and `docs/frontend.md` to align with the new brand identity and project scope based on https://brancoy.fi/pages/brancoy-hi-engine.
+
+## 2025-05-03
+- **Phase 2: Homepage Implementation & Localization (In Progress)**
+    - ... (previous entries)
+    - Swedish translations for homepage (`messages/sv/Index.json`) created.
+    - Generated and optimized 4 images for the homepage sections (hero, content-seo, collaboration, succeed-shopify) and saved them to `public/images/homepage/` as WebP.
+    - Integrated generated images into `app/[locale]/page.tsx`.
+    - Created translation files for "About Us" page (`messages/en/About.json`, `messages/fi/About.json`, `messages/sv/About.json`).
+
+## [YYYY-MM-DD] - Phase 3: About Page Implementation & Fixes
+
+- **`app/[locale]/about/page.tsx` Development:**
+  - Successfully implemented the initial structure for the About Us page.
+  - Resolved i18n issues in `app/[locale]/about/page.tsx`:
+    - Corrected `Link` component import strategy by first attempting direct import from `next-intl/navigation`, then by updating `app/i18n/server-utils.ts` to re-export `Link` and importing from there.
+    - Ensured `getTranslations` is used correctly with explicit `{ locale, namespace }` in both `generateMetadata` and the page component.
+    - Added `setupMetadataLocale(locale)` call in `generateMetadata` and ensured `setupServerLocale(locale)` is present in the page component for robust i18n initialization.
+    - Removed incorrect `useTranslations` import from the server component.
+  - Generated 3 new images for the About page (hero, team, values) using the `gemini-image` tool (`node tools/gemini-image-tool.js generate ...`) with `imagen-3.0` model.
+  - Optimized the generated images to WebP format using the `image-optimizer` tool, ensuring correct argument passing (`npm run optimize-image -- --input ... --output ...`).
+  - Integrated the optimized WebP images into `app/[locale]/about/page.tsx`, uncommenting and adjusting the `next/image` components for hero and team sections.
+- **Translation Files:** Created `messages/en/About.json`, `messages/fi/About.json`, and `messages/sv/About.json` for the About page content.
+- **`app/i18n/server-utils.ts` Update:** Modified to correctly export `getMessages` and navigation utilities (`Link`, `redirect`, etc.) from `next-intl`, aligning it more closely with the project's i18n strategy and rules, and ensuring it sources `Locale` and `locales` from `./config`.
+- **Troubleshooting:**
+  - Addressed `gemini-image` tool usage (direct script call `node tools/...` vs. `npm run <script_alias>`).
+  - Re-confirmed fix for `image-optimizer` argument parsing when called via `npm run`. // Already in learnings, but good to note here too.
+
+## [YYYY-MM-DD] - Blog Page Rebranding to Brancoy HI Engine
+
+- Updated `app/[locale]/blog/page.tsx`:
+  - Changed structured data (Schema.org) to use "Brancoy" as publisher and "Brancoy Team" as author.
+  - Modified subject filter definitions to use translation keys (`t('subjects.id')`) instead of hardcoded labels.
+  - Updated active subject filter button color and post title hover color to Brancoy brand blue (`#4A90E2`).
+- Updated `messages/en/Blog.json`:
+  - Revised `description` and `noPosts` messages to align with Brancoy HI Engine branding and tone.
+  - Added new keys and translations for blog subject filters (`subjects.all`, `subjects.news`, etc.).
+- Updated `messages/fi/Blog.json`:
+  - Translated the new/updated English keys (description, noPosts, subject filters) to Finnish.
+- Updated `messages/sv/Blog.json`:
+  - Translated the new/updated English keys (description, noPosts, subject filters) to Swedish.
+
+## 2025-05-10
+- **Feat:** Implemented Inngest cron job for polling and syncing product data sources.
+  - Created `dispatchDataSourceSyncJobs` Inngest function (runs hourly via cron `TZ=UTC 0 * * * *`) to:
+    - Fetch active `data_sources` from Supabase.
+    - Dispatch an `app/data.source.sync.requested` event for each source.
+  - Created `syncProductDataSource` Inngest function triggered by `app/data.source.sync.requested` to:
+    - Filter for `product_feed` type sources.
+    - Fetch data from the source's `feed_url` (currently supports JSON).
+    - Handle fetch errors and update `data_sources` table status/error_message.
+    - Parse items from the feed.
+    - For each item:
+      - Check for existing `external_product_mappings`.
+      - If mapping exists, update `products` and `product_variants`.
+      - If no mapping, create new `products`, `product_variants`, and `external_product_mappings`.
+      - Uses a simplified field mapping for now (needs to be made more robust, ideally using `detectedSchema`).
+    - Update `last_fetched_at` and reset error status in `data_sources` on successful run part.
+  - Registered both new functions in `app/api/inngest/route.ts`.
+  - Added related tasks to `docs/todo.md`.
+- **Chore:** Removed the example `helloWorld` Inngest function from `lib/inngest-functions.ts` and `app/api/inngest/route.ts`.
+
+## [YYYY-MM-DD] - Visual Style Redefinition
+
+- Updated `docs/frontend.md` to align with the new visual style provided in the reference image.
+  - Changed the primary theme from dark to predominantly light with contrasting dark sections.
+  - Redefined the color palette: primary backgrounds (white, light gray), dark section backgrounds (charcoal), text colors, primary accent (brand blue), and a new secondary accent (subtle orange/coral).
+  - Detailed specific CTA button styles (primary, secondary, dark).
+  - Suggested modern sans-serif font families (e.g., Inter, Manrope).
+  - Noted the use of subtle box shadows for depth on UI elements.
+
+## [YYYY-MM-DD] - Homepage Styling Update (Phase 1)
+
+- Updated `tailwind.config.ts`:
+  - Added new color palette: `brand.blue`, `brand.coral`, `light.background`, `light.card`, `light.text`, `dark.background`, `dark.card`, `dark.text`.
+  - Added `Inter` and `Manrope` to the sans-serif font family stack.
+- Updated `app/[locale]/page.tsx` (Homepage) to reflect the new visual style:
+  - Switched primary theme from dark to light (`bg-light-background`, `text-light-text`).
+  - Updated section backgrounds (e.g., Hero to `bg-light-card`, "Why AI" to `bg-dark-background`).
+  - Replaced placeholder purple/gray button styles with new variants: `primary` (brand-blue), `secondary` (light theme outline), and `darkCta`.
+  - Adjusted text colors for readability on new backgrounds.
+  - Changed card styles in sections like "Smartest Way" and "Foundation" to `bg-white shadow-md`.
+
+## [YYYY-MM-DD] - Shared Button Component Refactor
+
+- Refactored `app/components/Button.tsx`:
+  - Updated `variant` prop type to include `darkCta`.
+  - Changed `baseStyles` from `rounded-full` to `rounded-md`.
+  - Updated `variantStyles` for `primary` (brand-blue), `secondary` (light theme outline), and added `darkCta` style, aligning with the new visual guidelines.
+- Updated `app/[locale]/page.tsx` (Homepage) to remove its local Button definition and import the shared `Button` component from `app/components/Button.tsx`.
+
+## [YYYY-MM-DD] - Fix Button Component Client/Server Error
+
+- Added `'use client';` directive to `app/components/Button.tsx`.
+  - **Reason:** Resolved Next.js error "Event handlers cannot be passed to Client Component props." The `Button` component uses `onClick` and `onKeyDown`, requiring it to be a Client Component when used within Server Components like the Homepage.
+
+## [YYYY-MM-DD] - About Us Page Styling Update
+
+- Updated `app/[locale]/about/page.tsx` to align with the new visual style:
+  - Switched primary theme from dark to light (`bg-light-background`, `text-light-text`).
+  - Updated section backgrounds (e.g., Hero to `bg-light-card`, "Our Values" to `bg-dark-background`).
+  - Adjusted text colors for readability on new backgrounds.
+  - Changed card styles in "Our Values" section to `bg-dark-card` with `text-brand-blue` highlights.
+  - Replaced custom Link-based CTAs with the shared `Button` component, applying appropriate variants and some custom classes for the specific design on brand-blue background.
+  - Removed unused `useTranslations` import.
+
+## [YYYY-MM-DD] - Admin UI for Data Sync Management
+- **Feat:** Implemented Admin UI and API for managing data source synchronization.
+  - **API Endpoints (`app/api/admin/data-sources/`):**
+    - `GET /`: Lists all data sources. Protected by admin role.
+    - `GET /[id]`: Retrieves details for a specific data source. Protected by admin role.
+    - `POST /[id]/trigger-sync`: Manually triggers an Inngest event (`app/data.source.sync.requested`) for the specified data source. Protected by admin role.
+  - **Frontend Pages (`app/[locale]/admin/data-sync/`):
+    - `page.tsx`: Displays a list of data sources with their status, type, last fetched time. Allows admins to trigger a manual sync for each source and navigate to a detail view.
+    - `[id]/page.tsx`: Shows detailed information for a specific data source, including its detected schema (JSON). Allows triggering a manual sync.
+    - Both pages use `AdminLayoutClient` for authentication and layout.
+  - **Navigation:** Added a "Data Sync" link to the admin sidebar in `app/components/Navigation.tsx`.
+  - **Documentation:** Updated `docs/frontend.md` with UI design and `docs/todo.md` with implementation tasks.
+
+*   Updated `app/components/Button.tsx` to be a client component, resolving "Event handlers cannot be passed to Client Component props" error.
+*   Applied new visual styles (light theme, dark contrasting sections, brand colors) to `app/[locale]/about/page.tsx`.
+*   Updated logo in `app/components/Navigation.tsx` to `images/brancoy_logo_black.webp`.
+*   Updated `app/components/Navigation.tsx` background to light blue (`brand.lightBlue`) and adjusted text/link colors for contrast.
+*   `docs/learnings.md` updated with button component fix and image tool usage notes.
+## Phase 6: Blog Page Styling & Global Styles (Current)
+

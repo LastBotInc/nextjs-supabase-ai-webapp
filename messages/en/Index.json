@@ -1,139 +1,95 @@
 {
   "hero": {
-    "title": "Build Faster, Smarter, Together.",
-    "subtitle": "LastBot is an AI-augmented Next.js 15 boilerplate with Supabase, Tailwind CSS, and a suite of development tools designed to accelerate your web application development.",
-    "backgroundAlt": "Abstract technology background",
-    "cta": "Get Started",
-    "docs": "Documentation",
-    "altText": "Abstract background video with code and network animations"
+    "title": "Seamlessly Migrate & Optimize Your eCommerce to Shopify",
+    "subheadline": "Transform your eCommerce business with Brancoy HI Engine - the intelligent AI powered migration tool that doesn't just move your data, but continuously optimizes it.",
+    "ctaStartMigration": "Start Migration",
+    "ctaScheduleDemo": "Schedule a Demo"
   },
-  "agentic": {
-    "title": "Agentic Development Framework",
-    "subtitle": "for Cursor IDE",
-    "description": "Extend and enhance Cursor's composer agent capabilities with a comprehensive framework for end-to-end development.",
-    "features": {
-      "title": "Enhanced Development Experience",
-      "list": {
-        "rules": "Structured development rules and patterns",
-        "prompts": "Optimized prompts for code generation",
-        "tools": "Integrated development tools and utilities",
-        "validation": "Automated testing and validation",
-        "docs": "Comprehensive documentation generation"
-      }
+  "keyBenefits": {
+    "dataAccuracy": {
+      "title": "100% Data Accuracy",
+      "value": "Ensure flawless data transfer."
     },
-    "benefits": {
-      "title": "Key Benefits",
-      "quality": "Improved code quality and consistency",
-      "completeness": "Enhanced feature completeness",
-      "efficiency": "Accelerated development workflow",
-      "standards": "Enforced coding standards and best practices"
+    "fasterMigration": {
+      "title": "10x Faster Migration",
+      "value": "Accelerate your move to Shopify."
+    },
+    "aiOptimization": {
+      "title": "24/7 AI Optimization",
+      "value": "Continuously improve with AI."
     }
   },
-  "cta": {},
-  "meta": {
-    "title": "AI-Powered Next.js Template | Modern Web Development",
-    "description": "A modern Next.js template with built-in AI capabilities, Supabase integration, and development tools for building scalable web applications."
-  },
-  "features": {
-    "title": "Everything You Need",
-    "description": "A comprehensive set of tools and features to accelerate your development workflow.",
-    "ai": {
-      "title": "AI Integration",
-      "description": "Built-in AI capabilities with Google Gemini, Recraft, and Tavily APIs for content generation, image creation, and intelligent search."
+  "smartestWay": {
+    "title": "The Smartest Way to Move to Shopify",
+    "collectData": {
+      "title": "Collect Data",
+      "description": "HI Engine securely gathers your products, customers, orders, and content from any platform. Whether you're on WooCommerce, Magento, BigCommerce, custom builds, or integrating with ERPs, PIM systems, or other tools, HI Engine prepares your data for seamless Shopify integration."
     },
-    "tools": {
-      "title": "Development Tools",
-      "description": "Modern development tools for image optimization, HTML to Markdown conversion, and efficient file management."
+    "analyze": {
+      "title": "Analyze",
+      "description": "Once your data is collected, our AI engine reviews and optimizes it. It automatically generates high-quality product descriptions, suggests relevant keywords for search visibility, and highlights areas where your data can be cleaned or improved for better performance."
     },
-    "database": {
-      "title": "Database & Auth",
-      "description": "Seamless Supabase integration for authentication, real-time data, and secure API endpoints."
-    },
-    "i18n": {
-      "title": "Internationalization",
-      "description": "Built-in support for multiple languages with next-intl and efficient translation management."
-    },
-    "performance": {
-      "title": "Performance",
-      "description": "Optimized for speed with server components, edge functions, and efficient caching strategies."
-    },
-    "security": {
-      "title": "Security",
-      "description": "Best practices for secure authentication, API protection, and data handling."
+    "localize": {
+      "title": "Localize",
+      "description": "Your store isn't just moving, it's expanding. HI Engine adapts your content, currency, and SEO to each target market, using localized language, pricing, and tone to help you truly connect with regional audiences from day one."
     }
   },
-  "coreFeatures": {
-    "title": "Core Features",
-    "description": "Everything you need to build a full-featured web application",
-    "auth": {
-      "title": "Authentication & Users",
-      "description": "Complete user management system with Supabase Auth integration, social providers, protected routes, and role-based access control.",
-      "feature1": "Social provider login",
-      "feature2": "Protected routes",
-      "feature3": "Role-based access",
-      "feature4": "User profiles"
+  "featureDive": {
+    "contentSeo": {
+      "title": "Content & SEO Optimization",
+      "description": "Seamlessly resize images, edit backgrounds, and optimize text for SEO. Powered by insights from Google Search Console and Google Trends, your visuals and content stay polished, search-optimized, and built to boost your brand's visibility."
     },
-    "content": {
-      "title": "Content Management",
-      "description": "Comprehensive content management with AI assistance for content creation and optimization.",
-      "feature1": "AI-assisted blog system",
-      "feature2": "Media library with AI generation",
-      "feature3": "Asset optimization pipeline",
-      "feature4": "Landing page builder",
-      "feature5": "SEO optimization"
+    "collaborate": {
+      "title": "Collaborate Together",
+      "description": "We're not replacing your team — we're working with it. Brancoy's experts and the HI Engine operate side-by-side with you, combining human creativity and machine precision to solve problems, spot opportunities, and accelerate growth."
     },
-    "i18n": {
-      "title": "Internationalization",
-      "description": "Built-in support for multiple languages and content localization.",
-      "feature1": "Multi-language support",
-      "feature2": "Translation management",
-      "feature3": "Language switching",
-      "feature4": "Content localization"
-    },
-    "analytics": {
-      "title": "Analytics",
-      "description": "Track and analyze user behavior and application performance.",
-      "feature1": "Page view tracking",
-      "feature2": "Event tracking",
-      "feature3": "Session management",
-      "feature4": "User journey analysis"
-    },
-    "booking": {
-      "title": "Booking System",
-      "description": "Complete appointment scheduling system with calendar management.",
-      "feature1": "Appointment scheduling",
-      "feature2": "Calendar management",
-      "feature3": "Timezone support",
-      "feature4": "Email notifications"
-    },
-    "realtime": {
-      "title": "Real-time Features",
-      "description": "Live updates and collaborative features powered by Supabase.",
-      "feature1": "Live updates",
-      "feature2": "Data synchronization",
-      "feature3": "Presence indicators",
-      "feature4": "Collaborative editing"
-    },
-    "technical": {
-      "title": "Technical Features",
-      "description": "Built with modern technologies and best practices.",
-      "feature1": "Modern UI with Tailwind CSS",
-      "feature2": "Dark/light mode support",
-      "feature3": "Type-safe development",
-      "feature4": "Performance optimization",
-      "feature5": "Comprehensive testing",
-      "feature6": "Row Level Security",
-      "feature7": "API protection",
-      "feature8": "Real-time subscriptions"
+    "succeedWithShopify": {
+      "title": "Succeed with Shopify",
+      "description": "The result: a future-proof Shopify store built to scale. You get a clean, high-performing foundation — fully optimized, locally adapted, and ready to grow with you, no matter your catalog size or global ambitions."
     }
   },
-  "getStarted": {
-    "title": "Start Building Today",
-    "description": "Get up and running with your next project in minutes, not hours.",
-    "step1": "Clone the repository and install dependencies",
-    "step2": "Configure your environment variables and API keys",
-    "step3": "Start developing with built-in AI capabilities",
-    "cta": "View on GitHub",
-    "imageAlt": "Development tools and features illustration"
+  "foundation": {
+    "title": "The Foundation for Intelligent eCommerce",
+    "description": "Moving to Shopify with Brancoy is more than just changing platforms. It's about building the foundation for future growth, agility, and intelligence in your ecommerce business. It all starts with a free migration assessment.",
+    "benefit1": {
+      "title": "Future-Proof Foundation",
+      "description": "A migration designed to support your business growth for years to come."
+    },
+    "benefit2": {
+      "title": "Focus on Growth",
+      "description": "Free yourself from technical tasks and focus on business strategy."
+    },
+    "benefit3": {
+      "title": "Scalable AI Power",
+      "description": "Whether you have 500 or 50,000 SKUs, our AI scales with your needs."
+    },
+    "cta": "Request Free Migration Assessment"
+  },
+  "whyAI": {
+    "title": "Why AI-Powered Migration?",
+    "benefit1": {
+      "value": "100%",
+      "title": "Data Accuracy"
+    },
+    "benefit2": {
+      "value": "10x",
+      "title": "Migration Speed"
+    },
+    "benefit3": {
+      "value": "24/7",
+      "title": "Ongoing Optimization"
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by Businesses Like Yours",
+    "placeholder": "Testimonials and client logos will appear here."
+  },
+  "finalCta": {
+    "title": "Meet the Brancoy AI Engine Built for Commerce.",
+    "description": "Migration will never be the same. Let's build your future on Shopify, intelligently.",
+    "cta": "Start Your Migration"
+  },
+  "footer": {
+    "copyright": "Brancoy © {year}. All rights reserved."
   }
 }

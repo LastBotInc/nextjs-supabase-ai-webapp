@@ -2,24 +2,48 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/app/i18n/server-utils';
 import ContactForm from '@/components/contact/ContactForm';
 import { Button } from '@/app/components/Button';
 import { createClient } from '@/utils/supabase/server';
 import { getTranslations } from 'next-intl/server';
-import { setupServerLocale } from '@/app/i18n/server-utils';
+import { setupServerLocale, setupMetadataLocale } from '@/app/i18n/server-utils';
 import { AnimatedOrbs } from '@/app/components/AnimatedOrbs';
+import { Metadata } from 'next';
+import { generateLocalizedMetadata } from '@/utils/metadata';
+import { Suspense } from 'react';
 
 interface Props {
-  params: Promise<{
-    locale: string
-  }>
+  params: {
+    locale: string;
+  };
 }
 
-export default async function About({ params }: Props) {
-  const { locale } = await params;
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+  await setupMetadataLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'About' });
+  const metaTranslations = t.raw('meta') as { title: string; description: string };
+
+  return generateLocalizedMetadata(
+    locale,
+    'About',
+    {
+      title: metaTranslations.title,
+      description: metaTranslations.description,
+      canonicalUrl: '/about',
+    }
+  );
+}
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations('About');
+  const t = await getTranslations({ locale, namespace: 'About' });
+
+  // Updated image paths
+  const heroImage = '/images/about/hero-about.webp';
+  const teamImage = '/images/about/team-about.webp';
+  // const valuesImage = '/images/about/values-about.webp'; // This variable is not directly used in an Image tag below
 
   // Fetch latest news posts
   const supabase = await createClient();
@@ -33,183 +57,123 @@ export default async function About({ params }: Props) {
     .limit(3);
 
   return (
-    <main className="flex min-h-screen flex-col bg-black">
-      {/* About Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-              {t('title')}
+    <div className="flex flex-col min-h-screen bg-light-background text-light-text">
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative py-20 px-4 text-center bg-light-card overflow-hidden">
+          {/* Optional: Background Image for Hero */}
+          
+          <div className="absolute inset-0 z-0 opacity-30">
+            <Image
+              src={heroImage}
+              alt={t('hero.title')}
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
+          </div>
+          
+          <div className="relative z-10 container mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t('hero.title')}
             </h1>
-            <p className="text-xl text-gray-300 mb-16 text-center leading-relaxed max-w-3xl mx-auto">
-              {t('description')}
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              {t('hero.subheadline')}
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Latest News Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-tl from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center mb-12">
-              <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-                {t('news.title')}
-              </h2>
-              <Link
-                href={`/${locale}/blog?subject=news`}
-                className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
-              >
-                {t('news.viewAll')} →
-              </Link>
+        {/* Our Story / Mission Section */}
+        <section className="py-16 px-4 bg-light-background">
+          <div className="container mx-auto text-center md:text-left">
+            <h2 className="text-3xl font-semibold mb-8 text-center">
+              {t('ourStory.title')}
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-6 text-gray-600">
+              <p>{t('ourStory.paragraph1')}</p>
+              <p>{t('ourStory.paragraph2')}</p>
             </div>
+          </div>
+        </section>
 
-            <div className="space-y-8">
-              {latestNews?.map((post) => (
-                <div
-                  key={post.id}
-                  className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-gray-800/50 hover:border-gray-700/50 transition-colors"
-                >
-                  <p className="text-gray-400 mb-4">
-                    {new Date(post.created_at).toLocaleDateString()}
-                  </p>
-                  <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                    {post.title}
+        {/* Meet the Team Section */}
+        <section className="py-16 px-4 bg-light-background">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-8">
+              {t('team.title')}
+            </h2>
+            <div className="max-w-3xl mx-auto text-gray-600">
+              <p className="mb-6">{t('team.description')}</p>
+              {/* Placeholder for team image or individual profiles */}
+              
+              <div className="w-full max-w-2xl mx-auto h-64 bg-light-card rounded-lg flex items-center justify-center overflow-hidden relative">
+                <Image src={teamImage} alt={t('team.title')} layout="fill" objectFit="cover" className="rounded-lg" />
+                {/* <span className="text-gray-400">Team Visual Coming Soon</span> */}
+              </div>
+              
+            </div>
+          </div>
+        </section>
+
+        {/* Our Values / Culture Section */}
+        <section className="py-16 px-4 bg-dark-background text-dark-text">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-12">
+              {t('values.title')}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="bg-dark-card p-6 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-semibold mb-3 text-brand-blue">
+                    {t(`values.value${i}.title`)}
                   </h3>
-                  <p className="text-gray-300 mb-6">
-                    {post.excerpt}
+                  <p className="text-gray-300">
+                    {t(`values.value${i}.description`)}
                   </p>
-                  <Link 
-                    href={`/${locale}/blog/${post.slug}`}
-                    className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
-                  >
-                    {t('news.readMore')} →
-                  </Link>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80" />
-        
-        <AnimatedOrbs orbs={[
-          {
-            size: 'lg',
-            color: 'indigo',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'slow',
-            className: 'absolute top-1/4 right-1/4'
-          },
-          {
-            size: 'lg',
-            color: 'purple',
-            blur: 'lg',
-            animation: 'float',
-            speed: 'medium',
-            className: 'absolute bottom-1/4 left-1/3'
-          }
-        ]} />
-
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-              {t('contact.title')}
+        {/* Why Partner with Brancoy Section */}
+        <section className="py-16 px-4 bg-light-background">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-8">
+              {t('whyPartner.title')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                  {t('contact.info.title')}
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2 text-gray-100">
-                      {t('contact.address.title')}
-                    </h4>
-                    <p className="text-gray-300">{t('contact.address.street')}</p>
-                    <p className="text-gray-300">{t('contact.address.postal')}</p>
-                    <p className="text-gray-300">{t('contact.address.country')}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2 text-gray-100">
-                      {t('contact.social.title')}
-                    </h4>
-                    <div className="flex space-x-4">
-                      <Link
-                        href="https://www.linkedin.com/company/lastbot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors"
-                      >
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Contact Form */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-100">
-                  {t('contact.form.title')}
-                </h3>
-                <ContactForm />
-              </div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              {t('whyPartner.description')}
+            </p>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="py-20 px-4 bg-brand-blue text-white">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-4">
+              {t('cta.title')}
+            </h2>
+            <p className="text-lg mb-8 max-w-xl mx-auto">
+              {t('cta.description')}
+            </p>
+            <div className="space-x-4">
+              <Button variant="secondary" className="bg-white text-brand-blue hover:bg-gray-100">
+                {t('cta.buttonServices')}
+              </Button>
+              <Button variant="primary" className="bg-transparent border-2 border-white hover:bg-white hover:text-brand-blue">
+                {t('cta.buttonContact')}
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+
+      {/* Footer will be part of the main layout eventually */}
+      <footer className="py-8 bg-light-background text-center text-gray-500 border-t border-gray-300">
+        <p>&copy; {new Date().getFullYear()} Brancoy. All rights reserved.</p>
+        {/* Add footer links here if not in global layout */}
+      </footer>
+    </div>
   );
 }

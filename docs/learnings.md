@@ -308,3 +308,27 @@ const response = await fetch('/api/protected-route', {
 - [Supabase Auth Helpers](https://supabase.com/docs/guides/auth/auth-helpers/nextjs)
 - [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
 - [Next.js Middleware](https://nextjs.org/docs/app/building-your-application/routing/middleware)
+
+## `image-optimizer.ts` Script (`require` vs `import`)
+- **Issue**: The `tools/image-optimizer.ts` script was failing with `ReferenceError: require is not defined`.
+- **Cause**: The script used CommonJS `require('fs')` to access `mkdir` within a TypeScript file executed as an ES module by `tsx`.
+- **Solution**:
+    - Modified the script to use ES module syntax for `mkdir`.
+    - Added `mkdir` to the existing `fs/promises` import: `import { writeFile, readFile, mkdir } from 'fs/promises';`
+    - Changed the line `await require('fs').promises.mkdir(outputDir, { recursive: true });` to `await mkdir(outputDir, { recursive: true });`.
+- **Outcome**: The script now runs successfully, allowing image optimization using `npm run optimize-image`.
+
+## Tool Usage Insights
+
+### `gemini-image` Tool (Imagen/Gemini Image Generation)
+- **Correct Invocation:** The `gemini-image` tool, defined with `"command": "node tools/gemini-image-tool.js"`, must be called directly using `node tools/gemini-image-tool.js generate ...` (or other subcommands) rather than via an npm script alias like `npm run gemini-image -- generate ...` if such an alias is not explicitly defined in `package.json` `scripts`.
+- **Argument Structure:** Arguments like prompt (`-p`), model (`-m`), output (`-o`), and folder (`--folder`) are passed as flags directly to the script.
+
+### `image-optimizer` (Image Processing)
+- **Argument Passing with `npm run`:** When using `npm run <script_name> -- ...` to pass arguments to a script that uses `yargs` or a similar parser, ensure that all script-specific arguments (like `--input`, `--output`) are included after the `--`. For example: `npm run optimize-image -- --input <in_path> --output <out_path> --format webp`.
+  - *Previously noted: The underlying script `tools/image-optimizer.ts` itself was also fixed to handle ES module imports (`import fs from 'fs/promises'`) instead of CommonJS `require`.*
+
+## Next.js App Router: Server vs. Client Components
+
+- **Event Handlers in Client Components:** Components that use event handlers (e.g., `onClick`, `onChange`, `onKeyDown`) or React Hooks like `useState`, `useEffect` must be explicitly marked as Client Components by adding the `'use client';` directive at the top of the file.
+- **Passing Props from Server to Client Components:** When a Server Component renders a Client Component, you cannot pass event handlers or other non-serializable props directly. If a component inherently needs interactivity (like a button with an `onClick` handler), it must be a Client Component itself. The error "Event handlers cannot be passed to Client Component props" often indicates a component that needs this directive.

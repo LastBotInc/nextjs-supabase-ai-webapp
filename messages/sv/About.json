@@ -26,5 +26,50 @@
     }
   },
   "form": {},
-  "meta": {}
+  "meta": {
+    "title": "Om Oss - Brancoy | Intelligenta eCommerce-Lösningar",
+    "description": "Lär dig mer om Brancoy, vårt uppdrag att revolutionera e-handelsmigrering och optimering med HI Engine, vårt team och våra kärnvärden."
+  },
+  "hero": {
+    "title": "Om Brancoy: Driver eCommerce Framåt med Intelligens",
+    "subheadline": "Vi är pionjärer inom AI-drivna e-handelslösningar, dedikerade till att förändra hur företag migrerar och blomstrar på Shopify med vår banbrytande HI Engine."
+  },
+  "ourStory": {
+    "title": "Vår Resa & Vision",
+    "paragraph1": "Brancoy grundades av ett team av erfarna e-handelsexperter och AI-innovatörer, fött ur en önskan att lösa de mest komplexa utmaningarna inom online-detaljhandeln. Vi såg företag kämpa med föråldrade migreringsprocesser och outnyttjad optimeringspotential.",
+    "paragraph2": "Vår vision är att ge varje e-handelsföretag intelligensen att inte bara byta plattform, utan att transformera hela sin verksamhet. Brancoy HI Engine är kulmen på denna vision, en sofistikerad plattform designad för sömlös migrering, kontinuerlig optimering och hållbar tillväxt."
+  },
+  "team": {
+    "title": "Hjärnorna Bakom Brancoy HI Engine",
+    "description": "Brancoy-teamet är en blandning av passionerade e-handelsstrateger, datavetare, AI-ingenjörer och förespråkare för kundframgång. Vi har årtionden av samlad erfarenhet från frontlinjen inom online-detaljhandel och spjutspetsteknologiutveckling. Vår mångsidiga expertis driver innovationen inom HI Engine och säkerställer att våra kunder får oöverträffat stöd och strategisk vägledning."
+  },
+  "values": {
+    "title": "Vad Driver Oss",
+    "value1": {
+      "title": "Innovation i Kärnan",
+      "description": "Vi strävar obevekligt efter tekniska framsteg för att förse våra kunder med de mest intelligenta och effektiva lösningarna."
+    },
+    "value2": {
+      "title": "Fokus på Kundframgång",
+      "description": "Din tillväxt är vår prioritet. Vi samarbetar med dig för att säkerställa att HI Engine levererar påtagliga resultat och en konkurrensfördel."
+    },
+    "value3": {
+      "title": "Kompromisslös Effektivitet",
+      "description": "Vi effektiviserar komplexa processer, sparar din tid och dina resurser, så att du kan fokusera på det du gör bäst."
+    },
+    "value4": {
+      "title": "Djup Expertis",
+      "description": "Vår djupa förståelse för e-handel och AI gör att vi kan förutse utmaningar och låsa upp nya möjligheter för din verksamhet."
+    }
+  },
+  "whyPartner": {
+    "title": "Din Pålitliga Partner i eCommerce-Transformation",
+    "description": "Att välja Brancoy innebär att välja en framtid där din e-handelsplattform inte bara är en butiksfasad, utan en intelligent motor för tillväxt. Med vår banbrytande HI Engine och dedikerade expertteam erbjuder vi mer än bara migrering – vi levererar en väg till varaktig framgång på den konkurrensutsatta digitala marknaden. Låt oss hjälpa dig att navigera i e-handelns komplexitet med precision, snabbhet och AI-driven insikt."
+  },
+  "cta": {
+    "title": "Redo att Förändra Din eCommerce?",
+    "description": "Upptäck hur Brancoy HI Engine kan lyfta din verksamhet. Utforska våra tjänster eller kontakta vårt team idag.",
+    "buttonServices": "Utforska Våra Tjänster",
+    "buttonContact": "Kontakta Oss"
+  }
 }

@@ -479,6 +479,7 @@
 - ✅ Add latest research section to Tech page
 - ✅ Update seed script with categorized content
 - ✅ Add translations for new blog subjects
+- ✅ Rebrand Blog page to Brancoy HI Engine (content, structured data, styles)
 - ⏳ Add RSS feed for blog posts
 - ⏳ Add social sharing buttons
 - ❌ Add blog post analytics
@@ -841,3 +842,132 @@ Next Priority Tasks:
 - ✅ Further enhance `schema-detector` to extract vendor from URL and use it to influence schema naming and filename (e.g., `caffitella_product_feed.json`).
 
 - ✅ Generate and save a JSON schema file for Shopify products including variants (`schemas/shopify_product_variants_schema.json`).
+
+- ❌ Create `shopify-localisation-tool` for managing Shopify translations (pull/push from/to `messages/[locale]/shopify.json`).
+
+✅ Define SQL schema for Products and Variants
+✅ Define SQL schema for Categories (Collections)
+✅ Define SQL schema for Inventory
+✅ Define SQL schema for Orders and Fulfillments
+✅ Define SQL schema for External Product Mappings table
+✅ Create Supabase migration for Products and Variants
+✅ Create Supabase migration for Categories
+✅ Create Supabase migration for Inventory
+✅ Create Supabase migration for Orders and Fulfillments
+✅ Create Supabase migration for External Product Mappings
+✅ Define SQL schema for Data Sources table
+✅ Create Supabase migration for Data Sources table
+❌ Implement data-source-importer tool script (Supabase insert failing)
+❌ Add data-source-importer to .cursorrules and package.json
+❌ Test data-source-importer tool
+
+✅ Rebrand and scope the project to Brancoy hi-engine (update @brand-info.ts, @description.md, @frontend.md first)
+
+### Brancoy HI Engine Homepage
+- ⏳ Implement Homepage Structure (`app/[locale]/page.tsx`)
+  - ✅ Hero Section (Headline, Sub-headline, CTAs, Background Image)
+  - ✅ Key Benefits Bar (Data Accuracy, Faster Migration, AI Optimization)
+  - ✅ "The Smartest Way to Move to Shopify" Section (Collect, Analyze, Localize)
+  - ✅ Feature Deep Dive Sections (Content & SEO, Collaborate, Succeed with Shopify - with Images)
+  - ✅ "The Foundation for Intelligent eCommerce" Section (Benefits, CTA for assessment)
+  - ✅ "Why AI-Powered Migration?" Section (Reinforce key benefits)
+  - ✅ Social Proof/Testimonials Section (Placeholder)
+  - ✅ Final CTA Section ("Meet the Brancoy AI engine...")
+  - ✅ Footer (Placeholder)
+- ✅ Localize Homepage Content
+  - ✅ Extract English content to `messages/en/Index.json`
+  - ✅ Create and translate `messages/fi/Index.json`
+  - ✅ Create and translate `messages/sv/Index.json`
+  - ✅ Integrate `useTranslations` hook in `app/[locale]/page.tsx`
+- ❌ Update `docs/frontend.md` if homepage implementation deviates from initial plan
+- ❌ Test homepage responsiveness
+- ❌ Review and refine homepage styling
+
+### Brancoy HI Engine About Us Page
+- ❌ Define About Us page structure in `docs/frontend.md` (based on existing placeholder)
+- ✅ Create English translations in `messages/en/About.json`
+- ✅ Create Finnish translations in `messages/fi/About.json`
+- ✅ Create Swedish translations in `messages/sv/About.json`
+- ✅ Implement About Us page component (`app/[locale]/about/page.tsx`)
+  - ✅ Fix linter errors related to Link import and getTranslations usage
+  - ✅ Integrate translations
+  - ✅ Add section structure (Hero, Our Story, Team, Values, Why Partner, CTA)
+  - ✅ Implement basic styling with Tailwind CSS
+- ✅ Generate and integrate placeholder images (optional, for structure)
+- ❌ Test About Us page responsiveness
+- ❌ Review and refine About Us page styling
+
+### Data Synchronization
+- [ ] Implement Inngest cron job for polling data sources
+  - [✅] Define Inngest function to fetch all `data_sources` (e.g., hourly cron) (`dispatchDataSourceSyncJobs`)
+  - [✅] For each source, dispatch an Inngest event (e.g., `app/data.source.sync.requested`) with source details (in `dispatchDataSourceSyncJobs`)
+  - [✅] Define Inngest function to listen to `app/data.source.sync.requested` (`syncProductDataSource`)
+  - [✅] Fetch data from the source's `feed_url` (in `syncProductDataSource`)
+  - [✅] Parse fetched data (JSON and XML) (in `syncProductDataSource`)
+  - [✅] Compare fetched items with existing `products` via `external_product_mappings` (in `syncProductDataSource`)
+  - [✅] Create new `products`, `product_variants`, and `external_product_mappings` for new items (in `syncProductDataSource`)
+  - [✅] Update existing `products` and `product_variants` if changes are detected (in `syncProductDataSource`)
+  - [✅] Implement robust error handling and update `data_sources` status (e.g., on fetch failure) (in `syncProductDataSource`)
+  - [✅] Update `last_fetched_at` in `data_sources` on successful/failed attempt (in `syncProductDataSource`)
+  - [ ] Add concurrency limits to product sync function if necessary (concurrency added to Shopify sync, can be added to `syncProductDataSource` if needed)
+  - [✅] Register new Inngest functions in the API route (`dispatchDataSourceSyncJobs`, `syncProductDataSource`)
+  - [ ] Test the cron job and sync process end-to-end (External Feed -> App DB)
+  - [ ] Document the data synchronization process and Inngest functions (External Feed -> App DB)
+
+- [ ] Implement App DB <-> Shopify Synchronization
+  - [ ] App DB -> Shopify Sync:
+    - [✅] Define Inngest function `syncLocalProductToShopify` to sync a single product from local DB to Shopify.
+    - [✅] Trigger function with event `app/product.sync.to.shopify.requested` (carrying `internal_product_id`).
+    - [✅] Fetch product and variants from local Supabase DB.
+    - [✅] Prepare product data for Shopify GraphQL API (including metafields for description).
+    - [✅] Check `external_product_mappings` for existing Shopify product ID.
+    - [✅] If exists, update product in Shopify; otherwise, create new product.
+    - [✅] Upsert Shopify product GID into `external_product_mappings` (variant mapping is a TODO within the function).
+    - [✅] Register `syncLocalProductToShopify` in Inngest API route.
+    - [ ] Implement a mechanism to trigger `app/product.sync.to.shopify.requested` events (e.g., from Admin UI, DB trigger, or batch job).
+    - [ ] Handle image synchronization (deferred).
+    - [ ] Thoroughly test App DB -> Shopify sync.
+  - [ ] Shopify -> App DB Sync:
+    - [ ] Define Inngest function (e.g., `syncShopifyProductToLocalDB`) to fetch/sync a single product from Shopify to local.
+    - [ ] Could be triggered by Shopify webhooks (e.g., on product create/update) or a periodic full sync.
+    - [ ] Fetch product data from Shopify.
+    - [ ] Check `external_product_mappings` (source_name: 'shopify', external_product_id: Shopify GID).
+    - [ ] If exists, update local `products`/`product_variants`.
+    - [ ] If not, create new local `products`/`product_variants` and mapping.
+    - [ ] Consider conflict resolution strategy (Shopify as source of truth?).
+    - [ ] Test Shopify -> App DB sync.
+  - [ ] Document App DB <-> Shopify synchronization.
+
+### Admin UI for Data Sync
+- [ ] Design Admin UI for Data Sync Management (in `docs/frontend.md`)
+  - [✅] Define views: List of `data_sources`, detailed view with logs/schema.
+  - [✅] Outline components: Table, Status Badges, Action Buttons, Log Viewer.
+- [ ] Develop Admin API Endpoints for Data Sync
+  - [✅] `GET /api/admin/data-sources`: List all data sources (with admin protection).
+  - [✅] `GET /api/admin/data-sources/[id]`: Get details for a specific data source (with admin protection).
+  - [✅] `POST /api/admin/data-sources/[id]/trigger-sync`: Manually trigger sync (Inngest event) for a source (with admin protection).
+- [ ] Implement Admin Frontend Pages for Data Sync (`app/[locale]/admin/data-sync/`)
+  - [✅] `page.tsx`: List data sources, allow triggering sync.
+  - [✅] `[id]/page.tsx`: Show detailed source information, schema, allow triggering sync.
+  - [✅] Ensure pages use `AdminLayoutClient` and call new admin APIs.
+- [ ] Update Navigation (`app/components/Navigation.tsx`)
+  - [✅] Add "Data Sync" link to admin sidebar.
+- [ ] Add translations for new Admin Data Sync UI elements.
+- [ ] Test Admin Data Sync UI and API functionality.
+
+## UI/UX & Styling
+- ✅ Define UI/UX patterns for Brancoy HI Engine in `docs/frontend.md`
+- ✅ Update `docs/frontend.md` with new visual style guidelines based on reference image.
+- ✅ Update `tailwind.config.ts` with new color palette and font families.
+- ✅ Apply new visual styles (light theme, new color palette, button styles) to Homepage (`app/[locale]/page.tsx`)
+- ✅ Create/Update a shared `Button` component with new styles.
+- ⏳ Apply new visual styles to About Us page (`app/[locale]/about/page.tsx`)
+- ❌ Apply new visual styles to Blog page (`app/[locale]/blog/page.tsx` and `app/[locale]/blog/[slug]/page.tsx`)
+- ❌ Review and update global styles (`styles/globals.css` or Tailwind config) to reflect new branding.
+- ❌ Ensure consistent typography across the application based on new guidelines.
+
+✅ Apply new visual styles (light theme, dark contrasting sections, brand colors) to `app/[locale]/about/page.tsx`.
+✅ Update logo in `app/components/Navigation.tsx` to `images/brancoy_logo_black.webp`.
+✅ Update `app/components/Navigation.tsx` background to light blue and adjust text/link colors.
+
+### Phase 6: Blog Page Styling & Global Styles

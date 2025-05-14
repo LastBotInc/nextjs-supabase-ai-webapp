@@ -44,10 +44,19 @@ interface ShopifyProduct {
   variants: ShopifyVariant[];
   title_fi?: string;
   description_html_fi?: string;
+  metafields?: ShopifyMetafieldInput[];
+}
+
+// Define an interface for the metafield input structure expected by shopify-product-tool
+interface ShopifyMetafieldInput {
+  key: string;
+  namespace: string;
+  type: string; // e.g., "single_line_text_field", "url", "integer", "json_string"
+  value: string;
 }
 
 // Implementation of the mapper function to avoid import issues
-function caffitellaToShopify(source: CaffitellaProduct): ShopifyProduct & { description?: string, image_link?: string, title_fi?: string, description_html_fi?: string } {
+export function caffitellaToShopify(source: CaffitellaProduct): ShopifyProduct & { description?: string, image_link?: string } {
   // Extract categories for product type and tags
   const categories = source.categories?.category || [];
   const productType = categories.length > 0 ? categories[0] : 'Other';
@@ -63,7 +72,40 @@ function caffitellaToShopify(source: CaffitellaProduct): ShopifyProduct & { desc
     sku: `CAFF-${source.id}`,
     inventoryQuantity: 1
   };
+
+  const metafields: ShopifyMetafieldInput[] = [];
+
+  // Example: Store the original feed link as a metafield
+  if (source.link) {
+    metafields.push({
+      key: 'original_feed_link',
+      namespace: 'feed_data',
+      type: 'url',
+      value: source.link
+    });
+  }
   
+  // Add other source fields that don't map directly as metafields if needed
+  // For example, if CaffitellaProduct had a field `brand_specific_id`
+  // if (source.brand_specific_id) {
+  //   metafields.push({
+  //     key: 'brand_id',
+  //     namespace: 'custom_details',
+  //     type: 'single_line_text_field',
+  //     value: source.brand_specific_id
+  //   });
+  // }
+
+  // If source.id is particularly important and might not always be an integer for Shopify ID
+  if (source.id) {
+    metafields.push({
+        key: 'feed_source_id',
+        namespace: 'feed_data',
+        type: 'single_line_text_field',
+        value: source.id
+    });
+  }
+
   return {
     id: parseInt(source.id, 10) || 0,
     title: source.title || 'Unnamed Product',
@@ -73,9 +115,10 @@ function caffitellaToShopify(source: CaffitellaProduct): ShopifyProduct & { desc
     status: 'active',
     variants: [variant],
     description: source.description,
-    description_html_fi: source.description,
     image_link: source.image_link,
     title_fi: source.title_fi,
+    description_html_fi: source.description_html_fi,
+    metafields: metafields.length > 0 ? metafields : undefined
   };
 }
 
@@ -488,14 +531,19 @@ interface ProductCreationResult {
 }
 
 interface ExportResult {
-  product: ShopifyProduct;
+  product: ShopifyProduct & { description?: string, image_link?: string };
   result?: ProductCreationResult;
   error?: Error;
 }
 
-async function createShopifyProduct(product: ShopifyProduct & { description?: string, image_link?: string }, dryRun: boolean = false): Promise<ProductCreationResult> {
+// Export the function
+export async function createShopifyProduct(product: ShopifyProduct & { description?: string, image_link?: string }, dryRun: boolean = false): Promise<ProductCreationResult> {
   if (dryRun) {
     console.log('DRY RUN: Would create product:', JSON.stringify(product, null, 2));
+    // Also log metafields if they exist
+    if (product.metafields && product.metafields.length > 0) {
+      console.log('DRY RUN: With metafields:', JSON.stringify(product.metafields));
+    }
     return { id: `dry-run-id-${Date.now()}`, success: true };
   }
   
@@ -523,11 +571,22 @@ async function createShopifyProduct(product: ShopifyProduct & { description?: st
       args.push(`--titleFi=${product.title_fi}`);
     }
     // BodyHtmlFi handling: only add if product.description_html_fi has a value
-    // (which is currently mapped from source.description)
     if (product.description_html_fi && product.description_html_fi.trim() !== '') {
       args.push(`--bodyHtmlFi=${product.description_html_fi}`);
     } // If it's empty, we don't pass --bodyHtmlFi, so no Finnish desc translation will be attempted
     
+    // Add metafields if they exist
+    if (product.metafields && product.metafields.length > 0) {
+      try {
+        const metafieldsString = JSON.stringify(product.metafields);
+        args.push('--metafields', metafieldsString);
+        console.log('   Adding metafields to product creation:', metafieldsString);
+      } catch (e) {
+        console.error('   Error stringifying metafields:', e);
+        // Decide if you want to proceed without metafields or fail
+      }
+    }
+
     console.log(`Executing: node ${args.join(' ')}`);
     
     const child = spawn('node', args, { stdio: ['pipe', 'pipe', 'pipe'] });

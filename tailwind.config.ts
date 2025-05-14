@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   darkMode: ["class"],
@@ -22,6 +23,21 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          blue: '#3B82F6',
+          coral: '#FF7F50',
+          lightBlue: '#EBF8FF',
+        },
+        light: {
+          background: '#FFFFFF',
+          card: '#F3F4F6',
+          text: '#1F2937',
+        },
+        dark: {
+          background: '#111827',
+          card: '#1F2937',
+          text: '#F9FAFB',
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -55,6 +71,9 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ['Inter', 'Manrope', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {

@@ -26,5 +26,50 @@
     }
   },
   "form": {},
-  "meta": {}
+  "meta": {
+    "title": "Tietoa Meistä - Brancoy | Älykkäät Verkkokaupparatkaisut",
+    "description": "Tutustu Brancoyhin, missioomme mullistaa verkkokaupan migraatio ja optimointi HI Enginen avulla, tiimiimme ja perusarvoihimme."
+  },
+  "hero": {
+    "title": "Tietoa Meistä - Brancoy: Älyllä Verkkokauppaa Eteenpäin",
+    "subheadline": "Olemme tekoälypohjaisten verkkokaupparatkaisujen edelläkävijöitä, omistautuneita muuttamaan yritysten tapaa siirtyä Shopifyhin ja menestyä siellä mullistavalla HI Enginellämme."
+  },
+  "ourStory": {
+    "title": "Matkamme & Visiomme",
+    "paragraph1": "Kokeneiden verkkokauppa-asiantuntijoiden ja tekoälyinnovaattoreiden perustama Brancoy syntyi halusta ratkaista verkkokaupan monimutkaisimmat haasteet. Näimme yritysten kamppailevan vanhentuneiden siirtoprosessien ja hyödyntämättömän optimointipotentiaalin kanssa.",
+    "paragraph2": "Visiomme on antaa jokaiselle verkkokaupalle älykkyys ei vain alustan vaihtamiseen, vaan koko toiminnan muuttamiseen. Brancoy HI Engine on tämän vision huipentuma, hienostunut alusta, joka on suunniteltu saumattomaan siirtoon, jatkuvaan optimointiin ja kestävään kasvuun."
+  },
+  "team": {
+    "title": "Brancoy HI Enginen Takana Olevat Aivot",
+    "description": "Brancoyn tiimi on sekoitus intohimoisia verkkokauppastrategeja, datatieteilijöitä, tekoälyinsinöörejä ja asiakasmenestyksen puolestapuhujia. Tuomme mukanamme vuosikymmenten kokemuksen verkkokaupan etulinjasta ja huipputeknologian kehityksestä. Monipuolinen asiantuntemuksemme ruokkii HI Enginen innovaatiota ja varmistaa, että asiakkaamme saavat vertaansa vailla olevaa tukea ja strategista ohjausta."
+  },
+  "values": {
+    "title": "Mikä Meitä Ajaa Eteenpäin",
+    "value1": {
+      "title": "Innovaatio Ytimessä",
+      "description": "Pyrimme jatkuvasti teknologiseen edistykseen tarjotaksemme asiakkaillemme älykkäimpiä ja tehokkaimpia ratkaisuja."
+    },
+    "value2": {
+      "title": "Asiakasmenestys Keskiössä",
+      "description": "Sinun kasvusi on prioriteettimme. Teemme yhteistyötä varmistaaksemme, että HI Engine tuottaa konkreettisia tuloksia ja kilpailuetua."
+    },
+    "value3": {
+      "title": "Tinkimätön Tehokkuus",
+      "description": "Virtaviivaistamme monimutkaisia prosesseja säästäen aikaasi ja resurssejasi, jotta voit keskittyä ydinosaamiseesi."
+    },
+    "value4": {
+      "title": "Syvällinen Asiantuntemus",
+      "description": "Vankka ymmärryksemme verkkokaupasta ja tekoälystä antaa meille mahdollisuuden ennakoida haasteita ja avata uusia mahdollisuuksia liiketoiminnallesi."
+    }
+  },
+  "whyPartner": {
+    "title": "Luotettu Kumppanisi Verkkokaupan Muutoksessa",
+    "description": "Valitsemalla Brancoyn valitset tulevaisuuden, jossa verkkokauppa-alustasi ei ole vain julkisivu, vaan älykäs kasvumoottori. Huippuluokan HI Enginellämme ja omistautuneella asiantuntijatiimillämme tarjoamme enemmän kuin vain siirron – tarjoamme polun kestävään menestykseen kilpailluilla digitaalisilla markkinoilla. Anna meidän auttaa sinua navigoimaan verkkokaupan monimutkaisuuksissa tarkasti, nopeasti ja tekoälyn avulla."
+  },
+  "cta": {
+    "title": "Valmis Muuttamaan Verkkokauppasi?",
+    "description": "Tutustu, miten Brancoy HI Engine voi nostaa liiketoimintasi uudelle tasolle. Tutustu palveluihimme tai ota yhteyttä tiimiimme tänään.",
+    "buttonServices": "Tutustu Palveluihimme",
+    "buttonContact": "Ota Yhteyttä"
+  }
 }

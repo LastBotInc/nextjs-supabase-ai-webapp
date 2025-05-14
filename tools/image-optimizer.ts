@@ -1,6 +1,6 @@
 import Replicate from 'replicate';
 import dotenv from 'dotenv';
-import { writeFile, readFile } from 'fs/promises';
+import { writeFile, readFile, mkdir } from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
 import yargs from 'yargs';
@@ -93,7 +93,7 @@ async function optimizeImage(options: OptimizeOptions) {
 
     // Ensure output directory exists
     const outputDir = path.dirname(options.output);
-    await require('fs').promises.mkdir(outputDir, { recursive: true });
+    await mkdir(outputDir, { recursive: true });
 
     // Save the processed image
     await pipeline.toFile(options.output);

@@ -25,7 +25,7 @@
     "html-to-md": "NODE_ENV=development tsx tools/html-to-md.ts",
     "tavily-search": "NODE_ENV=development tsx tools/tavily-search.ts",
     "gemini": "NODE_ENV=development tsx tools/gemini.ts",
-    "download-file": "NODE_ENV=development tsx tools/download-file.ts",
+    "download-file": "ts-node tools/download-file.ts",
     "seed:users": "tsx scripts/seed-users.ts --env dev # Uses .env.local",
     "seed:users:local": "tsx scripts/seed-users.ts --env dev",
     "seed:users:prod": "NODE_ENV=production tsx scripts/seed-users.ts --env prod",
@@ -73,7 +73,8 @@
     "github:repo": "NODE_ENV=development tsx tools/github-cli.ts repo",
     "github:workflow": "NODE_ENV=development tsx tools/github-cli.ts workflow",
     "github:tasks": "NODE_ENV=development tsx tools/github-cli.ts tasks",
-    "schema-detector": "NODE_ENV=development tsx tools/schema-detector.ts",
+    "schema-detector": "ts-node tools/schema-detector.ts",
+    "data-source-importer": "tsx tools/data-source-importer.ts",
     "schema-mapper": "NODE_ENV=development tsx tools/schema-mapper-tool.ts",
     "feed-to-shopify": "NODE_ENV=development tsx tools/feed-to-shopify-exporter.ts",
     "shopify-product": "NODE_ENV=development node tools/shopify-product-tool.cjs"

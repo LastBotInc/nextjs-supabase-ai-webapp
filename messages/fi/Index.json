@@ -1,139 +1,95 @@
 {
   "hero": {
-    "title": "Rakenna älykkäitä verkkosovelluksia tekoälyn avulla",
-    "description": "Moderni Next.js‑pohjainen malli, jossa on valmiit tekoälyominaisuudet, kehitystyökalut ja parhaat käytännöt skaalautuvien web‑sovellusten rakentamiseen.",
-    "backgroundAlt": "Abstrakti teknologiatausta",
-    "cta": "Katso GitHubissa",
-    "docs": "Dokumentaatio",
-    "altText": "Abstrakti taustavideo koodi- ja verkkoanimaatioilla"
+    "title": "Siirry & Optimoi Verkkokauppasi Shopifyhin Saumattomasti",
+    "subheadline": "Muunna verkkokauppaliiketoimintasi Brancoy HI Enginellä - älykkäällä tekoälypohjaisella siirtotyökalulla, joka ei ainoastaan siirrä dataasi, vaan myös optimoi sitä jatkuvasti.",
+    "ctaStartMigration": "Aloita Siirto",
+    "ctaScheduleDemo": "Varaa Demo"
   },
-  "agentic": {
-    "title": "Agenttimainen Kehityskehys",
-    "subtitle": "Cursor IDE:lle",
-    "description": "Laajenna ja tehosta Cursorin composer‑agenttia kattavalla päästä‑päähän‑kehityskehyksellä.",
-    "features": {
-      "title": "Parempi Kehityskokemus",
-      "list": {
-        "rules": "Rakenteelliset kehityssäännöt ja ‑mallit",
-        "prompts": "Optimoidut kehotteet koodin generointiin",
-        "tools": "Integroituja työkaluja ja apuohjelmia",
-        "validation": "Automaattinen testaus ja validointi",
-        "docs": "Kattava dokumentaatiogenerointi"
-      }
+  "keyBenefits": {
+    "dataAccuracy": {
+      "title": "100% Datan Tarkkuus",
+      "value": "Varmista virheetön tiedonsiirto."
     },
-    "benefits": {
-      "title": "Keskeiset Hyödyt",
-      "quality": "Parempi koodin laatu ja yhtenäisyys",
-      "completeness": "Laajempi ominaisuuksien kattavuus",
-      "efficiency": "Nopeutettu kehitysprosessi",
-      "standards": "Vahvistetut koodausstandardit ja parhaat käytännöt"
+    "fasterMigration": {
+      "title": "10x Nopeampi Siirto",
+      "value": "Nopeuta siirtymistäsi Shopifyhin."
+    },
+    "aiOptimization": {
+      "title": "24/7 Tekoälyoptimointi",
+      "value": "Jatkuvaa parannusta tekoälyn avulla."
     }
   },
-  "cta": {},
-  "meta": {
-    "title": "Tekoälyä hyödyntävä Next.js‑malli | Moderni web‑kehitys",
-    "description": "Moderni Next.js‑malli, jossa on sisäänrakennettu tekoälytuki, Supabase‑integraatio ja kehitystyökalut skaalautuvien verkkosovellusten luomiseen."
-  },
-  "features": {
-    "title": "Kaikki mitä tarvitset",
-    "description": "Laaja valikoima työkaluja ja ominaisuuksia kehityksen nopeuttamiseen.",
-    "ai": {
-      "title": "Tekoälyintegraatio",
-      "description": "Valmiit integraatiot Google Gemini‑, Recraft‑ ja Tavily‑API‑rajapintoihin sisällön luontia, kuvan­tuotantoa ja älykästä hakua varten."
+  "smartestWay": {
+    "title": "Älykkäin Tapa Siirtyä Shopifyhin",
+    "collectData": {
+      "title": "Kerää Data",
+      "description": "HI Engine kerää turvallisesti tuotteesi, asiakkaasi, tilauksesi ja sisältösi miltä tahansa alustalta. Olitpa sitten WooCommercessa, Magentossa, BigCommercessa, räätälöidyissä järjestelmissä tai integroitumassa ERP-, PIM- tai muihin työkaluihin, HI Engine valmistelee datasi saumattomaan Shopify-integraatioon."
     },
-    "tools": {
-      "title": "Kehitystyökalut",
-      "description": "Modernit työkalut kuvien optimointiin, HTML‑>Markdown‑muunnokseen ja tehokkaaseen tiedostonhallintaan."
+    "analyze": {
+      "title": "Analysoi",
+      "description": "Kun data on kerätty, tekoälymoottorimme tarkistaa ja optimoi sen. Se luo automaattisesti laadukkaita tuotekuvauksia, ehdottaa relevantteja avainsanoja hakukonenäkyvyyteen ja korostaa alueita, joissa dataa voidaan puhdistaa tai parantaa suorituskyvyn lisäämiseksi."
     },
-    "database": {
-      "title": "Tietokanta & Auth",
-      "description": "Saumaton Supabase‑integraatio autentikointiin, reaaliaikaisiin datoihin ja suojattuihin API‑päätepisteisiin."
-    },
-    "i18n": {
-      "title": "Kansainvälistäminen",
-      "description": "Sisäänrakennettu monikielisyystuki next‑intl‑kirjastolla ja tehokas käännösten hallinta."
-    },
-    "performance": {
-      "title": "Suorituskyky",
-      "description": "Optimoitu nopeuteen palvelin­komponenttien, edge‑funktioiden ja tehokkaiden välimuististrategioiden avulla."
-    },
-    "security": {
-      "title": "Turvallisuus",
-      "description": "Parhaat käytännöt turvalliseen autentikointiin, API‑suojaan ja datan käsittelyyn."
+    "localize": {
+      "title": "Paikallista",
+      "description": "Kauppasi ei vain siirry, se laajenee. HI Engine mukauttaa sisältösi, valuuttasi ja hakukoneoptimointisi kuhunkin kohdemarkkinaan käyttäen lokalisoitua kieltä, hinnoittelua ja sävyä, jotta voit todella tavoittaa alueelliset yleisöt heti ensimmäisestä päivästä lähtien."
     }
   },
-  "coreFeatures": {
-    "title": "Ydinominaisuudet",
-    "description": "Kaikki mitä tarvitset täysiverisen verkkosovelluksen rakentamiseen",
-    "auth": {
-      "title": "Autentikointi & Käyttäjät",
-      "description": "Täydellinen käyttäjähallinta Supabase Auth‑integraatiolla, sosiaalisilla kirjautumisilla, suojatuilla reiteillä ja roolipohjaisella käyttöoikeudella.",
-      "feature1": "Sosiaalinen kirjautuminen",
-      "feature2": "Suojatut reitit",
-      "feature3": "Roolipohjainen käyttöoikeus",
-      "feature4": "Käyttäjäprofiilit"
+  "featureDive": {
+    "contentSeo": {
+      "title": "Sisällön & Hakukoneoptimoinnin Optimointi",
+      "description": "Muokkaa kuvien kokoa saumattomasti, vaihda taustoja ja optimoi tekstiä hakukoneoptimointia varten. Google Search Consolen ja Google Trendsin näkemysten avulla visuaalinen ilmeesi ja sisältösi pysyvät hiottuina, hakukoneoptimoituina ja brändisi näkyvyyttä parantavina."
     },
-    "content": {
-      "title": "Sisällönhallinta",
-      "description": "Kattava sisällönhallinta tekoälyavusteisella luomisella ja optimoinnilla.",
-      "feature1": "Tekoälyavusteinen blogijärjestelmä",
-      "feature2": "Mediakirjasto tekoäly­generoinnilla",
-      "feature3": "Resurssien optimointiputki",
-      "feature4": "Landing‑sivujen rakentaja",
-      "feature5": "Hakukoneoptimointi"
+    "collaborate": {
+      "title": "Yhteistyössä Eteenpäin",
+      "description": "Emme korvaa tiimiäsi – teemme yhteistyötä sen kanssa. Brancoyn asiantuntijat ja HI Engine toimivat rinnallasi yhdistäen ihmisen luovuuden ja koneen tarkkuuden ongelmien ratkaisemiseksi, mahdollisuuksien tunnistamiseksi ja kasvun nopeuttamiseksi."
     },
-    "i18n": {
-      "title": "Kansainvälistäminen",
-      "description": "Sisäänrakennettu monikielisyys ja sisällön lokalisointi.",
-      "feature1": "Monikielinen tuki",
-      "feature2": "Käännösten hallinta",
-      "feature3": "Kielenvaihto",
-      "feature4": "Sisällön lokalisointi"
-    },
-    "analytics": {
-      "title": "Analytiikka",
-      "description": "Seuraa ja analysoi käyttäjien toimintaa ja sovelluksen suorituskykyä.",
-      "feature1": "Sivukatselujen seuranta",
-      "feature2": "Tapahtumien seuranta",
-      "feature3": "Istuntojen hallinta",
-      "feature4": "Käyttäjäpolkujen analyysi"
-    },
-    "booking": {
-      "title": "Varausjärjestelmä",
-      "description": "Täydellinen ajanvaraus­järjestelmä kalenterinhallinnalla.",
-      "feature1": "Ajanvaraus",
-      "feature2": "Kalenterinhallinta",
-      "feature3": "Aikavyöhyketuki",
-      "feature4": "Sähköposti­ilmoitukset"
-    },
-    "realtime": {
-      "title": "Reaaliaikaiset Ominaisuudet",
-      "description": "Live‑päivitykset ja yhteistyö­ominaisuudet Supabasen voimalla.",
-      "feature1": "Live‑päivitykset",
-      "feature2": "Datasykronointi",
-      "feature3": "Läsnäolo­indikaattorit",
-      "feature4": "Yhteismuokkaus"
-    },
-    "technical": {
-      "title": "Tekniset Ominaisuudet",
-      "description": "Rakennettu moderneilla teknologioilla ja parhailla käytännöillä.",
-      "feature1": "Moderni käyttöliittymä Tailwind CSS:llä",
-      "feature2": "Tumma/vaalea tila",
-      "feature3": "Tyyppiturvallinen kehitys",
-      "feature4": "Suorituskyky­optimointi",
-      "feature5": "Kattava testaus",
-      "feature6": "Row Level Security",
-      "feature7": "API‑suojaus",
-      "feature8": "Reaaliaikaiset tilaukset"
+    "succeedWithShopify": {
+      "title": "Menesty Shopifyn Kanssa",
+      "description": "Tulos: tulevaisuudenkestävä Shopify-kauppa, joka on rakennettu skaalautumaan. Saat puhtaan, tehokkaan perustan – täysin optimoituna, paikallisesti mukautettuna ja valmiina kasvamaan kanssasi, riippumatta tuoteluettelosi koosta tai globaaleista tavoitteistasi."
     }
   },
-  "getStarted": {
-    "title": "Aloita Rakentaminen Tänään",
-    "description": "Pääset vauhtiin minuuteissa, ei tunneissa.",
-    "step1": "Kloonaa repositorio ja asenna riippuvuudet",
-    "step2": "Määritä ympäristömuuttujat ja API‑avaimet",
-    "step3": "Aloita kehitys sisäänrakennetulla tekoälytuella",
-    "cta": "Katso GitHubissa",
-    "imageAlt": "Illustratio kehitystyökaluista ja ominaisuuksista"
+  "foundation": {
+    "title": "Älykkään Verkkokaupan Perusta",
+    "description": "Shopifyhin siirtyminen Brancoyn kanssa on enemmän kuin vain alustan vaihtaminen. Kyse on tulevaisuuden kasvun, ketteryyden ja älykkyyden perustan rakentamisesta verkkokauppaliiketoimintaasi. Kaikki alkaa ilmaisesta siirtoarvioinnista.",
+    "benefit1": {
+      "title": "Tulevaisuudenkestävä Perusta",
+      "description": "Siirto, joka on suunniteltu tukemaan liiketoimintasi kasvua vuosiksi eteenpäin."
+    },
+    "benefit2": {
+      "title": "Keskity Kasvuun",
+      "description": "Vapauta itsesi teknisistä tehtävistä ja keskity liiketoimintastrategiaan."
+    },
+    "benefit3": {
+      "title": "Skaalautuva Tekoälyvoima",
+      "description": "Olipa sinulla 500 tai 50 000 tuotetta, tekoälymme skaalautuu tarpeidesi mukaan."
+    },
+    "cta": "Pyydä Ilmainen Siirtoarviointi"
+  },
+  "whyAI": {
+    "title": "Miksi Tekoälypohjainen Siirto?",
+    "benefit1": {
+      "value": "100%",
+      "title": "Datan Tarkkuus"
+    },
+    "benefit2": {
+      "value": "10x",
+      "title": "Siirtonopeus"
+    },
+    "benefit3": {
+      "value": "24/7",
+      "title": "Jatkuva Optimointi"
+    }
+  },
+  "socialProof": {
+    "title": "Yrityksesi Kaltaisten Luottama",
+    "placeholder": "Asiakaspalautteet ja logot tulevat tähän."
+  },
+  "finalCta": {
+    "title": "Tutustu Brancoyn Kaupankäyntiin Rakennettuun Tekoälymoottoriin.",
+    "description": "Siirto ei tule koskaan olemaan entisellään. Rakennetaan tulevaisuutesi Shopifyhin, älykkäästi.",
+    "cta": "Aloita Siirtosi"
+  },
+  "footer": {
+    "copyright": "Brancoy © {year}. Kaikki oikeudet pidätetään."
   }
 }

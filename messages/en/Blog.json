@@ -1,7 +1,7 @@
 {
   "title": "Blog",
-  "description": "Latest insights, research, and news from LastBot",
-  "noPosts": "No posts yet. Be the first to write one!",
+  "description": "Latest insights, research, and news from Brancoy HI Engine on AI-powered eCommerce, Shopify best practices, and intelligent migration strategies.",
+  "noPosts": "No posts yet. Stay tuned for insights from Brancoy HI Engine!",
   "similarPosts": "Similar Posts",
   "backToBlog": "Back to Blog",
   "admin": {
@@ -72,6 +72,12 @@
   "deleteComment": "Delete",
   "fetchCommentsError": "Failed to load comments. Please try again.",
   "deleteCommentError": "Failed to delete comment. Please try again.",
-  "subjects": {},
+  "subjects": {
+    "all": "All Articles",
+    "news": "News & Updates",
+    "research": "AI Research",
+    "generative-ai": "Generative AI Insights",
+    "case-stories": "Client Case Stories"
+  },
   "meta": {}
 }

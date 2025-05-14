@@ -26,7 +26,7 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations('Blog')
+  const t = await getTranslations({ locale, namespace: 'Blog' });
 
   return generateLocalizedMetadata(locale, 'Blog', {
     title: t('title'),
@@ -37,12 +37,12 @@ export async function generateMetadata({ params }: Props) {
 }
 
 const subjects = [
-  { id: 'all', label: 'All' },
-  { id: 'news', label: 'News' },
-  { id: 'research', label: 'Research' },
-  { id: 'generative-ai', label: 'Generative AI' },
-  { id: 'case-stories', label: 'Case Stories' }
-]
+  { id: 'all' },
+  { id: 'news' },
+  { id: 'research' },
+  { id: 'generative-ai' },
+  { id: 'case-stories' }
+];
 
 async function getPosts(locale: string, subject?: string) {
   const supabase = await createClient()
@@ -84,7 +84,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog`,
     publisher: {
       '@type': 'Organization',
-      name: 'LastBot Inc',
+      name: 'Brancoy',
       logo: {
         '@type': 'ImageObject',
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/logo.png`,
@@ -100,7 +100,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
       author: {
         '@type': 'Organization',
-        name: 'LastBot Team'
+        name: 'Brancoy Team'
       }
     }))
   }
@@ -116,13 +116,13 @@ export default async function BlogPage({ params, searchParams }: Props) {
         </div>
 
         <div className="flex gap-4 mb-8 overflow-x-auto pb-4">
-          {subjects.map(({ id, label }) => (
+          {subjects.map(({ id }) => (
             <Link
               key={id}
               href={`/${locale}/blog${id === 'all' ? '' : `?subject=${id}`}`}
               className={`px-4 py-2 rounded-full whitespace-nowrap ${
                 subject === id
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#4A90E2] text-white'
                   : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700'
               }`}
             >
@@ -155,7 +155,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
                     </div>
                   )}
                   <div className="p-6">
-                    <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-500">
+                    <h2 className="text-xl font-semibold mb-2 group-hover:text-[#4A90E2]">
                       {post.title}
                     </h2>
                     {post.excerpt && (

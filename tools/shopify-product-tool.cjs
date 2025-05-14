@@ -31,7 +31,7 @@ if (!shopifyShopDomain || !adminAccessToken || !apiKey || !apiSecret) {
 const shopify = shopifyApi({
   apiKey: apiKey,
   apiSecretKey: apiSecret,
-  scopes: ['read_products', 'write_products'], // Adjust scopes as needed
+  scopes: ['read_products', 'write_products', 'read_inventory', 'write_inventory', 'read_product_listings', 'read_price_lists'], // Adjust scopes as needed
   hostName: shopifyShopDomain.replace(/https?:\/\//, ''),
   apiVersion: ApiVersion.April25, // Match client config
   isCustomStoreApp: true, // IMPORTANT for custom app token auth
@@ -643,6 +643,19 @@ program
             key
             value
           }
+          metafields(first: 25) { # Fetch first 25 metafields
+            edges {
+              node {
+                id
+                namespace
+                key
+                type
+                value
+                createdAt
+                updatedAt
+              }
+            }
+          }
         }
       }
     `;
@@ -723,6 +736,7 @@ program
   .option('--tags <tags>', 'Comma-separated list of tags')
   .option('--titleFi <title_fi>', 'Finnish translation for the title')
   .option('--bodyHtmlFi <body_html_fi>', 'Finnish translation for the description (HTML)')
+  .option('--metafields <json_string>', 'JSON string of metafields to set (e.g., \'[{\"key\": \"custom_key\", \"namespace\": \"custom_namespace\", \"type\": \"single_line_text_field\", \"value\": \"value\"}]\')')
   .action(async (options) => {
     console.log(`Creating product manually: ${options.title}`);
     const input = {
@@ -768,6 +782,45 @@ program
         }
         console.log(JSON.stringify(createdProduct, null, 2));
         const productId = createdProduct?.id;
+
+        // --- Set Metafields if provided ---
+        if (productId && options.metafields) {
+          try {
+            const metafieldsToSet = JSON.parse(options.metafields);
+            if (Array.isArray(metafieldsToSet) && metafieldsToSet.length > 0) {
+              const metafieldsWithOwnerId = metafieldsToSet.map(mf => ({ ...mf, ownerId: productId }));
+              console.log(`   Attempting to set ${metafieldsWithOwnerId.length} metafield(s) for new product ${productId}...`);
+              
+              const metafieldsSetMutation = `
+                mutation MetafieldsSet($metafields: [MetafieldsSetInput!]!) {
+                  metafieldsSet(metafields: $metafields) {
+                    metafields {
+                      id
+                      key
+                      namespace
+                      value
+                      type
+                    }
+                    userErrors {
+                      field
+                      message
+                      code
+                    }
+                  }
+                }
+              `;
+              const metafieldsSetResult = await shopifyGraphQL(metafieldsSetMutation, { metafields: metafieldsWithOwnerId });
+              if (metafieldsSetResult.metafieldsSet?.userErrors?.length > 0) {
+                console.error(`   ❌ Error setting metafields:`, JSON.stringify(metafieldsSetResult.metafieldsSet.userErrors, null, 2));
+              } else {
+                console.log(`   ✅ Metafields set successfully:`, JSON.stringify(metafieldsSetResult.metafieldsSet.metafields, null, 2));
+              }
+            }
+          } catch (e) {
+            console.error(`   ❌ Error parsing or setting metafields:`, e.message);
+            console.error(`   Metafields input was: ${options.metafields}`);
+          }
+        }
 
         // --- Register Finnish Translations if provided ---
         if (productId && (options.titleFi || options.bodyHtmlFi)) {
@@ -1114,6 +1167,7 @@ program
   .option('--title <title>', 'New product title')
   .option('--status <status>', 'New product status (ACTIVE, ARCHIVED, DRAFT)')
   .option('--image <url>', 'URL of an image to attach to the product')
+  .option('--metafields <json_string>', 'JSON string of metafields to set (e.g., \'[{\"key\": \"custom_key\", \"namespace\": \"custom_namespace\", \"type\": \"single_line_text_field\", \"value\": \"value\"}]\')')
   // Add more options as needed
   .action(async (options) => {
     console.log(`Updating product: ${options.id}`);
@@ -1127,8 +1181,8 @@ program
     // Remove undefined fields from input
     Object.keys(input).forEach(key => input[key] === undefined && delete input[key]);
 
-    if (Object.keys(input).length <= 1 && !options.image) {
-        console.error("Error: No update fields provided besides ID, and no image URL specified.");
+    if (Object.keys(input).length <= 1 && !options.image && !options.metafields) {
+        console.error("Error: No update fields provided besides ID, and no image URL or metafields specified.");
         process.exit(1);
     }
 
@@ -1160,9 +1214,48 @@ program
           console.log(JSON.stringify(data.productUpdate.product, null, 2));
         }
       } else {
-        console.log("No metadata fields to update. Checking for image upload.");
+        console.log("No metadata fields to update. Checking for image upload and metafields.");
       }
 
+      // --- Metafields Update Logic ---
+      if (options.id && options.metafields) {
+        try {
+          const metafieldsToSet = JSON.parse(options.metafields);
+          if (Array.isArray(metafieldsToSet) && metafieldsToSet.length > 0) {
+            const metafieldsWithOwnerId = metafieldsToSet.map(mf => ({ ...mf, ownerId: options.id }));
+            console.log(`   Attempting to set/update ${metafieldsWithOwnerId.length} metafield(s) for product ${options.id}...`);
+            
+            const metafieldsSetMutation = `
+              mutation MetafieldsSet($metafields: [MetafieldsSetInput!]!) {
+                metafieldsSet(metafields: $metafields) {
+                  metafields {
+                    id
+                    key
+                    namespace
+                    value
+                    type
+                  }
+                  userErrors {
+                    field
+                    message
+                    code
+                  }
+                }
+              }
+            `;
+            const metafieldsSetResult = await shopifyGraphQL(metafieldsSetMutation, { metafields: metafieldsWithOwnerId });
+            if (metafieldsSetResult.metafieldsSet?.userErrors?.length > 0) {
+              console.error(`   ❌ Error setting/updating metafields:`, JSON.stringify(metafieldsSetResult.metafieldsSet.userErrors, null, 2));
+            } else {
+              console.log(`   ✅ Metafields set/updated successfully:`, JSON.stringify(metafieldsSetResult.metafieldsSet.metafields, null, 2));
+            }
+          }
+        } catch (e) {
+          console.error(`   ❌ Error parsing or setting/updating metafields:`, e.message);
+          console.error(`   Metafields input was: ${options.metafields}`);
+        }
+      }
+      
       // --- Image Upload Logic ---
       if (options.image) {
         console.log(`Processing image upload from URL: ${options.image} for product ${options.id}`);
@@ -1398,6 +1491,296 @@ program
     } catch (error) {
         console.error(`Failed to delete product ${options.id}`);
         process.exitCode = 1;
+    }
+  });
+
+// --- Get Collection Command ---
+program
+  .command('get-collection')
+  .description('Get a collection by its ID')
+  .requiredOption('--id <gid>', 'Collection GID (e.g., gid://shopify/Collection/12345)')
+  .action(async (options) => {
+    console.log(`Fetching collection with ID: ${options.id}`);
+    const query = `
+      query GetCollection($id: ID!) {
+        collection(id: $id) {
+          id
+          title
+          handle
+          updatedAt
+          descriptionHtml
+          products(first: 10) {
+            edges {
+              node {
+                id
+                title
+              }
+            }
+          }
+        }
+      }
+    `;
+    try {
+      const data = await shopifyGraphQL(query, { id: options.id });
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+        console.error(`Failed to get collection ${options.id}: ${error.message}`);
+        process.exitCode = 1;
+    }
+  });
+
+// --- Get Price List Command ---
+program
+  .command('get-price-list')
+  .description('Get a price list by its ID')
+  .requiredOption('--id <gid>', 'Price List GID (e.g., gid://shopify/PriceList/12345)')
+  .action(async (options) => {
+    console.log(`Fetching price list with ID: ${options.id}`);
+    const query = `
+      query GetPriceList($id: ID!) {
+        priceList(id: $id) {
+          id
+          name
+          currency
+          parent {
+            adjustment {
+              type
+              value
+            }
+          }
+          prices(first: 10) {
+            nodes {
+              price {
+                amount
+                currencyCode
+              }
+              compareAtPrice {
+                amount
+                currencyCode
+              }
+              variant {
+                id
+                displayName
+              }
+            }
+          }
+        }
+      }
+    `;
+    try {
+      const data = await shopifyGraphQL(query, { id: options.id });
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+        console.error(`Failed to get price list ${options.id}: ${error.message}`);
+        process.exitCode = 1;
+    }
+  });
+
+// --- Get Inventory Item Command ---
+program
+  .command('get-inventory-item')
+  .description('Get an inventory item by its ID')
+  .requiredOption('--id <gid>', 'Inventory Item GID (e.g., gid://shopify/InventoryItem/12345)')
+  .action(async (options) => {
+    console.log(`Fetching inventory item with ID: ${options.id}`);
+    const query = `
+      query GetInventoryItem($id: ID!) {
+        inventoryItem(id: $id) {
+          id
+          sku
+          tracked
+          requiresShipping
+          unitCost {
+            amount
+            currencyCode
+          }
+          countryCodeOfOrigin
+          provinceCodeOfOrigin
+          harmonizedSystemCode
+          updatedAt
+          createdAt
+          variant {
+            id
+            displayName
+          }
+          inventoryLevels(first: 5) {
+            edges {
+              node { # This is an InventoryLevel type
+                id
+                quantities(names: ["available", "on_hand", "committed", "incoming"]) {
+                  name
+                  quantity
+                }
+                location {
+                  id
+                  name
+                }
+                updatedAt # Belongs to InventoryLevel
+              }
+            }
+          }
+        }
+      }
+    `;
+    try {
+      const data = await shopifyGraphQL(query, { id: options.id });
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+        console.error(`Failed to get inventory item ${options.id}: ${error.message}`);
+        process.exitCode = 1;
+    }
+  });
+
+// --- Get Inventory Level Command ---
+program
+  .command('get-inventory-level')
+  .description('Get inventory levels for an inventory item, optionally filtered by a specific location ID in the output')
+  .requiredOption('--inventoryItemId <gid>', 'Inventory Item GID (e.g., gid://shopify/InventoryItem/12345)')
+  .option('--locationId <gid>', '(Optional) Location GID to look for in the output (e.g., gid://shopify/Location/12345)')
+  .action(async (options) => {
+    console.log(`Fetching inventory levels for item ID: ${options.inventoryItemId}${options.locationId ? ` (check for location ID: ${options.locationId} in output)` : ''}`);
+    const query = `
+      query GetInventoryLevelsForItem($inventoryItemId: ID!) {
+        inventoryItem(id: $inventoryItemId) {
+          id
+          sku
+          inventoryLevels(first: 25) { # Get more levels if needed
+            edges {
+              node { # This is an InventoryLevel type
+                id
+                quantities(names: ["available", "on_hand", "committed", "incoming"]) {
+                  name
+                  quantity
+                }
+                location {
+                  id
+                  name
+                }
+                updatedAt
+              }
+            }
+            pageInfo {
+              hasNextPage
+            }
+          }
+        }
+      }
+    `;
+    try {
+      const data = await shopifyGraphQL(query, { inventoryItemId: options.inventoryItemId });
+      if (options.locationId && data.inventoryItem && data.inventoryItem.inventoryLevels) {
+        const specificLevel = data.inventoryItem.inventoryLevels.edges.find(edge => edge.node.location.id === options.locationId);
+        if (specificLevel) {
+          console.log(`--- Specific level for location ${options.locationId} ---`);
+          console.log(JSON.stringify(specificLevel.node, null, 2));
+          console.log(`--- Full inventoryItem data also shown below ---`);
+        } else {
+          console.log(`NOTE: Inventory level for location ${options.locationId} not found among the first 25 levels. Full list shown below.`);
+        }
+      }
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+        console.error(`Failed to get inventory levels for item ${options.inventoryItemId}: ${error.message}`);
+        process.exitCode = 1;
+    }
+  });
+
+// --- Adjust Inventory Command ---
+program
+  .command('adjust-inventory')
+  .description('Adjust inventory quantities for an item at a location')
+  .requiredOption('--inventoryItemId <gid>', 'Inventory Item GID')
+  .requiredOption('--locationId <gid>', 'Location GID')
+  .requiredOption('--availableDelta <number>', 'Change in available quantity (e.g., 5 or -2)', parseInt)
+  .option('--reason <reason>', 'Reason for adjustment', 'correction')
+  .action(async (options) => {
+    console.log(`Adjusting inventory for item ${options.inventoryItemId} at location ${options.locationId} by ${options.availableDelta}`);
+    const mutation = `
+      mutation InventoryAdjustQuantities($input: InventoryAdjustQuantitiesInput!) {
+        inventoryAdjustQuantities(input: $input) {
+          inventoryAdjustmentGroup {
+            id
+            reason
+            createdAt
+            changes {
+              name
+              delta
+              quantityAfterChange
+              item {
+                id
+              }
+              location {
+                id
+              }
+            }
+          }
+          userErrors {
+            field
+            message
+            code
+          }
+        }
+      }
+    `;
+    const input = {
+      reason: options.reason,
+      name: "available", // Specify which quantity is being adjusted (e.g., available, on_hand)
+      changes: [{
+        inventoryItemId: options.inventoryItemId,
+        locationId: options.locationId,
+        delta: options.availableDelta
+      }]
+    };
+    try {
+      const data = await shopifyGraphQL(mutation, { input });
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+      console.error(`Failed to adjust inventory for item ${options.inventoryItemId}: ${error.message}`);
+      process.exitCode = 1;
+    }
+  });
+
+// --- Set Inventory Command ---
+program
+  .command('set-inventory')
+  .description('Set inventory quantities for an item at a location')
+  .requiredOption('--inventoryItemId <gid>', 'Inventory Item GID')
+  .requiredOption('--locationId <gid>', 'Location GID')
+  .requiredOption('--availableQuantity <number>', 'New available quantity (e.g., 100)', parseInt)
+  .option('--reason <reason>', 'Reason for setting quantity', 'correction')
+  .action(async (options) => {
+    console.log(`Setting inventory for item ${options.inventoryItemId} at location ${options.locationId} to ${options.availableQuantity}`);
+    const mutation = `
+      mutation InventorySetQuantities($input: InventorySetQuantitiesInput!) {
+        inventorySetQuantities(input: $input) {
+          inventoryAdjustmentGroup {
+            id
+            reason
+            createdAt
+          }
+          userErrors {
+            field
+            message
+            code
+          }
+        }
+      }
+    `;
+    const input = {
+      reason: options.reason,
+      name: "available", // Set the 'available' quantity
+      quantities: [{ // Correct field name is 'quantities'
+        inventoryItemId: options.inventoryItemId,
+        locationId: options.locationId,
+        quantity: options.availableQuantity
+      }]
+    };
+    try {
+      const data = await shopifyGraphQL(mutation, { input });
+      console.log(JSON.stringify(data, null, 2));
+    } catch (error) {
+      console.error(`Failed to set inventory for item ${options.inventoryItemId}: ${error.message}`);
+      process.exitCode = 1;
     }
   });
 

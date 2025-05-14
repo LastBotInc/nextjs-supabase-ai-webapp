@@ -1,302 +1,171 @@
-# Frontend Documentation
+# Frontend Documentation - Brancoy HI Engine
+
+## Overall Philosophy
+The frontend for Brancoy HI Engine should project intelligence, efficiency, and reliability. The UI will be clean, modern, and intuitive, guiding users through the migration and optimization process seamlessly. The design will be data-driven, with clear visualizations of progress and AI-driven insights.
+
+## Target Users
+1.  **eCommerce Businesses/Clients:** Companies looking to migrate to Shopify and optimize their online store. They need a clear understanding of the process, progress, and the value HI Engine provides.
+2.  **Brancoy Admin/Experts:** Internal team members who manage migration projects, configure the HI Engine, and collaborate with clients.
 
 ## Views/Screens
 
-### Public Pages (`/[locale]`)
+### Public-Facing Pages (`/[locale]`)
 
-1. Home Page (`/`)
-   - Template features showcase
-   - Getting started guide
-   - Documentation links
-   - GitHub repository link
+1.  **Homepage (`/`)** (based on `https://brancoy.fi/pages/brancoy-hi-engine`)
+    *   **Hero Section:** Headline: "Seamlessly Migrate & Optimize Your eCommerce to Shopify". Sub-headline explaining the HI Engine. CTA buttons: "Start Migration" and "Schedule a Demo". Visuals representing AI and Shopify.
+    *   **Key Benefits Bar:** "100% Data Accuracy", "10x Faster Migration", "24/7 AI Optimization".
+    *   **"The Smartest Way to Move to Shopify" Section:**
+        *   **Collect Data:** Explanation and visuals (platform logos like WooCommerce, Magento, BigCommerce).
+        *   **Analyze:** Explanation of AI review and optimization (product descriptions, keywords).
+        *   **Localize:** Explanation of content, currency, and SEO adaptation for target markets.
+    *   **Feature Deep Dive Sections:**
+        *   **Content & SEO Optimization:** Image resizing, background editing, text optimization with Google Search Console/Trends insights.
+        *   **Collaborate Together:** Emphasize partnership between Brancoy experts, HI Engine, and client teams.
+        *   **Succeed with Shopify:** Focus on the future-proof, scalable, optimized store.
+    *   **"The Foundation for Intelligent eCommerce" Section:** Benefits like Future-Proof Foundation, Focus on Growth, Scalable AI Power. Call for a free migration assessment.
+    *   **"Why AI-Powered Migration?" Section:** Reinforce data accuracy, migration speed, ongoing optimization.
+    *   **Social Proof/Testimonials (Optional):** Quote from Co-Founder or client testimonials.
+    *   **Final CTA:** "Meet the Brancoy AI engine built for commerce. Migration will never be the same." CTA: "Start Migration".
+    *   **Footer:** Contact info, service links, privacy policy, newsletter signup.
 
-2. Blog Page (`/blog`)
-   - Article listings
-   - Categories
-   - Search functionality
-   - Featured posts
-   - AI-enhanced content
+2.  **Services Pages (e.g., `/services/shopify-migration`, `/services/ecommerce-optimization`)**
+    *   Detailed descriptions of specific services offered through the HI Engine.
+    *   Case studies or examples.
+    *   Specific CTAs related to the service.
 
-3. Privacy Page (`/privacy`)
-   - Privacy policy
-   - Data handling
-   - Cookie information
+3.  **Blog (`/blog`)**
+    *   Articles on eCommerce trends, Shopify best practices, AI in commerce, migration tips.
+    *   Categorization and search functionality.
 
-4. Preview Page (`/preview/[id]`)
-   - Content preview
-   - Share functionality
-   - Version comparison
+4.  **About Us (`/about`)**
+    *   Brancoy's mission, team, and expertise.
 
-5. Public Booking Page (`/book/[userId]`)
-   - Month view calendar
-   - Available time slots for selected date
-   - Timezone selector
-   - Booking form with fields:
-     - Name
-     - Email
-     - Company (optional)
-     - Description/Agenda (optional)
-   - Confirmation screen
-   - Success/Error messages
-   - Responsive design for all devices
+5.  **Contact Us (`/contact`)**
+    *   Contact form, email addresses, and location information (Helsinki, Stockholm).
 
-6. Landing Page (`/[slug]`)
-   - Concept: "AI-Powered Growth Engine"
-   - Theme: Dark theme consistent with admin, using brand gradients for highlights.
-   - Fonts: Geist Sans (headings), Inter (body).
-   - Structure:
-     - Hero Section: Large gradient headline, sub-headline, dynamic abstract background (using `public/images/landing-hero-bg.png`), prominent gradient CTA button.
-     - Problem/Solution Section: Two-column layout contrasting user pain points with AI solutions.
-     - Key Features Section: Grid of dark cards showcasing features like Predictive Keyword Research, Content Optimization, etc.
-     - Social Proof/Trust Section: Logos, testimonials, or key results.
-     - How It Works Section (Optional): Simple 3-step graphic/list.
-     - Final CTA Section: Reinforce value proposition, repeat prominent gradient CTA button, trust statement.
-   - Styling: Tailwind CSS, leveraging configured theme colors and fonts.
+6.  **Privacy Policy (`/privacy`) & Terms of Service (`/terms`)**
 
-### Admin Pages (`/[locale]/admin`)
+### Client Portal (Authenticated - `/[locale]/portal`)
 
-1. Dashboard (`/admin`)
-   - Overview statistics
-   - Quick actions
-   - Recent activity
+1.  **Dashboard (`/portal/dashboard`)**
+    *   Overview of current migration project status (e.g., Data Collection: 100%, Analysis: 75%, Localization: In Progress).
+    *   Key AI-driven insights and recommendations.
+    *   Quick links to relevant sections (e.g., Review Product Data, Approve SEO Keywords).
+    *   Communication panel with Brancoy team.
 
-2. Blog Management (`/admin/blog`)
-   - Post editor with AI assistance
-   - Post list
-   - Category management
-   - Media library
-   - AI image generation
+2.  **Project Details (`/portal/project/:projectId`)**
+    *   **Data Collection Status:** View connected sources, data sync progress.
+    *   **Analysis & Optimization Review:**
+        *   Product data: View AI-generated descriptions, keyword suggestions. Approve or request revisions.
+        *   SEO Review: View proposed SEO strategies, target keywords.
+        *   Image Review: View optimized images, background removal results.
+    *   **Localization Hub:**
+        *   Select target markets/languages.
+        *   Review localized content, pricing.
+    *   **Migration Progress Tracker:** Detailed view of migration stages and timelines.
+    *   **Reporting:** Access reports on data accuracy, optimization impact.
 
-3. User Management (`/admin/users`)
-   - User list
-   - Role management
-   - Access control
-   - Profile management
+3.  **Account Settings (`/portal/account`)**
+    *   Profile information.
+    *   Notification preferences.
 
-4. Media Management (`/admin/media`)
-   - Media asset library
-   - Folder organization
-   - AI image generation
-   - Optimization tools
+### Brancoy Admin Panel (Authenticated - `/[locale]/admin`)
 
-5. Analytics Dashboard (`/admin/analytics`)
-   - Page view tracking
-   - User behavior
-   - Performance metrics
-   - Custom reports
+1.  **Admin Dashboard (`/admin/dashboard`)**
+    *   Overview of all active client projects.
+    *   Key performance indicators for HI Engine.
+    *   System alerts and notifications.
 
-6. Calendar Management (`/admin/calendar`)
-   - Calendar view with booked/available slots
-   - Settings panel:
-     - Default meeting duration
-     - Buffer times
-     - Working hours
-     - Blocked dates
-     - Timezone settings
-   - Upcoming meetings list
-   - Past meetings history
-   - Quick actions:
-     - Block time slots
-     - Cancel meetings
-     - Copy booking link
+2.  **Client Management (`/admin/clients`)**
+    *   List of all clients and their projects.
+    *   Create new client projects, configure initial settings.
 
-7. Contact Management (`/admin/contacts`)
-   - Contact list
-   - Status tracking
-   - Communication history
-   - Task management
+3.  **Project Management (`/admin/projects/:projectId`)**
+    *   Detailed view of a specific client project (similar to client portal but with more control).
+    *   Configure AI model parameters for the project.
+    *   Manage data connectors and ETL processes.
+    *   Oversee and approve/override AI suggestions.
+    *   Manual data input/correction tools.
+    *   Communication log with the client.
 
-8. Landing Pages (`/admin/landing-pages`)
-   - Page builder
-   - Template management
-   - SEO settings
-   - Performance tracking
+4.  **HI Engine Configuration (`/admin/engine-settings`)**
+    *   Manage AI model versions and settings (Gemini, image processing models).
+    *   Configure platform integrations (Google Search Console, etc.).
+    *   Manage localization rules and translation memory.
 
-9. Translation Management (`/admin/translations`)
-   - Language settings
-   - Translation editor
-   - Import/Export
-   - Missing keys tracking
+5.  **User Management (`/admin/users`)**
+    *   Manage Brancoy team member accounts and roles.
 
-## UI/UX Patterns
+6.  **Content Management (for public site - `/admin/content`)**
+    *   Manage blog posts, service pages, etc.
 
-### Design System
-- Colors:
-  - Primary Gradient Colors:
-    - Pink: #E078F9
-    - Purple: #B800DF
-    - Indigo: #824BFC
-    - Light Blue: #767FFF
-    - Blue: #2B39FF
-    - Deep Purple: #5D00F8
-    - Cyan: #8BFCFF
-  - Base Colors:
-    - White: #FFFFFF
-    - Dark Gray: #262626
-    - Medium Gray: #6B6B6B
-  - Gradients:
-    - Primary: bg-gradient-to-r from-[#E078F9] via-[#2B39FF] to-[#8BFCFF]
-    - Secondary: bg-gradient-to-r from-[#E078F9] to-[#2B39FF]
-  - Dark Mode:
-    - Background: #262626
-    - Card Background: #1F1F1F
-    - Text: #FFFFFF
+7.  **Data Synchronization Management (`/admin/data-sync`)**
+    *   **Data Sources List View (`/admin/data-sync/page.tsx`):**
+        *   Displays a table of all configured `data_sources`.
+        *   Columns: Name/Identifier (link to detail), Feed URL, Type, Status (badge), Last Fetched, Last Schema Update.
+        *   Actions per row: "Trigger Sync Now", "View Logs/Details".
+        *   Fetches data from `GET /api/admin/data-sources`.
+    *   **Data Source Detail View (`/admin/data-sync/[id]/page.tsx`):**
+        *   Displays all details of a specific data source.
+        *   Shows `detected_schema` (pretty-printed JSON).
+        *   Shows `error_message` if present.
+        *   Action: "Trigger Sync Now" for this specific source.
+        *   (Future) Sync History/Logs section: Table of past sync attempts, status, items processed, errors, duration.
+        *   Fetches data from `GET /api/admin/data-sources/[id]`.
 
-- Typography:
-  - Headings: Geist Sans
-  - Body: Inter
-  - Code: Geist Mono
-  
-- Heading Styles:
-  - Main Headings (H1):
-    - Font: Geist Sans
-    - Size: text-5xl (3rem) on mobile, text-6xl (3.75rem) on desktop
-    - Weight: font-extrabold
-    - Line Height: leading-[1.1] (1.1)
-    - Gradient: bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
-    - Style: bg-clip-text text-transparent
-    - Margin Bottom: mb-6
-    - Container: max-w-4xl mx-auto text-center
-    - Tracking: tracking-tight
+## UI/UX Patterns for Brancoy HI Engine
 
-  - Section Headings (H2):
-    - Font: Geist Sans
-    - Size: text-4xl (2.25rem)
-    - Weight: font-bold
-    - Color: text-white with gradient background
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects: 
-      - Scale: transform hover:scale-105
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+### Design Philosophy
+*   **Clarity & Trust:** The UI must clearly communicate complex AI processes and build trust through transparency.
+*   **Efficiency:** Streamline workflows for both clients and Brancoy admins.
+*   **Intelligence Made Visible:** Visualize AI insights and the impact of optimizations effectively.
 
-  - Content Headings (H3):
-    - Font: Geist Sans
-    - Size: text-2xl (1.5rem)
-    - Weight: font-bold
-    - Color: text-white
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects:
-      - Scale: transform hover:scale-105
-      - Text Gradient: group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+### Branding Consistency (referencing the provided UI image and `https://brancoy.fi/pages/brancoy-hi-engine`)
+*   **Color Palette:** The design will feature a predominantly light and airy theme with clean white and light gray backgrounds. This will be contrasted with dedicated dark sections (charcoal/dark gray) for specific emphasis or content blocks.
+    *   **Primary Backgrounds:** White (e.g., `#FFFFFF`), Light Gray (e.g., `#F3F4F6` or `#E5E7EB`).
+    *   **Dark Section Backgrounds:** Dark Gray/Charcoal (e.g., `#1F2937`, `#111827`).
+    *   **Text on Light Backgrounds:** Dark Gray/Black (e.g., `#1F2937`, `#374151`).
+    *   **Text on Dark Backgrounds:** White/Light Gray (e.g., `#F9FAFB`, `#E5E7EB`).
+    *   **Primary Accent (Brand Blue):** A medium, clear blue (e.g., `#3B82F6` or similar to the blue in buttons and highlights in the image). Used for CTAs, links, active states, and key highlights.
+    *   **Secondary Accent (Subtle Orange/Coral):** A muted orange or coral (as seen in one of the feature icons in the image) can be used sparingly for specific iconography or calls to attention where differentiation is needed.
+    *   **CTAs (Buttons):**
+        *   Primary CTA: Solid brand blue background with white text, rounded corners.
+        *   Secondary CTA: White background with a brand blue border and brand blue text, rounded corners.
+        *   Dark CTA (on light backgrounds, for specific actions): Solid dark gray/black background with white text, rounded corners (e.g., "Start Migration" in the final CTA section of the image).
+    *   **Gradients:** Subtle gradients can be used for larger background areas or specific highlights, often incorporating shades of blue or gray.
+*   **Typography:** Modern, clean sans-serif fonts.
+    *   Headings: A strong, clear sans-serif (e.g., Inter, Manrope, or similar to the image). Weights will vary for hierarchy (e.g., Bold, Semibold).
+    *   Body Text: Highly readable sans-serif, ensuring good contrast and legibility.
+*   **Iconography:** Clean, modern, and professional icons. Often two-toned or monochromatic, matching the accent colors or a neutral gray.
+*   **Imagery/Visuals:** High-quality product mockups, abstract representations of data/AI, UI screenshots. Maintain a professional and polished look.
+    *   Shadows: Subtle box shadows on cards and interactive elements to create depth.
 
-- Components:
-  - Buttons:
-    - Primary: Purple fill
-    - Secondary: Purple outline
-    - Ghost: Transparent with hover
-  - Cards:
-    - White background
-    - Subtle shadow
-    - Rounded corners
-  - Forms:
-    - Clean, minimal design
-    - Inline validation
-    - Clear error states
+### Key UI Components
+*   **Dashboards:** Modular cards displaying key metrics, progress bars, and quick actions.
+*   **Data Tables & Lists:** Clean, sortable, and filterable tables for product data, client lists, etc. Inline editing where appropriate.
+*   **Progress Indicators:** Visual cues for migration stages, AI processing, data loading.
+*   **AI Suggestion Cards:** Clearly present AI-generated content (e.g., product descriptions) with options to accept, edit, or reject.
+*   **Comparison Views:** Side-by-side display of original vs. AI-optimized content/images.
+*   **Interactive Charts & Graphs:** Visualize data accuracy, SEO improvements, migration speed.
+*   **Forms:** Intuitive and clean forms for project setup, configuration, and client input.
+*   **Notifications & Alerts:** Non-intrusive but clear notifications for important events or required actions.
 
-### Responsive Design
-- Mobile-first approach
-- Breakpoints:
-  - sm: 640px
-  - md: 768px
-  - lg: 1024px
-  - xl: 1280px
-  - 2xl: 1536px
-
-### Animations
-- Subtle hover effects
-- Smooth page transitions
-- Loading states
-- Micro-interactions
-
-### Accessibility
-- WCAG 2.1 AA compliance
-- Keyboard navigation
-- Screen reader support
-- High contrast mode
-- Focus indicators
+### UX Principles
+*   **Guided Workflows:** Lead users through complex processes step-by-step.
+*   **Feedback & Transparency:** Provide clear feedback on actions and system status. Explain *why* AI makes certain suggestions.
+*   **Contextual Information:** Offer tooltips, help icons, and brief explanations for technical terms or AI features.
+*   **Role-Based Views:** Tailor the interface and available actions based on whether the user is a client or a Brancoy admin.
+*   **Mobile Responsiveness:** Ensure key information and actions are accessible on tablets for client review, and potentially on mobile for Brancoy admin quick checks.
 
 ## Styling Approach
-
-1. Tailwind CSS
-   - Custom configuration
-   - Component classes
-   - Utility-first approach
-   - Dark mode support
-
-2. CSS Modules
-   - For complex components
-   - Animation keyframes
-   - Custom properties
-
-3. CSS-in-JS (styled-components)
-   - Dynamic styling
-   - Theme provider
-   - Global styles
+*   **Tailwind CSS:** Primary styling framework, configured with the Brancoy HI Engine brand colors and typography.
+*   **CSS Modules:** For component-specific styles that are complex or require more isolation.
+*   **Headless UI Components (e.g., Radix UI, Headless UI):** For accessible, unstyled primitives to build custom components upon.
 
 ## Internationalization
-
-The application supports multiple languages using next-intl with a modular namespace-based approach:
-
-### Locale File Structure
-
-```
-messages/
-├── en/                  # English translations
-│   ├── Index.json       # Homepage-related translations
-│   ├── Footer.json      # Footer-related translations
-│   ├── Blog.json        # Blog-related translations
-│   └── ...              # Other feature namespaces
-├── fi/                  # Finnish translations (same namespace structure)
-├── sv/                  # Swedish translations (same namespace structure)
-├── backup/              # Backup of original monolithic files
-├── localization-report.md  # Report on namespace coverage across locales
-└── README.md            # Documentation about the localization structure
-```
-
-### Using Translations
-
-Translations are organized by namespace, making it easier to:
-- Locate translations for specific features
-- Compare translations across languages
-- Maintain consistency within logical sections
-
-### Translation Workflow
-
-1. Identify the appropriate namespace for the UI element
-2. Add the key to the corresponding namespace file in all supported locales
-3. Use namespaced keys in components: `t('Namespace.section.key')`
-4. Run `npm run check-translations` periodically to ensure completeness
-
-### Translation Management Scripts
-
-- `npm run split-locales`: Splits monolithic locale files into namespace-based files
-- `npm run check-translations`: Validates translation completeness across locales
-- `npm run import-translations:local/prod`: Imports translations from external sources
+*   The platform must support multiple languages (initially English, Finnish, Swedish as per the Brancoy site).
+*   Follow the existing `messages/` structure for translations, with namespaces relevant to HI Engine features (e.g., `Dashboard.json`, `ProjectSetup.json`, `ProductOptimization.json`).
 
 ## Performance Optimization
-
-1. Image Optimization
-   - Next.js Image component
-   - Responsive images
-   - WebP format
-   - Lazy loading
-
-2. Code Splitting
-   - Route-based splitting
-   - Component lazy loading
-   - Dynamic imports
-
-3. Caching Strategy
-   - Static page generation
-   - Incremental Static Regeneration
-   - API response caching
-
-4. Core Web Vitals
-   - LCP optimization
-   - FID improvement
-   - CLS minimization
+*   Standard Next.js best practices: Image optimization, code splitting, lazy loading.
+*   Efficient data fetching and state management, especially for large datasets in the client/admin portals.

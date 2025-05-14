@@ -26,5 +26,50 @@
     }
   },
   "form": {},
-  "meta": {}
+  "meta": {
+    "title": "About Brancoy | Intelligent eCommerce Solutions",
+    "description": "Learn about Brancoy, our mission to revolutionize eCommerce migration and optimization with the HI Engine, our team, and our core values."
+  },
+  "hero": {
+    "title": "About Brancoy: Driving eCommerce Forward with Intelligence",
+    "subheadline": "We are pioneers in AI-powered eCommerce solutions, dedicated to transforming how businesses migrate and thrive on Shopify with our groundbreaking HI Engine."
+  },
+  "ourStory": {
+    "title": "Our Journey & Vision",
+    "paragraph1": "Founded by a team of seasoned eCommerce experts and AI innovators, Brancoy was born from a desire to solve the most complex challenges in online retail. We saw businesses struggling with outdated migration processes and untapped optimization potential.",
+    "paragraph2": "Our vision is to empower every eCommerce business with the intelligence to not just transition platforms, but to transform their entire operation. The Brancoy HI Engine is the culmination of this vision, a sophisticated platform designed for seamless migration, continuous optimization, and sustainable growth."
+  },
+  "team": {
+    "title": "The Minds Behind Brancoy HI Engine",
+    "description": "The Brancoy team is a blend of passionate eCommerce strategists, data scientists, AI engineers, and client success advocates. We bring decades of collective experience from the front lines of online retail and cutting-edge technology development. Our diverse expertise fuels the innovation within the HI Engine and ensures our clients receive unparalleled support and strategic guidance."
+  },
+  "values": {
+    "title": "What Drives Us",
+    "value1": {
+      "title": "Innovation at Core",
+      "description": "We relentlessly pursue technological advancements to provide our clients with the most intelligent and effective solutions."
+    },
+    "value2": {
+      "title": "Client Success Focused",
+      "description": "Your growth is our priority. We partner with you to ensure the HI Engine delivers tangible results and a competitive edge."
+    },
+    "value3": {
+      "title": "Uncompromising Efficiency",
+      "description": "We streamline complex processes, saving you time and resources, so you can focus on what you do best."
+    },
+    "value4": {
+      "title": "Deep Expertise",
+      "description": "Our profound understanding of eCommerce and AI allows us to anticipate challenges and unlock new opportunities for your business."
+    }
+  },
+  "whyPartner": {
+    "title": "Your Trusted Partner in eCommerce Transformation",
+    "description": "Choosing Brancoy means choosing a future where your eCommerce platform is not just a storefront, but an intelligent engine for growth. With our cutting-edge HI Engine and dedicated team of experts, we provide more than just migration – we deliver a pathway to sustained success in the competitive digital marketplace. Let us help you navigate the complexities of eCommerce with precision, speed, and AI-powered insight."
+  },
+  "cta": {
+    "title": "Ready to Transform Your eCommerce?",
+    "description": "Discover how the Brancoy HI Engine can elevate your business. Explore our services or get in touch with our team today.",
+    "buttonServices": "Explore Our Services",
+    "buttonContact": "Contact Us"
+  }
 }

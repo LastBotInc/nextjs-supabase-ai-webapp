@@ -548,7 +548,155 @@ mcp_supabase_query
         "commander package",
         "axios package"
       ],
-      "example": "npm run shopify-product -- generate -a 3 -i \"High-quality eco-friendly water bottles\""
+      "example": "npm run shopify-product -- generate -a 3 -i \\"High-quality eco-friendly water bottles\\""
+    },
+    "shopify-orders-tool": {
+      "description": "Manage Shopify orders using the Admin API.",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-orders-tool.cjs",
+      "options": {
+        "list": {
+          "description": "List orders with various filters",
+          "options": {
+            "limit": "(Optional) Number of orders to list (default: 10)",
+            "query": "(Optional) Shopify search query string (e.g., \\"status:open financial_status:paid\\")",
+            "sort-key": "(Optional) Sort key (e.g., PROCESSED_AT, TOTAL_PRICE, UPDATED_AT) (default: PROCESSED_AT)",
+            "reverse": "(Optional) Reverse the sort order (default: false)",
+            "fields": "(Optional) Comma-separated list of fields to retrieve (e.g., id,name,totalPriceSet.shopMoney.amount)",
+            "cursor": "(Optional) Cursor for pagination (for \\"after\\")"
+          },
+          "example": "node tools/shopify-orders-tool.cjs list --limit 5 --query \\"financial_status:paid\\" --sort-key TOTAL_PRICE --reverse"
+        },
+        "get": {
+          "description": "Get a single order by its ID",
+          "options": {
+            "id": "Required: Order GID (e.g., gid://shopify/Order/12345)",
+            "fields": "(Optional) Comma-separated list of fields to retrieve"
+          },
+          "example": "node tools/shopify-orders-tool.cjs get --id gid://shopify/Order/1234567890"
+        },
+        "get-fulfillment": {
+          "description": "Get a specific fulfillment by its ID",
+          "options": {
+            "id": "Required: Fulfillment GID (e.g., gid://shopify/Fulfillment/12345)"
+          },
+          "example": "node tools/shopify-orders-tool.cjs get-fulfillment --id gid://shopify/Fulfillment/1234567890"
+        },
+        "get-fulfillment-order": {
+          "description": "Get a specific fulfillment order by its ID",
+          "options": {
+            "id": "Required: FulfillmentOrder GID (e.g., gid://shopify/FulfillmentOrder/12345)"
+          },
+          "example": "node tools/shopify-orders-tool.cjs get-fulfillment-order --id gid://shopify/FulfillmentOrder/1234567890"
+        },
+        "create-fulfillment": {
+          "description": "Create a fulfillment for an order (fulfillmentCreateV2).",
+          "options": {
+            "order-gid": "Required: Order GID to fulfill (e.g., gid://shopify/Order/12345)",
+            "line-items": "(Optional) JSON string of line items to fulfill (e.g., '[{\\"fulfillmentOrderId\\": \\"gid://shopify/FulfillmentOrder/FO_ID\\", \\"fulfillmentLineItemId\\": \\"gid://shopify/FulfillmentOrderLineItem/ITEM_ID\\", \\"quantity\\": 1}]'). See tool's --help for more details.",
+            "tracking-company": "(Optional) Tracking company name",
+            "tracking-number": "(Optional) Tracking number",
+            "tracking-url": "(Optional) Tracking URL",
+            "notify-customer": "(Optional) Whether to notify the customer (default: true)",
+            "location-id": "(Optional) Location GID from which to fulfill."
+          },
+          "example": "node tools/shopify-orders-tool.cjs create-fulfillment --order-gid gid://shopify/Order/ORDER_GID --line-items \\'[{\\"fulfillmentOrderId\\":\\"gid_FO\\",\\"fulfillmentLineItemId\\":\\"gid_FOLI\\",\\"quantity\\":1}]\\' --tracking-company ExampleShipping --tracking-number 123XYZ"
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local",
+        "SHOPIFY_API_KEY in .env.local",
+        "SHOPIFY_API_SECRET in .env.local",
+        "@shopify/shopify-api package",
+        "commander package",
+        "dotenv package"
+      ]
+    },
+    "shopify-localisation-tool": {
+      "description": "Manage Shopify store localizations and translations using the Admin API.",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-localisation-tool.cjs",
+      "options": {
+        "list-shop-locales": {
+          "description": "List locales enabled on the shop.",
+          "options": {
+            "published": "(Optional) Boolean (true/false). Return only published locales."
+          },
+          "example": "node tools/shopify-localisation-tool.cjs list-shop-locales --published true"
+        },
+        "list-available-locales": {
+          "description": "List all locales available on Shopify.",
+          "example": "node tools/shopify-localisation-tool.cjs list-available-locales"
+        },
+        "update-shop-locale": {
+          "description": "Updates a locale for a shop (e.g., publish or unpublish).",
+          "options": {
+            "locale": "Required: ISO code of the locale to update (e.g., fr, de).",
+            "publish": "(Optional) Publish the locale.",
+            "unpublish": "(Optional) Unpublish the locale."
+          },
+          "example": "node tools/shopify-localisation-tool.cjs update-shop-locale --locale fr --publish"
+        },
+        "pull-translations": {
+          "description": "Pull translations for a specific resource GID and locale.",
+          "options": {
+            "gid": "Required: The GID of the resource (e.g., product, collection). Example: 'gid://shopify/Product/1234567890'",
+            "locale": "Required: The target locale to pull translations for (e.g., fr, de).",
+            "source-locale": "(Optional) The source locale for digests (default: en)."
+          },
+          "example": "node tools/shopify-localisation-tool.cjs pull-translations --gid gid://shopify/Product/1234567890 --locale fr"
+        },
+        "push-translations": {
+          "description": "Push translations for a specific resource GID and locale from local file.",
+          "options": {
+            "gid": "Required: The GID of the resource to push translations for. Example: 'gid://shopify/Product/1234567890'",
+            "locale": "Required: The target locale to push translations for (e.g., fr, de)."
+          },
+          "example": "node tools/shopify-localisation-tool.cjs push-translations --gid gid://shopify/Product/1234567890 --locale fr"
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local",
+        "SHOPIFY_API_KEY in .env.local",
+        "SHOPIFY_API_SECRET in .env.local",
+        "@shopify/shopify-api package",
+        "commander package",
+        "dotenv package"
+      ]
+    },
+    "shopify-pull-all-typed-translations": {
+      "description": "Pulls all translations for specified resource types from the shop for specified locales, saving them into separate JSON files per resource type within each locale's directory (e.g., messages/en/shopify_products.json).",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-localisation-tool.cjs pull-all-typed-translations",
+      "options": {
+          "locales": "Required: Comma-separated list of target locales (e.g., en,fi,sv).",
+          "resource-types": "Required: Comma-separated list of resource types (e.g., PRODUCTS,COLLECTIONS,ARTICLES).",
+          "source-locale": "(Optional) The source locale for digests (default: en)."
+      },
+      "example": "node tools/shopify-localisation-tool.cjs pull-all-typed-translations --locales en,fi --resource-types PRODUCTS,COLLECTIONS"
+    },
+    "data-source-importer": {
+      "description": "Fetches a data feed, detects its schema using Gemini, and imports it as a new data source into the Supabase 'data_sources' table.",
+      "tool": "run_terminal_cmd",
+      "command": "npm run data-source-importer --",
+      "options": {
+        "url": "Required: URL of the data feed to import.",
+        "type": "(Optional) Type of the data source (e.g., product_feed, inventory_feed, customer_data). Default: product_feed."
+      },
+      "requires": [
+        "GOOGLE_AI_STUDIO_KEY in .env.local",
+        "NEXT_PUBLIC_SUPABASE_URL in .env.local",
+        "SUPABASE_SERVICE_ROLE_KEY in .env.local",
+        "@google/genai package",
+        "@supabase/supabase-js package",
+        "commander package",
+        "node-fetch package",
+        "xml2js package",
+        "dotenv package"
+      ],
+      "example": "npm run data-source-importer -- --url https://example.com/api/products.json --type product_feed"
     }
   }
 }

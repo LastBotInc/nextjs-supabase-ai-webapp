@@ -22,65 +22,67 @@ export interface BrandVoice {
 }
 
 export const brandInfo: BrandVoice = {
-  name: "LastBot",
-  description: "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions that empower businesses in their digital transformation journey.",
+  name: "Brancoy HI Engine",
+  description: "Brancoy HI Engine is an intelligent AI-powered migration and optimization tool that transforms your eCommerce business for Shopify. It doesn't just move your data, but continuously optimizes it, providing the smartest way to move to Shopify.",
   tone: {
-    formal: 7,     // Professional but not stiff
-    friendly: 9,   // Very approachable and human
-    technical: 8,  // Strong technical expertise but accessible
-    innovative: 9  // Leading edge in AI technology
+    formal: 8,     // Professional, expert
+    friendly: 7,   // Collaborative, supportive
+    technical: 9,  // Advanced AI, data-driven
+    innovative: 10 // Leading edge, future-proof
   },
   personality: {
     primary: [
-      "Human-centric",
-      "Innovative",
-      "Trustworthy",
-      "Empowering",
-      "Forward-thinking"
+      "Intelligent",
+      "Efficient",
+      "Optimizing",
+      "Reliable",
+      "Scalable",
+      "Future-proof"
     ],
     secondary: [
-      "Approachable",
-      "Educational",
       "Collaborative",
-      "Ethical",
-      "Results-driven"
+      "Expert",
+      "Data-driven",
+      "Transformative",
+      "Seamless"
     ],
     avoid: [
-      "Impersonal",
-      "Overly technical",
-      "Aggressive",
-      "Hype-driven",
-      "Fear-mongering about AI"
+      "Manual",
+      "Basic",
+      "Slow",
+      "Outdated",
+      "Just a migration tool",
+      "Replacing your team"
     ]
   },
   writingStyle: [
-    "Balance technical accuracy with human warmth",
-    "Use clear, jargon-free language when explaining complex concepts",
-    "Emphasize the human benefits of AI technology",
-    "Share practical examples and real-world applications",
-    "Address common AI concerns with empathy and understanding",
-    "Focus on empowerment rather than replacement",
-    "Maintain an educational and collaborative tone"
+    "Highlight AI capabilities and data-driven insights",
+    "Emphasize speed, accuracy, and continuous optimization",
+    "Use clear, confident language about Shopify migration and growth",
+    "Focus on the benefits of a future-proof, scalable solution",
+    "Convey expertise in eCommerce and Shopify platform",
+    "Maintain a professional and collaborative tone"
   ],
   commonPhrases: [
-    "AI-first approach",
-    "Human-centric AI",
-    "Fast-track to AI integration",
-    "Continuous learning",
-    "Digital transformation",
-    "Genuine connections",
-    "Autonomous solutions",
-    "24/7 availability"
+    "Seamlessly migrate to Shopify",
+    "Continuously optimizes",
+    "AI-powered migration",
+    "Intelligent eCommerce",
+    "Data accuracy",
+    "Faster migration",
+    "24/7 AI Optimization",
+    "Future-proof Shopify store",
+    "Scalable AI power",
+    "Collect, Analyze, Localize",
+    "Content & SEO Optimization"
   ],
   avoidPhrases: [
-    "AI takeover",
-    "Replace humans",
-    "Fully automated",
-    "No human intervention",
-    "Revolutionary AI",
-    "Disruptive technology",
-    "Game-changing solution",
-    "Market leader"
+    "Simple data transfer",
+    "One-time fix",
+    "Manual process",
+    "We do it all for you (without mentioning collaboration)",
+    "Get rid of your team",
+    "Magic solution"
   ]
 };
 
