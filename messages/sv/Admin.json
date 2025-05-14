@@ -1,6 +1,6 @@
 {
   "analytics": {
-    "title": "Analysdashboard",
+    "title": "Analysinstrumentpanel",
     "tabs": {
       "pageViews": "Sidvisningar",
       "topPages": "Toppsidor"
@@ -8,7 +8,7 @@
     "cards": {},
     "error": {
       "title": "Analysfel",
-      "description": "Kunde inte ladda analysdata. Försök igen.",
+      "description": "Det uppstod ett problem med att ladda analysdata. Försök igen.",
       "retry": "Försök igen"
     }
   },
@@ -18,19 +18,19 @@
       "date": "Datum",
       "name": "Namn",
       "company": "Företag",
-      "email": "E‑post",
+      "email": "E-post",
       "description": "Meddelande",
       "status": "Status",
       "actions": "Åtgärder"
     },
     "status": {
       "new": "Ny",
-      "in_progress": "Pågår",
-      "completed": "Avslutad",
+      "in_progress": "Pågående",
+      "completed": "Slutförd",
       "archived": "Arkiverad"
     },
-    "delete": "Radera",
-    "deleteConfirmation": "Är du säker på att du vill radera denna kontakt? Detta kan inte ångras.",
+    "delete": "Ta bort",
+    "deleteConfirmation": "Är du säker på att du vill ta bort denna kontakt? Åtgärden kan inte ångras.",
     "loading": "Laddar kontakter...",
     "retry": "Försök igen"
   },
@@ -44,34 +44,34 @@
       "edit": "Klicka för att redigera",
       "empty": "Tom",
       "placeholder": "Ange översättning",
-      "success": "Översättningen sparad",
-      "error": "Kunde inte spara översättningen",
+      "success": "Översättning sparad",
+      "error": "Misslyckades med att spara översättning",
       "generate": "Generera översättning med AI"
     },
     "languages": {
       "title": "Språk",
       "addButton": "Lägg till språk",
       "enabled": "Aktiverad",
-      "disabled": "Avaktiverad",
+      "disabled": "Inaktiverad",
       "form": {
         "code": "Språkkod",
         "add": "Lägg till språk",
         "cancel": "Avbryt",
-        "select": "Välj språk..."
+        "select": "Välj ett språk..."
       },
       "addSuccess": "Språk tillagt",
-      "addError": "Kunde inte lägga till språk",
+      "addError": "Misslyckades med att lägga till språk",
       "enableSuccess": "Språk aktiverat",
-      "disableSuccess": "Språk avaktiverat",
-      "updateError": "Kunde inte uppdatera språk",
-      "translationSuccess": "Översättningar genererades",
-      "translationError": "Vissa översättningar misslyckades",
+      "disableSuccess": "Språk inaktiverat",
+      "updateError": "Misslyckades med att uppdatera språk",
+      "translationSuccess": "Översättningar genererade",
+      "translationError": "Misslyckades med att generera vissa översättningar",
       "remove": "Ta bort",
       "removing": "Tar bort...",
       "removeSuccess": "Språk borttaget",
-      "removeError": "Kunde inte ta bort språk",
+      "removeError": "Misslyckades med att ta bort språk",
       "removeConfirmTitle": "Ta bort språk",
-      "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Alla översättningar kommer tas bort. Detta kan inte ångras.",
+      "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Detta raderar alla översättningar för detta språk. Åtgärden kan inte ångras.",
       "removeConfirm": "Ja, ta bort språk"
     },
     "search": {
@@ -81,7 +81,7 @@
   },
   "users": {
     "title": "Användarhantering",
-    "email": "E‑post",
+    "email": "E-post",
     "id": "ID",
     "created": "Skapad",
     "lastSignIn": "Senaste inloggning",
@@ -99,28 +99,28 @@
     "description": "Hantera bokningsbara tider och inställningar",
     "loading": "Laddar kalender...",
     "tabs": {
-      "calendar": "Kalender & Slots",
+      "calendar": "Kalender & tider",
       "settings": "Inställningar",
       "appointmentTypes": "Bokningstyper"
     },
     "slots": {
       "loading": "Laddar tider...",
-      "availableSlots": "Lediga tider",
+      "availableSlots": "Tillgängliga tider",
       "createSlots": "Skapa nya tider",
-      "noSlots": "Inga lediga tider för valt datum",
+      "noSlots": "Inga tillgängliga tider för detta datum",
       "selectDate": "Välj datum",
       "startDate": "Startdatum",
-      "cancel": "Avbryt tid",
+      "cancel": "Avboka tid",
       "endDate": "Slutdatum",
       "create": "Skapa tider",
       "creating": "Skapar tider...",
       "slotDuration": "Tidslängd (minuter)",
       "bookedSlots": "Bokade tider",
-      "cancelBooking": "Avbryt bokning",
+      "cancelBooking": "Avboka bokning",
       "slots": "Tider",
       "status": {},
       "actions": {
-        "generate": "Generera lediga tider",
+        "generate": "Generera tillgängliga tider",
         "generating": "Genererar tider..."
       }
     },
@@ -129,15 +129,15 @@
       "startTime": "Starttid",
       "loading": "Laddar inställningar...",
       "timezone": "Tidszon",
-      "defaultDuration": "Standardlängd",
-      "bufferBefore": "Buffert före",
-      "bufferAfter": "Buffert efter",
+      "defaultDuration": "Standardlängd för bokning",
+      "bufferBefore": "Bufferttid före",
+      "bufferAfter": "Bufferttid efter",
       "saving": "Sparar inställningar...",
       "save": "Spara inställningar",
       "remove": "Ta bort",
-      "noWorkingDays": "Inga arbetsdagar valda. Klicka 'Lägg till arbetsdag' för att ange öppettider.",
+      "noWorkingDays": "Inga arbetsdagar valda. Klicka på 'Lägg till arbetsdag' för att lägga till tillgängliga timmar.",
       "addWorkingDay": "Lägg till arbetsdag",
-      "updateSuccess": "Inställningarna uppdaterades",
+      "updateSuccess": "Inställningar uppdaterade",
       "workingHours": "Arbetstider",
       "day": "Dag",
       "days": {
@@ -157,14 +157,14 @@
         "name": "Namn",
         "description": "Beskrivning",
         "duration": "Längd (minuter)",
-        "isFree": "Gratis bokning",
-        "price": "Pris (kr)",
+        "isFree": "Detta är en gratis bokningstyp",
+        "price": "Pris (SEK)",
         "create": "Skapa bokningstyp",
         "creating": "Skapar...",
         "edit": "Redigera bokningstyp",
-        "delete": "Radera bokningstyp",
+        "delete": "Ta bort bokningstyp",
         "isActive": "Aktiv",
-        "slug": "Slug"
+        "slug": "Sökväg"
       },
       "status": {
         "active": "Aktiv",
@@ -173,6 +173,68 @@
       "minutes": "minuter",
       "free": "Gratis",
       "viewBookingPage": "Visa bokningssida"
+    }
+  },
+  "DataSync": {
+    "title": "Hantering av datasynkronisering",
+    "loadingSources": "Laddar datakällor...",
+    "errorLoading": "Fel vid inläsning av datakällor: {message}",
+    "retry": "Försök igen",
+    "refreshList": "Uppdatera lista",
+    "addNewSource": "Lägg till ny källa",
+    "errorFetchingSome": "Inläsning av vissa datakällor misslyckades: {message}",
+    "noSourcesFound": "Inga datakällor hittades.",
+    "table": {
+      "name": "Namn",
+      "identifier": "Identifierare",
+      "type": "Typ",
+      "status": "Status",
+      "lastFetched": "Senast hämtad",
+      "actions": "Åtgärder"
+    },
+    "unknownStatus": "Okänd",
+    "never": "Aldrig",
+    "syncDisabledInactive": "Synkronisering inaktiverad (inaktiv källa)",
+    "triggerSyncNow": "Starta synkronisering nu",
+    "triggering": "Startar...",
+    "triggerSync": "Synkronisera",
+    "viewDetails": "Visa detaljer",
+    "syncTriggeredSuccessfully": "Synkronisering startad för källa: {name}",
+    "errors": {
+      "unauthorized": "Obehörig.",
+      "fetchFailed": "Hämtning misslyckades.",
+      "triggerFailed": "Start misslyckades."
+    },
+    "detailTitle": "Information om datakälla",
+    "backToList": "Tillbaka till listan",
+    "loadingDetails": "Laddar information...",
+    "errorLoadingDetails": "Fel vid inläsning av information: {message}",
+    "notFound": "Datakälla hittades inte.",
+    "sections": {
+      "generalInfo": "Allmän information",
+      "schema": "Upptäckt schema",
+      "rawFeed": "Rådataflöde",
+      "syncHistory": "Synkroniseringshistorik"
+    },
+    "fields": {
+      "id": "Identifierare (ID)",
+      "name": "Namn",
+      "identifier": "Intern identifierare",
+      "feedUrl": "Flödets URL",
+      "feedType": "Flödestyp",
+      "status": "Status",
+      "errorMessage": "Felmeddelande",
+      "createdAt": "Skapad",
+      "updatedAt": "Uppdaterad",
+      "lastFetchedAt": "Senast hämtad",
+      "lastSchemaUpdateAt": "Schema uppdaterat"
+    },
+    "detectedSchema": {
+      "title": "Upptäckt JSON-schema",
+      "empty": "Schema har ännu inte upptäckts eller är tomt."
+    },
+    "actions": {
+      "triggerSync": "Starta synkronisering"
     }
   }
 }

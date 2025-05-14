@@ -208,6 +208,14 @@
   - Added related tasks to `docs/todo.md`.
 - **Chore:** Removed the example `helloWorld` Inngest function from `lib/inngest-functions.ts` and `app/api/inngest/route.ts`.
 
+## [YYYY-MM-DD] - Fix Inngest Job "column data_sources.status does not exist"
+- **Fix:** Resolved Inngest job failure for `Dispatch Data Source Sync Jobs`.
+  - The error "column data_sources.status does not exist" was caused by a mismatch between the Inngest function's query and the database schema.
+  - Created a new database migration (`20250514073717_add_status_to_data_sources.sql`) to:
+    - Add the missing `status` column (TEXT, DEFAULT 'active', NOT NULL) to the `data_sources` table.
+    - Rename the existing `source_type` column to `feed_type` to align with the Inngest function and `DataSource` interface expectations.
+  - Instructed user to run database migrations to apply the schema changes.
+
 ## [YYYY-MM-DD] - Visual Style Redefinition
 
 - Updated `docs/frontend.md` to align with the new visual style provided in the reference image.
@@ -271,4 +279,9 @@
 *   Updated `app/components/Navigation.tsx` background to light blue (`brand.lightBlue`) and adjusted text/link colors for contrast.
 *   `docs/learnings.md` updated with button component fix and image tool usage notes.
 ## Phase 6: Blog Page Styling & Global Styles (Current)
+
+## [YYYY-MM-DD] - Data Source Management
+- **Feat:** Added Caffitella product feed (`caffitella_product_feed`) as a new data source using the `data-source-importer` tool. The tool successfully fetched the feed, detected the schema via Gemini, and stored it in the `data_sources` table.
+
+*   Updated `app/components/Button.tsx` to be a client component, resolving "Event handlers cannot be passed to Client Component props" error.
 

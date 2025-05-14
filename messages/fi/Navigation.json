@@ -8,14 +8,15 @@
   "signOut": "Kirjaudu ulos",
   "backToSite": "Takaisin sivustolle",
   "admin": {
-    "blog": "Blogi‑ylläpito",
+    "blog": "Blogin ylläpito",
     "contacts": "Yhteydenotot",
     "analytics": "Analytiikka",
     "translations": "Käännökset",
     "media": "Media",
     "users": "Käyttäjät",
-    "landingPages": "Landing‑sivut",
-    "calendar": "Kalenteri"
+    "landingPages": "Laskeutumissivut",
+    "calendar": "Kalenteri",
+    "dataSync": "Tietosynkronointi"
   },
   "account": {
     "title": "Oma tili"

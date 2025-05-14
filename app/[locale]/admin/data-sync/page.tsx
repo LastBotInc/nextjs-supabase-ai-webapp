@@ -13,7 +13,7 @@ interface DataSource {
   identifier: string;
   feed_url: string;
   feed_type: string;
-  status: string;
+  status: string | null;
   error_message: string | null;
   last_fetched_at: string | null;
   last_schema_update_at: string | null;
@@ -127,13 +127,16 @@ export default function DataSyncAdminPage() {
     );
   }
   
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'active': return 'bg-green-500';
-      case 'inactive': return 'bg-gray-500';
-      case 'error': return 'bg-red-500';
-      default: return 'bg-yellow-500'; // for 'pending', 'syncing' or unknown
+  const getStatusColor = (status: string | null) => {
+    if (typeof status === 'string') {
+      switch (status.toLowerCase()) {
+        case 'active': return 'bg-green-500';
+        case 'inactive': return 'bg-gray-500';
+        case 'error': return 'bg-red-500';
+        default: return 'bg-yellow-500'; // For unexpected or new string statuses
+      }
     }
+    return 'bg-purple-500'; // Fallback for null, undefined, or non-string status (e.g., 'Unknown')
   };
 
   return (
@@ -187,7 +190,7 @@ export default function DataSyncAdminPage() {
                   <td className="px-6 py-4">{source.feed_type}</td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 text-xs font-medium rounded-full text-white ${getStatusColor(source.status)}`}>
-                      {source.status}
+                      {source.status || t('unknownStatus')}
                     </span>
                   </td>
                   <td className="px-6 py-4">

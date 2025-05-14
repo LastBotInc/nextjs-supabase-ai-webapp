@@ -938,6 +938,9 @@ Next Priority Tasks:
     - [ ] Test Shopify -> App DB sync.
   - [ ] Document App DB <-> Shopify synchronization.
 
+### Data Source Management
+- [✅] Add Caffitella product feed as a data source via `data-source-importer` tool.
+
 ### Admin UI for Data Sync
 - [ ] Design Admin UI for Data Sync Management (in `docs/frontend.md`)
   - [✅] Define views: List of `data_sources`, detailed view with logs/schema.
@@ -962,12 +965,19 @@ Next Priority Tasks:
 - ✅ Apply new visual styles (light theme, new color palette, button styles) to Homepage (`app/[locale]/page.tsx`)
 - ✅ Create/Update a shared `Button` component with new styles.
 - ⏳ Apply new visual styles to About Us page (`app/[locale]/about/page.tsx`)
-- ❌ Apply new visual styles to Blog page (`app/[locale]/blog/page.tsx` and `app/[locale]/blog/[slug]/page.tsx`)
-- ❌ Review and update global styles (`styles/globals.css` or Tailwind config) to reflect new branding.
-- ❌ Ensure consistent typography across the application based on new guidelines.
+- ✅ Apply new visual styles to Blog page (`app/[locale]/blog/page.tsx` and `app/[locale]/blog/[slug]/page.tsx`)
+- ⏳ Review and update global styles (`styles/globals.css` or Tailwind config) to reflect new branding.
+- ⏳ Ensure consistent typography across the application based on new guidelines.
 
 ✅ Apply new visual styles (light theme, dark contrasting sections, brand colors) to `app/[locale]/about/page.tsx`.
 ✅ Update logo in `app/components/Navigation.tsx` to `images/brancoy_logo_black.webp`.
 ✅ Update `app/components/Navigation.tsx` background to light blue and adjust text/link colors.
 
 ### Phase 6: Blog Page Styling & Global Styles
+
+- [⏳] Fix Inngest job failure: "column data_sources.status does not exist"
+  - [✅] Identify missing `status` column in `data_sources` table.
+  - [✅] Identify `source_type` vs `feed_type` mismatch in `data_sources` table.
+  - [✅] Create new migration `add_status_to_data_sources`.
+  - [✅] Add DDL to create `status` column and rename `source_type` to `feed_type`.
+  - [ ] User to run database migrations.
