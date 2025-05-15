@@ -362,3 +362,25 @@
     z-index: 1;
   }
 }
+.image-container-with-aspect-ratio-16-9 {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  > * {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+.aspect-ratio-4\/3 {
+  width: 100%;
+  aspect-ratio: 2/1;
+  position: relative;
+}
+
+.background-image-fill {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+  background-position: bottom center;
+}

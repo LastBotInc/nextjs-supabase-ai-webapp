@@ -219,7 +219,7 @@ export function CardForFullWidthImageAndExtraChild({
       <div className="absolute inset-0">
         <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="100vw" quality={90} />
       </div>
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      {/*<div className="absolute inset-0 bg-black/50 z-10"></div>*/}
 
       <div className="max-w-7xl mx-auto px-6 relative z-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -239,6 +239,193 @@ export function CardForFullWidthImageAndExtraChild({
           </div>
           {children && <div className="relative">{children}</div>}
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function CardWithTextAndImage({
+  title,
+  text,
+  link,
+  image,
+  customClassNames = {},
+}: CardPropsWithImageAndExtraChild) {
+  const defaultClassNames = "w-full py-16 text-white relative";
+  const defaultLinkClassNames = "bg-kupari hover:bg-kupari/90 text-white px-8 py-3 text-lg";
+  const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
+  const linkClassName = `${customClassNames.link || ""} ${defaultLinkClassNames}`;
+  const textArray = Array.isArray(text) ? text : [text];
+  return (
+    <section className={cardClassName}>
+      <div className="max-w-7xl mx-auto px-6 relative z-20">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl font-bold mb-4 font-['Inter_Tight']">{title}</h2>
+            {textArray.map((t) => (
+              <p key={t} className="mb-6 text-lg text-gray-100">
+                {t}
+              </p>
+            ))}
+
+            {link && (
+              <Button variant="default" size="lg" className={linkClassName}>
+                {link.text}
+              </Button>
+            )}
+          </div>
+          <div>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={800}
+              height={480}
+              layout="responsive"
+              className="object-cover"
+              sizes="100vw"
+              quality={90}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * TeamCard component for a two-column layout with a large heading, team image, descriptive text, and a button.
+ * Matches the layout in the provided image (team photo left, text/button right).
+ * @param heading - Large heading text or React node (left column)
+ * @param image - Team image (left column)
+ * @param paragraphs - Array of paragraphs (right column)
+ * @param button - Optional button (right column)
+ * @param className - Optional extra classes for the card
+ */
+export function TeamCard({
+  heading,
+  image,
+  paragraphs,
+  button,
+  className = "",
+}: {
+  heading: string | React.ReactNode;
+  image: { src: string; alt: string };
+  paragraphs: string[];
+  button?: { text: string; onClick?: () => void; href?: string };
+  className?: string;
+}) {
+  return (
+    <section className={`w-full py-12 md:py-20 bg-white relative ${className}`}>
+      {/* Responsive grid: 2 columns on md+, stacked on mobile */}
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        {/* Left column: Heading and team image */}
+        <div className="flex flex-col items-center md:items-start">
+          {/* Large heading, allow multi-line */}
+          <h2 className="text-4xl md:text-5xl font-['Inter_Tight'] font-normal mb-8 text-center md:text-left leading-tight">
+            {heading}
+          </h2>
+          {/* Team image below heading */}
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={800}
+            height={480}
+            className="w-full max-w-xl h-auto object-contain"
+            priority
+          />
+        </div>
+        {/* Right column: Paragraphs and button */}
+        <div className="flex flex-col justify-center h-full">
+          {/* Render each paragraph */}
+          {paragraphs.map((p, i) => (
+            <p key={i} className="text-xl mb-8 text-black font-normal">
+              {p}
+            </p>
+          ))}
+          {/* Optional button below paragraphs */}
+          {button &&
+            (button.href ? (
+              <a
+                href={button.href}
+                className="inline-block px-8 py-3 rounded-full bg-black text-white text-lg font-medium hover:bg-gray-900 transition-all w-fit"
+                onClick={button.onClick}
+              >
+                {button.text}
+              </a>
+            ) : (
+              <button
+                type="button"
+                className="px-8 py-3 rounded-full bg-black text-white text-lg font-medium hover:bg-gray-900 transition-all w-fit"
+                onClick={button.onClick}
+              >
+                {button.text}
+              </button>
+            ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * PersonnelCard component for displaying a grid of personnel/contact cards.
+ * Each card shows a photo, name, title, phone, and email, matching the provided image layout.
+ * @param people - Array of personnel objects
+ * @param columns - Number of columns in the grid (default: 2)
+ * @param className - Optional extra classes for the grid
+ */
+export function PersonnelCard({
+  people,
+  className = "",
+}: {
+  people: Array<{
+    name: string;
+    title: string;
+    phone: string;
+    email: string;
+    image: { src: string; alt: string };
+  }>;
+  className?: string;
+}) {
+  return (
+    <section className={`w-full py-8 md:py-12 bg-white ${className}`}>
+      <div className={`max-w-7xl mx-auto px-6 grid gap-10`}>
+        {people.map(
+          (person: {
+            name: string;
+            title: string;
+            phone: string;
+            email: string;
+            image: { src: string; alt: string };
+          }) => (
+            <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              {/* Person image */}
+              <Image
+                src={"https://placehold.co/300x400?font=roboto&text=Kuva"}
+                alt={person.image.alt}
+                width={128}
+                height={128}
+                className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0"
+                style={{ aspectRatio: 3 / 4 }}
+              />
+              {/* Person details */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="font-bold text-lg text-black mb-1">{person.name}</div>
+                <div className="text-black mb-3">{person.title}</div>
+                <div className="text-black mb-1">
+                  <a href={`phone:${person.phone}`} className="hover:text-kupari transition-colors">
+                    {person.phone}
+                  </a>
+                </div>
+                <div className="text-black">
+                  <a href={`mailto:${person.email}`} className="hover:text-kupari transition-colors">
+                    {person.email}
+                  </a>
+                </div>
+              </div>
+            </div>
+          )
+        )}
       </div>
     </section>
   );
