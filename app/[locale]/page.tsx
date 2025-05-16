@@ -24,6 +24,7 @@ import {
   ShapedContentFlowInParagraph,
 } from "../components/layouts/CommonElements";
 import { IconPlugCar } from "../components/Icons";
+import { ArrowRightIcon } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -79,7 +80,7 @@ export default async function Page({ params }: Props) {
     <main className="flex min-h-screen flex-col items-center bg-white">
       {/* Hero Section - Updated layout: Full-width image within container */}
       <section className="w-full bg-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
           {/* Image container - Full width */}
           <div
             style={{ backgroundImage: "url(/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
@@ -88,7 +89,7 @@ export default async function Page({ params }: Props) {
             <div className="flex flex-row gap-2 justify-between w-full">
               <h1 className="text-6xl font-medium text-white leading-tight w-1/3">
                 {t("hero.heading")}
-                <span className="block mt-3 text-4xl font-light text-white hero-text-split-to-lines">
+                <span className="block text-5xl font-light text-white hero-text-split-to-lines">
                   {t("hero.subheading")}
                 </span>
               </h1>
@@ -106,36 +107,41 @@ export default async function Page({ params }: Props) {
       </section>
 
       {/* Leasing Options */}
-      <CommonBlockWithCols className="bg-white">
-        {/* Left Column: Heading (centered) */}
-        <div className="text-center md:text-left">
-          <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
-          <div className="aspect-ratio-4/3">
-            <Image
-              src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
-              alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
-              layout="responsive"
-              width={1893}
-              height={1262}
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 400px"
-              quality={90}
-            />
-          </div>
-        </div>
-
-        {/* Right Column: Paragraphs and Button */}
-        <div>
-          <div className="space-y-5 text-gray-700 text-lg">
-            <Paragraph className="text-piki">{t("topTeam.paragraph1")}</Paragraph>
-            <Paragraph className="text-piki">{t("topTeam.paragraph2")}</Paragraph>
+      <CommonBlock className="bg-white">
+        <TwoColumnCard className="bg-transparent gap-0">
+          <div className="text-center md:text-left">
+            <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
+            <div className="aspect-ratio-4/3">
+              <Image
+                src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
+                alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
+                layout="responsive"
+                width={1893}
+                height={1262}
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={90}
+              />
+            </div>
           </div>
 
-          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
-            {t("topTeam.readMore")}
-          </LinkLikeButton>
-        </div>
-      </CommonBlockWithCols>
+          {/* Right Column: Paragraphs and Button */}
+          <div className="pl-20">
+            <div className="space-y-5 text-gray-700 text-lg">
+              <Paragraph className="text-piki" variant="large">
+                {t("topTeam.paragraph1")}
+              </Paragraph>
+              <Paragraph className="text-piki" variant="large">
+                {t("topTeam.paragraph2")}
+              </Paragraph>
+            </div>
+
+            <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+              {t("topTeam.readMore")}
+            </LinkLikeButton>
+          </div>
+        </TwoColumnCard>
+      </CommonBlock>
       <FullScreenWidthBlock className="bg-gray-200">
         <MaxWidthContentBlock className="flex flex-col items-center py-12">
           <h2 className="text-6xl font-light text-gray-900 leading-tight">Leasingratkaisut</h2>
@@ -145,7 +151,7 @@ export default async function Page({ params }: Props) {
         <MaxWidthContentBlock>
           <TwoColumnCard className="bg-transparent">
             <ColumnBlock className="bg-kupari overlay-pattern-innolease-1 py-6" noPadding>
-              <Heading3 className="text-piki px-6">{t("leasingOptions.personalizedTitle")}</Heading3>
+              <Heading3 className="text-piki px-6 font-medium">{t("leasingOptions.personalizedTitle")}</Heading3>
               <div className="py-6">
                 <ShapedContentFlowInParagraph
                   image={{
@@ -166,13 +172,13 @@ export default async function Page({ params }: Props) {
               </div>
             </ColumnBlock>
             <ColumnBlock className="bg-betoni overlay-pattern-innolease-2 py-6" noPadding>
-              <Heading3 className="px-6">{t("leasingOptions.flexibleTitle")}</Heading3>
+              <Heading3 className="px-6  font-medium">{t("leasingOptions.flexibleTitle")}</Heading3>
               <div className="py-6">
                 <ShapedContentFlowInParagraph
                   image={{
                     src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
                     alt: "Leasing options shape",
-                    shape: "polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)",
+                    shape: "polygon(30% 100%, 30% 0%, 100% 0%, 100% 100%)",
                     aspectRatio: "1025/496",
                   }}
                 >
@@ -218,7 +224,12 @@ export default async function Page({ params }: Props) {
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
 
-      <FullScreenWidthBlock className="bg-gray-200">
+      <FullWidthContentBlockWithBg
+        image="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
+        backgroundPosition="97% 50%"
+        backgroundSize="40%"
+        className="bg-gray-200"
+      >
         <MaxWidthContentBlock className="py-12">
           <TwoColumnCard className="bg-transparent">
             <BlockPadding>
@@ -237,21 +248,10 @@ export default async function Page({ params }: Props) {
                 Lue lisää
               </LinkLikeButton>
             </BlockPadding>
-            <div className="relative w-full flex">
-              <Image
-                src={"/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"}
-                alt={"transparency.imageAlt"}
-                width={800}
-                height={480}
-                layout="responsive"
-                className="object-contain"
-                sizes="100vw"
-                quality={90}
-              />
-            </div>
+            <div className="relative w-full flex"></div>
           </TwoColumnCard>
         </MaxWidthContentBlock>
-      </FullScreenWidthBlock>
+      </FullWidthContentBlockWithBg>
 
       <FullWidthContentBlockWithBg
         image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
@@ -269,7 +269,7 @@ export default async function Page({ params }: Props) {
                   {t("transparency.readMore")}
                 </LinkLikeButton>
               </div>
-              <div className="relative h-[600px] w-full">
+              <div className="relative h-[600px] w-full z-10">
                 <Image
                   src="/images/home/iphone_05_sleep_image.png"
                   alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
@@ -318,7 +318,8 @@ export default async function Page({ params }: Props) {
       </section>*/}
 
       <FullScreenWidthBlock className="bg-gray-200 py-12">
-        <MaxWidthContentBlock className="py-12">
+        <MaxWidthContentBlock className="py-12 flex items-center gap-2">
+          <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
           <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
         </MaxWidthContentBlock>
         <MaxWidthContentBlock>
@@ -409,7 +410,7 @@ export default async function Page({ params }: Props) {
               width={800}
               height={480}
               layout="responsive"
-              className="object-cover"
+              className="object-cover rounded-xl "
               sizes="100vw"
               quality={90}
             />

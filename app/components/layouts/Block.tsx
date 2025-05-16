@@ -82,14 +82,20 @@ export function FullWidthContentBlockWithBg({
   className,
   image,
   backgroundPosition,
+  backgroundSize,
   ...props
-}: React.PropsWithChildren<HTMLAttributes<HTMLElement> & { image: string; backgroundPosition?: string }>) {
+}: React.PropsWithChildren<
+  HTMLAttributes<HTMLElement> & { image: string; backgroundPosition?: string; backgroundSize?: string }
+>) {
   const classNames = cn("bg-cover bg-center bg-no-repeat", className);
   const style = {
     backgroundImage: `url("${image}")`,
   } as React.CSSProperties;
   if (backgroundPosition) {
     style.backgroundPosition = backgroundPosition;
+  }
+  if (backgroundSize) {
+    style.backgroundSize = backgroundSize;
   }
   return (
     <FullScreenWidthBlock style={style} className={classNames} {...props}>
