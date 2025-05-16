@@ -437,11 +437,11 @@ export function PersonnelCard({
           <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
             {/* Person image */}
             <Image
-              src={"https://placehold.co/300x400?font=roboto&text=Kuva"}
+              src={person.image.src}
               alt={person.image.alt}
               width={128}
               height={128}
-              className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0"
+              className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0 grayscale"
               style={{ aspectRatio: 3 / 4 }}
             />
             {/* Person details */}

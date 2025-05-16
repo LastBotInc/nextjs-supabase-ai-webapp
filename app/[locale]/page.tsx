@@ -82,7 +82,7 @@ export default async function Page({ params }: Props) {
         <div className="max-w-7xl mx-auto px-6">
           {/* Image container - Full width */}
           <div
-            style={{ backgroundImage: "url(/images/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
+            style={{ backgroundImage: "url(/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
             className="h-[400px] md:h-[600px] w-full relative mb-12m background-image-fill rounded-lg p-14 flex flex-col items-left justify-end"
           >
             <div className="flex flex-row gap-2 justify-between w-full">
@@ -112,9 +112,11 @@ export default async function Page({ params }: Props) {
           <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
           <div className="aspect-ratio-4/3">
             <Image
-              src="/images/542c1cb86dab162e495da68f95bb1172db8497fb.png"
+              src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
               alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
-              fill
+              layout="responsive"
+              width={1893}
+              height={1262}
               className="object-contain"
               sizes="(max-width: 768px) 100vw, 400px"
               quality={90}
@@ -146,7 +148,7 @@ export default async function Page({ params }: Props) {
               <Heading3 className="text-piki font-bold py-12">{t("leasingOptions.personalizedTitle")}</Heading3>
               <ShapedContentFlowInParagraph
                 image={{
-                  src: "/images/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
+                  src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
                   alt: "Leasing options shape",
                   shape: "polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%)",
                 }}
@@ -164,7 +166,7 @@ export default async function Page({ params }: Props) {
               <Heading3 className="font-bold py-12">{t("leasingOptions.flexibleTitle")}</Heading3>
               <ShapedContentFlowInParagraph
                 image={{
-                  src: "/images/09b138d95425dda02cfc752cc17328ca2e0f8a2c.png",
+                  src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c.png",
                   alt: "Leasing options shape",
                   shape: "polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%)",
                 }}
@@ -187,7 +189,7 @@ export default async function Page({ params }: Props) {
       </FullScreenWidthBlock>
 
       <FullWidthContentBlockWithBg
-        image="/images/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
+        image="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
         backgroundPosition="bottom right"
       >
         <MaxWidthContentBlock>
@@ -227,7 +229,7 @@ export default async function Page({ params }: Props) {
               </LinkLikeButton>
             </div>
             <Image
-              src={"/images/f818c3812d549af98d6ac2658d7e74e6 2.png"}
+              src={"/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"}
               alt={"transparency.imageAlt"}
               width={800}
               height={480}
@@ -241,7 +243,7 @@ export default async function Page({ params }: Props) {
       </MaxWidthContentBlock>
 
       <FullWidthContentBlockWithBg
-        image="/images/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
+        image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
         backgroundPosition="bottom right"
         className="py-20"
       >
@@ -258,7 +260,7 @@ export default async function Page({ params }: Props) {
               </div>
               <div className="relative h-[600px] w-full">
                 <Image
-                  src="/images/iphone_05_sleep_image.png"
+                  src="/images/home/iphone_05_sleep_image.png"
                   alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
                   fill
                   className="object-contain"
@@ -319,7 +321,7 @@ export default async function Page({ params }: Props) {
                 text={t("news.card1.description")}
                 link={{ href: "#", text: t("news.card1.readMore") }}
                 image={{
-                  src: "/images/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
+                  src: "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
                   alt: t("news.card1.imageAlt", { defaultValue: "Ford Transit" }),
                 }}
                 date="12.06.2024"
@@ -331,7 +333,7 @@ export default async function Page({ params }: Props) {
                 text={t("news.card2.description")}
                 link={{ href: "#", text: t("news.card2.readMore") }}
                 image={{
-                  src: "/images/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
+                  src: "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
                   alt: t("news.card2.imageAlt", { defaultValue: "Sport cars" }),
                 }}
                 date="05.06.2024"
@@ -342,7 +344,7 @@ export default async function Page({ params }: Props) {
                 text={t("news.card3.description")}
                 link={{ href: "#", text: t("news.card3.readMore") }}
                 image={{
-                  src: "/images/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
+                  src: "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
                   alt: t("news.card3.imageAlt", { defaultValue: "Electric truck" }),
                 }}
                 date="28.05.2024"
@@ -393,7 +395,7 @@ export default async function Page({ params }: Props) {
               </LinkLikeButton>
             </div>
             <Image
-              src={"/images/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
+              src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
               alt={"transparency.imageAlt"}
               width={800}
               height={480}

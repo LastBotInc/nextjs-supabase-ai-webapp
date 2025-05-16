@@ -430,3 +430,6 @@
   justify-content: flex-end;
   aspect-ratio: 4 / 3;
 }
+.grayscale {
+  filter: grayscale(1);
+}
