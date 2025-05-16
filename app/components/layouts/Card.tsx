@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
+import { Heading3Small, Paragraph } from "./CommonElements";
 
 type CardProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "className"> & {
   image?: {
@@ -183,21 +184,21 @@ export function NewsCard({
 
   return (
     <Card className={cardClassName}>
-      <div className="image-container-with-aspect-ratio-5-3 relative">
+      <div className="image-container-with-aspect-ratio-5-3 relative rounded-xl overflow-hidden">
         <div className="bg-tiki"></div>
         <Image
           src={image.src}
           alt={image.alt}
           fill
-          className="object-contain"
+          className="object-cover"
           sizes="(max-width: 768px) 100vw, 33vw"
           quality={90}
         />
       </div>
-      <div className="p-6">
-        <span className="text-sm font-medium text-kupari mb-2 block">{date}</span>
-        <h3 className="text-xl font-bold mb-3 text-piki">{title}</h3>
-        <p className="text-betoni mb-4">{text}</p>
+      <div className="py-6">
+        <span className="text-lg font-medium text-kupari mb-2 block">{date}</span>
+        <Heading3Small className="mb-3 text-piki">{title}</Heading3Small>
+        <Paragraph className="mb-4 text-piki">{text}</Paragraph>
         {link && (
           <Link href={link.href} className="text-kupari font-medium flex items-center">
             {link.text} <ArrowRightIcon className="ml-1 h-4 w-4" />
@@ -435,16 +436,9 @@ export function PersonnelCard({
           image: { src: string; alt: string };
         }) => (
           <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            {/* Person image */}
-            <Image
-              src={person.image.src}
-              alt={person.image.alt}
-              width={128}
-              height={128}
-              className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0 grayscale"
-              style={{ aspectRatio: 3 / 4 }}
-            />
-            {/* Person details */}
+            <div className="mb-2 md:mb-0 w-24 relative" style={{ aspectRatio: "120/170" }}>
+              <Image src={person.image.src} alt={person.image.alt} layout="fill" className="grayscale object-cover" />
+            </div>
             <div className="flex-1 text-center md:text-left">
               <div className="font-bold text-lg text-black mb-1">{person.name}</div>
               <div className="text-black mb-3">{person.title}</div>

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 import { BlogCardList } from "@/app/components/BlogCardList";
 import { createClient } from "@/utils/supabase/server";
@@ -24,6 +23,7 @@ import {
   Heading3,
   ShapedContentFlowInParagraph,
 } from "../components/layouts/CommonElements";
+import { IconPlugCar } from "../components/Icons";
 
 export const dynamic = "force-dynamic";
 
@@ -144,36 +144,42 @@ export default async function Page({ params }: Props) {
 
         <MaxWidthContentBlock>
           <TwoColumnCard className="bg-transparent">
-            <ColumnBlock className="bg-kupari overlay-pattern-innolease-1">
-              <Heading3 className="text-piki font-bold py-12">{t("leasingOptions.personalizedTitle")}</Heading3>
-              <ShapedContentFlowInParagraph
-                image={{
-                  src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
-                  alt: "Leasing options shape",
-                  shape: "polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%)",
-                }}
-                className="text-piki"
-              >
-                {t("leasingOptions.personalizedDescription")}
-              </ShapedContentFlowInParagraph>
-              <div>
+            <ColumnBlock className="bg-kupari overlay-pattern-innolease-1 py-6" noPadding>
+              <Heading3 className="text-piki px-6">{t("leasingOptions.personalizedTitle")}</Heading3>
+              <div className="py-6">
+                <ShapedContentFlowInParagraph
+                  image={{
+                    src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
+                    alt: "Leasing options shape",
+                    shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
+                    aspectRatio: "1025/496",
+                  }}
+                  className="text-piki"
+                >
+                  {t("leasingOptions.personalizedDescription")}
+                </ShapedContentFlowInParagraph>
+              </div>
+              <div className="px-6">
                 <LinkLikeButton className="bg-white text-piki" href="#">
                   Lue lisää
                 </LinkLikeButton>
               </div>
             </ColumnBlock>
-            <ColumnBlock className="bg-betoni overlay-pattern-innolease-2">
-              <Heading3 className="font-bold py-12">{t("leasingOptions.flexibleTitle")}</Heading3>
-              <ShapedContentFlowInParagraph
-                image={{
-                  src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c.png",
-                  alt: "Leasing options shape",
-                  shape: "polygon(0% 100%, 0% 42%, 27% 27%, 42% 0%, 100% 0%, 100% 100%)",
-                }}
-              >
-                {t("leasingOptions.flexibleDescription")}
-              </ShapedContentFlowInParagraph>
-              <div>
+            <ColumnBlock className="bg-betoni overlay-pattern-innolease-2 py-6" noPadding>
+              <Heading3 className="px-6">{t("leasingOptions.flexibleTitle")}</Heading3>
+              <div className="py-6">
+                <ShapedContentFlowInParagraph
+                  image={{
+                    src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
+                    alt: "Leasing options shape",
+                    shape: "polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)",
+                    aspectRatio: "1025/496",
+                  }}
+                >
+                  {t("leasingOptions.flexibleDescription")}
+                </ShapedContentFlowInParagraph>
+              </div>
+              <div className="px-6">
                 <LinkLikeButton className="bg-kupari text-piki" href="#">
                   Lue lisää
                 </LinkLikeButton>
@@ -182,9 +188,9 @@ export default async function Page({ params }: Props) {
           </TwoColumnCard>
         </MaxWidthContentBlock>
         <MaxWidthContentBlock className="flex flex-col items-center py-12">
-          <Button size="default" className="mt-8 bg-piki hover:bg-piki/90 text-white px-8 py-3 rounded-md">
+          <LinkLikeButton href="#" className="mt-8 bg-piki hover:bg-piki/90 text-white">
             Kaikki leasingvaihtoehdot
-          </Button>
+          </LinkLikeButton>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
 
@@ -212,11 +218,14 @@ export default async function Page({ params }: Props) {
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
 
-      <MaxWidthContentBlock>
-        <BlockPadding>
+      <FullScreenWidthBlock className="bg-gray-200">
+        <MaxWidthContentBlock className="py-12">
           <TwoColumnCard className="bg-transparent">
-            <div>
-              <Heading1 className="text-piki">Uusi vai käytetty auto etsinnässä?</Heading1>
+            <BlockPadding>
+              <Heading1 className="text-piki">
+                <span className="text-kupari">Uusi</span> vai <span className="text-kupari">käytetty</span> auto
+                etsinnässä?
+              </Heading1>
               <Paragraph className="text-piki">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
@@ -227,20 +236,22 @@ export default async function Page({ params }: Props) {
               <LinkLikeButton className="bg-kupari text-white" href={"#"}>
                 Lue lisää
               </LinkLikeButton>
+            </BlockPadding>
+            <div className="relative w-full flex">
+              <Image
+                src={"/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"}
+                alt={"transparency.imageAlt"}
+                width={800}
+                height={480}
+                layout="responsive"
+                className="object-contain"
+                sizes="100vw"
+                quality={90}
+              />
             </div>
-            <Image
-              src={"/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"}
-              alt={"transparency.imageAlt"}
-              width={800}
-              height={480}
-              layout="responsive"
-              className="object-cover"
-              sizes="100vw"
-              quality={90}
-            />
           </TwoColumnCard>
-        </BlockPadding>
-      </MaxWidthContentBlock>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
 
       <FullWidthContentBlockWithBg
         image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
@@ -266,6 +277,7 @@ export default async function Page({ params }: Props) {
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 400px"
                   quality={90}
+                  style={{ transform: "scale(1.6)" }}
                 />
               </div>
             </TwoColumnCard>
@@ -307,7 +319,7 @@ export default async function Page({ params }: Props) {
 
       <FullScreenWidthBlock className="bg-gray-200 py-12">
         <MaxWidthContentBlock className="py-12">
-          <Heading2Small className="text-piki">Leasingratkaisut</Heading2Small>
+          <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
         </MaxWidthContentBlock>
         <MaxWidthContentBlock>
           {blogPostsFormatted.length > 0 ? (
@@ -319,35 +331,32 @@ export default async function Page({ params }: Props) {
               <NewsCard
                 title={t("news.card1.title")}
                 text={t("news.card1.description")}
-                link={{ href: "#", text: t("news.card1.readMore") }}
                 image={{
                   src: "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
                   alt: t("news.card1.imageAlt", { defaultValue: "Ford Transit" }),
                 }}
-                date="12.06.2024"
+                date="UUTISET"
               />
 
               {/* Card 2 */}
               <NewsCard
                 title={t("news.card2.title")}
                 text={t("news.card2.description")}
-                link={{ href: "#", text: t("news.card2.readMore") }}
                 image={{
                   src: "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
                   alt: t("news.card2.imageAlt", { defaultValue: "Sport cars" }),
                 }}
-                date="05.06.2024"
+                date="KAMPANJAT"
               />
 
               <NewsCard
                 title={t("news.card3.title")}
                 text={t("news.card3.description")}
-                link={{ href: "#", text: t("news.card3.readMore") }}
                 image={{
                   src: "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
                   alt: t("news.card3.imageAlt", { defaultValue: "Electric truck" }),
                 }}
-                date="28.05.2024"
+                date="BLOGIT"
               />
             </div>
           )}
@@ -361,8 +370,8 @@ export default async function Page({ params }: Props) {
 
       {/* InnoFleet Manager Section */}
 
-      <CommonBlock className="bg-white">
-        <ColumnCard className="bg-transparent grid-cols-[33%_67%]">
+      <CommonBlock className="bg-white px-0">
+        <ColumnCard className="bg-transparent grid-cols-[40%_67%]">
           {/* Left Column: Heading (centered) */}
           <div className="text-center md:text-left">
             <Heading2 className="text-piki">{t("team.title")}</Heading2>
@@ -374,11 +383,10 @@ export default async function Page({ params }: Props) {
       </CommonBlock>
 
       {/* Dark CTA Section */}
-
-      <MaxWidthContentBlock className="bg-kupari">
-        <BlockPadding>
+      <FullScreenWidthBlock className="bg-kupari">
+        <MaxWidthContentBlock className="py-12">
           <TwoColumnCard className="bg-transparent">
-            <div>
+            <div className="relative">
               <Heading1 className="text-piki">Kohti vihreämpää kalustoa Innoleasen kanssa</Heading1>
               <Paragraph className="text-piki">
                 Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla.
@@ -393,6 +401,7 @@ export default async function Page({ params }: Props) {
               <LinkLikeButton className="bg-piki   text-white" href={"#"}>
                 Lue lisää
               </LinkLikeButton>
+              <IconPlugCar className="absolute bottom-0 right-0" />
             </div>
             <Image
               src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
@@ -405,8 +414,8 @@ export default async function Page({ params }: Props) {
               quality={90}
             />
           </TwoColumnCard>
-        </BlockPadding>
-      </MaxWidthContentBlock>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
     </main>
   );
 }

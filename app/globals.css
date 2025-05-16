@@ -424,7 +424,7 @@
   -webkit-shape-outside: var(--shape) content-box;
 
   float: right;
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

@@ -87,7 +87,7 @@ export function FullWidthContentBlockWithBg({
   const classNames = cn("bg-cover bg-center bg-no-repeat", className);
   const style = {
     backgroundImage: `url("${image}")`,
-  };
+  } as React.CSSProperties;
   if (backgroundPosition) {
     style.backgroundPosition = backgroundPosition;
   }
@@ -124,13 +124,18 @@ export function BlockPadding({
 export function ColumnBlock({
   children,
   className = "",
+  noPadding = false,
   ...props
-}: React.PropsWithChildren<HTMLAttributes<HTMLElement>>) {
+}: React.PropsWithChildren<HTMLAttributes<HTMLElement> & { noPadding?: boolean }>) {
   const defaultClassNames = "relative rounded-2xl overflow-hidden has-overlay-pattern flex flex-col";
+  let contentClassNames = "pb-4 relative flex flex-col justify-between";
+  if (!noPadding) {
+    contentClassNames = " p-6";
+  }
   const classNames = cn(defaultClassNames, className);
   return (
     <div className={classNames} {...props}>
-      <div className="p-6 pb-16 relative flex flex-col justify-between">{children}</div>
+      <div className={contentClassNames}>{children}</div>
     </div>
   );
 }

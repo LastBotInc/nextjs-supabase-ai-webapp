@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/utils/cn";
+import { HTMLAttributes } from "react";
 
 export function Heading1({
   children,
@@ -47,6 +48,18 @@ export function Heading3({
   );
 }
 
+export function Heading3Small({
+  children,
+  className,
+  ...props
+}: React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) {
+  return (
+    <h3 className={cn("text-2xl font-light py-4font-['Inter_Tight']", className)} {...props}>
+      {children}
+    </h3>
+  );
+}
+
 export function Paragraph({
   children,
   className,
@@ -81,15 +94,23 @@ export function ShapedContentFlowInParagraph({
   className,
   children,
   ...props
-}: React.PropsWithChildren<HTMLAttributes<HTMLDivElement>> & { image: { src: string; alt: string; shape: string } }) {
+}: React.PropsWithChildren<
+  HTMLAttributes<HTMLDivElement> & {
+    image: { src: string; alt: string; shape: string; aspectRatio: string };
+  }
+>) {
   const style = {
     backgroundImage: `url(${image.src})`,
     backgroundPosition: "bottom right",
+    backgroundSize: "56%",
   };
   return (
     <div className={cn("flex", className)} {...props}>
-      <Paragraph className="text-left bg-no-repeat bg-contain" style={style}>
-        <span className="text-shape" style={{ "--shape": image.shape } as React.CSSProperties}></span>
+      <Paragraph className="text-left bg-no-repeat bg-contain pl-6" style={style}>
+        <span
+          className="text-shape"
+          style={{ "--shape": image.shape, aspectRatio: image.aspectRatio || "1/1" } as React.CSSProperties}
+        ></span>
         {children}
       </Paragraph>
     </div>
