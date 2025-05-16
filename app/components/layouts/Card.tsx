@@ -169,6 +169,44 @@ export function CardWithTopImageAndTimestamp({
     </Card>
   );
 }
+
+export function NewsCard({
+  title,
+  text,
+  link,
+  image,
+  date,
+  customClassNames = {},
+}: CardPropsWithImage & { date: string }) {
+  const defaultClassNames = "";
+  const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
+
+  return (
+    <Card className={cardClassName}>
+      <div className="image-container-with-aspect-ratio-5-3 relative">
+        <div className="bg-tiki"></div>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 100vw, 33vw"
+          quality={90}
+        />
+      </div>
+      <div className="p-6">
+        <span className="text-sm font-medium text-kupari mb-2 block">{date}</span>
+        <h3 className="text-xl font-bold mb-3 text-piki">{title}</h3>
+        <p className="text-betoni mb-4">{text}</p>
+        {link && (
+          <Link href={link.href} className="text-kupari font-medium flex items-center">
+            {link.text} <ArrowRightIcon className="ml-1 h-4 w-4" />
+          </Link>
+        )}
+      </div>
+    </Card>
+  );
+}
 /**
  * Card where whole area is a link.
  * @param title - The title of the card
@@ -224,7 +262,7 @@ export function CardForFullWidthImageAndExtraChild({
       <div className="max-w-7xl mx-auto px-6 relative z-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-4 font-['Inter_Tight']">{title}</h2>
+            <h2 className="text-6xl font-light mb-4 font-['Inter_Tight'] leading-tight">{title}</h2>
             {textArray.map((t) => (
               <p key={t} className="mb-6 text-lg text-gray-100">
                 {t}
@@ -376,7 +414,6 @@ export function TeamCard({
  */
 export function PersonnelCard({
   people,
-  className = "",
 }: {
   people: Array<{
     name: string;
@@ -388,45 +425,55 @@ export function PersonnelCard({
   className?: string;
 }) {
   return (
-    <section className={`w-full py-8 md:py-12 bg-white ${className}`}>
-      <div className={`max-w-7xl mx-auto px-6 grid gap-10`}>
-        {people.map(
-          (person: {
-            name: string;
-            title: string;
-            phone: string;
-            email: string;
-            image: { src: string; alt: string };
-          }) => (
-            <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              {/* Person image */}
-              <Image
-                src={"https://placehold.co/300x400?font=roboto&text=Kuva"}
-                alt={person.image.alt}
-                width={128}
-                height={128}
-                className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0"
-                style={{ aspectRatio: 3 / 4 }}
-              />
-              {/* Person details */}
-              <div className="flex-1 text-center md:text-left">
-                <div className="font-bold text-lg text-black mb-1">{person.name}</div>
-                <div className="text-black mb-3">{person.title}</div>
-                <div className="text-black mb-1">
-                  <a href={`phone:${person.phone}`} className="hover:text-kupari transition-colors">
-                    {person.phone}
-                  </a>
-                </div>
-                <div className="text-black">
-                  <a href={`mailto:${person.email}`} className="hover:text-kupari transition-colors">
-                    {person.email}
-                  </a>
-                </div>
+    <div className={`grid md:grid-cols-2  gap-10`}>
+      {people.map(
+        (person: {
+          name: string;
+          title: string;
+          phone: string;
+          email: string;
+          image: { src: string; alt: string };
+        }) => (
+          <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
+            {/* Person image */}
+            <Image
+              src={"https://placehold.co/300x400?font=roboto&text=Kuva"}
+              alt={person.image.alt}
+              width={128}
+              height={128}
+              className="w-32 h-32 object-cover rounded-md mb-2 md:mb-0"
+              style={{ aspectRatio: 3 / 4 }}
+            />
+            {/* Person details */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="font-bold text-lg text-black mb-1">{person.name}</div>
+              <div className="text-black mb-3">{person.title}</div>
+              <div className="text-black mb-1">
+                <a href={`phone:${person.phone}`} className="hover:text-kupari transition-colors">
+                  {person.phone}
+                </a>
+              </div>
+              <div className="text-black">
+                <a href={`mailto:${person.email}`} className="hover:text-kupari transition-colors">
+                  {person.email}
+                </a>
               </div>
             </div>
-          )
-        )}
-      </div>
-    </section>
+          </div>
+        )
+      )}
+    </div>
   );
+}
+
+export function ColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`grid gap-12 ${className}`}>{children}</div>;
+}
+
+export function TwoColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <ColumnCard className={`md:grid-cols-2 ${className}`}>{children}</ColumnCard>;
+}
+
+export function ThreeColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <ColumnCard className={`md:grid-cols-3 ${className}`}>{children}</ColumnCard>;
 }
