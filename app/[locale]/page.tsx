@@ -1,369 +1,421 @@
-import { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
-import { generateLocalizedMetadata } from '@/utils/metadata'
-import HomePage from '@/components/pages/home/index'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
-import { setupServerLocale } from '@/app/i18n/server-utils'
-import { LeasingOptionsCards } from '@/app/components/LeasingOptionsCards'
-import { Locale } from '@/app/i18n/config'
-import SectionContainer from '@/app/components/SectionContainer'
-import { BlogCardList } from '@/app/components/BlogCardList'
-import { createClient } from '@/utils/supabase/server'
+import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import { setupServerLocale } from "@/app/i18n/server-utils";
+import { BlogCardList } from "@/app/components/BlogCardList";
+import { createClient } from "@/utils/supabase/server";
+import { NewsCard, PersonnelCard, TwoColumnCard, ColumnCard } from "../components/layouts/Card";
+import { CallUs } from "../components/CallUs";
+import {
+  BlockPadding,
+  CommonBlock,
+  CommonBlockWithCols,
+  FullScreenWidthBlock,
+  FullWidthContentBlockWithBg,
+  MaxWidthContentBlock,
+  ColumnBlock,
+} from "../components/layouts/Block";
+import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
+import {
+  Heading1,
+  Heading2,
+  Heading2Small,
+  Heading3,
+  ShapedContentFlowInParagraph,
+} from "../components/layouts/CommonElements";
+import { IconPlugCar } from "../components/Icons";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: {
-    locale: string
-  }
-}
+    locale: string;
+  };
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  await setupServerLocale(locale)
-  const tMeta = await getTranslations({ locale, namespace: 'Home.meta' })
-  
+  await setupServerLocale(locale);
+  const tMeta = await getTranslations({ locale, namespace: "Home.meta" });
+
   return {
-    title: tMeta('title'),
-    description: tMeta('description'),
-  }
+    title: tMeta("title"),
+    description: tMeta("description"),
+  };
 }
 
 export default async function Page({ params }: Props) {
-  const { locale } = await params;
-  await setupServerLocale(locale)
-  const t = await getTranslations({ locale, namespace: 'Home' })
-  const tCommon = await getTranslations({ locale, namespace: 'Common' })
+  const { locale } = params;
+  await setupServerLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Home" });
 
   // Fetch the latest 3 news blog posts
-  const supabase = await createClient()
+  const supabase = await createClient();
   const { data: blogPosts } = await supabase
-    .from('posts')
-    .select('id, title, excerpt, featured_image, slug, created_at')
-    .eq('locale', locale)
-    .eq('subject', 'news')
-    .eq('published', true)
-    .order('created_at', { ascending: false })
-    .limit(3)
+    .from("posts")
+    .select("id, title, excerpt, featured_image, slug, created_at")
+    .eq("locale", locale)
+    .eq("subject", "news")
+    .eq("published", true)
+    .order("created_at", { ascending: false })
+    .limit(3);
 
   // Transform blog posts for the BlogCardList component
-  const blogPostsFormatted = (blogPosts || []).map(post => ({
+  const blogPostsFormatted = (blogPosts || []).map((post) => ({
     id: post.id,
     title: post.title,
     description: post.excerpt,
-    imageSrc: post.featured_image || '/images/no-bg/etruck.png', // Fallback image if none provided
+    imageSrc: post.featured_image || "/images/no-bg/etruck.png", // Fallback image if none provided
     imageAlt: post.title,
     date: new Date(post.created_at).toLocaleDateString(locale, {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
     }),
-    href: `/blog/${post.slug}`
-  }))
+    href: `/blog/${post.slug}`,
+  }));
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="flex min-h-screen flex-col items-center bg-white">
       {/* Hero Section - Updated layout: Full-width image within container */}
       <section className="w-full bg-white pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           {/* Image container - Full width */}
-          <div className="w-full relative h-[400px] md:h-[500px] mb-12"> {/* Added bottom margin */}
-            <Image 
-              src="/images/hero-handshake.jpg" 
-              alt={t('hero.backgroundAlt')}
-              fill
-              className="object-cover" // Standard corners
-              priority
-              sizes="100vw" // Let it adapt based on container width
-              quality={90}
-            />
+          <div
+            style={{ backgroundImage: "url(/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
+            className="h-[400px] md:h-[600px] w-full relative mb-12m background-image-fill rounded-lg p-14 flex flex-col items-left justify-end"
+          >
+            <div className="flex flex-row gap-2 justify-between w-full">
+              <h1 className="text-6xl font-medium text-white leading-tight w-1/3">
+                {t("hero.heading")}
+                <span className="block mt-3 text-4xl font-light text-white hero-text-split-to-lines">
+                  {t("hero.subheading")}
+                </span>
+              </h1>
+              <CallUs
+                numbers={[
+                  { title: "Soita meille", number: "020 743 7670" },
+                  { title: "Soita meille", number: "020 743 76700" },
+                ]}
+              />
+            </div>
           </div>
 
           {/* Text content container - Two columns layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
-            {/* Left Column: Heading (centered) */}
-            <div className="text-center md:text-left">
-              <h1 className="text-6xl font-bold text-gray-900 leading-tight">
-                {t('hero.heading')}
-                <span className="block mt-3 text-4xl font-normal text-gray-800">
-                  {t('hero.subheading')}
-                </span>
-              </h1>
-            </div>
-
-            {/* Right Column: Paragraphs and Button */}
-            <div>
-              <div className="space-y-5 text-gray-700 text-lg">
-                <p>
-                  {t('hero.paragraph1')}
-                </p>
-                <p>
-                  {t('hero.paragraph2')}
-                </p>
-              </div>
-              
-              <Button 
-                size="default"
-                className="mt-8 bg-piki hover:bg-piki/90 text-white px-8 py-3 rounded-md"
-                asChild
-              >
-                <Link href="#">{t('hero.readMore')}</Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Leasing Options */}
-      <section className="w-full bg-white py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <LeasingOptionsCards />
-        </div>
-      </section>
-
-      {/* Service Links */}
-      <section className="container mx-auto py-8 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Link 
-            href="/fleet-manager"
-            className="rounded-lg overflow-hidden block p-6 bg-piki text-white hover:opacity-90 transition-all"
-          >
-            <div className="flex flex-col h-full">
-              <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.fleetManagerTools")}</h3>
-              <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-              <div className="mt-auto text-sm font-medium flex items-center">
-                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
-              </div>
-            </div>
-          </Link>
-          
-          <Link 
-            href="/car-calculator"
-            className="rounded-lg overflow-hidden block p-6 bg-beige text-piki hover:opacity-90 transition-all"
-          >
-            <div className="flex flex-col h-full">
-              <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.carCalculator")}</h3>
-              <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-              <div className="mt-auto text-sm font-medium flex items-center">
-                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
-              </div>
-            </div>
-          </Link>
-          
-          <Link 
-            href="/company-car-guide"
-            className="rounded-lg overflow-hidden block p-6 bg-maantie text-piki hover:opacity-90 transition-all"
-          >
-            <div className="flex flex-col h-full">
-              <h3 className="text-xl font-semibold mb-2">{t("serviceLinks.companyCarGuide")}</h3>
-              <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-              <div className="mt-auto text-sm font-medium flex items-center">
-                {tCommon("learnMore")} <ArrowRightIcon className="ml-1 h-4 w-4" />
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* News Section (replaced with BlogCardList) */}
-      <section className="w-full bg-white py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-8">
-            <h2 className="text-4xl font-bold font-['Inter_Tight'] text-piki">{t('news.title')}</h2>
-            <div className="h-1 w-16 bg-kupari mt-2"></div>
-          </div>
-          
-          {blogPostsFormatted.length > 0 ? (
-            <BlogCardList 
-              posts={blogPostsFormatted} 
-              className="pt-0"
+      <CommonBlockWithCols className="bg-white">
+        {/* Left Column: Heading (centered) */}
+        <div className="text-center md:text-left">
+          <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
+          <div className="aspect-ratio-4/3">
+            <Image
+              src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
+              alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
+              layout="responsive"
+              width={1893}
+              height={1262}
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 400px"
+              quality={90}
             />
-          ) : (
-            // Fallback to hardcoded cards if no blog posts are available
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white has-overlay-pattern overlay-pattern-innolease-1 overlay-opacity-10">
-                <div className="h-[240px] relative">
-                  <div className="absolute inset-0 bg-beige"></div>
-                  <Image 
-                    src="/images/no-bg/ford-transit.png" 
-                    alt={t('news.card1.imageAlt', {defaultValue: "Ford Transit"})}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={90}
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-sm font-medium text-kupari mb-2 block">12.06.2024</span>
-                  <h3 className="text-xl font-bold mb-3 text-piki">{t('news.card1.title')}</h3>
-                  <p className="text-betoni mb-4">{t('news.card1.description')}</p>
-                  <Link href="#" className="text-kupari font-medium flex items-center">
-                    {t('news.card1.readMore')} <ArrowRightIcon className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Card 2 */}
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white has-overlay-pattern overlay-pattern-innolease-1 overlay-opacity-10">
-                <div className="h-[240px] relative">
-                  <div className="absolute inset-0 bg-beige"></div>
-                  <Image 
-                    src="/images/no-bg/sportscars.png" 
-                    alt={t('news.card2.imageAlt', {defaultValue: "Sport cars"})}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={90}
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-sm font-medium text-kupari mb-2 block">05.06.2024</span>
-                  <h3 className="text-xl font-bold mb-3 text-piki">{t('news.card2.title')}</h3>
-                  <p className="text-betoni mb-4">{t('news.card2.description')}</p>
-                  <Link href="#" className="text-kupari font-medium flex items-center">
-                    {t('news.card2.readMore')} <ArrowRightIcon className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Card 3 */}
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white has-overlay-pattern overlay-pattern-innolease-1 overlay-opacity-10">
-                <div className="h-[240px] relative">
-                  <div className="absolute inset-0 bg-beige"></div>
-                  <Image 
-                    src="/images/no-bg/etruck.png" 
-                    alt={t('news.card3.imageAlt', {defaultValue: "Electric truck"})}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={90}
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-sm font-medium text-kupari mb-2 block">28.05.2024</span>
-                  <h3 className="text-xl font-bold mb-3 text-piki">{t('news.card3.title')}</h3>
-                  <p className="text-betoni mb-4">{t('news.card3.description')}</p>
-                  <Link href="#" className="text-kupari font-medium flex items-center">
-                    {t('news.card3.readMore')} <ArrowRightIcon className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
-          
-          <div className="flex justify-center mt-10">
-            <Button variant="default" size="lg" className="bg-piki hover:bg-piki/90 text-white px-8 py-3 text-lg">
-              <Link href={`/${locale}/blog`}>
-                {t('news.viewAll')} <ArrowRightIcon className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
           </div>
         </div>
-      </section>
 
-      {/* InnoFleet Manager Section */}
-      <section className="w-full py-16 text-white relative">
-        {/* Dark background image with car */}
-        <div className="absolute inset-0">
-          <Image 
-            src="/images/innofleet-car-background.png" 
-            alt={t('innoFleet.imageAlt', {defaultValue: "Luxury car background"})}
-            fill
-            className="object-cover" 
-            sizes="100vw"
-            quality={90}
-          />
+        {/* Right Column: Paragraphs and Button */}
+        <div>
+          <div className="space-y-5 text-gray-700 text-lg">
+            <Paragraph className="text-piki">{t("topTeam.paragraph1")}</Paragraph>
+            <Paragraph className="text-piki">{t("topTeam.paragraph2")}</Paragraph>
+          </div>
+
+          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+            {t("topTeam.readMore")}
+          </LinkLikeButton>
         </div>
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+      </CommonBlockWithCols>
+      <FullScreenWidthBlock className="bg-gray-200">
+        <MaxWidthContentBlock className="flex flex-col items-center py-12">
+          <h2 className="text-6xl font-light text-gray-900 leading-tight">Leasingratkaisut</h2>
+          <p className="text-3xl font-light text-gray-900">Valitse yrityksellesi parhaiten sopiva leasingratkaisu.</p>
+        </MaxWidthContentBlock>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-4 font-['Inter_Tight']">{t('innoFleet.title')}</h2>
-              <p className="mb-4 text-xl text-gray-100">{t('innoFleet.description1')}</p>
-              <p className="mb-6 text-lg text-gray-100">{t('innoFleet.description2')}</p>
-              <Button variant="default" size="lg" className="bg-kupari hover:bg-kupari/90 text-white px-8 py-3 text-lg">
-                {t('innoFleet.readMore')}
-              </Button>
+        <MaxWidthContentBlock>
+          <TwoColumnCard className="bg-transparent">
+            <ColumnBlock className="bg-kupari overlay-pattern-innolease-1 py-6" noPadding>
+              <Heading3 className="text-piki px-6">{t("leasingOptions.personalizedTitle")}</Heading3>
+              <div className="py-6">
+                <ShapedContentFlowInParagraph
+                  image={{
+                    src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
+                    alt: "Leasing options shape",
+                    shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
+                    aspectRatio: "1025/496",
+                  }}
+                  className="text-piki"
+                >
+                  {t("leasingOptions.personalizedDescription")}
+                </ShapedContentFlowInParagraph>
+              </div>
+              <div className="px-6">
+                <LinkLikeButton className="bg-white text-piki" href="#">
+                  Lue lisää
+                </LinkLikeButton>
+              </div>
+            </ColumnBlock>
+            <ColumnBlock className="bg-betoni overlay-pattern-innolease-2 py-6" noPadding>
+              <Heading3 className="px-6">{t("leasingOptions.flexibleTitle")}</Heading3>
+              <div className="py-6">
+                <ShapedContentFlowInParagraph
+                  image={{
+                    src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
+                    alt: "Leasing options shape",
+                    shape: "polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)",
+                    aspectRatio: "1025/496",
+                  }}
+                >
+                  {t("leasingOptions.flexibleDescription")}
+                </ShapedContentFlowInParagraph>
+              </div>
+              <div className="px-6">
+                <LinkLikeButton className="bg-kupari text-piki" href="#">
+                  Lue lisää
+                </LinkLikeButton>
+              </div>
+            </ColumnBlock>
+          </TwoColumnCard>
+        </MaxWidthContentBlock>
+        <MaxWidthContentBlock className="flex flex-col items-center py-12">
+          <LinkLikeButton href="#" className="mt-8 bg-piki hover:bg-piki/90 text-white">
+            Kaikki leasingvaihtoehdot
+          </LinkLikeButton>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
+
+      <FullWidthContentBlockWithBg
+        image="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
+        backgroundPosition="bottom right"
+      >
+        <MaxWidthContentBlock>
+          <BlockPadding>
+            <TwoColumnCard className="bg-transparent">
+              <div>
+                <Heading1>{t("transparency.title")}</Heading1>
+                <Paragraph>{t("transparency.description")}</Paragraph>
+                <Paragraph>
+                  Toteutamme yrityksenne autopolitiikkaa ja teemme autokannan kustannusten kilpailutuksen puolestanne,
+                  sekä realisoimme vanhan kaluston.
+                </Paragraph>
+                <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                  Lue lisää
+                </LinkLikeButton>
+              </div>
+              <div></div>
+            </TwoColumnCard>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullWidthContentBlockWithBg>
+
+      <FullScreenWidthBlock className="bg-gray-200">
+        <MaxWidthContentBlock className="py-12">
+          <TwoColumnCard className="bg-transparent">
+            <BlockPadding>
+              <Heading1 className="text-piki">
+                <span className="text-kupari">Uusi</span> vai <span className="text-kupari">käytetty</span> auto
+                etsinnässä?
+              </Heading1>
+              <Paragraph className="text-piki">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+              </Paragraph>
+              <Paragraph className="text-piki">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </Paragraph>
+              <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                Lue lisää
+              </LinkLikeButton>
+            </BlockPadding>
+            <div className="relative w-full flex">
+              <Image
+                src={"/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"}
+                alt={"transparency.imageAlt"}
+                width={800}
+                height={480}
+                layout="responsive"
+                className="object-contain"
+                sizes="100vw"
+                quality={90}
+              />
             </div>
-            <div className="relative">
-              <div className="relative h-[600px] w-full max-w-[400px] mx-auto">
-                <Image 
-                  src="/images/innofleet-app-mockup.png" 
-                  alt={t('innoFleet.imageAlt', {defaultValue: "InnoFleet Manager app"})}
+          </TwoColumnCard>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
+
+      <FullWidthContentBlockWithBg
+        image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
+        backgroundPosition="bottom right"
+        className="py-20"
+      >
+        <MaxWidthContentBlock>
+          <BlockPadding>
+            <TwoColumnCard className="bg-transparent">
+              <div>
+                <Heading1>{t("innoFleet.title")}</Heading1>
+                <Paragraph>{t("innoFleet.description1")}</Paragraph>
+                <Paragraph>{t("innoFleet.description2")}</Paragraph>
+                <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                  {t("transparency.readMore")}
+                </LinkLikeButton>
+              </div>
+              <div className="relative h-[600px] w-full">
+                <Image
+                  src="/images/home/iphone_05_sleep_image.png"
+                  alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 400px"
                   quality={90}
+                  style={{ transform: "scale(1.6)" }}
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </TwoColumnCard>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullWidthContentBlockWithBg>
 
-      {/* Team Section */}
-      <section className="w-full bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-8">
-            <h2 className="text-4xl font-bold font-['Inter_Tight'] text-piki">{t('team.title')}</h2>
-            <div className="h-1 w-16 bg-kupari mt-2"></div>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-8">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="text-center">
-                <div className="mx-auto mb-4 w-[240px] h-[240px] relative">
-                  <Image 
-                    src={`/images/team-member-${index + 1}.jpg`} 
-                    alt={t('team.memberAlt', {defaultValue: "Team member", id: index + 1})}
-                    width={240}
-                    height={240}
-                    className="rounded-lg object-cover shadow-md"
-                    quality={90}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-piki">{t(`team.member${index + 1}.name`, {defaultValue: "Jukka Mäkinen"})}</h3>
-                <p className="text-betoni">{t('team.role')}</p>
-                <p className="mt-2 text-piki">{t(`team.member${index + 1}.phone`, {defaultValue: "+358 50 123 4567"})}</p>
-                <p className="text-kupari font-medium">{t('team.email')}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Service Links 
+      <section className="container mx-auto py-8 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <LinkCardWithTexts
+            title={t("serviceLinks.fleetManagerTools")}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
+            link={{ href: "/fleet-manager", text: tCommon("learnMore") }}
+            customClassNames={{
+              link: "bg-piki text-white",
+            }}
+          />
 
-      {/* Dark CTA Section */}
-      <section className="w-full bg-piki py-16 text-white relative">
-        <div className="absolute inset-0 opacity-70">
-          <Image 
-            src="/images/innofleet-car-background.png" 
-            alt={t('transparency.imageAlt', {defaultValue: "Dark car"})}
-            fill 
-            className="object-cover"
-            sizes="100vw"
-            priority
+          <LinkCardWithTexts
+            title={t("serviceLinks.carCalculator")}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
+            link={{ href: "/car-calculator", text: tCommon("learnMore") }}
+            customClassNames={{
+              link: "bg-beige text-piki",
+            }}
+          />
+
+          <LinkCardWithTexts
+            title={t("serviceLinks.companyCarGuide")}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
+            link={{ href: "/company-car-guide", text: tCommon("learnMore") }}
+            customClassNames={{
+              link: "bg-maantie text-piki",
+            }}
           />
         </div>
-        <div className="absolute inset-0 bg-piki/40 z-10"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-20">
-          <div className="max-w-lg">
-            <h2 className="text-4xl font-bold mb-4 font-['Inter_Tight']">
-              {t('transparency.title')}
-            </h2>
-            <p className="mb-6 text-lg text-white">
-              {t('transparency.description')}
-            </p>
-            <Button variant="default" size="lg" className="bg-kupari hover:bg-kupari/90 text-white px-8 py-3 text-lg">
-              {t('transparency.readMore')}
-            </Button>
+      </section>*/}
+
+      <FullScreenWidthBlock className="bg-gray-200 py-12">
+        <MaxWidthContentBlock className="py-12">
+          <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
+        </MaxWidthContentBlock>
+        <MaxWidthContentBlock>
+          {blogPostsFormatted.length > 0 ? (
+            <BlogCardList posts={blogPostsFormatted} className="pt-0" />
+          ) : (
+            // Fallback to hardcoded cards if no blog posts are available
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <NewsCard
+                title={t("news.card1.title")}
+                text={t("news.card1.description")}
+                image={{
+                  src: "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
+                  alt: t("news.card1.imageAlt", { defaultValue: "Ford Transit" }),
+                }}
+                date="UUTISET"
+              />
+
+              {/* Card 2 */}
+              <NewsCard
+                title={t("news.card2.title")}
+                text={t("news.card2.description")}
+                image={{
+                  src: "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
+                  alt: t("news.card2.imageAlt", { defaultValue: "Sport cars" }),
+                }}
+                date="KAMPANJAT"
+              />
+
+              <NewsCard
+                title={t("news.card3.title")}
+                text={t("news.card3.description")}
+                image={{
+                  src: "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
+                  alt: t("news.card3.imageAlt", { defaultValue: "Electric truck" }),
+                }}
+                date="BLOGIT"
+              />
+            </div>
+          )}
+        </MaxWidthContentBlock>
+        <MaxWidthContentBlock className="flex items-center justify-center">
+          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+            {t("news.viewAll")}
+          </LinkLikeButton>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
+
+      {/* InnoFleet Manager Section */}
+
+      <CommonBlock className="bg-white px-0">
+        <ColumnCard className="bg-transparent grid-cols-[40%_67%]">
+          {/* Left Column: Heading (centered) */}
+          <div className="text-center md:text-left">
+            <Heading2 className="text-piki">{t("team.title")}</Heading2>
           </div>
-        </div>
-      </section>
+
+          {/* Right Column: Paragraphs and Button */}
+          <PersonnelCard people={t.raw("personnel")} />
+        </ColumnCard>
+      </CommonBlock>
+
+      {/* Dark CTA Section */}
+      <FullScreenWidthBlock className="bg-kupari">
+        <MaxWidthContentBlock className="py-12">
+          <TwoColumnCard className="bg-transparent">
+            <div className="relative">
+              <Heading1 className="text-piki">Kohti vihreämpää kalustoa Innoleasen kanssa</Heading1>
+              <Paragraph className="text-piki">
+                Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla.
+              </Paragraph>
+              <ul className="text-piki list-disc list-inside">
+                <li>Laaja valikoima sähköautoja </li>
+                <li>Yksityiskohtainen päästöraportointi </li>
+                <li>Latausratkaisut sähköautoille </li>
+                <li>Neuvontaa kaluston sähköistämiseen</li>
+              </ul>
+              <br></br>
+              <LinkLikeButton className="bg-piki   text-white" href={"#"}>
+                Lue lisää
+              </LinkLikeButton>
+              <IconPlugCar className="absolute bottom-0 right-0" />
+            </div>
+            <Image
+              src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
+              alt={"transparency.imageAlt"}
+              width={800}
+              height={480}
+              layout="responsive"
+              className="object-cover"
+              sizes="100vw"
+              quality={90}
+            />
+          </TwoColumnCard>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
     </main>
-  )
+  );
 }

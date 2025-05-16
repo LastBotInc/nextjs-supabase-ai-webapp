@@ -12,16 +12,63 @@
   },
   "hero": {
     "heading": "Innolease",
-    "subheading": "– Yrityksesi kumppani leasingasioissa",
+    "subheading": "Yrityksesi kumppani leasingasioissa"
+  },
+  "topTeam": {
+    "heading": "Laaja-alainen osaajatiimi palveluksessasi",
     "paragraph1": "Innoleasen tärkein tarkoitus on mukautua asiakkaan tarpeisiin ja tarjota asiakkaalle eri vaihtoehtoja, joiden pohjalta asiakkaan on helpompi tehdä heidän tilanteeseen sopiva ratkaisu.",
     "paragraph2": "Avoin toimintamallimme missä yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan palvelukokonaisuuden. Tavoitteemme on säästää asiakkaan aikaa ja rahaa, vähentää riskejä sekä helpottaa asiakkaan autokannan budjetointia.",
     "readMore": "Lue lisää",
-    "backgroundAlt": "Liikekumppanit kättelevät"
+    "imageAlt": "Tiimikuva"
   },
+  "personnel": [
+    {
+      "name": "Ville Mäkinen",
+      "title": "Myyntijohtaja",
+      "phone": "040 7570 309",
+      "email": "ville.makinen@innolease.fi",
+      "image": { "src": "/images/team/ville_makinen.jpg", "alt": "Ville Mäkinen" }
+    },
+    {
+      "name": "Samuli Hintikka",
+      "title": "Myyntipäällikkö",
+      "phone": "045 6468 184",
+      "email": "samuli.hintikka@innolease.fi",
+      "image": { "src": "/images/team/samuli_hintikka.jpg", "alt": "Samuli Hintikka" }
+    },
+    {
+      "name": "Anssi Hyvärinen",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4734 817",
+      "email": "anssi.hyvarinen@innolease.fi",
+      "image": { "src": "/images/team/anssi_hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
+    },
+    {
+      "name": "Jesse Hämäläinen",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4738 049",
+      "email": "jesse.hamalainen@innolease.fi",
+      "image": { "src": "/images/team/jesse_hamalainen.jpg", "alt": "Jesse Hämäläinen" }
+    },
+    {
+      "name": "Veikka Jurvelin",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4735 816",
+      "email": "veikka.jurvelin@innolease.fi",
+      "image": { "src": "/images/team/veikka_jurvelin.jpg", "alt": "Veikka Jurvelin" }
+    },
+    {
+      "name": "Niclas Yrttimaa",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4611 119",
+      "email": "niclas.yrttimaa@innolease.fi",
+      "image": { "src": "/images/team/niclas_yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
+    }
+  ],
   "leasingOptions": {
     "personalizedTitle": "Sinulle sopivin leasingvaihtoehto ja rahoitusmalli",
     "personalizedDescription": "Meiltä löytyy asiakkaalle aina tilanteeseen sopiva leasingvaihtoehto ja rahoitusmalli. Tavoitteemme on tarjota joustavuutta ja räätälöityjä ratkaisuja.",
-    "flexibleTitle": "Joustava ja helppo leasingpalvelu",
+    "flexibleTitle": "Joustava ja helppo kone- ja laiteleasing",
     "flexibleDescription": "Ketteränä toimijana palvelumme on joustavaa. Erityistoiveet aikataulun ja auton varustelun suhteen ovat meille arkipäivää.",
     "learnMore": "Lue lisää"
   },

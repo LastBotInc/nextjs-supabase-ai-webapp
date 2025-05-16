@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Ville Mäkinen",
+    "title": "Myyntijohtaja",
+    "phone": "040 7570 309",
+    "email": "ville.makinen@innolease.fi",
+    "image": { "src": "/images/personnel/ville-makinen.jpg", "alt": "Ville Mäkinen" }
+  },
+  {
+    "name": "Samuli Hintikka",
+    "title": "Myyntipäällikkö",
+    "phone": "045 6468 184",
+    "email": "samuli.hintikka@innolease.fi",
+    "image": { "src": "/images/personnel/samuli-hintikka.jpg", "alt": "Samuli Hintikka" }
+  },
+  {
+    "name": "Anssi Hyvärinen",
+    "title": "Myyntipäällikkö",
+    "phone": "050 4734 817",
+    "email": "anssi.hyvarinen@innolease.fi",
+    "image": { "src": "/images/personnel/anssi-hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
+  },
+  {
+    "name": "Jesse Hämäläinen",
+    "title": "Myyntipäällikkö",
+    "phone": "050 4738 049",
+    "email": "jesse.hamalainen@innolease.fi",
+    "image": { "src": "/images/personnel/jesse-hamalainen.jpg", "alt": "Jesse Hämäläinen" }
+  },
+  {
+    "name": "Veikka Jurvelin",
+    "title": "Myyntipäällikkö",
+    "phone": "050 4735 816",
+    "email": "veikka.jurvelin@innolease.fi",
+    "image": { "src": "/images/personnel/veikka-jurvelin.jpg", "alt": "Veikka Jurvelin" }
+  },
+  {
+    "name": "Niclas Yrttimaa",
+    "title": "Myyntipäällikkö",
+    "phone": "050 4611 119",
+    "email": "niclas.yrttimaa@innolease.fi",
+    "image": { "src": "/images/personnel/niclas-yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
+  }
+]
