@@ -9,7 +9,6 @@ import { CallUs } from "../components/CallUs";
 import {
   BlockPadding,
   CommonBlock,
-  CommonBlockWithCols,
   FullScreenWidthBlock,
   FullWidthContentBlockWithBg,
   MaxWidthContentBlock,
@@ -145,7 +144,9 @@ export default async function Page({ params }: Props) {
       <FullScreenWidthBlock className="bg-gray-200">
         <MaxWidthContentBlock className="flex flex-col items-center py-12">
           <h2 className="text-6xl font-light text-gray-900 leading-tight">Leasingratkaisut</h2>
-          <p className="text-3xl font-light text-gray-900">Valitse yrityksellesi parhaiten sopiva leasingratkaisu.</p>
+          <p className="text-3xl font-light text-gray-900 pb-12 pt-6">
+            Valitse yrityksellesi parhaiten sopiva leasingratkaisu.
+          </p>
         </MaxWidthContentBlock>
 
         <MaxWidthContentBlock>
@@ -193,8 +194,8 @@ export default async function Page({ params }: Props) {
             </ColumnBlock>
           </TwoColumnCard>
         </MaxWidthContentBlock>
-        <MaxWidthContentBlock className="flex flex-col items-center py-12">
-          <LinkLikeButton href="#" className="mt-8 bg-piki hover:bg-piki/90 text-white">
+        <MaxWidthContentBlock className="flex flex-col items-center pt-12 pb-20">
+          <LinkLikeButton href="#" className="bg-piki hover:bg-piki/90 text-white">
             Kaikki leasingvaihtoehdot
           </LinkLikeButton>
         </MaxWidthContentBlock>

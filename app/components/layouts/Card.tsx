@@ -99,12 +99,10 @@ export function CardWithAlignedBottomAndTextWrappingImage({
         <AlignContentsTopBottom>
           <h3 className="text-2xl font-bold mb-2 text-left leading-tight">{title}</h3>
           <div className="flex">
-            <p className="text-sm mb-4 text-left">
-              <span className="bottom-right-text-float" style={{ "--shape": image.shape } as React.CSSProperties}>
-                <img src={image.src} alt={image.alt} />
-              </span>
-              {text}
-            </p>
+            <span className="bottom-right-text-float" style={{ "--shape": image.shape } as React.CSSProperties}>
+              <img src={image.src} alt={image.alt} />
+            </span>
+            <p className="text-sm mb-4 text-left">{text}</p>
           </div>
           {link && (
             <div>
