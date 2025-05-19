@@ -116,7 +116,6 @@ export function ShapedContentFlowInParagraph({
       <Paragraph className="text-left pl-6">
         <span className="text-shape bg-no-repeat bg-contain" style={style}></span>
         {children}
-        {children}
       </Paragraph>
     </div>
   );

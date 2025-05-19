@@ -174,9 +174,9 @@ export function NewsCard({
   text,
   link,
   image,
-  date,
+  category,
   customClassNames = {},
-}: CardPropsWithImage & { date: string }) {
+}: CardPropsWithImage & { category: string }) {
   const defaultClassNames = "";
   const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
 
@@ -194,7 +194,7 @@ export function NewsCard({
         />
       </div>
       <div className="py-6">
-        <span className="text-lg font-medium text-kupari mb-2 block">{date}</span>
+        <span className="text-lg font-medium text-kupari mb-2 block uppercase">{category}</span>
         <Heading3Small className="mb-3 text-piki">{title}</Heading3Small>
         <Paragraph className="mb-4 text-piki">{text}</Paragraph>
         {link && (

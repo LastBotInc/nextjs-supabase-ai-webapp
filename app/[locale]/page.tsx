@@ -92,12 +92,7 @@ export default async function Page({ params }: Props) {
                   {t("hero.subheading")}
                 </span>
               </h1>
-              <CallUs
-                numbers={[
-                  { title: "Soita meille", number: "020 743 7670" },
-                  { title: "Soita meille", number: "020 743 76700" },
-                ]}
-              />
+              <CallUs numbers={t.raw("hero.numbers")} />
             </div>
           </div>
 
@@ -108,7 +103,7 @@ export default async function Page({ params }: Props) {
       {/* Leasing Options */}
       <CommonBlock className="bg-white">
         <TwoColumnCard className="bg-transparent gap-0">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left pr-10">
             <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
             <div className="aspect-ratio-4/3">
               <Image
@@ -125,7 +120,7 @@ export default async function Page({ params }: Props) {
           </div>
 
           {/* Right Column: Paragraphs and Button */}
-          <div className="pl-20">
+          <div>
             <div className="space-y-5 text-gray-700 text-lg">
               <Paragraph className="text-piki" variant="large">
                 {t("topTeam.paragraph1")}
@@ -143,10 +138,8 @@ export default async function Page({ params }: Props) {
       </CommonBlock>
       <FullScreenWidthBlock className="bg-gray-200">
         <MaxWidthContentBlock className="flex flex-col items-center py-12">
-          <h2 className="text-6xl font-light text-gray-900 leading-tight">Leasingratkaisut</h2>
-          <p className="text-3xl font-light text-gray-900 pb-12 pt-6">
-            Valitse yrityksellesi parhaiten sopiva leasingratkaisu.
-          </p>
+          <h2 className="text-6xl font-light text-gray-900 leading-tight">{t("leasingOptions.heading")}</h2>
+          <p className="text-3xl font-light text-gray-900 pb-8 pt-6">{t("leasingOptions.description")}</p>
         </MaxWidthContentBlock>
 
         <MaxWidthContentBlock>
@@ -168,7 +161,7 @@ export default async function Page({ params }: Props) {
               </div>
               <div className="px-6">
                 <LinkLikeButton className="bg-white text-piki" href="#">
-                  Lue lisää
+                  {t("leasingOptions.readMore")}
                 </LinkLikeButton>
               </div>
             </ColumnBlock>
@@ -188,7 +181,7 @@ export default async function Page({ params }: Props) {
               </div>
               <div className="px-6">
                 <LinkLikeButton className="bg-kupari text-piki" href="#">
-                  Lue lisää
+                  {t("leasingOptions.readMore")}
                 </LinkLikeButton>
               </div>
             </ColumnBlock>
@@ -196,7 +189,7 @@ export default async function Page({ params }: Props) {
         </MaxWidthContentBlock>
         <MaxWidthContentBlock className="flex flex-col items-center pt-12 pb-20">
           <LinkLikeButton href="#" className="bg-piki hover:bg-piki/90 text-white">
-            Kaikki leasingvaihtoehdot
+            {t("leasingOptions.allSolutions")}
           </LinkLikeButton>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
@@ -210,13 +203,11 @@ export default async function Page({ params }: Props) {
             <TwoColumnCard className="bg-transparent">
               <div>
                 <Heading1>{t("transparency.title")}</Heading1>
-                <Paragraph>{t("transparency.description")}</Paragraph>
-                <Paragraph>
-                  Toteutamme yrityksenne autopolitiikkaa ja teemme autokannan kustannusten kilpailutuksen puolestanne,
-                  sekä realisoimme vanhan kaluston.
-                </Paragraph>
+                {t.raw("transparency.description").map((description: string) => (
+                  <Paragraph key={description}>{description}</Paragraph>
+                ))}
                 <LinkLikeButton className="bg-kupari text-white" href={"#"}>
-                  Lue lisää
+                  {t("transparency.readMore")}
                 </LinkLikeButton>
               </div>
               <div></div>
@@ -234,19 +225,17 @@ export default async function Page({ params }: Props) {
         <MaxWidthContentBlock className="py-12">
           <TwoColumnCard className="bg-transparent">
             <BlockPadding>
-              <Heading1 className="text-piki">
-                <span className="text-kupari">Uusi</span> vai <span className="text-kupari">käytetty</span> auto
-                etsinnässä?
-              </Heading1>
-              <Paragraph className="text-piki">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-              </Paragraph>
-              <Paragraph className="text-piki">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </Paragraph>
+              <Heading1
+                className="text-piki"
+                dangerouslySetInnerHTML={{ __html: t.raw("searchingFor.title") }}
+              ></Heading1>
+              {t.raw("searchingFor.description").map((description: string) => (
+                <Paragraph key={description} className="text-piki">
+                  {description}
+                </Paragraph>
+              ))}
               <LinkLikeButton className="bg-kupari text-white" href={"#"}>
-                Lue lisää
+                {t("searchingFor.readMore")}
               </LinkLikeButton>
             </BlockPadding>
             <div className="relative w-full flex"></div>
@@ -286,38 +275,6 @@ export default async function Page({ params }: Props) {
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
 
-      {/* Service Links 
-      <section className="container mx-auto py-8 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <LinkCardWithTexts
-            title={t("serviceLinks.fleetManagerTools")}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            link={{ href: "/fleet-manager", text: tCommon("learnMore") }}
-            customClassNames={{
-              link: "bg-piki text-white",
-            }}
-          />
-
-          <LinkCardWithTexts
-            title={t("serviceLinks.carCalculator")}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            link={{ href: "/car-calculator", text: tCommon("learnMore") }}
-            customClassNames={{
-              link: "bg-beige text-piki",
-            }}
-          />
-
-          <LinkCardWithTexts
-            title={t("serviceLinks.companyCarGuide")}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            link={{ href: "/company-car-guide", text: tCommon("learnMore") }}
-            customClassNames={{
-              link: "bg-maantie text-piki",
-            }}
-          />
-        </div>
-      </section>*/}
-
       <FullScreenWidthBlock className="bg-gray-200 py-12">
         <MaxWidthContentBlock className="py-12 flex items-center gap-2">
           <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
@@ -337,7 +294,7 @@ export default async function Page({ params }: Props) {
                   src: "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
                   alt: t("news.card1.imageAlt", { defaultValue: "Ford Transit" }),
                 }}
-                date="UUTISET"
+                category={t("news.card1.category")}
               />
 
               {/* Card 2 */}
@@ -348,7 +305,7 @@ export default async function Page({ params }: Props) {
                   src: "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
                   alt: t("news.card2.imageAlt", { defaultValue: "Sport cars" }),
                 }}
-                date="KAMPANJAT"
+                category={t("news.card2.category")}
               />
 
               <NewsCard
@@ -358,7 +315,7 @@ export default async function Page({ params }: Props) {
                   src: "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
                   alt: t("news.card3.imageAlt", { defaultValue: "Electric truck" }),
                 }}
-                date="BLOGIT"
+                category={t("news.card3.category")}
               />
             </div>
           )}
@@ -389,15 +346,17 @@ export default async function Page({ params }: Props) {
         <MaxWidthContentBlock className="py-12">
           <TwoColumnCard className="bg-transparent">
             <div className="relative">
-              <Heading1 className="text-piki">Kohti vihreämpää kalustoa Innoleasen kanssa</Heading1>
-              <Paragraph className="text-piki">
-                Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla.
-              </Paragraph>
+              <Heading1 className="text-piki">{t("greenLeasing.title")}</Heading1>
+              {t.raw("greenLeasing.description").map((description: string) => (
+                <Paragraph key={description} className="text-piki">
+                  {description}
+                </Paragraph>
+              ))}
+
               <ul className="text-piki list-disc list-inside">
-                <li>Laaja valikoima sähköautoja </li>
-                <li>Yksityiskohtainen päästöraportointi </li>
-                <li>Latausratkaisut sähköautoille </li>
-                <li>Neuvontaa kaluston sähköistämiseen</li>
+                {t.raw("greenLeasing.list").map((item: string) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
               <br></br>
               <LinkLikeButton className="bg-piki   text-white" href={"#"}>
