@@ -119,6 +119,7 @@
     "viewAll": "Katso ajankohtaiset"
   },
   "innoFleet": {
+    "subtitle": "Raportointityökalu",
     "title": "InnoFleet Manager",
     "description1": "Teet autosi yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko autokannastasi antaa sinulle mahdollisuuden hallita autoihisi liittyviä asioita tehokkaasti ja aikaa säästäen.",
     "description2": "Koko autokantasi ylläpito ja huoltotoiminnallisuus ovat helposti saatavilla myös mobiililaitteellasi.",

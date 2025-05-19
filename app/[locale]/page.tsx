@@ -252,6 +252,7 @@ export default async function Page({ params }: Props) {
           <BlockPadding>
             <TwoColumnCard className="bg-transparent">
               <div>
+                <Heading3 className="uppercase text-xl pb-4">{t("innoFleet.subtitle")}</Heading3>
                 <Heading1>{t("innoFleet.title")}</Heading1>
                 <Paragraph>{t("innoFleet.description1")}</Paragraph>
                 <Paragraph>{t("innoFleet.description2")}</Paragraph>
@@ -360,7 +361,7 @@ export default async function Page({ params }: Props) {
               </ul>
               <br></br>
               <LinkLikeButton className="bg-piki   text-white" href={"#"}>
-                Lue lisää
+                {t("greenLeasing.readMore")}
               </LinkLikeButton>
               <IconPlugCar className="absolute bottom-0 right-0" />
             </div>
