@@ -12,17 +12,31 @@
   },
   "hero": {
     "heading": "Innolease",
-    "subheading": "– Din partner för företagsleasing",
+    "subheading": "Din partner för företagsleasing",
     "paragraph1": "Innoleases främsta syfte är att anpassa sig efter kundens behov och erbjuda olika alternativ som gör det lättare för kunden att fatta beslut som passar deras situation.",
     "paragraph2": "Vår transparenta verksamhetsmodell gör att vi tillsammans med kunden kan definiera servicepaket som tillgodoser kundens behov. Vårt mål är att spara kundens tid och pengar, minska risker och underlätta budgetering av fordonsflottan.",
     "readMore": "Läs mer",
-    "backgroundAlt": "Affärspartner som skakar hand"
+    "backgroundAlt": "Affärspartner som skakar hand",
+    "numbers": [
+      {
+        "title": "Ringa oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ringa oss",
+        "number": "020 743 76700"
+      }
+    ]
   },
   "leasingOptions": {
     "personalizedTitle": "Det mest lämpliga leasingalternativet och finansieringsmodellen för dig",
     "personalizedDescription": "Vi har alltid ett leasingalternativ och en finansieringsmodell som passar kundens situation. Vårt mål är att erbjuda flexibilitet och skräddarsydda lösningar.",
     "flexibleTitle": "Flexibel och enkel leasingtjänst",
     "flexibleDescription": "Som en smidig operatör är vår service flexibel. Särskilda önskemål gällande tidplan och fordonsutrustning är vardagliga ärenden för oss.",
+    "readMore": "Läs mer",
+    "heading": "Leasinglösningar",
+    "description": "Välj den leasinglösning som passar ditt företag bäst.",
+    "allSolutions": "Alla leasinglösningar",
     "learnMore": "Läs mer"
   },
   "serviceLinks": {
@@ -38,23 +52,27 @@
       "title": "Nya Ford Transit Custom",
       "description": "Beskrivningar kommer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Läs mer",
-      "imageAlt": "Ford Transit"
+      "imageAlt": "Ford Transit",
+      "category": "Nyheter"
     },
     "card2": {
       "title": "Vi erbjuder alla märken och modeller",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Läs mer",
-      "imageAlt": "Sportbilar"
+      "imageAlt": "Sportbilar",
+      "category": "Kampanjer"
     },
     "card3": {
       "title": "Leasinglösning ETruck",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Läs mer",
-      "imageAlt": "Elektrisk lastbil"
+      "imageAlt": "Elektrisk lastbil",
+      "category": "Bloggar"
     },
-    "viewAll": "Visa alla nyheter"
+    "viewAll": "Se aktuella nyheter"
   },
   "innoFleet": {
+    "subtitle": "Rapportverktyg",
     "title": "InnoFleet Manager",
     "description1": "Skapa alla rapporter som ditt företag behöver direkt från webbtjänsten. Uppdaterad information om hela din fordonspark ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
     "description2": "Underhåll av hela din fordonspark och servicefunktionalitet är också enkelt tillgängligt på din mobila enhet.",
@@ -85,7 +103,9 @@
   },
   "transparency": {
     "title": "Leasinglösningskostnader transparent",
-    "description": "Vi vill göra leasing av bilar så tydligt och enkelt som möjligt. Det är därför Innoleases prissättning är transparent. Du får alltid ett sanningsenligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker utan onödig byråkrati och får saker gjorda.",
+    "description": [
+      "Vi vill göra leasing av bilar så tydligt och enkelt som möjligt. Det är därför Innoleases prissättning är transparent. Du får alltid ett sanningsenligt och tydligt erbjudande från oss som inte inkluderar dolda kostnader. Vi gör saker utan onödig byråkrati och får saker gjorda."
+    ],
     "readMore": "Läs mer",
     "imageAlt": "Mörk bil"
   },
@@ -106,5 +126,77 @@
     "serviceEmail": "huolto@innolease.fi",
     "publishingCompany": "Tmi Verkkokauppa",
     "publishingEmail": "design@verkkokauppa.fi"
+  },
+  "topTeam": {
+    "heading": "Ett mångsidigt expertteam till din tjänst",
+    "paragraph1": "Innoleases viktigaste syfte är att anpassa sig efter kundens behov och erbjuda olika alternativ, vilket gör det lättare för kunden att fatta rätt beslut för sin situation.",
+    "paragraph2": "Vår öppna verksamhetsmodell innebär att vi tillsammans med kunden definierar en tjänstehelhet som betjänar deras behov. Vårt mål är att spara kundens tid och pengar, minska risker och underlätta budgeteringen av fordonsflottan.",
+    "readMore": "Läs mer",
+    "imageAlt": "Teamfoto"
+  },
+  "personnel": [
+    {
+      "name": "Ville Mäkinen",
+      "title": "Försäljningsdirektör",
+      "phone": "040 7570 309",
+      "email": "ville.makinen@innolease.fi",
+      "image": { "src": "/images/team/ville_makinen.jpg", "alt": "Ville Mäkinen" }
+    },
+    {
+      "name": "Samuli Hintikka",
+      "title": "Försäljningschef",
+      "phone": "045 6468 184",
+      "email": "samuli.hintikka@innolease.fi",
+      "image": { "src": "/images/team/samuli_hintikka.jpg", "alt": "Samuli Hintikka" }
+    },
+    {
+      "name": "Anssi Hyvärinen",
+      "title": "Försäljningschef",
+      "phone": "050 4734 817",
+      "email": "anssi.hyvarinen@innolease.fi",
+      "image": { "src": "/images/team/anssi_hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
+    },
+    {
+      "name": "Jesse Hämäläinen",
+      "title": "Försäljningschef",
+      "phone": "050 4738 049",
+      "email": "jesse.hamalainen@innolease.fi",
+      "image": { "src": "/images/team/jesse_hamalainen.jpg", "alt": "Jesse Hämäläinen" }
+    },
+    {
+      "name": "Veikka Jurvelin",
+      "title": "Försäljningschef",
+      "phone": "050 4735 816",
+      "email": "veikka.jurvelin@innolease.fi",
+      "image": { "src": "/images/team/veikka_jurvelin.jpg", "alt": "Veikka Jurvelin" }
+    },
+    {
+      "name": "Niclas Yrttimaa",
+      "title": "Försäljningschef",
+      "phone": "050 4611 119",
+      "email": "niclas.yrttimaa@innolease.fi",
+      "image": { "src": "/images/team/niclas_yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
+    }
+  ],
+  "searchingFor": {
+    "title": "<span class=\"text-kupari\">Ny</span> eller <span class=\"text-kupari\">begagnad</span> bil på jakt?",
+    "description": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    ],
+    "readMore": "Läs mer",
+    "imageAlt": "Mörk bil"
+  },
+  "greenLeasing": {
+    "title": "Mot en grönare fordonspark med Innolease",
+    "description": ["Minska ditt koldioxidavtryck med våra el- och hybridbilar."],
+    "list": [
+      "Brett urval av elbilar",
+      "Detaljerad utsläppsrapportering",
+      "Laddningslösningar för elbilar",
+      "Rådgivning för elektrifiering av fordonsparken"
+    ],
+    "readMore": "Läs mer",
+    "imageAlt": "Mörk bil"
   }
 }

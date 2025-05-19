@@ -99,12 +99,10 @@ export function CardWithAlignedBottomAndTextWrappingImage({
         <AlignContentsTopBottom>
           <h3 className="text-2xl font-bold mb-2 text-left leading-tight">{title}</h3>
           <div className="flex">
-            <p className="text-sm mb-4 text-left">
-              <span className="bottom-right-text-float" style={{ "--shape": image.shape } as React.CSSProperties}>
-                <img src={image.src} alt={image.alt} />
-              </span>
-              {text}
-            </p>
+            <span className="bottom-right-text-float" style={{ "--shape": image.shape } as React.CSSProperties}>
+              <img src={image.src} alt={image.alt} />
+            </span>
+            <p className="text-sm mb-4 text-left">{text}</p>
           </div>
           {link && (
             <div>
@@ -176,9 +174,9 @@ export function NewsCard({
   text,
   link,
   image,
-  date,
+  category,
   customClassNames = {},
-}: CardPropsWithImage & { date: string }) {
+}: CardPropsWithImage & { category: string }) {
   const defaultClassNames = "";
   const cardClassName = `${customClassNames.card || ""} ${defaultClassNames}`;
 
@@ -196,7 +194,7 @@ export function NewsCard({
         />
       </div>
       <div className="py-6">
-        <span className="text-lg font-medium text-kupari mb-2 block">{date}</span>
+        <span className="text-lg font-medium text-kupari mb-2 block uppercase">{category}</span>
         <Heading3Small className="mb-3 text-piki">{title}</Heading3Small>
         <Paragraph className="mb-4 text-piki">{text}</Paragraph>
         {link && (

@@ -63,10 +63,16 @@ export function Heading3Small({
 export function Paragraph({
   children,
   className,
+  variant,
   ...props
-}: React.PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>) {
+}: React.PropsWithChildren<
+  HTMLAttributes<HTMLParagraphElement> & {
+    variant?: "default" | "small" | "large";
+  }
+>) {
+  const textSize = variant === "small" ? "text-sm" : variant === "large" ? "text-2xl" : "text-lg";
   return (
-    <p className={cn("mb-6 text-lg", className)} {...props}>
+    <p className={cn("mb-6", textSize, className)} {...props}>
       {children}
     </p>
   );
@@ -79,7 +85,7 @@ export function LinkLikeButton({
 }: { children: React.ReactNode } & Parameters<typeof Link>[0]) {
   return (
     <Link
-      className={`inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all text-sm ${
+      className={`inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all text-lg ${
         className ?? ""
       }`}
       {...props}
@@ -102,15 +108,13 @@ export function ShapedContentFlowInParagraph({
   const style = {
     backgroundImage: `url(${image.src})`,
     backgroundPosition: "bottom right",
-    backgroundSize: "56%",
+    "--shape": image.shape,
+    aspectRatio: image.aspectRatio || "1/1",
   };
   return (
     <div className={cn("flex", className)} {...props}>
-      <Paragraph className="text-left bg-no-repeat bg-contain pl-6" style={style}>
-        <span
-          className="text-shape"
-          style={{ "--shape": image.shape, aspectRatio: image.aspectRatio || "1/1" } as React.CSSProperties}
-        ></span>
+      <Paragraph className="text-left pl-6">
+        <span className="text-shape bg-no-repeat bg-contain" style={style}></span>
         {children}
       </Paragraph>
     </div>

@@ -12,7 +12,17 @@
   },
   "hero": {
     "heading": "Innolease",
-    "subheading": "Yrityksesi kumppani leasingasioissa"
+    "subheading": "Yrityksesi kumppani leasingasioissa",
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
   },
   "topTeam": {
     "heading": "Laaja-alainen osaajatiimi palveluksessasi",
@@ -66,6 +76,10 @@
     }
   ],
   "leasingOptions": {
+    "heading": "Leasingratkaisut",
+    "description": "Valitse yrityksellesi parhaiten sopiva leasingratkaisu.",
+    "readMore": "Lue lisää",
+    "allSolutions": "Kaikki leasingratkaisut",
     "personalizedTitle": "Sinulle sopivin leasingvaihtoehto ja rahoitusmalli",
     "personalizedDescription": "Meiltä löytyy asiakkaalle aina tilanteeseen sopiva leasingvaihtoehto ja rahoitusmalli. Tavoitteemme on tarjota joustavuutta ja räätälöityjä ratkaisuja.",
     "flexibleTitle": "Joustava ja helppo kone- ja laiteleasing",
@@ -85,23 +99,27 @@
       "title": "Uusi Ford Transit Custom",
       "description": "Kuvaukset saapuvat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Lue lisää",
-      "imageAlt": "Ford Transit"
+      "imageAlt": "Ford Transit",
+      "category": "Uutiset"
     },
     "card2": {
       "title": "Tarjoamme kaikki merkit ja mallit",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Lue lisää",
-      "imageAlt": "Urheiluautot"
+      "imageAlt": "Urheiluautot",
+      "category": "Kampanjat"
     },
     "card3": {
       "title": "Leasing ratkaisu ETruck",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "readMore": "Lue lisää",
-      "imageAlt": "Sähköinen kuorma-auto"
+      "imageAlt": "Sähköinen kuorma-auto",
+      "category": "Blogit"
     },
     "viewAll": "Katso ajankohtaiset"
   },
   "innoFleet": {
+    "subtitle": "Raportointityökalu",
     "title": "InnoFleet Manager",
     "description1": "Teet autosi yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko autokannastasi antaa sinulle mahdollisuuden hallita autoihisi liittyviä asioita tehokkaasti ja aikaa säästäen.",
     "description2": "Koko autokantasi ylläpito ja huoltotoiminnallisuus ovat helposti saatavilla myös mobiililaitteellasi.",
@@ -132,7 +150,31 @@
   },
   "transparency": {
     "title": "Leasing-ratkaisujen kustannukset läpinäkyvästi",
-    "description": "Haluamme tehdä leasing-autoilusta mahdollisimman selkeää ja yksinkertaista. Siksi Innoleasen hinnoittelu on läpinäkyvää. Saat meiltä aina todenmukaisen ja selkeän tarjouksen, joka ei sisällä piilotettuja kuluja. Teemme asiat ilman ylimääräistä byrokratiaa ja hoidamme hommat kuntoon.",
+    "description": [
+      "Haluamme tehdä leasing-autoilusta mahdollisimman selkeää ja yksinkertaista. Siksi Innoleasen hinnoittelu on läpinäkyvää. Saat meiltä aina todenmukaisen ja selkeän tarjouksen, joka ei sisällä piilotettuja kuluja. Teemme asiat ilman ylimääräistä byrokratiaa ja hoidamme hommat kuntoon.",
+      "Toteutamme yrityksenne autopolitiikkaa ja teemme autokannan kustannusten kilpailutuksen puolestanne, sekä realisoimme vanhan kaluston."
+    ],
+    "readMore": "Lue lisää",
+    "imageAlt": "Tumma auto"
+  },
+  "searchingFor": {
+    "title": "<span class=\"text-kupari\">Uusi</span> vai <span class=\"text-kupari\">käytetty</span> auto etsinnässä?",
+    "description": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    ],
+    "readMore": "Lue lisää",
+    "imageAlt": "Tumma auto"
+  },
+  "greenLeasing": {
+    "title": "Kohti vihreämpää kalustoa Innoleasen kanssa",
+    "description": ["Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla."],
+    "list": [
+      "Laaja valikoima sähköautoja",
+      "Yksityiskohtainen päästöraportointi",
+      "Latausratkaisut sähköautoille",
+      "Neuvontaa kaluston sähköistämiseen"
+    ],
     "readMore": "Lue lisää",
     "imageAlt": "Tumma auto"
   },
