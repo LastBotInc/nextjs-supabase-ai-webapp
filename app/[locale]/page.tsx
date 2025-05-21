@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 import { BlogCardList } from "@/app/components/BlogCardList";
 //import { createClient } from "@/utils/supabase/server";
@@ -105,12 +106,15 @@ export default async function Page({ params }: Props) {
           <div className="text-center md:text-left pr-10">
             <Heading2 className="text-piki">{t("topTeam.heading")}</Heading2>
             <div className="aspect-ratio-4/3">
-              <img
+              <Image
                 src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
                 alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
+                layout="responsive"
                 width={1893}
                 height={1262}
                 className="object-contain"
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={90}
               />
             </div>
           </div>
@@ -257,11 +261,13 @@ export default async function Page({ params }: Props) {
                 </LinkLikeButton>
               </div>
               <div className="relative h-[600px] w-full z-10">
-                <img
+                <Image
                   src="/images/home/iphone_05_sleep_image.png"
                   alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
+                  fill
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 400px"
+                  quality={90}
                   style={{ transform: "scale(1.6)" }}
                 />
               </div>
@@ -359,12 +365,15 @@ export default async function Page({ params }: Props) {
               </LinkLikeButton>
               <IconPlugCar className="absolute bottom-0 right-0" />
             </div>
-            <img
+            <Image
               src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
               alt={"transparency.imageAlt"}
               width={800}
               height={480}
+              layout="responsive"
               className="object-cover rounded-xl "
+              sizes="100vw"
+              quality={90}
             />
           </TwoColumnCard>
         </MaxWidthContentBlock>
