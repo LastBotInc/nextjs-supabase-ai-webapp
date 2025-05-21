@@ -1,9 +1,8 @@
-'use client'
+"use client";
 
-import { BlogCard } from './BlogCard'
-import { useTranslations } from 'next-intl'
+import { BlogCard } from "./BlogCard";
 
-type BlogPost = {
+export type BlogPost = {
   id: string;
   title: string;
   description: string;
@@ -11,27 +10,19 @@ type BlogPost = {
   imageAlt: string;
   date?: string;
   href: string;
-}
+};
 
 type BlogCardListProps = {
   posts: BlogPost[];
   title?: string;
   className?: string;
-}
+};
 
-export function BlogCardList({
-  posts,
-  title,
-  className = ''
-}: BlogCardListProps) {
-  const t = useTranslations('Home')
-  
+export function BlogCardList({ posts, title, className = "" }: BlogCardListProps) {
   return (
     <section className={`py-12 ${className}`}>
-      {title && (
-        <h2 className="text-3xl font-bold mb-8">{title}</h2>
-      )}
-      
+      {title && <h2 className="text-3xl font-bold mb-8">{title}</h2>}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
           <BlogCard
@@ -46,5 +37,5 @@ export function BlogCardList({
         ))}
       </div>
     </section>
-  )
-} 
+  );
+}
