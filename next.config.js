@@ -72,9 +72,8 @@ const nextConfig = {
       "lodash",
     ],
     serverActions: {
-      bodySizeLimit: "10mb",
+      bodySizeLimit: "2mb",
     },
-    largePageDataBytes: 1000000 * 100,
   },
   typescript: {
     ignoreBuildErrors: true,
