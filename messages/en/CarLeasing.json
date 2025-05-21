@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Car Leasing Services",
+    "description": "Flexible car leasing options for individuals and businesses. Discover our terms, vehicle selection, and get in touch for a tailored offer."
+  },
+  "title": "Car Leasing",
+  "intro": "Our car leasing service offers flexible solutions for both private individuals and companies. Choose the best option for your needs and enjoy worry-free driving.",
+  "personal": {
+    "title": "For Private Customers",
+    "description": "Leasing a car as a private customer is easy and convenient. You get a new car without a large initial investment, and monthly payments cover all essential costs except fuel."
+  },
+  "corporate": {
+    "title": "For Companies",
+    "description": "Our corporate leasing solutions help businesses manage their vehicle fleet efficiently. We offer tailored agreements, flexible terms, and a wide selection of vehicles for every business need."
+  },
+  "terms": {
+    "title": "Leasing Terms",
+    "description": "Our leasing agreements are transparent and flexible. You can choose the contract length, mileage, and additional services to suit your needs. Contact us for a personalized offer."
+  },
+  "vehicles": {
+    "title": "Vehicle Selection",
+    "description": "We offer a wide range of vehicles from compact cars to vans and electric vehicles. All our cars are well-equipped and regularly serviced."
+  },
+  "cta": {
+    "title": "Interested in Car Leasing?",
+    "description": "Contact us and we will help you find the best leasing solution for you or your company.",
+    "button": "Contact Us"
+  }
+}

@@ -13,10 +13,10 @@ export const getNamespaces = (): string[] => {
   // Pre-generated list of namespaces from the messages/en directory
   return [
     'About', 'Account', 'Admin', 'Auth',
-    'Blog', 'CarBenefitCalculator', 'Common', 'Contact',
-    'CookieConsent', 'CustomerService', 'CustomerStories', 'Footer',
-    'Home', 'Index', 'LandingPages', 'LeasingSolutions',
-    'Media', 'Meta', 'Navigation', 'Privacy',
-    'Profile'
+    'Blog', 'CarBenefitCalculator', 'CarLeasing', 'Common',
+    'Contact', 'CookieConsent', 'CustomerService', 'CustomerStories',
+    'Footer', 'Home', 'Index', 'LandingPages',
+    'LeasingSolutions', 'Media', 'Meta', 'Navigation',
+    'Privacy', 'Profile'
   ];
 }; 

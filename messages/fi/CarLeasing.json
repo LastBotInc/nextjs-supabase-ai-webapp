@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Auton Leasing",
+    "description": "Joustavat leasingratkaisut yksityisille ja yrityksille. Tutustu ehtoihin, autovalikoimaan ja pyydä tarjous juuri sinulle."
+  },
+  "title": "Auton Leasing",
+  "intro": "Tarjoamme joustavia leasingratkaisuja sekä yksityishenkilöille että yrityksille. Valitse tarpeisiisi sopivin vaihtoehto ja nauti huolettomasta autoilusta.",
+  "personal": {
+    "title": "Yksityisasiakkaille",
+    "description": "Yksityisleasing on helppo ja vaivaton tapa hankkia auto. Saat uuden auton ilman suurta alkupääomaa, ja kuukausimaksu kattaa kaikki olennaiset kulut polttoainetta lukuun ottamatta."
+  },
+  "corporate": {
+    "title": "Yrityksille",
+    "description": "Yritysleasing auttaa hallitsemaan yrityksen autokalustoa tehokkaasti. Tarjoamme räätälöityjä sopimuksia, joustavat ehdot ja laajan autovalikoiman kaikkiin tarpeisiin."
+  },
+  "terms": {
+    "title": "Leasingehdot",
+    "description": "Leasingsopimuksemme ovat läpinäkyviä ja joustavia. Voit valita sopimuksen keston, ajokilometrit ja lisäpalvelut tarpeidesi mukaan. Pyydä meiltä henkilökohtainen tarjous."
+  },
+  "vehicles": {
+    "title": "Autovalikoima",
+    "description": "Tarjoamme laajan valikoiman autoja pienistä henkilöautoista pakettiautoihin ja sähköautoihin. Kaikki automme ovat hyvin varusteltuja ja huollettuja."
+  },
+  "cta": {
+    "title": "Kiinnostuitko leasingista?",
+    "description": "Ota yhteyttä, niin autamme löytämään parhaan leasingratkaisun sinulle tai yrityksellesi.",
+    "button": "Ota yhteyttä"
+  }
+}
