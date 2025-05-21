@@ -1,9 +1,8 @@
 "use client";
-import { NewsCard } from "../components/layouts/Card";
+import { NewsCard } from "./layouts/Card";
 import { useTranslations } from "next-intl";
-import { LinkLikeButton } from "../components/layouts/CommonElements";
 
-export default function NewsFallbackSection() {
+export default function NewsSection() {
   // Use client-side translations
   const t = useTranslations("Home");
   return (
@@ -39,11 +38,6 @@ export default function NewsFallbackSection() {
           }}
           category={t("news.card3.category")}
         />
-      </div>
-      <div className="flex items-center justify-center">
-        <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
-          {t("news.viewAll")}
-        </LinkLikeButton>
       </div>
     </>
   );

@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import { BlogCardList } from "@/app/components/BlogCardList";
-//import { createClient } from "@/utils/supabase/server";
-import { NewsCard, PersonnelCard, TwoColumnCard, ColumnCard } from "../components/layouts/Card";
+
+import { TwoColumnCard } from "../components/layouts/Card";
 import { CallUs } from "../components/CallUs";
 import {
   BlockPadding,
@@ -15,18 +15,7 @@ import {
   ColumnBlock,
 } from "../components/layouts/Block";
 import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
-import {
-  Heading1,
-  Heading2,
-  Heading2Small,
-  Heading3,
-  ShapedContentFlowInParagraph,
-} from "../components/layouts/CommonElements";
-import { IconPlugCar } from "../components/Icons";
-import { ArrowRightIcon } from "lucide-react";
-
-export const dynamic = "force-dynamic";
-
+import { Heading1, Heading2, Heading3, ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
 type Props = {
   params: {
     locale: string;
@@ -44,36 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Dynamically import heavy sections as client components
+const DynamicContent = dynamic(() => import("../components/DynamicContent"));
+
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "Home" });
-
-  // Fetch the latest 3 news blog posts
-  const supabase = await createClient();
-  const { data: blogPosts } = await supabase
-    .from("posts")
-    .select("id, title, excerpt, featured_image, slug, created_at")
-    .eq("locale", locale)
-    .eq("subject", "news")
-    .eq("published", true)
-    .order("created_at", { ascending: false })
-    .limit(3);
-
-  // Transform blog posts for the BlogCardList component
-  const blogPostsFormatted = (blogPosts || []).map((post) => ({
-    id: post.id,
-    title: post.title,
-    description: post.excerpt,
-    imageSrc: post.featured_image || "/images/no-bg/etruck.png", // Fallback image if none provided
-    imageAlt: post.title,
-    date: new Date(post.created_at).toLocaleDateString(locale, {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    }),
-    href: `/blog/${post.slug}`,
-  }));
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
@@ -275,109 +241,7 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
-
-      <FullScreenWidthBlock className="bg-gray-200 py-12">
-        <MaxWidthContentBlock className="py-12 flex items-center gap-2">
-          <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
-          <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
-        </MaxWidthContentBlock>
-        <MaxWidthContentBlock>
-          {blogPostsFormatted.length > 0 ? (
-            <BlogCardList posts={blogPostsFormatted} className="pt-0" />
-          ) : (
-            // Fallback to hardcoded cards if no blog posts are available
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <NewsCard
-                title={t("news.card1.title")}
-                text={t("news.card1.description")}
-                image={{
-                  src: "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png",
-                  alt: t("news.card1.imageAlt", { defaultValue: "Ford Transit" }),
-                }}
-                category={t("news.card1.category")}
-              />
-
-              {/* Card 2 */}
-              <NewsCard
-                title={t("news.card2.title")}
-                text={t("news.card2.description")}
-                image={{
-                  src: "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png",
-                  alt: t("news.card2.imageAlt", { defaultValue: "Sport cars" }),
-                }}
-                category={t("news.card2.category")}
-              />
-
-              <NewsCard
-                title={t("news.card3.title")}
-                text={t("news.card3.description")}
-                image={{
-                  src: "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png",
-                  alt: t("news.card3.imageAlt", { defaultValue: "Electric truck" }),
-                }}
-                category={t("news.card3.category")}
-              />
-            </div>
-          )}
-        </MaxWidthContentBlock>
-        <MaxWidthContentBlock className="flex items-center justify-center">
-          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
-            {t("news.viewAll")}
-          </LinkLikeButton>
-        </MaxWidthContentBlock>
-      </FullScreenWidthBlock>
-
-      {/* InnoFleet Manager Section */}
-
-      <CommonBlock className="bg-white px-0">
-        <ColumnCard className="bg-transparent grid-cols-[40%_67%]">
-          {/* Left Column: Heading (centered) */}
-          <div className="text-center md:text-left">
-            <Heading2 className="text-piki">{t("team.title")}</Heading2>
-          </div>
-
-          {/* Right Column: Paragraphs and Button */}
-          <PersonnelCard people={t.raw("personnel")} />
-        </ColumnCard>
-      </CommonBlock>
-
-      {/* Dark CTA Section */}
-      <FullScreenWidthBlock className="bg-kupari">
-        <MaxWidthContentBlock className="py-12">
-          <TwoColumnCard className="bg-transparent">
-            <div className="relative">
-              <Heading1 className="text-piki">{t("greenLeasing.title")}</Heading1>
-              {t.raw("greenLeasing.description").map((description: string) => (
-                <Paragraph key={description} className="text-piki">
-                  {description}
-                </Paragraph>
-              ))}
-
-              <ul className="text-piki list-disc list-inside">
-                {t.raw("greenLeasing.list").map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <br></br>
-              <LinkLikeButton className="bg-piki   text-white" href={"#"}>
-                {t("greenLeasing.readMore")}
-              </LinkLikeButton>
-              <IconPlugCar className="absolute bottom-0 right-0" />
-            </div>
-            <Image
-              src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
-              alt={"transparency.imageAlt"}
-              width={800}
-              height={480}
-              layout="responsive"
-              className="object-cover rounded-xl "
-              sizes="100vw"
-              quality={90}
-            />
-          </TwoColumnCard>
-        </MaxWidthContentBlock>
-      </FullScreenWidthBlock>
+      <DynamicContent locale={locale} />
     </main>
   );
 }
