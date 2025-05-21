@@ -1,41 +1,33 @@
 {
-  "title": "Ota yhteyttä",
-  "description": "Ota meihin yhteyttä. Kuulemme mielellämme sinusta ja keskustelemme, kuinka voimme auttaa yritystäsi tekoälyn käyttöönotossa.",
-  "info": {
-    "title": "Yhteystiedot"
+  "meta": {
+    "title": "Yhteystiedot",
+    "description": "Ota yhteyttä Innoleaseen. Löydät toimipisteidemme sijainnit, yhteystiedot ja voit lähettää viestin yhteydenottolomakkeella."
   },
-  "address": {
-    "title": "Osoite",
-    "street": "Kimmeltie 10",
-    "postal": "90630 Oulu",
-    "country": "Suomi"
-  },
-  "website": "Verkkosivusto",
-  "email": "Sähköposti",
-  "social": {
-    "title": "Seuraa meitä"
-  },
+  "title": "Yhteystiedot",
+  "intro": "Autamme mielellämme kaikissa leasingiin ja palveluihin liittyvissä asioissa. Ota yhteyttä lomakkeella tai suoraan lähimpään toimipisteeseemme.",
   "form": {
-    "title": "Lähetä meille viesti",
-    "description": "Täytä alla oleva lomake, niin palaamme asiaan mahdollisimman pian.",
+    "title": "Yhteydenottolomake",
     "name": "Nimi",
     "email": "Sähköposti",
-    "company": "Yritys",
+    "phone": "Puhelin",
+    "subject": "Aihe",
+    "subjects": {
+      "leasing": "Leasing-tiedustelu",
+      "service": "Huolto ja ylläpito",
+      "fleet": "Kaluston hallinta",
+      "other": "Muu asia"
+    },
     "message": "Viesti",
-    "submit": "Lähetä viesti",
-    "submitting": "Lähetetään...",
-    "success": {
-      "title": "Viesti lähetetty",
-      "message": "Kiitos viestistäsi. Otamme sinuun pian yhteyttä."
-    },
-    "error": {
-      "captcha": "Ole hyvä ja suorita captcha-varmennus.",
-      "captchaValidation": "Captchan vahvistus epäonnistui. Yritä uudelleen.",
-      "general": "Viestin lähetys epäonnistui. Yritä uudelleen."
-    },
-    "meta": {
-      "title": "Yhteystiedot | Innolease - Leasing & Kalustonhallinta",
-      "description": "Ota yhteyttä Innoleaseen keskustellaksesi leasingtarpeistasi. Varaa tapaaminen, etsi toimipisteemme tai ota yhteyttä tukeen."
-    }
+    "submit": "Lähetä viesti"
+  },
+  "offices": {
+    "title": "Toimipisteet"
+  },
+  "hours": {
+    "title": "Aukioloajat",
+    "weekdays": "Maanantai–perjantai",
+    "saturday": "Lauantai",
+    "sunday": "Sunnuntai",
+    "closed": "Suljettu"
   }
 }

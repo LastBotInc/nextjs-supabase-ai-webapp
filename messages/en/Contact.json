@@ -1,41 +1,33 @@
 {
-  "title": "Contact Us",
-  "description": "Get in touch with us. We'd love to hear from you and discuss how we can help transform your business with AI.",
-  "info": {
-    "title": "Contact Information"
+  "meta": {
+    "title": "Contact Us",
+    "description": "Get in touch with Innolease. Find our office locations, contact details, and send us a message using the contact form."
   },
-  "address": {
-    "title": "Address",
-    "street": "Kimmeltie 10",
-    "postal": "90630 Oulu",
-    "country": "Finland"
-  },
-  "website": "Website",
-  "email": "Email",
-  "social": {
-    "title": "Follow Us"
-  },
+  "title": "Contact Information",
+  "intro": "We are here to help you with all your leasing and service needs. Contact us using the form or reach out to one of our offices directly.",
   "form": {
-    "title": "Send us a message",
-    "description": "Fill out the form below and we'll get back to you as soon as possible.",
+    "title": "Contact Form",
     "name": "Name",
     "email": "Email",
-    "company": "Company",
+    "phone": "Phone",
+    "subject": "Subject",
+    "subjects": {
+      "leasing": "Leasing inquiry",
+      "service": "Service & maintenance",
+      "fleet": "Fleet management",
+      "other": "Other"
+    },
     "message": "Message",
-    "submit": "Send Message",
-    "submitting": "Sending...",
-    "success": {
-      "title": "Message Sent",
-      "message": "Thank you for your message. We'll get back to you soon."
-    },
-    "error": {
-      "captcha": "Please complete the captcha verification.",
-      "captchaValidation": "Captcha validation failed. Please try again.",
-      "general": "Failed to send message. Please try again."
-    },
-    "meta": {
-      "title": "Contact | LastBot - Human-Centric AI Solutions",
-      "description": "Connect with LastBot to discuss your AI integration needs. Schedule a consultation, find our office locations, or reach out through our support channels."
-    }
+    "submit": "Send Message"
+  },
+  "offices": {
+    "title": "Our Offices"
+  },
+  "hours": {
+    "title": "Opening Hours",
+    "weekdays": "Monday–Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
   }
 }
