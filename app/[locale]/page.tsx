@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 import { BlogCardList } from "@/app/components/BlogCardList";
-import { createClient } from "@/utils/supabase/server";
+//import { createClient } from "@/utils/supabase/server";
 import { NewsCard, PersonnelCard, TwoColumnCard, ColumnCard } from "../components/layouts/Card";
 import { CallUs } from "../components/CallUs";
 import {
@@ -48,7 +48,7 @@ export default async function Page({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "Home" });
-
+  /*
   // Fetch the latest 3 news blog posts
   const supabase = await createClient();
   const { data: blogPosts } = await supabase
@@ -74,7 +74,8 @@ export default async function Page({ params }: Props) {
     }),
     href: `/blog/${post.slug}`,
   }));
-
+*/
+  const blogPostsFormatted = [];
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
       {/* Hero Section - Updated layout: Full-width image within container */}
