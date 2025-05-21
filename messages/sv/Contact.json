@@ -1,41 +1,33 @@
 {
-  "title": "Kontakta oss",
-  "description": "Hör av dig. Vi vill gärna höra från dig och diskutera hur vi kan hjälpa ditt företag att implementera AI.",
-  "info": {
-    "title": "Kontaktinformation"
+  "meta": {
+    "title": "Kontaktuppgifter",
+    "description": "Kontakta Innolease. Hitta våra kontor, kontaktuppgifter och skicka ett meddelande via kontaktformuläret."
   },
-  "address": {
-    "title": "Adress",
-    "street": "Kimmeltie 10",
-    "postal": "90630 Uleåborg",
-    "country": "Finland"
-  },
-  "website": "Webbplats",
-  "email": "E-post",
-  "social": {
-    "title": "Följ oss"
-  },
+  "title": "Kontaktuppgifter",
+  "intro": "Vi hjälper dig gärna med alla frågor om leasing och tjänster. Kontakta oss via formuläret eller direkt till närmaste kontor.",
   "form": {
-    "title": "Skicka oss ett meddelande",
-    "description": "Fyll i formuläret nedan så återkommer vi till dig så snart som möjligt.",
+    "title": "Kontaktformulär",
     "name": "Namn",
     "email": "E-post",
-    "company": "Företag",
+    "phone": "Telefon",
+    "subject": "Ärende",
+    "subjects": {
+      "leasing": "Leasingförfrågan",
+      "service": "Service & underhåll",
+      "fleet": "Fordonsadministration",
+      "other": "Annat"
+    },
     "message": "Meddelande",
-    "submit": "Skicka meddelande",
-    "submitting": "Skickar...",
-    "success": {
-      "title": "Meddelandet har skickats",
-      "message": "Tack för ditt meddelande. Vi återkommer snart."
-    },
-    "error": {
-      "captcha": "Vänligen fyll i captcha-verifieringen.",
-      "captchaValidation": "Captchan validerades inte. Försök igen.",
-      "general": "Det gick inte att skicka meddelandet. Försök igen."
-    },
-    "meta": {
-      "title": "Kontakt | LastBot - Människocentrerade AI-lösningar",
-      "description": "Ta kontakt med LastBot för att diskutera dina AI-behov. Boka en konsultation, hitta våra kontorsplatser eller nå oss via våra supportkanaler."
-    }
+    "submit": "Skicka meddelande"
+  },
+  "offices": {
+    "title": "Våra kontor"
+  },
+  "hours": {
+    "title": "Öppettider",
+    "weekdays": "Måndag–fredag",
+    "saturday": "Lördag",
+    "sunday": "Söndag",
+    "closed": "Stängt"
   }
 }
