@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Aktuella kampanjer",
+    "description": "Upptäck våra senaste leasingkampanjer. Hitta specialerbjudanden på skåpbilar, elbilar och fler modeller. Begränsade erbjudanden för privat- och företagskunder."
+  },
+  "title": "Kampanjer och specialerbjudanden",
+  "intro": "Se våra aktuella leasingkampanjer och dra nytta av exklusiva erbjudanden på utvalda bilar. Oavsett om du söker skåpbil, elbil eller SUV har vi ett erbjudande för dig.",
+  "from": "Från",
+  "month": "mån",
+  "view_offer": "Se erbjudande",
+  "cta": {
+    "title": "Intresserad av ett kampanjerbjudande?",
+    "description": "Kontakta oss för mer information eller för att reservera din kampanjbil. Vi hjälper dig att hitta den bästa lösningen för dina behov.",
+    "button": "Kontakta oss"
+  }
+}
