@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Current Campaigns",
+    "description": "Explore our latest car leasing campaigns. Find special offers on vans, electric cars, and more. Limited-time deals for private and business customers."
+  },
+  "title": "Campaigns & Special Offers",
+  "intro": "Discover our current leasing campaigns and take advantage of exclusive offers on selected vehicles. Whether you need a van, an electric car, or an SUV, we have a deal for you.",
+  "from": "From",
+  "month": "month",
+  "view_offer": "View Offer",
+  "cta": {
+    "title": "Interested in a campaign offer?",
+    "description": "Contact us for more information or to reserve your campaign vehicle. Our team will help you find the best solution for your needs.",
+    "button": "Contact Us"
+  }
+}

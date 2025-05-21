@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Ajankohtaiset kampanjat",
+    "description": "Tutustu uusimpiin auton leasingkampanjoihimme. Löydä erikoistarjoukset pakettiautoista, sähköautoista ja muista malleista. Rajoitetun ajan edut yksityis- ja yritysasiakkaille."
+  },
+  "title": "Kampanjat ja erikoistarjoukset",
+  "intro": "Katso ajankohtaiset leasingkampanjamme ja hyödynnä erikoistarjoukset valituista autoista. Tarjoamme etuja niin pakettiautoihin, sähköautoihin kuin katumaastureihin – löydä sinulle sopiva vaihtoehto.",
+  "from": "Alkaen",
+  "month": "kk",
+  "view_offer": "Katso tarjous",
+  "cta": {
+    "title": "Kiinnostuitko kampanjasta?",
+    "description": "Ota yhteyttä saadaksesi lisätietoja tai varataksesi kampanja-auton. Autamme löytämään juuri sinulle sopivan ratkaisun.",
+    "button": "Ota yhteyttä"
+  }
+}

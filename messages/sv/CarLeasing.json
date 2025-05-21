@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Leasing av bil",
+    "description": "Flexibla leasinglösningar för privatpersoner och företag. Se våra villkor, bilutbud och be om en offert som passar dig."
+  },
+  "title": "Leasing av bil",
+  "intro": "Vi erbjuder flexibla leasinglösningar för både privatpersoner och företag. Välj det alternativ som passar dig bäst och njut av bekymmersfritt bilägande.",
+  "personal": {
+    "title": "För privatpersoner",
+    "description": "Privatleasing är ett enkelt och smidigt sätt att skaffa bil. Du får en ny bil utan stor kontantinsats och månadsavgiften täcker alla väsentliga kostnader utom bränsle."
+  },
+  "corporate": {
+    "title": "För företag",
+    "description": "Våra företagsleasinglösningar hjälper företag att hantera sin fordonspark effektivt. Vi erbjuder skräddarsydda avtal, flexibla villkor och ett brett urval av bilar för alla behov."
+  },
+  "terms": {
+    "title": "Leasingvillkor",
+    "description": "Våra leasingavtal är transparenta och flexibla. Du kan välja avtalets längd, körsträcka och tilläggstjänster enligt dina behov. Kontakta oss för ett personligt erbjudande."
+  },
+  "vehicles": {
+    "title": "Bilutbud",
+    "description": "Vi erbjuder ett brett utbud av bilar från små personbilar till skåpbilar och elbilar. Alla våra bilar är välutrustade och servade."
+  },
+  "cta": {
+    "title": "Intresserad av leasing?",
+    "description": "Kontakta oss så hjälper vi dig att hitta den bästa leasinglösningen för dig eller ditt företag.",
+    "button": "Kontakta oss"
+  }
+}

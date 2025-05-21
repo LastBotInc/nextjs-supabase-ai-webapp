@@ -11,5 +11,9 @@
   "vehicles_count": "Fordon",
   "customers_count": "Kunder",
   "team_count": "Teammedlemmar",
-  "co2_saved": "ton CO2 sparade årligen"
+  "co2_saved": "ton CO2 sparade årligen",
+  "meta": {
+    "title": "Om oss | Innolease - Flexibla leasinglösningar",
+    "description": "Läs mer om Innolease, våra mission och våra expertteam. Vi erbjuder tekniskt avancerade leasinglösningar för företag och privatpersoner."
+  }
 }
