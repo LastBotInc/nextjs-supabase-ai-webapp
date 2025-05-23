@@ -20,7 +20,7 @@ export function Heading2({
   ...props
 }: React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) {
   return (
-    <h2 className={cn("text-6xl font-light mb-4 font-['Inter_Tight'] leading-tight", className)} {...props}>
+    <h2 className={cn("text-5xl lg:text-6xl font-light mb-4 font-['Inter_Tight'] leading-tight", className)} {...props}>
       {children}
     </h2>
   );

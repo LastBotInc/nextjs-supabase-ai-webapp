@@ -385,21 +385,57 @@
   background-position: bottom center;
 }
 
+.shadow-text {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  }
+  p,
+  .with-shadow {
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  }
+}
+
 .hero-text-split-to-lines {
-  word-spacing: 100vw;
+  max-width: 50%;
+
+  @screen lg {
+    word-spacing: 100vw;
+    max-width: 100%;
+  }
   &:before {
     content: "–";
-    padding-right: 0.5em;
+    padding-right: 0.25em;
   }
 }
 
 .call-us {
-  > * {
-    margin-right: 3rem;
-  }
-  > *:not(:last-child) {
+  --gap: 3rem;
+  gap: var(--gap);
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    width: 1px;
     border-right: 1px solid #000;
-    padding-right: 3rem;
+    bottom: 1rem;
+  }
+  > * {
+    white-space: nowrap;
+  }
+
+  @screen lg {
+    --gap: 6rem;
+    > * {
+      width: auto;
+    }
   }
 }
 
@@ -430,6 +466,31 @@
   justify-content: flex-end;
   aspect-ratio: 4 / 3;
 }
+
 .grayscale {
   filter: grayscale(1);
+}
+
+.responsive-background-image {
+  --size: cover;
+  --image: "";
+  --position: center;
+  --repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: var(--image);
+  background-size: var(--size-default, var(--size));
+  background-position: var(--position-default, var(--position));
+
+  @screen md {
+    background-size: var(--size-md, var(--size));
+    background-position: var(--position-md, var(--position));
+  }
+  @screen lg {
+    background-size: var(--size-lg, var(--size-md, var(--size)));
+    background-position: var(--position-lg, var(--position-md, var(--position)));
+  }
+  @screen xl {
+    background-size: var(--size-xl, var(--size-lg, var(--size-md, var(--size))));
+    background-position: var(--position-xl, var(--position-lg, var(--position-md, var(--position))));
+  }
 }

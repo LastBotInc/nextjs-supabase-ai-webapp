@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Heading3Small, Paragraph } from "./CommonElements";
+import { spacing } from "./Block";
 
 type CardProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "className"> & {
   image?: {
@@ -459,13 +460,31 @@ export function PersonnelCard({
 }
 
 export function ColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`grid gap-12 ${className}`}>{children}</div>;
+  return <div className={`grid ${spacing.responsiveGap} ${className}`}>{children}</div>;
 }
 
-export function TwoColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <ColumnCard className={`md:grid-cols-2 ${className}`}>{children}</ColumnCard>;
+// using md is intentional here
+export function TwoColumnCard({
+  children,
+  className = "",
+  oneColumnBreak = "md",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  oneColumnBreak?: "md" | "lg" | "xl";
+}) {
+  return <ColumnCard className={`grid-cols-1 ${oneColumnBreak}:grid-cols-2 ${className}`}>{children}</ColumnCard>;
 }
 
-export function ThreeColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <ColumnCard className={`md:grid-cols-3 ${className}`}>{children}</ColumnCard>;
+// using md is intentional here
+export function ThreeColumnCard({
+  children,
+  className = "",
+  oneColumnBreak = "md",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  oneColumnBreak?: "md" | "lg" | "xl";
+}) {
+  return <ColumnCard className={`grid-cols-1 ${oneColumnBreak}:grid-cols-3 ${className}`}>{children}</ColumnCard>;
 }

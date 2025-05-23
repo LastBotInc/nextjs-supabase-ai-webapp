@@ -10,7 +10,7 @@ type CallUsProps = {
 
 export function CallUs({ numbers }: CallUsProps) {
   return (
-    <div className="flex flex-row bg-white rounded-full p-4 self-end call-us text-sm">
+    <div className="flex flex-row bg-white rounded-full p-4 lg:self-end call-us text-sm self-start pr-6">
       {numbers.map((number) => (
         <Link key={number.number} href={`tel:${number.number}`} className={`flex items-center gap-2 text-gray-700`}>
           <div className="bg-kupari rounded-full p-2">

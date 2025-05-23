@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRightIcon } from "lucide-react";
 import BlogSection from "./BlogSection";
-import { FullScreenWidthBlock, MaxWidthContentBlock } from "./layouts/Block";
+import { BlockPadding, FullScreenWidthBlock, MaxWidthContentBlock } from "./layouts/Block";
 import { Heading2Small, LinkLikeButton } from "./layouts/CommonElements";
 import NewsSection from "./NewsSection";
 //import { createClient } from "@/utils/supabase/server";
@@ -44,24 +44,32 @@ export default function NewsOrBlogSection({ locale }: { locale: string }) {
   */
   const blogPostsFormatted: BlogPost[] = [];
   return (
-    <FullScreenWidthBlock className="bg-gray-200 py-12">
-      <MaxWidthContentBlock className="py-12 flex items-center gap-2">
-        <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
-        <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
-      </MaxWidthContentBlock>
-      <MaxWidthContentBlock>
-        {blogPostsFormatted.length > 0 ? (
-          <BlogSection posts={blogPostsFormatted} />
-        ) : (
-          // Lazy load the fallback news section as a client component
-          <NewsSection />
-        )}
-      </MaxWidthContentBlock>
-      <MaxWidthContentBlock className="flex items-center justify-center">
-        <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
-          {t("news.viewAll")}
-        </LinkLikeButton>
-      </MaxWidthContentBlock>
+    <FullScreenWidthBlock className="bg-gray-200">
+      <BlockPadding vertical={true} horizontal={false}>
+        <MaxWidthContentBlock>
+          <BlockPadding className="flex items-center gap-2">
+            <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
+            <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+        <MaxWidthContentBlock>
+          <BlockPadding horizontal={true} vertical={false}>
+            {blogPostsFormatted.length > 0 ? (
+              <BlogSection posts={blogPostsFormatted} />
+            ) : (
+              // Lazy load the fallback news section as a client component
+              <NewsSection />
+            )}
+          </BlockPadding>
+        </MaxWidthContentBlock>
+        <MaxWidthContentBlock className={`flex items-center justify-center`}>
+          <BlockPadding horizontal={true} vertical={false}>
+            <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+              {t("news.viewAll")}
+            </LinkLikeButton>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </BlockPadding>
     </FullScreenWidthBlock>
   );
 }
