@@ -70,7 +70,7 @@ export function Paragraph({
     variant?: "default" | "small" | "large";
   }
 >) {
-  const textSize = variant === "small" ? "text-sm" : variant === "large" ? "text-2xl" : "text-lg";
+  const textSize = variant === "small" ? "text-sm" : variant === "large" ? "lg:text-2xl" : "text-lg";
   return (
     <p className={cn("mb-6", textSize, className)} {...props}>
       {children}

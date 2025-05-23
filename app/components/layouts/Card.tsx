@@ -425,7 +425,7 @@ export function PersonnelCard({
   className?: string;
 }) {
   return (
-    <div className={`grid md:grid-cols-2  gap-10`}>
+    <div className={`grid md:grid-cols-2 gap-10 justify-center`}>
       {people.map(
         (person: {
           name: string;
@@ -434,11 +434,11 @@ export function PersonnelCard({
           email: string;
           image: { src: string; alt: string };
         }) => (
-          <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div key={person.email} className="flex flex-row items-center md:items-start gap-6">
             <div className="mb-2 md:mb-0 w-24 relative" style={{ aspectRatio: "120/170" }}>
               <Image src={person.image.src} alt={person.image.alt} layout="fill" className="grayscale object-cover" />
             </div>
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-left">
               <div className="font-bold text-lg text-black mb-1">{person.name}</div>
               <div className="text-black mb-3">{person.title}</div>
               <div className="text-black mb-1">

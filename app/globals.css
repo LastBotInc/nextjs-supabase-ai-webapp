@@ -417,6 +417,7 @@
   --gap: 3rem;
   gap: var(--gap);
   position: relative;
+  margin: var(--gap) 0;
   &::after {
     content: "";
     position: absolute;
@@ -431,6 +432,7 @@
   }
 
   @screen lg {
+    margin: 0;
     --gap: 6rem;
     > * {
       width: auto;
