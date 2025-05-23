@@ -48,7 +48,7 @@ export default async function Page({ params }: Props) {
       <CommonBlock className="bg-tiki px-0 lg:px-0">
         <div
           style={{ backgroundImage: "url(/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
-          className={`h-auto lg:h-[600px] w-full relative background-image-fill rounded-lg ${spacing.responsivePadding} flex flex-col items-left justify-end`}
+          className={`min-h-[500px] lg:h-[600px] w-full relative background-image-fill xl:rounded-lg ${spacing.responsivePadding} flex flex-col items-left justify-end`}
         >
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-2 lg:justify-between lg:w-full shadow-text">
             <h1 className="text-6xl font-medium text-white leading-tight lg:w-1/3">
@@ -96,17 +96,32 @@ export default async function Page({ params }: Props) {
           </div>
         </TwoColumnCard>
       </CommonBlock>
-      <FullScreenWidthBlock className="bg-gray-200">
-        <MaxWidthContentBlock className="flex flex-col items-center py-12">
-          <Heading2 className="text-gray-900">{t("leasingOptions.heading")}</Heading2>
-          <p className="text-3xl font-light text-gray-900 pb-8 pt-6">{t("leasingOptions.description")}</p>
-        </MaxWidthContentBlock>
 
+      <FullScreenWidthBlock className={`bg-gray-200 lg:px-${spacing.md}`}>
+        <MaxWidthContentBlock>
+          <ColumnBlock>
+            <BlockPadding className="flex flex-col items-center text-center">
+              <Heading2 className="text-gray-900">{t("leasingOptions.heading")}</Heading2>
+              <p className="text-3xl font-light text-gray-900">{t("leasingOptions.description")}</p>
+            </BlockPadding>
+          </ColumnBlock>
+        </MaxWidthContentBlock>
         <MaxWidthContentBlock>
           <TwoColumnCard className="bg-transparent" oneColumnBreak="lg">
-            <ColumnBlock className="bg-kupari overlay-pattern-innolease-1 py-6" noPadding>
-              <Heading3 className="text-piki px-6 font-medium">{t("leasingOptions.personalizedTitle")}</Heading3>
-              <div className="py-6">
+            <ColumnBlock className="bg-kupari overlay-pattern-innolease-1" noPadding>
+              <div className="leasing-option-content">
+                <Image
+                  src="/images/home/leasing1.png"
+                  alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                  layout="responsive"
+                  width={1077}
+                  height={397}
+                  className="lg:hidden pb-6"
+                  quality={90}
+                  aria-hidden={true}
+                />
+
+                <Heading3 className={`text-piki font-medium`}>{t("leasingOptions.personalizedTitle")}</Heading3>
                 <ShapedContentFlowInParagraph
                   image={{
                     src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
@@ -114,20 +129,28 @@ export default async function Page({ params }: Props) {
                     shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
                     aspectRatio: "1025/496",
                   }}
-                  className="text-piki"
+                  className={`text-piki`}
                 >
                   {t("leasingOptions.personalizedDescription")}
                 </ShapedContentFlowInParagraph>
-              </div>
-              <div className="px-6">
                 <LinkLikeButton className="bg-white text-piki" href="#">
                   {t("leasingOptions.readMore")}
                 </LinkLikeButton>
               </div>
             </ColumnBlock>
-            <ColumnBlock className="bg-betoni overlay-pattern-innolease-2 py-6" noPadding>
-              <Heading3 className="px-6  font-medium">{t("leasingOptions.flexibleTitle")}</Heading3>
-              <div className="py-6">
+            <ColumnBlock className="bg-betoni overlay-pattern-innolease-2" noPadding>
+              <div className="leasing-option-content">
+                <Image
+                  src="/images/home/leasing2.png"
+                  alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                  layout="responsive"
+                  width={703}
+                  height={392}
+                  className="lg:hidden pb-6"
+                  quality={90}
+                  aria-hidden={true}
+                />
+                <Heading3 className="font-medium">{t("leasingOptions.flexibleTitle")}</Heading3>
                 <ShapedContentFlowInParagraph
                   image={{
                     src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
@@ -138,8 +161,6 @@ export default async function Page({ params }: Props) {
                 >
                   {t("leasingOptions.flexibleDescription")}
                 </ShapedContentFlowInParagraph>
-              </div>
-              <div className="px-6">
                 <LinkLikeButton className="bg-kupari text-piki" href="#">
                   {t("leasingOptions.readMore")}
                 </LinkLikeButton>
@@ -147,10 +168,12 @@ export default async function Page({ params }: Props) {
             </ColumnBlock>
           </TwoColumnCard>
         </MaxWidthContentBlock>
-        <MaxWidthContentBlock className="flex flex-col items-center pt-12 pb-20">
-          <LinkLikeButton href="#" className="bg-piki hover:bg-piki/90 text-white">
-            {t("leasingOptions.allSolutions")}
-          </LinkLikeButton>
+        <MaxWidthContentBlock className={`flex flex-col items-center py-${spacing.md}`}>
+          <BlockPadding>
+            <LinkLikeButton href="#" className="bg-piki hover:bg-piki/90 text-white">
+              {t("leasingOptions.allSolutions")}
+            </LinkLikeButton>
+          </BlockPadding>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
 

@@ -391,13 +391,12 @@
   h3,
   h4,
   h5,
-  h6,
-  p {
-    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  h6 {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   }
   p,
   .with-shadow {
-    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -455,19 +454,22 @@
   }
 }
 .text-shape {
-  --shape: polygon(0% 100%, 100% 100%);
-  shape-outside: var(--shape) content-box;
-  -webkit-shape-outside: var(--shape) content-box;
+  display: none;
+  @screen lg {
+    display: flex;
+    --shape: polygon(0% 100%, 100% 100%);
+    shape-outside: var(--shape) content-box;
+    -webkit-shape-outside: var(--shape) content-box;
+  }
 
   float: right;
   width: 66%;
-  display: flex;
+
   flex-direction: column;
   justify-content: flex-end;
   aspect-ratio: 4 / 3;
 }
-
-.grayscale {
+. .grayscale {
   filter: grayscale(1);
 }
 
@@ -492,5 +494,21 @@
   @screen xl {
     background-size: var(--size-xl, var(--size-lg, var(--size-md, var(--size))));
     background-position: var(--position-xl, var(--position-lg, var(--position-md, var(--position))));
+  }
+}
+
+.leasing-option-content {
+  @apply p-6;
+  @apply md:p-12;
+  @apply pr-6;
+  @apply md:pr-12;
+  @apply lg:pr-0;
+  h3,
+  p {
+    @apply pb-2;
+    @apply md:pb-4;
+  }
+  img {
+    @apply pb-4;
   }
 }

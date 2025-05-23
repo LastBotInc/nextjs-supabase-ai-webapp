@@ -69,9 +69,10 @@ export function CommonBlockWithCols({
 export function FullScreenWidthBlock({
   children,
   className,
+  withPadding = false,
   ...props
-}: React.PropsWithChildren<HTMLAttributes<HTMLElement>>) {
-  const classNames = cn("relative w-full", className);
+}: React.PropsWithChildren<HTMLAttributes<HTMLElement> & { withPadding?: boolean }>) {
+  const classNames = cn("relative w-full", className, withPadding ? spacing.responsivePadding : "");
   return (
     <div className={classNames} {...props}>
       {children}
@@ -188,7 +189,7 @@ export function ColumnBlock({
   const defaultClassNames = "relative rounded-2xl overflow-hidden has-overlay-pattern flex flex-col";
   let contentClassNames = "pb-4 relative flex flex-col justify-between";
   if (!noPadding) {
-    contentClassNames = " p-6";
+    contentClassNames = "p-6";
   }
   const classNames = cn(defaultClassNames, className);
   return (
