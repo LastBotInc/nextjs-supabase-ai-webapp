@@ -1,7 +1,6 @@
 "use client";
-import { Heading1, Heading3 } from "lucide-react";
 import { BlockPadding, FullWidthContentBlockWithBg, MaxWidthContentBlock, spacing } from "./layouts/Block";
-import { LinkLikeButton, Paragraph } from "./layouts/CommonElements";
+import { Heading1, Heading3, LinkLikeButton, Paragraph } from "./layouts/CommonElements";
 import { useTranslations } from "next-intl";
 import { TwoColumnCard } from "./layouts/Card";
 import Image from "next/image";
