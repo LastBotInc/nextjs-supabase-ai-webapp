@@ -53,3 +53,6 @@ next-env.d.ts
 
 # Compiled tools
 dist/tools/
+
+# Ignore Vertex API service account key in root
+/vertex-ai-service-account.json
