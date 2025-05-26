@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "@/app/i18n/navigation";
 import { useState, useEffect, useRef } from "react";
 import { languages as availableLanguages } from "@/app/i18n/languages";
 import { staticLocales } from "@/app/i18n/config";
-import { createClient } from "@/utils/supabase/client";
 import { dedupingFetch } from "@/lib/utils/deduplication";
 import { ChevronDown, ChevronUp } from "lucide-react";
 interface Language {
@@ -22,7 +21,6 @@ export default function LocaleSwitcher() {
   const t = useTranslations("Common.languageSelector");
   const [languages, setLanguages] = useState<Language[]>([]);
   const [loading, setLoading] = useState(true);
-  const supabase = createClient();
   const [isOpen, setOpen] = useState(false);
   const elementRef = useRef<HTMLDivElement | null>(null);
   // Memoize fetchLanguages to prevent recreation on each render
@@ -72,41 +70,8 @@ export default function LocaleSwitcher() {
   };
 
   useEffect(() => {
-    // Initial fetch
     fetchLanguages();
-
-    // Setup WebSocket subscription with proper cleanup
-    let channel: ReturnType<typeof supabase.channel>;
-
-    // Only setup WebSocket if page is visible and not in development
-    if (document.visibilityState === "visible" && process.env.NODE_ENV === "production") {
-      channel = supabase
-        .channel("languages_changes")
-        .on(
-          "postgres_changes",
-          {
-            event: "*",
-            schema: "public",
-            table: "languages",
-          },
-          // Debounce the refetch to prevent multiple rapid updates
-          () => {
-            const timeoutId = setTimeout(() => {
-              fetchLanguages();
-            }, 1000); // 1 second debounce
-            return () => clearTimeout(timeoutId);
-          }
-        )
-        .subscribe();
-    }
-
-    // Cleanup function
-    return () => {
-      if (channel) {
-        channel.unsubscribe();
-      }
-    };
-  }, []); // Empty dependency array since fetchLanguages is now stable
+  }, []);
 
   const handleChange = async (newLocale: string) => {
     try {

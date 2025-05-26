@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Heading3Small, Paragraph } from "./CommonElements";
+import { spacing } from "./Block";
 
 type CardProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "className"> & {
   image?: {
@@ -424,7 +425,7 @@ export function PersonnelCard({
   className?: string;
 }) {
   return (
-    <div className={`grid md:grid-cols-2  gap-10`}>
+    <div className={`grid md:grid-cols-2 gap-10 justify-center`}>
       {people.map(
         (person: {
           name: string;
@@ -433,11 +434,11 @@ export function PersonnelCard({
           email: string;
           image: { src: string; alt: string };
         }) => (
-          <div key={person.email} className="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div key={person.email} className="flex flex-row items-center md:items-start gap-6">
             <div className="mb-2 md:mb-0 w-24 relative" style={{ aspectRatio: "120/170" }}>
               <Image src={person.image.src} alt={person.image.alt} layout="fill" className="grayscale object-cover" />
             </div>
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-left">
               <div className="font-bold text-lg text-black mb-1">{person.name}</div>
               <div className="text-black mb-3">{person.title}</div>
               <div className="text-black mb-1">
@@ -459,13 +460,31 @@ export function PersonnelCard({
 }
 
 export function ColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`grid gap-12 ${className}`}>{children}</div>;
+  return <div className={`grid ${spacing.responsiveGap} ${className}`}>{children}</div>;
 }
 
-export function TwoColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <ColumnCard className={`md:grid-cols-2 ${className}`}>{children}</ColumnCard>;
+// using md is intentional here
+export function TwoColumnCard({
+  children,
+  className = "",
+  oneColumnBreak = "md",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  oneColumnBreak?: "md" | "lg" | "xl";
+}) {
+  return <ColumnCard className={`grid-cols-1 ${oneColumnBreak}:grid-cols-2 ${className}`}>{children}</ColumnCard>;
 }
 
-export function ThreeColumnCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <ColumnCard className={`md:grid-cols-3 ${className}`}>{children}</ColumnCard>;
+// using md is intentional here
+export function ThreeColumnCard({
+  children,
+  className = "",
+  oneColumnBreak = "md",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  oneColumnBreak?: "md" | "lg" | "xl";
+}) {
+  return <ColumnCard className={`grid-cols-1 ${oneColumnBreak}:grid-cols-3 ${className}`}>{children}</ColumnCard>;
 }

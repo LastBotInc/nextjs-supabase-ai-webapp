@@ -7,7 +7,6 @@ import { staticLocales as locales } from "@/app/i18n/config";
 import { useAuth } from "@/components/auth/AuthProvider";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { createClient } from "@/utils/supabase/client";
 import { Menu, X, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
 import InnoleaseLogo from "./InnoleaseLogo";
 
@@ -48,7 +47,6 @@ export default function Navigation() {
   const { session, loading, isAdmin, error } = useAuth();
   const [, setEnabledLocales] = useState<string[]>(locales);
   const [showLoading, setShowLoading] = useState(true);
-  const supabase = createClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -75,28 +73,7 @@ export default function Navigation() {
 
   useEffect(() => {
     fetchEnabledLocales();
-
-    // Subscribe to changes
-    const channel = supabase
-      .channel("languages_changes")
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "languages",
-        },
-        () => {
-          // Refetch enabled locales when any change occurs
-          fetchEnabledLocales();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [supabase, fetchEnabledLocales]);
+  }, [fetchEnabledLocales]);
 
   // Force loading to false after a timeout
   useEffect(() => {

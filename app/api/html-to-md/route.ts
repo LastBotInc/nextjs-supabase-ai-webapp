@@ -1,7 +1,8 @@
 import { isBuildPhase, isProduction } from "@/utils/env-checks";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
+// turndown is a node module, so cannot use in edge runtime
+//export const runtime = "edge";
 export const maxDuration = 60; // 1 minute
 
 export async function POST(req: NextRequest) {

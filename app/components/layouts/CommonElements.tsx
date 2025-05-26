@@ -20,7 +20,7 @@ export function Heading2({
   ...props
 }: React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) {
   return (
-    <h2 className={cn("text-6xl font-light mb-4 font-['Inter_Tight'] leading-tight", className)} {...props}>
+    <h2 className={cn("text-5xl lg:text-6xl font-light mb-4 font-['Inter_Tight'] leading-tight", className)} {...props}>
       {children}
     </h2>
   );
@@ -70,7 +70,7 @@ export function Paragraph({
     variant?: "default" | "small" | "large";
   }
 >) {
-  const textSize = variant === "small" ? "text-sm" : variant === "large" ? "text-2xl" : "text-lg";
+  const textSize = variant === "small" ? "text-sm" : variant === "large" ? "lg:text-2xl" : "text-lg";
   return (
     <p className={cn("mb-6", textSize, className)} {...props}>
       {children}
@@ -113,8 +113,8 @@ export function ShapedContentFlowInParagraph({
   };
   return (
     <div className={cn("flex", className)} {...props}>
-      <Paragraph className="text-left pl-6">
-        <span className="text-shape bg-no-repeat bg-contain" style={style}></span>
+      <Paragraph className="text-left">
+        <span className={`text-shape bg-no-repeat bg-contain`} style={style}></span>
         {children}
       </Paragraph>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import { NewsCard } from "./layouts/Card";
+import { NewsCard, ThreeColumnCard } from "./layouts/Card";
 import { useTranslations } from "next-intl";
 
 export default function NewsSection() {
@@ -7,7 +7,7 @@ export default function NewsSection() {
   const t = useTranslations("Home");
   return (
     <>
-      <div className="grid md:grid-cols-3 gap-8">
+      <ThreeColumnCard oneColumnBreak="lg">
         {/* Card 1 */}
         <NewsCard
           title={t("news.card1.title")}
@@ -38,7 +38,7 @@ export default function NewsSection() {
           }}
           category={t("news.card3.category")}
         />
-      </div>
+      </ThreeColumnCard>
     </>
   );
 }
