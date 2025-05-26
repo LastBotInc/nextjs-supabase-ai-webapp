@@ -1,5 +1,34 @@
 # AI Changelog
 
+## 2025-01-02
+- **Feat:** Complete DataForSEO Integration and SEO Admin Panel Implementation
+  - **Database Schema:** Created comprehensive Supabase migration with 7 tables:
+    - `seo_projects` - Project management with user association and cascade deletion
+    - `serp_tracking` - SERP position tracking with historical data
+    - `keyword_research` - Keyword analysis and metrics storage
+    - `backlink_analysis` - Backlink profile data and monitoring
+    - `technical_audits` - Technical SEO audit results
+    - `content_analysis` - Content performance metrics
+    - `dataforseo_tasks` - API task tracking and status management
+  - **TypeScript Implementation:** Created comprehensive type definitions (`types/seo.ts`) covering all database models and API interfaces
+  - **DataForSEO Client Library:** Built complete client (`lib/dataforseo/client.ts`) with:
+    - Rate limiting (2000 calls/minute) with automatic retry
+    - Support for all 12 DataForSEO API sections (SERP, Keywords, Domain Analytics, etc.)
+    - Comprehensive error handling and logging
+    - Task-based processing with status tracking
+  - **API Endpoints:** Implemented secure API routes:
+    - SEO projects CRUD operations (`app/api/seo/projects/route.ts`)
+    - SERP tracking with DataForSEO integration (`app/api/seo/serp/track/route.ts`)
+    - Authentication and admin-only access protection
+  - **Admin Dashboard:** Created complete SEO section (`app/[locale]/admin/seo/page.tsx`):
+    - Metrics overview with real-time calculations
+    - Project management interface
+    - Activity tracking and alerts system
+    - Responsive design with dark mode support
+  - **Navigation Integration:** Updated admin navigation with multi-language support
+  - **Configuration:** Comprehensive setup with environment variables, location/language codes, and detailed documentation
+  - **Documentation:** Created detailed setup guide (`docs/seo-setup.md`) and comprehensive API documentation (`docs/seo.md`)
+
 ## 2025-05-03
 - **Feat:** Implemented namespace-based localization structure:
   - Created a script (`scripts/split-locales.js`) to split monolithic locale files into separate namespace files
@@ -284,4 +313,127 @@
 - **Feat:** Added Caffitella product feed (`caffitella_product_feed`) as a new data source using the `data-source-importer` tool. The tool successfully fetched the feed, detected the schema via Gemini, and stored it in the `data_sources` table.
 
 *   Updated `app/components/Button.tsx` to be a client component, resolving "Event handlers cannot be passed to Client Component props" error.
+
+## 2024-12-19 - Enhanced Data Sync UI with Shopify Integration
+
+### Summary
+Enhanced the admin data-sync page at `[locale]/admin/data-sync` with comprehensive Shopify store integration and improved data source management capabilities.
+
+### Changes Made
+
+#### 1. New API Endpoints
+- **`/api/admin/shopify/store-info`**: Fetches Shopify store information including:
+  - Connection status (connected/error/not_configured)
+  - Shop name and domain
+  - Product count
+  - Last sync timestamp
+  - Configuration validation
+
+- **`/api/admin/data-sources/add`**: Adds new data sources by URL using the existing data-source-importer functionality
+
+#### 2. Enhanced UI Components
+- **Shopify Store Section**: 
+  - Automatic detection of Shopify environment variables
+  - Real-time connection status with visual indicators
+  - Store statistics display (name, domain, product count, last sync)
+  - Configuration instructions for missing environment variables
+  - Error handling with detailed error messages
+
+- **Data Sources Section**:
+  - Improved table layout with better visual hierarchy
+  - Inline form for adding new data sources
+  - Real-time form validation and error handling
+  - Success/error feedback with auto-dismiss
+  - Enhanced action buttons with proper state management
+
+#### 3. Translations Added
+Added comprehensive translations for all new features in English, Finnish, and Swedish:
+- Shopify store management
+- Data source form interactions
+- Status messages and error handling
+- Connection status indicators
+
+#### 4. Technical Improvements
+- Better error handling with specific error types
+- Improved loading states for both sections
+- Enhanced TypeScript interfaces for type safety
+- Responsive design with proper grid layouts
+- Consistent styling with the existing admin theme
+
+### Files Modified
+- `app/[locale]/admin/data-sync/page.tsx` - Complete rewrite with new features
+- `app/api/admin/shopify/store-info/route.ts` - New API endpoint
+- `app/api/admin/data-sources/add/route.ts` - New API endpoint
+- `messages/en/Admin.json` - Added DataSync translations
+- `messages/fi/Admin.json` - Added DataSync translations  
+- `messages/sv/Admin.json` - Added DataSync translations
+
+### Features
+- ✅ Automatic Shopify store detection and status display
+- ✅ Real-time store statistics (product count, last sync)
+- ✅ Visual connection status indicators
+- ✅ Inline data source addition form
+- ✅ Enhanced error handling and user feedback
+- ✅ Responsive design for mobile and desktop
+- ✅ Comprehensive multilingual support
+
+## 2024-12-19 - Shopify Product Sync Implementation
+
+### Summary
+Implemented comprehensive Shopify product synchronization functionality that can be triggered from the admin UI.
+
+### Changes Made
+
+#### 1. API Endpoint (`app/api/admin/shopify/sync-products/route.ts`)
+- **Created new API endpoint** for syncing products from Shopify to local database
+- **Authentication & Authorization**: Admin-only access with proper token validation
+- **Shopify Integration**: Uses GraphQL API to fetch products with variants and images
+- **Database Synchronization**: 
+  - Creates new products and variants in local database
+  - Updates existing products when not in force mode
+  - Handles product variants with pricing, inventory, and metadata
+- **Progress Tracking**: Returns detailed statistics (total, created, updated, errors)
+- **Error Handling**: Comprehensive error handling with detailed error messages
+- **Configuration Validation**: Checks for required Shopify environment variables
+
+#### 2. UI Enhancement (`app/[locale]/admin/data-sync/page.tsx`)
+- **Added Product Sync Section**: New UI section in Shopify store area
+- **Two Sync Modes**:
+  - Regular sync: 50 products, updates only new/changed items
+  - Full sync: 200 products, force re-imports all products
+- **Real-time Progress Display**: Shows total, created, updated, and error counts
+- **State Management**: Added sync state (loading, error, success, progress)
+- **User Feedback**: Success/error messages with auto-dismiss after 10 seconds
+
+#### 3. Multilingual Support
+- **English** (`messages/en/Admin.json`): Added `shopify.productSync` section
+- **Finnish** (`messages/fi/Admin.json`): Natural Finnish translations including "Tuotesynkronointi"
+- **Swedish** (`messages/sv/Admin.json`): Proper Swedish translations including "Produktsynkronisering"
+
+#### 4. Technical Features
+- **GraphQL Integration**: Uses Shopify Admin API with proper session management
+- **Batch Processing**: Handles multiple products efficiently
+- **Variant Synchronization**: Syncs product variants with pricing and inventory data
+- **Timestamp Tracking**: Updates last sync timestamps in data_sources table
+- **Force Sync Option**: Allows complete re-import of all products
+
+### Technical Challenges Resolved
+- Fixed template literal syntax errors in API endpoint
+- Implemented proper TypeScript interfaces for Shopify data structures
+- Added comprehensive error handling for network and database operations
+- Ensured proper authentication flow for admin-only operations
+
+### Files Modified
+- `app/api/admin/shopify/sync-products/route.ts` (new)
+- `app/[locale]/admin/data-sync/page.tsx` (enhanced)
+- `messages/en/Admin.json` (translations added)
+- `messages/fi/Admin.json` (translations added)
+- `messages/sv/Admin.json` (translations added)
+
+### Impact
+- Admins can now sync Shopify products directly from the UI
+- Real-time feedback on sync progress and results
+- Support for both incremental and full product synchronization
+- Multilingual support for international users
+- Robust error handling and progress tracking
 

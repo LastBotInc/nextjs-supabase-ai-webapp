@@ -92,6 +92,45 @@
     "next": "Nästa",
     "page": "Sida"
   },
+  "products": {
+    "title": "Produkthantering",
+    "description": "Hantera synkroniserade produkter från Shopify ({count} totalt)",
+    "loading": "Laddar produkter...",
+    "retry": "Försök igen",
+    "table": {
+      "title": "Produkt",
+      "vendor": "Leverantör",
+      "type": "Typ",
+      "status": "Status",
+      "shopifyId": "Shopify-ID",
+      "updated": "Senast uppdaterad"
+    },
+    "pagination": {
+      "previous": "Föregående",
+      "next": "Nästa",
+      "page": "Sida {page} av {total}"
+    },
+    "card": {
+      "title": "Produktdetaljer",
+      "description": "Beskrivning",
+      "vendor": "Leverantör",
+      "type": "Produkttyp",
+      "shopifyId": "Shopify-ID",
+      "internalId": "Intern ID",
+      "created": "Skapad",
+      "updated": "Senast uppdaterad",
+      "viewInShopify": "Visa i Shopify",
+      "images": "Bilder",
+      "variants": "Produktvarianter",
+      "loadingVariants": "Laddar varianter...",
+      "noVariants": "Inga varianter hittades för denna produkt",
+      "variantTitle": "Variant",
+      "price": "Pris",
+      "sku": "Artikelnummer",
+      "inventory": "Lager",
+      "shopifyVariantId": "Shopify-variant-ID"
+    }
+  },
   "seo": {},
   "code": {},
   "calendar": {
@@ -176,14 +215,64 @@
     }
   },
   "DataSync": {
-    "title": "Hantering av datasynkronisering",
+    "title": "Datasynkroniseringshantering",
     "loadingSources": "Laddar datakällor...",
-    "errorLoading": "Fel vid inläsning av datakällor: {message}",
+    "errorLoading": "Fel vid laddning av datakällor: {message}",
     "retry": "Försök igen",
     "refreshList": "Uppdatera lista",
     "addNewSource": "Lägg till ny källa",
-    "errorFetchingSome": "Inläsning av vissa datakällor misslyckades: {message}",
+    "errorFetchingSome": "Misslyckades att hämta vissa datakällor: {message}",
     "noSourcesFound": "Inga datakällor hittades.",
+    "shopify": {
+      "title": "Shopify-butik",
+      "notConfigured": "Shopify-integration är inte konfigurerad",
+      "configureInstructions": "Konfigurera SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY och SHOPIFY_API_SECRET miljövariabler.",
+      "connectionError": "Fel vid anslutning till Shopify-butik",
+      "connected": "Ansluten",
+      "loading": "Laddar Shopify-information...",
+      "shopName": "Butiksnamn",
+      "domain": "Domän",
+      "productCount": "Antal produkter",
+      "lastSync": "Senaste synkronisering",
+      "never": "Aldrig",
+      "viewProducts": "Visa produkter",
+      "syncNow": "Synkronisera nu",
+      "manageProducts": "Hantera produkter",
+      "syncError": "Misslyckades att synkronisera produkter",
+      "productSync": {
+        "title": "Produktsynkronisering",
+        "syncProducts": "Synkronisera produkter",
+        "fullSync": "Fullständig synkronisering",
+        "syncing": "Synkroniserar...",
+        "description": "Synkronisera produkter från din Shopify-butik till den lokala databasen. Vanlig synkronisering importerar nya/uppdaterade produkter, medan fullständig synkronisering återimporterar alla produkter.",
+        "progress": "Synkroniseringsframsteg:",
+        "total": "Totalt",
+        "created": "Skapade",
+        "updated": "Uppdaterade",
+        "errors": "Fel"
+      }
+    },
+    "dataSources": {
+      "title": "Datakällor",
+      "addNew": "Lägg till ny datakälla",
+      "addNewDescription": "Lägg till en ny datakälla genom att ange dess URL",
+      "form": {
+        "url": "Feed-URL",
+        "urlPlaceholder": "https://example.com/products.json",
+        "type": "Källtyp",
+        "typeOptions": {
+          "product_feed": "Produktfeed",
+          "inventory_feed": "Lagerfeed",
+          "customer_data": "Kunddata"
+        },
+        "add": "Lägg till datakälla",
+        "adding": "Lägger till...",
+        "cancel": "Avbryt"
+      },
+      "addSuccess": "Datakälla tillagd framgångsrikt",
+      "addError": "Misslyckades att lägga till datakälla",
+      "urlExists": "Datakälla med denna URL finns redan"
+    },
     "table": {
       "name": "Namn",
       "identifier": "Identifierare",
@@ -195,33 +284,33 @@
     "unknownStatus": "Okänd",
     "never": "Aldrig",
     "syncDisabledInactive": "Synkronisering inaktiverad (inaktiv källa)",
-    "triggerSyncNow": "Starta synkronisering nu",
-    "triggering": "Startar...",
+    "triggerSyncNow": "Utlös synkronisering nu",
+    "triggering": "Utlöser...",
     "triggerSync": "Synkronisera",
     "viewDetails": "Visa detaljer",
-    "syncTriggeredSuccessfully": "Synkronisering startad för källa: {name}",
+    "syncTriggeredSuccessfully": "Synkronisering utlöst framgångsrikt för: {name}",
     "errors": {
       "unauthorized": "Obehörig.",
       "fetchFailed": "Hämtning misslyckades.",
-      "triggerFailed": "Start misslyckades."
+      "triggerFailed": "Utlösning misslyckades."
     },
-    "detailTitle": "Information om datakälla",
+    "detailTitle": "Datakälldetaljer",
     "backToList": "Tillbaka till listan",
-    "loadingDetails": "Laddar information...",
-    "errorLoadingDetails": "Fel vid inläsning av information: {message}",
+    "loadingDetails": "Laddar detaljer...",
+    "errorLoadingDetails": "Fel vid laddning av detaljer: {message}",
     "notFound": "Datakälla hittades inte.",
     "sections": {
       "generalInfo": "Allmän information",
       "schema": "Upptäckt schema",
-      "rawFeed": "Rådataflöde",
+      "rawFeed": "Råfeed",
       "syncHistory": "Synkroniseringshistorik"
     },
     "fields": {
-      "id": "Identifierare (ID)",
+      "id": "ID",
       "name": "Namn",
       "identifier": "Intern identifierare",
-      "feedUrl": "Flödets URL",
-      "feedType": "Flödestyp",
+      "feedUrl": "Feed-URL",
+      "feedType": "Feed-typ",
       "status": "Status",
       "errorMessage": "Felmeddelande",
       "createdAt": "Skapad",
@@ -231,10 +320,10 @@
     },
     "detectedSchema": {
       "title": "Upptäckt JSON-schema",
-      "empty": "Schema har ännu inte upptäckts eller är tomt."
+      "empty": "Inget schema upptäckt ännu eller schemat är tomt."
     },
     "actions": {
-      "triggerSync": "Starta synkronisering"
+      "triggerSync": "Utlös synkronisering"
     }
   }
 }

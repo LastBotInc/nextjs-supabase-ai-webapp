@@ -92,6 +92,45 @@
     "next": "Seuraava",
     "page": "Sivu"
   },
+  "products": {
+    "title": "Tuotteiden hallinta",
+    "description": "Hallinnoi synkronoituja tuotteita Shopifysta ({count} yhteensä)",
+    "loading": "Ladataan tuotteita...",
+    "retry": "Yritä uudelleen",
+    "table": {
+      "title": "Tuote",
+      "vendor": "Toimittaja",
+      "type": "Tyyppi",
+      "status": "Tila",
+      "shopifyId": "Shopify-tunniste",
+      "updated": "Viimeksi päivitetty"
+    },
+    "pagination": {
+      "previous": "Edellinen",
+      "next": "Seuraava",
+      "page": "Sivu {page} / {total}"
+    },
+    "card": {
+      "title": "Tuotteen tiedot",
+      "description": "Kuvaus",
+      "vendor": "Toimittaja",
+      "type": "Tuotetyyppi",
+      "shopifyId": "Shopify-tunniste",
+      "internalId": "Sisäinen tunniste",
+      "created": "Luotu",
+      "updated": "Viimeksi päivitetty",
+      "viewInShopify": "Näytä Shopifyssa",
+      "images": "Kuvat",
+      "variants": "Tuotevariantit",
+      "loadingVariants": "Ladataan variantteja...",
+      "noVariants": "Tälle tuotteelle ei löytynyt variantteja",
+      "variantTitle": "Variantti",
+      "price": "Hinta",
+      "sku": "Tuotekoodi",
+      "inventory": "Varasto",
+      "shopifyVariantId": "Shopify-varianttitunniste"
+    }
+  },
   "seo": {},
   "code": {},
   "calendar": {
@@ -184,6 +223,56 @@
     "addNewSource": "Lisää uusi lähde",
     "errorFetchingSome": "Joidenkin tietolähteiden lataus epäonnistui: {message}",
     "noSourcesFound": "Tietolähteitä ei löytynyt.",
+    "shopify": {
+      "title": "Shopify-kauppa",
+      "notConfigured": "Shopify-integraatio ei ole määritetty",
+      "configureInstructions": "Määritä SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY ja SHOPIFY_API_SECRET ympäristömuuttujat.",
+      "connectionError": "Virhe yhdistettäessä Shopify-kauppaan",
+      "connected": "Yhdistetty",
+      "loading": "Ladataan Shopify-tietoja...",
+      "shopName": "Kaupan nimi",
+      "domain": "Verkkotunnus",
+      "productCount": "Tuotteiden määrä",
+      "lastSync": "Viimeisin synkronointi",
+      "never": "Ei koskaan",
+      "viewProducts": "Näytä tuotteet",
+      "syncNow": "Synkronoi nyt",
+      "manageProducts": "Hallinnoi tuotteita",
+      "syncError": "Tuotteiden synkronointi epäonnistui",
+      "productSync": {
+        "title": "Tuotesynkronointi",
+        "syncProducts": "Synkronoi tuotteet",
+        "fullSync": "Täysi synkronointi",
+        "syncing": "Synkronoidaan...",
+        "description": "Synkronoi tuotteet Shopify-kaupastasi paikalliseen tietokantaan. Tavallinen synkronointi tuo uudet/päivitetyt tuotteet, kun taas täysi synkronointi tuo kaikki tuotteet uudelleen.",
+        "progress": "Synkronoinnin edistyminen:",
+        "total": "Yhteensä",
+        "created": "Luotu",
+        "updated": "Päivitetty",
+        "errors": "Virheet"
+      }
+    },
+    "dataSources": {
+      "title": "Tietolähteet",
+      "addNew": "Lisää uusi tietolähde",
+      "addNewDescription": "Lisää uusi tietolähde syöttämällä sen URL-osoite",
+      "form": {
+        "url": "Syötteen URL",
+        "urlPlaceholder": "https://example.com/products.json",
+        "type": "Lähteen tyyppi",
+        "typeOptions": {
+          "product_feed": "Tuotesyöte",
+          "inventory_feed": "Varastosyöte",
+          "customer_data": "Asiakastiedot"
+        },
+        "add": "Lisää tietolähde",
+        "adding": "Lisätään...",
+        "cancel": "Peruuta"
+      },
+      "addSuccess": "Tietolähde lisätty onnistuneesti",
+      "addError": "Tietolähteen lisääminen epäonnistui",
+      "urlExists": "Tietolähde tällä URL-osoitteella on jo olemassa"
+    },
     "table": {
       "name": "Nimi",
       "identifier": "Tunniste",

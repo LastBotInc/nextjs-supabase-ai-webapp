@@ -3,9 +3,20 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useTranslations } from 'next-intl';
-import { createClient } from '@/utils/supabase/client'; // For client-side token
-import Link from 'next/link'; // Using Next.js Link for client-side nav
-import { PlusCircle, RefreshCw, Eye } from 'lucide-react';
+import { createClient } from '@/utils/supabase/client';
+import Link from 'next/link';
+import { 
+  PlusCircle, 
+  RefreshCw, 
+  Eye, 
+  Store, 
+  Database, 
+  AlertCircle, 
+  CheckCircle, 
+  XCircle,
+  ExternalLink,
+  Package
+} from 'lucide-react';
 
 interface DataSource {
   id: string;
@@ -19,6 +30,16 @@ interface DataSource {
   last_schema_update_at: string | null;
   created_at: string;
   updated_at: string;
+}
+
+interface ShopifyStoreInfo {
+  isConfigured: boolean;
+  shopDomain?: string;
+  shopName?: string;
+  productCount?: number;
+  lastSyncAt?: string;
+  connectionStatus: 'connected' | 'error' | 'not_configured';
+  error?: string;
 }
 
 async function fetchAdminApi(endpoint: string, token: string, options?: RequestInit) {
@@ -42,11 +63,34 @@ export default function DataSyncAdminPage() {
   const t = useTranslations('Admin.DataSync');
   const { session, loading: authLoading, isAdmin } = useAuth();
   const [dataSources, setDataSources] = useState<DataSource[]>([]);
+  const [shopifyInfo, setShopifyInfo] = useState<ShopifyStoreInfo | null>(null);
   const [loading, setLoading] = useState(true);
+  const [shopifyLoading, setShopifyLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [triggeringSync, setTriggeringSync] = useState<Record<string, boolean>>({});
   const [triggerError, setTriggerError] = useState<Record<string, string | null>>({});
   const [triggerSuccess, setTriggerSuccess] = useState<Record<string, string | null>>({});
+  
+  // Add data source form state
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [addFormData, setAddFormData] = useState({
+    url: '',
+    type: 'product_feed'
+  });
+  const [addingSource, setAddingSource] = useState(false);
+  const [addError, setAddError] = useState<string | null>(null);
+  const [addSuccess, setAddSuccess] = useState<string | null>(null);
+  
+  // Shopify product sync state
+  const [syncingProducts, setSyncingProducts] = useState(false);
+  const [syncError, setSyncError] = useState<string | null>(null);
+  const [syncSuccess, setSyncSuccess] = useState<string | null>(null);
+  const [syncProgress, setSyncProgress] = useState<{
+    total: number;
+    created: number;
+    updated: number;
+    errors: number;
+  } | null>(null);
 
   const fetchDataSources = useCallback(async () => {
     if (!session?.access_token || !isAdmin) {
@@ -62,17 +106,39 @@ export default function DataSyncAdminPage() {
     } catch (err) {
       console.error('Failed to fetch data sources:', err);
       setError(err instanceof Error ? err.message : t('errors.fetchFailed'));
-      setDataSources([]); // Clear data on error
+      setDataSources([]);
     } finally {
       setLoading(false);
     }
   }, [session, isAdmin, authLoading, t]);
 
-  useEffect(() => {
-    if (!authLoading) { // Only fetch if auth state is resolved
-        fetchDataSources();
+  const fetchShopifyInfo = useCallback(async () => {
+    if (!session?.access_token || !isAdmin) {
+      setShopifyLoading(false);
+      return;
     }
-  }, [fetchDataSources, authLoading]);
+    setShopifyLoading(true);
+    try {
+      const data = await fetchAdminApi('shopify/store-info', session.access_token);
+      setShopifyInfo(data);
+    } catch (err) {
+      console.error('Failed to fetch Shopify info:', err);
+      setShopifyInfo({
+        isConfigured: false,
+        connectionStatus: 'error',
+        error: err instanceof Error ? err.message : 'Unknown error'
+      });
+    } finally {
+      setShopifyLoading(false);
+    }
+  }, [session, isAdmin]);
+
+  useEffect(() => {
+    if (!authLoading) {
+      fetchDataSources();
+      fetchShopifyInfo();
+    }
+  }, [fetchDataSources, fetchShopifyInfo, authLoading]);
 
   const handleTriggerSync = async (sourceId: string, sourceName: string) => {
     if (!session?.access_token || !isAdmin) {
@@ -88,8 +154,6 @@ export default function DataSyncAdminPage() {
         method: 'POST',
       });
       setTriggerSuccess(prev => ({...prev, [sourceId]: result.message || t('syncTriggeredSuccessfully', { name: sourceName }) }));
-      // Optionally re-fetch data sources to update status, or rely on polling/SSE for updates
-      // For now, we'll just show a success message.
     } catch (err) {
       console.error(`Failed to trigger sync for ${sourceName}:`, err);
       setTriggerError(prev => ({...prev, [sourceId]: err instanceof Error ? err.message : t('errors.triggerFailed')}));
@@ -98,7 +162,92 @@ export default function DataSyncAdminPage() {
       setTimeout(() => {
         setTriggerSuccess(prev => ({...prev, [sourceId]: null}));
         setTriggerError(prev => ({...prev, [sourceId]: null}));
-      }, 5000); // Clear message after 5 seconds
+      }, 5000);
+    }
+  };
+
+  const handleAddDataSource = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!session?.access_token || !isAdmin) {
+      setAddError(t('errors.unauthorized'));
+      return;
+    }
+
+    setAddingSource(true);
+    setAddError(null);
+    setAddSuccess(null);
+
+    try {
+      const result = await fetchAdminApi('data-sources/add', session.access_token, {
+        method: 'POST',
+        body: JSON.stringify(addFormData),
+      });
+
+      if (result.success) {
+        setAddSuccess(t('dataSources.addSuccess'));
+        setAddFormData({ url: '', type: 'product_feed' });
+        setShowAddForm(false);
+        fetchDataSources();
+      } else {
+        setAddError(result.error || t('dataSources.addError'));
+      }
+    } catch (err) {
+      console.error('Failed to add data source:', err);
+      if (err instanceof Error && err.message.includes('already exists')) {
+        setAddError(t('dataSources.urlExists'));
+      } else {
+        setAddError(err instanceof Error ? err.message : t('dataSources.addError'));
+      }
+    } finally {
+      setAddingSource(false);
+      setTimeout(() => {
+        setAddSuccess(null);
+        setAddError(null);
+      }, 5000);
+    }
+  };
+
+  const handleSyncShopifyProducts = async (options: { limit?: number; force?: boolean } = {}) => {
+    if (!session?.access_token || !isAdmin) {
+      setSyncError(t('errors.unauthorized'));
+      return;
+    }
+
+    setSyncingProducts(true);
+    setSyncError(null);
+    setSyncSuccess(null);
+    setSyncProgress(null);
+
+    try {
+      const result = await fetchAdminApi('shopify/sync-products', session.access_token, {
+        method: 'POST',
+        body: JSON.stringify({
+          limit: options.limit || 50,
+          force: options.force || false
+        }),
+      });
+
+      if (result.success) {
+        setSyncSuccess(result.message);
+        setSyncProgress(result.stats);
+        // Refresh Shopify info to get updated counts
+        fetchShopifyInfo();
+      } else {
+        setSyncError(result.error || t('shopify.syncError'));
+        if (result.stats) {
+          setSyncProgress(result.stats);
+        }
+      }
+    } catch (err) {
+      console.error('Failed to sync Shopify products:', err);
+      setSyncError(err instanceof Error ? err.message : t('shopify.syncError'));
+    } finally {
+      setSyncingProducts(false);
+      setTimeout(() => {
+        setSyncSuccess(null);
+        setSyncError(null);
+        setSyncProgress(null);
+      }, 10000);
     }
   };
 
@@ -111,120 +260,351 @@ export default function DataSyncAdminPage() {
     );
   }
 
-  if (error && !dataSources.length) { // Show main error only if no data is present
+  if (error && !dataSources.length && !shopifyInfo) {
     return (
       <div className="p-6">
         <h1 className="text-2xl font-semibold text-white mb-6">{t('title')}</h1>
         <p className="text-red-400">{t('errorLoading', { message: error })}</p>
         <button 
-            onClick={fetchDataSources}
-            className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center transition-colors"
+          onClick={() => {
+            fetchDataSources();
+            fetchShopifyInfo();
+          }}
+          className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center transition-colors"
         >
-            <RefreshCw size={18} className="mr-2" />
-            {t('retry')}
+          <RefreshCw size={18} className="mr-2" />
+          {t('retry')}
         </button>
       </div>
     );
   }
-  
+
   const getStatusColor = (status: string | null) => {
     if (typeof status === 'string') {
       switch (status.toLowerCase()) {
         case 'active': return 'bg-green-500';
         case 'inactive': return 'bg-gray-500';
         case 'error': return 'bg-red-500';
-        default: return 'bg-yellow-500'; // For unexpected or new string statuses
+        default: return 'bg-yellow-500';
       }
     }
-    return 'bg-purple-500'; // Fallback for null, undefined, or non-string status (e.g., 'Unknown')
+    return 'bg-purple-500';
+  };
+
+  const getConnectionStatusIcon = (status: string) => {
+    switch (status) {
+      case 'connected': return <CheckCircle className="w-5 h-5 text-green-500" />;
+      case 'error': return <XCircle className="w-5 h-5 text-red-500" />;
+      default: return <AlertCircle className="w-5 h-5 text-yellow-500" />;
+    }
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
+    <div className="p-6 space-y-8">
+      <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold text-white">{t('title')}</h1>
-        <div>
-            <button 
-                onClick={fetchDataSources}
-                disabled={loading || authLoading}
-                className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md flex items-center transition-colors mr-2 text-sm"
-            >
-                <RefreshCw size={16} className="mr-2" />
-                {t('refreshList')}
-            </button>
-            {/* <Link href="/admin/data-sync/new" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center transition-colors text-sm">
-                <PlusCircle size={18} className="mr-2" />
-                {t('addNewSource')}
-            </Link> */}
-        </div>
+        <button 
+          onClick={() => {
+            fetchDataSources();
+            fetchShopifyInfo();
+          }}
+          disabled={loading || authLoading || shopifyLoading}
+          className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md flex items-center transition-colors text-sm"
+        >
+          <RefreshCw size={16} className="mr-2" />
+          {t('refreshList')}
+        </button>
       </div>
 
-      {error && <p className="text-red-400 mb-4">{t('errorFetchingSome', { message: error })}</p>} 
-
-      {dataSources.length === 0 && !loading && (
-        <p className="text-gray-400">{t('noSourcesFound')}</p>
-      )}
-
-      {dataSources.length > 0 && (
-        <div className="bg-gray-800 shadow-xl rounded-lg overflow-x-auto">
-          <table className="min-w-full text-sm text-left text-gray-300">
-            <thead className="bg-gray-750 text-xs text-gray-400 uppercase">
-              <tr>
-                <th scope="col" className="px-6 py-3">{t('table.name')}</th>
-                <th scope="col" className="px-6 py-3">{t('table.identifier')}</th>
-                <th scope="col" className="px-6 py-3">{t('table.type')}</th>
-                <th scope="col" className="px-6 py-3">{t('table.status')}</th>
-                <th scope="col" className="px-6 py-3">{t('table.lastFetched')}</th>
-                <th scope="col" className="px-6 py-3 text-right">{t('table.actions')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataSources.map((source) => (
-                <tr key={source.id} className="border-b border-gray-700 hover:bg-gray-700 transition-colors">
-                  <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
-                    <Link href={`/admin/data-sync/${source.id}`} className="hover:underline">
-                        {source.name || source.identifier}
-                    </Link>
-                  </td>
-                  <td className="px-6 py-4">{source.identifier}</td>
-                  <td className="px-6 py-4">{source.feed_type}</td>
-                  <td className="px-6 py-4">
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full text-white ${getStatusColor(source.status)}`}>
-                      {source.status || t('unknownStatus')}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    {source.last_fetched_at ? new Date(source.last_fetched_at).toLocaleString() : t('never')}
-                  </td>
-                  <td className="px-6 py-4 text-right space-x-2 whitespace-nowrap">
-                    {triggerError[source.id] && <p className="text-xs text-red-400">Error: {triggerError[source.id]}</p>}
-                    {triggerSuccess[source.id] && <p className="text-xs text-green-400">{triggerSuccess[source.id]}</p>}
-                    <button
-                      onClick={() => handleTriggerSync(source.id, source.name || source.identifier)}
-                      disabled={triggeringSync[source.id] || source.status === 'inactive'}
-                      className={`px-3 py-1.5 text-xs rounded-md transition-colors flex items-center 
-                        ${source.status === 'inactive' 
-                            ? 'bg-gray-600 text-gray-400 cursor-not-allowed' 
-                            : 'bg-sky-600 hover:bg-sky-700 text-white disabled:opacity-50'}`}
-                      title={source.status === 'inactive' ? t('syncDisabledInactive') : t('triggerSyncNow')}
-                    >
-                      <RefreshCw size={14} className={`mr-1.5 ${triggeringSync[source.id] ? 'animate-spin' : ''}`} />
-                      {triggeringSync[source.id] ? t('triggering') : t('triggerSync')}
-                    </button>
-                    <Link 
-                        href={`/admin/data-sync/${source.id}`}
-                        className="px-3 py-1.5 text-xs bg-gray-600 hover:bg-gray-500 text-white rounded-md flex items-center transition-colors"
-                    >
-                        <Eye size={14} className="mr-1.5" />
-                        {t('viewDetails')}
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Shopify Store Section */}
+      <div className="bg-gray-800 rounded-lg p-6">
+        <div className="flex items-center mb-4">
+          <Store className="w-6 h-6 text-green-500 mr-3" />
+          <h2 className="text-xl font-semibold text-white">{t('shopify.title')}</h2>
         </div>
-      )}
+
+        {shopifyLoading ? (
+          <p className="text-gray-300">{t('shopify.loading')}</p>
+        ) : shopifyInfo ? (
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              {getConnectionStatusIcon(shopifyInfo.connectionStatus)}
+              <span className="text-white font-medium">
+                {shopifyInfo.connectionStatus === 'connected' && t('shopify.connected')}
+                {shopifyInfo.connectionStatus === 'error' && t('shopify.connectionError')}
+                {shopifyInfo.connectionStatus === 'not_configured' && t('shopify.notConfigured')}
+              </span>
+            </div>
+
+            {!shopifyInfo.isConfigured ? (
+              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-md p-4">
+                <p className="text-yellow-200 text-sm">
+                  {t('shopify.configureInstructions')}
+                </p>
+              </div>
+            ) : shopifyInfo.connectionStatus === 'connected' ? (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">{t('shopify.shopName')}</p>
+                    <p className="text-white font-medium">{shopifyInfo.shopName}</p>
+                  </div>
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">{t('shopify.domain')}</p>
+                    <p className="text-white font-medium">{shopifyInfo.shopDomain}</p>
+                  </div>
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">{t('shopify.productCount')}</p>
+                    <div className="flex items-center">
+                      <Package className="w-4 h-4 text-blue-400 mr-2" />
+                      <p className="text-white font-medium">{shopifyInfo.productCount?.toLocaleString()}</p>
+                    </div>
+                  </div>
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">{t('shopify.lastSync')}</p>
+                    <p className="text-white font-medium">
+                      {shopifyInfo.lastSyncAt 
+                        ? new Date(shopifyInfo.lastSyncAt).toLocaleString()
+                        : t('shopify.never')
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                {/* Product Sync Section */}
+                <div className="bg-gray-700 rounded-md p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-medium text-white">{t('shopify.productSync.title')}</h3>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => handleSyncShopifyProducts({ limit: 50, force: false })}
+                        disabled={syncingProducts}
+                        className="px-3 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded-md flex items-center transition-colors text-sm"
+                      >
+                        <RefreshCw size={16} className={`mr-2 ${syncingProducts ? 'animate-spin' : ''}`} />
+                        {syncingProducts ? t('shopify.productSync.syncing') : t('shopify.productSync.syncProducts')}
+                      </button>
+                      <button
+                        onClick={() => handleSyncShopifyProducts({ limit: 200, force: true })}
+                        disabled={syncingProducts}
+                        className="px-3 py-2 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-800 text-white rounded-md flex items-center transition-colors text-sm"
+                      >
+                        <RefreshCw size={16} className={`mr-2 ${syncingProducts ? 'animate-spin' : ''}`} />
+                        {syncingProducts ? t('shopify.productSync.syncing') : t('shopify.productSync.fullSync')}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Sync Progress */}
+                  {syncProgress && (
+                    <div className="mb-4 bg-gray-600 rounded-md p-3">
+                      <p className="text-white text-sm font-medium mb-2">{t('shopify.productSync.progress')}</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-400">{t('shopify.productSync.total')}: </span>
+                          <span className="text-white font-medium">{syncProgress.total}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.productSync.created')}: </span>
+                          <span className="text-green-400 font-medium">{syncProgress.created}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.productSync.updated')}: </span>
+                          <span className="text-blue-400 font-medium">{syncProgress.updated}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.productSync.errors')}: </span>
+                          <span className="text-red-400 font-medium">{syncProgress.errors}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Sync Messages */}
+                  {syncError && (
+                    <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
+                      <p className="text-red-200 text-sm">{syncError}</p>
+                    </div>
+                  )}
+
+                  {syncSuccess && (
+                    <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
+                      <p className="text-green-200 text-sm">{syncSuccess}</p>
+                    </div>
+                  )}
+
+                  <p className="text-gray-300 text-sm">{t('shopify.productSync.description')}</p>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-red-900/20 border border-red-500/30 rounded-md p-4">
+                <p className="text-red-200 text-sm">{shopifyInfo.error}</p>
+              </div>
+            )}
+          </div>
+        ) : null}
+      </div>
+
+      {/* Data Sources Section */}
+      <div className="bg-gray-800 rounded-lg p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center">
+            <Database className="w-6 h-6 text-blue-500 mr-3" />
+            <h2 className="text-xl font-semibold text-white">{t('dataSources.title')}</h2>
+          </div>
+          <button
+            onClick={() => setShowAddForm(!showAddForm)}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center transition-colors text-sm"
+          >
+            <PlusCircle size={18} className="mr-2" />
+            {t('dataSources.addNew')}
+          </button>
+        </div>
+
+        {/* Add Data Source Form */}
+        {showAddForm && (
+          <div className="mb-6 bg-gray-700 rounded-md p-4">
+            <h3 className="text-lg font-medium text-white mb-3">{t('dataSources.addNew')}</h3>
+            <p className="text-gray-300 text-sm mb-4">{t('dataSources.addNewDescription')}</p>
+            
+            <form onSubmit={handleAddDataSource} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  {t('dataSources.form.url')}
+                </label>
+                <input
+                  type="url"
+                  value={addFormData.url}
+                  onChange={(e) => setAddFormData(prev => ({ ...prev, url: e.target.value }))}
+                  placeholder={t('dataSources.form.urlPlaceholder')}
+                  className="w-full px-3 py-2 bg-gray-600 border border-gray-500 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  {t('dataSources.form.type')}
+                </label>
+                <select
+                  value={addFormData.type}
+                  onChange={(e) => setAddFormData(prev => ({ ...prev, type: e.target.value }))}
+                  className="w-full px-3 py-2 bg-gray-600 border border-gray-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="product_feed">{t('dataSources.form.typeOptions.product_feed')}</option>
+                  <option value="inventory_feed">{t('dataSources.form.typeOptions.inventory_feed')}</option>
+                  <option value="customer_data">{t('dataSources.form.typeOptions.customer_data')}</option>
+                </select>
+              </div>
+
+              <div className="flex space-x-3">
+                <button
+                  type="submit"
+                  disabled={addingSource}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded-md transition-colors"
+                >
+                  {addingSource ? t('dataSources.form.adding') : t('dataSources.form.add')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAddForm(false);
+                    setAddFormData({ url: '', type: 'product_feed' });
+                    setAddError(null);
+                    setAddSuccess(null);
+                  }}
+                  className="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-md transition-colors"
+                >
+                  {t('dataSources.form.cancel')}
+                </button>
+              </div>
+
+              {addError && (
+                <div className="bg-red-900/20 border border-red-500/30 rounded-md p-3">
+                  <p className="text-red-200 text-sm">{addError}</p>
+                </div>
+              )}
+
+              {addSuccess && (
+                <div className="bg-green-900/20 border border-green-500/30 rounded-md p-3">
+                  <p className="text-green-200 text-sm">{addSuccess}</p>
+                </div>
+              )}
+            </form>
+          </div>
+        )}
+
+        {error && <p className="text-red-400 mb-4">{t('errorFetchingSome', { message: error })}</p>}
+
+        {dataSources.length === 0 && !loading ? (
+          <p className="text-gray-400">{t('noSourcesFound')}</p>
+        ) : (
+          <div className="bg-gray-750 shadow-xl rounded-lg overflow-x-auto">
+            <table className="min-w-full text-sm text-left text-gray-300">
+              <thead className="bg-gray-700 text-xs text-gray-400 uppercase">
+                <tr>
+                  <th scope="col" className="px-6 py-3">{t('table.name')}</th>
+                  <th scope="col" className="px-6 py-3">{t('table.identifier')}</th>
+                  <th scope="col" className="px-6 py-3">{t('table.type')}</th>
+                  <th scope="col" className="px-6 py-3">{t('table.status')}</th>
+                  <th scope="col" className="px-6 py-3">{t('table.lastFetched')}</th>
+                  <th scope="col" className="px-6 py-3 text-right">{t('table.actions')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {dataSources.map((source) => (
+                  <tr key={source.id} className="border-b border-gray-600 hover:bg-gray-700 transition-colors">
+                    <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
+                      <Link href={`/admin/data-sync/${source.id}`} className="hover:underline">
+                        {source.name || source.identifier}
+                      </Link>
+                    </td>
+                    <td className="px-6 py-4">{source.identifier}</td>
+                    <td className="px-6 py-4">{source.feed_type}</td>
+                    <td className="px-6 py-4">
+                      <span className={`px-2 py-1 text-xs font-medium rounded-full text-white ${getStatusColor(source.status)}`}>
+                        {source.status || t('unknownStatus')}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      {source.last_fetched_at ? new Date(source.last_fetched_at).toLocaleString() : t('never')}
+                    </td>
+                    <td className="px-6 py-4 text-right space-x-2 whitespace-nowrap">
+                      {triggerError[source.id] && <p className="text-xs text-red-400 mb-1">Error: {triggerError[source.id]}</p>}
+                      {triggerSuccess[source.id] && <p className="text-xs text-green-400 mb-1">{triggerSuccess[source.id]}</p>}
+                      
+                      <div className="flex justify-end space-x-2">
+                        <Link
+                          href={`/admin/data-sync/${source.id}`}
+                          className="px-2 py-1 bg-gray-600 hover:bg-gray-500 text-white rounded text-xs flex items-center transition-colors"
+                        >
+                          <Eye size={14} className="mr-1" />
+                          {t('viewDetails')}
+                        </Link>
+                        
+                        {source.status === 'active' ? (
+                          <button
+                            onClick={() => handleTriggerSync(source.id, source.name || source.identifier)}
+                            disabled={triggeringSync[source.id]}
+                            className="px-2 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded text-xs flex items-center transition-colors"
+                          >
+                            <RefreshCw size={14} className={`mr-1 ${triggeringSync[source.id] ? 'animate-spin' : ''}`} />
+                            {triggeringSync[source.id] ? t('triggering') : t('triggerSync')}
+                          </button>
+                        ) : (
+                          <span className="px-2 py-1 bg-gray-500 text-gray-300 rounded text-xs" title={t('syncDisabledInactive')}>
+                            {t('triggerSync')}
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 } 

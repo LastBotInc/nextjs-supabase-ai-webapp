@@ -92,6 +92,45 @@
     "next": "Next",
     "page": "Page"
   },
+  "products": {
+    "title": "Product Management",
+    "description": "Manage synced products from Shopify ({count} total)",
+    "loading": "Loading products...",
+    "retry": "Retry",
+    "table": {
+      "title": "Product",
+      "vendor": "Vendor",
+      "type": "Type",
+      "status": "Status",
+      "shopifyId": "Shopify ID",
+      "updated": "Last Updated"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {total}"
+    },
+    "card": {
+      "title": "Product Details",
+      "description": "Description",
+      "vendor": "Vendor",
+      "type": "Product Type",
+      "shopifyId": "Shopify ID",
+      "internalId": "Internal ID",
+      "created": "Created",
+      "updated": "Last Updated",
+      "viewInShopify": "View in Shopify",
+      "images": "Images",
+      "variants": "Product Variants",
+      "loadingVariants": "Loading variants...",
+      "noVariants": "No variants found for this product",
+      "variantTitle": "Variant",
+      "price": "Price",
+      "sku": "SKU",
+      "inventory": "Inventory",
+      "shopifyVariantId": "Shopify Variant ID"
+    }
+  },
   "seo": {},
   "code": {},
   "calendar": {
@@ -173,6 +212,118 @@
       "minutes": "minutes",
       "free": "Free",
       "viewBookingPage": "View Booking Page"
+    }
+  },
+  "DataSync": {
+    "title": "Data Synchronization Management",
+    "loadingSources": "Loading data sources...",
+    "errorLoading": "Error loading data sources: {message}",
+    "retry": "Retry",
+    "refreshList": "Refresh List",
+    "addNewSource": "Add New Source",
+    "errorFetchingSome": "Failed to fetch some data sources: {message}",
+    "noSourcesFound": "No data sources found.",
+    "shopify": {
+      "title": "Shopify Store",
+      "notConfigured": "Shopify integration is not configured",
+      "configureInstructions": "Configure SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY, and SHOPIFY_API_SECRET environment variables.",
+      "connectionError": "Error connecting to Shopify store",
+      "connected": "Connected",
+      "loading": "Loading Shopify information...",
+      "shopName": "Shop Name",
+      "domain": "Domain",
+      "productCount": "Product Count",
+      "lastSync": "Last Sync",
+      "never": "Never",
+      "viewProducts": "View Products",
+      "syncNow": "Sync Now",
+      "manageProducts": "Manage Products",
+      "syncError": "Failed to sync products",
+      "productSync": {
+        "title": "Product Synchronization",
+        "syncProducts": "Sync Products",
+        "fullSync": "Full Sync",
+        "syncing": "Syncing...",
+        "description": "Sync products from your Shopify store to the local database. Regular sync imports new/updated products, while Full Sync re-imports all products.",
+        "progress": "Sync Progress:",
+        "total": "Total",
+        "created": "Created",
+        "updated": "Updated",
+        "errors": "Errors"
+      }
+    },
+    "dataSources": {
+      "title": "Data Sources",
+      "addNew": "Add New Data Source",
+      "addNewDescription": "Add a new data source by entering its URL",
+      "form": {
+        "url": "Feed URL",
+        "urlPlaceholder": "https://example.com/products.json",
+        "type": "Source Type",
+        "typeOptions": {
+          "product_feed": "Product Feed",
+          "inventory_feed": "Inventory Feed",
+          "customer_data": "Customer Data"
+        },
+        "add": "Add Data Source",
+        "adding": "Adding...",
+        "cancel": "Cancel"
+      },
+      "addSuccess": "Data source added successfully",
+      "addError": "Failed to add data source",
+      "urlExists": "Data source with this URL already exists"
+    },
+    "table": {
+      "name": "Name",
+      "identifier": "Identifier",
+      "type": "Type",
+      "status": "Status",
+      "lastFetched": "Last Fetched",
+      "actions": "Actions"
+    },
+    "unknownStatus": "Unknown",
+    "never": "Never",
+    "syncDisabledInactive": "Sync disabled (inactive source)",
+    "triggerSyncNow": "Trigger Sync Now",
+    "triggering": "Triggering...",
+    "triggerSync": "Sync",
+    "viewDetails": "View Details",
+    "syncTriggeredSuccessfully": "Sync triggered successfully for: {name}",
+    "errors": {
+      "unauthorized": "Unauthorized.",
+      "fetchFailed": "Fetch failed.",
+      "triggerFailed": "Trigger failed."
+    },
+    "detailTitle": "Data Source Details",
+    "backToList": "Back to List",
+    "loadingDetails": "Loading details...",
+    "errorLoadingDetails": "Error loading details: {message}",
+    "notFound": "Data source not found.",
+    "sections": {
+      "generalInfo": "General Information",
+      "schema": "Detected Schema",
+      "rawFeed": "Raw Feed",
+      "syncHistory": "Sync History"
+    },
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "identifier": "Internal Identifier",
+      "feedUrl": "Feed URL",
+      "feedType": "Feed Type",
+      "status": "Status",
+      "errorMessage": "Error Message",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "lastFetchedAt": "Last Fetched At",
+      "lastSchemaUpdateAt": "Schema Updated At"
+    },
+    "detectedSchema": {
+      "title": "Detected JSON Schema",
+      "empty": "No schema detected yet or schema is empty."
+    },
+    "actions": {
+      "triggerSync": "Trigger Sync"
     }
   }
 }

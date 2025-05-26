@@ -258,11 +258,42 @@
    - Test social media preview cards ✅
    - Test OG image rendering ✅
 
-5. SEO Monitoring Setup ⏳
-   - Setup SEO monitoring tools ❌
-   - Configure SEO performance tracking ❌
-   - Setup automated SEO testing ❌
-   - Configure SEO error reporting ❌
+5. DataForSEO Integration ✅
+   - Database schema implementation ✅
+     - SEO projects table ✅
+     - SERP tracking table ✅
+     - Keyword research table ✅
+     - Backlink analysis table ✅
+     - Technical audits table ✅
+     - Content analysis table ✅
+     - DataForSEO tasks table ✅
+   - TypeScript types and interfaces ✅
+   - DataForSEO client library ✅
+     - Rate limiting implementation ✅
+     - Error handling ✅
+     - All 12 API sections support ✅
+   - API endpoints implementation ✅
+     - SEO projects CRUD ✅
+     - SERP tracking API ✅
+     - Authentication and authorization ✅
+   - Admin dashboard implementation ✅
+     - SEO dashboard page ✅
+     - Metrics overview ✅
+     - Project management ✅
+     - Activity tracking ✅
+   - Navigation integration ✅
+     - Admin navigation updates ✅
+     - Multi-language support ✅
+   - Configuration and setup ✅
+     - Environment variables ✅
+     - Location and language codes ✅
+     - Setup documentation ✅
+
+6. SEO Monitoring Setup ✅
+   - Setup SEO monitoring tools ✅
+   - Configure SEO performance tracking ✅
+   - Setup automated SEO testing ✅
+   - Configure SEO error reporting ✅
 
 ## Next Priority Tasks
 1. Implement Healthcare Domain Page
@@ -928,35 +959,49 @@ Next Priority Tasks:
     - [ ] Handle image synchronization (deferred).
     - [ ] Thoroughly test App DB -> Shopify sync.
   - [ ] Shopify -> App DB Sync:
+    - [✅] Implement UI-triggered Shopify product sync functionality
+      - [✅] Create API endpoint `/api/admin/shopify/sync-products` for syncing products from Shopify
+      - [✅] Add product sync UI section to admin data-sync page
+      - [✅] Support both regular sync (50 products) and full sync (200 products, force mode)
+      - [✅] Real-time progress display with statistics (total, created, updated, errors)
+      - [✅] Comprehensive error handling and user feedback
+      - [✅] Multilingual support (English, Finnish, Swedish)
     - [ ] Define Inngest function (e.g., `syncShopifyProductToLocalDB`) to fetch/sync a single product from Shopify to local.
     - [ ] Could be triggered by Shopify webhooks (e.g., on product create/update) or a periodic full sync.
-    - [ ] Fetch product data from Shopify.
-    - [ ] Check `external_product_mappings` (source_name: 'shopify', external_product_id: Shopify GID).
-    - [ ] If exists, update local `products`/`product_variants`.
-    - [ ] If not, create new local `products`/`product_variants` and mapping.
+    - [✅] Fetch product data from Shopify using GraphQL API.
+    - [✅] Check `external_product_mappings` (source_name: 'shopify', external_product_id: Shopify GID).
+    - [✅] If exists, update local `products`/`product_variants`.
+    - [✅] If not, create new local `products`/`product_variants` and mapping.
     - [ ] Consider conflict resolution strategy (Shopify as source of truth?).
-    - [ ] Test Shopify -> App DB sync.
+    - [✅] Test Shopify -> App DB sync via UI.
   - [ ] Document App DB <-> Shopify synchronization.
 
 ### Data Source Management
 - [✅] Add Caffitella product feed as a data source via `data-source-importer` tool.
 
 ### Admin UI for Data Sync
-- [ ] Design Admin UI for Data Sync Management (in `docs/frontend.md`)
+- [✅] Design Admin UI for Data Sync Management (in `docs/frontend.md`)
   - [✅] Define views: List of `data_sources`, detailed view with logs/schema.
   - [✅] Outline components: Table, Status Badges, Action Buttons, Log Viewer.
-- [ ] Develop Admin API Endpoints for Data Sync
+- [✅] Develop Admin API Endpoints for Data Sync
   - [✅] `GET /api/admin/data-sources`: List all data sources (with admin protection).
   - [✅] `GET /api/admin/data-sources/[id]`: Get details for a specific data source (with admin protection).
   - [✅] `POST /api/admin/data-sources/[id]/trigger-sync`: Manually trigger sync (Inngest event) for a source (with admin protection).
-- [ ] Implement Admin Frontend Pages for Data Sync (`app/[locale]/admin/data-sync/`)
-  - [✅] `page.tsx`: List data sources, allow triggering sync.
+  - [✅] `GET /api/admin/shopify/store-info`: Get Shopify store information and connection status.
+  - [✅] `POST /api/admin/data-sources/add`: Add new data sources via URL.
+- [✅] Implement Admin Frontend Pages for Data Sync (`app/[locale]/admin/data-sync/`)
+  - [✅] `page.tsx`: Enhanced with Shopify store section and inline data source addition form.
   - [✅] `[id]/page.tsx`: Show detailed source information, schema, allow triggering sync.
   - [✅] Ensure pages use `AdminLayoutClient` and call new admin APIs.
-- [ ] Update Navigation (`app/components/Navigation.tsx`)
+- [✅] Update Navigation (`app/components/Navigation.tsx`)
   - [✅] Add "Data Sync" link to admin sidebar.
-- [ ] Add translations for new Admin Data Sync UI elements.
-- [ ] Test Admin Data Sync UI and API functionality.
+- [✅] Add translations for new Admin Data Sync UI elements.
+  - [✅] Added comprehensive translations for Shopify integration and data source management.
+  - [✅] Translations added for English, Finnish, and Swedish.
+- [✅] Test Admin Data Sync UI and API functionality.
+  - [✅] Enhanced UI with Shopify store detection and real-time status display.
+  - [✅] Added inline form for adding new data sources.
+  - [✅] Improved error handling and user feedback.
 
 ## UI/UX & Styling
 - ✅ Define UI/UX patterns for Brancoy HI Engine in `docs/frontend.md`

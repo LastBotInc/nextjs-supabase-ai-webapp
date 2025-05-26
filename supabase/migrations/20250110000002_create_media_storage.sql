@@ -1,5 +1,5 @@
--- Enable RLS
-alter table storage.objects enable row level security;
+-- Note: RLS is already enabled by default on storage.objects in Supabase
+-- No need to explicitly enable it as it would cause permission errors
 
 -- Create media bucket if it doesn't exist
 insert into storage.buckets (id, name, public)

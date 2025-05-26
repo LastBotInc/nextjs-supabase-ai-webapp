@@ -129,7 +129,9 @@ export default function Navigation() {
   const adminLinks = (!loading && isAdmin && !error) ? [
     { href: '/admin/analytics', label: t('admin.analytics') },
     { href: '/admin/blog', label: t('admin.blog') },
+    { href: '/admin/seo', label: t('admin.seo') },
     { href: '/admin/data-sync', label: t('admin.dataSync') },
+    { href: '/admin/products', label: t('admin.products') },
     { href: '/admin/users', label: t('admin.users') },
     { href: '/admin/contacts', label: t('admin.contacts') },
     { href: '/admin/calendar', label: t('admin.calendar') },
