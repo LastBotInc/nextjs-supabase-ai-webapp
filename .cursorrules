@@ -249,6 +249,46 @@ mcp_supabase_query
       ],
       "example": "npm run generate-video -- --image-prompt \\"A futuristic robot playing chess\\" --openai-image-output public/images/robot-chess.png --prompt \\"Animate the robot making a move, cinematic style\\" --image public/images/robot-chess.png --model kling-1.6 --duration 4 --output robot-chess-video.mp4"
     },
+     "gemini-video": {
+      "description": "Generate videos using Google's Veo models via Gemini API with both text-to-video and image-to-video capabilities",
+      "tool": "run_terminal_cmd",
+      "command": "npm run gemini-video",
+      "subcommands": {
+        "generate": {
+          "description": "Generate a video using Veo models",
+          "options": {
+            "prompt": "Required: Text prompt for video generation",
+            "model": "(Optional) Model to use: \"veo-3.0-generate-preview\" or \"veo-2.0-generate-001\" (default: veo-2.0-generate-001)",
+            "image": "(Optional) Path to input image for image-to-video generation",
+            "output": "(Optional) Output filename pattern (default: video.mp4)",
+            "folder": "(Optional) Output folder path (default: public/videos)",
+            "negative-prompt": "(Optional) Text to discourage the model from generating",
+            "aspect-ratio": "(Optional) Aspect ratio: \"16:9\" or \"9:16\" (default: 16:9)",
+            "person-generation": "(Optional) Person generation mode: \"dont_allow\" or \"allow_adult\" (default: dont_allow)",
+            "number-of-videos": "(Optional) Number of videos to generate: 1 or 2 (default: 1)",
+            "duration-seconds": "(Optional) Duration in seconds: 5-8 (default: 5)",
+            "enhance-prompt": "(Optional) Enable prompt rewriter (enabled by default)",
+            "no-enhance-prompt": "(Optional) Disable prompt rewriter"
+          },
+          "examples": [
+            "# Generate a text-to-video",
+            "npm run gemini-video -- generate -p \"A cat playing with a ball of yarn\" -m veo-2.0-generate-001",
+            "",
+            "# Generate an image-to-video with custom settings", 
+            "npm run gemini-video -- generate -p \"The scene comes to life\" -i input.jpg -m veo-2.0-generate-001 --duration-seconds 8 --aspect-ratio 9:16",
+            "",
+            "# Generate multiple videos with negative prompt",
+            "npm run gemini-video -- generate -p \"A peaceful forest scene\" --negative-prompt \"violence, scary\" --number-of-videos 2"
+          ]
+        }
+      },
+      "requires": [
+        "GEMINI_API_KEY or GOOGLE_AI_STUDIO_KEY in .env.local",
+        "@google/genai package",
+        "commander package",
+        "dotenv package"
+      ]
+    },
     "remove-background-advanced": {
       "description": "Advanced background removal tool using Sharp with color tolerance and edge detection",
       "tool": "run_terminal_cmd",
