@@ -1,0 +1,82 @@
+{
+  "intro": {
+    "title": "Företagsleasing – Ett smart sätt att köra",
+    "description": "Innolease är din partner för leasingfrågor. Behöver ditt företag en person- eller paketbil hjälper vi dig med bilanskaffningen. Vi konkurrensutsätter bilanskaffningen, finansieringen och hittar det bästa leasingalternativet för er."
+  },
+  "openModel": {
+    "title": "Vår öppna verksamhetsmodell",
+    "description": "Tillsammans med kunden definierar vi en helhet som bäst tjänar kundens behov."
+  },
+  "contactPerson": {
+    "title": "Egen kontaktperson",
+    "description": "Hjälper med alla bilrelaterade frågor under hela avtalsperioden."
+  },
+  "digitalServices": {
+    "title": "Digitala tjänster",
+    "description": "För fordonsansvariga, så att du effektivt kan hantera din fordonspark."
+  },
+  "benefits": {
+    "fixedPrice": "Fast månadskostnad under hela avtalsperioden",
+    "contractPeriod": "Avtalstid vanligtvis 12–60 mån",
+    "noDownPayment": "Ingen handpenning",
+    "newCar": "Ny bil i bruk, bli av med den gamla smidigt"
+  },
+  "leasingTypes": {
+    "rahoitusleasing": {
+      "title": "Finansieringsleasing – när du vill ha kontroll själv",
+      "description": "Finansieringsleasing är ett kostnadseffektivt och enkelt alternativ för företag som vill ha kontrollen själva. Körsträckan är obegränsad och företaget ansvarar själv för service och bilens restvärde vid hyrestidens slut. Passar bäst för företag med egna servicelösningar och som vill maximera kostnadseffektiviteten.",
+      "suits": "Passar den som söker en kostnadseffektiv lösning."
+    },
+    "joustoleasing": {
+      "title": "Flexleasing – frihet och förutsägbarhet i ett avtal",
+      "description": "Flexleasing samlar service på samma faktura, men kostnaderna bestäms enligt de faktiska utgifterna. Restvärdet bedöms enligt marknadsvärdet och vid hyrestidens slut kan kunden fortsätta hyresavtalet eller hitta en köpare till bilen. Passar företag som vill ha enkelhet och hålla dörrarna öppna för olika alternativ efter avtalstiden.",
+      "suits": "Bra alternativ om du vill kombinera flexibilitet och kontroll."
+    },
+    "huoltoleasing": {
+      "title": "Serviceleasing – enkelhet och förutsägbarhet",
+      "description": "Serviceleasing är en bekymmersfri helhetslösning. Med en månadskostnad får företaget bilen och önskade tjänster – från service till tvätt och däckservice. Leverantören ansvarar för bilens restvärde och återförsäljningen behöver inte bekymra dig om. Utmärkt val för företag som vill budgetera kostnader noggrant och minimera administrativt arbete.",
+      "suits": "Perfekt lösning för företag som värdesätter förutsägbarhet och enkelhet."
+    },
+    "minileasing": {
+      "title": "Minileasing för företag – Effektivitet utan bindning",
+      "description": "Behöver ditt företag en bil snabbt och för en bestämd tid? Minileasing är en flexibel lösning för kortvariga fordonsbehov – utan långvariga åtaganden eller ägarbekymmer.",
+      "benefits": [
+        "Färdig bil direkt – till och med nästa dag",
+        "Avtalstid 1–12 mån, enligt ditt behov",
+        "Fast månadskostnad inkluderar försäkring, service och däckservice",
+        "Ingen handpenning, inga återförsäljarbekymmer"
+      ],
+      "perfectFor": [
+        "För väntetid på ny tjänstebil eller leverans",
+        "Som ersättningsbil vid service eller reparation",
+        "För projekt eller tidsbegränsade arbetsuppgifter",
+        "För säsongs- eller tillfälliga extrabehov"
+      ],
+      "summary": "Minileasing är ett enkelt, kostnadseffektivt och snabbt sätt att säkerställa att verksamheten inte stannar upp!"
+    }
+  },
+  "contact": {
+    "title": "Kontakta oss – vi hittar en lösning som tar ditt företag framåt",
+    "carRentalLink": "se mer om biluthyrning – 'länk till biluthyrning'"
+  },
+  "equipmentLeasing": {
+    "title": "Maskin- och utrustningsfinansiering – Investera i effektivitet utan stora engångskostnader",
+    "description": "Behöver du maskiner eller utrustning för produktion, byggande eller verksamhet – men vill inte binda kapital eller köpa själv? Maskin- och utrustningsleasing erbjuder ditt företag ett flexibelt och kostnadseffektivt sätt att få nödvändig utrustning direkt – utan stora engångskostnader.",
+    "benefits": [
+      "Fast hyra under hela hyresperioden 12–72 mån",
+      "Utrustningen blir företagets egendom efter hyrestiden",
+      "Leasinghyror kan dras av i beskattningen",
+      "Kapital behöver inte bindas i investeringen",
+      "Binder inte anläggningstillgångar i balansräkningen",
+      "Budgeteringen blir mer förutsägbar"
+    ],
+    "businessToBusiness": "Vi finansierar handel mellan företag.",
+    "b2bDescription": "Hittade du den maskin eller utrustning du behöver från en annan företagare eller säljer du din egen utrustning vidare? Vi erbjuder finansiering även för handel mellan företag.",
+    "process": "Vi ansöker om finansieringsbeslut åt dig, sköter avtalen, löser in objektet och tar hand om finansieringen. Du kan få finansieringsbeslutet redan samma dag.",
+    "contact": "Kontakta oss – vi hjälper dig att hitta den finansieringslösning som passar just ditt företag."
+  },
+  "images": {
+    "main": "Företagsleasing platshållarbild",
+    "equipment": "Maskin- och utrustningsfinansiering platshållarbild"
+  }
+}

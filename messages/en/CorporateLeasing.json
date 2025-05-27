@@ -1,0 +1,82 @@
+{
+  "intro": {
+    "title": "Corporate Car Leasing – A Smart Way to Drive",
+    "description": "Innolease is your partner for business leasing. Whether your company needs a passenger or a van, we help with vehicle acquisition. We compare offers, arrange financing, and find the best leasing option for you."
+  },
+  "openModel": {
+    "title": "Our Open Model",
+    "description": "Together with the client, we define a solution that best serves your needs."
+  },
+  "contactPerson": {
+    "title": "Dedicated Contact Person",
+    "description": "Assists with all car-related matters throughout the contract period."
+  },
+  "digitalServices": {
+    "title": "Digital Services",
+    "description": "For fleet managers, enabling efficient management of your vehicles."
+  },
+  "benefits": {
+    "fixedPrice": "Fixed monthly price for the entire contract period",
+    "contractPeriod": "Contract period typically 12–60 months",
+    "noDownPayment": "No down payment",
+    "newCar": "Get a new car, return the old one easily"
+  },
+  "leasingTypes": {
+    "rahoitusleasing": {
+      "title": "Finance Leasing – When You Want Full Control",
+      "description": "Finance leasing is a cost-effective and simple option for companies that want to stay in control. There are no mileage limits, and the company is responsible for maintenance and the car's residual value at the end of the lease. Best for companies with their own maintenance solutions seeking maximum cost efficiency.",
+      "suits": "Ideal for those seeking a cost-effective solution."
+    },
+    "joustoleasing": {
+      "title": "Flexible Leasing – Freedom and Predictability in One Contract",
+      "description": "Flexible leasing combines all services on one invoice, but costs are based on actual expenses. The residual value is assessed at market value, and at the end of the lease, the customer can either continue the contract or find a buyer for the car. Suitable for companies wanting convenience and flexibility after the contract period.",
+      "suits": "A good choice if you want both flexibility and control."
+    },
+    "huoltoleasing": {
+      "title": "Maintenance Leasing – Simplicity and Predictability",
+      "description": "Maintenance leasing is a hassle-free all-in-one solution. For a single monthly fee, your company gets the car and desired services – from maintenance to washing and tire services. The provider is responsible for the car's residual value, and you don't need to worry about resale. Excellent for companies wanting to budget costs accurately and minimize admin work.",
+      "suits": "Perfect for companies that value predictability and ease."
+    },
+    "minileasing": {
+      "title": "Mini-Leasing for Companies – Efficiency Without Commitment",
+      "description": "Need a car for your company quickly and for a set period? Mini-leasing is a flexible solution for short-term vehicle needs – without long-term commitments or ownership worries.",
+      "benefits": [
+        "Ready-to-drive car immediately – even the next day",
+        "Contract period 1–12 months, as needed",
+        "Fixed monthly price includes insurance, maintenance, and tire services",
+        "No down payment, no resale worries"
+      ],
+      "perfectFor": [
+        "While waiting for a new company car or delivery",
+        "As a replacement car during service or repair",
+        "For projects or temporary assignments",
+        "To cover seasonal or temporary extra needs"
+      ],
+      "summary": "Mini-leasing is a simple, cost-effective, and fast way to keep your business moving!"
+    }
+  },
+  "contact": {
+    "title": "Contact us – we'll find a solution to move your business forward",
+    "carRentalLink": "see more about car rental – 'link to car rental'"
+  },
+  "equipmentLeasing": {
+    "title": "Equipment Leasing – Invest in Efficiency Without Large Upfront Costs",
+    "description": "Do you need machines or equipment for production, construction, or business – but don't want to tie up capital or buy outright? Equipment leasing offers your company a flexible and cost-effective way to get the tools you need right away – without large upfront costs.",
+    "benefits": [
+      "Fixed rent for the entire lease period 12–72 months",
+      "Equipment becomes company property after the lease",
+      "Leasing payments are tax-deductible",
+      "No need to tie up capital in investments",
+      "Does not bind fixed assets to the balance sheet",
+      "Budgeting is more predictable"
+    ],
+    "businessToBusiness": "We finance business-to-business transactions.",
+    "b2bDescription": "Did you find the machine or equipment you need from another entrepreneur or are you selling your own equipment? We also offer financing for business-to-business transactions.",
+    "process": "We apply for financing on your behalf, handle contracts, redeem the item, and take care of the financing. You can get a financing decision even on the same day.",
+    "contact": "Contact us – we'll help you find the right financing solution for your company."
+  },
+  "images": {
+    "main": "Corporate leasing placeholder image",
+    "equipment": "Equipment leasing placeholder image"
+  }
+}
