@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "title": "Driver's Guide",
+    "description": "Guide for driving during the lease period."
+  },
+  "intro": {
+    "title": "Driver's Guide – Driving During the Lease Period",
+    "description": "At Innolease, we support you with vehicle acquisition, fleet management, and practical matters during your contract. Company car use should be as easy as possible. Below you'll find useful information about your leased car and our services. If you have any questions, your contact person and our customer service are ready to help.",
+    "image": "Driver's Guide placeholder image"
+  },
+  "maintenance": {
+    "title": "Maintenance and Repairs",
+    "description": "For reliability and warranty, it's important to service the car according to the manufacturer's or importer's schedule. Services are performed at Innolease's partner locations. Always request approval before booking a service.",
+    "tips": [
+      "Follow the service schedule and logbook.",
+      "Maintenance and repairs are included in service and flexible leasing.",
+      "Finance leasing does not include maintenance or repairs.",
+      "For technical faults, contact an authorized service center."
+    ],
+    "note": "The Driver's Guide is sent by email when the car is delivered. If you haven't received it, request a new one from customer service.",
+    "image": "Maintenance and repairs placeholder image"
+  },
+  "replacementCar": {
+    "title": "Replacement Car During Service",
+    "description": "You can get a replacement car during service if it's included in your company's car policy. For longer needs, contact customer service.",
+    "note": "More about car rental – link.",
+    "image": "Replacement car placeholder image"
+  },
+  "billing": {
+    "title": "Service Billing Approvals",
+    "description": "Advance billing approval from Innolease's service team is required for maintenance and repairs. The workshop applies for approval, not the car user.",
+    "tips": [
+      "Approval can be requested when the fault and costs are known.",
+      "The same applies to maintenance, tire replacements, and other billable actions."
+    ],
+    "note": "More about billing approvals – link.",
+    "image": "Billing approvals placeholder image"
+  },
+  "tires": {
+    "title": "Tire Services",
+    "description": "Seasonal tire changes, storage, and replacements during the lease. Main partners: Vianor and Euromaster. Check your contract to see if services are included.",
+    "tips": [
+      "Checking tire pressure is the user's responsibility.",
+      "Replacements due to damage or misuse are not included."
+    ],
+    "image": "Tire services placeholder image"
+  },
+  "accidents": {
+    "title": "In Case of Accident",
+    "description": "Follow these steps in case of an accident:",
+    "steps": [
+      "Fill out an accident report on site and have the other party sign it.",
+      "Submit the report to your insurance company.",
+      "Call the police in case of injury, unclear situations, or animal collisions.",
+      "The at-fault party's insurance covers the innocent party's costs.",
+      "Also inform Innolease's JM team or your contact person about the accident."
+    ],
+    "image": "Accident placeholder image"
+  },
+  "roadside": {
+    "title": "Roadside Assistance",
+    "description": "Innolease Roadside Assistance is available 24/7. The service is usually free, and costs are billed to the insurance company or importer.",
+    "tips": [
+      "If the issue can't be resolved by phone, a professional will be sent to help.",
+      "If costs aren't covered, they will be billed to the customer."
+    ],
+    "image": "Roadside assistance placeholder image"
+  },
+  "export": {
+    "title": "Exporting the Car",
+    "description": "Check your employer's policy. You need an export permit and Green Card (not needed in the Nordics). The owner grants the permit. Take the registration certificate when traveling abroad.",
+    "tips": ["Order documents well in advance of your trip.", "The Green Card proves your insurance is valid."],
+    "image": "Export placeholder image"
+  },
+  "return": {
+    "title": "Returning the Leased Car",
+    "description": "Start the process for a new car or contract extension early. Return the car to an Autollecom store. Fill out the return form and follow the instructions.",
+    "checklist": {
+      "title": "When returning, make sure that:",
+      "items": [
+        "The car is clean inside and out.",
+        "The car is serviced according to the schedule.",
+        "The car is inspected.",
+        "Personal data is removed.",
+        "Damages are repaired or reported to the insurance company.",
+        "Missing accessories are returned within 7 days."
+      ]
+    },
+    "mustHave": {
+      "title": "The vehicle must include:",
+      "items": [
+        "All keys and charging cables.",
+        "All documents; service book and manuals.",
+        "Both sets of tires.",
+        "Installed accessories."
+      ]
+    },
+    "remove": {
+      "title": "Remove from the vehicle:",
+      "items": ["Decals.", "Accessories not included in the lease.", "Tracking devices."]
+    },
+    "image": "Return placeholder image"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "sections": [
+      {
+        "title": "Inspections and Taxes",
+        "description": "The user is responsible for inspections and taxes. Partners: A-Katsastus and K1. Billing goes directly to Innolease."
+      },
+      {
+        "title": "User Change",
+        "description": "If the user changes, report the registration number and new user's details to customer service."
+      },
+      {
+        "title": "Insurance",
+        "description": "Get insurance details and deductibles from your fleet manager. Review your coverage and deductibles in advance."
+      },
+      {
+        "title": "Export",
+        "description": "See the export section – link."
+      },
+      {
+        "title": "Car Return",
+        "description": "See the car return section – link."
+      }
+    ],
+    "image": "FAQ placeholder image"
+  },
+  "contact": {
+    "title": "Any questions?",
+    "description": "If you can't find the answer on our site, contact us.",
+    "note": "Link to contact form.",
+    "image": "Contact placeholder image"
+  }
+}
