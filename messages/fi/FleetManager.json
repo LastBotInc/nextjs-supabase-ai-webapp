@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "FleetManager",
+    "description": ""
+  },
+  "title": "FleetManager",
+  "description": "",
+  "content": "",
+  "intro": {
+    "title": "FleetManager – täysihallinta yrityksesi kalustoon",
+    "description": "Innolease tarjoaa modernit digitaaliset palvelut, jotka helpottavat yrityksesi arkea leasingkauden aikana. Fleet Manager -työkalu on suunniteltu yrityksille, jotka haluavat pitää ajoneuvokannan hallinnassa helposti, tehokkaasti ja reaaliaikaisesti."
+  },
+  "image": {
+    "alt": "FleetManager placeholder image"
+  },
+  "mainView": {
+    "title": "Yksi hallintanäkymä, kaikki tieto",
+    "features": [
+      "Sopimuksen seuranta – sopimusten hallinnointi",
+      "Kustannusten hallinta & optimointi",
+      "Käyttöasteen optimointi – kilometriseuranta",
+      "Ympäristö ja vastuullisuusnäkökulmat",
+      "Täydellinen läpinäkyvyys ja keskitetty tieto",
+      "Helppo jaettava raportointi"
+    ]
+  },
+  "summary": {
+    "title": "Älykäs ja helppokäyttöinen työkalu",
+    "description": "FleetManager on älykäs ja helppokäyttöinen työkalu, joka tuo ajoneuvokalustosi hallinnan yhteen paikkaan – reaaliaikaisesti ja läpinäkyvästi. Seuraa ajoneuvokohtaisia kustannuksia ja optimoi käyttöaste helposti. Selkeät raportit tukevat niin talousjohdon kuin vastuullisuusraportoinnin tarpeita."
+  },
+  "benefits": {
+    "title": "FleetManager auttaa sinua:",
+    "items": [
+      "Seuraamaan sopimuksia",
+      "Hallitsemaan kustannuksia tarkasti",
+      "Tehostamaan resurssien käyttöä",
+      "Jakamaan tiedot vaivattomasti eteenpäin",
+      "Täyttämään vastuullisuuden seurantavelvoitteet"
+    ]
+  },
+  "allInOne": {
+    "title": "Kaikki tieto yhdessä näkymässä – ilman hajanaisia Exceleitä.",
+    "description": "FleetManager tuo kalustosi hallintaan uuden tason tehokkuutta ja ennustettavuutta."
+  }
+}

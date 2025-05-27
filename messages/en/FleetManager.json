@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "FleetManager",
+    "description": ""
+  },
+  "title": "FleetManager",
+  "description": "",
+  "content": "",
+  "intro": {
+    "title": "FleetManager – Complete Control of Your Company Fleet",
+    "description": "Innolease offers modern digital services that make your company's daily life easier during the leasing period. The Fleet Manager tool is designed for companies that want to manage their vehicle fleet easily, efficiently, and in real time."
+  },
+  "image": {
+    "alt": "FleetManager placeholder image"
+  },
+  "mainView": {
+    "title": "One Dashboard, All Information",
+    "features": [
+      "Contract tracking – contract management",
+      "Cost control & optimization",
+      "Utilization optimization – mileage tracking",
+      "Environmental and responsibility perspectives",
+      "Complete transparency and centralized data",
+      "Easy shareable reporting"
+    ]
+  },
+  "summary": {
+    "title": "Smart and Easy-to-Use Tool",
+    "description": "FleetManager is a smart and easy-to-use tool that brings your fleet management into one place – in real time and with full transparency. Track vehicle-specific costs and optimize utilization easily. Clear reports support both financial management and sustainability reporting needs."
+  },
+  "benefits": {
+    "title": "FleetManager helps you:",
+    "items": [
+      "Track contracts",
+      "Manage costs accurately",
+      "Optimize resource usage",
+      "Share information effortlessly",
+      "Fulfill sustainability tracking requirements"
+    ]
+  },
+  "allInOne": {
+    "title": "All information in one view – no scattered spreadsheets.",
+    "description": "FleetManager brings a new level of efficiency and predictability to your fleet management."
+  }
+}
