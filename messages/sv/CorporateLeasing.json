@@ -1,4 +1,19 @@
 {
+  "hero": {
+    "heading": "Företagsleasing",
+    "subheading": "Din partner för företagsleasing",
+
+    "numbers": [
+      {
+        "title": "Ringa oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ringa oss",
+        "number": "020 743 76700"
+      }
+    ]
+  },
   "intro": {
     "title": "Företagsleasing – Ett smart sätt att köra",
     "description": "Innolease är din partner för leasingfrågor. Behöver ditt företag en person- eller paketbil hjälper vi dig med bilanskaffningen. Vi konkurrensutsätter bilanskaffningen, finansieringen och hittar det bästa leasingalternativet för er."

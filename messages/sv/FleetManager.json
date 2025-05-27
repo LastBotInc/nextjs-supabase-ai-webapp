@@ -3,6 +3,21 @@
     "title": "FleetManager",
     "description": ""
   },
+  "hero": {
+    "heading": "FleetManager",
+    "subheading": "Full kontroll över företagets fordonsflotta",
+    "numbers": [
+      {
+        "title": "Ring oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ring oss",
+        "number": "020 743 76700"
+      }
+    ]
+  },
+
   "title": "FleetManager",
   "description": "",
   "content": "",

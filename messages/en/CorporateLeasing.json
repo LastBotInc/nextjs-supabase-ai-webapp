@@ -1,4 +1,18 @@
 {
+  "hero": {
+    "heading": "Corporate Car Leasing",
+    "subheading": "Smart way to drive",
+    "numbers": [
+      {
+        "title": "Call us",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Call us",
+        "number": "020 743 76700"
+      }
+    ]
+  },
   "intro": {
     "title": "Corporate Car Leasing – A Smart Way to Drive",
     "description": "Innolease is your partner for business leasing. Whether your company needs a passenger or a van, we help with vehicle acquisition. We compare offers, arrange financing, and find the best leasing option for you."

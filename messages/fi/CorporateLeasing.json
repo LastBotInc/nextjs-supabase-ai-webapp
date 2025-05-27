@@ -1,4 +1,18 @@
 {
+  "hero": {
+    "heading": "Yritysautoleasing",
+    "subheading": "Fiksu tapa autoilla",
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
+  },
   "intro": {
     "title": "Yritysautoleasing – Fiksu tapa autoilla",
     "description": "Innolease yrityksesi kumppani leasingasioissa. Tarvitsee yrityksesi, sitten henkilö- tai pakettiauton me toimimme apuna yrityksen autohankinnoissa. Kilpailutamme auton hankinnan, rahoituksen ja katsomme teille sopivan leasingvaihtoehdon."
@@ -21,6 +35,7 @@
     "noDownPayment": "Ei käsirahaa",
     "newCar": "Uusi auto käyttöön, vanhasta eroon vaivattomasti"
   },
+
   "leasingTypes": {
     "rahoitusleasing": {
       "title": "Rahoitusleasing – kun haluat hallita itse",

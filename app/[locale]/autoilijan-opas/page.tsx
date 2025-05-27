@@ -9,9 +9,18 @@ import {
   MaxWidthContentBlock,
   ColumnBlock,
   spacing,
+  FullWidthContentBlockWithBg,
 } from "../../components/layouts/Block";
 import { TwoColumnCard } from "../../components/layouts/Card";
-import { Heading1, Heading2, Heading3, Paragraph, LinkLikeButton } from "../../components/layouts/CommonElements";
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Paragraph,
+  LinkLikeButton,
+  Heading2Small,
+} from "../../components/layouts/CommonElements";
+import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;
@@ -30,209 +39,265 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
   const t = await getTranslations("DriversGuide");
 
   return (
-    <main className="bg-betoni min-h-screen">
-      {/* Meta Title & Description for SEO */}
-      <FullScreenWidthBlock className="bg-kupari text-white py-12">
-        <MaxWidthContentBlock>
-          <Heading1>{t("meta.title")}</Heading1>
-          <Paragraph className="mt-2 text-lg">{t("meta.description")}</Paragraph>
+    <main className="flex min-h-screen flex-col items-center bg-white pt-24">
+      <FullWidthContentBlockWithBg image="/images/autonvuokraus.png" backgroundPosition="bottom right">
+        <MaxWidthContentBlock className="min-h-[500px] lg:h-[600px] shadow-text justify-end flex flex-col">
+          <BlockPadding>
+            <h1 className="text-6xl font-medium text-white leading-tight">
+              {t("meta.title")}
+              <span className="block text-5xl font-light text-white with-shadow">{t("meta.description")}</span>
+            </h1>
+          </BlockPadding>
         </MaxWidthContentBlock>
-      </FullScreenWidthBlock>
+      </FullWidthContentBlockWithBg>
 
       {/* Intro Section */}
       <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
           {/* Placeholder image */}
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-48 h-48 flex items-center justify-center text-sahko text-2xl font-bold">
-              {t("intro.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("intro.title")}</Heading2>
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("intro.title")}</Heading2Small>
             <Paragraph className="mt-2 text-lg">{t("intro.description")}</Paragraph>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Maintenance Section */}
-      <CommonBlock className="bg-maantie text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("maintenance.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("maintenance.title")}</Heading2>
+      <CommonBlock className="bg-black text-white my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("maintenance.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("maintenance.description")}</Paragraph>
-            <ul className="bg-beige text-piki rounded-lg p-4 mt-4 space-y-2">
+            <ul className="">
               {t.raw("maintenance.tips").map((tip: string, idx: number) => (
-                <li key={idx} className="list-disc ml-6 font-semibold">
+                <li key={idx} className="list-disc ml-4 pl-0">
                   {tip}
                 </li>
               ))}
             </ul>
-            <Paragraph className="mt-2 italic text-sm">{t("maintenance.note")}</Paragraph>
+            <Paragraph className="mt-2 font-bold">{t("maintenance.note")}</Paragraph>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Replacement Car Section */}
-      <CommonBlock className="bg-kupari text-white my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("replacementCar.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("replacementCar.title")}</Heading2>
+      <CommonBlock className="bg-maantie text-piki my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("replacementCar.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("replacementCar.description")}</Paragraph>
             <Paragraph className="mt-2 italic text-sm">{t("replacementCar.note")}</Paragraph>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Billing Section */}
-      <CommonBlock className="bg-sahko text-white my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-piki text-lg font-bold">
-              {t("billing.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("billing.title")}</Heading2>
+      <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("billing.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("billing.description")}</Paragraph>
             <ul className="bg-beige text-piki rounded-lg p-4 mt-4 space-y-2">
               {t.raw("billing.tips").map((tip: string, idx: number) => (
-                <li key={idx} className="list-disc ml-6 font-semibold">
+                <li key={idx} className="list-disc ml-6 ">
                   {tip}
                 </li>
               ))}
             </ul>
             <Paragraph className="mt-2 italic text-sm">{t("billing.note")}</Paragraph>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Tires Section */}
-      <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("tires.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("tires.title")}</Heading2>
+      <CommonBlock className="bg-sahko text-white my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("tires.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("tires.description")}</Paragraph>
-            <ul className="bg-maantie text-piki rounded-lg p-4 mt-4 space-y-2">
+            <ul className="bg-black text-white rounded-lg p-4 mt-4 space-y-2">
               {t.raw("tires.tips").map((tip: string, idx: number) => (
-                <li key={idx} className="list-disc ml-6 font-semibold">
+                <li key={idx} className="list-disc ml-6 ">
                   {tip}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Accidents Section */}
-      <CommonBlock className="bg-kupari text-white my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("accidents.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("accidents.title")}</Heading2>
+      <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("accidents.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("accidents.description")}</Paragraph>
             <ul className="bg-beige text-piki rounded-lg p-4 mt-4 space-y-2">
               {t.raw("accidents.steps").map((step: string, idx: number) => (
-                <li key={idx} className="list-decimal ml-6 font-semibold">
+                <li key={idx} className="list-decimal ml-6 ">
                   {step}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Roadside Section */}
-      <CommonBlock className="bg-maantie text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("roadside.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("roadside.title")}</Heading2>
+      <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("roadside.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("roadside.description")}</Paragraph>
             <ul className="bg-beige text-piki rounded-lg p-4 mt-4 space-y-2">
               {t.raw("roadside.tips").map((tip: string, idx: number) => (
-                <li key={idx} className="list-disc ml-6 font-semibold">
+                <li key={idx} className="list-disc ml-6 ">
                   {tip}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Export Section */}
       <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("export.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("export.title")}</Heading2>
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("export.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("export.description")}</Paragraph>
             <ul className="bg-maantie text-piki rounded-lg p-4 mt-4 space-y-2">
               {t.raw("export.tips").map((tip: string, idx: number) => (
-                <li key={idx} className="list-disc ml-6 font-semibold">
+                <li key={idx} className="list-disc ml-6 ">
                   {tip}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* Return Section */}
-      <CommonBlock className="bg-kupari text-white my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("return.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3 space-y-4">
-            <Heading2>{t("return.title")}</Heading2>
+      <CommonBlock className="bg-beige text-piki my-8 rounded-xl shadow-lg">
+        <TwoColumnCard className="md:grid-cols-[33%_67%]">
+          {/* Placeholder image */}
+          <Image
+            src={"/images/ajankohtaista.png"}
+            alt={"transparency.imageAlt"}
+            width={2048}
+            height={2048}
+            layout="responsive"
+            className="object-cover rounded-xl "
+            sizes="100vw"
+            quality={90}
+          />
+          <div className="flex flex-col gap-4">
+            <Heading2Small>{t("return.title")}</Heading2Small>
             <Paragraph className="mt-2">{t("return.description")}</Paragraph>
             {/* Checklist */}
             <div className="bg-beige text-piki rounded-lg p-4">
               <Heading3>{t("return.checklist.title")}</Heading3>
               <ul className="space-y-1">
                 {t.raw("return.checklist.items").map((item: string, idx: number) => (
-                  <li key={idx} className="list-disc ml-6 font-semibold">
+                  <li key={idx} className="list-disc ml-6 ">
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             {/* Must Have */}
-            <div className="bg-maantie text-piki rounded-lg p-4">
+            <div className="bg-beige text-piki rounded-lg p-4">
               <Heading3>{t("return.mustHave.title")}</Heading3>
               <ul className="space-y-1">
                 {t.raw("return.mustHave.items").map((item: string, idx: number) => (
-                  <li key={idx} className="list-disc ml-6 font-semibold">
+                  <li key={idx} className="list-disc ml-6 ">
                     {item}
                   </li>
                 ))}
@@ -243,27 +308,22 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
               <Heading3>{t("return.remove.title")}</Heading3>
               <ul className="space-y-1">
                 {t.raw("return.remove.items").map((item: string, idx: number) => (
-                  <li key={idx} className="list-disc ml-6 font-semibold">
+                  <li key={idx} className="list-disc ml-6 ">
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        </div>
+        </TwoColumnCard>
       </CommonBlock>
 
       {/* FAQ Section */}
-      <CommonBlock className="bg-sahko text-white my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-piki text-lg font-bold">
-              {t("faq.image")}
-            </div>
-          </div>
-          <div className="w-full md:w-2/3">
+      <FullScreenWidthBlock className="bg-piki">
+        <MaxWidthContentBlock>
+          <BlockPadding className="flex flex-col gap-4">
             <Heading2>{t("faq.title")}</Heading2>
-            <div className="space-y-4 mt-2">
+            <div className="flex flex-col gap-4">
               {t.raw("faq.sections").map((section: any, idx: number) => (
                 <div key={idx} className="bg-beige text-piki rounded-lg p-4">
                   <Heading3>{section.title}</Heading3>
@@ -271,25 +331,23 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </CommonBlock>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
 
-      {/* Contact Section */}
-      <CommonBlock className="bg-maantie text-piki my-8 rounded-xl shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="bg-betoni rounded-lg w-40 h-40 flex items-center justify-center text-sahko text-lg font-bold">
-              {t("contact.image")}
+      <FullWidthContentBlockWithBg image="/images/Tietoa_meista.png" backgroundPosition="top center">
+        <MaxWidthContentBlock>
+          <BlockPadding>
+            <div className="flex flex-col  gap-6 lg:gap-2 lg:w-full shadow-text-sharp">
+              <Heading2 className="text-6xl font-medium text-white leading-tight lg:w-1/2">
+                {t("contact.title")}
+              </Heading2>
+              <Paragraph variant="large">{t("contact.description")}</Paragraph>
+              <Paragraph variant="large">{t("contact.note")}</Paragraph>
             </div>
-          </div>
-          <div className="w-full md:w-2/3">
-            <Heading2>{t("contact.title")}</Heading2>
-            <Paragraph className="mt-2">{t("contact.description")}</Paragraph>
-            <Paragraph className="mt-2 italic text-sm">{t("contact.note")}</Paragraph>
-          </div>
-        </div>
-      </CommonBlock>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullWidthContentBlockWithBg>
     </main>
   );
 }

@@ -3,6 +3,20 @@
     "title": "FleetManager",
     "description": ""
   },
+  "hero": {
+    "heading": "FleetManager",
+    "subheading": "Täysihallinta yrityksesi kalustoon",
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
+  },
   "title": "FleetManager",
   "description": "",
   "content": "",

@@ -3,6 +3,21 @@
     "title": "FleetManager",
     "description": ""
   },
+  "hero": {
+    "heading": "FleetManager",
+    "subheading": "Complete Control of Your Company Fleet",
+    "numbers": [
+      {
+        "title": "Call us",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Call us",
+        "number": "020 743 76700"
+      }
+    ]
+  },
+
   "title": "FleetManager",
   "description": "",
   "content": "",
