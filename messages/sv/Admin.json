@@ -325,5 +325,75 @@
     "actions": {
       "triggerSync": "Utlös synkronisering"
     }
+  },
+  "title": "Adminpanel",
+  "welcome": "Välkommen till adminpanelen",
+  "SEO": {
+    "title": "SEO-hantering",
+    "dashboard": "SEO-instrumentpanel",
+    "keywords": {
+      "title": "Nyckelordsforskning",
+      "description": "Upptäck och analysera nyckelord för din SEO-strategi",
+      "research": "Forska nyckelord",
+      "suggestions": "Nyckelordsförslag",
+      "saved": "Sparade nyckelord",
+      "seedKeyword": "Grundnyckelord",
+      "searchVolume": "Sökvolym",
+      "cpc": "CPC",
+      "competition": "Konkurrens",
+      "difficulty": "Svårighet",
+      "intent": "Avsikt",
+      "location": "Plats",
+      "language": "Språk",
+      "researching": "Forskar...",
+      "addKeyword": "Lägg till nyckelord",
+      "noKeywords": "Inga sparade nyckelord ännu. Börja med att forska nyckelord ovan.",
+      "selectProject": "Välj projekt",
+      "enterKeyword": "Ange ett nyckelord att forska...",
+      "ai": {
+        "title": "AI-nyckelordsgenerering",
+        "description": "Låt AI generera relevanta nyckelord baserat på din företagsbeskrivning, målland och befintliga nyckelord.",
+        "companyDescription": "Företags-/domänbeskrivning",
+        "companyDescriptionPlaceholder": "Beskriv ditt företag, produkter eller tjänster för att hjälpa AI att generera bättre nyckelord...",
+        "companyDescriptionHelp": "Anpassa denna beskrivning för att matcha din specifika verksamhet. AI kommer att generera nyckelord på det valda språket för målandet, undvika nyckelord som redan finns i ditt projekt.",
+        "targetLocation": "Målplats för AI-nyckelord",
+        "targetLanguage": "Målspråk för AI-nyckelord",
+        "generateButton": "Generera AI-nyckelord",
+        "generatingButton": "Genererar AI-nyckelord...",
+        "generateCount": "Generera {count} AI-nyckelord",
+        "generating": "Genererar AI-nyckelord...",
+        "success": "Genererade framgångsrikt {count} AI-nyckelord",
+        "error": "AI-nyckelordsgenerering misslyckades"
+      },
+      "locations": {
+        "2840": "Förenta staterna",
+        "2826": "Storbritannien",
+        "2124": "Kanada",
+        "2276": "Tyskland",
+        "2250": "Frankrike",
+        "2752": "Sverige",
+        "2246": "Finland"
+      },
+      "languages": {
+        "en": "Engelska",
+        "fi": "Finska",
+        "sv": "Svenska",
+        "de": "Tyska",
+        "fr": "Franska"
+      },
+      "noProjects": {
+        "title": "Inga SEO-projekt hittades",
+        "description": "Du behöver skapa ett SEO-projekt först innan du kan utföra nyckelordsforskning. Projekt hjälper till att organisera dina nyckelord och spåra deras prestanda.",
+        "createButton": "Skapa ditt första SEO-projekt"
+      },
+      "loading": "Laddar nyckelordsforskningsdata...",
+      "actions": "Åtgärder",
+      "added": "Tillagd"
+    },
+    "projects": {
+      "title": "SEO-projekt",
+      "new": "Nytt projekt",
+      "select": "Välj ett projekt..."
+    }
   }
 }

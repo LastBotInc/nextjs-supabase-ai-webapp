@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/app/i18n/navigation';
 import { 
   ChartBarIcon, 
   MagnifyingGlassIcon, 
@@ -140,38 +140,68 @@ export default function SEODashboard({ initialData }: SEODashboardProps) {
             </div>
           </Link>
           
-          <Link
-            href="/admin/seo/keywords"
-            className="flex items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-          >
-            <MagnifyingGlassIcon className="h-8 w-8 text-green-600 dark:text-green-400 mr-3" />
-            <div>
-              <h3 className="font-medium text-green-900 dark:text-green-100">Keyword Research</h3>
-              <p className="text-sm text-green-600 dark:text-green-400">Find new keywords</p>
+          {data.projects.length > 0 ? (
+            <Link
+              href="/admin/seo/keywords"
+              className="flex items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+            >
+              <MagnifyingGlassIcon className="h-8 w-8 text-green-600 dark:text-green-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-green-900 dark:text-green-100">Keyword Research</h3>
+                <p className="text-sm text-green-600 dark:text-green-400">Find new keywords</p>
+              </div>
+            </Link>
+          ) : (
+            <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg opacity-60 cursor-not-allowed">
+              <MagnifyingGlassIcon className="h-8 w-8 text-gray-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-gray-500 dark:text-gray-400">Keyword Research</h3>
+                <p className="text-sm text-gray-400">Requires a project</p>
+              </div>
             </div>
-          </Link>
+          )}
           
-          <Link
-            href="/admin/seo/backlinks"
-            className="flex items-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
-          >
-            <LinkIcon className="h-8 w-8 text-purple-600 dark:text-purple-400 mr-3" />
-            <div>
-              <h3 className="font-medium text-purple-900 dark:text-purple-100">Backlink Analysis</h3>
-              <p className="text-sm text-purple-600 dark:text-purple-400">Analyze backlinks</p>
+          {data.projects.length > 0 ? (
+            <Link
+              href="/admin/seo/backlinks"
+              className="flex items-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
+            >
+              <LinkIcon className="h-8 w-8 text-purple-600 dark:text-purple-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-purple-900 dark:text-purple-100">Backlink Analysis</h3>
+                <p className="text-sm text-purple-600 dark:text-purple-400">Analyze backlinks</p>
+              </div>
+            </Link>
+          ) : (
+            <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg opacity-60 cursor-not-allowed">
+              <LinkIcon className="h-8 w-8 text-gray-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-gray-500 dark:text-gray-400">Backlink Analysis</h3>
+                <p className="text-sm text-gray-400">Requires a project</p>
+              </div>
             </div>
-          </Link>
+          )}
           
-          <Link
-            href="/admin/seo/technical"
-            className="flex items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors"
-          >
-            <CogIcon className="h-8 w-8 text-orange-600 dark:text-orange-400 mr-3" />
-            <div>
-              <h3 className="font-medium text-orange-900 dark:text-orange-100">Technical Audit</h3>
-              <p className="text-sm text-orange-600 dark:text-orange-400">Check site health</p>
+          {data.projects.length > 0 ? (
+            <Link
+              href="/admin/seo/technical"
+              className="flex items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors"
+            >
+              <CogIcon className="h-8 w-8 text-orange-600 dark:text-orange-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-orange-900 dark:text-orange-100">Technical Audit</h3>
+                <p className="text-sm text-orange-600 dark:text-orange-400">Check site health</p>
+              </div>
+            </Link>
+          ) : (
+            <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg opacity-60 cursor-not-allowed">
+              <CogIcon className="h-8 w-8 text-gray-400 mr-3" />
+              <div>
+                <h3 className="font-medium text-gray-500 dark:text-gray-400">Technical Audit</h3>
+                <p className="text-sm text-gray-400">Requires a project</p>
+              </div>
             </div>
-          </Link>
+          )}
         </div>
       </div>
 
@@ -182,12 +212,14 @@ export default function SEODashboard({ initialData }: SEODashboardProps) {
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Recent Projects
             </h2>
-            <Link
-              href="/admin/seo/projects"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
-            >
-              View all
-            </Link>
+            {data.projects.length > 0 && (
+              <Link
+                href="/admin/seo/projects"
+                className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+              >
+                View all
+              </Link>
+            )}
           </div>
           
           {data.projects.length === 0 ? (

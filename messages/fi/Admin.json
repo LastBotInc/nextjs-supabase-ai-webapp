@@ -325,5 +325,75 @@
     "actions": {
       "triggerSync": "Käynnistä synkronointi"
     }
+  },
+  "title": "Hallintapaneeli",
+  "welcome": "Tervetuloa hallintapaneeliin",
+  "SEO": {
+    "title": "SEO-hallinta",
+    "dashboard": "SEO-kojelauta",
+    "keywords": {
+      "title": "Avainsanatutkimus",
+      "description": "Löydä ja analysoi avainsanoja SEO-strategiaasi varten",
+      "research": "Tutki avainsanoja",
+      "suggestions": "Avainsanaehdotukset",
+      "saved": "Tallennetut avainsanat",
+      "seedKeyword": "Lähtöavainsana",
+      "searchVolume": "Hakumäärä",
+      "cpc": "CPC",
+      "competition": "Kilpailu",
+      "difficulty": "Vaikeus",
+      "intent": "Tarkoitus",
+      "location": "Sijainti",
+      "language": "Kieli",
+      "researching": "Tutkitaan...",
+      "addKeyword": "Lisää avainsana",
+      "noKeywords": "Ei tallennettuja avainsanoja vielä. Aloita tutkimalla avainsanoja yllä.",
+      "selectProject": "Valitse projekti",
+      "enterKeyword": "Syötä tutkittava avainsana...",
+      "ai": {
+        "title": "Tekoälyavainsanojen generointi",
+        "description": "Anna tekoälyn generoida relevantteja avainsanoja yrityskuvauksen, kohdemaan ja olemassa olevien avainsanojen perusteella.",
+        "companyDescription": "Yritys-/verkkotunnuskuvaus",
+        "companyDescriptionPlaceholder": "Kuvaile yritystäsi, tuotteitasi tai palveluitasi auttaaksesi tekoälyä generoimaan parempia avainsanoja...",
+        "companyDescriptionHelp": "Mukauta tämä kuvaus vastaamaan omaa liiketoimintaasi. Tekoäly generoi avainsanoja valitulla kielellä kohdemaan mukaan, välttäen projektissasi jo olevia avainsanoja.",
+        "targetLocation": "Kohdesijainti tekoälyavainsanoille",
+        "targetLanguage": "Kohdekieli tekoälyavainsanoille",
+        "generateButton": "Generoi tekoälyavainsanoja",
+        "generatingButton": "Generoidaan tekoälyavainsanoja...",
+        "generateCount": "Generoi {count} tekoälyavainsanaa",
+        "generating": "Generoidaan tekoälyavainsanoja...",
+        "success": "Generoitiin onnistuneesti {count} tekoälyavainsanaa",
+        "error": "Tekoälyavainsanojen generointi epäonnistui"
+      },
+      "locations": {
+        "2840": "Yhdysvallat",
+        "2826": "Yhdistynyt kuningaskunta",
+        "2124": "Kanada",
+        "2276": "Saksa",
+        "2250": "Ranska",
+        "2752": "Ruotsi",
+        "2246": "Suomi"
+      },
+      "languages": {
+        "en": "Englanti",
+        "fi": "Suomi",
+        "sv": "Ruotsi",
+        "de": "Saksa",
+        "fr": "Ranska"
+      },
+      "noProjects": {
+        "title": "SEO-projekteja ei löytynyt",
+        "description": "Sinun täytyy luoda SEO-projekti ensin ennen kuin voit tehdä avainsanatutkimusta. Projektit auttavat järjestämään avainsanojasi ja seuraamaan niiden suorituskykyä.",
+        "createButton": "Luo ensimmäinen SEO-projektisi"
+      },
+      "loading": "Ladataan avainsanatutkimustietoja...",
+      "actions": "Toiminnot",
+      "added": "Lisätty"
+    },
+    "projects": {
+      "title": "SEO-projektit",
+      "new": "Uusi projekti",
+      "select": "Valitse projekti..."
+    }
   }
 }

@@ -325,5 +325,75 @@
     "actions": {
       "triggerSync": "Trigger Sync"
     }
+  },
+  "title": "Admin Dashboard",
+  "welcome": "Welcome to the admin dashboard",
+  "SEO": {
+    "title": "SEO Management",
+    "dashboard": "SEO Dashboard",
+    "keywords": {
+      "title": "Keyword Research",
+      "description": "Discover and analyze keywords for your SEO strategy",
+      "research": "Research Keywords",
+      "suggestions": "Keyword Suggestions",
+      "saved": "Saved Keywords",
+      "seedKeyword": "Seed Keyword",
+      "searchVolume": "Search Volume",
+      "cpc": "CPC",
+      "competition": "Competition",
+      "difficulty": "Difficulty",
+      "intent": "Intent",
+      "location": "Location",
+      "language": "Language",
+      "researching": "Researching...",
+      "addKeyword": "Add Keyword",
+      "noKeywords": "No keywords saved yet. Start by researching some keywords above.",
+      "selectProject": "Select Project",
+      "enterKeyword": "Enter a keyword to research...",
+      "ai": {
+        "title": "AI Keyword Generation",
+        "description": "Let AI generate relevant keywords based on your company description, target location, and existing keywords.",
+        "companyDescription": "Company/Domain Description",
+        "companyDescriptionPlaceholder": "Describe your company, products, or services to help AI generate better keywords...",
+        "companyDescriptionHelp": "Customize this description to match your specific business. AI will generate keywords in the selected language for the target location, avoiding keywords that already exist in your project.",
+        "targetLocation": "Target Location for AI Keywords",
+        "targetLanguage": "Target Language for AI Keywords",
+        "generateButton": "Generate AI Keywords",
+        "generatingButton": "Generating AI Keywords...",
+        "generateCount": "Generate {count} AI Keywords",
+        "generating": "Generating AI Keywords...",
+        "success": "Successfully generated {count} AI keywords",
+        "error": "AI keyword generation failed"
+      },
+      "locations": {
+        "2840": "United States",
+        "2826": "United Kingdom",
+        "2124": "Canada",
+        "2276": "Germany",
+        "2250": "France",
+        "2752": "Sweden",
+        "2246": "Finland"
+      },
+      "languages": {
+        "en": "English",
+        "fi": "Finnish",
+        "sv": "Swedish",
+        "de": "German",
+        "fr": "French"
+      },
+      "noProjects": {
+        "title": "No SEO Projects Found",
+        "description": "You need to create an SEO project first before you can perform keyword research. Projects help organize your keywords and track their performance.",
+        "createButton": "Create Your First SEO Project"
+      },
+      "loading": "Loading keyword research data...",
+      "actions": "Actions",
+      "added": "Added"
+    },
+    "projects": {
+      "title": "SEO Projects",
+      "new": "New Project",
+      "select": "Select a project..."
+    }
   }
 }

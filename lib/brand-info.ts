@@ -14,6 +14,11 @@ export interface BrandPersonality {
 export interface BrandVoice {
   name: string;
   description: string;
+  detailedDescription: string;
+  domain: string;
+  industry: string;
+  targetAudience: string[];
+  keyServices: string[];
   tone: BrandTone;
   personality: BrandPersonality;
   writingStyle: string[];
@@ -24,6 +29,28 @@ export interface BrandVoice {
 export const brandInfo: BrandVoice = {
   name: "Brancoy HI Engine",
   description: "Brancoy HI Engine is an intelligent AI-powered migration and optimization tool that transforms your eCommerce business for Shopify. It doesn't just move your data, but continuously optimizes it, providing the smartest way to move to Shopify.",
+  detailedDescription: "Brancoy HI Engine is a comprehensive AI-powered eCommerce migration and optimization platform specifically designed for Shopify. Unlike traditional migration tools that simply transfer data, Brancoy HI Engine intelligently analyzes, optimizes, and continuously improves your eCommerce store throughout the migration process and beyond. Our platform combines advanced AI algorithms with deep Shopify expertise to ensure seamless data migration, SEO preservation, performance optimization, and ongoing store enhancement. We specialize in migrating from platforms like WooCommerce, Magento, BigCommerce, and custom solutions to Shopify, while maintaining data integrity, improving site performance, and enhancing the overall customer experience. Our AI continuously monitors and optimizes product catalogs, customer data, order history, inventory management, and marketing campaigns to maximize conversion rates and revenue growth.",
+  domain: "brancoy.com",
+  industry: "eCommerce Technology & Migration Services",
+  targetAudience: [
+    "eCommerce business owners looking to migrate to Shopify",
+    "Digital agencies managing client migrations",
+    "Enterprise retailers seeking platform optimization",
+    "Shopify developers and consultants",
+    "Online store managers and technical teams"
+  ],
+  keyServices: [
+    "AI-powered eCommerce migration to Shopify",
+    "Automated data optimization and cleanup",
+    "SEO preservation and enhancement during migration",
+    "Performance optimization and speed improvements",
+    "Continuous AI-driven store optimization",
+    "Multi-platform migration support (WooCommerce, Magento, BigCommerce)",
+    "Custom migration solutions for enterprise clients",
+    "Post-migration monitoring and optimization",
+    "Data integrity and security assurance",
+    "24/7 AI-powered store monitoring and improvements"
+  ],
   tone: {
     formal: 8,     // Professional, expert
     friendly: 7,   // Collaborative, supportive
@@ -91,7 +118,7 @@ export const getGeminiPrompt = (context: string): string => {
     .map(([key, value]) => `${key}: ${value}/10`)
     .join(', ');
 
-  return `As ${brandInfo.name}, ${brandInfo.description}
+  return `As ${brandInfo.name}, ${brandInfo.detailedDescription}
 
 Please write the following content while adhering to our brand voice:
     
@@ -118,4 +145,17 @@ export const validateContent = (content: string): boolean => {
   );
   
   return !hasAvoided;
+};
+
+export const getKeywordGenerationDescription = (): string => {
+  return `${brandInfo.detailedDescription}
+
+Industry: ${brandInfo.industry}
+Domain: ${brandInfo.domain}
+
+Key Services:
+${brandInfo.keyServices.map(service => `- ${service}`).join('\n')}
+
+Target Audience:
+${brandInfo.targetAudience.map(audience => `- ${audience}`).join('\n')}`;
 }; 
