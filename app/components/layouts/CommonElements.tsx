@@ -2,6 +2,13 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { HTMLAttributes } from "react";
 
+/**
+ * Heading1 is the main heading of the page.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
 export function Heading1({
   children,
   className,
@@ -14,6 +21,13 @@ export function Heading1({
   );
 }
 
+/**
+ * Heading2 is the high level heading of the page.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
 export function Heading2({
   children,
   className,
@@ -25,6 +39,14 @@ export function Heading2({
     </h2>
   );
 }
+
+/**
+ * Heading2Small is a smaller heading than Heading2.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
 export function Heading2Small({
   children,
   className,
@@ -36,6 +58,14 @@ export function Heading2Small({
     </h2>
   );
 }
+
+/**
+ * Heading3 is a subheading of the page.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
 export function Heading3({
   children,
   className,
@@ -48,6 +78,13 @@ export function Heading3({
   );
 }
 
+/**
+ * Heading3Small is a smaller heading than Heading3.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
 export function Heading3Small({
   children,
   className,
@@ -60,6 +97,14 @@ export function Heading3Small({
   );
 }
 
+/**
+ * Paragraph is a paragraph of the page.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * @param variant - Optional variant of the paragraph. It can be "default", "small" or "large".
+ * passes also HTML attributes for the paragraph element with rest props.
+ * @returns React.ReactNode
+ */
 export function Paragraph({
   children,
   className,
@@ -78,6 +123,13 @@ export function Paragraph({
   );
 }
 
+/**
+ * LinkLikeButton is a button that looks like a link.
+ * @param children - The children of the button.
+ * @param className - Optional extra classes for customizing the button.
+ * passes also HTML attributes for the button element with rest props.
+ * @returns React.ReactNode
+ */
 export function LinkLikeButton({
   children,
   className,
@@ -95,6 +147,13 @@ export function LinkLikeButton({
   );
 }
 
+/**
+ * ShapedContentFlowInParagraph is a paragraph with an image and shape flowing the text.
+ * @param image - The image to use as the background. Image src, alt, shape and aspect ratio are required.
+ * @param className - Optional extra classes for customizing the paragraph.
+ * passes also HTML attributes for the paragraph element with rest props.
+ * @returns React.ReactNode
+ */
 export function ShapedContentFlowInParagraph({
   image,
   className,

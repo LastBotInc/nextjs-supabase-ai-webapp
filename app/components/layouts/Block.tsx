@@ -37,7 +37,10 @@ const containerClassName = "relative w-full bg-white p-6 lg:p-14 max-w-7xl mx-au
 
 /**
  * Wrapper for common sections with a max width, center aligned with margins and inner padding.
- * @param htmlAttributes - HTML attributes for the section element.
+ * This component is used to wrap sections that have a max width, center aligned with margins and inner padding.
+ * @param className - Optional extra classes for customizing the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @param children - The children of the block.
  * @returns React.ReactNode
  */
 export function CommonBlock({
@@ -53,6 +56,13 @@ export function CommonBlock({
   );
 }
 
+/**
+ * This is identical to CommonBlock, but with a two column layout.
+ * @param className - Optional extra classes for customizing the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @param children - The children of the block.
+ * @returns React.ReactNode
+ */
 export function CommonBlockWithCols({
   children,
   className,
@@ -66,6 +76,15 @@ export function CommonBlockWithCols({
   );
 }
 
+/**
+ * This block is used to wrap sections that extend its background to the full width of the screen.
+ * Its content is centered and  like with CommonBlock and CommonBlockWithCols.
+ * @param className - Optional extra classes for customizing the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @param children - The children of the block.
+ * @param withPadding - Whether to add padding to the block.
+ * @returns React.ReactNode
+ */
 export function FullScreenWidthBlock({
   children,
   className,
@@ -80,6 +99,15 @@ export function FullScreenWidthBlock({
   );
 }
 
+/**
+ * This block is used to wrap sections that have a max width, center aligned with margins and inner padding.
+ * Different from CommonBlock, this block has no bg or vertical padding.
+ * It has no padding on xl screens.
+ * @param className - Optional extra classes for customizing the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @param children - The children of the block.
+ * @returns React.ReactNode
+ */
 export function MaxWidthContentBlock({
   children,
   className,
@@ -93,6 +121,14 @@ export function MaxWidthContentBlock({
   );
 }
 
+/**
+ * This is like MaxWidthContentBlock, but with a background image covering the area.
+ * @param image - The background image to use.
+ * @param className - Optional extra classes for customizing the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @param children - The children of the block.
+ * @returns React.ReactNode
+ */
 export function MaxWidthContentBlockWithBg({
   children,
   className,
@@ -150,6 +186,16 @@ export function FullWidthContentBlockWithBg({
   );
 }
 
+/**
+ * This component is used to add common padding to block's children.
+ * @param children - The children of the block.
+ * @param className - Optional extra classes for customizing the block.
+ * @param vertical - Whether to add padding to the vertical sides.
+ * @param horizontal - Whether to add padding to the horizontal sides.
+ * @param innerOnly - Whether to add padding to the inner sides only.
+ * passes also HTML attributes for the section element with rest props.
+ * @returns React.ReactNode
+ */
 export function BlockPadding({
   children,
   className,
@@ -180,6 +226,14 @@ export function BlockPadding({
   );
 }
 
+/**
+ * This component is used to wrap a block with a rounded border and a flex column layout.
+ * @param children - The children of the block.
+ * @param className - Optional extra classes for customizing the block.
+ * @param noPadding - Whether to add padding to the block.
+ * passes also HTML attributes for the section element with rest props.
+ * @returns React.ReactNode
+ */
 export function ColumnBlock({
   children,
   className = "",
