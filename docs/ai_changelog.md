@@ -1,6 +1,7 @@
 # AI Changelog
 
 ## 2024-07-13
+
 - **Feat:** Implemented comprehensive Leasing Solutions page with:
   - Four main leasing types: Financial, Flexible, Maintenance, and MiniLeasing
   - Interactive monthly payment calculator for Financial Leasing
@@ -12,6 +13,7 @@
 - **i18n:** Added translations for Leasing Solutions page in English, Finnish, and Swedish
 - **Navigation:** Updated navigation menu to include the Leasing Solutions page link
 - **Components:** Created reusable UI components:
+
   - SectionContainer for consistent section styling
   - Extended Button component to support multiple variants including "white"
   - Vehicle-themed icon components
@@ -26,6 +28,7 @@
 - **Fix:** Corrected SVG text rendering by replacing path-based text with proper SVG text element for better readability and accuracy
 
 ## 2024-07-12
+
 - **Fix:** Improved text visibility throughout the Innolease home page by:
   - Enhancing text contrast by updating gray color values from light gray to darker variants
   - Adding appropriate text wrappers with explicit color classes for list items
@@ -35,6 +38,7 @@
 - **Enhancement:** Added proper text formatting (font-medium, font-semibold) in various sections
 
 ## 2024-07-11
+
 - **Feat:** Implemented the Innolease home page with the following components:
   - Hero section with branded background and call-to-action
   - Leasing solutions section showcasing the four leasing options
@@ -48,6 +52,7 @@
 - **i18n:** Added translations in English, Finnish, and Swedish for all home page content
 
 ## 2024-07-10
+
 - Rescoped the entire project to focus on Innolease vehicle leasing platform:
   - Updated brand information in `lib/brand-info.ts` to reflect Innolease's identity, tone, and messaging
   - Completely revised `docs/description.md` with Innolease's business model and features
@@ -59,6 +64,7 @@
   - Emphasized Finnish, Swedish, and English internationalization
 
 ## 2025-03-25
+
 - Enhanced the Gemini AI tool with advanced capabilities:
   - Added document processing support for PDF, DOCX, and other file types
   - Implemented Google Search grounding feature for real-time information
@@ -67,6 +73,7 @@
   - Updated documentation in .cursorrules with examples
 
 ## 2024-03-21
+
 - Rescoped project from LastBot website to "AI-Powered Next.js Template for Cursor IDE"
 - Updated project documentation:
   - Revised project description and core features
@@ -76,9 +83,11 @@
   - Added comprehensive AI service integration documentation
 
 ## 2023-07-27
+
 - **Fix Build Errors:** Resolved `Dynamic server usage` errors during `npm run build` by adding `export const dynamic = 'force-dynamic';` to necessary page files (admin layout, privacy, root locale page, test, account pages, profile settings, most auth pages). Ignored build-time i18n database errors as requested. Build now completes successfully despite some remaining dynamic usage warnings.
 
 ## [Current Session]
+
 - **Fix:** Resolved synchronous access errors for `searchParams` and `params` in multiple page components (`/admin/landing-pages`, `/blog`, `/[slug]`).
 - **Fix:** Replaced insecure `getSession`/`onAuthStateChange` usage with `getUser()` in `AuthProvider` and `middleware` as per Supabase recommendations.
 - **Fix:** Addressed authentication flow issues caused by the `getUser` refactor by refining middleware cookie handling.
@@ -90,43 +99,45 @@
 - **Docs:** Updated the `Available Scripts` section in `README.md` to accurately reflect the command-line tools defined in `.cursorrules`.
 - **Chore:** Added `NODE_ENV=production` prefix to production-related npm scripts in `package.json`.
 
-*   Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
-*   Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.
-*   Fixed Next.js 15 warning by awaiting `params` in API route and `generateMetadata`.
-*   Redesigned public landing page (`/[slug]`) styling using Tailwind CSS, added hero section with generated background, and improved typography.
-*   Added dynamic CTA fields (`cta_headline`, `cta_description`, etc.) to `landing_pages` table (migration `20250407182326`).
-*   Added "CTA" tab and fields to landing page editor.
-*   Updated public landing page to display CTA content from the database.
-*   Fixed missing translation keys for editor tabs/buttons.
-*   Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
-*   Removed unused preload link from `app/layout.tsx`.
-*   Adjusted prose font sizes and colors for better readability on landing page.
-*   Fixed blog seeding script (`scripts/seed-blog.ts`) to use valid `subject` values allowed by the database schema (mapped `leasing-tips` and `ev` to `research`).
-*   Refined Finnish translations (`messages/fi.json`) for public pages (Index, Footer, About, LeasingSolutions, Blog) for natural language, correct phrasing, and standard capitalization.
-*   Modified blog seeding script (`scripts/seed-blog.ts`) to remove image generation/upload and use local image paths (`/images/blog/[slug].webp`) instead.
-*   Generated 8 featured images for blog posts (EN, FI, SV) using the `gemini-image` tool and saved them to `public/images/blog/`.
-*   Fixed `getTranslations` call and client component import path in `app/[locale]/leasing-solutions/page.tsx` to resolve build error.
-*   Replaced "LastBot" references with "Innolease" branding and content across multiple files (code, config, docs). Rewritten `AIBotMessage` component.
-*   Fixed build error in `app/layout.tsx` by removing duplicate static `metadata` export.
-*   Fixed `MISSING_MESSAGE` build error by adding `Index.meta` keys to `messages/en.json`.
-*   Added new "Campaigns" section to the home page (`components/pages/home/index.tsx`) with two placeholder vehicle campaigns (Ford Transit, Polestar 2) and generated images. Added placeholder translations to `messages/en.json`.
+* Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
+* Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.
+* Fixed Next.js 15 warning by awaiting `params` in API route and `generateMetadata`.
+* Redesigned public landing page (`/[slug]`) styling using Tailwind CSS, added hero section with generated background, and improved typography.
+* Added dynamic CTA fields (`cta_headline`, `cta_description`, etc.) to `landing_pages` table (migration `20250407182326`).
+* Added "CTA" tab and fields to landing page editor.
+* Updated public landing page to display CTA content from the database.
+* Fixed missing translation keys for editor tabs/buttons.
+* Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
+* Removed unused preload link from `app/layout.tsx`.
+* Adjusted prose font sizes and colors for better readability on landing page.
+* Fixed blog seeding script (`scripts/seed-blog.ts`) to use valid `subject` values allowed by the database schema (mapped `leasing-tips` and `ev` to `research`).
+* Refined Finnish translations (`messages/fi.json`) for public pages (Index, Footer, About, LeasingSolutions, Blog) for natural language, correct phrasing, and standard capitalization.
+* Modified blog seeding script (`scripts/seed-blog.ts`) to remove image generation/upload and use local image paths (`/images/blog/[slug].webp`) instead.
+* Generated 8 featured images for blog posts (EN, FI, SV) using the `gemini-image` tool and saved them to `public/images/blog/`.
+* Fixed `getTranslations` call and client component import path in `app/[locale]/leasing-solutions/page.tsx` to resolve build error.
+* Replaced "LastBot" references with "Innolease" branding and content across multiple files (code, config, docs). Rewritten `AIBotMessage` component.
+* Fixed build error in `app/layout.tsx` by removing duplicate static `metadata` export.
+* Fixed `MISSING_MESSAGE` build error by adding `Index.meta` keys to `messages/en.json`.
+* Added new "Campaigns" section to the home page (`components/pages/home/index.tsx`) with two placeholder vehicle campaigns (Ford Transit, Polestar 2) and generated images. Added placeholder translations to `messages/en.json`.
 
 ## 2024-08-13
+
 - Fixed build error caused by duplicate Icon components in `app/components/Icons.tsx`.
 - Corrected text color and contrast issues in the FAQ section on the Leasing Solutions page.
 - Implemented the Blog page (`app/[locale]/blog/page.tsx`, `app/[locale]/blog/[slug]/page.tsx`):
-    - Updated UI styles to match Innolease branding.
-    - Replaced placeholder/LastBot content.
-    - Updated blog seeding script (`scripts/seed-blog.ts`) with Innolease-relevant articles (Leasing Strategy, EV Transition, Maintenance Leasing, Case Study).
-    - Added necessary translations (EN, FI, SV).
+  - Updated UI styles to match Innolease branding.
+  - Replaced placeholder/LastBot content.
+  - Updated blog seeding script (`scripts/seed-blog.ts`) with Innolease-relevant articles (Leasing Strategy, EV Transition, Maintenance Leasing, Case Study).
+  - Added necessary translations (EN, FI, SV).
 - Implemented the About Us page (`app/[locale]/about/page.tsx`):
-    - Created page structure with sections for History, Values, Team, Coverage/Stats, Partners, CTA.
-    - Applied Innolease branding and styles.
-    - Added necessary translations (EN, FI, SV).
-    - Fixed Button component type error to accept anchor attributes.
+  - Created page structure with sections for History, Values, Team, Coverage/Stats, Partners, CTA.
+  - Applied Innolease branding and styles.
+  - Added necessary translations (EN, FI, SV).
+  - Fixed Button component type error to accept anchor attributes.
 - Added placeholder Finnish and Swedish versions for two blog articles in `scripts/seed-blog.ts`.
 
 ## 2024-08-14
+
 - **Fix:** Resolved build errors (`INSUFFICIENT_PATH`) in `utils/metadata.ts` by implementing a helper function (`getNestedTranslation`) to safely handle potentially nested translation keys (`meta.title`/`title`, `meta.description`/`description`) when generating page metadata.
 
 ## 2025-04-23: Navigation and Site Structure Implementation
@@ -174,3 +185,5 @@ This change eliminates the need to manually maintain the list of translation nam
 
 ---
 
+- Added /messages/CorporateLeasing.json translations for fi, sv, en, split into logical blocks for yritysleasing page.
+- Implemented app/[locale]/yritysleasing/page.tsx using new content blocks, common layout and card components, and translation keys. Used placeholders for images.
