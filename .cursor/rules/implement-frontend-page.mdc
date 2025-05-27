@@ -1,6 +1,7 @@
 ---
 description: This describes the design pattern and implementation guidance for implementing nextjs page.
 globs: *.tsx, /app/[locale]
+alwaysApply: false
 ---
 ---
 description: This describes the design pattern and implementation guidance for implementing nextjs page.
@@ -46,7 +47,7 @@ app/
 ```json
 {
   "dependencies": {
-    "next": "^14.0.0",
+    "next": "^15.0.0",
     "next-intl": "^3.0.0",
     "@supabase/supabase-js": "^2.0.0"
   }
@@ -262,6 +263,54 @@ export default async function PublicPage({ params }: Props) {
     </main>
   )
 }
+```
+
+### Common layout components
+
+Page layouts always use block elements. All contents must be wrapped with these, so all spacings and alignments match.
+Every page ([locale]/**/page.tsx) must have <main> and its children must be one of block components.
+Block components are in folder "app/components/layouts/Block.tsx" and must be imported from there.
+Read their documentation from there too. 
+
+Example
+
+```typescript
+import {
+  BlockPadding,
+  CommonBlock,
+  FullScreenWidthBlock,
+  FullWidthContentBlockWithBg,
+  MaxWidthContentBlock,
+  ColumnBlock,
+  spacing,
+} from "../components/layouts/Block";
+```
+
+### Common content components
+
+Content like headings, texts, non-background images can be placed directly to block elements.
+But usage of Card or BlockPadding components is preferred to align contents properly.
+
+Card components are in folder "app/components/layouts/Block.tsx" and must be imported from there.
+Read their documentation from there too. 
+
+Example
+
+```typescript
+import { TwoColumnCard } from "../components/layouts/Card";
+```
+
+### Common components
+
+There are also common UI components for headings and paragraphs to keep styles consistent. Prioritize their usage over <h1>, <p> etc.
+
+Card components are in folder "app/components/layouts/CommonElements.tsx" and must be imported from there.
+Read their documentation from there too. 
+
+Example
+
+```typescript
+import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
 ```
 
 ### Key Features
