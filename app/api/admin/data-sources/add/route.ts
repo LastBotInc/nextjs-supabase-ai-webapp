@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     }
 
     // 4. Check if data source already exists
-    const supabase = await createClient(true); // Service role
+    const supabase = await createClient(undefined, true); // Service role
     const { data: existingSource } = await supabase
       .from('data_sources')
       .select('id, name, identifier')

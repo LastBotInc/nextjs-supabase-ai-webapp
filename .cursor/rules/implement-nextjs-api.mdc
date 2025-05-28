@@ -63,7 +63,7 @@ app/
 // Example: GET /api/languages
 export async function GET() {
   try {
-    const supabase = createClient(true) // Public client
+    const supabase = createClient(undefined, true) // Public client
     
     const { data, error } = await supabase
       .from('table')
@@ -173,7 +173,7 @@ export async function PUT(request: Request) {
     }
 
     // 5. Use service role client for admin operations
-    const supabase = createClient(true)
+    const supabase = createClient(undefined, true)
     
     // 6. Process admin request
     const { data } = await request.json()
@@ -493,7 +493,7 @@ export async function GET(request: Request) {
 
     // 5. Create service role client for database operations
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // 6. Perform database operation
     console.log('📊 Fetching data...')
@@ -676,7 +676,7 @@ export async function GET(request: Request) {
 ```typescript
 export async function POST(request: Request) {
   try {
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     // Start transaction
     const { data, error } = await supabase.rpc('begin_transaction')
@@ -715,7 +715,7 @@ export async function POST(request: Request) {
 export async function POST(request: Request) {
   try {
     const { items } = await request.json()
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Process items in batches
     const batchSize = 100
@@ -790,7 +790,7 @@ export async function GET(request: Request) {
     }
 
     // Fetch fresh data
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     const { data, error } = await supabase
       .from('table')
       .select('*')

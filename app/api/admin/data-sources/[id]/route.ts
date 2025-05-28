@@ -52,7 +52,7 @@ export async function GET(
     }
 
     // 3. Service Role Operations Layer
-    const supabase = await createClient(true);
+    const supabase = await createClient(undefined, true);
 
     const { data: dataSource, error: fetchError } = await supabase
       .from('data_sources')

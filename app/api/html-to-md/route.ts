@@ -1,10 +1,38 @@
 import { NextRequest } from 'next/server'
+import { createClient } from '@/utils/supabase/server'
 
 export const runtime = 'edge'
 export const maxDuration = 60 // 1 minute
 
 export async function POST(req: NextRequest) {
   try {
+    console.log('\n📝 [POST /api/html-to-md] HTML to Markdown conversion request')
+
+    // 1. Token Verification Layer
+    const authHeader = req.headers.get('Authorization')
+    if (!authHeader?.startsWith('Bearer ')) {
+      console.error('❌ Missing or invalid auth header')
+      return new Response(
+        JSON.stringify({ error: 'Missing or invalid authorization header' }), 
+        { status: 401, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    console.log('🔑 Creating auth client...')
+    // Create regular client to verify the token
+    const authClient = await createClient()
+    const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
+    
+    if (authError || !user) {
+      console.error('❌ Auth error:', authError)
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized' }), 
+        { status: 401, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    console.log('✅ User authenticated:', user.id)
+
     const { html, selector } = await req.json()
     
     if (!html) {
@@ -35,12 +63,13 @@ export async function POST(req: NextRequest) {
     
     const markdown = turndownService.turndown(content)
     
+    console.log('✅ HTML to Markdown conversion successful')
     return new Response(
       JSON.stringify({ markdown }), 
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     )
   } catch (err) {
-    console.error('HTML to Markdown conversion error:', err)
+    console.error('❌ HTML to Markdown conversion error:', err)
     return new Response(
       JSON.stringify({ error: 'Error converting HTML to Markdown' }), 
       { status: 500, headers: { 'Content-Type': 'application/json' } }

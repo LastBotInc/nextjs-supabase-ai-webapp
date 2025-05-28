@@ -250,6 +250,30 @@
         "created": "Luotu",
         "updated": "Päivitetty",
         "errors": "Virheet"
+      },
+      "articleSync": {
+        "title": "Artikkelisynkronointi",
+        "description": "Synkronoi artikkelit Shopify-kaupasta paikallisiin blogikirjoituksiin",
+        "syncButton": "Synkronoi artikkelit",
+        "syncing": "Synkronoidaan...",
+        "progress": {
+          "total": "Yhteensä",
+          "created": "Luotu",
+          "updated": "Päivitetty",
+          "errors": "Virheet"
+        }
+      },
+      "reverseArticleSync": {
+        "title": "Julkaise Shopifyhin",
+        "description": "Synkronoi julkaistut blogikirjoitukset sovelluksesta Shopify-kauppaasi",
+        "syncButton": "Julkaise Shopifyhin",
+        "syncing": "Julkaistaan...",
+        "progress": {
+          "processed": "Käsitelty",
+          "created": "Luotu",
+          "updated": "Päivitetty",
+          "errors": "Virheet"
+        }
       }
     },
     "dataSources": {
@@ -388,6 +412,7 @@
       },
       "loading": "Ladataan avainsanatutkimustietoja...",
       "actions": "Toiminnot",
+      "deleteKeyword": "Poista",
       "added": "Lisätty"
     },
     "projects": {

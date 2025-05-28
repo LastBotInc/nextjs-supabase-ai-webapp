@@ -27,7 +27,8 @@
       "targetLanguagesOptional": "(optional)",
       "prompt": "Blog Post Prompt",
       "promptPlaceholder": "Enter a prompt to generate blog post content...",
-      "detectedLanguage": "(detected)"
+      "detectedLanguage": "(detected)",
+      "published": "Published"
     },
     "editor": {
       "bold": "Bold",
@@ -59,6 +60,23 @@
       "extend": "Extend",
       "analysis": {},
       "topics": {}
+    },
+    "seoKeywords": {
+      "title": "SEO Keywords",
+      "description": "Select keywords from your SEO projects to include in the content generation",
+      "loading": "Loading keywords...",
+      "noKeywords": "No SEO keywords found. Create some keywords in your SEO projects first.",
+      "selectedCount": "{count} keywords selected",
+      "project": "Project"
+    },
+    "buttons": {
+      "generateWithAI": "Generate with AI",
+      "generateImage": "Generate Image"
+    },
+    "errors": {
+      "titleRequired": "Title is required",
+      "contentRequired": "Content is required",
+      "slugInvalid": "Slug must contain only lowercase letters, numbers, and hyphens"
     }
   },
   "comments": "Comments",
@@ -77,7 +95,12 @@
     "news": "News & Updates",
     "research": "AI Research",
     "generative-ai": "Generative AI Insights",
-    "case-stories": "Client Case Stories"
+    "case-stories": "Client Case Stories",
+    "allPosts": "All Posts",
+    "updates": "Updates",
+    "insights": "Insights",
+    "tutorials": "Tutorials",
+    "announcements": "Announcements"
   },
   "meta": {}
 }

@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get file data from request
     const formData = await request.formData()

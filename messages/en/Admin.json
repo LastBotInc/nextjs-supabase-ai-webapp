@@ -250,6 +250,30 @@
         "created": "Created",
         "updated": "Updated",
         "errors": "Errors"
+      },
+      "articleSync": {
+        "title": "Article Synchronization",
+        "description": "Sync articles from Shopify store to local blog posts",
+        "syncButton": "Sync Articles",
+        "syncing": "Syncing...",
+        "progress": {
+          "total": "Total",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
+      },
+      "reverseArticleSync": {
+        "title": "Publish to Shopify",
+        "description": "Sync published blog posts from the app to your Shopify store",
+        "syncButton": "Publish to Shopify",
+        "syncing": "Publishing...",
+        "progress": {
+          "processed": "Processed",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
       }
     },
     "dataSources": {
@@ -350,6 +374,9 @@
       "noKeywords": "No keywords saved yet. Start by researching some keywords above.",
       "selectProject": "Select Project",
       "enterKeyword": "Enter a keyword to research...",
+      "actions": "Actions",
+      "deleteKeyword": "Delete",
+      "added": "Added",
       "ai": {
         "title": "AI Keyword Generation",
         "description": "Let AI generate relevant keywords based on your company description, target location, and existing keywords.",
@@ -387,7 +414,6 @@
         "createButton": "Create Your First SEO Project"
       },
       "loading": "Loading keyword research data...",
-      "actions": "Actions",
       "added": "Added"
     },
     "projects": {

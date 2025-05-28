@@ -63,7 +63,7 @@ export async function PUT(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = createClient(true)
+    const supabase = createClient(undefined, true)
     
     const body = await request.json()
     const { namespace, key, locale, value } = body

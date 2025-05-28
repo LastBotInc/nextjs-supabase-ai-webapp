@@ -59,7 +59,28 @@
       "extend": "Laajenna",
       "analysis": {},
       "topics": {}
-    }
+    },
+    "seoKeywords": {
+      "title": "SEO-avainsanat",
+      "description": "Valitse avainsanoja SEO-projekteistasi sisällöntuotantoon",
+      "loading": "Ladataan avainsanoja...",
+      "noKeywords": "SEO-avainsanoja ei löytynyt. Luo ensin avainsanoja SEO-projekteihisi.",
+      "selectedCount": "{count} avainsanaa valittu",
+      "project": "Projekti"
+    },
+    "buttons": {
+      "save": "Tallenna",
+      "generateWithAI": "Luo tekoälyllä",
+      "generateImage": "Luo kuva",
+      "cancel": "Peruuta"
+    },
+    "errors": {
+      "titleRequired": "Otsikko on pakollinen",
+      "contentRequired": "Sisältö on pakollinen",
+      "slugInvalid": "URL-polku saa sisältää vain pieniä kirjaimia, numeroita ja viivoja"
+    },
+    "posts": "Kirjoitukset",
+    "noPosts": "Ei vielä kirjoituksia. Luo ensimmäinen kirjoituksesi!"
   },
   "comments": "Kommentit",
   "noComments": "Ei vielä kommentteja. Ole ensimmäinen kommentoija!",
@@ -77,7 +98,11 @@
     "news": "Uutiset ja päivitykset",
     "research": "Tekoälytutkimus",
     "generative-ai": "Generatiivisen tekoälyn oivallukset",
-    "case-stories": "Asiakastarinat"
+    "case-stories": "Asiakastarinat",
+    "updates": "Päivitykset",
+    "insights": "Oivallukset",
+    "tutorials": "Oppaat",
+    "announcements": "Ilmoitukset"
   },
   "meta": {}
 }

@@ -52,12 +52,13 @@ export default function PostList({ initialPosts }: PostListProps) {
 
   const handleSave = (formData: FormData) => {
     // Convert FormData to Post type for state update
-    const post = selectedPost || {
-      id: '', // Will be set by the server
-      created_at: new Date().toISOString(),
+    const post: Post = {
+      id: selectedPost?.id || '', // Will be set by the server if new
+      created_at: selectedPost?.created_at || new Date().toISOString(),
       updated_at: new Date().toISOString(),
-      author_id: '', // Will be set by the server
-      embedding: null,
+      author_id: selectedPost?.author_id || '', // Will be set by the server if new, or use existing
+      embedding: selectedPost?.embedding || null,
+      subject: selectedPost?.subject || 'news', // Carry over existing subject or default to 'news'
       ...formData
     }
     
@@ -125,6 +126,7 @@ export default function PostList({ initialPosts }: PostListProps) {
             post={selectedPost}
             onSave={handleSave}
             onCancel={handleCancel}
+            supabaseClient={supabase}
           />
         </div>
       </div>

@@ -142,7 +142,7 @@ export async function GET(request: Request) {
       const productCount = (productCountResponse.body as any)?.count || 0;
 
       // 7. Get last sync information from our database
-      const supabase = await createClient(true); // Service role
+      const supabase = await createClient(undefined, true); // Service role
       const { data: lastSync } = await supabase
         .from('external_product_mappings')
         .select('updated_at')

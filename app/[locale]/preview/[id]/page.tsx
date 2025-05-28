@@ -14,7 +14,7 @@ interface Props {
 }
 
 async function getLandingPage(id: string, locale: string): Promise<LandingPage | null> {
-  const supabase = createClient(true)
+  const supabase = createClient(undefined, true)
   
   const { data: page, error } = await supabase
     .from('landing_pages')

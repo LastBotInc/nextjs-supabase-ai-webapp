@@ -25,7 +25,7 @@ export async function DELETE(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get file ID from URL params
     const { searchParams } = new URL(request.url)

@@ -53,7 +53,7 @@ export async function POST(
     }
 
     // 3. Fetch Data Source to ensure it exists and get its details
-    const supabase = await createClient(true); // Service role for fetching source details
+    const supabase = await createClient(undefined, true); // Service role for fetching source details
     const { data: dataSource, error: fetchError } = await supabase
       .from('data_sources')
       .select('id, identifier, feed_url, feed_type, detected_schema, name, status') // Select necessary fields

@@ -45,6 +45,17 @@
 
 ## Supabase Integration
 
+### Migration Dependencies and Order
+- **Issue**: Migration fails with "relation does not exist" error
+- **Root Cause**: Migration files with incorrect chronological order causing dependency issues
+- **Example**: `20250115000001_create_product_images_table.sql` trying to reference `products` table before `20250514020236_create_products_and_variants_tables.sql` creates it
+- **Solution**: 
+  1. Check migration timestamps to ensure proper dependency order
+  2. Remove duplicate migrations that run before their dependencies
+  3. Ensure foreign key references are created after the referenced tables
+  4. Use `supabase db reset` to test migration order
+- **Prevention**: Always check existing table dependencies before creating new migrations with foreign keys
+
 ### Authentication
 - Use createBrowserClient for client-side auth
 - Use createServerClient with cookies for server-side auth
@@ -94,7 +105,7 @@ const authClient = await createClient()
 const { data: { user } } = await authClient.auth.getUser(token)
 
 // 2. Create service role client for admin operations
-const supabase = await createClient(true)
+const supabase = await createClient(undefined, true)
 ```
 
 ### Auth Loading State Fix

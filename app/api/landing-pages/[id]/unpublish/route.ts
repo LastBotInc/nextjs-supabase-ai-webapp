@@ -42,7 +42,7 @@ export async function POST(
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     const { data: page, error: fetchError } = await supabase
       .from('landing_pages')

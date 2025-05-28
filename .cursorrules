@@ -737,6 +737,103 @@ mcp_supabase_query
         "dotenv package"
       ],
       "example": "npm run data-source-importer -- --url https://example.com/api/products.json --type product_feed"
+    },
+    "shopify-articles-tool": {
+      "description": "Manage Shopify blogs and articles using the Admin API with support for AI-powered article generation",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-articles-tool.cjs",
+      "options": {
+        "list-blogs": {
+          "description": "List all blogs in the store",
+          "options": {
+            "limit": "(Optional) Number of blogs to list (default: 10)"
+          }
+        },
+        "get-blog": {
+          "description": "Get a blog by its ID",
+          "options": {
+            "id": "Required: Blog GID (e.g., gid://shopify/Blog/12345)"
+          }
+        },
+        "create-blog": {
+          "description": "Create a new blog",
+          "options": {
+            "title": "Required: Blog title",
+            "handle": "(Optional) Blog handle (URL slug)"
+          }
+        },
+        "list-articles": {
+          "description": "List articles from a specific blog",
+          "options": {
+            "blog-id": "Required: Blog GID (e.g., gid://shopify/Blog/12345)",
+            "limit": "(Optional) Number of articles to list (default: 10)"
+          }
+        },
+        "get-article": {
+          "description": "Get an article by its ID",
+          "options": {
+            "id": "Required: Article GID (e.g., gid://shopify/Article/12345)"
+          }
+        },
+        "create-article": {
+          "description": "Create a new article manually",
+          "options": {
+            "blog-id": "Required: Blog GID (e.g., gid://shopify/Blog/12345)",
+            "title": "Required: Article title",
+            "content": "Required: Article content (HTML)",
+            "summary": "(Optional) Article summary/excerpt",
+            "tags": "(Optional) Comma-separated list of tags",
+            "published": "(Optional) Publish the article immediately",
+            "title-fi": "(Optional) Finnish translation for the title",
+            "content-fi": "(Optional) Finnish translation for the content (HTML)",
+            "summary-fi": "(Optional) Finnish translation for the summary"
+          }
+        },
+        "generate-articles": {
+          "description": "Generate and create articles using AI",
+          "options": {
+            "blog-id": "Required: Blog GID where articles will be created",
+            "amount": "Required: Number of articles to generate (-a, --amount)",
+            "instructions": "Required: Instructions for the type of articles to generate (-i, --instructions)",
+            "published": "(Optional) Publish the generated articles immediately"
+          }
+        },
+        "update-article": {
+          "description": "Update an existing article",
+          "options": {
+            "id": "Required: Article GID to update",
+            "title": "(Optional) New article title",
+            "content": "(Optional) New article content (HTML)",
+            "summary": "(Optional) New article summary",
+            "tags": "(Optional) New comma-separated list of tags",
+            "published": "(Optional) Publish the article",
+            "unpublished": "(Optional) Unpublish the article"
+          }
+        },
+        "delete-article": {
+          "description": "Delete an article by its ID",
+          "options": {
+            "id": "Required: Article GID to delete"
+          }
+        },
+        "delete-blog": {
+          "description": "Delete a blog by its ID",
+          "options": {
+            "id": "Required: Blog GID to delete"
+          }
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local",
+        "SHOPIFY_API_KEY in .env.local",
+        "SHOPIFY_API_SECRET in .env.local",
+        "GEMINI_API_KEY or GOOGLE_AI_STUDIO_KEY in .env.local (for AI generation)",
+        "@shopify/shopify-api package",
+        "@google/genai package",
+        "commander package"
+      ],
+      "example": "node tools/shopify-articles-tool.cjs generate-articles --blog-id gid://shopify/Blog/12345 -a 3 -i \"Technology and innovation articles for our company blog\""
     }
   }
 }

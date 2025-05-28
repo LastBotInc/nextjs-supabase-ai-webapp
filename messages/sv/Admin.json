@@ -250,6 +250,30 @@
         "created": "Skapade",
         "updated": "Uppdaterade",
         "errors": "Fel"
+      },
+      "articleSync": {
+        "title": "Artikelsynkronisering",
+        "description": "Synkronisera artiklar från Shopify-butiken till lokala blogginlägg",
+        "syncButton": "Synkronisera artiklar",
+        "syncing": "Synkroniserar...",
+        "progress": {
+          "total": "Totalt",
+          "created": "Skapade",
+          "updated": "Uppdaterade",
+          "errors": "Fel"
+        }
+      },
+      "reverseArticleSync": {
+        "title": "Publicera till Shopify",
+        "description": "Synkronisera publicerade blogginlägg från appen till din Shopify-butik",
+        "syncButton": "Publicera till Shopify",
+        "syncing": "Publicerar...",
+        "progress": {
+          "processed": "Bearbetade",
+          "created": "Skapade",
+          "updated": "Uppdaterade",
+          "errors": "Fel"
+        }
       }
     },
     "dataSources": {
@@ -388,6 +412,7 @@
       },
       "loading": "Laddar nyckelordsforskningsdata...",
       "actions": "Åtgärder",
+      "deleteKeyword": "Ta bort",
       "added": "Tillagd"
     },
     "projects": {

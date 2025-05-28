@@ -26,6 +26,7 @@
     "tavily-search": "NODE_ENV=development tsx tools/tavily-search.ts",
     "gemini": "NODE_ENV=development tsx tools/gemini.ts",
     "gemini-video": "NODE_ENV=development node tools/gemini-video-tool.js",
+    "gemini-image": "NODE_ENV=development node tools/gemini-image-tool.js",
     "vertex-ai-video": "NODE_ENV=development node tools/vertex-ai-video-tool.js",
     "vertex-ai-image": "NODE_ENV=development node tools/vertex-ai-image-tool.js",
     "download-file": "NODE_ENV=development tsx tools/download-file.ts",

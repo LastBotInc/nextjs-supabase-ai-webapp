@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai'
+import { GoogleGenAI, Type } from '@google/genai'
 import { createClient } from '@/utils/supabase/server'
 import { brandInfo, getGeminiPrompt } from '@/lib/brand-info'
 import { marked } from 'marked'
@@ -28,34 +28,55 @@ if (!API_KEY) {
   throw new Error('GOOGLE_AI_STUDIO_KEY is not set')
 }
 
-const genAI = new GoogleGenerativeAI(API_KEY)
+const ai = new GoogleGenAI({ apiKey: API_KEY })
 
 export async function POST(request: Request) {
   try {
-    // Get authorization token from request headers
+    console.log('\n📝 [POST /api/gemini] Admin AI content generation request')
+
+    // 1. Token Verification Layer
     const authHeader = request.headers.get('Authorization')
     if (!authHeader?.startsWith('Bearer ')) {
-      return new NextResponse(
-        JSON.stringify({ error: 'Missing or invalid authorization header' }),
+      console.error('❌ Missing or invalid auth header')
+      return NextResponse.json(
+        { error: 'Missing or invalid authorization header' },
         { status: 401 }
       )
     }
-    const token = authHeader.split(' ')[1]
 
-    // Create authenticated Supabase client using service role
-    const supabase = await createClient(true)
-
-    // Verify the token and get user
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
-
+    console.log('🔑 Creating auth client...')
+    // Create regular client to verify the token
+    const authClient = await createClient()
+    const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
+    
     if (authError || !user) {
-      return new NextResponse(
-        JSON.stringify({ error: 'Unauthorized' }),
+      console.error('❌ Auth error:', authError)
+      return NextResponse.json(
+        { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    const { prompt, modelName = 'gemini-2.0-flash-exp', temperature = 0.7, maxTokens = 2048 } = await request.json()
+    console.log('✅ User authenticated:', user.id)
+
+    // 2. Admin Role Verification Layer
+    const { data: profile } = await authClient
+      .from('profiles')
+      .select('is_admin')
+      .eq('id', user.id)
+      .single()
+
+    if (!profile?.is_admin) {
+      console.error('❌ User is not admin:', user.id)
+      return NextResponse.json(
+        { error: 'Forbidden - Admin access required' },
+        { status: 403 }
+      )
+    }
+
+    console.log('✅ Admin access verified for user:', user.id)
+
+    const { prompt, modelName = 'gemini-2.5-flash-preview-05-20', temperature = 0.7, maxTokens = 8192 } = await request.json()
 
     if (!prompt) {
       return NextResponse.json(
@@ -64,49 +85,49 @@ export async function POST(request: Request) {
       )
     }
 
-    // Configure the model with provided parameters
-    const generativeModel = genAI.getGenerativeModel({ 
-      model: modelName,
-      generationConfig: {
-        temperature,
-        maxOutputTokens: maxTokens,
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: SchemaType.OBJECT,
-          properties: {
-            title: {
-              type: SchemaType.STRING,
-              description: "A compelling, SEO-friendly title under 60 characters"
-            },
-            content: {
-              type: SchemaType.STRING,
-              description: "The main blog post content in markdown format"
-            },
-            excerpt: {
-              type: SchemaType.STRING,
-              description: "A compelling 2-3 sentence summary of the post"
-            },
-            meta_description: {
-              type: SchemaType.STRING,
-              description: "SEO optimized description under 160 characters"
-            },
-            tags: {
-              type: SchemaType.ARRAY,
-              items: { type: SchemaType.STRING },
-              description: "3-5 relevant tags for the post"
-            },
-            image_prompt: {
-              type: SchemaType.STRING,
-              description: "A detailed prompt for generating the featured image"
-            }
+    console.log('🤖 Generating content with Gemini using structured output...')
+
+    // Define the response schema for structured output
+    const responseSchema = {
+      type: Type.OBJECT,
+      properties: {
+        title: {
+          type: Type.STRING,
+          description: "A compelling, SEO-friendly title under 60 characters"
+        },
+        content: {
+          type: Type.STRING,
+          description: "The main blog post content in markdown format with proper headings, bullet points, and structure"
+        },
+        excerpt: {
+          type: Type.STRING,
+          description: "A compelling 2-3 sentence summary of the post"
+        },
+        meta_description: {
+          type: Type.STRING,
+          description: "SEO optimized description under 160 characters"
+        },
+        tags: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.STRING
           },
-          required: ["title", "content", "excerpt", "meta_description", "tags", "image_prompt"]
+          description: "3-5 relevant tags for the blog post"
+        },
+        image_prompt: {
+          type: Type.STRING,
+          description: "A detailed prompt for generating the featured image"
+        },
+        detectedLanguage: {
+          type: Type.STRING,
+          description: "The detected language code (en, fi, sv, etc.) based on the prompt"
         }
-      }
-    })
+      },
+      required: ["title", "content", "excerpt", "meta_description", "tags", "image_prompt", "detectedLanguage"]
+    }
 
     // Create a structured prompt for blog content generation using brand voice
-    const structuredPrompt = getGeminiPrompt(`Generate a blog post based on this topic: "${prompt}"
+    const structuredPrompt = getGeminiPrompt(`Generate a comprehensive blog post based on this topic: "${prompt}"
 
 Instructions:
 1. Title should be compelling, SEO-friendly, and under 60 characters
@@ -115,15 +136,33 @@ Instructions:
 4. Meta description should be optimized for search and under 160 characters
 5. Include 3-5 relevant tags
 6. Create a detailed image prompt that will generate an engaging featured image
+7. Detect the language of the prompt and return the appropriate language code (en for English, fi for Finnish, sv for Swedish, etc.)
 
-The content should be written in a way that reflects ${brandInfo.name}'s identity: ${brandInfo.description}`)
+The content should be written in a way that reflects ${brandInfo.name}'s identity: ${brandInfo.description}
 
-    const result = await generativeModel.generateContent(structuredPrompt)
-    const response = await result.response
-    const text = response.text()
+Write the content in the same language as the input prompt. If the prompt is in Finnish, write in Finnish. If in Swedish, write in Swedish. If in English or unclear, write in English.`)
+
+    // Generate content with structured JSON output using the new API
+    const response = await ai.models.generateContent({
+      model: modelName,
+      contents: structuredPrompt,
+      config: {
+        temperature,
+        maxOutputTokens: maxTokens,
+        responseMimeType: 'application/json',
+        responseSchema: responseSchema
+      }
+    })
+
+    console.log('📄 Raw response received')
 
     try {
-      // Parse the generated text as JSON (should be already in JSON format)
+      // Parse the structured JSON response
+      const text = response.text
+      if (!text) {
+        throw new Error('Empty response from Gemini API')
+      }
+      
       const parsedContent = JSON.parse(text)
       
       // Convert markdown content to HTML
@@ -146,27 +185,33 @@ The content should be written in a way that reflects ${brandInfo.name}'s identit
           parsedContent.tags.filter((tag: unknown) => typeof tag === 'string').slice(0, 5) : [],
         image_prompt: typeof parsedContent.image_prompt === 'string' ? 
           parsedContent.image_prompt.trim() : '',
+        detectedLanguage: typeof parsedContent.detectedLanguage === 'string' ? 
+          parsedContent.detectedLanguage.trim() : 'en',
         slug
       }
 
+      console.log('✅ Content generated successfully with structured output')
       return NextResponse.json(cleanedContent)
     } catch (error) {
-      console.error('Failed to parse generated content:', error)
-      console.error('Raw text:', text)
-      // Fallback to returning just the text if parsing fails
+      console.error('Failed to parse structured JSON response:', error)
+      console.error('Raw text:', response.text || 'No response text')
+      // Fallback response if parsing fails
       return NextResponse.json({ 
-        content: text,
+        title: 'Generated Content',
+        content: response.text || 'No content generated',
         excerpt: '',
         meta_description: '',
         tags: [],
-        image_prompt: ''
+        image_prompt: '',
+        detectedLanguage: 'en',
+        slug: 'generated-content'
       })
     }
   } catch (error: Error | unknown) {
-    console.error('Gemini API error:', error)
+    console.error('❌ Gemini API error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate content'
     return NextResponse.json(
-      { error: errorMessage },
+      { error: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error' },
       { status: 500 }
     )
   }

@@ -14,6 +14,7 @@ import {
   DocumentTextIcon,
 } from '@heroicons/react/24/outline';
 import { SEODashboardData, SEOProject } from '@/types/seo';
+import WebsiteAnalysis from './WebsiteAnalysis';
 
 interface SEODashboardProps {
   initialData: SEODashboardData;
@@ -346,6 +347,14 @@ export default function SEODashboard({ initialData }: SEODashboardProps) {
           </div>
         </div>
       )}
+
+      {/* Website Analysis Section */}
+      <WebsiteAnalysis 
+        onAnalysisComplete={(analysisData) => {
+          console.log('Website analysis completed:', analysisData);
+          // You can add logic here to save the analysis data or update the dashboard
+        }}
+      />
     </div>
   );
 } 

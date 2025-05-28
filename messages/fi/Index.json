@@ -1,75 +1,75 @@
 {
   "hero": {
-    "title": "Siirry & Optimoi Verkkokauppasi Shopifyhin Saumattomasti",
-    "subheadline": "Muunna verkkokauppaliiketoimintasi Brancoy HI Enginellä - älykkäällä tekoälypohjaisella siirtotyökalulla, joka ei ainoastaan siirrä dataasi, vaan myös optimoi sitä jatkuvasti.",
-    "ctaStartMigration": "Aloita Siirto",
-    "ctaScheduleDemo": "Varaa Demo"
+    "title": "Siirrä ja optimoi verkkokauppasi Shopifyhin saumattomasti",
+    "subheadline": "Muuta verkkokauppaliiketoimintasi Brancoy HI Enginen avulla – älykkäällä tekoälypohjaisella työkalulla, joka ei vain siirrä tietojasi, vaan myös optimoi niitä jatkuvasti.",
+    "ctaStartMigration": "Aloita siirto",
+    "ctaScheduleDemo": "Varaa demo"
   },
   "keyBenefits": {
     "dataAccuracy": {
-      "title": "100% Datan Tarkkuus",
-      "value": "Varmista virheetön tiedonsiirto."
+      "title": "Täydellinen tietojen tarkkuus",
+      "value": "100%"
     },
     "fasterMigration": {
-      "title": "10x Nopeampi Siirto",
-      "value": "Nopeuta siirtymistäsi Shopifyhin."
+      "title": "Kymmenen kertaa nopeampi siirto",
+      "value": "10x"
     },
     "aiOptimization": {
-      "title": "24/7 Tekoälyoptimointi",
-      "value": "Jatkuvaa parannusta tekoälyn avulla."
+      "title": "Jatkuva tekoälyoptimointi",
+      "value": "24/7"
     }
   },
   "smartestWay": {
-    "title": "Älykkäin Tapa Siirtyä Shopifyhin",
+    "title": "Älykkäin tapa siirtyä Shopifyhin",
     "collectData": {
-      "title": "Kerää Data",
-      "description": "HI Engine kerää turvallisesti tuotteesi, asiakkaasi, tilauksesi ja sisältösi miltä tahansa alustalta. Olitpa sitten WooCommercessa, Magentossa, BigCommercessa, räätälöidyissä järjestelmissä tai integroitumassa ERP-, PIM- tai muihin työkaluihin, HI Engine valmistelee datasi saumattomaan Shopify-integraatioon."
+      "title": "Kerää tiedot",
+      "description": "HI Engine kerää turvallisesti tuotteesi, asiakkaasi, tilauksesi ja sisältösi mistä tahansa alustasta. Olipa kyse WooCommercesta, Magentosta, BigCommercesta tai räätälöidyistä järjestelmistä, HI Engine valmistelee tietosi saumattomaan Shopify-integraatioon."
     },
     "analyze": {
-      "title": "Analysoi",
-      "description": "Kun data on kerätty, tekoälymoottorimme tarkistaa ja optimoi sen. Se luo automaattisesti laadukkaita tuotekuvauksia, ehdottaa relevantteja avainsanoja hakukonenäkyvyyteen ja korostaa alueita, joissa dataa voidaan puhdistaa tai parantaa suorituskyvyn lisäämiseksi."
+      "title": "Analysoi ja optimoi",
+      "description": "Kun tiedot on kerätty, tekoälymoottorimme tarkistaa ja optimoi ne. Se luo automaattisesti laadukkaita tuotekuvauksia, ehdottaa relevantteja hakusanoja ja tunnistaa alueet, joissa tietoja voidaan parantaa suorituskyvyn lisäämiseksi."
     },
     "localize": {
-      "title": "Paikallista",
-      "description": "Kauppasi ei vain siirry, se laajenee. HI Engine mukauttaa sisältösi, valuuttasi ja hakukoneoptimointisi kuhunkin kohdemarkkinaan käyttäen lokalisoitua kieltä, hinnoittelua ja sävyä, jotta voit todella tavoittaa alueelliset yleisöt heti ensimmäisestä päivästä lähtien."
+      "title": "Paikallista markkinoille",
+      "description": "Kauppasi ei vain siirry – se laajenee. HI Engine mukauttaa sisältösi, valuuttasi ja hakukoneoptimoinnin kullekin kohdemarkkinalle käyttäen paikallista kieltä, hinnoittelua ja sävyä, jotta tavoitat alueelliset yleisöt heti ensimmäisestä päivästä."
     }
   },
   "featureDive": {
     "contentSeo": {
-      "title": "Sisällön & Hakukoneoptimoinnin Optimointi",
-      "description": "Muokkaa kuvien kokoa saumattomasti, vaihda taustoja ja optimoi tekstiä hakukoneoptimointia varten. Google Search Consolen ja Google Trendsin näkemysten avulla visuaalinen ilmeesi ja sisältösi pysyvät hiottuina, hakukoneoptimoituina ja brändisi näkyvyyttä parantavina."
+      "title": "Sisällön ja hakukoneoptimoinnin parantaminen",
+      "description": "Muokkaa kuvien kokoa saumattomasti, vaihda taustoja ja optimoi tekstiä hakukoneita varten. Google Search Consolen ja Google Trendsin avulla visuaalinen ilmeesi ja sisältösi pysyvät hiottuina ja hakukoneoptimoiduina."
     },
     "collaborate": {
-      "title": "Yhteistyössä Eteenpäin",
-      "description": "Emme korvaa tiimiäsi – teemme yhteistyötä sen kanssa. Brancoyn asiantuntijat ja HI Engine toimivat rinnallasi yhdistäen ihmisen luovuuden ja koneen tarkkuuden ongelmien ratkaisemiseksi, mahdollisuuksien tunnistamiseksi ja kasvun nopeuttamiseksi."
+      "title": "Yhteistyössä eteenpäin",
+      "description": "Emme korvaa tiimiäsi – teemme yhteistyötä sen kanssa. Brancoyn asiantuntijat ja HI Engine toimivat rinnallasi yhdistäen ihmisen luovuuden ja koneen tarkkuuden ongelmien ratkaisemiseksi ja kasvun nopeuttamiseksi."
     },
     "succeedWithShopify": {
-      "title": "Menesty Shopifyn Kanssa",
-      "description": "Tulos: tulevaisuudenkestävä Shopify-kauppa, joka on rakennettu skaalautumaan. Saat puhtaan, tehokkaan perustan – täysin optimoituna, paikallisesti mukautettuna ja valmiina kasvamaan kanssasi, riippumatta tuoteluettelosi koosta tai globaaleista tavoitteistasi."
+      "title": "Menesty Shopifyn kanssa",
+      "description": "Lopputulos: tulevaisuudenkestävä Shopify-kauppa, joka on rakennettu skaalautumaan. Saat puhtaan, tehokkaan perustan – täysin optimoituna, paikallisesti mukautettuna ja valmiina kasvamaan kanssasi."
     }
   },
   "foundation": {
-    "title": "Älykkään Verkkokaupan Perusta",
-    "description": "Shopifyhin siirtyminen Brancoyn kanssa on enemmän kuin vain alustan vaihtaminen. Kyse on tulevaisuuden kasvun, ketteryyden ja älykkyyden perustan rakentamisesta verkkokauppaliiketoimintaasi. Kaikki alkaa ilmaisesta siirtoarvioinnista.",
+    "title": "Älykkään verkkokaupan perusta",
+    "description": "Shopifyhin siirtyminen Brancoyn kanssa on enemmän kuin alustan vaihtaminen. Kyse on tulevaisuuden kasvun, ketteryyden ja älykkyyden perustan rakentamisesta verkkokauppaliiketoimintaasi. Kaikki alkaa ilmaisesta siirtoarvioinnista.",
     "benefit1": {
-      "title": "Tulevaisuudenkestävä Perusta",
+      "title": "Tulevaisuudenkestävä perusta",
       "description": "Siirto, joka on suunniteltu tukemaan liiketoimintasi kasvua vuosiksi eteenpäin."
     },
     "benefit2": {
-      "title": "Keskity Kasvuun",
+      "title": "Keskity kasvuun",
       "description": "Vapauta itsesi teknisistä tehtävistä ja keskity liiketoimintastrategiaan."
     },
     "benefit3": {
-      "title": "Skaalautuva Tekoälyvoima",
+      "title": "Skaalautuva tekoälyvoima",
       "description": "Olipa sinulla 500 tai 50 000 tuotetta, tekoälymme skaalautuu tarpeidesi mukaan."
     },
-    "cta": "Pyydä Ilmainen Siirtoarviointi"
+    "cta": "Pyydä ilmainen siirtoarviointi"
   },
   "whyAI": {
-    "title": "Miksi Tekoälypohjainen Siirto?",
+    "title": "Miksi tekoälypohjainen siirto?",
     "benefit1": {
       "value": "100%",
-      "title": "Datan Tarkkuus"
+      "title": "Tietojen tarkkuus"
     },
     "benefit2": {
       "value": "10x",
@@ -77,17 +77,17 @@
     },
     "benefit3": {
       "value": "24/7",
-      "title": "Jatkuva Optimointi"
+      "title": "Jatkuva optimointi"
     }
   },
   "socialProof": {
-    "title": "Yrityksesi Kaltaisten Luottama",
+    "title": "Yrityksesi kaltaisten luottama",
     "placeholder": "Asiakaspalautteet ja logot tulevat tähän."
   },
   "finalCta": {
-    "title": "Tutustu Brancoyn Kaupankäyntiin Rakennettuun Tekoälymoottoriin.",
+    "title": "Tutustu Brancoyn kaupankäyntiin rakennettuun tekoälymoottoriin",
     "description": "Siirto ei tule koskaan olemaan entisellään. Rakennetaan tulevaisuutesi Shopifyhin, älykkäästi.",
-    "cta": "Aloita Siirtosi"
+    "cta": "Aloita siirtosi"
   },
   "footer": {
     "copyright": "Brancoy © {year}. Kaikki oikeudet pidätetään."

@@ -40,7 +40,7 @@ export async function GET(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     const { searchParams } = new URL(request.url)
     const locale = searchParams.get('locale') || 'en'
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     const data = await request.json()
     
@@ -181,7 +181,7 @@ export async function PATCH(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     const { id, ...updates } = await request.json()
 
@@ -256,7 +256,7 @@ export async function DELETE(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     const { searchParams } = new URL(request.url)
     const id = searchParams.get('id')

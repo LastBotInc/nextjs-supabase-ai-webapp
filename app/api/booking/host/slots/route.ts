@@ -49,7 +49,7 @@ export async function GET(request: Request) {
 
     // After authentication, use service role client for database operations
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get user's slots
     console.log('📊 Fetching slots...')
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Create the slot
     const { data: slot, error: slotError } = await supabase
@@ -186,7 +186,7 @@ export async function PUT(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Update the slot
     const { data: slot, error } = await supabase
@@ -248,7 +248,7 @@ export async function DELETE(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Delete the slot
     const { error } = await supabase

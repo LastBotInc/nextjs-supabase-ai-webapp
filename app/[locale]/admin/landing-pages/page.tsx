@@ -26,7 +26,7 @@ export default async function LandingPagesPage({
 }: Props) {
   const { locale } = await params;
   const t = await getTranslations('LandingPages')
-  const supabase = await createClient(true)
+  const supabase = await createClient(undefined, true)
 
   // Fetch landing pages with search filter
   const searchTerm = searchParams.search;

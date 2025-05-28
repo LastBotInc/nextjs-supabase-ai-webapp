@@ -59,6 +59,25 @@
       "extend": "Utöka",
       "analysis": {},
       "topics": {}
+    },
+    "seoKeywords": {
+      "title": "SEO-nyckelord",
+      "description": "Välj nyckelord från dina SEO-projekt för innehållsgenerering",
+      "loading": "Laddar nyckelord...",
+      "noKeywords": "Inga SEO-nyckelord hittades. Skapa först nyckelord i dina SEO-projekt.",
+      "selectedCount": "{count} nyckelord valda",
+      "project": "Projekt"
+    },
+    "buttons": {
+      "save": "Spara",
+      "generateWithAI": "Generera med AI",
+      "generateImage": "Generera bild",
+      "cancel": "Avbryt"
+    },
+    "errors": {
+      "titleRequired": "Titel krävs",
+      "contentRequired": "Innehåll krävs",
+      "slugInvalid": "Slug får endast innehålla små bokstäver, siffror och bindestreck"
     }
   },
   "comments": "Kommentarer",
@@ -77,7 +96,13 @@
     "news": "Nyheter och uppdateringar",
     "research": "AI-forskning",
     "generative-ai": "Insikter om generativ AI",
-    "case-stories": "Kundberättelser"
+    "case-stories": "Kundberättelser",
+    "all": "Alla inlägg",
+    "news": "Nyheter",
+    "updates": "Uppdateringar",
+    "insights": "Insikter",
+    "tutorials": "Handledningar",
+    "announcements": "Meddelanden"
   },
   "meta": {}
 }

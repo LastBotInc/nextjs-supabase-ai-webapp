@@ -246,37 +246,8 @@ Keywords:`;
               
               results.suggestions.push(suggestion);
 
-              // Also save to database for the project
-              const { data: savedKeyword, error: saveError } = await supabase
-                .from('keyword_research')
-                .insert({
-                  project_id: body.project_id,
-                  keyword: keywordData.keyword,
-                  search_volume: keywordData.search_volume || null,
-                  cpc: keywordData.cpc || null,
-                  competition: competitionIndex ? competitionIndex / 100 : null,
-                  difficulty: null, // Will be filled by difficulty API
-                  search_intent: 'unknown', // Will be determined by analysis
-                  related_keywords: [],
-                  trends_data: {
-                    monthly_searches: keywordData.monthly_searches || [],
-                    competition_level: (keywordData as any).competition || 'unknown',
-                    ai_generated: true,
-                    generation_prompt: companyDescription,
-                  },
-                })
-                .select()
-                .single();
-
-              console.log('💾 Saving AI keyword to database:', {
-                keyword: keywordData.keyword,
-                search_volume: keywordData.search_volume,
-                save_error: saveError?.message
-              });
-
-              if (!saveError && savedKeyword) {
-                results.keywords.push(savedKeyword as KeywordResearch);
-              }
+              // Note: Keywords are no longer automatically saved to database
+              // Users must manually click "Add Keyword" to save them
             }
           }
         }
@@ -304,7 +275,7 @@ Keywords:`;
       return NextResponse.json({
         success: true,
         data: results,
-        message: `Successfully generated ${generatedKeywords.length} AI keywords and researched ${results.suggestions.length} with data`,
+        message: `Successfully generated ${generatedKeywords.length} AI keywords with ${results.suggestions.length} suggestions ready to save`,
       }, { status: 200 });
 
     } catch (aiError) {

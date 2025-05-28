@@ -13,7 +13,8 @@ import {
   EyeIcon,
   CurrencyDollarIcon,
   LightBulbIcon,
-  ArrowPathIcon
+  ArrowPathIcon,
+  TrashIcon
 } from '@heroicons/react/24/outline';
 import { getKeywordGenerationDescription } from '@/lib/brand-info';
 
@@ -88,6 +89,7 @@ export default function KeywordResearchPage() {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
+      
       setKeywords(data || []);
     } catch (err) {
       console.error('Failed to fetch keywords:', err);
@@ -178,6 +180,24 @@ export default function KeywordResearchPage() {
     }
   };
 
+  const deleteKeyword = async (keywordId: string) => {
+    try {
+      const supabase = createClient();
+      const { error } = await supabase
+        .from('keyword_research')
+        .delete()
+        .eq('id', keywordId);
+
+      if (error) throw error;
+
+      // Refresh keywords list
+      await fetchKeywords();
+    } catch (err) {
+      console.error('Failed to delete keyword:', err);
+      setError(err instanceof Error ? err.message : 'Failed to delete keyword');
+    }
+  };
+
   const generateAIKeywords = async () => {
     if (!selectedProject || aiGenerating) return;
 
@@ -229,10 +249,8 @@ export default function KeywordResearchPage() {
         setSuggestions(prev => [...prev, ...result.data.suggestions]);
       }
 
-      // Refresh keywords list if any were saved
-      if (result.data?.keywords && result.data.keywords.length > 0) {
-        await fetchKeywords();
-      }
+      // No need to refresh keywords list since AI generation no longer auto-saves keywords
+      // Keywords will be saved only when user clicks "Add Keyword" button
 
     } catch (err) {
       console.error('AI keyword generation failed:', err);
@@ -644,6 +662,9 @@ export default function KeywordResearchPage() {
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         {t('added')}
                       </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                        {t('actions')}
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -663,42 +684,47 @@ export default function KeywordResearchPage() {
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          {keyword.cpc ? (
+                          {keyword.cpc && Number(keyword.cpc) > 0 ? (
                             <div className="flex items-center">
                               <CurrencyDollarIcon className="w-4 h-4 mr-1" />
-                              ${keyword.cpc.toFixed(2)}
+                              ${Number(keyword.cpc).toFixed(2)}
                             </div>
                           ) : (
                             <span className="text-gray-400">-</span>
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">
-                          {keyword.competition ? (
-                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getCompetitionColor(keyword.competition)}`}>
-                              {(keyword.competition * 100).toFixed(0)}%
+                          {keyword.competition && Number(keyword.competition) > 0 ? (
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getCompetitionColor(Number(keyword.competition))}`}>
+                              {(Number(keyword.competition) * 100).toFixed(0)}%
                             </span>
                           ) : (
                             <span className="text-gray-400">-</span>
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">
-                          {keyword.difficulty ? (
-                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getDifficultyColor(keyword.difficulty)}`}>
-                              {keyword.difficulty}/100
+                          {keyword.difficulty && Number(keyword.difficulty) > 0 ? (
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getDifficultyColor(Number(keyword.difficulty))}`}>
+                              {Number(keyword.difficulty)}/100
                             </span>
                           ) : (
                             <span className="text-gray-400">-</span>
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          {keyword.search_intent ? (
-                            <span className="capitalize">{keyword.search_intent}</span>
-                          ) : (
-                            <span className="text-gray-400">-</span>
-                          )}
+                          <span className="capitalize">{keyword.search_intent}</span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                           {new Date(keyword.created_at).toLocaleDateString()}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          <button
+                            onClick={() => deleteKeyword(keyword.id)}
+                            className="inline-flex items-center px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-xs rounded-md transition-colors"
+                          >
+                            <TrashIcon className="w-3 h-3 mr-1" />
+                            {t('deleteKeyword')}
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -711,4 +737,4 @@ export default function KeywordResearchPage() {
       )}
     </div>
   );
-} 
+}

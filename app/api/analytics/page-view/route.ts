@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     let userId: string | null = null
 
     // Create Supabase client
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // If auth header exists, verify the user
     if (authHeader?.startsWith('Bearer ')) {

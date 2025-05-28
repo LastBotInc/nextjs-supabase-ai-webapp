@@ -1029,3 +1029,30 @@ Next Priority Tasks:
   - [✅] Create new migration `add_status_to_data_sources`.
   - [✅] Add DDL to create `status` column and rename `source_type` to `feed_type`.
   - [ ] User to run database migrations.
+
+## Shopify Integration
+
+### Articles Management
+✅ Shopify Articles Tool Implementation
+  ✅ Create shopify-articles-tool.cjs CLI tool
+  ✅ Implement blog management (list, get, create, delete)
+  ✅ Implement article management (list, get, create, update, delete)
+  ✅ Add AI-powered article generation using Gemini
+  ✅ Add Finnish translation support for articles
+  ✅ Add GraphQL API integration following 2025-04 patterns
+  ✅ Add comprehensive error handling and validation
+  ✅ Test tool with existing Shopify store
+  ✅ Add tool definition to .cursorrules
+  ✅ Document implementation in ai_changelog.md
+
+### Blog Sync Integration
+❌ Internal Blog System Sync
+  ❌ Create API endpoint for syncing Shopify articles to internal blog
+  ❌ Create API endpoint for syncing internal blog posts to Shopify
+  ❌ Implement bidirectional sync functionality
+  ❌ Add conflict resolution for simultaneous edits
+  ❌ Create admin UI for managing sync settings
+  ❌ Add sync status monitoring and logging
+  ❌ Test sync functionality end-to-end
+
+✅ Fix "Cannot read properties of undefined (reading 'auth')" browser error when pressing "generate with AI" button at blog creation.

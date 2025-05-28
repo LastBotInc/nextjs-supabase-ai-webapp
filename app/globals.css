@@ -93,3 +93,100 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Tiptap Rich Text Editor Styling */
+@layer components {
+  .rich-text-editor .ProseMirror {
+    color: #111827 !important;
+    background-color: transparent !important;
+    outline: none !important;
+  }
+  
+  .rich-text-editor .ProseMirror * {
+    color: #111827 !important;
+  }
+  
+  .rich-text-editor .ProseMirror p,
+  .rich-text-editor .ProseMirror div,
+  .rich-text-editor .ProseMirror span,
+  .rich-text-editor .ProseMirror h1,
+  .rich-text-editor .ProseMirror h2,
+  .rich-text-editor .ProseMirror h3,
+  .rich-text-editor .ProseMirror h4,
+  .rich-text-editor .ProseMirror h5,
+  .rich-text-editor .ProseMirror h6,
+  .rich-text-editor .ProseMirror li,
+  .rich-text-editor .ProseMirror strong,
+  .rich-text-editor .ProseMirror em {
+    color: #111827 !important;
+  }
+  
+  .rich-text-editor .ProseMirror a {
+    color: #2563eb !important;
+  }
+  
+  .rich-text-editor .ProseMirror a:hover {
+    color: #1d4ed8 !important;
+  }
+  
+  .rich-text-editor .ProseMirror blockquote {
+    color: #374151 !important;
+  }
+  
+  .rich-text-editor .ProseMirror code {
+    color: #111827 !important;
+    background-color: #f3f4f6 !important;
+  }
+  
+  .rich-text-editor .ProseMirror pre {
+    color: #111827 !important;
+    background-color: #f3f4f6 !important;
+  }
+  
+  /* Dark mode overrides */
+  .dark .rich-text-editor .ProseMirror {
+    color: #f3f4f6 !important;
+    background-color: transparent !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror * {
+    color: #f3f4f6 !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror p,
+  .dark .rich-text-editor .ProseMirror div,
+  .dark .rich-text-editor .ProseMirror span,
+  .dark .rich-text-editor .ProseMirror h1,
+  .dark .rich-text-editor .ProseMirror h2,
+  .dark .rich-text-editor .ProseMirror h3,
+  .dark .rich-text-editor .ProseMirror h4,
+  .dark .rich-text-editor .ProseMirror h5,
+  .dark .rich-text-editor .ProseMirror h6,
+  .dark .rich-text-editor .ProseMirror li,
+  .dark .rich-text-editor .ProseMirror strong,
+  .dark .rich-text-editor .ProseMirror em {
+    color: #f3f4f6 !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror a {
+    color: #60a5fa !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror a:hover {
+    color: #93c5fd !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror blockquote {
+    color: #d1d5db !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror code {
+    color: #f3f4f6 !important;
+    background-color: #1f2937 !important;
+  }
+  
+  .dark .rich-text-editor .ProseMirror pre {
+    color: #f3f4f6 !important;
+    background-color: #1f2937 !important;
+  }
+}

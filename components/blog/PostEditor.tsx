@@ -8,6 +8,7 @@ import RichTextEditorWrapper from './RichTextEditorWrapper'
 import Image from 'next/image'
 import { Language } from '@/app/i18n/languages'
 import ResearchPanel from './ResearchPanel'
+import SEOKeywordsSelector from './SEOKeywordsSelector'
 import { ResearchScope, ResearchResult } from '@/types/research'
 import { SupabaseClient } from '@supabase/supabase-js'
 
@@ -393,10 +394,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
   }
  
   const handleMultipleResearchUse = (results: ResearchResult[], query: string) => {
-    if (!Array.isArray(results) || results.length === 0) return
-
     const researchText = results
-      .filter(result => result.title || result.snippet || result.url)
       .map(result => 
         `${result.title || 'Untitled'}\n${result.snippet || ''}\nSource: ${result.url || 'No source'}`
       )
@@ -408,6 +406,32 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
       ...prev,
       prompt: `${prev.prompt}\n\nWrite article about "${query}" based on this research:\n${researchText}`.trim()
     }))
+  }
+
+  const handleKeywordsSelected = (keywords: string[]) => {
+    console.log('🔍 Keywords selected:', keywords)
+    
+    setFormData(prev => {
+      let newPrompt = prev.prompt
+      
+      // Remove existing keyword text (look for lines starting with "Use keywords:")
+      newPrompt = newPrompt.replace(/^Use keywords:.*$/gm, '').trim()
+      
+      // Add new keywords if any are selected
+      if (keywords.length > 0) {
+        const keywordText = `Use keywords: ${keywords.join(', ')}`
+        console.log('📝 Adding keyword text to prompt:', keywordText)
+        
+        // Add keywords at the end, with proper spacing
+        newPrompt = newPrompt ? `${newPrompt}\n\n${keywordText}` : keywordText
+      }
+      
+      console.log('📝 New prompt after update:', newPrompt)
+      return {
+        ...prev,
+        prompt: newPrompt
+      }
+    })
   }
 
   return (
@@ -430,6 +454,11 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
             onUseMultipleResults={handleMultipleResearchUse}
           />
 
+          <SEOKeywordsSelector
+            supabaseClient={supabaseClient}
+            onKeywordsSelected={handleKeywordsSelected}
+          />
+
           <div className="flex justify-between items-center">
             <label htmlFor="prompt" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               {t('fields.prompt')}
@@ -450,7 +479,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
             onChange={(e) => setFormData(prev => ({ ...prev, prompt: e.target.value }))}
             rows={3}
             placeholder={t('fields.promptPlaceholder')}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+            className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
             required={!post}
           />
         </div>
@@ -465,7 +494,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
           id="title"
           value={formData.title}
           onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
         />
       </div>
 
@@ -478,7 +507,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
           id="slug"
           value={formData.slug}
           onChange={(e) => setFormData(prev => ({ ...prev, slug: e.target.value }))}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
           required
         />
       </div>
@@ -502,7 +531,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
           value={formData.excerpt || ''}
           onChange={(e) => setFormData(prev => ({ ...prev, excerpt: e.target.value }))}
           rows={3}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
         />
       </div>
 
@@ -515,7 +544,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
           value={formData.meta_description || ''}
           onChange={(e) => setFormData(prev => ({ ...prev, meta_description: e.target.value }))}
           rows={2}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
         />
       </div>
 
@@ -531,7 +560,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
             ...prev,
             tags: e.target.value.split(',').map(tag => tag.trim()).filter(Boolean)
           }))}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
           placeholder="tag1, tag2, tag3"
         />
       </div>
@@ -546,13 +575,13 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
             id="featured_image"
             value={formData.featured_image || ''}
             onChange={(e) => setFormData(prev => ({ ...prev, featured_image: e.target.value }))}
-            className="flex-1 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+            className="flex-1 mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 px-3 py-2"
           />
           <div className="flex items-center gap-4">
             <select
               value={imageStyle}
               onChange={(e) => setImageStyle(e.target.value)}
-              className="block w-48 rounded-md border-gray-300 py-1.5 pl-3 pr-10 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700"
+              className="block w-48 rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 py-2 pl-3 pr-10"
             >
               {styleOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -591,7 +620,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
           id="locale"
           value={formData.locale}
           onChange={(e) => setFormData(prev => ({ ...prev, locale: e.target.value }))}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+          className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 px-3 py-2"
         >
           {languages.map(lang => (
             <option key={lang.code} value={lang.code}>
@@ -615,7 +644,7 @@ export default function PostEditor({ onSave, onCancel, post, supabaseClient }: P
               const options = Array.from(e.target.selectedOptions, option => option.value)
               setFormData(prev => ({ ...prev, target_languages: options }))
             }}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white px-3 py-1.5"
+            className="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 px-3 py-2"
           >
             {languages
               .filter(lang => lang.code !== formData.locale)

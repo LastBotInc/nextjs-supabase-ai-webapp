@@ -49,7 +49,9 @@ export type UploadProgress = {
 
 export type GenerationOptions = {
   prompt: string;
+  model?: 'imagen-3.0' | 'imagen-4.0' | 'gpt-image-1';
   style?: string;
+  size?: '1024x1024' | '1024x1792' | '1792x1024';
   width?: number;
   height?: number;
   negativePrompt?: string;

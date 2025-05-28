@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { MediaAsset, MediaFilter } from '@/types/media';
 import Image from 'next/image';
-import { FolderIcon } from '@heroicons/react/24/outline';
+import { FolderIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { MagicEditModal } from './MagicEditModal';
 
 interface MediaGridProps {
   filter: MediaFilter;
@@ -66,6 +67,8 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
   const t = useTranslations('Media');
   const [assets, setAssets] = useState<MediaAsset[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editingAsset, setEditingAsset] = useState<MediaAsset | null>(null);
+  const [showEditModal, setShowEditModal] = useState(false);
   const supabase = createClientComponentClient();
 
   useEffect(() => {
@@ -108,6 +111,12 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
     loadAssets();
   }, [supabase, filter, refreshTrigger]); // Add refreshTrigger to dependencies
 
+  const handleMagicEdit = (asset: MediaAsset, event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent asset selection
+    setEditingAsset(asset);
+    setShowEditModal(true);
+  };
+
   if (loading) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-pulse">
@@ -136,26 +145,65 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {assets.map((asset) => (
-        <button
-          key={asset.id}
-          onClick={() => onAssetSelect(asset)}
-          className={`
-            relative aspect-square rounded-lg overflow-hidden
-            focus:outline-none focus:ring-2 focus:ring-primary
-            ${selectedAsset?.id === asset.id ? 'ring-2 ring-primary' : ''}
-          `}
-        >
-          <Image
-            src={asset.originalUrl}
-            alt={asset.altText || asset.title || ''}
-            className="object-cover"
-            fill
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          />
-        </button>
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {assets.map((asset) => (
+          <div
+            key={asset.id}
+            className="relative group"
+          >
+            <button
+              onClick={() => onAssetSelect(asset)}
+              className={`
+                relative aspect-square rounded-lg overflow-hidden w-full
+                focus:outline-none focus:ring-2 focus:ring-primary
+                ${selectedAsset?.id === asset.id ? 'ring-2 ring-primary' : ''}
+              `}
+            >
+              <Image
+                src={asset.originalUrl}
+                alt={asset.altText || asset.title || ''}
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              />
+            </button>
+            
+            {/* Magic Edit Button Overlay */}
+            <button
+              onClick={(e) => handleMagicEdit(asset, e)}
+              className="
+                absolute top-2 right-2 
+                bg-black/70 hover:bg-black/90 
+                text-white rounded-full p-2
+                opacity-0 group-hover:opacity-100
+                transition-opacity duration-200
+                focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white
+              "
+              title={t('magicEdit')}
+            >
+              <SparklesIcon className="h-4 w-4" />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Magic Edit Modal */}
+      {showEditModal && editingAsset && (
+        <MagicEditModal
+          asset={editingAsset}
+          onClose={() => {
+            setShowEditModal(false);
+            setEditingAsset(null);
+          }}
+          onSuccess={() => {
+            setShowEditModal(false);
+            setEditingAsset(null);
+            // Trigger refresh of assets
+            window.location.reload();
+          }}
+        />
+      )}
+    </>
   );
 } 

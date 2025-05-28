@@ -1,0 +1,1356 @@
+
+> nextjs-ai-webpage@0.1.0 dev
+> npm run generate-namespaces && concurrently "next dev" "npx inngest-cli dev"
+
+
+> nextjs-ai-webpage@0.1.0 generate-namespaces
+> node ./scripts/generate-namespace-manifest.mjs
+
+[i18n] Starting namespace manifest generation...
+[i18n] Found namespaces: About, Account, Admin, Auth, Blog, Common, Contact, CookieConsent, Footer, Index, LandingPages, Media, Navigation, Presentations, Privacy, Profile
+[i18n] Namespace manifest generated successfully at /Users/pasivuorio/lastbot/nextjs-supabase-ai-webapp/app/i18n/generated/namespaces.ts
+[1] {"level":"info","caller":"executor","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[1] {"level":"info","caller":"devserver","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[1] {"level":"info","caller":"runner","backend":"redis","time":"2025-05-28T07:05:24Z","message":"starting event stream"}
+[1] {"level":"info","caller":"runner","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[1] {"level":"info","caller":"connect-router","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[1] {"level":"info","caller":"devserver","time":"2025-05-28T07:05:24Z","message":"autodiscovering locally hosted SDKs"}
+[1] {"level":"info","caller":"executor","time":"2025-05-28T07:05:24Z","message":"subscribing to function queue"}
+[1] {"level":"info","caller":"api","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[1] {"level":"info","caller":"api","caller":"api","addr":"0.0.0.0:8288","time":"2025-05-28T07:05:24Z","message":"starting server"}
+[1] {"level":"info","caller":"runner","topic":"events","time":"2025-05-28T07:05:24Z","message":"subscribing to events"}
+[1] {"level":"info","caller":"connect-gateway","time":"2025-05-28T07:05:24Z","message":"service starting"}
+[0]    ▲ Next.js 15.3.1
+[0]    - Local:        http://localhost:3000
+[0]    - Network:      http://192.168.68.116:3000
+[0]    - Environments: .env.local
+[0] 
+[0]  ✓ Starting...
+[0]  ✓ Ready in 1788ms
+[0]  ✓ Compiled /middleware in 214ms (261 modules)
+[0]  ○ Compiling /api/admin/seo/website-analysis ...
+[0]  ✓ Compiled /api/admin/seo/website-analysis in 1212ms (901 modules)
+[0] 
+[0] 📝 [POST /api/admin/seo/website-analysis]
+[0] 🔑 Auth token: present
+[0] (node:31317) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[0] (Use `node --trace-deprecation ...` to show where the warning was created)
+[0] [shopify-api/INFO] version 11.12.0, environment Node v22.13.1
+[0] [shopify-api/INFO] Future flag lineItemBilling is disabled.
+[0] 
+[0]   Enable this flag to use the new billing API, that supports multiple line items per plan.
+[0] 
+[0] [shopify-api/INFO] Future flag customerAddressDefaultFix is disabled.
+[0] 
+[0]   Enable this flag to change the CustomerAddress classes to expose a 'is_default' property instead of 'default' when fetching data.
+[0] 
+[0] [shopify-api/INFO] Future flag unstable_managedPricingSupport is disabled.
+[0] 
+[0]   Enable this flag to support managed pricing, so apps can check for payments without needing a billing config. Learn more at https://shopify.dev/docs/apps/launch/billing/managed-pricing
+[0] 
+[0]  GET /api/inngest 200 in 1400ms
+[0] ✅ User authenticated: 7d72437b-782d-4fa4-83da-8a3463c7bad1
+[0] ✅ Admin access verified
+[0] 📊 Starting analysis for domain: www.lastbot.com
+[0] 📊 Analysis options: {
+[0]   includeKeywords: true,
+[0]   includeBacklinks: true,
+[0]   includeCompetitors: true,
+[0]   includeTechnical: true,
+[0]   keywordLimit: 50
+[0] }
+[0] 🔑 DataForSEO config loaded: { login: 'pasi@lastbot.com', hasPassword: true }
+[0] 📊 Fetching domain overview...
+[0] 📤 Domain overview payload: [
+[0]   {
+[0]     "target": "www.lastbot.com",
+[0]     "language_code": "en",
+[0]     "location_name": "United States"
+[0]   }
+[0] ]
+[0] 📥 Domain overview response status: 200
+[0]  ○ Compiling /[locale]/[slug] ...
+[0] 📥 Domain overview response status: 200
+[0] 📊 Domain overview data found
+[0] ✅ Domain overview processed
+[0] 📊 Fetching ranked keywords...
+[0] 📤 Ranked keywords payload: [
+[0]   {
+[0]     "target": "www.lastbot.com",
+[0]     "language_code": "en",
+[0]     "location_name": "United States",
+[0]     "limit": 50,
+[0]     "order_by": [
+[0]       "keyword_data.keyword_info.search_volume,desc"
+[0]     ]
+[0]   }
+[0] ]
+[0] 📥 Ranked keywords response status: 200
+[0] 📥 Ranked keywords response status: 200
+[0] 📊 Processing 1 ranked keywords
+[0] ✅ Ranked keywords processed: 1
+[0] 📊 Fetching keywords for site...
+[0] 📤 Keywords for site payload: [
+[0]   {
+[0]     "target": "www.lastbot.com",
+[0]     "language_code": "en",
+[0]     "location_name": "United States",
+[0]     "limit": 50,
+[0]     "order_by": [
+[0]       "keyword_info.search_volume,desc"
+[0]     ]
+[0]   }
+[0] ]
+[0]  ✓ Compiled /[locale]/[slug] in 1744ms (2147 modules)
+[0]  GET /fi/inngest 200 in 1979ms
+[0] Loading translations for locale: fi
+[0] Loading namespaces using dynamic imports for fi
+[0] Successfully loaded namespace-based translations for fi using imports
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] 
+[0]     at async LandingPage (app/[locale]/[slug]/page.tsx:179:12)
+[0]   177 |   const { locale, slug } = params
+[0]   178 |   await setupServerLocale(locale)
+[0] > 179 |   const t = await getTranslations('LandingPages')
+[0]       |            ^
+[0]   180 |   const page: PublicLandingPageView | null = await getLandingPage(slug, locale)
+[0]   181 |
+[0]   182 |   if (!page) { {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] (node:31586) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[0] (Use `node --trace-deprecation ...` to show where the warning was created)
+[0] Fetching landing page: slug=inngest, locale=fi
+[0] Error fetching landing page: {
+[0]   code: 'PGRST116',
+[0]   details: 'The result contains 0 rows',
+[0]   hint: null,
+[0]   message: 'JSON object requested, multiple (or no) rows returned'
+[0] }
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0]  ○ Compiling /_not-found ...
+[0] Error fetching landing page for metadata: {
+[0]   code: 'PGRST116',
+[0]   details: 'The result contains 0 rows',
+[0]   hint: null,
+[0]   message: 'JSON object requested, multiple (or no) rows returned'
+[0] }
+[0] 📥 Keywords for site response status: 200
+[0] 📥 Keywords for site response status: 200
+[0] 📊 Processing 50 keywords for site
+[0] 📊 Filtered to 13 relevant keywords
+[0] ✅ Keywords for site processed: 13
+[0] 📊 Fetching competitors...
+[0] 📤 Competitors payload: [
+[0]   {
+[0]     "target": "www.lastbot.com",
+[0]     "language_code": "en",
+[0]     "location_name": "United States",
+[0]     "limit": 20,
+[0]     "order_by": [
+[0]       "metrics.organic.count,desc"
+[0]     ]
+[0]   }
+[0] ]
+[0]  ✓ Compiled /api/languages in 1551ms (2140 modules)
+[0] Loading translations for locale: fi
+[0] Loading namespaces using dynamic imports for fi
+[0] Successfully loaded namespace-based translations for fi using imports
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0]  GET /fi/functions/inngest 404 in 1536ms
+[0] 
+[0] 🌐 [GET /api/languages]
+[0] 🔑 Creating service role client...
+[0] 📊 Fetching languages...
+[0] ✅ Successfully fetched languages: 3
+[0]  GET /api/languages 200 in 1043ms
+[0]  │ GET http://127.0.0.1:54321/rest/v1/languages?select=code%2Cname%2Cnative_name%2Cenabled&enabled=eq.true&order=name.asc 200 in 11ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0]  ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+[0]     at Object.t [as require] (.next/server/webpack-runtime.js:1:143) {
+[0]   digest: '3643767'
+[0] }
+[0] Loading translations for locale: fi
+[0] Loading namespaces using dynamic imports for fi
+[0] Successfully loaded namespace-based translations for fi using imports
+[0] Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] 
+[0]     at async Module.generateMetadata (app/[locale]/[slug]/page.tsx:51:12)
+[0]   49 |   const params = await paramsPromise
+[0]   50 |   const { locale, slug } = params
+[0] > 51 |   const t = await getTranslations('LandingPages')
+[0]      |            ^
+[0]   52 |   
+[0]   53 |   // Use explicit ANON client for consistency and to ensure anon RLS is checked
+[0]   54 |   const cookieStore = await cookies() {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] Error fetching landing page for metadata: {
+[0]   code: 'PGRST116',
+[0]   details: 'The result contains 0 rows',
+[0]   hint: null,
+[0]   message: 'JSON object requested, multiple (or no) rows returned'
+[0] }
+[0] Loading translations for locale: fi
+[0] Loading namespaces using dynamic imports for fi
+[0] Successfully loaded namespace-based translations for fi using imports
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0] [Error: INVALID_KEY: Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.
+[0] 
+[0] Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)
+[0] 
+[0] If you're migrating from a flat structure, you can convert your messages as follows:
+[0] 
+[0] import {set} from "lodash";
+[0] 
+[0] const input = {
+[0]   "one.one": "1.1",
+[0]   "one.two": "1.2",
+[0]   "two.one.one": "2.1.1"
+[0] };
+[0] 
+[0] const output = Object.entries(input).reduce(
+[0]   (acc, [key, value]) => set(acc, key, value),
+[0]   {}
+[0] );
+[0] 
+[0] // Output:
+[0] //
+[0] // {
+[0] //   "one": {
+[0] //     "one": "1.1",
+[0] //     "two": "1.2"
+[0] //   },
+[0] //   "two": {
+[0] //     "one": {
+[0] //       "one": "2.1.1"
+[0] //     }
+[0] //   }
+[0] // }
+[0] ] {
+[0]   code: 'INVALID_KEY',
+[0]   originalMessage: 'Namespace keys can not contain the character "." as this is used to express nesting. Please remove it or replace it with another character.\n' +
+[0]     '\n' +
+[0]     'Invalid keys: imagen-3.0 (at Media.models), imagen-4.0 (at Media.models)\n' +
+[0]     '\n' +
+[0]     "If you're migrating from a flat structure, you can convert your messages as follows:\n" +
+[0]     '\n' +
+[0]     'import {set} from "lodash";\n' +
+[0]     '\n' +
+[0]     'const input = {\n' +
+[0]     '  "one.one": "1.1",\n' +
+[0]     '  "one.two": "1.2",\n' +
+[0]     '  "two.one.one": "2.1.1"\n' +
+[0]     '};\n' +
+[0]     '\n' +
+[0]     'const output = Object.entries(input).reduce(\n' +
+[0]     '  (acc, [key, value]) => set(acc, key, value),\n' +
+[0]     '  {}\n' +
+[0]     ');\n' +
+[0]     '\n' +
+[0]     '// Output:\n' +
+[0]     '//\n' +
+[0]     '// {\n' +
+[0]     '//   "one": {\n' +
+[0]     '//     "one": "1.1",\n' +
+[0]     '//     "two": "1.2"\n' +
+[0]     '//   },\n' +
+[0]     '//   "two": {\n' +
+[0]     '//     "one": {\n' +
+[0]     '//       "one": "2.1.1"\n' +
+[0]     '//     }\n' +
+[0]     '//   }\n' +
+[0]     '// }\n'
+[0] }
+[0]  GET /fi/functions/inngest 404 in 112ms
+[0] [shopify-api/INFO] version 11.12.0, environment Node v22.13.1
+[0] [shopify-api/INFO] Future flag lineItemBilling is disabled.
+[0] 
+[0]   Enable this flag to use the new billing API, that supports multiple line items per plan.
+[0] 
+[0] [shopify-api/INFO] Future flag customerAddressDefaultFix is disabled.
+[0] 
+[0]   Enable this flag to change the CustomerAddress classes to expose a 'is_default' property instead of 'default' when fetching data.
+[0] 
+[0] [shopify-api/INFO] Future flag unstable_managedPricingSupport is disabled.
+[0] 
+[0]   Enable this flag to support managed pricing, so apps can check for payments without needing a billing config. Learn more at https://shopify.dev/docs/apps/launch/billing/managed-pricing
+[0] 
+[0] 📥 Competitors response status: 200
+[0] 📥 Competitors response status: 200
+[0] 📊 Processing 1 competitors
+[0] ✅ Competitors processed: 1
+[0] 📊 Fetching backlinks summary...
+[0] 📤 Backlinks payload: [
+[0]   {
+[0]     "target": "www.lastbot.com"
+[0]   }
+[0] ]
+[0]  PUT /api/inngest 200 in 73ms
+[0]  │ POST http://localhost:8288/fn/register 200 in 4ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0] 📥 Backlinks response status: 200
+[0] 📥 Backlinks response: {
+[0]   "version": "0.1.20250526",
+[0]   "status_code": 20000,
+[0]   "status_message": "Ok.",
+[0]   "time": "0.0702 sec.",
+[0]   "cost": 0.02003,
+[0]   "tasks_count": 1,
+[0]   "tasks_error": 0,
+[0]   "tasks": [
+[0]     {
+[0]       "id": "05281005-1014-0265-0000-176e06914bb0",
+[0]       "status_code": 20000,
+[0]       "status_message": "Ok.",
+[0]       "time": "0.0078 sec.",
+[0]       "cost": 0.02003,
+[0]       "result_count": 1,
+[0]       "path": [
+[0]         "v3",
+[0]         "backlinks",
+[0]         "summary",
+[0]         "live"
+[0]       ],
+[0]       "data": {
+[0]         "api": "backlinks",
+[0]         "function": "summary",
+[0]         "target": "www.lastbot.com"
+[0]       },
+[0]       "result": [
+[0]         {
+[0]           "target": "www.lastbot.com",
+[0]           "first_seen": "2023-05-28 09:02:45 +00:00",
+[0]           "lost_date": null,
+[0]           "rank": 135,
+[0]           "backlinks": 39,
+[0]           "backlinks_spam_score": 4,
+[0]           "crawled_pages": 26,
+[0]           "info": {
+[0]             "server": "cloudflare",
+[0]             "cms": null,
+[0]             "platform_type": [
+[0]               "unknown"
+[0]             ],
+[0]             "ip_address": "172.67.72.139",
+[0]             "country": null,
+[0]             "is_ip": false,
+[0]             "target_spam_score": 8
+[0]           },
+[0]           "internal_links_count": 102,
+[0]           "external_links_count": 24,
+[0]           "broken_backlinks": 0,
+[0]           "broken_pages": 2,
+[0]           "referring_domains": 24,
+[0]           "referring_domains_nofollow": 6,
+[0]           "referring_main_domains": 21,
+[0]           "referring_main_domains_nofollow": 4,
+[0]           "referring_ips": 23,
+[0]           "referring_subnets": 23,
+[0]           "referring_pages": 35,
+[0]           "referring_pages_nofollow": 7,
+[0]           "referring_links_tld": {
+[0]             "fi": 19,
+[0]             "com": 12,
+[0]             "net": 2,
+[0]             "ai": 1,
+[0]             "click": 1
+[0]           },
+[0]           "referring_links_types": {
+[0]             "anchor": 34,
+[0]             "redirect": 1
+[0]           },
+[0]           "referring_links_attributes": {
+[0]             "nofollow": 7,
+[0]             "noopener": 7,
+[0]             "noreferrer": 3
+[0]           },
+[0]           "referring_links_platform_types": {
+[0]             "unknown": 21,
+[0]             "organization": 10,
+[0]             "blogs": 6,
+[0]             "cms": 6,
+[0]             "news": 1
+[0]           },
+[0]           "referring_links_semantic_locations": {
+[0]             "": 18,
+[0]             "article": 8,
+[0]             "main": 4,
+[0]             "section": 3,
+[0]             "aside": 2
+[0]           },
+[0]           "referring_links_countries": {
+[0]             "FI": 19,
+[0]             "US": 7,
+[0]             "": 6,
+[0]             "WW": 2,
+[0]             "AI": 1
+[0]           }
+[0]         }
+[0]       ]
+[0]     }
+[0]   ]
+[0] }
+[0] 📊 Backlinks data found
+[0] ✅ Backlinks processed
+[0] 📊 Fetching technical SEO data...
+[0] 📤 Technical SEO payload: [
+[0]   {
+[0]     "url": "https://www.lastbot.com",
+[0]     "enable_javascript": true
+[0]   }
+[0] ]
+[1] {"level":"info","caller":"devserver","time":"2025-05-28T07:05:40Z","message":"apps synced, disabling auto-discovery"}
+[0]  PUT /api/inngest 200 in 22ms
+[0]  │ POST http://localhost:8288/fn/register 200 in 3ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0] 📥 Technical SEO response status: 200
+[0] 📥 Technical SEO response: {
+[0]   "version": "0.1.20250526",
+[0]   "status_code": 20000,
+[0]   "status_message": "Ok.",
+[0]   "time": "5.4535 sec.",
+[0]   "cost": 0.00125,
+[0]   "tasks_count": 1,
+[0]   "tasks_error": 0,
+[0]   "tasks": [
+[0]     {
+[0]       "id": "05281005-1014-0275-0000-828abb2c3e64",
+[0]       "status_code": 20000,
+[0]       "status_message": "Ok.",
+[0]       "time": "5.4161 sec.",
+[0]       "cost": 0.00125,
+[0]       "result_count": 1,
+[0]       "path": [
+[0]         "v3",
+[0]         "on_page",
+[0]         "instant_pages"
+[0]       ],
+[0]       "data": {
+[0]         "api": "on_page",
+[0]         "function": "instant_pages",
+[0]         "url": "https://www.lastbot.com",
+[0]         "enable_javascript": true
+[0]       },
+[0]       "result": [
+[0]         {
+[0]           "crawl_progress": "finished",
+[0]           "crawl_status": null,
+[0]           "crawl_gateway_address": "168.119.141.170",
+[0]           "items_count": 1,
+[0]           "items": [
+[0]             {
+[0]               "resource_type": "html",
+[0]               "status_code": 200,
+[0]               "location": null,
+[0]               "url": "https://www.lastbot.com/en",
+[0]               "meta": {
+[0]                 "title": "LastBot - Fast-Track Your Business to AI-First | LastBot - Human-Centric AI Solutions | LastBot - Human-Centric AI Solutions",
+[0]                 "charset": 65001,
+[0]                 "follow": true,
+[0]                 "generator": null,
+[0]                 "htags": {
+[0]                   "h1": [
+[0]                     "Your Fast Track to Becoming an AI-First Company"
+[0]                   ],
+[0]                   "h2": [
+[0]                     "Start from ready-made solutions",
+[0]                     "Or let's build something entirely your own",
+[0]                     "FEATURED CUSTOMERS",
+[0]                     "WHY CHOOSE LASTBOT",
+[0]                     "FEATURED SOLUTIONS",
+[0]                     "GET STARTED WITH LASTBOT TODAY"
+[0]                   ],
+[0]                   "h3": [
+[0]                     "CUSTOMER SUCCESS STORIES",
+[0]                     "Lightning Fast ROI",
+[0]                     "AI That Fits Like a Glove",
+[0]                     "Tomorrow-Ready Today",
+[0]                     "Customer Service Reimagined",
+[0]                     "Customer Insights That Feel Like Mind Reading",
+[0]                     "AI Agents That Feel Human",
+[0]                     "Outbound Marketing that Learns"
+[0]                   ],
+[0]                   "h4": [
+[0]                     "Autolle.com",
+[0]                     "DNA B2B",
+[0]                     "Harvia Saunabuddy",
+[0]                     "DNA B2C"
+[0]                   ]
+[0]                 },
+[0]                 "description": "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.",
+[0]                 "favicon": "https://www.lastbot.com/images/favicon.ico",
+[0]                 "meta_keywords": "AI Solutions,AI Integration,Digital Transformation,Human-Centric AI,Business Automation,AI Consulting,AI Development",
+[0]                 "canonical": "https://www.lastbot.com/en/",
+[0]                 "internal_links_count": 14,
+[0]                 "external_links_count": 1,
+[0]                 "inbound_links_count": 0,
+[0]                 "images_count": 8,
+[0]                 "images_size": 0,
+[0]                 "scripts_count": 18,
+[0]                 "scripts_size": 0,
+[0]                 "stylesheets_count": 0,
+[0]                 "stylesheets_size": 0,
+[0]                 "title_length": 124,
+[0]                 "description_length": 198,
+[0]                 "render_blocking_scripts_count": 1,
+[0]                 "render_blocking_stylesheets_count": 2,
+[0]                 "cumulative_layout_shift": 0,
+[0]                 "meta_title": null,
+[0]                 "content": {
+[0]                   "plain_text_size": 5057,
+[0]                   "plain_text_rate": 0.040104046884541264,
+[0]                   "plain_text_word_count": 837,
+[0]                   "automated_readability_index": 11.213542527053164,
+[0]                   "coleman_liau_readability_index": 12.43267813267813,
+[0]                   "dale_chall_readability_index": 6.736634209838465,
+[0]                   "flesch_kincaid_readability_index": 49.95366119504422,
+[0]                   "smog_readability_index": 12.593451513678477,
+[0]                   "description_to_content_consistency": 0.6666666865348816,
+[0]                   "title_to_content_consistency": 0.9090909361839294,
+[0]                   "meta_keywords_to_content_consistency": 0.6363636255264282
+[0]                 },
+[0]                 "deprecated_tags": null,
+[0]                 "duplicate_meta_tags": null,
+[0]                 "spell": null,
+[0]                 "social_media_tags": {
+[0]                   "og:title": "LastBot - Fast-Track Your Business to AI-First",
+[0]                   "og:description": "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.",
+[0]                   "og:url": "https://www.lastbot.com/en/",
+[0]                   "og:site_name": "LastBot",
+[0]                   "og:locale": "en",
+[0]                   "og:image": "https://www.lastbot.com/images/og-image.jpg",
+[0]                   "og:image:width": "1200",
+[0]                   "og:image:height": "630",
+[0]                   "og:image:alt": "LastBot - Fast-Track Your Business to AI-First",
+[0]                   "og:image:type": "image/jpeg",
+[0]                   "og:image:secure_url": "https://www.lastbot.com/images/og-image.jpg",
+[0]                   "og:locale:alternate": "fi",
+[0]                   "og:type": "website",
+[0]                   "twitter:card": "summary_large_image",
+[0]                   "twitter:site": "@lastbotai",
+[0]                   "twitter:creator": "@lastbotai",
+[0]                   "twitter:title": "LastBot - Fast-Track Your Business to AI-First",
+[0]                   "twitter:description": "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.",
+[0]                   "twitter:image": "https://www.lastbot.com/images/og-image.jpg"
+[0]                 }
+[0]               },
+[0]               "page_timing": {
+[0]                 "time_to_interactive": 781,
+[0]                 "dom_complete": 876,
+[0]                 "largest_contentful_paint": 0,
+[0]                 "first_input_delay": 0,
+[0]                 "connection_time": 0,
+[0]                 "time_to_secure_connection": 0,
+[0]                 "request_sent_time": 2,
+[0]                 "waiting_time": 752,
+[0]                 "download_time": 6,
+[0]                 "duration_time": 876,
+[0]                 "fetch_start": 0,
+[0]                 "fetch_end": 876
+[0]               },
+[0]               "onpage_score": 97.44,
+[0]               "total_dom_size": 126132,
+[0]               "custom_js_response": null,
+[0]               "custom_js_client_exception": null,
+[0]               "resource_errors": {
+[0]                 "errors": null,
+[0]                 "warnings": [
+[0]                   {
+[0]                     "line": 1,
+[0]                     "column": 83,
+[0]                     "message": "Has node with more than 60 childs.",
+[0]                     "status_code": 1
+[0]                   }
+[0]                 ]
+[0]               },
+[0]               "broken_resources": false,
+[0]               "broken_links": false,
+[0]               "duplicate_title": false,
+[0]               "duplicate_description": false,
+[0]               "duplicate_content": false,
+[0]               "click_depth": 0,
+[0]               "size": 126132,
+[0]               "encoded_size": 27870,
+[0]               "total_transfer_size": 27870,
+[0]               "fetch_time": "2025-05-28 07:05:40 +00:00",
+[0]               "cache_control": {
+[0]                 "cachable": true,
+[0]                 "ttl": 0
+[0]               },
+[0]               "checks": {
+[0]                 "no_content_encoding": false,
+[0]                 "high_loading_time": false,
+[0]                 "is_redirect": false,
+[0]                 "is_4xx_code": false,
+[0]                 "is_5xx_code": false,
+[0]                 "is_broken": false,
+[0]                 "is_www": true,
+[0]                 "is_https": true,
+[0]                 "is_http": false,
+[0]                 "high_waiting_time": false,
+[0]                 "has_micromarkup": false,
+[0]                 "has_micromarkup_errors": false,
+[0]                 "no_doctype": false,
+[0]                 "has_html_doctype": true,
+[0]                 "canonical": false,
+[0]                 "no_encoding_meta_tag": false,
+[0]                 "no_h1_tag": false,
+[0]                 "https_to_http_links": false,
+[0]                 "size_greater_than_3mb": false,
+[0]                 "meta_charset_consistency": false,
+[0]                 "has_meta_refresh_redirect": false,
+[0]                 "has_render_blocking_resources": false,
+[0]                 "low_content_rate": false,
+[0]                 "high_content_rate": false,
+[0]                 "low_character_count": false,
+[0]                 "high_character_count": false,
+[0]                 "small_page_size": false,
+[0]                 "large_page_size": false,
+[0]                 "low_readability_rate": false,
+[0]                 "irrelevant_description": false,
+[0]                 "irrelevant_title": false,
+[0]                 "irrelevant_meta_keywords": false,
+[0]                 "title_too_long": false,
+[0]                 "has_meta_title": false,
+[0]                 "title_too_short": false,
+[0]                 "deprecated_html_tags": false,
+[0]                 "duplicate_meta_tags": false,
+[0]                 "duplicate_title_tag": false,
+[0]                 "no_image_alt": false,
+[0]                 "no_image_title": false,
+[0]                 "no_description": false,
+[0]                 "no_title": false,
+[0]                 "no_favicon": false,
+[0]                 "seo_friendly_url": false,
+[0]                 "flash": false,
+[0]                 "frame": false,
+[0]                 "lorem_ipsum": false
+[0]               },
+[0]               "content_encoding": "br",
+[0]               "media_type": "text/html",
+[0]               "server": "cloudflare",
+[0]               "is_resource": false,
+[0]               "url_length": 26,
+[0]               "relative_url_length": 3,
+[0]               "last_modified": null
+[0]             }
+[0]           ]
+[0]         }
+[0]       ]
+[0]     }
+[0]   ]
+[0] }
+[0] 📊 Technical SEO data found
+[0] ✅ Technical SEO processed
+[0] ✅ Analysis completed successfully
+[0] 📊 Final result summary: {
+[0]   domain: 'www.lastbot.com',
+[0]   domainOverview: {
+[0]     organicKeywords: 0,
+[0]     organicTraffic: 0,
+[0]     paidKeywords: 0,
+[0]     paidTraffic: 0,
+[0]     backlinks: 39,
+[0]     referringDomains: 24,
+[0]     domainRank: 135
+[0]   },
+[0]   rankedKeywordsCount: 1,
+[0]   keywordsForSiteCount: 13,
+[0]   competitorsCount: 1,
+[0]   backlinks: { totalBacklinks: 39, referringDomains: 24, rank: 135, spamScore: 0 },
+[0]   technicalSeo: {
+[0]     title: 'LastBot - Fast-Track Your Business to AI-First | LastBot - Human-Centric AI Solutions | LastBot - Human-Centric AI Solutions',
+[0]     description: 'LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions.',
+[0]     h1: 'Your Fast Track to Becoming an AI-First Company',
+[0]     loadTime: 876,
+[0]     mobileOptimized: true,
+[0]     httpsEnabled: true,
+[0]     issues: []
+[0]   }
+[0] }
+[0]  POST /api/admin/seo/website-analysis 200 in 11180ms
+[0]  │ GET http://127.0.0.1:54321/auth/v1/user 200 in 95ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ GET http://127.0.0.1:54321/rest/v1/profiles?select=is_admin&id=eq.7d72437b-782d-4fa4-83da-8a3463c7bad1 200 in 6ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live 200 in 524ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/dataforseo_labs/google/ranked_keywords/live 200 in 593ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/dataforseo_labs/google/keywords_for_site/live 200 in 2090ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/dataforseo_labs/google/competitors_domain/live 200 in 856ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/backlinks/summary/live 200 in 135ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  │ POST https://api.dataforseo.com/v3/on_page/instant_pages 200 in 5533ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  PUT /api/inngest 200 in 20ms
+[0]  │ POST http://localhost:8288/fn/register 200 in 3ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[0]  PUT /api/inngest 200 in 24ms
+[0]  │ POST http://localhost:8288/fn/register 200 in 4ms (cache skip)
+[0]  │ │ Cache skipped reason: (auto no cache)
+[1] npx inngest-cli dev exited with code 0
+[0] [?25h
+[0] next dev exited with code 0
