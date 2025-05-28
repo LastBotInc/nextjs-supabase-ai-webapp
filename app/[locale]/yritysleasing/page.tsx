@@ -15,6 +15,151 @@ import { TwoColumnCard } from "../../components/layouts/Card";
 import { Heading1, Heading2, Heading3, Paragraph, LinkLikeButton } from "../../components/layouts/CommonElements";
 import { CallUs } from "@/app/components/CallUs";
 
+import React from "react";
+import { cn } from "@/utils/cn";
+
+// Leasing comparison table for Finnish market
+const leasingData = [
+  {
+    palvelu: "Oma yhteyshenkilö",
+    rahoitus: true,
+    jousto: true,
+    huolto: true,
+    mini: true,
+    kone: true,
+  },
+  {
+    palvelu: "Kuukausivuokra",
+    rahoitus: "Kiinteä",
+    jousto: "Kiinteä",
+    huolto: "Kiinteä",
+    mini: "Kiinteä",
+    kone: "Kiinteä",
+  },
+  {
+    palvelu: "Huollot & korjaukset",
+    rahoitus: false,
+    jousto: true,
+    huolto: true,
+    mini: true,
+    kone: false,
+  },
+  {
+    palvelu: "Renkaiden uusinnat",
+    rahoitus: false,
+    jousto: true,
+    huolto: true,
+    mini: true,
+    kone: false,
+  },
+  {
+    palvelu: "Rengashotelli & vaihdot",
+    rahoitus: false,
+    jousto: true,
+    huolto: true,
+    mini: true,
+    kone: false,
+  },
+  {
+    palvelu: "Sopimuskilometrit",
+    rahoitus: "Avoin",
+    jousto: "Budjetoitu",
+    huolto: "Kiinteä",
+    mini: "Suljettu",
+    kone: false,
+  },
+  {
+    palvelu: "Huolto­budjetti",
+    rahoitus: "Ei sisälly",
+    jousto: "Avoin tasataan sopimuskauden päättyessä",
+    huolto: "Suljettu",
+    mini: "Suljettu",
+    kone: "Ei sisälly",
+  },
+  {
+    palvelu: "Ylimeno­kilometri­veloitus",
+    rahoitus: "Ei",
+    jousto: "Budjetoitu",
+    huolto: "Budjetoitu",
+    mini: "Budjetoitu",
+    kone: false,
+  },
+  {
+    palvelu: "Jäännösarvo",
+    rahoitus: "Asiakkaan",
+    jousto: "Avoin tasataan sopimuskauden päättyessä",
+    huolto: "Suljettu",
+    mini: "Suljettu",
+    kone: "Asiakkaan",
+  },
+  {
+    palvelu: "Ennenaikainen sopimuksen katkaisu",
+    rahoitus: "Pääomatasauksella",
+    jousto: "Pääomatasauksella",
+    huolto: "Pääomatasauksella",
+    mini: false,
+    kone: "Pääomatasauksella",
+  },
+  {
+    palvelu: "Käytetty ajoneuvo",
+    rahoitus: true,
+    jousto: true,
+    huolto: true,
+    mini: true,
+    kone: false,
+  },
+];
+
+// Helper to render check/cross or text
+const renderCell = (value: boolean | string) => {
+  if (value === true)
+    return (
+      <span aria-label="Kyllä" title="Kyllä" className="text-green-600 text-xl">
+        ✔️
+      </span>
+    );
+  if (value === false)
+    return (
+      <span aria-label="Ei" title="Ei" className="text-red-500 text-xl">
+        ✖️
+      </span>
+    );
+  return <span>{value}</span>;
+};
+
+function LeasingComparisonTable() {
+  return (
+    <div className="overflow-x-auto rounded-lg shadow bg-white">
+      <table className="min-w-full border-collapse rounded-lg">
+        <thead>
+          <tr className="border-b-2 border-white text-xl">
+            <th className="bg-[#C49A6C] text-white font-semibold px-4 py-3 text-left sticky left-0 z-10">Palvelut</th>
+            <th className="bg-gray-100 font-semibold px-4 py-3  text-piki">Rahoitusleasing</th>
+            <th className="bg-gray-100 font-semibold px-4 py-3 text-piki">Joustoleasing</th>
+            <th className="bg-gray-100 font-semibold px-4 py-3 text-piki">Huoltoleasing</th>
+            <th className="bg-gray-100 font-semibold px-4 py-3 text-piki">Mini-leasing</th>
+            <th className="bg-gray-100 font-semibold px-4 py-3 text-piki">Kone- ja laitteleasing</th>
+          </tr>
+        </thead>
+        <tbody>
+          {leasingData.map((row, idx) => (
+            <tr key={row.palvelu} className={cn("text-piki", idx % 2 === 0 ? "bg-gray-50" : "bg-white")}>
+              <th className="bg-[#C49A6C] text-piki font-medium px-4 py-2 text-left sticky left-0 z-10">
+                {row.palvelu}
+              </th>
+              <td className="text-center px-4 py-2">{renderCell(row.rahoitus)}</td>
+              <td className="text-center px-4 py-2">{renderCell(row.jousto)}</td>
+              <td className="text-center px-4 py-2">{renderCell(row.huolto)}</td>
+              <td className="text-center px-4 py-2">{renderCell(row.mini)}</td>
+              <td className="text-center px-4 py-2">{renderCell(row.kone)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default async function CorporateLeasingPage({ params }: { params: { locale: string } }) {
   // Setup localization
   const { locale } = params;
@@ -126,6 +271,14 @@ export default async function CorporateLeasingPage({ params }: { params: { local
             </BlockPadding>
           </TwoColumnCard>
         </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
+
+      <FullScreenWidthBlock className="bg-tiki px-0 lg:px-0">
+        <BlockPadding>
+          <MaxWidthContentBlock>
+            <LeasingComparisonTable />
+          </MaxWidthContentBlock>
+        </BlockPadding>
       </FullScreenWidthBlock>
 
       <FullWidthContentBlockWithBg image="/images/Tietoa_meista.png" backgroundPosition="top center">
