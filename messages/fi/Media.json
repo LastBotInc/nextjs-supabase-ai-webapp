@@ -116,5 +116,8 @@
   "videoPreview": "Videon esikatselu",
   "videoNotSupported": "Selaimesi ei tue videotunnistetta.",
   "unsupportedFormat": "Tiedostomuotoa ei tueta",
-  "authenticationRequired": "Tämä toiminto vaatii kirjautumisen."
+  "authenticationRequired": "Tämä toiminto vaatii kirjautumisen.",
+  "download": "Lataa",
+  "downloadErrorMissingInfo": "Lataus epäonnistui: Tiedoston URL-osoite tai nimi puuttuu.",
+  "downloadErrorGeneric": "Tiedoston lataamisessa tapahtui virhe."
 }

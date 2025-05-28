@@ -101,5 +101,8 @@
   "videoPreview": "Videoförhandsvisning",
   "videoNotSupported": "Din webbläsare stöder inte videotaggen.",
   "unsupportedFormat": "Filformatet stöds inte",
-  "authenticationRequired": "Autentisering krävs för denna åtgärd."
+  "authenticationRequired": "Autentisering krävs för denna åtgärd.",
+  "download": "Ladda ner",
+  "downloadErrorMissingInfo": "Kan inte ladda ner: Filens URL eller namn saknas.",
+  "downloadErrorGeneric": "Ett fel uppstod vid försök att ladda ner filen."
 }

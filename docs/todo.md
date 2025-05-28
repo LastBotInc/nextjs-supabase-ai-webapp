@@ -1056,3 +1056,7 @@ Next Priority Tasks:
   ❌ Test sync functionality end-to-end
 
 ✅ Fix "Cannot read properties of undefined (reading 'auth')" browser error when pressing "generate with AI" button at blog creation.
+
+- [✅] Fix delete button in MediaGrid.tsx.
+- [✅] Add download button to media grid.
+- [✅] Make default image grid images a bit larger.

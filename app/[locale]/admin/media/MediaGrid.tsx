@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { MediaAsset, MediaFilter } from '@/types/media';
 import Image from 'next/image';
-import { FolderIcon, SparklesIcon, PencilIcon, TrashIcon, EyeIcon, PlayIcon } from '@heroicons/react/24/outline';
+import { FolderIcon, SparklesIcon, PencilIcon, TrashIcon, EyeIcon, PlayIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { MagicEditModal } from './MagicEditModal';
 import { VideoGenerationModal } from './VideoGenerationModal';
 import { MediaDetailModal } from './MediaDetailModal';
@@ -163,6 +163,26 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
     }
   };
 
+  const handleDownloadAsset = (asset: MediaAsset, event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (!asset.originalUrl || !asset.filename) {
+      console.error('Asset URL or filename is missing, cannot download.');
+      alert(t('downloadErrorMissingInfo'));
+      return;
+    }
+    try {
+      const link = document.createElement('a');
+      link.href = asset.originalUrl;
+      link.setAttribute('download', asset.filename);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading asset:", error);
+      alert(t('downloadErrorGeneric'));
+    }
+  };
+
   const handleMagicEdit = (asset: MediaAsset, event: React.MouseEvent) => {
     event.stopPropagation(); // Prevent asset selection
     setEditingAsset(asset);
@@ -213,7 +233,7 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {assets.map((asset) => (
           <div
             key={asset.id}
@@ -285,6 +305,14 @@ export function MediaGrid({ filter, selectedAsset, onAssetSelect, refreshTrigger
                 </button>
               )}
               
+              <button
+                onClick={(e) => handleDownloadAsset(asset, e)}
+                className="p-2 bg-white/90 hover:bg-white text-blue-600 rounded-full transition-colors"
+                title={t('download')}
+              >
+                <ArrowDownTrayIcon className="h-4 w-4" />
+              </button>
+
               <button
                 onClick={(e) => handleDeleteAsset(asset.id, e)}
                 className="p-2 bg-white/90 hover:bg-white text-red-600 rounded-full transition-colors"

@@ -101,5 +101,8 @@
   "videoPreview": "Video preview",
   "videoNotSupported": "Your browser does not support the video tag.",
   "unsupportedFormat": "Unsupported file format",
-  "authenticationRequired": "Authentication required for this action."
+  "authenticationRequired": "Authentication required for this action.",
+  "download": "Download",
+  "downloadErrorMissingInfo": "Cannot download: File URL or name is missing.",
+  "downloadErrorGeneric": "An error occurred while trying to download the file."
 }

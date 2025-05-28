@@ -544,48 +544,93 @@ export default function DataSyncAdminPage() {
                       <button
                         onClick={() => handleSyncShopifyArticles()}
                         disabled={syncingArticles}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center"
                       >
-                        {syncingArticles ? t('Admin.dataSync.articleSync.syncing') : t('Admin.dataSync.articleSync.syncButton')}
+                        <RefreshCw size={16} className={`mr-2 ${syncingArticles ? 'animate-spin' : ''}`} />
+                        {syncingArticles ? t('shopify.articleSync.syncing') : t('shopify.articleSync.syncButton')}
+                      </button>
+                      <button
+                        onClick={handleSyncToShopify}
+                        disabled={syncingToShopify}
+                        className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center"
+                      >
+                        <ExternalLink size={16} className={`mr-2 ${syncingToShopify ? 'animate-spin' : ''}`} />
+                        {syncingToShopify ? t('shopify.reverseArticleSync.syncing') : t('shopify.reverseArticleSync.syncButton')}
                       </button>
                     </div>
                   </div>
 
-                  {/* Article Sync Progress */}
+                  {/* Article Sync Progress (Shopify to App) */}
                   {articleSyncProgress && (
                     <div className="mb-4 bg-gray-600 rounded-md p-3">
-                      <p className="text-white text-sm font-medium mb-2">{t('shopify.articleSync.progress')}</p>
+                      <p className="text-white text-sm font-medium mb-2">{t('shopify.articleSync.progress.titleShopifyToApp')}</p>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
                         <div>
-                          <span className="text-gray-400">{t('shopify.articleSync.total')}: </span>
+                          <span className="text-gray-400">{t('shopify.articleSync.progress.total')}: </span>
                           <span className="text-white font-medium">{articleSyncProgress.total}</span>
                         </div>
                         <div>
-                          <span className="text-gray-400">{t('shopify.articleSync.created')}: </span>
+                          <span className="text-gray-400">{t('shopify.articleSync.progress.created')}: </span>
                           <span className="text-green-400 font-medium">{articleSyncProgress.created}</span>
                         </div>
                         <div>
-                          <span className="text-gray-400">{t('shopify.articleSync.updated')}: </span>
+                          <span className="text-gray-400">{t('shopify.articleSync.progress.updated')}: </span>
                           <span className="text-blue-400 font-medium">{articleSyncProgress.updated}</span>
                         </div>
                         <div>
-                          <span className="text-gray-400">{t('shopify.articleSync.errors')}: </span>
+                          <span className="text-gray-400">{t('shopify.articleSync.progress.errors')}: </span>
                           <span className="text-red-400 font-medium">{articleSyncProgress.errors}</span>
                         </div>
                       </div>
                     </div>
                   )}
 
-                  {/* Article Sync Messages */}
+                  {/* Article Sync Messages (Shopify to App) */}
                   {articleSyncError && (
                     <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
                       <p className="text-red-200 text-sm">{articleSyncError}</p>
                     </div>
                   )}
-
                   {articleSyncSuccess && (
                     <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
                       <p className="text-green-200 text-sm">{articleSyncSuccess}</p>
+                    </div>
+                  )}
+
+                  {/* Reverse Article Sync Progress (App to Shopify) */}
+                  {toShopifySyncProgress && (
+                    <div className="mb-4 bg-gray-600 rounded-md p-3">
+                      <p className="text-white text-sm font-medium mb-2">{t('shopify.reverseArticleSync.progress.titleAppToShopify')}</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseArticleSync.progress.processed')}: </span>
+                          <span className="text-white font-medium">{toShopifySyncProgress.processed}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseArticleSync.progress.created')}: </span>
+                          <span className="text-green-400 font-medium">{toShopifySyncProgress.created}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseArticleSync.progress.updated')}: </span>
+                          <span className="text-blue-400 font-medium">{toShopifySyncProgress.updated}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseArticleSync.progress.errors')}: </span>
+                          <span className="text-red-400 font-medium">{toShopifySyncProgress.errors}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Reverse Article Sync Messages (App to Shopify) */}
+                  {toShopifySyncError && (
+                    <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
+                      <p className="text-red-200 text-sm">{toShopifySyncError}</p>
+                    </div>
+                  )}
+                  {toShopifySyncSuccess && (
+                    <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
+                      <p className="text-green-200 text-sm">{toShopifySyncSuccess}</p>
                     </div>
                   )}
 
@@ -758,84 +803,6 @@ export default function DataSyncAdminPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        )}
-      </div>
-
-      {/* Article Synchronization */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">
-          {t('Admin.dataSync.articleSync.title')}
-        </h3>
-        <p className="text-sm text-gray-600 mb-4">
-          {t('Admin.dataSync.articleSync.description')}
-        </p>
-        
-        <button
-          onClick={() => handleSyncShopifyArticles()}
-          disabled={syncingArticles}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {syncingArticles ? t('Admin.dataSync.articleSync.syncing') : t('Admin.dataSync.articleSync.syncButton')}
-        </button>
-
-        {articleSyncError && (
-          <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-            {articleSyncError}
-          </div>
-        )}
-
-        {articleSyncSuccess && (
-          <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
-            {articleSyncSuccess}
-          </div>
-        )}
-
-        {articleSyncProgress && (
-          <div className="mt-4 p-3 bg-blue-100 border border-blue-400 text-blue-700 rounded">
-            <p>{t('Admin.dataSync.articleSync.progress.total')}: {articleSyncProgress.total}</p>
-            <p>{t('Admin.dataSync.articleSync.progress.created')}: {articleSyncProgress.created}</p>
-            <p>{t('Admin.dataSync.articleSync.progress.updated')}: {articleSyncProgress.updated}</p>
-            <p>{t('Admin.dataSync.articleSync.progress.errors')}: {articleSyncProgress.errors}</p>
-          </div>
-        )}
-      </div>
-
-      {/* Reverse Article Synchronization (App to Shopify) */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">
-          {t('Admin.dataSync.reverseArticleSync.title')}
-        </h3>
-        <p className="text-sm text-gray-600 mb-4">
-          {t('Admin.dataSync.reverseArticleSync.description')}
-        </p>
-        
-        <button
-          onClick={handleSyncToShopify}
-          disabled={syncingToShopify}
-          className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {syncingToShopify ? t('Admin.dataSync.reverseArticleSync.syncing') : t('Admin.dataSync.reverseArticleSync.syncButton')}
-        </button>
-
-        {toShopifySyncError && (
-          <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-            {toShopifySyncError}
-          </div>
-        )}
-
-        {toShopifySyncSuccess && (
-          <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
-            {toShopifySyncSuccess}
-          </div>
-        )}
-
-        {toShopifySyncProgress && (
-          <div className="mt-4 p-3 bg-blue-100 border border-blue-400 text-blue-700 rounded">
-            <p>{t('Admin.dataSync.reverseArticleSync.progress.processed')}: {toShopifySyncProgress.processed}</p>
-            <p>{t('Admin.dataSync.reverseArticleSync.progress.created')}: {toShopifySyncProgress.created}</p>
-            <p>{t('Admin.dataSync.reverseArticleSync.progress.updated')}: {toShopifySyncProgress.updated}</p>
-            <p>{t('Admin.dataSync.reverseArticleSync.progress.errors')}: {toShopifySyncProgress.errors}</p>
           </div>
         )}
       </div>

@@ -636,3 +636,10 @@ The SEO website analysis tool is now fully operational and provides professional
     - No local filesystem dependencies
     - Consistent with existing media upload patterns in the codebase
     - Better for production deployments (Vercel, etc.)
+
+- Implemented media asset deletion functionality with Supabase Storage and database cleanup.
+
+### Media Grid Enhancements (Continued)
+- Added a download button for each asset in `MediaGrid.tsx`.
+- Adjusted Tailwind CSS classes in `MediaGrid.tsx` to make grid items larger for better visibility.
+- Added translations for download functionality to `messages/en/Media.json`, `messages/fi/Media.json`, and `messages/sv/Media.json`.
