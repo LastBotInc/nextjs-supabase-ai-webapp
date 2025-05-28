@@ -59,6 +59,14 @@ export type GenerationOptions = {
   seed?: number;
 };
 
+export type VideoGenerationOptions = {
+  prompt: string;
+  model?: 'veo-2.0-generate-001' | 'veo-3.0-generate-preview';
+  aspectRatio?: '16:9' | '9:16';
+  durationSeconds?: number;
+  sourceAssetId?: string;
+};
+
 export type MediaFilter = {
   search?: string;
   type?: string[];

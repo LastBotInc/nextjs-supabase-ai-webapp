@@ -576,6 +576,43 @@ The SEO website analysis tool is now fully operational and provides professional
 
 ## 2024-12-19
 
+### Implemented Video Generation from Images
+- **Feature**: Added complete video generation functionality to the media dashboard
+- **Implementation**:
+  - **VideoGenerationModal Component**: New modal for video generation with source image preview, prompt input, and video settings display
+  - **API Endpoint** (`/api/media/generate-video`): 
+    - Uses Google GenAI SDK with Veo 2.0 model following exact pattern from `gemini-video-tool.js`
+    - Implements proper polling mechanism for video generation completion (up to 10 minutes)
+    - Downloads generated videos from Google's CDN and uploads to Supabase Storage
+    - Includes brand style enhancement for video prompts
+    - Proper admin authentication and database integration
+  - **MediaGrid Integration**: Added video generation button (play icon) to each image with hover overlay
+  - **Translations**: Added comprehensive video generation translations for en/fi/sv locales
+  - **Types**: Added `VideoGenerationOptions` type for video generation parameters
+
+- **Technical Details**:
+  - Video generation uses image-to-video with Veo 2.0 model
+  - 5-second duration, 16:9 aspect ratio by default
+  - Videos stored in Supabase Storage under `generated/videos/` folder
+  - Database records include source asset ID and generation metadata
+  - Brand styling applied to video prompts while preserving user intent
+
+- **User Experience**:
+  - Hover over any image to see video generation button (purple play icon)
+  - Modal shows source image preview and video settings
+  - Real-time generation status with polling updates
+  - Automatic refresh of media grid after successful generation
+
+### Refined Brand Enhancement for Image Generation
+- **Issue**: Previous fix made brand enhancement too generic, missing important brand elements like colors and name
+- **Solution**: Enhanced brand enhancement functions to include brand name and colors as styling guidance while maintaining user request priority
+- **Changes**:
+  - Added brand name (Brancoy HI Engine) to styling guidance
+  - Included specific brand colors: blue (#4A90E2) and coral (#FF6B6B) as accent colors
+  - Maintained user's request as primary focus with brand elements only affecting visual style
+  - Enhanced prompt structure: `"[user request]. Brand styling: [brand name] brand aesthetic with [traits], [style]. Use brand colors: [colors]. High quality, professional composition."`
+  - Applied to both image generation and editing APIs
+
 ### Migrated Image Storage to Supabase Storage
 - **Issue**: Images were being generated and saved locally to `public/images/generated/` folder instead of cloud storage
 - **Solution**: Migrated both image generation and editing to use Supabase Storage
@@ -599,52 +636,3 @@ The SEO website analysis tool is now fully operational and provides professional
     - No local filesystem dependencies
     - Consistent with existing media upload patterns in the codebase
     - Better for production deployments (Vercel, etc.)
-
-### Refined Brand Enhancement for Image Generation
-- **Issue**: Previous fix made brand enhancement too generic, missing important brand elements like colors and name
-- **Solution**: Enhanced brand enhancement functions to include brand name and colors as styling guidance while maintaining user request priority
-- **Changes**:
-  - Added brand name (Brancoy HI Engine) to styling guidance
-  - Included specific brand colors: blue (#4A90E2) and coral (#FF6B6B) as accent colors
-  - Maintained user's request as primary focus with brand elements only affecting visual style
-  - Enhanced prompt structure: `"[user request]. Brand styling: [brand name] brand aesthetic with [traits], [style]. Use brand colors: [colors]. High quality, professional composition."`
-  - Applied to both generation and edit APIs for consistency
-
-## 2024-12-18
-
-- Fixed "Cannot read properties of undefined (reading 'auth')" error in blog AI generation by passing Supabase client to `PostEditor`.
-- Resolved linter error in `PostList.tsx` by correctly handling the `subject` field during post save.
-- **UI Enhancement:** Improved form field contrast and readability in blog post editor
-  - Updated all form field styling (inputs, textareas, selects) for better contrast
-  - Enhanced light mode: white backgrounds with dark text (`bg-white text-gray-900`)
-  - Enhanced dark mode: lighter gray backgrounds with light text (`dark:bg-gray-700 dark:text-gray-100`)
-  - Improved border colors and placeholder text visibility
-  - Increased padding for better touch targets and visual spacing
-- **API Upgrade:** Migrated Gemini API to use new `@google/genai` library
-  - Switched from `@google/generative-ai` to `@google/genai` for better structured output support
-  - Updated to use `gemini-2.5-flash-preview` model for improved performance
-  - Implemented proper schema-based JSON response generation with Type definitions
-  - Enhanced error handling for empty responses and improved fallback mechanisms
-- **Content Generation Enhancement:** Improved AI content generation capabilities
-  - **Increased Token Limit:** Raised maxTokens from 2048 to 8192 for longer, more complete content generation
-  - **Rich Text Editor Contrast Fix:** Enhanced text visibility in the content editor
-    - Added explicit white background for light mode and gray-700 for dark mode
-    - Applied universal text color rules to all ProseMirror elements (`[&_.ProseMirror_*]`)
-    - Improved styling for bold, italic, and other text formatting elements
-    - Ensured consistent dark text on light backgrounds for optimal readability
-    - **Global CSS Override:** Added comprehensive Tiptap editor styling in `globals.css`
-      - Used `!important` declarations to override any conflicting global styles
-      - Specific color rules for all text elements (p, div, span, headings, etc.)
-      - Proper contrast for links, blockquotes, code blocks
-      - Complete dark mode support with appropriate color schemes
-      - Applied `.rich-text-editor` class scoping to prevent conflicts
-      - **Background Fix:** Changed ProseMirror background to transparent to inherit from parent container
-        - Removed forced white/dark backgrounds that created visual inconsistencies
-        - Editor now seamlessly blends with the surrounding interface
-        - Maintains proper text contrast while eliminating odd background artifacts
-- **Web Research Authentication Fix:** Resolved authentication issues in blog web research functionality
-  - **Fixed `/api/tavily-search` endpoint:** Updated POST method to handle Authorization header tokens instead of cookie-based authentication
-  - **Fixed `/api/html-to-md` endpoint:** Added proper authentication requirement with Authorization header validation
-  - **Consistent Auth Pattern:** Both endpoints now follow the same authentication pattern as the Gemini API route
-  - **Enhanced Security:** Added comprehensive logging and error handling for authentication failures
-  - **Result:** "Hae" (Search) button in blog creation now works properly without redirecting to login
