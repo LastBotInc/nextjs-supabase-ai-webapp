@@ -63,6 +63,7 @@ export async function POST(request: Request) {
             content: post.content,
             excerpt: post.excerpt,
             meta_description: post.meta_description,
+            slug: post.slug,
             targetLanguage: lang
           })
 
@@ -76,6 +77,7 @@ export async function POST(request: Request) {
               content: translation.content,
               excerpt: translation.excerpt,
               meta_description: translation.meta_description,
+              slug: translation.slug,
               locale: lang,
               created_at: post.created_at // Keep same creation date as original
             })

@@ -328,16 +328,10 @@ export default function DataSyncAdminPage() {
     setToShopifySyncProgress(null);
 
     try {
-      const response = await fetchAdminApi('/api/admin/shopify/sync-articles', session.access_token, {
+      const result = await fetchAdminApi('shopify/sync-articles', session.access_token, {
         method: 'PUT',
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to sync to Shopify');
-      }
-
-      const result = await response.json();
       setToShopifySyncSuccess(result.message);
       setToShopifySyncProgress(result.stats);
       

@@ -89,6 +89,175 @@ interface GraphQLResponse {
   };
 }
 
+// Helper function to upload local image to Shopify using staged uploads
+async function uploadLocalImageToShopify(client: any, imageUrl: string, filename: string): Promise<string | null> {
+  try {
+    console.log(`📤 Starting staged upload for local image: ${filename}`);
+    
+    // First, fetch the local image to get its content and metadata
+    const imageResponse = await fetch(imageUrl);
+    if (!imageResponse.ok) {
+      console.error(`❌ Failed to fetch local image: ${imageResponse.statusText}`);
+      return null;
+    }
+    
+    const imageBuffer = await imageResponse.arrayBuffer();
+    const fileSize = imageBuffer.byteLength;
+    const mimeType = imageResponse.headers.get('content-type') || 'image/jpeg';
+    
+    console.log(`📊 Image metadata: ${fileSize} bytes, ${mimeType}`);
+    
+    // Step 1: Create staged upload target
+    const stagedUploadResponse = await client.query({
+      data: {
+        query: `
+          mutation stagedUploadsCreate($input: [StagedUploadInput!]!) {
+            stagedUploadsCreate(input: $input) {
+              stagedTargets {
+                url
+                resourceUrl
+                parameters {
+                  name
+                  value
+                }
+              }
+              userErrors {
+                field
+                message
+              }
+            }
+          }
+        `,
+        variables: {
+          input: [{
+            filename: filename,
+            mimeType: mimeType,
+            resource: 'IMAGE',
+            httpMethod: 'POST',
+            fileSize: fileSize.toString()
+          }]
+        }
+      }
+    });
+
+    const stagedUploadResult = stagedUploadResponse.body?.data?.stagedUploadsCreate;
+    
+    if (!stagedUploadResult || stagedUploadResult.userErrors?.length > 0) {
+      console.error('❌ Error creating staged upload:', stagedUploadResult?.userErrors);
+      return null;
+    }
+
+    const stagedTarget = stagedUploadResult.stagedTargets[0];
+    if (!stagedTarget) {
+      console.error('❌ No staged target returned');
+      return null;
+    }
+
+    console.log(`✅ Staged upload target created: ${stagedTarget.url}`);
+
+    // Step 2: Upload file to Shopify's cloud storage
+    const formData = new FormData();
+    
+    // Add all the required parameters
+    stagedTarget.parameters.forEach((param: any) => {
+      formData.append(param.name, param.value);
+    });
+    
+    // Add the file itself
+    const blob = new Blob([imageBuffer], { type: mimeType });
+    formData.append('file', blob, filename);
+
+    const uploadResponse = await fetch(stagedTarget.url, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!uploadResponse.ok) {
+      console.error(`❌ Failed to upload to staged target: ${uploadResponse.status} ${uploadResponse.statusText}`);
+      return null;
+    }
+
+    console.log(`✅ File uploaded successfully to Shopify cloud storage`);
+    
+    // Step 3: Return the resource URL for use in article creation
+    console.log(`🔗 Shopify resource URL: ${stagedTarget.resourceUrl}`);
+    return stagedTarget.resourceUrl;
+
+  } catch (error) {
+    console.error('❌ Error in staged upload process:', error);
+    return null;
+  }
+}
+
+// Helper function to validate and convert image URL
+function validateAndConvertImageUrl(imageUrl: string | null | undefined): string | null {
+  if (!imageUrl) {
+    return null;
+  }
+
+  console.log('🖼️ Original image URL:', imageUrl);
+
+  // Handle Supabase storage URLs - convert localhost to production
+  if (imageUrl.includes('/storage/v1/object/public/')) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    
+    if (!supabaseUrl || supabaseUrl.includes('127.0.0.1') || supabaseUrl.includes('localhost')) {
+      console.log('⚠️ Local Supabase URL detected - will use staged upload');
+      return imageUrl; // Return as-is, will be handled by staged upload
+    }
+
+    // Extract the storage path
+    const storagePathMatch = imageUrl.match(/\/storage\/v1\/object\/public\/(.+)$/);
+    if (storagePathMatch) {
+      const storagePath = storagePathMatch[1];
+      const productionUrl = `${supabaseUrl}/storage/v1/object/public/${storagePath}`;
+      console.log('🔗 Converted Supabase URL to production:', productionUrl);
+      return productionUrl;
+    }
+  }
+
+  // If it's a relative URL, convert to absolute
+  if (imageUrl.startsWith('/')) {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:3000';
+    const absoluteUrl = `${baseUrl}${imageUrl}`;
+    console.log('🔗 Converted relative URL to absolute:', absoluteUrl);
+    return absoluteUrl;
+  }
+
+  // If it's already absolute, validate it
+  try {
+    const url = new URL(imageUrl);
+    
+    // Check if it's a localhost URL that needs staged upload
+    if ((url.hostname === 'localhost' || url.hostname === '127.0.0.1')) {
+      console.log('⚠️ Localhost URL detected - will use staged upload');
+      return imageUrl; // Return as-is, will be handled by staged upload
+    }
+
+    // Prefer HTTPS for Shopify, but allow HTTP for development
+    if (url.protocol !== 'https:' && !imageUrl.includes('localhost')) {
+      console.log('⚠️ Non-HTTPS URL (may not work in Shopify):', imageUrl);
+    }
+
+    console.log('✅ Valid public URL:', imageUrl);
+    return imageUrl;
+  } catch (error) {
+    console.log('❌ Invalid URL format:', imageUrl, error);
+    return null;
+  }
+}
+
+// Helper function to generate unique handle with locale
+function generateUniqueHandle(baseSlug: string, locale: string): string {
+  // For English, use the original slug
+  if (locale === 'en') {
+    return baseSlug;
+  }
+  
+  // For other languages, append locale suffix
+  return `${baseSlug}-${locale}`;
+}
+
 export async function POST(request: NextRequest) {
   try {
     console.log('\n📝 [POST /api/admin/shopify/sync-articles]');
@@ -583,20 +752,71 @@ async function createShopifyArticle(
 ) {
   console.log(`➕ Creating new article for post: ${post.title}`);
 
+  // Get user profile for author name
+  const { data: userProfile } = await supabase
+    .from('profiles')
+    .select('full_name, email')
+    .eq('id', userId)
+    .single();
+
+  const authorName = userProfile?.full_name || userProfile?.email || 'Admin';
+
+  // Generate unique handle with locale suffix
+  const uniqueHandle = generateUniqueHandle(post.slug, post.locale || 'en');
+  console.log(`🔗 Generated unique handle: ${uniqueHandle} (locale: ${post.locale || 'en'})`);
+
+  // Handle image upload - check if it's a local URL that needs staged upload
+  let finalImageUrl = null;
+  if (post.featured_image) {
+    const validatedUrl = validateAndConvertImageUrl(post.featured_image);
+    
+    if (validatedUrl) {
+      // Check if this is a localhost URL that needs staged upload
+      if (validatedUrl.includes('127.0.0.1') || validatedUrl.includes('localhost')) {
+        console.log('🔄 Local image detected, using staged upload process...');
+        const filename = `article-${post.id}-${Date.now()}.jpg`;
+        finalImageUrl = await uploadLocalImageToShopify(client, validatedUrl, filename);
+        
+        if (!finalImageUrl) {
+          console.log('⚠️ Staged upload failed, article will be created without image');
+        }
+      } else {
+        // It's already a public URL, use it directly
+        finalImageUrl = validatedUrl;
+      }
+    }
+  }
+
   const articleInput = {
+    blogId: blogId,
     title: post.title,
-    handle: post.slug,
+    handle: uniqueHandle,
     body: post.content,
     summary: post.excerpt || '',
     tags: post.tags || [],
-    isPublished: post.published
+    isPublished: post.published,
+    author: {
+      name: authorName
+    },
+    // Only include image if we have a valid URL
+    ...(finalImageUrl && {
+      image: {
+        url: finalImageUrl
+      }
+    })
   };
+
+  console.log('📤 Sending article input to Shopify:', {
+    ...articleInput,
+    body: `${articleInput.body.substring(0, 100)}...`, // Truncate body for logging
+    imageIncluded: !!finalImageUrl
+  });
 
   const response = await client.query({
     data: {
       query: `
-        mutation CreateArticle($blogId: ID!, $article: ArticleCreateInput!) {
-          articleCreate(blogId: $blogId, article: $article) {
+        mutation CreateArticle($article: ArticleCreateInput!) {
+          articleCreate(article: $article) {
             article {
               id
               title
@@ -605,8 +825,10 @@ async function createShopifyArticle(
               summary
               tags
               isPublished
-              createdAt
-              updatedAt
+              image {
+                url
+                altText
+              }
             }
             userErrors {
               field
@@ -616,45 +838,50 @@ async function createShopifyArticle(
         }
       `,
       variables: {
-        blogId,
         article: articleInput
       }
     }
   });
 
-  const result = response.body?.data?.articleCreate;
-  
-  if (result?.userErrors?.length > 0) {
-    throw new Error(`Shopify API error: ${result.userErrors.map((e: any) => e.message).join(', ')}`);
+  // Debug the response structure
+  console.log('📊 GraphQL Response:', JSON.stringify(response, null, 2));
+
+  // Access the response data properly
+  const responseData = response.body?.data || response.data || response;
+  const articleCreateResult = responseData?.articleCreate;
+
+  if (!articleCreateResult) {
+    console.error('❌ No articleCreate result in response:', responseData);
+    throw new Error('Invalid response from Shopify API');
   }
 
-  if (!result?.article?.id) {
-    throw new Error('No article ID returned from Shopify');
+  if (articleCreateResult.userErrors && articleCreateResult.userErrors.length > 0) {
+    console.error('❌ Error creating article:', articleCreateResult.userErrors);
+    throw new Error(`Failed to create article: ${articleCreateResult.userErrors.map((e: any) => e.message).join(', ')}`);
   }
 
-  // Create mapping record
-  const { error: mappingError } = await supabase
+  const createdArticle = articleCreateResult.article;
+  if (!createdArticle) {
+    console.error('❌ No article returned from creation');
+    throw new Error('No article returned from Shopify');
+  }
+
+  console.log(`✅ Created article: ${createdArticle.title} (ID: ${createdArticle.id})${finalImageUrl ? ' with image' : ''}`);
+
+  // Store mapping in external_blog_mappings
+  await supabase
     .from('external_blog_mappings')
     .insert({
       internal_post_id: post.id,
-      external_source_name: 'shopify',
-      external_blog_id: blogId,
-      external_article_id: result.article.id,
+      external_platform: 'shopify',
+      external_post_id: createdArticle.id,
+      external_url: `https://${process.env.SHOPIFY_SHOP_DOMAIN}/blogs/${blogId.split('/').pop()}/articles/${createdArticle.handle}`,
       sync_status: 'synced',
-      last_synced_at: new Date().toISOString(),
-      meta_data: {
-        shopify_handle: result.article.handle,
-        shopify_created_at: result.article.createdAt,
-        sync_direction: 'app_to_shopify'
-      }
+      last_synced_at: new Date().toISOString()
     });
 
-  if (mappingError) {
-    console.error('⚠️ Warning: Failed to create mapping record:', mappingError);
-  }
-
   stats.created++;
-  console.log(`✅ Created article: ${result.article.id}`);
+  return createdArticle;
 }
 
 // Helper function to update existing article in Shopify
@@ -668,14 +895,52 @@ async function updateShopifyArticle(
 ) {
   console.log(`🔄 Updating existing article: ${articleId} for post: ${post.title}`);
 
+  // Generate unique handle with locale suffix
+  const uniqueHandle = generateUniqueHandle(post.slug, post.locale || 'en');
+  console.log(`🔗 Generated unique handle: ${uniqueHandle} (locale: ${post.locale || 'en'})`);
+
+  // Handle image upload - check if it's a local URL that needs staged upload
+  let finalImageUrl = null;
+  if (post.featured_image) {
+    const validatedUrl = validateAndConvertImageUrl(post.featured_image);
+    
+    if (validatedUrl) {
+      // Check if this is a localhost URL that needs staged upload
+      if (validatedUrl.includes('127.0.0.1') || validatedUrl.includes('localhost')) {
+        console.log('🔄 Local image detected, using staged upload process...');
+        const filename = `article-${post.id}-${Date.now()}.jpg`;
+        finalImageUrl = await uploadLocalImageToShopify(client, validatedUrl, filename);
+        
+        if (!finalImageUrl) {
+          console.log('⚠️ Staged upload failed, article will be updated without image');
+        }
+      } else {
+        // It's already a public URL, use it directly
+        finalImageUrl = validatedUrl;
+      }
+    }
+  }
+
   const articleInput = {
     title: post.title,
-    handle: post.slug,
+    handle: uniqueHandle,
     body: post.content,
     summary: post.excerpt || '',
     tags: post.tags || [],
-    isPublished: post.published
+    isPublished: post.published,
+    // Only include image if we have a valid URL
+    ...(finalImageUrl && {
+      image: {
+        url: finalImageUrl
+      }
+    })
   };
+
+  console.log('📤 Sending article update to Shopify:', {
+    ...articleInput,
+    body: `${articleInput.body.substring(0, 100)}...`, // Truncate body for logging
+    imageIncluded: !!finalImageUrl
+  });
 
   const response = await client.query({
     data: {
@@ -690,7 +955,10 @@ async function updateShopifyArticle(
               summary
               tags
               isPublished
-              updatedAt
+              image {
+                url
+                altText
+              }
             }
             userErrors {
               field
@@ -706,31 +974,41 @@ async function updateShopifyArticle(
     }
   });
 
-  const result = response.body?.data?.articleUpdate;
-  
-  if (result?.userErrors?.length > 0) {
-    throw new Error(`Shopify API error: ${result.userErrors.map((e: any) => e.message).join(', ')}`);
+  // Debug the response structure
+  console.log('📊 GraphQL Update Response:', JSON.stringify(response, null, 2));
+
+  // Access the response data properly
+  const responseData = response.body?.data || response.data || response;
+  const articleUpdateResult = responseData?.articleUpdate;
+
+  if (!articleUpdateResult) {
+    console.error('❌ No articleUpdate result in response:', responseData);
+    throw new Error('Invalid response from Shopify API');
   }
 
+  if (articleUpdateResult.userErrors && articleUpdateResult.userErrors.length > 0) {
+    console.error('❌ Error updating article:', articleUpdateResult.userErrors);
+    throw new Error(`Failed to update article: ${articleUpdateResult.userErrors.map((e: any) => e.message).join(', ')}`);
+  }
+
+  const updatedArticle = articleUpdateResult.article;
+  if (!updatedArticle) {
+    console.error('❌ No article returned from update');
+    throw new Error('No article returned from Shopify');
+  }
+
+  console.log(`✅ Updated article: ${updatedArticle.title} (ID: ${updatedArticle.id})${finalImageUrl ? ' with image' : ''}`);
+
   // Update mapping record
-  const { error: mappingError } = await supabase
+  await supabase
     .from('external_blog_mappings')
     .update({
       sync_status: 'synced',
-      last_synced_at: new Date().toISOString(),
-      meta_data: {
-        shopify_handle: result.article.handle,
-        shopify_updated_at: result.article.updatedAt,
-        sync_direction: 'app_to_shopify'
-      }
+      last_synced_at: new Date().toISOString()
     })
-    .eq('external_article_id', articleId)
-    .eq('external_source_name', 'shopify');
-
-  if (mappingError) {
-    console.error('⚠️ Warning: Failed to update mapping record:', mappingError);
-  }
+    .eq('internal_post_id', post.id)
+    .eq('external_platform', 'shopify');
 
   stats.updated++;
-  console.log(`✅ Updated article: ${articleId}`);
+  return updatedArticle;
 } 
