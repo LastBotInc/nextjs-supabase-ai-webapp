@@ -104,5 +104,16 @@
   "authenticationRequired": "Authentication required for this action.",
   "download": "Download",
   "downloadErrorMissingInfo": "Cannot download: File URL or name is missing.",
-  "downloadErrorGeneric": "An error occurred while trying to download the file."
+  "downloadErrorGeneric": "An error occurred while trying to download the file.",
+  "selectFromLibrary": "Select from Media Library",
+  "uploadNew": "Upload New",
+  "noMediaFound": "No media assets found",
+  "tryAdjustingSearch": "Try adjusting your search terms",
+  "uploading": "Uploading...",
+  "upload": "Upload",
+  "uploadFailed": "Upload failed",
+  "generationFailed": "Generation failed",
+  "removeImage": "Remove Image",
+  "noImageSelected": "No image selected",
+  "enterUrlManually": "Or enter URL manually"
 }

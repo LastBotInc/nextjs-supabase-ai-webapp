@@ -13,6 +13,20 @@ const config = {
         protocol: 'https',
         hostname: '**',
       },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '54321',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '54321',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+      },
     ],
   },
 

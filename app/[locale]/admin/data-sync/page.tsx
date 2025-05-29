@@ -114,6 +114,17 @@ export default function DataSyncAdminPage() {
     errors: number;
   } | null>(null);
 
+  // Product sync to Shopify states (app to Shopify)
+  const [syncingProductsToShopify, setSyncingProductsToShopify] = useState(false);
+  const [productToShopifySyncError, setProductToShopifySyncError] = useState<string | null>(null);
+  const [productToShopifySyncSuccess, setProductToShopifySyncSuccess] = useState<string | null>(null);
+  const [productToShopifySyncProgress, setProductToShopifySyncProgress] = useState<{
+    processed: number;
+    created: number;
+    updated: number;
+    errors: number;
+  } | null>(null);
+
   const fetchDataSources = useCallback(async () => {
     if (!session?.access_token || !isAdmin) {
       if (!authLoading) setError(t('errors.unauthorized'));
@@ -342,6 +353,45 @@ export default function DataSyncAdminPage() {
       setToShopifySyncError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setSyncingToShopify(false);
+      setTimeout(() => {
+        setToShopifySyncSuccess(null);
+        setToShopifySyncError(null);
+        setToShopifySyncProgress(null);
+      }, 10000);
+    }
+  };
+
+  const handleSyncProductsToShopify = async () => {
+    if (!session) {
+      setProductToShopifySyncError('No session available');
+      return;
+    }
+
+    setSyncingProductsToShopify(true);
+    setProductToShopifySyncError(null);
+    setProductToShopifySyncSuccess(null);
+    setProductToShopifySyncProgress(null);
+
+    try {
+      const result = await fetchAdminApi('shopify/sync-products', session.access_token, {
+        method: 'PUT',
+      });
+
+      setProductToShopifySyncSuccess(result.message);
+      setProductToShopifySyncProgress(result.stats);
+      
+      // Refresh data sources
+      await fetchDataSources();
+    } catch (error) {
+      console.error('Error syncing products to Shopify:', error);
+      setProductToShopifySyncError(error instanceof Error ? error.message : 'Unknown error');
+    } finally {
+      setSyncingProductsToShopify(false);
+      setTimeout(() => {
+        setProductToShopifySyncSuccess(null);
+        setProductToShopifySyncError(null);
+        setProductToShopifySyncProgress(null);
+      }, 10000);
     }
   };
 
@@ -486,6 +536,14 @@ export default function DataSyncAdminPage() {
                         <RefreshCw size={16} className={`mr-2 ${syncingProducts ? 'animate-spin' : ''}`} />
                         {syncingProducts ? t('shopify.productSync.syncing') : t('shopify.productSync.fullSync')}
                       </button>
+                      <button
+                        onClick={handleSyncProductsToShopify}
+                        disabled={syncingProductsToShopify}
+                        className="px-3 py-2 bg-green-600 hover:bg-green-700 disabled:bg-green-800 text-white rounded-md flex items-center transition-colors text-sm"
+                      >
+                        <ExternalLink size={16} className={`mr-2 ${syncingProductsToShopify ? 'animate-spin' : ''}`} />
+                        {syncingProductsToShopify ? t('shopify.reverseProductSync.syncing') : t('shopify.reverseProductSync.syncButton')}
+                      </button>
                     </div>
                   </div>
 
@@ -514,6 +572,31 @@ export default function DataSyncAdminPage() {
                     </div>
                   )}
 
+                  {/* Product to Shopify Sync Progress */}
+                  {productToShopifySyncProgress && (
+                    <div className="mb-4 bg-gray-600 rounded-md p-3">
+                      <p className="text-white text-sm font-medium mb-2">{t('shopify.reverseProductSync.progress.titleAppToShopify')}</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseProductSync.progress.processed')}: </span>
+                          <span className="text-white font-medium">{productToShopifySyncProgress.processed}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseProductSync.progress.created')}: </span>
+                          <span className="text-green-400 font-medium">{productToShopifySyncProgress.created}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseProductSync.progress.updated')}: </span>
+                          <span className="text-blue-400 font-medium">{productToShopifySyncProgress.updated}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shopify.reverseProductSync.progress.errors')}: </span>
+                          <span className="text-red-400 font-medium">{productToShopifySyncProgress.errors}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Sync Messages */}
                   {syncError && (
                     <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
@@ -524,6 +607,19 @@ export default function DataSyncAdminPage() {
                   {syncSuccess && (
                     <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
                       <p className="text-green-200 text-sm">{syncSuccess}</p>
+                    </div>
+                  )}
+
+                  {/* Product to Shopify Sync Messages */}
+                  {productToShopifySyncError && (
+                    <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
+                      <p className="text-red-200 text-sm">{productToShopifySyncError}</p>
+                    </div>
+                  )}
+
+                  {productToShopifySyncSuccess && (
+                    <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
+                      <p className="text-green-200 text-sm">{productToShopifySyncSuccess}</p>
                     </div>
                   )}
 

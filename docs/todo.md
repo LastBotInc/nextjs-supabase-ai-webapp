@@ -114,6 +114,19 @@
 ✅ Category management
 ✅ Media library
 
+### Product Management
+✅ Product editor with AI content generation
+✅ Product list and management
+✅ MediaSelector component for image selection
+  - ✅ Generic reusable media selection modal
+  - ✅ Browse existing media assets with search
+  - ✅ Upload new files directly from selector
+  - ✅ AI image generation integration
+  - ✅ MIME type filtering support
+  - ✅ Complete internationalization (en/fi/sv)
+  - ✅ Integration with ProductEditor
+  - ✅ Documentation and usage examples
+
 ### User Management
 ✅ User list
 ✅ Role management

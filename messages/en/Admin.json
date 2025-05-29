@@ -129,6 +129,13 @@
       "sku": "SKU",
       "inventory": "Inventory",
       "shopifyVariantId": "Shopify Variant ID"
+    },
+    "editor": {
+      "selectFromLibrary": "Select from Media Library",
+      "removeImage": "Remove Image",
+      "noImageSelected": "No image selected",
+      "enterUrlManually": "Or enter URL manually",
+      "selectProductImage": "Select Product Image"
     }
   },
   "seo": {},
@@ -257,6 +264,7 @@
         "syncButton": "Sync Articles",
         "syncing": "Syncing...",
         "progress": {
+          "titleShopifyToApp": "Article Sync Progress (Shopify → App):",
           "total": "Total",
           "created": "Created",
           "updated": "Updated",
@@ -269,6 +277,20 @@
         "syncButton": "Publish to Shopify",
         "syncing": "Publishing...",
         "progress": {
+          "titleAppToShopify": "Article Sync Progress (App → Shopify):",
+          "processed": "Processed",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
+      },
+      "reverseProductSync": {
+        "title": "Publish Products to Shopify",
+        "description": "Sync local products from the app to your Shopify store",
+        "syncButton": "Publish to Shopify",
+        "syncing": "Publishing...",
+        "progress": {
+          "titleAppToShopify": "Product Sync Progress (App → Shopify):",
           "processed": "Processed",
           "created": "Created",
           "updated": "Updated",

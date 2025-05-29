@@ -103,6 +103,17 @@
   "unsupportedFormat": "Filformatet stöds inte",
   "authenticationRequired": "Autentisering krävs för denna åtgärd.",
   "download": "Ladda ner",
-  "downloadErrorMissingInfo": "Kan inte ladda ner: Filens URL eller namn saknas.",
-  "downloadErrorGeneric": "Ett fel uppstod vid försök att ladda ner filen."
+  "downloadErrorMissingInfo": "Kan inte ladda ner: Fil-URL eller namn saknas.",
+  "downloadErrorGeneric": "Ett fel uppstod vid nedladdning av filen.",
+  "selectFromLibrary": "Välj från mediabibliotek",
+  "uploadNew": "Ladda upp ny",
+  "noMediaFound": "Inga mediafiler hittades",
+  "tryAdjustingSearch": "Försök justera dina söktermer",
+  "uploading": "Laddar upp...",
+  "upload": "Ladda upp",
+  "uploadFailed": "Uppladdning misslyckades",
+  "generationFailed": "Generering misslyckades",
+  "removeImage": "Ta bort bild",
+  "noImageSelected": "Ingen bild vald",
+  "enterUrlManually": "Eller ange URL manuellt"
 }

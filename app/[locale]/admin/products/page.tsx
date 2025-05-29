@@ -7,7 +7,10 @@ import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { useLoadingWithTimeout } from '@/hooks/useLoadingWithTimeout'
-import { X, Package, Tag, Calendar, ExternalLink } from 'lucide-react'
+import { X, Package, Tag, Calendar, ExternalLink, Plus } from 'lucide-react'
+import { createClient } from '@/utils/supabase/client'
+import ProductEditor from '@/components/admin/ProductEditor'
+import Image from 'next/image'
 
 const PRODUCTS_PER_PAGE = 20
 
@@ -23,6 +26,7 @@ interface Product {
   updated_at: string
   variants?: ProductVariant[]
   product_images?: ProductImage[]
+  featured_image?: string
 }
 
 interface ProductVariant {
@@ -50,6 +54,7 @@ function ProductCard({ product, onClose }: ProductCardProps) {
   const t = useTranslations('Admin.products')
   const [variants, setVariants] = useState<ProductVariant[]>([])
   const [loadingVariants, setLoadingVariants] = useState(false)
+  const [imageError, setImageError] = useState(false)
   const { session } = useAuth()
 
   const fetchVariants = useCallback(async () => {
@@ -126,13 +131,31 @@ function ProductCard({ product, onClose }: ProductCardProps) {
             {/* Left Column - Images */}
             <div className="space-y-4">
               {/* Primary Image */}
-              {product.product_images && product.product_images.length > 0 ? (
+              {product.featured_image && !imageError ? (
+                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden">
+                  <Image
+                    src={product.featured_image}
+                    alt={product.title}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                    onError={() => {
+                      console.error('Failed to load featured image:', product.featured_image)
+                      setImageError(true)
+                    }}
+                    unoptimized={product.featured_image.includes('127.0.0.1') || product.featured_image.includes('localhost')}
+                  />
+                </div>
+              ) : product.product_images && product.product_images.length > 0 ? (
                 <div className="space-y-4">
                   <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={product.product_images[0].url}
                       alt={product.product_images[0].alt_text || product.title}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover"
+                      unoptimized={product.product_images[0].url.includes('cdn.shopify.com')}
                     />
                   </div>
                   
@@ -141,10 +164,13 @@ function ProductCard({ product, onClose }: ProductCardProps) {
                     <div className="grid grid-cols-4 gap-2">
                       {product.product_images.slice(1, 5).map((image) => (
                         <div key={image.id} className="aspect-square bg-gray-100 dark:bg-gray-700 rounded overflow-hidden">
-                          <img
+                          <Image
                             src={image.url}
                             alt={image.alt_text || product.title}
+                            width={100}
+                            height={100}
                             className="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                            unoptimized={image.url.includes('cdn.shopify.com')}
                           />
                         </div>
                       ))}
@@ -153,7 +179,14 @@ function ProductCard({ product, onClose }: ProductCardProps) {
                 </div>
               ) : (
                 <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                  <Package className="h-16 w-16 text-gray-400" />
+                  <div className="text-center">
+                    <Package className="h-16 w-16 text-gray-400 mx-auto mb-2" />
+                    {imageError && product.featured_image && (
+                      <p className="text-xs text-red-500 dark:text-red-400">
+                        Failed to load: {product.featured_image.substring(0, 50)}...
+                      </p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
@@ -198,91 +231,75 @@ function ProductCard({ product, onClose }: ProductCardProps) {
           <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.vendor')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white">
-                      {product.vendor || '-'}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.type')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white">
-                      {product.product_type || '-'}
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('card.vendor')}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {product.vendor || '-'}
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.shopifyId')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white font-mono">
-                      {product.shopify_product_id}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.internalId')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white font-mono text-xs">
-                      {product.id}
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('card.type')}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {product.product_type || '-'}
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.created')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white">
-                      {formatDate(product.created_at)}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.updated')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white">
-                      {formatDate(product.updated_at)}
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('card.shopifyId')}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">
+                    {product.shopify_product_id}
+                  </p>
                 </div>
 
-                {/* Image Count */}
-                {product.product_images && product.product_images.length > 0 && (
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      {t('card.images')}
-                    </h4>
-                    <p className="text-sm text-gray-900 dark:text-white">
-                      {product.product_images.length} {product.product_images.length === 1 ? 'image' : 'images'}
-                    </p>
-                  </div>
-                )}
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('card.internalId')}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">
+                    {product.id}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t('card.created')}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {formatDate(product.created_at)}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t('card.updated')}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {formatDate(product.updated_at)}
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Variants Section */}
+          {/* Product Variants */}
           <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-            <div className="flex items-center space-x-2 mb-4">
-              <Tag className="h-5 w-5 text-gray-500" />
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white">
-                {t('card.variants')} ({variants.length})
-              </h4>
-            </div>
-
+            <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">
+              {t('card.variants')}
+            </h4>
+            
             {loadingVariants ? (
-              <div className="flex justify-center py-4">
+              <div className="flex items-center justify-center py-4">
                 <LoadingSpinner size="sm" text={t('card.loadingVariants')} />
               </div>
             ) : variants.length > 0 ? (
@@ -290,39 +307,39 @@ function ProductCard({ product, onClose }: ProductCardProps) {
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                   <thead className="bg-gray-50 dark:bg-gray-900">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {t('card.variantTitle')}
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {t('card.price')}
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {t('card.sku')}
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {t('card.inventory')}
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {t('card.shopifyVariantId')}
                       </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                     {variants.map((variant) => (
-                      <tr key={variant.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                        <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                      <tr key={variant.id}>
+                        <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
                           {variant.title}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-medium">
+                        <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
                           {formatPrice(variant.price)}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 font-mono">
+                        <td className="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 font-mono">
                           {variant.sku || '-'}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
                           {variant.inventory_quantity}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 font-mono">
+                        <td className="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 font-mono">
                           {variant.shopify_variant_id}
                         </td>
                       </tr>
@@ -349,11 +366,13 @@ export default function AdminProductsPage() {
   const [hasMore, setHasMore] = useState(true)
   const [totalCount, setTotalCount] = useState(0)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [showEditor, setShowEditor] = useState(false)
   const { session, isAdmin, loading: authLoading } = useAuth()
   const router = useRouter()
   const params = useParams()
   const locale = params.locale as string
   const t = useTranslations('Admin.products')
+  const supabaseClient = createClient()
   const { loading, startLoading, stopLoading } = useLoadingWithTimeout({
     timeout: 10000,
     onTimeout: () => setError(new Error('Request timed out. Please try again.'))
@@ -467,6 +486,20 @@ export default function AdminProductsPage() {
     setSelectedProduct(null)
   }
 
+  const handleAddProduct = () => {
+    setShowEditor(true)
+  }
+
+  const handleSaveProduct = async (productData: any) => {
+    // Refresh the products list
+    await fetchProducts()
+    setShowEditor(false)
+  }
+
+  const handleCancelEditor = () => {
+    setShowEditor(false)
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="sm:flex sm:items-center mb-8">
@@ -477,6 +510,16 @@ export default function AdminProductsPage() {
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
             {t('description', { count: totalCount })}
           </p>
+        </div>
+        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+          <button
+            type="button"
+            onClick={handleAddProduct}
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Add Product
+          </button>
         </div>
       </div>
       
@@ -560,33 +603,69 @@ export default function AdminProductsPage() {
             </tbody>
           </table>
         </div>
+
+        {/* Pagination */}
+        {totalCount > PRODUCTS_PER_PAGE && (
+          <div className="bg-white dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 sm:px-6">
+            <div className="flex-1 flex justify-between sm:hidden">
+              <button
+                onClick={() => setPage(page - 1)}
+                disabled={page === 1}
+                className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {t('pagination.previous')}
+              </button>
+              <button
+                onClick={() => setPage(page + 1)}
+                disabled={!hasMore}
+                className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {t('pagination.next')}
+              </button>
+            </div>
+            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {t('pagination.page', { 
+                    page, 
+                    total: Math.ceil(totalCount / PRODUCTS_PER_PAGE) 
+                  })}
+                </p>
+              </div>
+              <div>
+                <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button
+                    onClick={() => setPage(page - 1)}
+                    disabled={page === 1}
+                    className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {t('pagination.previous')}
+                  </button>
+                  <button
+                    onClick={() => setPage(page + 1)}
+                    disabled={!hasMore}
+                    className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {t('pagination.next')}
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="mt-6 flex justify-between items-center">
-        <button
-          onClick={() => setPage(p => Math.max(1, p - 1))}
-          disabled={page === 1}
-          className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        >
-          {t('pagination.previous')}
-        </button>
-        <span className="text-sm text-gray-700 dark:text-gray-200">
-          {t('pagination.page', { page, total: Math.ceil(totalCount / PRODUCTS_PER_PAGE) })}
-        </span>
-        <button
-          onClick={() => setPage(p => p + 1)}
-          disabled={!hasMore}
-          className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        >
-          {t('pagination.next')}
-        </button>
-      </div>
-
-      {/* Product Card Modal */}
+      {/* Product Detail Card */}
       {selectedProduct && (
-        <ProductCard 
-          product={selectedProduct} 
-          onClose={handleCloseCard}
+        <ProductCard product={selectedProduct} onClose={handleCloseCard} />
+      )}
+
+      {/* Product Editor Modal */}
+      {showEditor && (
+        <ProductEditor
+          onSave={handleSaveProduct}
+          onCancel={handleCancelEditor}
+          supabaseClient={supabaseClient}
         />
       )}
     </div>

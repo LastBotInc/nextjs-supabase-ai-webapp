@@ -118,6 +118,17 @@
   "unsupportedFormat": "Tiedostomuotoa ei tueta",
   "authenticationRequired": "Tämä toiminto vaatii kirjautumisen.",
   "download": "Lataa",
-  "downloadErrorMissingInfo": "Lataus epäonnistui: Tiedoston URL-osoite tai nimi puuttuu.",
-  "downloadErrorGeneric": "Tiedoston lataamisessa tapahtui virhe."
+  "downloadErrorMissingInfo": "Ei voida ladata: Tiedoston URL tai nimi puuttuu.",
+  "downloadErrorGeneric": "Virhe ladattaessa tiedostoa.",
+  "selectFromLibrary": "Valitse mediakirjastosta",
+  "uploadNew": "Lataa uusi",
+  "noMediaFound": "Mediatiedostoja ei löytynyt",
+  "tryAdjustingSearch": "Kokeile muuttaa hakuehtoja",
+  "uploading": "Ladataan...",
+  "upload": "Lataa",
+  "uploadFailed": "Lataus epäonnistui",
+  "generationFailed": "Generointi epäonnistui",
+  "removeImage": "Poista kuva",
+  "noImageSelected": "Kuvaa ei valittu",
+  "enterUrlManually": "Tai syötä URL-osoite manuaalisesti"
 }

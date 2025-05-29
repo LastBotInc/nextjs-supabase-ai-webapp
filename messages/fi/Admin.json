@@ -128,7 +128,14 @@
       "price": "Hinta",
       "sku": "Tuotekoodi",
       "inventory": "Varasto",
-      "shopifyVariantId": "Shopify-varianttitunniste"
+      "shopifyVariantId": "Shopify-variantti ID"
+    },
+    "editor": {
+      "selectFromLibrary": "Valitse mediakirjastosta",
+      "removeImage": "Poista kuva",
+      "noImageSelected": "Kuvaa ei valittu",
+      "enterUrlManually": "Tai syötä URL-osoite manuaalisesti",
+      "selectProductImage": "Valitse tuotekuva"
     }
   },
   "seo": {},
@@ -257,6 +264,7 @@
         "syncButton": "Synkronoi artikkelit",
         "syncing": "Synkronoidaan...",
         "progress": {
+          "titleShopifyToApp": "Artikkelisynkronoinnin edistyminen (Shopify → Sovellus):",
           "total": "Yhteensä",
           "created": "Luotu",
           "updated": "Päivitetty",
@@ -269,6 +277,20 @@
         "syncButton": "Julkaise Shopifyhin",
         "syncing": "Julkaistaan...",
         "progress": {
+          "titleAppToShopify": "Artikkelisynkronoinnin edistyminen (Sovellus → Shopify):",
+          "processed": "Käsitelty",
+          "created": "Luotu",
+          "updated": "Päivitetty",
+          "errors": "Virheet"
+        }
+      },
+      "reverseProductSync": {
+        "title": "Julkaise tuotteet Shopifyhin",
+        "description": "Synkronoi paikalliset tuotteet sovelluksesta Shopify-kauppaasi",
+        "syncButton": "Julkaise Shopifyhin",
+        "syncing": "Julkaistaan...",
+        "progress": {
+          "titleAppToShopify": "Tuotesynkronoinnin edistyminen (Sovellus → Shopify):",
           "processed": "Käsitelty",
           "created": "Luotu",
           "updated": "Päivitetty",
@@ -407,7 +429,7 @@
       },
       "noProjects": {
         "title": "SEO-projekteja ei löytynyt",
-        "description": "Sinun täytyy luoda SEO-projekti ensin ennen kuin voit tehdä avainsanatutkimusta. Projektit auttavat järjestämään avainsanojasi ja seuraamaan niiden suorituskykyä.",
+        "description": "Sinun täytyy luoda SEO-projektisi ennen kuin voit tehdä avainsanatutkimusta. Projektit auttavat järjestämään avainsanojasi ja seuraamaan niiden suorituskykyä.",
         "createButton": "Luo ensimmäinen SEO-projektisi"
       },
       "loading": "Ladataan avainsanatutkimustietoja...",

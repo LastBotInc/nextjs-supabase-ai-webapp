@@ -128,7 +128,14 @@
       "price": "Pris",
       "sku": "Artikelnummer",
       "inventory": "Lager",
-      "shopifyVariantId": "Shopify-variant-ID"
+      "shopifyVariantId": "Shopify-variant ID"
+    },
+    "editor": {
+      "selectFromLibrary": "Välj från mediabibliotek",
+      "removeImage": "Ta bort bild",
+      "noImageSelected": "Ingen bild vald",
+      "enterUrlManually": "Eller ange URL manuellt",
+      "selectProductImage": "Välj produktbild"
     }
   },
   "seo": {},
@@ -257,6 +264,7 @@
         "syncButton": "Synkronisera artiklar",
         "syncing": "Synkroniserar...",
         "progress": {
+          "titleShopifyToApp": "Artikelsynkroniseringsframsteg (Shopify → App):",
           "total": "Totalt",
           "created": "Skapade",
           "updated": "Uppdaterade",
@@ -269,6 +277,20 @@
         "syncButton": "Publicera till Shopify",
         "syncing": "Publicerar...",
         "progress": {
+          "titleAppToShopify": "Artikelsynkroniseringsframsteg (App → Shopify):",
+          "processed": "Bearbetade",
+          "created": "Skapade",
+          "updated": "Uppdaterade",
+          "errors": "Fel"
+        }
+      },
+      "reverseProductSync": {
+        "title": "Publicera produkter till Shopify",
+        "description": "Synkronisera lokala produkter från appen till din Shopify-butik",
+        "syncButton": "Publicera till Shopify",
+        "syncing": "Publicerar...",
+        "progress": {
+          "titleAppToShopify": "Produktsynkroniseringsframsteg (App → Shopify):",
           "processed": "Bearbetade",
           "created": "Skapade",
           "updated": "Uppdaterade",

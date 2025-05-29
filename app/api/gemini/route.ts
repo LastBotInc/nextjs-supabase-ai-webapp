@@ -76,7 +76,14 @@ export async function POST(request: Request) {
 
     console.log('✅ Admin access verified for user:', user.id)
 
-    const { prompt, modelName = 'gemini-2.5-flash-preview-05-20', temperature = 0.7, maxTokens = 8192 } = await request.json()
+    const { 
+      prompt, 
+      modelName = 'gemini-2.5-flash-preview-05-20', 
+      temperature = 0.7, 
+      maxTokens = 8192,
+      json,
+      schema 
+    } = await request.json()
 
     if (!prompt) {
       return NextResponse.json(
@@ -87,47 +94,78 @@ export async function POST(request: Request) {
 
     console.log('🤖 Generating content with Gemini using structured output...')
 
-    // Define the response schema for structured output
-    const responseSchema = {
-      type: Type.OBJECT,
-      properties: {
-        title: {
-          type: Type.STRING,
-          description: "A compelling, SEO-friendly title under 60 characters"
-        },
-        content: {
-          type: Type.STRING,
-          description: "The main blog post content in markdown format with proper headings, bullet points, and structure"
-        },
-        excerpt: {
-          type: Type.STRING,
-          description: "A compelling 2-3 sentence summary of the post"
-        },
-        meta_description: {
-          type: Type.STRING,
-          description: "SEO optimized description under 160 characters"
-        },
-        tags: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.STRING
-          },
-          description: "3-5 relevant tags for the blog post"
-        },
-        image_prompt: {
-          type: Type.STRING,
-          description: "A detailed prompt for generating the featured image"
-        },
-        detectedLanguage: {
-          type: Type.STRING,
-          description: "The detected language code (en, fi, sv, etc.) based on the prompt"
-        }
-      },
-      required: ["title", "content", "excerpt", "meta_description", "tags", "image_prompt", "detectedLanguage"]
-    }
+    // Handle custom schema for different content types
+    let responseSchema
+    let structuredPrompt
 
-    // Create a structured prompt for blog content generation using brand voice
-    const structuredPrompt = getGeminiPrompt(`Generate a comprehensive blog post based on this topic: "${prompt}"
+    if (json === 'custom' && schema) {
+      // Use custom schema (e.g., for product content)
+      console.log('📋 Using custom schema for content generation')
+      responseSchema = {
+        type: Type.OBJECT,
+        properties: {} as Record<string, any>,
+        required: schema.required || []
+      }
+
+      // Convert the custom schema properties to Gemini Type format
+      if (schema.properties) {
+        for (const [key, value] of Object.entries(schema.properties)) {
+          const prop = value as any
+          if (prop.type === 'string') {
+            responseSchema.properties[key] = { type: Type.STRING }
+          } else if (prop.type === 'array' && prop.items?.type === 'string') {
+            responseSchema.properties[key] = {
+              type: Type.ARRAY,
+              items: { type: Type.STRING }
+            }
+          }
+        }
+      }
+
+      structuredPrompt = prompt
+    } else {
+      // Default blog content schema
+      console.log('📝 Using default blog content schema')
+      responseSchema = {
+        type: Type.OBJECT,
+        properties: {
+          title: {
+            type: Type.STRING,
+            description: "A compelling, SEO-friendly title under 60 characters"
+          },
+          content: {
+            type: Type.STRING,
+            description: "The main blog post content in markdown format with proper headings, bullet points, and structure"
+          },
+          excerpt: {
+            type: Type.STRING,
+            description: "A compelling 2-3 sentence summary of the post"
+          },
+          meta_description: {
+            type: Type.STRING,
+            description: "SEO optimized description under 160 characters"
+          },
+          tags: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.STRING
+            },
+            description: "3-5 relevant tags for the blog post"
+          },
+          image_prompt: {
+            type: Type.STRING,
+            description: "A detailed prompt for generating the featured image"
+          },
+          detectedLanguage: {
+            type: Type.STRING,
+            description: "The detected language code (en, fi, sv, etc.) based on the prompt"
+          }
+        },
+        required: ["title", "content", "excerpt", "meta_description", "tags", "image_prompt", "detectedLanguage"]
+      }
+
+      // Create a structured prompt for blog content generation using brand voice
+      structuredPrompt = getGeminiPrompt(`Generate a comprehensive blog post based on this topic: "${prompt}"
 
 Instructions:
 1. Title should be compelling, SEO-friendly, and under 60 characters
@@ -141,6 +179,7 @@ Instructions:
 The content should be written in a way that reflects ${brandInfo.name}'s identity: ${brandInfo.description}
 
 Write the content in the same language as the input prompt. If the prompt is in Finnish, write in Finnish. If in Swedish, write in Swedish. If in English or unclear, write in English.`)
+    }
 
     // Generate content with structured JSON output using the new API
     const response = await ai.models.generateContent({
@@ -165,33 +204,40 @@ Write the content in the same language as the input prompt. If the prompt is in 
       
       const parsedContent = JSON.parse(text)
       
-      // Convert markdown content to HTML
-      const htmlContent = marked(parsedContent.content || '')
-      
-      // Generate slug from title
-      const slug = parsedContent.title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-      
-      // Validate and clean the response
-      const cleanedContent = {
-        title: typeof parsedContent.title === 'string' ? parsedContent.title.trim() : '',
-        content: typeof htmlContent === 'string' ? htmlContent.trim() : '',
-        excerpt: typeof parsedContent.excerpt === 'string' ? parsedContent.excerpt.trim() : '',
-        meta_description: typeof parsedContent.meta_description === 'string' ? 
-          parsedContent.meta_description.substring(0, 160).trim() : '',
-        tags: Array.isArray(parsedContent.tags) ? 
-          parsedContent.tags.filter((tag: unknown) => typeof tag === 'string').slice(0, 5) : [],
-        image_prompt: typeof parsedContent.image_prompt === 'string' ? 
-          parsedContent.image_prompt.trim() : '',
-        detectedLanguage: typeof parsedContent.detectedLanguage === 'string' ? 
-          parsedContent.detectedLanguage.trim() : 'en',
-        slug
-      }
+      if (json === 'custom') {
+        // Return custom content as-is for product generation
+        console.log('✅ Custom content generated successfully')
+        return NextResponse.json(parsedContent)
+      } else {
+        // Process blog content (existing logic)
+        // Convert markdown content to HTML
+        const htmlContent = marked(parsedContent.content || '')
+        
+        // Generate slug from title
+        const slug = parsedContent.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '')
+        
+        // Validate and clean the response
+        const cleanedContent = {
+          title: typeof parsedContent.title === 'string' ? parsedContent.title.trim() : '',
+          content: typeof htmlContent === 'string' ? htmlContent.trim() : '',
+          excerpt: typeof parsedContent.excerpt === 'string' ? parsedContent.excerpt.trim() : '',
+          meta_description: typeof parsedContent.meta_description === 'string' ? 
+            parsedContent.meta_description.substring(0, 160).trim() : '',
+          tags: Array.isArray(parsedContent.tags) ? 
+            parsedContent.tags.filter((tag: unknown) => typeof tag === 'string').slice(0, 5) : [],
+          image_prompt: typeof parsedContent.image_prompt === 'string' ? 
+            parsedContent.image_prompt.trim() : '',
+          detectedLanguage: typeof parsedContent.detectedLanguage === 'string' ? 
+            parsedContent.detectedLanguage.trim() : 'en',
+          slug
+        }
 
-      console.log('✅ Content generated successfully with structured output')
-      return NextResponse.json(cleanedContent)
+        console.log('✅ Content generated successfully with structured output')
+        return NextResponse.json(cleanedContent)
+      }
     } catch (error) {
       console.error('Failed to parse structured JSON response:', error)
       console.error('Raw text:', response.text || 'No response text')

@@ -643,3 +643,161 @@ The SEO website analysis tool is now fully operational and provides professional
 - Added a download button for each asset in `MediaGrid.tsx`.
 - Adjusted Tailwind CSS classes in `MediaGrid.tsx` to make grid items larger for better visibility.
 - Added translations for download functionality to `messages/en/Media.json`, `messages/fi/Media.json`, and `messages/sv/Media.json`.
+
+## 2024-12-19 - Fixed Product Content Generation
+
+**Issue**: Product editor was only populating title and tags when using AI content generation, other fields (description_html, vendor, product_type, handle) remained empty.
+
+**Root Cause**: The Gemini API route (`/api/gemini`) was hardcoded to use a blog content schema and wasn't handling custom schemas sent by the ProductEditor component.
+
+**Solution**: 
+- Updated the Gemini API route to support custom schemas via `json: 'custom'` parameter
+- Added proper schema conversion from JSON Schema format to Gemini Type format
+- Fixed TypeScript errors by properly typing the properties object
+- Now supports both blog content generation (default) and product content generation (custom schema)
+
+**Files Modified**:
+- `app/api/gemini/route.ts` - Added custom schema support and proper type handling
+
+**Result**: Product content generation now properly populates all fields (title, description_html, vendor, product_type, tags, handle) when using the "Generate Content" button in the ProductEditor.
+
+## 2024-12-19 - Fixed Product Image Generation UI Update
+
+**Issue**: Product editor image generation was working (API calls successful, images generated and stored), but the UI wasn't updating to show the generated image in the Featured Image URL field.
+
+**Root Cause**: The ProductEditor component was expecting the API response to have an `imageUrl` field, but the media generation API actually returns `url` field in its response structure `{ success: true, data: savedMedia, url: publicUrl }`.
+
+**Solution**: 
+- Updated ProductEditor's `generateImage` function to destructure `url` instead of `imageUrl` from the API response
+- Fixed the form data update to use the correct field name
+
+**Files Modified**:
+- `components/admin/ProductEditor.tsx` - Fixed API response field name from `imageUrl` to `url`
+
+**Result**: Image generation now properly updates the Featured Image URL field in the ProductEditor form, allowing users to see the generated image URL immediately after generation completes.
+
+## 2024-12-19 - Implemented Generic MediaSelector Component
+
+**Feature**: Created a reusable MediaSelector component that provides a comprehensive media selection interface for use across the application.
+
+**Implementation**:
+- **New Component**: `components/media-selector/MediaSelector.tsx` - Generic media selection modal
+- **Features**:
+  - Browse existing media assets from the database
+  - Search functionality with real-time filtering
+  - Upload new files directly from the selector
+  - AI image generation with Imagen 3.0 integration
+  - MIME type filtering (e.g., images only)
+  - Visual selection with preview thumbnails
+  - Auto-selection after upload/generation
+  - Responsive grid layout with proper loading states
+
+**ProductEditor Integration**:
+- **Enhanced UI**: Replaced simple URL input with rich media selection interface
+- **Visual Preview**: Shows selected image with thumbnail and URL
+- **Multiple Options**: 
+  - "Select from Media Library" button opens MediaSelector
+  - Fallback manual URL input (collapsible)
+  - Remove image functionality
+- **Smart Filtering**: Only shows image files (JPEG, PNG, WebP, GIF)
+- **Seamless Workflow**: Upload or generate images directly from product editor
+
+**Translations Added**:
+- **English** (`messages/en/Media.json`): Added keys for selectFromLibrary, uploadNew, noMediaFound, etc.
+- **Finnish** (`messages/fi/Media.json`): Natural Finnish translations including "Valitse mediakirjastosta"
+- **Swedish** (`messages/sv/Media.json`): Proper Swedish translations including "Välj från mediabibliotek"
+- **Admin translations** (`messages/en/Admin.json`, `messages/fi/Admin.json`, `messages/sv/Admin.json`): Added products.editor section with media selection keys
+
+**Technical Features**:
+- **Database Integration**: Fetches from `media_assets` table with proper field mapping
+- **Authentication**: Proper admin authentication for uploads and generation
+- **Performance**: 50 asset limit with search functionality for better performance
+- **Error Handling**: Comprehensive error handling for uploads, generation, and network issues
+- **Type Safety**: Full TypeScript support with proper MediaAsset interfaces
+- **Reusability**: Component designed for use across application (blog posts, landing pages, user profiles, etc.)
+
+**Documentation**:
+- **Usage Guide**: Created `components/media-selector/README.md` with comprehensive usage examples
+- **Props Documentation**: Detailed prop descriptions and common MIME type filters
+- **Translation Requirements**: Listed required translation keys for proper localization
+
+**Files Created/Modified**:
+- `components/media-selector/MediaSelector.tsx` (new)
+- `components/media-selector/index.ts` (new)
+- `components/media-selector/README.md` (new)
+- `components/admin/ProductEditor.tsx` (enhanced)
+- `messages/en/Media.json` (translations added)
+- `messages/fi/Media.json` (translations added)
+- `messages/sv/Media.json` (translations added)
+- `messages/en/Admin.json` (translations added)
+- `messages/fi/Admin.json` (translations added)
+- `messages/sv/Admin.json` (translations added)
+
+**Result**: Users can now easily select existing media assets, upload new files, or generate AI images directly from the product editor through a professional media selection interface. The MediaSelector component is fully reusable across the application with complete internationalization support.
+
+## 2024-12-19 - Fixed Product Creation API
+
+**Issue**: Product creation was failing with RLS policy violation error when trying to save products from the ProductEditor.
+
+**Root Cause**: Two issues were identified:
+1. The `featured_image` column was missing from the products table schema
+2. The service role client was being created incorrectly, causing RLS policies to still be enforced
+
+**Solution**: 
+- **Database Schema**: Created migration `20250529082135_add_featured_image_to_products.sql` to add the missing `featured_image` column to the products table
+- **API Fix**: Updated `app/api/admin/products/route.ts` to use correct service role client creation syntax:
+  - Changed from `createClient({ useServiceRole: true })` 
+  - To `createClient(undefined, true)` (correct parameter order)
+
+**Files Modified**:
+- `supabase/migrations/20250529082135_add_featured_image_to_products.sql` (new migration)
+- `app/api/admin/products/route.ts` (fixed service role client calls)
+
+**Result**: Product creation and updates now work correctly with featured images. Users can save products with images selected from the MediaSelector or manually entered URLs.
+
+## 2024-12-19 - Fixed Product View Popup Image Display
+
+**Issue**: Product view popup was not displaying the featured image correctly after product creation.
+
+**Root Cause**: The ProductCard component was looking for `product.product_images` array instead of the `product.featured_image` field that was being saved.
+
+**Solution**: 
+- **ProductCard Component**: Updated `app/[locale]/admin/products/page.tsx` to display `product.featured_image` instead of `product_images`
+- **Next.js Configuration**: Added local Supabase URLs to allowed image domains in `next.config.mjs`:
+  - Added `http://127.0.0.1:54321` for local development
+  - Added `http://localhost:54321` for alternative local access
+- **TypeScript Interface**: Added `featured_image?: string` to the Product interface
+
+**Files Modified**:
+- `app/[locale]/admin/products/page.tsx` - Updated ProductCard to use featured_image field
+- `next.config.mjs` - Added local Supabase image domains
+- Simplified image display logic by removing unused product_images gallery code
+
+**Result**: Product view popup now correctly displays the featured image that was selected/uploaded during product creation.
+
+## 2024-12-19 - Fixed Product Image Display for Both Manual and Shopify Products
+
+**Issue**: Product view popup was not displaying images for Shopify imported products after the previous fix that only supported manually created products with `featured_image` field.
+
+**Root Cause**: The ProductCard component was only checking for `featured_image` field, but Shopify imported products store their images in a separate `product_images` table with a different structure.
+
+**Solution**: 
+- **ProductCard Component**: Updated `app/[locale]/admin/products/page.tsx` to handle both image storage methods:
+  - First checks for `featured_image` (manually created products)
+  - Falls back to `product_images` array (Shopify imported products)
+  - Displays image gallery for Shopify products with multiple images
+- **API Enhancement**: Added `featured_image` field to the products API SELECT query in `app/api/admin/products/route.ts`
+- **Next.js Configuration**: Added Shopify CDN domain (`cdn.shopify.com`) to allowed image domains in `next.config.mjs`
+
+**Database Structure Understanding**:
+- **Manual Products**: Use `products.featured_image` field (single URL)
+- **Shopify Products**: Use `product_images` table with relationships (multiple images with position, alt_text)
+
+**Files Modified**:
+- `app/[locale]/admin/products/page.tsx` - Enhanced ProductCard to support both image storage methods
+- `app/api/admin/products/route.ts` - Added featured_image to SELECT query
+- `next.config.mjs` - Added Shopify CDN domain for image loading
+
+**Result**: Product view popup now correctly displays images for both manually created products (using featured_image) and Shopify imported products (using product_images table), with proper image galleries for products with multiple images.
+
+## 2024-12-19 - Fixed Product View Popup Image Display
