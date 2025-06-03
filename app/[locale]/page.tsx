@@ -17,6 +17,7 @@ import {
 } from "../components/layouts/Block";
 import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
 import { Heading1, Heading2, Heading3, ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
+import { Hero } from "../components/Hero/Hero";
 type Props = {
   params: {
     locale: string;
@@ -61,6 +62,15 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </CommonBlock>
+
+      <Hero isFirst>
+        <Hero.Image src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
+        <Hero.Heading>{t("hero.heading")}</Hero.Heading>
+        <Hero.SubHeading>{t("hero.subheading")}</Hero.SubHeading>
+        <Hero.ExtraContent>
+          <CallUs numbers={t.raw("hero.numbers")} />
+        </Hero.ExtraContent>
+      </Hero>
 
       <CommonBlock className="bg-white">
         <TwoColumnCard className="bg-transparent gap-0">

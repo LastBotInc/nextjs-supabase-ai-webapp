@@ -138,6 +138,10 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 255, 255, 255;
     --background-end-rgb: 255, 255, 255;
+
+    --palette-background-color: 0 0% 100%;
+    --palette-text-color: 222.2 84% 4.9%;
+    --palette-icon-color: 222.2 84% 4.9%;
   }
 
   .dark {
@@ -530,4 +534,44 @@
   img {
     @apply pb-4;
   }
+}
+
+.color-palette-default {
+  --palette-background-color: 100% 100% 100%;
+  --palette-text-color: 222.2 84% 4.9%;
+  --palette-icon-color: 222.2 84% 4.9%;
+}
+
+.color-palette-kupari {
+  @apply bg-kupari;
+  @apply text-piki;
+  @apply text-piki;
+}
+
+.color-palette-piki {
+  @apply bg-piki;
+  @apply text-white;
+  @apply text-piki;
+}
+
+.color-palette-black {
+  @apply bg-black;
+  @apply text-white;
+  @apply text-kupari;
+}
+
+.color-palette-betoni {
+  @apply bg-betoni;
+  @apply text-white;
+  @apply text-white;
+}
+
+.palette-background-color {
+  background-color: var(--palette-background-color);
+}
+.palette-text-color {
+  color: var(--palette-text-color);
+}
+.palette-icon-color {
+  color: var(--palette-icon-color);
 }
