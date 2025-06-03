@@ -1,10 +1,9 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 
-import { TwoColumnCard } from "../components/layouts/Card";
+import { ColumnCard, PersonnelCard, TwoColumnCard } from "../components/layouts/Card";
 import { CallUs } from "../components/CallUs";
 import {
   BlockPadding,
@@ -15,9 +14,21 @@ import {
   ColumnBlock,
   spacing,
 } from "../components/layouts/Block";
-import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
+import { Heading2Small, LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
 import { Heading1, Heading2, Heading3, ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
 import { Hero } from "../components/Hero/Hero";
+import { ColumnBlock as CoreColumnBlock } from "../components/block/ColumnBlock";
+import { Heading2 as CoreH2 } from "../components/core/Headings";
+import { CustomizableBlock } from "../components/block/CustomizableBlock";
+import { Grid } from "../components/grid/Grid";
+import { Content } from "../components/content/Content";
+import { Card } from "../components/card/Card";
+import { BackgroundImageBlock } from "../components/block/BackgroundImageBlock";
+import { BlogPost } from "../components/BlogCardList";
+import NewsSection from "../components/NewsSection";
+import BlogSection from "../components/BlogSection";
+import { ArrowRightIcon } from "lucide-react";
+import { IconPlugCar } from "../components/Icons";
 type Props = {
   params: {
     locale: string;
@@ -35,9 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Dynamically import heavy sections as client components
-const DynamicContent = dynamic(() => import("../components/DynamicContent"));
-
+const blogPostsFormatted: BlogPost[] = [];
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
@@ -62,7 +71,6 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </CommonBlock>
-
       <Hero isFirst>
         <Hero.Image src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
         <Hero.Heading>{t("hero.heading")}</Hero.Heading>
@@ -71,7 +79,28 @@ export default async function Page({ params }: Props) {
           <CallUs numbers={t.raw("hero.numbers")} />
         </Hero.ExtraContent>
       </Hero>
-
+      <CoreColumnBlock>
+        <CoreColumnBlock.Column addContainer>
+          <CoreH2>{t("topTeam.heading")}</CoreH2>
+          <Image
+            src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
+            alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
+            layout="responsive"
+            width={1893}
+            height={1262}
+            className="object-contain"
+            sizes="(max-width: 768px) 100vw, 400px"
+            quality={90}
+          />
+        </CoreColumnBlock.Column>
+        <CoreColumnBlock.Column addContainer>
+          <Paragraph variant="large">{t("topTeam.paragraph1")}</Paragraph>
+          <Paragraph variant="large">{t("topTeam.paragraph2")}</Paragraph>
+          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+            {t("topTeam.readMore")}
+          </LinkLikeButton>
+        </CoreColumnBlock.Column>
+      </CoreColumnBlock>
       <CommonBlock className="bg-white">
         <TwoColumnCard className="bg-transparent gap-0">
           <div className="text-center md:text-left pr-10">
@@ -106,7 +135,6 @@ export default async function Page({ params }: Props) {
           </div>
         </TwoColumnCard>
       </CommonBlock>
-
       <FullScreenWidthBlock className={`bg-gray-200 lg:px-${spacing.md}`}>
         <MaxWidthContentBlock>
           <ColumnBlock>
@@ -186,7 +214,91 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
-
+      <CustomizableBlock>
+        <Grid>
+          <Grid.Top>
+            <Content>
+              <Content.Heading>Heading</Content.Heading>
+            </Content>
+          </Grid.Top>
+          <Grid.Middle>
+            <Content noSpacing>
+              <Content.Wrapper className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-2 bg-transparent">
+                <Content.Column>
+                  <Card className="rounded-xl bg-kupari overflow-hidden has-overlay-pattern overlay-pattern-innolease-1 pr-0 lg:pr-0">
+                    <Card.TopImage>
+                      <Image
+                        src="/images/home/leasing1.png"
+                        alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                        layout="responsive"
+                        width={1077}
+                        height={397}
+                        className="lg:hidden pb-6"
+                        quality={90}
+                        aria-hidden={true}
+                      />
+                    </Card.TopImage>
+                    <Card.Heading>{t("leasingOptions.personalizedTitle")}</Card.Heading>
+                    <Card.Content>
+                      <ShapedContentFlowInParagraph
+                        image={{
+                          src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
+                          alt: "Leasing options shape",
+                          shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
+                          aspectRatio: "1025/496",
+                        }}
+                        className={`text-piki`}
+                      >
+                        {t("leasingOptions.personalizedDescription")}
+                      </ShapedContentFlowInParagraph>
+                      <LinkLikeButton className="bg-white text-piki" href="#">
+                        {t("leasingOptions.readMore")}
+                      </LinkLikeButton>
+                    </Card.Content>
+                  </Card>
+                </Content.Column>
+                <Content.Column>
+                  <Card className="rounded-xl bg-betoni overflow-hidden has-overlay-pattern overlay-pattern-innolease-2 pr-0 lg:pr-0">
+                    <Card.TopImage>
+                      <Image
+                        src="/images/home/leasing2.png"
+                        alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                        layout="responsive"
+                        width={703}
+                        height={392}
+                        className="lg:hidden pb-6"
+                        quality={90}
+                        aria-hidden={true}
+                      />
+                    </Card.TopImage>
+                    <Card.Heading>{t("leasingOptions.flexibleTitle")}</Card.Heading>
+                    <Card.Content>
+                      <ShapedContentFlowInParagraph
+                        image={{
+                          src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
+                          alt: "Leasing options shape",
+                          shape: "polygon(30% 100%, 30% 0%, 100% 0%, 100% 100%)",
+                          aspectRatio: "1025/496",
+                        }}
+                      >
+                        {t("leasingOptions.flexibleDescription")}
+                      </ShapedContentFlowInParagraph>
+                      <LinkLikeButton className="bg-white text-piki" href="#">
+                        {t("leasingOptions.readMore")}
+                      </LinkLikeButton>
+                    </Card.Content>
+                  </Card>
+                </Content.Column>
+              </Content.Wrapper>
+            </Content>
+          </Grid.Middle>
+          <Grid.Bottom>
+            <Content>
+              <Content.Heading>Link</Content.Heading>
+            </Content>
+          </Grid.Bottom>
+        </Grid>
+      </CustomizableBlock>
       <FullWidthContentBlockWithBg
         image="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
         backgroundPosition="bottom right"
@@ -208,8 +320,314 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
+      <BackgroundImageBlock src="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png">
+        <Content asGrid addTextShadow>
+          <Content.Column>
+            <Heading1>{t("transparency.title")}</Heading1>
+            {t.raw("transparency.description").map((description: string) => (
+              <Paragraph key={description}>{description}</Paragraph>
+            ))}
+            <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+              {t("transparency.readMore")}
+            </LinkLikeButton>
+          </Content.Column>
+          <Content.Column> </Content.Column>
+        </Content>
+      </BackgroundImageBlock>
+      <FullWidthContentBlockWithBg
+        image="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
+        backgroundPosition={{ default: "0% 0%", md: "0% 0%", lg: "50vw 50%", xl: "97% 50%" }}
+        backgroundSize={{ default: "0%", md: "0%", lg: "90%", xl: "40%" }}
+        className="bg-gray-200"
+      >
+        <MaxWidthContentBlock className={spacing.responsivePaddingY}>
+          <TwoColumnCard className="bg-transparent gap-0" oneColumnBreak="lg">
+            <BlockPadding>
+              <Image
+                src="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
+                alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                layout="responsive"
+                width={1893}
+                height={1262}
+                className="object-contain lg:hidden pb-6"
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={90}
+              />
+              <Heading1
+                className="text-piki"
+                dangerouslySetInnerHTML={{ __html: t.raw("searchingFor.title") }}
+              ></Heading1>
+              {t.raw("searchingFor.description").map((description: string) => (
+                <Paragraph key={description} className="text-piki">
+                  {description}
+                </Paragraph>
+              ))}
+              <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                {t("searchingFor.readMore")}
+              </LinkLikeButton>
+            </BlockPadding>
+            <div className="relative w-full flex"></div>
+          </TwoColumnCard>
+        </MaxWidthContentBlock>
+      </FullWidthContentBlockWithBg>
+      <BackgroundImageBlock
+        src="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
+        backgroundPosition={{ default: "0% 0%", md: "0% 0%", lg: "50vw 50%", xl: "97% 50%" }}
+        backgroundSize={{ default: "0%", md: "0%", lg: "90%", xl: "40%" }}
+        className="bg-gray-200"
+      >
+        <Content asGrid>
+          <Content.Column>
+            <Image
+              src="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
+              alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+              layout="responsive"
+              width={1893}
+              height={1262}
+              className="object-contain lg:hidden pb-6"
+              sizes="(max-width: 768px) 100vw, 400px"
+              quality={90}
+            />
+            <Heading1
+              className="text-piki"
+              dangerouslySetInnerHTML={{ __html: t.raw("searchingFor.title") }}
+            ></Heading1>
+            {t.raw("searchingFor.description").map((description: string) => (
+              <Paragraph key={description} className="text-piki">
+                {description}
+              </Paragraph>
+            ))}
+            <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+              {t("searchingFor.readMore")}
+            </LinkLikeButton>
+          </Content.Column>
+          <Content.Column> </Content.Column>
+        </Content>
+      </BackgroundImageBlock>
+      <FullWidthContentBlockWithBg
+        image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
+        backgroundPosition={{ default: "center left", md: "center left", lg: "center right", xl: "center right" }}
+        backgroundSize={{ default: "0%", md: "0%", lg: "cover" }}
+        className="bg-gray-900"
+      >
+        <MaxWidthContentBlock>
+          <BlockPadding>
+            <TwoColumnCard className="bg-transparent shadow-text">
+              <div className={`pt-${spacing.md} md:pt-0`}>
+                <Heading3 className="uppercase text-xl pb-4">{t("innoFleet.subtitle")}</Heading3>
+                <Heading1>{t("innoFleet.title")}</Heading1>
+                <Paragraph>{t("innoFleet.description1")}</Paragraph>
+                <Paragraph>{t("innoFleet.description2")}</Paragraph>
+                <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                  {t("transparency.readMore")}
+                </LinkLikeButton>
+              </div>
+              <div className="relative h-[300px] md:h-[600px] w-full z-10">
+                <Image
+                  src="/images/home/iphone_05_sleep_image.png"
+                  alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
+                  fill
+                  className="object-contain scale-100 md:scale-150"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  quality={90}
+                />
+              </div>
+            </TwoColumnCard>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullWidthContentBlockWithBg>
+      <BackgroundImageBlock
+        src="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
+        backgroundPosition={{ default: "center left", md: "center left", lg: "center right", xl: "center right" }}
+        backgroundSize={{ default: "0%", md: "0%", lg: "cover" }}
+        className="bg-gray-900"
+      >
+        <Content asGrid addTextShadow>
+          <Content.Column>
+            <div className={`pt-${spacing.md} md:pt-0`}>
+              <Heading3 className="uppercase text-xl pb-4">{t("innoFleet.subtitle")}</Heading3>
+              <Heading1>{t("innoFleet.title")}</Heading1>
+              <Paragraph>{t("innoFleet.description1")}</Paragraph>
+              <Paragraph>{t("innoFleet.description2")}</Paragraph>
+              <LinkLikeButton className="bg-kupari text-white" href={"#"}>
+                {t("transparency.readMore")}
+              </LinkLikeButton>
+            </div>
+            <div className="relative h-[300px] md:h-[600px] w-full z-10">
+              <Image
+                src="/images/home/iphone_05_sleep_image.png"
+                alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
+                fill
+                className="object-contain scale-100 md:scale-150"
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={90}
+              />
+            </div>
+          </Content.Column>
+        </Content>
+      </BackgroundImageBlock>
+      {/* Ajankohtaista */}
+      <FullScreenWidthBlock className="bg-gray-200">
+        <BlockPadding vertical={true} horizontal={false}>
+          <MaxWidthContentBlock>
+            <BlockPadding className="flex items-center gap-2">
+              <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
+              <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
+            </BlockPadding>
+          </MaxWidthContentBlock>
+          <MaxWidthContentBlock>
+            <BlockPadding horizontal={true} vertical={false}>
+              {blogPostsFormatted.length > 0 ? (
+                <BlogSection posts={blogPostsFormatted} />
+              ) : (
+                // Lazy load the fallback news section as a client component
+                <NewsSection />
+              )}
+            </BlockPadding>
+          </MaxWidthContentBlock>
+          <MaxWidthContentBlock className={`flex items-center justify-center`}>
+            <BlockPadding horizontal={true} vertical={false}>
+              <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+                {t("news.viewAll")}
+              </LinkLikeButton>
+            </BlockPadding>
+          </MaxWidthContentBlock>
+        </BlockPadding>
+      </FullScreenWidthBlock>
+      <CustomizableBlock className="bg-gray-200">
+        <Grid>
+          <Grid.Top>
+            <Content>
+              <Content.Column>
+                <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
+                <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
+              </Content.Column>
+            </Content>
+          </Grid.Top>
+          <Grid.Middle>
+            <Content noSpacing>
+              <Content.Column>
+                <NewsSection />
+              </Content.Column>
+            </Content>
+          </Grid.Middle>
+          <Grid.Bottom>
+            <Content>
+              <Content.Column>
+                <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+                  {t("news.viewAll")}
+                </LinkLikeButton>
+              </Content.Column>
+            </Content>
+          </Grid.Bottom>
+        </Grid>
+      </CustomizableBlock>
+      {/* Team */}
+      <CommonBlock className="bg-white">
+        <BlockPadding innerOnly horizontal={false} vertical={false}>
+          <ColumnCard className="bg-transparent xl:grid-cols-[40%_67%]">
+            {/* Left Column: Heading (centered) */}
+            <div className="text-center md:text-left">
+              <Heading2 className="text-piki">{t("team.title")}</Heading2>
+            </div>
 
-      <DynamicContent locale={locale} />
+            {/* Right Column: Paragraphs and Button */}
+            <PersonnelCard people={t.raw("personnel")} />
+          </ColumnCard>
+        </BlockPadding>
+      </CommonBlock>
+      <CustomizableBlock>
+        <Content>
+          <Content.Wrapper className="grid gap-4 lg:gap-8 bg-transparent xl:grid-cols-[40%_67%]">
+            <Content.Column>
+              <CoreH2>{t("team.title")}</CoreH2>
+            </Content.Column>
+            <Content.Column>
+              <PersonnelCard people={t.raw("personnel")} />
+            </Content.Column>
+          </Content.Wrapper>
+        </Content>
+      </CustomizableBlock>
+      <FullScreenWidthBlock className="bg-kupari">
+        <MaxWidthContentBlock className={`${spacing.responsivePaddingY}`}>
+          <BlockPadding>
+            <TwoColumnCard className="bg-transparent" oneColumnBreak="xl">
+              <div className="relative">
+                <Heading1 className="text-piki">{t("greenLeasing.title")}</Heading1>
+                {t.raw("greenLeasing.description").map((description: string) => (
+                  <Paragraph key={description} className="text-piki">
+                    {description}
+                  </Paragraph>
+                ))}
+
+                <ul className="text-piki list-disc list-inside">
+                  {t.raw("greenLeasing.list").map((item: string) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <br></br>
+                <LinkLikeButton className="bg-piki   text-white" href={"#"}>
+                  {t("greenLeasing.readMore")}
+                </LinkLikeButton>
+                <IconPlugCar className="absolute bottom-0 right-0" />
+              </div>
+              <Image
+                src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
+                alt={"transparency.imageAlt"}
+                width={800}
+                height={480}
+                layout="responsive"
+                className="object-cover rounded-xl "
+                sizes="100vw"
+                quality={90}
+              />
+            </TwoColumnCard>
+          </BlockPadding>
+        </MaxWidthContentBlock>
+      </FullScreenWidthBlock>
+      <CustomizableBlock className="bg-kupari">
+        <Grid>
+          <Grid.Middle>
+            <Content noSpacing>
+              <Content.Wrapper className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-2 bg-transparent">
+                <Content.Column>
+                  <div className="relative">
+                    <Heading1 className="text-piki">{t("greenLeasing.title")}</Heading1>
+                    {t.raw("greenLeasing.description").map((description: string) => (
+                      <Paragraph key={description} className="text-piki">
+                        {description}
+                      </Paragraph>
+                    ))}
+
+                    <ul className="text-piki list-disc list-inside">
+                      {t.raw("greenLeasing.list").map((item: string) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <br></br>
+                    <LinkLikeButton className="bg-piki   text-white" href={"#"}>
+                      {t("greenLeasing.readMore")}
+                    </LinkLikeButton>
+                    <IconPlugCar className="absolute bottom-0 right-0" />
+                  </div>
+                </Content.Column>
+                <Content.Column>
+                  <Image
+                    src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
+                    alt={"transparency.imageAlt"}
+                    width={800}
+                    height={480}
+                    layout="responsive"
+                    className="object-cover rounded-xl "
+                    sizes="100vw"
+                    quality={90}
+                  />
+                </Content.Column>
+              </Content.Wrapper>
+            </Content>
+          </Grid.Middle>
+        </Grid>
+      </CustomizableBlock>
     </main>
   );
 }

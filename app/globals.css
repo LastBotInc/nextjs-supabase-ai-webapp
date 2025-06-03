@@ -537,9 +537,9 @@
 }
 
 .color-palette-default {
-  --palette-background-color: 100% 100% 100%;
-  --palette-text-color: 222.2 84% 4.9%;
-  --palette-icon-color: 222.2 84% 4.9%;
+  --palette-background-color: #ffffff;
+  --palette-text-color: #000000;
+  --palette-icon-color: #000000;
 }
 
 .color-palette-kupari {

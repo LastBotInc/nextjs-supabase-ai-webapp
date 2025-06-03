@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ElementType, HTMLAttributes } from "react";
 import { getHeadingClass, getSmallHeadingClass, textPaletteClassName } from "../cssJs/cssJs";
 
-type HeadingProps = React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
+export type HeadingProps = React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   small?: boolean;
 };

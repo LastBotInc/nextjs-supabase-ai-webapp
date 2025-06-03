@@ -2,13 +2,15 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
 import { getBlockContentAreaCss, getBlockCss } from "../cssJs/cssJs";
+import { BackgroundImageProps } from "../core/BackgroundImage";
+import { BackgroundImage } from "../core/BackgroundImage";
 
 type SlotProps = { children: ReactNode; className?: string };
 
-function BackgroundImage({ children }: SlotProps) {
-  return <div className="absolute inset-0 -z-10 overflow-hidden">{children}</div>;
+function FullWidthBackgroundImage(props: BackgroundImageProps) {
+  return <BackgroundImage {...props} />;
 }
-BackgroundImage.displayName = "BackgroundImage";
+FullWidthBackgroundImage.displayName = "FullWidthBackgroundImage";
 
 function CenteredContentArea({ children, className }: SlotProps) {
   return <div className={cn(getBlockContentAreaCss(), className)}>{children}</div>;
@@ -21,18 +23,17 @@ type BlockProps = {
   backgroundColor?: string; // Tailwind class like "bg-muted"
   className?: string;
 };
-
-export function Block({ children, fullWidth = false, backgroundColor, className }: BlockProps) {
-  const slots = mapSlots(children, ["BackgroundImage", "CenteredContentArea"]);
+//  fullWidth = false, backgroundColor,
+export function Block({ children, className }: BlockProps) {
+  const slots = mapSlots(children, [FullWidthBackgroundImage.displayName, CenteredContentArea.displayName]);
 
   return (
-    <section className={cn(getBlockCss(), className)}>
-      {slots.BackgroundImage && <div className="absolute inset-0 -z-10">{slots.BackgroundImage}</div>}
-
-      {slots.CenteredContentArea && <>{slots.CenteredContentArea}</>}
+    <section className={cn(getBlockCss(), className, !!slots[FullWidthBackgroundImage.displayName] && "relative")}>
+      {slots[FullWidthBackgroundImage.displayName] && <>{slots[FullWidthBackgroundImage.displayName]}</>}
+      {slots[CenteredContentArea.displayName] && <>{slots[CenteredContentArea.displayName]}</>}
     </section>
   );
 }
 
-Block.BackgroundImage = BackgroundImage;
+Block.FullWidthBackgroundImage = FullWidthBackgroundImage;
 Block.CenteredContentArea = CenteredContentArea;
