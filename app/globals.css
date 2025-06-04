@@ -612,6 +612,14 @@
   --palette-button-color: var(--kupari);
   --palette-button-text-color: var(--piki);
 }
+.color-palette-beige {
+  --palette-background-color: var(--beige);
+  --palette-text-color: var(--black);
+  --palette-heading-color: var(--black);
+  --palette-icon-color: var(--black);
+  --palette-button-color: var(--black);
+  --palette-button-text-color: var(--white);
+}
 
 .palette-background-color {
   background-color: var(--palette-background-color);
@@ -631,6 +639,10 @@
 
 .palette-icon-color {
   color: var(--palette-icon-color);
+}
+
+.palette-border-color {
+  border-color: var(--palette-icon-color);
 }
 
 .palette-button-text-color {
@@ -666,5 +678,37 @@
   th:nth-child(odd),
   td:nth-child(odd) {
     background-color: rgba(96, 96, 96, 0.5);
+  }
+}
+
+.accordion-animation-content[data-state="open"] {
+  animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+.accordion-animation-content[data-state="closed"] {
+  animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.accordion-chevron-animation {
+  transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+.accordion-chevron-animation[data-state="open"] > .AccordionChevron {
+  transform: rotate(180deg);
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
   }
 }

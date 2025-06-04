@@ -1,0 +1,113 @@
+/* eslint-disable react/display-name */
+import { Header, Content, Trigger, Root, Item } from "@radix-ui/react-accordion";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { forwardRef, ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { bgPaletteClassName, borderPaletteClassName, textPaletteClassName, iconPaletteClassName } from "../cssJs/cssJs";
+import { ContentBlock } from "./types";
+
+const AccordionTrigger = forwardRef<HTMLButtonElement, { children: ReactNode; className?: string }>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <Header className="flex">
+      <Trigger
+        className={cn(
+          "p-6 h-16 flex-1 flex items-center justify-between text-xl line-height-1",
+          "hover:font-medium",
+          textPaletteClassName,
+          className
+        )}
+        {...props}
+        ref={forwardedRef}
+      >
+        {children}
+        <ChevronDownIcon className={cn("accordion-chevron-animation", "w-6 h-6", iconPaletteClassName)} aria-hidden />
+      </Trigger>
+    </Header>
+  )
+);
+
+const AccordionContent = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <Content
+      className={cn("accordion-animation-content overflow-hidden", textPaletteClassName, className)}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+    </Content>
+  )
+);
+
+function AccordionItem({
+  children,
+  className,
+  heading,
+}: Pick<ContentBlock, "children" | "className"> & { heading: string }) {
+  return (
+    <Item
+      className={cn(
+        "mt-1 overflow-hidden first:mt-0 focus-within:z-1 focus-within:relative border-b",
+        borderPaletteClassName,
+        className
+      )}
+      value={heading.toLowerCase()}
+    >
+      <AccordionTrigger>{heading}</AccordionTrigger>
+      <AccordionContent>{children}</AccordionContent>
+    </Item>
+  );
+}
+AccordionItem.displayName = "Accordion.AccordionItem";
+
+export function Accordion({ children, className }: Pick<ContentBlock, "children" | "className">) {
+  return (
+    <Root
+      className={cn("w-full border-t border-piki", bgPaletteClassName, borderPaletteClassName, className)}
+      type="single"
+      defaultValue="item-1"
+      collapsible
+    >
+      {children}
+    </Root>
+  );
+}
+
+Accordion.Item = AccordionItem;
+
+/*
+
+export function AccordionDemo() {
+  return (
+    <Root
+      className={cn("w-full border-t border-piki", bgPaletteClassName, borderPaletteClassName)}
+      type="single"
+      defaultValue="item-1"
+      collapsible
+    >
+      <Item
+        className={cn(
+          "mt-1 overflow-hidden first:mt-0 focus-within:z-1 focus-within:relative border-b",
+          borderPaletteClassName
+        )}
+        value="item-1"
+      >
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </Item>
+
+      <Item className="mt-1 overflow-hidden" value="item-2">
+        <AccordionTrigger>Is it unstyled?</AccordionTrigger>
+        <AccordionContent>Yes. It's unstyled by default, giving you freedom over the look and feel.</AccordionContent>
+      </Item>
+
+      <Item className="mt-1 overflow-hidden" value="item-3">
+        <AccordionTrigger>Can it be animated?</AccordionTrigger>
+        <Content className="AccordionContent">
+          <div className="AccordionContentText">Yes! You can animate the Accordion with CSS or JavaScript.</div>
+        </Content>
+      </Item>
+    </Root>
+  );
+}
+
+*/
