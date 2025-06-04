@@ -21,6 +21,7 @@ export type ContentBlock =
       | "betoni"
       | "default"
       | "light-gray"
+      | "beige"
       | "maantie";
     isFirst?: boolean;
     oneColumnBreak?: "md" | "lg" | "xl";

@@ -287,3 +287,4 @@ export const textPaletteClassName = "palette-text-color";
 export const iconPaletteClassName = "palette-icon-color";
 export const buttonPaletteClassName = "palette-button-color";
 export const buttonTextPaletteClassName = "palette-button-text-color";
+export const borderPaletteClassName = "palette-border-color";

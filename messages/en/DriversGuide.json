@@ -131,6 +131,16 @@
     "title": "Any questions?",
     "description": "If you can't find the answer on our site, contact us.",
     "note": "Link to contact form.",
-    "image": "Contact placeholder image"
+    "image": "Contact placeholder image",
+    "numbers": [
+      {
+        "title": "Call us",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Call us",
+        "number": "020 743 76700"
+      }
+    ]
   }
 }

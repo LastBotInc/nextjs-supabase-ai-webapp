@@ -131,6 +131,16 @@
     "title": "Har du frågor?",
     "description": "Om du inte hittar svar på din fråga på våra sidor, kontakta oss.",
     "note": "Länk till kontaktformulär.",
-    "image": "Kontakt platshållarbild"
+    "image": "Kontakt platshållarbild",
+    "numbers": [
+      {
+        "title": "Ring oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ring oss",
+        "number": "020 743 76700"
+      }
+    ]
   }
 }

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ContentBlock } from "../core/types";
-import { getContentCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getContentCss } from "../cssJs/cssJs";
 import React from "react";
 
 export function ContentContainer({
@@ -10,8 +10,15 @@ export function ContentContainer({
   asGrid = false,
   asBlock = false,
   addTextShadow = false,
+  setBg = false,
   className,
-}: ContentBlock & { noSpacing?: boolean; asGrid?: boolean; addTextShadow?: boolean; asBlock?: boolean }) {
+}: ContentBlock & {
+  noSpacing?: boolean;
+  asGrid?: boolean;
+  addTextShadow?: boolean;
+  asBlock?: boolean;
+  setBg?: boolean;
+}) {
   const childCount = React.Children.count(children);
   const classes = asGrid
     ? `grid grid-cols-1 bg-transparent ${childCount > 1 ? "md:grid-cols-2" : ""}`
@@ -25,7 +32,8 @@ export function ContentContainer({
         asBlock && "flex flex-col",
         getContentCss({ omitKeys: noSpacing ? ["padding", "paddingInline", "paddingBlock"] : [] }),
         addTextShadow && "shadow-text",
-        className
+        className,
+        setBg && bgPaletteClassName
       )}
     >
       {children}
