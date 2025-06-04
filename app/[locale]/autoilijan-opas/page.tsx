@@ -2,12 +2,6 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import {
-  BlockPadding,
-  FullScreenWidthBlock,
-  MaxWidthContentBlock,
-  FullWidthContentBlockWithBg,
-} from "../../components/layouts/Block";
 import { Heading2, Heading3, Heading2Small } from "@/app/components/core/Headings";
 import { Paragraph } from "@/app/components/core/Paragraph";
 import Image from "next/image";
@@ -16,6 +10,7 @@ import { CustomizableBlock } from "@/app/components/block/CustomizableBlock";
 import { ContentContainer } from "@/app/components/core/ContentContainer";
 import { Hero } from "@/app/components/Hero/Hero";
 import { CallUs } from "@/app/components/CallUs";
+import { List } from "@/app/components/core/List";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;
@@ -35,16 +30,12 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white pt-24">
-      <FullWidthContentBlockWithBg image="/images/autonvuokraus.png" backgroundPosition="bottom right">
-        <MaxWidthContentBlock className="min-h-[500px] lg:h-[600px] shadow-text justify-end flex flex-col">
-          <BlockPadding>
-            <h1 className="text-6xl font-medium text-white leading-tight">
-              {t("meta.title")}
-              <span className="block text-5xl font-light text-white with-shadow">{t("meta.description")}</span>
-            </h1>
-          </BlockPadding>
-        </MaxWidthContentBlock>
-      </FullWidthContentBlockWithBg>
+      <Hero isFirst palette="piki" fullWidth useMinHeight>
+        <Hero.Image src="/images/autonvuokraus.png" />
+        <Hero.Heading>{t("meta.title")}</Hero.Heading>
+        <Hero.SubHeading>{t("meta.description")}</Hero.SubHeading>
+        <Hero.Text> </Hero.Text>
+      </Hero>
 
       <CustomizableBlock palette="beige">
         <ContentContainer asGrid setBg palette="beige">
@@ -66,11 +57,11 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
           <Accordion>
             <Accordion.Item heading={t("maintenance.title")}>
               <Paragraph>{t("maintenance.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("maintenance.tips").map((tip: string, idx: number) => (
-                  <li key={idx}>{tip}</li>
+                  <List.Item key={idx}>{tip}</List.Item>
                 ))}
-              </ul>
+              </List>
               <Paragraph className="font-bold">{t("maintenance.note")}</Paragraph>
             </Accordion.Item>
             <Accordion.Item heading={t("replacementCar.title")}>
@@ -79,73 +70,73 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
             </Accordion.Item>
             <Accordion.Item heading={t("billing.title")}>
               <Paragraph>{t("billing.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("billing.tips").map((tip: string, idx: number) => (
-                  <li key={idx}>{tip}</li>
+                  <List.Item key={idx}>{tip}</List.Item>
                 ))}
-              </ul>
+              </List>
               <Paragraph className="font-bold">{t("billing.note")}</Paragraph>
             </Accordion.Item>
             <Accordion.Item heading={t("tires.title")}>
               <Paragraph>{t("tires.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("tires.tips").map((tip: string, idx: number) => (
-                  <li key={idx}>{tip}</li>
+                  <List.Item key={idx}>{tip}</List.Item>
                 ))}
-              </ul>
+              </List>
             </Accordion.Item>
             <Accordion.Item heading={t("accidents.title")}>
               <Paragraph>{t("accidents.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("accidents.steps").map((step: string, idx: number) => (
-                  <li key={idx}>{step}</li>
+                  <List.Item key={idx}>{step}</List.Item>
                 ))}
-              </ul>
+              </List>
             </Accordion.Item>
             <Accordion.Item heading={t("roadside.title")}>
               <Paragraph>{t("roadside.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("roadside.tips").map((tip: string, idx: number) => (
-                  <li key={idx}>{tip}</li>
+                  <List.Item key={idx}>{tip}</List.Item>
                 ))}
-              </ul>
+              </List>
             </Accordion.Item>
             <Accordion.Item heading={t("export.title")}>
               <Paragraph>{t("export.description")}</Paragraph>
-              <ul className="palette-text-color">
+              <List className="palette-text-color">
                 {t.raw("export.tips").map((tip: string, idx: number) => (
-                  <li key={idx}>{tip}</li>
+                  <List.Item key={idx}>{tip}</List.Item>
                 ))}
-              </ul>
+              </List>
             </Accordion.Item>
             <Accordion.Item heading={t("return.title")}>
               <Paragraph>{t("return.description")}</Paragraph>
               {/* Checklist */}
               <div className="">
                 <Heading3>{t("return.checklist.title")}</Heading3>
-                <ul className="palette-text-color">
+                <List className="palette-text-color">
                   {t.raw("return.checklist.items").map((item: string, idx: number) => (
-                    <li key={idx}>{item}</li>
+                    <List.Item key={idx}>{item}</List.Item>
                   ))}
-                </ul>
+                </List>
               </div>
               {/* Must Have */}
               <div className="">
                 <Heading3>{t("return.mustHave.title")}</Heading3>
-                <ul className="palette-text-color">
+                <List className="palette-text-color">
                   {t.raw("return.mustHave.items").map((item: string, idx: number) => (
-                    <li key={idx}>{item}</li>
+                    <List.Item key={idx}>{item}</List.Item>
                   ))}
-                </ul>
+                </List>
               </div>
               {/* Remove */}
               <div className="">
                 <Heading3>{t("return.remove.title")}</Heading3>
-                <ul className="palette-text-color">
+                <List className="palette-text-color">
                   {t.raw("return.remove.items").map((item: string, idx: number) => (
-                    <li key={idx}>{item}</li>
+                    <List.Item key={idx}>{item}</List.Item>
                   ))}
-                </ul>
+                </List>
               </div>
             </Accordion.Item>
           </Accordion>

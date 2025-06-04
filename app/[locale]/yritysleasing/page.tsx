@@ -13,6 +13,7 @@ import { InnerBoxes } from "@/app/components/block/InnerBoxes";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { CustomizableBlock } from "@/app/components/block/CustomizableBlock";
 import { ContentContainer } from "@/app/components/core/ContentContainer";
+import { List } from "@/app/components/core/List";
 // Leasing comparison table for Finnish market
 const leasingData = [
   {
@@ -151,8 +152,10 @@ function LeasingComparisonTable() {
           ))}
         </tbody>
       </table>
-      <span className="text-sm text-gray-500">* Selitys kohdalle</span>
-      <span className="text-sm text-gray-500">** Selitys toiselle kohdalle</span>
+      <div className="flex flex-col gap-4 p-6">
+        <span className="text-sm palette-text-color">* Selite kohdalle X</span>
+        <span className="text-sm palette-text-color">** Selite toiselle kohdalle Y</span>
+      </div>
     </div>
   );
 }
@@ -188,12 +191,12 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           <Paragraph>{t("digitalServices.description")}</Paragraph>
 
           <Heading2>Edut</Heading2>
-          <ul className="list-disc pl-6 palette-text-color">
-            <li>{t("benefits.fixedPrice")}</li>
-            <li>{t("benefits.contractPeriod")}</li>
-            <li>{t("benefits.noDownPayment")}</li>
-            <li>{t("benefits.newCar")}</li>
-          </ul>
+          <List>
+            <List.Item>{t("benefits.fixedPrice")}</List.Item>
+            <List.Item>{t("benefits.contractPeriod")}</List.Item>
+            <List.Item>{t("benefits.noDownPayment")}</List.Item>
+            <List.Item>{t("benefits.newCar")}</List.Item>
+          </List>
         </InnerBoxes.Box>
       </InnerBoxes>
 
@@ -217,17 +220,17 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           <Heading2>{t("leasingTypes.minileasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.minileasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.minileasing.suits")}</Paragraph>
-          <ul className="list-disc palette-text-color">
+          <List>
             {t.raw("leasingTypes.minileasing.benefits").map((b: string) => (
-              <li key={b}>{b}</li>
+              <List.Item key={b}>{b}</List.Item>
             ))}
-          </ul>
+          </List>
           <Paragraph className="font-semibold">Täydellinen ratkaisu mm.:</Paragraph>
-          <ul className="list-disc palette-text-color">
+          <List>
             {t.raw("leasingTypes.minileasing.perfectFor").map((b: string) => (
-              <li key={b}>{b}</li>
+              <List.Item key={b}>{b}</List.Item>
             ))}
-          </ul>
+          </List>
         </InnerBoxes.Box>
       </InnerBoxes>
 
@@ -243,11 +246,11 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         <ContentContainer asBlock palette="piki">
           <Heading2 className="color-kupari-heading">{t("equipmentLeasing.title")}</Heading2>
           <Paragraph>{t("equipmentLeasing.description")}</Paragraph>
-          <ul className="list-disc pl-6 color-palette-text-color">
+          <List>
             {t.raw("equipmentLeasing.benefits").map((b: string) => (
-              <li key={b}>{b}</li>
+              <List.Item key={b}>{b}</List.Item>
             ))}
-          </ul>
+          </List>
           <Heading3 className="color-kupari-heading">{t("equipmentLeasing.businessToBusiness")}</Heading3>
           <Paragraph>{t("equipmentLeasing.b2bDescription")}</Paragraph>
           <Paragraph>{t("equipmentLeasing.process")}</Paragraph>

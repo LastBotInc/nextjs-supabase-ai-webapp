@@ -36,13 +36,13 @@ export const cssJs = {
     },
     h1: {
       size: "text-6xl",
-      responsive: "lg:text-7xl",
+      responsive: "text-6xl lg:text-7xl",
       margin: "mb-4",
       small: "text-5xl",
     },
     h2: {
       size: "text-5xl",
-      responsive: "lg:text-6xl",
+      responsive: "text-5xl lg:text-6xl",
       small: "text-4xl",
     },
     h3: {

@@ -22,6 +22,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { IconPlugCar } from "../components/Icons";
 import { ImageContainer } from "../components/core/ImageContainer";
 import { LinkButton } from "../components/core/LinkButton";
+import { List } from "../components/core/List";
 type Props = {
   params: {
     locale: string;
@@ -231,7 +232,7 @@ export default async function Page({ params }: Props) {
                 <Content.Column>
                   <Card
                     palette="kupari"
-                    className="rounded-xl overflow-hidden has-overlay-pattern overlay-pattern-innolease-1 pr-0 lg:pr-0"
+                    className="md:rounded-xl overflow-hidden has-overlay-pattern overlay-pattern-innolease-1 pr-0 lg:pr-0"
                   >
                     <Card.TopImage>
                       <Image
@@ -240,7 +241,7 @@ export default async function Page({ params }: Props) {
                         layout="responsive"
                         width={1077}
                         height={397}
-                        className="lg:hidden pb-6"
+                        className="lg:hidden p-6"
                         quality={90}
                         aria-hidden={true}
                       />
@@ -274,7 +275,7 @@ export default async function Page({ params }: Props) {
                         layout="responsive"
                         width={703}
                         height={392}
-                        className="lg:hidden pb-6"
+                        className="lg:hidden p-6"
                         quality={90}
                         aria-hidden={true}
                       />
@@ -399,7 +400,7 @@ export default async function Page({ params }: Props) {
               layout="responsive"
               width={1893}
               height={1262}
-              className="object-contain lg:hidden pb-6"
+              className="object-contain md:hidden p-6"
               sizes="(max-width: 768px) 100vw, 400px"
               quality={90}
             />
@@ -457,6 +458,7 @@ export default async function Page({ params }: Props) {
         src="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
         backgroundPosition={{ default: "center left", md: "center left", lg: "center right", xl: "center right" }}
         backgroundSize={{ default: "0%", md: "0%", lg: "cover" }}
+        palette="black"
       >
         <Content asGrid addTextShadow palette="black">
           <Content.Column>
@@ -474,7 +476,7 @@ export default async function Page({ params }: Props) {
                 src="/images/home/iphone_05_sleep_image.png"
                 alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
                 fill
-                className="object-contain scale-100 md:scale-150"
+                className="object-contain scale-100 lg:scale-150"
                 sizes="(max-width: 768px) 100vw, 400px"
                 quality={90}
               />
@@ -612,11 +614,11 @@ export default async function Page({ params }: Props) {
                 <CoreParagraph key={description}>{description}</CoreParagraph>
               ))}
 
-              <ul className="list-disc list-inside palette-text-color">
+              <List>
                 {t.raw("greenLeasing.list").map((item: string) => (
-                  <li key={item}>{item}</li>
+                  <List.Item key={item}>{item}</List.Item>
                 ))}
-              </ul>
+              </List>
               <br></br>
               <LinkButton href={"#"}>{t("greenLeasing.readMore")}</LinkButton>
               <IconPlugCar className="absolute bottom-0 right-0" />

@@ -29,7 +29,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, { children: ReactNode; cl
 const AccordionContent = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
   ({ children, className, ...props }, forwardedRef) => (
     <Content
-      className={cn("accordion-animation-content overflow-hidden", textPaletteClassName, className)}
+      className={cn("accordion-animation-content overflow-hidden px-6 pb-6", textPaletteClassName, className)}
       {...props}
       ref={forwardedRef}
     >
@@ -46,7 +46,7 @@ function AccordionItem({
   return (
     <Item
       className={cn(
-        "mt-1 overflow-hidden first:mt-0 focus-within:z-1 focus-within:relative border-b",
+        "mt-1 overflow-hidden first:mt-0 focus-within:z-10 focus-within:relative border-b",
         borderPaletteClassName,
         className
       )}

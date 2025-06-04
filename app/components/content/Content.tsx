@@ -83,7 +83,7 @@ export function Content({
     </>
   );
   const flexClasses = asGrid ? "" : "flex flex-row gap-4 lg:gap-8";
-  const gridClasses = asGrid ? "grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 bg-transparent" : "";
+  const gridClasses = asGrid ? "grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-2 bg-transparent" : "";
   const renderedColumns = (
     <div className={cn(flexClasses, gridClasses, columnClass, addTextShadow && "shadow-text")}>{columns}</div>
   );

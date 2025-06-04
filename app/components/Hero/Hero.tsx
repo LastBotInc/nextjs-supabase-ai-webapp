@@ -35,7 +35,13 @@ Text.displayName = "Hero.Text";
 Image.displayName = "Hero.Image";
 ExtraContent.displayName = "Hero.ExtraContent";
 
-export function Hero({ children, palette = "default", isFirst = false, fullWidth = false }: ContentBlock) {
+export function Hero({
+  children,
+  palette = "default",
+  isFirst = false,
+  fullWidth = false,
+  useMinHeight = false,
+}: ContentBlock & { useMinHeight?: boolean }) {
   const slots = mapSlots(children, [
     Heading.displayName,
     SubHeading.displayName,
@@ -50,7 +56,7 @@ export function Hero({ children, palette = "default", isFirst = false, fullWidth
     return <div className={cn(classes, "min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr]")}>{children}</div>;
   };
   const ContainerWithText = ({ children }: { children: ReactNode }) => {
-    return <div className={cn(classes, "pt-20")}>{children}</div>;
+    return <div className={cn(classes, "pt-20", useMinHeight ? "min-h-[500px] lg:h-[600px]" : "")}>{children}</div>;
   };
 
   const hasText = !!slots[Text.displayName];
