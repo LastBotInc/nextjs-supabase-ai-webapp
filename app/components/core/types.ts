@@ -26,4 +26,5 @@ export type ContentBlock =
     isFirst?: boolean;
     oneColumnBreak?: "md" | "lg" | "xl";
     fullWidth?: boolean;
+    rounded?: boolean;
   };

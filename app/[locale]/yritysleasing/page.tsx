@@ -151,6 +151,8 @@ function LeasingComparisonTable() {
           ))}
         </tbody>
       </table>
+      <span className="text-sm text-gray-500">* Selitys kohdalle</span>
+      <span className="text-sm text-gray-500">** Selitys toiselle kohdalle</span>
     </div>
   );
 }
@@ -253,7 +255,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         </ContentContainer>
       </CustomizableBlock>
 
-      <Hero isFirst palette="piki" fullWidth>
+      <Hero palette="piki" fullWidth>
         <Hero.Image src="/images/Tietoa_meista.png" backgroundPosition="top center" />
         <Hero.Heading>{t("contact.title")}</Hero.Heading>
         <Hero.Text>

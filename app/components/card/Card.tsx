@@ -31,11 +31,19 @@ Content.displayName = "Card.Content";
 Image.displayName = "Card.Image";
 TopImage.displayName = "Card.TopImage";
 
-export function Card({ children, palette = "default", className }: ContentBlock) {
+export function Card({ children, palette = "default", className, rounded }: ContentBlock) {
   const slots = mapSlots(children, [Heading.displayName, Content.displayName, Image.displayName, TopImage.displayName]);
 
   return (
-    <div className={cn(`color-palette-${palette}`, getCardsCss({ padding: "full" }), bgPaletteClassName, className)}>
+    <div
+      className={cn(
+        `color-palette-${palette}`,
+        getCardsCss({ padding: "full" }),
+        rounded && "rounded-xl",
+        bgPaletteClassName,
+        className
+      )}
+    >
       {slots[TopImage.displayName] && <>{slots[TopImage.displayName]}</>}
       {slots[Heading.displayName] && <>{slots[Heading.displayName]}</>}
       {slots[Content.displayName] && <>{slots[Content.displayName]}</>}
