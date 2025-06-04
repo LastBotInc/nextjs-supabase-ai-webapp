@@ -71,7 +71,8 @@
     }
   },
   "contact": {
-    "title": "Ota yhteyttä – löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin",
+    "title": "Ota yhteyttä",
+    "subheading": "löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin",
     "carRentalLink": "kts. lisätietoja auton vuokraus – 'linkki auton vuokraus'"
   },
   "equipmentLeasing": {

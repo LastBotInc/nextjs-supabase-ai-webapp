@@ -35,7 +35,7 @@ Text.displayName = "Hero.Text";
 Image.displayName = "Hero.Image";
 ExtraContent.displayName = "Hero.ExtraContent";
 
-export function Hero({ children, palette = "default", isFirst = false }: ContentBlock) {
+export function Hero({ children, palette = "default", isFirst = false, fullWidth = false }: ContentBlock) {
   const slots = mapSlots(children, [
     Heading.displayName,
     SubHeading.displayName,
@@ -44,27 +44,45 @@ export function Hero({ children, palette = "default", isFirst = false }: Content
     ExtraContent.displayName,
   ]);
 
+  const classes = "z-10 relative  w-full grid grid-cols-1 gap-2 lg:gap-4 items-end";
+
+  const ContainerWithoutText = ({ children }: { children: ReactNode }) => {
+    return <div className={cn(classes, "min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr]")}>{children}</div>;
+  };
+  const ContainerWithText = ({ children }: { children: ReactNode }) => {
+    return <div className={cn(classes, "pt-20")}>{children}</div>;
+  };
+
+  const hasText = !!slots[Text.displayName];
+
+  const Container = hasText ? ContainerWithText : ContainerWithoutText;
   return (
     <Block>
+      {fullWidth && slots[Image.displayName] && <Block.FullWidthBackgroundImage {...slots[Image.displayName].props} />}
       <Block.CenteredContentArea>
         <div
           className={cn(
             "relative xl:rounded-lg overflow-hidden",
-            getCssProp("blockContentArea", "padding"),
+            getCssProp("blockContentArea", fullWidth ? "paddingInline" : "padding"),
             `color-palette-${palette}`
           )}
         >
           {/* bg image */}
-          {slots[Image.displayName] && <>{slots[Image.displayName]}</>}
+          {!fullWidth && slots[Image.displayName] && <>{slots[Image.displayName]}</>}
           {/* content area */}
-          <div className="z-10 relative min-h-[500px] lg:h-[600px] w-full grid grid-cols-1 gap-2 lg:grid-cols-[33%_1fr] lg:gap-4 items-end">
+          <Container>
             {/* heading */}
             <div className="shadow-text">
               {slots[Heading.displayName] && (
-                <HeadingComponent level={isFirst ? 1 : 2}>
+                <HeadingComponent level={isFirst ? 1 : 2} medium>
                   {slots[Heading.displayName]}
                   {slots[SubHeading.displayName] && (
-                    <span className="block text-5xl font-light hero-text-split-to-lines with-shadow">
+                    <span
+                      className={cn(
+                        "block text-5xl font-light with-shadow",
+                        hasText ? "hero-text-prefixed" : "hero-text-split-to-lines"
+                      )}
+                    >
                       {slots[SubHeading.displayName]}
                     </span>
                   )}
@@ -75,7 +93,7 @@ export function Hero({ children, palette = "default", isFirst = false }: Content
             </div>
             {/* extra content like call us */}
             {slots[ExtraContent.displayName] && <>{slots[ExtraContent.displayName]}</>}
-          </div>
+          </Container>
         </div>
       </Block.CenteredContentArea>
     </Block>

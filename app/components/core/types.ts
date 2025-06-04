@@ -24,4 +24,5 @@ export type ContentBlock =
       | "maantie";
     isFirst?: boolean;
     oneColumnBreak?: "md" | "lg" | "xl";
+    fullWidth?: boolean;
   };

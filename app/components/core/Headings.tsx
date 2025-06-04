@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ElementType, HTMLAttributes } from "react";
-import { getHeadingClass, textPaletteClassName } from "../cssJs/cssJs";
+import { getHeadingClass, headingPaletteClassName } from "../cssJs/cssJs";
 
 export type HeadingProps = React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -19,7 +19,7 @@ type FixedHeadingProps = Omit<HeadingProps, "level" | "small">;
  */
 export function HeadingComponent({ children, className, level, small, medium, responsive, ...props }: HeadingProps) {
   const Component = `h${level}` as ElementType<HTMLAttributes<HTMLHeadingElement>>;
-  const headingClasses = getHeadingClass({ level, small, medium, responsive }) + " " + textPaletteClassName;
+  const headingClasses = getHeadingClass({ level, small, medium, responsive }) + " " + headingPaletteClassName;
   return (
     <Component className={cn(headingClasses, className)} {...props}>
       {children}

@@ -442,6 +442,8 @@
     content: "–";
     padding-right: 0.25em;
   }
+  width: 100%;
+  display: block;
 }
 
 .call-us {
@@ -549,6 +551,7 @@
 .color-palette-default {
   --palette-background-color: var(--white);
   --palette-text-color: var(--black);
+  --palette-heading-color: var(--black);
   --palette-icon-color: var(--black);
   --palette-button-color: var(--black);
   --palette-button-text-color: var(--white);
@@ -557,6 +560,7 @@
 .color-palette-light-gray {
   --palette-background-color: var(--light-gray);
   --palette-text-color: var(--black);
+  --palette-heading-color: var(--black);
   --palette-icon-color: var(--black);
   --palette-button-color: var(--black);
   --palette-button-text-color: var(--white);
@@ -565,6 +569,7 @@
 .color-palette-kupari {
   --palette-background-color: var(--kupari);
   --palette-text-color: var(--piki);
+  --palette-heading-color: var(--piki);
   --palette-icon-color: var(--piki);
   --palette-button-color: var(--white);
   --palette-button-text-color: var(--piki);
@@ -573,9 +578,13 @@
 .color-palette-piki {
   --palette-background-color: var(--piki);
   --palette-text-color: var(--white);
+  --palette-heading-color: var(--white);
   --palette-icon-color: var(--white);
   --palette-button-color: var(--white);
   --palette-button-text-color: var(--piki);
+}
+.color-kupari-heading {
+  --palette-heading-color: var(--kupari);
 }
 
 .color-palette-black {
@@ -588,6 +597,7 @@
 
 .color-palette-betoni {
   --palette-background-color: var(--betoni);
+  --palette-heading-color: var(--white);
   --palette-text-color: var(--white);
   --palette-icon-color: var(--white);
   --palette-button-color: var(--kupari);
@@ -596,17 +606,23 @@
 
 .color-palette-maantie {
   --palette-background-color: var(--maantie);
-  --palette-text-color: var(--white);
+  --palette-text-color: var(--piki);
+  --palette-heading-color: var(--piki);
   --palette-icon-color: var(--kupari);
   --palette-button-color: var(--kupari);
-  --palette-button-text-color: var(--black);
+  --palette-button-text-color: var(--piki);
 }
 
 .palette-background-color {
   background-color: var(--palette-background-color);
 }
+
 .palette-button-color {
   background-color: var(--palette-button-color);
+}
+
+.palette-heading-color {
+  color: var(--palette-heading-color);
 }
 
 .palette-text-color {
@@ -619,4 +635,36 @@
 
 .palette-button-text-color {
   color: var(--palette-button-text-color);
+}
+
+.custom-table {
+  @apply rounded-lg;
+  thead tr {
+    border-bottom: 2px solid var(--white);
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--light-gray);
+  }
+  th,
+  .th {
+    color: var(--piki);
+    font-weight: 600;
+    @apply p-4;
+    @apply text-lg;
+    &:first-child {
+      background-color: var(--kupari);
+    }
+  }
+  td {
+    font-weight: 600;
+  }
+  th:nth-child(even),
+  td:nth-child(even) {
+    background-color: var(--maantie);
+  }
+
+  th:nth-child(odd),
+  td:nth-child(odd) {
+    background-color: rgba(96, 96, 96, 0.5);
+  }
 }

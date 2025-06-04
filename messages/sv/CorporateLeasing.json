@@ -71,7 +71,8 @@
     }
   },
   "contact": {
-    "title": "Kontakta oss – vi hittar en lösning som tar ditt företag framåt",
+    "title": "Kontakta oss",
+    "subheading": "vi hittar en lösning som tar ditt företag framåt",
     "carRentalLink": "se mer om biluthyrning – 'länk till biluthyrning'"
   },
   "equipmentLeasing": {

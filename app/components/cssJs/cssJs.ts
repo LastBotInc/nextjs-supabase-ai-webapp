@@ -75,8 +75,8 @@ export const cssJs = {
   },
   blockContentArea: {
     padding: "p-6 lg:p-14",
-    paddingInline: "px-4",
-    paddingBlock: "py-4",
+    paddingInline: "px-6 lg:px-14",
+    paddingBlock: "py-6 lg:py-14",
     width: "w-full",
     maxWidth: "max-w-7xl",
     margin: "mx-auto",
@@ -134,9 +134,17 @@ export function getCssProp(sourceName: keyof typeof cssJs, prop: string) {
   return (cssJs[sourceName] as Record<string, string>)[prop] as string;
 }
 
+// note: this gets all!
 export function getBlockContentAreaCss() {
   return Object.values(cssJs.blockContentArea).join(" ") +
     " relative";
+}
+
+export function getFilteredBlockContentAreaCss(
+  { omitKeys = [], padding = "full" }: GetProps<typeof cssJs.blockContentArea> =
+    {},
+) {
+  return getClassesAsString({ source: cssJs.card, omitKeys, padding });
 }
 
 export function getCardsCss(
@@ -274,6 +282,7 @@ export function getContainerPadding(padding: string) {
 }
 
 export const bgPaletteClassName = "palette-background-color";
+export const headingPaletteClassName = "palette-heading-color";
 export const textPaletteClassName = "palette-text-color";
 export const iconPaletteClassName = "palette-icon-color";
 export const buttonPaletteClassName = "palette-button-color";

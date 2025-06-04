@@ -1,6 +1,7 @@
 import { Block } from "../block/Block";
 import { ContentBlock } from "../core/types";
 import { Content } from "../content/Content";
+import { cn } from "@/lib/utils";
 
 export function ColumnBlock({
   children,
@@ -8,9 +9,10 @@ export function ColumnBlock({
   isFirst = false,
   asGrid = false,
   contentClassName,
-}: ContentBlock & { asGrid?: boolean; contentClassName?: string }) {
+  className,
+}: ContentBlock & { asGrid?: boolean; contentClassName?: string; className?: string }) {
   return (
-    <Block>
+    <Block className={cn(palette && `color-palette-${palette}`, className)}>
       <Block.CenteredContentArea>
         <Content palette={palette} isFirst={isFirst} asGrid={asGrid} className={contentClassName}>
           {children}

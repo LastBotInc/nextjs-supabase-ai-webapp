@@ -70,7 +70,8 @@
     }
   },
   "contact": {
-    "title": "Contact us – we'll find a solution to move your business forward",
+    "title": "Contact us",
+    "subheading": "we'll find a solution to move your business forward",
     "carRentalLink": "see more about car rental – 'link to car rental'"
   },
   "equipmentLeasing": {
