@@ -4,33 +4,28 @@ import { getSlotName } from "../core/getSlotName";
 import { ContentBlock } from "../core/types";
 import { getContentCss } from "../cssJs/cssJs";
 
-type SlotProps = { children: ReactNode };
+type SlotProps = { children: ReactNode; className?: string };
 
-function Heading({ children }: SlotProps) {
-  return <h2 className={`flex flex-col`}>{children}</h2>;
+function Heading({ children, className }: SlotProps) {
+  return <h2 className={cn(`flex flex-col`, className)}>{children}</h2>;
 }
 
-function Column({ children, addContainer = false }: SlotProps & { addContainer?: boolean }) {
-  return <>{addContainer ? <div className="flex flex-col">{children}</div> : children}</>;
+function Column({ children, addContainer = false, className }: SlotProps & { addContainer?: boolean }) {
+  return <>{addContainer ? <div className={cn("flex flex-col space-y-8", className)}>{children}</div> : children}</>;
 }
 
-function Text({ children }: SlotProps) {
-  return <div className="text-base text-muted-foreground mt-4">{children}</div>;
+function Text({ children, className }: SlotProps) {
+  return <div className={cn(className)}>{children}</div>;
 }
 
 function Wrapper({ children, className }: SlotProps & { className?: string }) {
   return <div className={cn(className)}>{children}</div>;
 }
 
-function Highlight({ children }: SlotProps) {
-  return <div className="highlight bg-yellow-100 p-3 rounded">{children}</div>;
-}
-
 Heading.displayName = "Content.Heading";
 Column.displayName = "Content.Column";
 Text.displayName = "Content.Text";
 Wrapper.displayName = "Content.Wrapper";
-Highlight.displayName = "Content.Highlight";
 
 export function Content({
   children,
@@ -45,13 +40,11 @@ export function Content({
     Columns: ReactElement[];
     Text: ReactNode;
     Wrapper: ReactNode;
-    Highlight: ReactNode;
   } = {
     Heading: null,
     Columns: [],
     Text: null,
     Wrapper: null,
-    Highlight: null,
   };
 
   function extractSlots(nodes: ReactNode): void {
@@ -61,17 +54,14 @@ export function Content({
       const { props } = child;
 
       if (slotName === Heading.displayName) {
-        slots.Heading = props.children;
+        slots.Heading = child;
       } else if (slotName === Column.displayName) {
         slots.Columns.push(child);
       } else if (slotName === Text.displayName) {
-        slots.Text = props.children;
+        slots.Text = child;
       } else if (slotName === Wrapper.displayName) {
         extractSlots(props.children);
         slots.Wrapper = child;
-      } else if (slotName === Highlight.displayName) {
-        extractSlots(props.children);
-        slots.Highlight = child;
       } else if (props?.children) {
         extractSlots(props.children); // recursively dig through unknown wrappers
       }
@@ -86,11 +76,13 @@ export function Content({
   const columns = (
     <>
       {slots.Columns.map((col, i) => (
-        <Column key={i}>{col.props.children}</Column>
+        <Column key={i} {...col.props}>
+          {col.props.children}
+        </Column>
       ))}
     </>
   );
-  const flexClasses = asGrid ? "" : "flex flex-row gap-4";
+  const flexClasses = asGrid ? "" : "flex flex-row gap-4 lg:gap-8";
   const gridClasses = asGrid ? "grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 bg-transparent" : "";
   const renderedColumns = (
     <div className={cn(flexClasses, gridClasses, columnClass, addTextShadow && "shadow-text")}>{columns}</div>
@@ -108,9 +100,7 @@ export function Content({
 
       {slots.Wrapper ? cloneElement(slots.Wrapper as ReactElement, {}, columns) : renderedColumns}
 
-      {slots.Highlight
-        ? cloneElement(slots.Highlight as ReactElement, {}, <Text>{slots.Text}</Text>)
-        : slots.Text && <Text>{slots.Text}</Text>}
+      {slots.Text && <Text>{slots.Text}</Text>}
     </div>
   );
 }
@@ -119,4 +109,3 @@ Content.Heading = Heading;
 Content.Column = Column;
 Content.Text = Text;
 Content.Wrapper = Wrapper;
-Content.Highlight = Highlight;

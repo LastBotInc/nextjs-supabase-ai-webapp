@@ -184,7 +184,7 @@ export function LinkLikeButton({
 }: { children: React.ReactNode } & Parameters<typeof Link>[0]) {
   return (
     <Link
-      className={`inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all text-lg ${
+      className={`inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all self-start text-lg ${
         className ?? ""
       }`}
       {...props}

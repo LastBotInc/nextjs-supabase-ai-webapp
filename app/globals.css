@@ -142,6 +142,16 @@
     --palette-background-color: 0 0% 100%;
     --palette-text-color: 222.2 84% 4.9%;
     --palette-icon-color: 222.2 84% 4.9%;
+
+    --kupari: #c49a6c;
+    --piki: #231f20;
+    --sahko: #4441e8;
+    --beige: #e8e4da;
+    --maantie: #d9d9d9;
+    --betoni: #6d6e71;
+    --white: #ffffff;
+    --black: #000000;
+    --light-gray: #f6f6f6;
   }
 
   .dark {
@@ -537,41 +547,76 @@
 }
 
 .color-palette-default {
-  --palette-background-color: #ffffff;
-  --palette-text-color: #000000;
-  --palette-icon-color: #000000;
+  --palette-background-color: var(--white);
+  --palette-text-color: var(--black);
+  --palette-icon-color: var(--black);
+  --palette-button-color: var(--black);
+  --palette-button-text-color: var(--white);
+}
+
+.color-palette-light-gray {
+  --palette-background-color: var(--light-gray);
+  --palette-text-color: var(--black);
+  --palette-icon-color: var(--black);
+  --palette-button-color: var(--black);
+  --palette-button-text-color: var(--white);
 }
 
 .color-palette-kupari {
-  @apply bg-kupari;
-  @apply text-piki;
-  @apply text-piki;
+  --palette-background-color: var(--kupari);
+  --palette-text-color: var(--piki);
+  --palette-icon-color: var(--piki);
+  --palette-button-color: var(--white);
+  --palette-button-text-color: var(--piki);
 }
 
 .color-palette-piki {
-  @apply bg-piki;
-  @apply text-white;
-  @apply text-piki;
+  --palette-background-color: var(--piki);
+  --palette-text-color: var(--white);
+  --palette-icon-color: var(--white);
+  --palette-button-color: var(--white);
+  --palette-button-text-color: var(--piki);
 }
 
 .color-palette-black {
-  @apply bg-black;
-  @apply text-white;
-  @apply text-kupari;
+  --palette-background-color: var(--black);
+  --palette-text-color: var(--white);
+  --palette-icon-color: var(--kupari);
+  --palette-button-color: var(--kupari);
+  --palette-button-text-color: var(--white);
 }
 
 .color-palette-betoni {
-  @apply bg-betoni;
-  @apply text-white;
-  @apply text-white;
+  --palette-background-color: var(--betoni);
+  --palette-text-color: var(--white);
+  --palette-icon-color: var(--white);
+  --palette-button-color: var(--kupari);
+  --palette-button-text-color: var(--piki);
+}
+
+.color-palette-maantie {
+  --palette-background-color: var(--maantie);
+  --palette-text-color: var(--white);
+  --palette-icon-color: var(--kupari);
+  --palette-button-color: var(--kupari);
+  --palette-button-text-color: var(--black);
 }
 
 .palette-background-color {
   background-color: var(--palette-background-color);
 }
+.palette-button-color {
+  background-color: var(--palette-button-color);
+}
+
 .palette-text-color {
   color: var(--palette-text-color);
 }
+
 .palette-icon-color {
   color: var(--palette-icon-color);
+}
+
+.palette-button-text-color {
+  color: var(--palette-button-text-color);
 }

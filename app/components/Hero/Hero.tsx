@@ -5,6 +5,7 @@ import { mapSlots } from "../core/mapSlots";
 import { Block } from "../block/Block";
 import { ContentBlock } from "../core/types";
 import { HeadingComponent } from "../core/Headings";
+import { getCssProp } from "../cssJs/cssJs";
 
 type SlotProps = { children: ReactNode; className?: string };
 
@@ -46,7 +47,13 @@ export function Hero({ children, palette = "default", isFirst = false }: Content
   return (
     <Block>
       <Block.CenteredContentArea>
-        <div className={cn("relative xl:rounded-lg p-6 lg:p-14", `color-palette-${palette}`)}>
+        <div
+          className={cn(
+            "relative xl:rounded-lg overflow-hidden",
+            getCssProp("blockContentArea", "padding"),
+            `color-palette-${palette}`
+          )}
+        >
           {/* bg image */}
           {slots[Image.displayName] && <>{slots[Image.displayName]}</>}
           {/* content area */}
@@ -57,7 +64,7 @@ export function Hero({ children, palette = "default", isFirst = false }: Content
                 <HeadingComponent level={isFirst ? 1 : 2}>
                   {slots[Heading.displayName]}
                   {slots[SubHeading.displayName] && (
-                    <span className="block text-5xl font-light text-white hero-text-split-to-lines with-shadow">
+                    <span className="block text-5xl font-light hero-text-split-to-lines with-shadow">
                       {slots[SubHeading.displayName]}
                     </span>
                   )}

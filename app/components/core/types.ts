@@ -14,6 +14,14 @@ export type SlotComponent<P = unknown> = React.ComponentType<P> & {
 export type ContentBlock =
   & React.PropsWithChildren<HTMLAttributes<HTMLElement>>
   & {
-    palette?: "kupari" | "piki" | "black" | "betoni" | "default";
+    palette?:
+      | "kupari"
+      | "piki"
+      | "black"
+      | "betoni"
+      | "default"
+      | "light-gray"
+      | "maantie";
     isFirst?: boolean;
+    oneColumnBreak?: "md" | "lg" | "xl";
   };

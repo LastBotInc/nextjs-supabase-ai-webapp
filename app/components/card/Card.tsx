@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
 import { HeadingProps, HeadingComponent } from "../core/Headings";
 import { ContentBlock } from "../core/types";
-import { getCardsCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getCardsCss } from "../cssJs/cssJs";
 
 type SlotProps = { children: ReactNode };
 
@@ -35,7 +35,7 @@ export function Card({ children, palette = "default", className }: ContentBlock)
   const slots = mapSlots(children, [Heading.displayName, Content.displayName, Image.displayName, TopImage.displayName]);
 
   return (
-    <div className={cn(`color-palette-${palette}`, getCardsCss({ padding: "full" }), className)}>
+    <div className={cn(`color-palette-${palette}`, getCardsCss({ padding: "full" }), bgPaletteClassName, className)}>
       {slots[TopImage.displayName] && <>{slots[TopImage.displayName]}</>}
       {slots[Heading.displayName] && <>{slots[Heading.displayName]}</>}
       {slots[Content.displayName] && <>{slots[Content.displayName]}</>}

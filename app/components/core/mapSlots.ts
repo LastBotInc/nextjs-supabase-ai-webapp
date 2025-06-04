@@ -16,7 +16,6 @@ export function mapSlots<T extends Record<string, SlotComponentCandidate>>(
         return;
       }
       const slotName = getSlotName(child);
-      console.log("slotName", slotName);
       const isAllowed = slotName &&
         (!allowedSlotNames.length || allowedSlotNames.includes(slotName));
       if (slotName && isAllowed) {

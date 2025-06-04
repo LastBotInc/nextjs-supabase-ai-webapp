@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
-import { getBlockContentAreaCss, getBlockCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getBlockContentAreaCss, getBlockCss } from "../cssJs/cssJs";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 import { BackgroundImage } from "../core/BackgroundImage";
 
@@ -28,7 +28,14 @@ export function Block({ children, className }: BlockProps) {
   const slots = mapSlots(children, [FullWidthBackgroundImage.displayName, CenteredContentArea.displayName]);
 
   return (
-    <section className={cn(getBlockCss(), className, !!slots[FullWidthBackgroundImage.displayName] && "relative")}>
+    <section
+      className={cn(
+        getBlockCss(),
+        className,
+        !!slots[FullWidthBackgroundImage.displayName] && "relative",
+        bgPaletteClassName
+      )}
+    >
       {slots[FullWidthBackgroundImage.displayName] && <>{slots[FullWidthBackgroundImage.displayName]}</>}
       {slots[CenteredContentArea.displayName] && <>{slots[CenteredContentArea.displayName]}</>}
     </section>

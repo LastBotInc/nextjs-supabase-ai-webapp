@@ -3,32 +3,25 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 
-import { ColumnCard, PersonnelCard, TwoColumnCard } from "../components/layouts/Card";
+import { PersonnelCard } from "../components/layouts/Card";
 import { CallUs } from "../components/CallUs";
-import {
-  BlockPadding,
-  CommonBlock,
-  FullScreenWidthBlock,
-  FullWidthContentBlockWithBg,
-  MaxWidthContentBlock,
-  ColumnBlock,
-  spacing,
-} from "../components/layouts/Block";
+
 import { Heading2Small, LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
 import { Heading1, Heading2, Heading3, ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
 import { Hero } from "../components/Hero/Hero";
 import { ColumnBlock as CoreColumnBlock } from "../components/block/ColumnBlock";
 import { Heading2 as CoreH2 } from "../components/core/Headings";
+import { Paragraph as CoreParagraph } from "../components/core/Paragraph";
 import { CustomizableBlock } from "../components/block/CustomizableBlock";
 import { Grid } from "../components/grid/Grid";
 import { Content } from "../components/content/Content";
 import { Card } from "../components/card/Card";
 import { BackgroundImageBlock } from "../components/block/BackgroundImageBlock";
-import { BlogPost } from "../components/BlogCardList";
 import NewsSection from "../components/NewsSection";
-import BlogSection from "../components/BlogSection";
 import { ArrowRightIcon } from "lucide-react";
 import { IconPlugCar } from "../components/Icons";
+import { ImageContainer } from "../components/core/ImageContainer";
+import { LinkButton } from "../components/core/LinkButton";
 type Props = {
   params: {
     locale: string;
@@ -46,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const blogPostsFormatted: BlogPost[] = [];
+//const blogPostsFormatted: BlogPost[] = [];
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
@@ -55,6 +48,7 @@ export default async function Page({ params }: Props) {
   return (
     /* Main container should have a pt-24 to account for the fixed header */
     <main className="flex min-h-screen flex-col items-center bg-white pt-24">
+      {/*
       <CommonBlock className="bg-tiki px-0 lg:px-0">
         <div
           style={{ backgroundImage: "url(/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png)" }}
@@ -71,7 +65,8 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </CommonBlock>
-      <Hero isFirst>
+      */}
+      <Hero isFirst palette="piki">
         <Hero.Image src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
         <Hero.Heading>{t("hero.heading")}</Hero.Heading>
         <Hero.SubHeading>{t("hero.subheading")}</Hero.SubHeading>
@@ -79,28 +74,7 @@ export default async function Page({ params }: Props) {
           <CallUs numbers={t.raw("hero.numbers")} />
         </Hero.ExtraContent>
       </Hero>
-      <CoreColumnBlock>
-        <CoreColumnBlock.Column addContainer>
-          <CoreH2>{t("topTeam.heading")}</CoreH2>
-          <Image
-            src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
-            alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
-            layout="responsive"
-            width={1893}
-            height={1262}
-            className="object-contain"
-            sizes="(max-width: 768px) 100vw, 400px"
-            quality={90}
-          />
-        </CoreColumnBlock.Column>
-        <CoreColumnBlock.Column addContainer>
-          <Paragraph variant="large">{t("topTeam.paragraph1")}</Paragraph>
-          <Paragraph variant="large">{t("topTeam.paragraph2")}</Paragraph>
-          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
-            {t("topTeam.readMore")}
-          </LinkLikeButton>
-        </CoreColumnBlock.Column>
-      </CoreColumnBlock>
+      {/*
       <CommonBlock className="bg-white">
         <TwoColumnCard className="bg-transparent gap-0">
           <div className="text-center md:text-left pr-10">
@@ -135,6 +109,32 @@ export default async function Page({ params }: Props) {
           </div>
         </TwoColumnCard>
       </CommonBlock>
+      */}
+      <CoreColumnBlock palette="default" asGrid>
+        <CoreColumnBlock.Column addContainer className="pr-10">
+          <CoreH2 responsive>{t("topTeam.heading")}</CoreH2>
+          <ImageContainer className="px-4 md:px-0 md:py-4 w-full aspect-ratio-4/3">
+            <Image
+              src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
+              alt={t("topTeam.imageAlt", { defaultValue: "Top team" })}
+              layout="responsive"
+              width={1893}
+              height={1262}
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 400px"
+              quality={90}
+            />
+          </ImageContainer>
+        </CoreColumnBlock.Column>
+        <CoreColumnBlock.Column addContainer>
+          <CoreParagraph variant="large">{t("topTeam.paragraph1")}</CoreParagraph>
+          <CoreParagraph variant="large">{t("topTeam.paragraph2")}</CoreParagraph>
+          <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+            {t("topTeam.readMore")}
+          </LinkLikeButton>
+        </CoreColumnBlock.Column>
+      </CoreColumnBlock>
+      {/** 
       <FullScreenWidthBlock className={`bg-gray-200 lg:px-${spacing.md}`}>
         <MaxWidthContentBlock>
           <ColumnBlock>
@@ -214,18 +214,25 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
-      <CustomizableBlock>
+      */}
+      <CustomizableBlock palette="light-gray">
         <Grid>
           <Grid.Top>
-            <Content>
-              <Content.Heading>Heading</Content.Heading>
+            <Content className="text-center">
+              <Content.Heading>
+                <Heading2 className="text-gray-900">{t("leasingOptions.heading")}</Heading2>
+                <p className="text-3xl font-light text-gray-900">{t("leasingOptions.description")}</p>
+              </Content.Heading>
             </Content>
           </Grid.Top>
           <Grid.Middle>
             <Content noSpacing>
               <Content.Wrapper className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-2 bg-transparent">
                 <Content.Column>
-                  <Card className="rounded-xl bg-kupari overflow-hidden has-overlay-pattern overlay-pattern-innolease-1 pr-0 lg:pr-0">
+                  <Card
+                    palette="kupari"
+                    className="rounded-xl overflow-hidden has-overlay-pattern overlay-pattern-innolease-1 pr-0 lg:pr-0"
+                  >
                     <Card.TopImage>
                       <Image
                         src="/images/home/leasing1.png"
@@ -251,14 +258,15 @@ export default async function Page({ params }: Props) {
                       >
                         {t("leasingOptions.personalizedDescription")}
                       </ShapedContentFlowInParagraph>
-                      <LinkLikeButton className="bg-white text-piki" href="#">
-                        {t("leasingOptions.readMore")}
-                      </LinkLikeButton>
+                      <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
                     </Card.Content>
                   </Card>
                 </Content.Column>
                 <Content.Column>
-                  <Card className="rounded-xl bg-betoni overflow-hidden has-overlay-pattern overlay-pattern-innolease-2 pr-0 lg:pr-0">
+                  <Card
+                    palette="betoni"
+                    className="rounded-xl overflow-hidden has-overlay-pattern overlay-pattern-innolease-2 pr-0 lg:pr-0"
+                  >
                     <Card.TopImage>
                       <Image
                         src="/images/home/leasing2.png"
@@ -283,9 +291,7 @@ export default async function Page({ params }: Props) {
                       >
                         {t("leasingOptions.flexibleDescription")}
                       </ShapedContentFlowInParagraph>
-                      <LinkLikeButton className="bg-white text-piki" href="#">
-                        {t("leasingOptions.readMore")}
-                      </LinkLikeButton>
+                      <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
                     </Card.Content>
                   </Card>
                 </Content.Column>
@@ -294,11 +300,16 @@ export default async function Page({ params }: Props) {
           </Grid.Middle>
           <Grid.Bottom>
             <Content>
-              <Content.Heading>Link</Content.Heading>
+              <Content.Heading>
+                <LinkButton className="self-center" href="#">
+                  {t("leasingOptions.allSolutions")}
+                </LinkButton>
+              </Content.Heading>
             </Content>
           </Grid.Bottom>
         </Grid>
       </CustomizableBlock>
+      {/**
       <FullWidthContentBlockWithBg
         image="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
         backgroundPosition="bottom right"
@@ -320,20 +331,23 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
-      <BackgroundImageBlock src="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png">
-        <Content asGrid addTextShadow>
-          <Content.Column>
-            <Heading1>{t("transparency.title")}</Heading1>
+      */}
+      <BackgroundImageBlock
+        src="/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png"
+        backgroundPosition="bottom right"
+      >
+        <Content asGrid addTextShadow palette="black">
+          <Content.Column addContainer>
+            <CoreH2>{t("transparency.title")}</CoreH2>
             {t.raw("transparency.description").map((description: string) => (
-              <Paragraph key={description}>{description}</Paragraph>
+              <CoreParagraph key={description}>{description}</CoreParagraph>
             ))}
-            <LinkLikeButton className="bg-kupari text-white" href={"#"}>
-              {t("transparency.readMore")}
-            </LinkLikeButton>
+            <LinkButton href={"#"}>{t("transparency.readMore")}</LinkButton>
           </Content.Column>
-          <Content.Column> </Content.Column>
+          <Content.Column addContainer> </Content.Column>
         </Content>
       </BackgroundImageBlock>
+      {/**
       <FullWidthContentBlockWithBg
         image="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
         backgroundPosition={{ default: "0% 0%", md: "0% 0%", lg: "50vw 50%", xl: "97% 50%" }}
@@ -370,14 +384,15 @@ export default async function Page({ params }: Props) {
           </TwoColumnCard>
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
+      */}
       <BackgroundImageBlock
         src="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
         backgroundPosition={{ default: "0% 0%", md: "0% 0%", lg: "50vw 50%", xl: "97% 50%" }}
         backgroundSize={{ default: "0%", md: "0%", lg: "90%", xl: "40%" }}
-        className="bg-gray-200"
+        palette="light-gray"
       >
         <Content asGrid>
-          <Content.Column>
+          <Content.Column addContainer>
             <Image
               src="/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png"
               alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
@@ -401,9 +416,10 @@ export default async function Page({ params }: Props) {
               {t("searchingFor.readMore")}
             </LinkLikeButton>
           </Content.Column>
-          <Content.Column> </Content.Column>
+          <Content.Column addContainer> </Content.Column>
         </Content>
       </BackgroundImageBlock>
+      {/**
       <FullWidthContentBlockWithBg
         image="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
         backgroundPosition={{ default: "center left", md: "center left", lg: "center right", xl: "center right" }}
@@ -436,15 +452,15 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullWidthContentBlockWithBg>
+      */}
       <BackgroundImageBlock
         src="/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png"
         backgroundPosition={{ default: "center left", md: "center left", lg: "center right", xl: "center right" }}
         backgroundSize={{ default: "0%", md: "0%", lg: "cover" }}
-        className="bg-gray-900"
       >
-        <Content asGrid addTextShadow>
+        <Content asGrid addTextShadow palette="black">
           <Content.Column>
-            <div className={`pt-${spacing.md} md:pt-0`}>
+            <div>
               <Heading3 className="uppercase text-xl pb-4">{t("innoFleet.subtitle")}</Heading3>
               <Heading1>{t("innoFleet.title")}</Heading1>
               <Paragraph>{t("innoFleet.description1")}</Paragraph>
@@ -466,7 +482,7 @@ export default async function Page({ params }: Props) {
           </Content.Column>
         </Content>
       </BackgroundImageBlock>
-      {/* Ajankohtaista */}
+      {/* Ajankohtaista 
       <FullScreenWidthBlock className="bg-gray-200">
         <BlockPadding vertical={true} horizontal={false}>
           <MaxWidthContentBlock>
@@ -494,10 +510,11 @@ export default async function Page({ params }: Props) {
           </MaxWidthContentBlock>
         </BlockPadding>
       </FullScreenWidthBlock>
-      <CustomizableBlock className="bg-gray-200">
+      */}
+      <CustomizableBlock palette="light-gray">
         <Grid>
           <Grid.Top>
-            <Content>
+            <Content className="text-center">
               <Content.Column>
                 <ArrowRightIcon className=" text-piki" width={50} height={50} strokeWidth={1} />
                 <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
@@ -505,7 +522,7 @@ export default async function Page({ params }: Props) {
             </Content>
           </Grid.Top>
           <Grid.Middle>
-            <Content noSpacing>
+            <Content>
               <Content.Column>
                 <NewsSection />
               </Content.Column>
@@ -513,34 +530,33 @@ export default async function Page({ params }: Props) {
           </Grid.Middle>
           <Grid.Bottom>
             <Content>
-              <Content.Column>
-                <LinkLikeButton className="mt-8 bg-piki text-white" href="#">
+              <Content.Text className="flex flex-row items-center justify-center">
+                <LinkButton className="self-center" href="#">
                   {t("news.viewAll")}
-                </LinkLikeButton>
-              </Content.Column>
+                </LinkButton>
+              </Content.Text>
             </Content>
           </Grid.Bottom>
         </Grid>
       </CustomizableBlock>
-      {/* Team */}
+      {/* Team 
       <CommonBlock className="bg-white">
         <BlockPadding innerOnly horizontal={false} vertical={false}>
           <ColumnCard className="bg-transparent xl:grid-cols-[40%_67%]">
-            {/* Left Column: Heading (centered) */}
             <div className="text-center md:text-left">
               <Heading2 className="text-piki">{t("team.title")}</Heading2>
             </div>
 
-            {/* Right Column: Paragraphs and Button */}
             <PersonnelCard people={t.raw("personnel")} />
           </ColumnCard>
         </BlockPadding>
       </CommonBlock>
+      */}
       <CustomizableBlock>
         <Content>
           <Content.Wrapper className="grid gap-4 lg:gap-8 bg-transparent xl:grid-cols-[40%_67%]">
             <Content.Column>
-              <CoreH2>{t("team.title")}</CoreH2>
+              <CoreH2 responsive>{t("team.title")}</CoreH2>
             </Content.Column>
             <Content.Column>
               <PersonnelCard people={t.raw("personnel")} />
@@ -548,6 +564,7 @@ export default async function Page({ params }: Props) {
           </Content.Wrapper>
         </Content>
       </CustomizableBlock>
+      {/* 
       <FullScreenWidthBlock className="bg-kupari">
         <MaxWidthContentBlock className={`${spacing.responsivePaddingY}`}>
           <BlockPadding>
@@ -585,48 +602,39 @@ export default async function Page({ params }: Props) {
           </BlockPadding>
         </MaxWidthContentBlock>
       </FullScreenWidthBlock>
-      <CustomizableBlock className="bg-kupari">
-        <Grid>
-          <Grid.Middle>
-            <Content noSpacing>
-              <Content.Wrapper className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-2 bg-transparent">
-                <Content.Column>
-                  <div className="relative">
-                    <Heading1 className="text-piki">{t("greenLeasing.title")}</Heading1>
-                    {t.raw("greenLeasing.description").map((description: string) => (
-                      <Paragraph key={description} className="text-piki">
-                        {description}
-                      </Paragraph>
-                    ))}
+    */}
+      <CustomizableBlock palette="kupari">
+        <Content palette="default" asGrid>
+          <Content.Column addContainer>
+            <div className="relative space-y-8">
+              <CoreH2 responsive>{t("greenLeasing.title")}</CoreH2>
+              {t.raw("greenLeasing.description").map((description: string) => (
+                <CoreParagraph key={description}>{description}</CoreParagraph>
+              ))}
 
-                    <ul className="text-piki list-disc list-inside">
-                      {t.raw("greenLeasing.list").map((item: string) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                    <br></br>
-                    <LinkLikeButton className="bg-piki   text-white" href={"#"}>
-                      {t("greenLeasing.readMore")}
-                    </LinkLikeButton>
-                    <IconPlugCar className="absolute bottom-0 right-0" />
-                  </div>
-                </Content.Column>
-                <Content.Column>
-                  <Image
-                    src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
-                    alt={"transparency.imageAlt"}
-                    width={800}
-                    height={480}
-                    layout="responsive"
-                    className="object-cover rounded-xl "
-                    sizes="100vw"
-                    quality={90}
-                  />
-                </Content.Column>
-              </Content.Wrapper>
-            </Content>
-          </Grid.Middle>
-        </Grid>
+              <ul className="list-disc list-inside palette-text-color">
+                {t.raw("greenLeasing.list").map((item: string) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <br></br>
+              <LinkButton href={"#"}>{t("greenLeasing.readMore")}</LinkButton>
+              <IconPlugCar className="absolute bottom-0 right-0" />
+            </div>
+          </Content.Column>
+          <Content.Column addContainer>
+            <Image
+              src={"/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png"}
+              alt={"transparency.imageAlt"}
+              width={800}
+              height={480}
+              layout="responsive"
+              className="object-cover rounded-xl "
+              sizes="100vw"
+              quality={90}
+            />
+          </Content.Column>
+        </Content>
       </CustomizableBlock>
     </main>
   );
