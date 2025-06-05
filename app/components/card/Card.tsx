@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
 import { HeadingProps, HeadingComponent, isHeadingComponent } from "../core/Headings";
 import { ContentBlock } from "../core/types";
-import { bgPaletteClassName, getCardsCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getCardsCss, getPaletteClassName } from "../cssJs/cssJs";
 
 type SlotProps = { children: ReactNode };
 
@@ -56,7 +56,7 @@ export function Card({ children, palette = "default", className, rounded }: Cont
   return (
     <div
       className={cn(
-        `color-palette-${palette}`,
+        getPaletteClassName(palette),
         getCardsCss({ padding: "full" }),
         rounded && "rounded-xl",
         bgPaletteClassName,

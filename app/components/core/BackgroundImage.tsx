@@ -64,7 +64,7 @@ export function BackgroundImage({ src, backgroundPosition, backgroundSize }: Bac
   }
   return (
     <div
-      className="absolute inset-0 z-1 bg-cover bg-center bg-no-repeat responsive-background-image"
+      className="absolute inset-0 z-10 bg-cover bg-center bg-no-repeat responsive-background-image"
       aria-hidden="true"
       style={style}
     ></div>

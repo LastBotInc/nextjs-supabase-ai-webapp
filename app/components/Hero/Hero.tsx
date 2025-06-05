@@ -18,7 +18,7 @@ function SubHeading({ children }: SlotProps) {
 }
 
 function Text({ children }: SlotProps) {
-  return <p>{children}</p>;
+  return <>{children}</>;
 }
 
 function Image(props: BackgroundImageProps) {
@@ -68,23 +68,28 @@ export function Hero({
   const classes = "z-10 relative  w-full grid grid-cols-1 gap-2 lg:gap-4 items-end";
 
   const ContainerWithoutText = ({ children }: { children: ReactNode }) => {
-    return <div className={cn(classes, "min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr]")}>{children}</div>;
+    return (
+      <div className={cn(classes, "min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr] content-end")}>{children}</div>
+    );
   };
   const ContainerWithText = ({ children }: { children: ReactNode }) => {
     return <div className={cn(classes, "pt-20", useMinHeight ? "min-h-[500px] lg:h-[600px]" : "")}>{children}</div>;
   };
 
   const hasText = !!slots[Text.displayName];
+  const hasImage = !!slots[Image.displayName];
+  const padding = fullWidth ? "full" : "block";
 
   const Container = hasText ? ContainerWithText : ContainerWithoutText;
   return (
     <Block>
-      {fullWidth && slots[Image.displayName] && <Block.FullWidthBackgroundImage {...slots[Image.displayName].props} />}
-      <Block.CenteredContentArea>
+      {fullWidth && hasImage && <Block.FullWidthBackgroundImage {...slots[Image.displayName].props} />}
+      <Block.CenteredContentArea padding={padding}>
         <div
           className={cn(
-            "relative xl:rounded-lg overflow-hidden",
+            "relative overflow-hidden",
             getCssProp("blockContentArea", fullWidth ? "paddingInline" : "padding"),
+            !fullWidth && padding !== "none" ? "xl:rounded-lg" : "xl:rounded-lg",
             `color-palette-${palette}`
           )}
         >

@@ -17,9 +17,10 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
-import { bgPaletteClassName, getBlockContentAreaCss, getBlockCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getFilteredBlockContentAreaCss, getBlockCss, getCssProp } from "../cssJs/cssJs";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 import { BackgroundImage } from "../core/BackgroundImage";
+import { ContentBlock } from "../core/types";
 
 type SlotProps = { children: ReactNode; className?: string };
 
@@ -28,25 +29,30 @@ function FullWidthBackgroundImage(props: BackgroundImageProps) {
 }
 FullWidthBackgroundImage.displayName = "FullWidthBackgroundImage";
 
-function CenteredContentArea({ children, className }: SlotProps) {
-  return <div className={cn(getBlockContentAreaCss(), className)}>{children}</div>;
+function CenteredContentArea({
+  children,
+  className,
+  padding = "full",
+}: SlotProps & { padding?: "full" | "inline" | "block" | "none" }) {
+  return <div className={cn(getFilteredBlockContentAreaCss({ padding }), className)}>{children}</div>;
 }
 CenteredContentArea.displayName = "CenteredContentArea";
 
-type BlockProps = {
-  children: ReactNode;
-  className?: string;
-};
-export function Block({ children, className }: BlockProps) {
+export function Block({ children, className, hoistBottomGap }: ContentBlock) {
   const slots = mapSlots(children, [FullWidthBackgroundImage.displayName, CenteredContentArea.displayName]);
-
+  const hasFullWidthBackgroundImage = !!slots[FullWidthBackgroundImage.displayName];
+  const shouldHoistBottomGap = hoistBottomGap || hasFullWidthBackgroundImage;
+  const hoistClass = shouldHoistBottomGap
+    ? [getCssProp("page", "hoistBottomGap"), getCssProp("page", "hoistTopGap")]
+    : "";
   return (
     <section
       className={cn(
         getBlockCss(),
         className,
         !!slots[FullWidthBackgroundImage.displayName] && "relative",
-        bgPaletteClassName
+        bgPaletteClassName,
+        hoistClass
       )}
     >
       {slots[FullWidthBackgroundImage.displayName] && <>{slots[FullWidthBackgroundImage.displayName]}</>}

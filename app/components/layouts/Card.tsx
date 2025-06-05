@@ -35,7 +35,7 @@ type CardPropsWithImage = CardProps & Required<Pick<CardProps, "image">>;
  * @returns A card component
  */
 export function Card({ children, className = "" }: React.HTMLAttributes<HTMLDivElement>) {
-  const defaultClassNames = "relative rounded-2xl overflow-hidden has-overlay-pattern flex flex-col justify-between";
+  const defaultClassNames = "relative rounded-2xl overflow-hidden has-overlay-pattern flex flex-col";
   return <div className={`${defaultClassNames} ${className}`}>{children}</div>;
 }
 /**
@@ -116,7 +116,7 @@ export function PersonnelCard({
   className?: string;
 }) {
   return (
-    <div className={`grid md:grid-cols-2 gap-10 justify-center`}>
+    <div className={`grid md:grid-cols-2 gap-4 justify-center`}>
       {people.map(
         (person: {
           name: string;

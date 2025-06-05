@@ -22,9 +22,11 @@ export type ContentBlock =
       | "default"
       | "light-gray"
       | "beige"
-      | "maantie";
+      | "maantie"
+      | "none";
     isFirst?: boolean;
     oneColumnBreak?: "md" | "lg" | "xl";
     fullWidth?: boolean;
     rounded?: boolean;
+    hoistBottomGap?: boolean;
   };

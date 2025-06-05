@@ -25,7 +25,7 @@ import { ReactNode, ReactElement, Children, isValidElement, cloneElement } from 
 import { cn } from "@/lib/utils";
 import { getSlotName } from "../core/getSlotName";
 import { ContentBlock } from "../core/types";
-import { getContentCss } from "../cssJs/cssJs";
+import { getContentCss, getPaletteClassName } from "../cssJs/cssJs";
 import { HeadingComponent, HeadingProps, isHeadingComponent } from "../core/Headings";
 
 type SlotProps = { children: ReactNode; className?: string };
@@ -51,8 +51,12 @@ function Text({ children, className }: SlotProps) {
   return <div className={cn(className)}>{children}</div>;
 }
 
-function Wrapper({ children, className }: SlotProps & { className?: string }) {
-  return <div className={cn(className)}>{children}</div>;
+function Wrapper({ children, className, forBoxes = false }: SlotProps & { forBoxes?: boolean }) {
+  return (
+    <div className={cn(className, forBoxes ? "grid gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2 lg:px-6 xl:px-0" : "")}>
+      {children}
+    </div>
+  );
 }
 
 Heading.displayName = "Content.Heading";
@@ -124,9 +128,10 @@ export function Content({
   return (
     <div
       className={cn(
-        `color-palette-${palette}`,
+        getPaletteClassName(palette),
         getContentCss({ omitKeys: noSpacing ? ["padding", "paddingInline", "paddingBlock"] : [] }),
-        className
+        className,
+        "relative z-20"
       )}
     >
       {slots.Heading && <>{slots.Heading}</>}

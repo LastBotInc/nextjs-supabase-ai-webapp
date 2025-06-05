@@ -1,3 +1,5 @@
+import { ContentBlock } from "../core/types";
+
 type GetProps<T extends Record<string, string>> = {
   omitKeys?: (keyof T)[];
   padding?: "full" | "inline" | "block" | "none";
@@ -5,6 +7,7 @@ type GetProps<T extends Record<string, string>> = {
 
 export type Size = "default" | "small" | "large";
 export type Direction = "full" | "inline" | "block";
+export type BreakPoint = "md" | "lg" | "xl";
 
 export type SizeDefinition = {
   default: Size | Direction | string;
@@ -22,8 +25,8 @@ const paddingPropsToOmitByType = {
 
 const textPropsToOmitByType = {
   default: ["small", "large"],
-  small: ["size", "large"],
-  large: ["size", "small"],
+  small: ["default", "large"],
+  large: ["inline", "small"],
 };
 
 export const cssJs = {
@@ -35,38 +38,44 @@ export const cssJs = {
       mediumFont: "font-medium",
     },
     h1: {
-      size: "text-6xl",
+      default: "text-6xl",
       responsive: "text-6xl lg:text-7xl",
       margin: "mb-4",
       small: "text-5xl",
     },
     h2: {
-      size: "text-5xl",
+      default: "text-5xl",
       responsive: "text-5xl lg:text-6xl",
       small: "text-4xl",
     },
     h3: {
-      size: "text-2xl",
-      responsive: "lg:text-3xl",
+      default: "text-4xl",
+      responsive: "text-4xl lg:text-5xl",
       small: "text-2xl",
     },
     h4: {
-      size: "text-xl",
-      responsive: "lg:text-2xl",
+      default: "text-3xl",
+      responsive: "text-3xl lg:text-4xl",
       small: "text-lg",
     },
     h5: {
-      size: "text-lg",
-      responsive: "lg:text-xl",
+      default: "text-lg",
+      responsive: "text-lg lg:text-xl",
       small: "text-xl",
     },
     h6: {
-      size: "text-base",
-      responsive: "lg:text-lg",
+      default: "text-base",
+      responsive: "text-base lg:text-lg",
       small: "text-lg",
     },
   },
 
+  page: {
+    padding: "pt-24",
+    gap: "gap-4 lg:gap-8",
+    hoistBottomGap: "hoist-bottom-gap",
+    hoistTopGap: "hoist-top-gap",
+  },
   block: {
     padding: "",
     width: "w-full",
@@ -80,7 +89,7 @@ export const cssJs = {
     width: "w-full",
     maxWidth: "max-w-7xl",
     margin: "mx-auto",
-    marginInline: "px-0 lg:px-0",
+    marginInline: "",
     marginBlock: "",
   },
   content: {
@@ -106,9 +115,9 @@ export const cssJs = {
     },
   },
   text: {
-    size: "text-lg",
+    inline: "text-lg",
     small: "text-sm",
-    large: "lg:text-2xl",
+    large: "text-lg lg:text-2xl",
   },
 };
 
@@ -141,10 +150,15 @@ export function getBlockContentAreaCss() {
 }
 
 export function getFilteredBlockContentAreaCss(
-  { omitKeys = [], padding = "full" }: GetProps<typeof cssJs.blockContentArea> =
-    {},
+  { omitKeys = [], padding = "inline" }: GetProps<
+    typeof cssJs.blockContentArea
+  > = {},
 ) {
-  return getClassesAsString({ source: cssJs.card, omitKeys, padding });
+  return getClassesAsString({
+    source: cssJs.blockContentArea,
+    omitKeys,
+    padding,
+  });
 }
 
 export function getCardsCss(
@@ -186,8 +200,8 @@ export function getHeadingClass(
     source: cssJs.heading[`h${level}`],
     omitKeys: [
       ...omitKeys,
-      small ? "size" : "small",
-      responsive ? "size" : "responsive",
+      small ? "default" : "small",
+      responsive ? "default" : "responsive",
     ],
     padding,
   });
@@ -279,6 +293,19 @@ export function getContainerPadding(padding: string) {
     const [breakPoint, size] = value.split(":");
     return `${breakPoint}:${sizeToValue(size)}`;
   }).filter(Boolean).join(" ");
+}
+
+export function getPaletteClassName(palette: ContentBlock["palette"]) {
+  if (palette === "none") {
+    return "";
+  }
+  return `color-palette-${palette || "default"}`;
+}
+
+export function filterBreakPoints(css: string, breakPoints: Array<BreakPoint>) {
+  return css.split(" ").filter((value) => {
+    return !breakPoints.includes(value.split(":")[0] as BreakPoint);
+  }).join(" ");
 }
 
 export const bgPaletteClassName = "palette-background-color";
