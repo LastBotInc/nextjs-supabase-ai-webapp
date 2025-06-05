@@ -368,7 +368,10 @@
 
 .image-container-with-aspect-ratio-5-3 {
   width: 100%;
-  aspect-ratio: 5/3;
+  aspect-ratio: 20/8;
+  @screen lg {
+    aspect-ratio: 5/3;
+  }
   position: relative;
   > * {
     position: absolute;
@@ -583,9 +586,6 @@
   --palette-button-color: var(--white);
   --palette-button-text-color: var(--piki);
 }
-.color-kupari-heading {
-  --palette-heading-color: var(--kupari);
-}
 
 .color-palette-black {
   --palette-background-color: var(--black);
@@ -623,6 +623,10 @@
 
 .palette-background-color {
   background-color: var(--palette-background-color);
+}
+
+.color-kupari-heading {
+  --palette-heading-color: var(--kupari);
 }
 
 .palette-button-color {
@@ -711,4 +715,13 @@
   to {
     height: 0;
   }
+}
+
+.extra-padding-block {
+  @apply py-6;
+
+  @apply lg:py-14;
+}
+.extra-padding-block-only-md {
+  @apply py-6;
 }

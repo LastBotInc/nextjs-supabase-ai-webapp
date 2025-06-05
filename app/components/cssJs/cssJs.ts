@@ -1,3 +1,5 @@
+import { ContentBlock } from "../core/types";
+
 type GetProps<T extends Record<string, string>> = {
   omitKeys?: (keyof T)[];
   padding?: "full" | "inline" | "block" | "none";
@@ -5,6 +7,7 @@ type GetProps<T extends Record<string, string>> = {
 
 export type Size = "default" | "small" | "large";
 export type Direction = "full" | "inline" | "block";
+export type BreakPoint = "md" | "lg" | "xl";
 
 export type SizeDefinition = {
   default: Size | Direction | string;
@@ -46,27 +49,33 @@ export const cssJs = {
       small: "text-4xl",
     },
     h3: {
-      size: "text-2xl",
-      responsive: "lg:text-3xl",
+      size: "text-4xl",
+      responsive: "text-4xl lg:text-5xl",
       small: "text-2xl",
     },
     h4: {
-      size: "text-xl",
-      responsive: "lg:text-2xl",
+      size: "text-3xl",
+      responsive: "text-3xl lg:text-4xl",
       small: "text-lg",
     },
     h5: {
       size: "text-lg",
-      responsive: "lg:text-xl",
+      responsive: "text-lg lg:text-xl",
       small: "text-xl",
     },
     h6: {
       size: "text-base",
-      responsive: "lg:text-lg",
+      responsive: "text-base lg:text-lg",
       small: "text-lg",
     },
   },
 
+  page: {
+    padding: "pt-24",
+    gap: "gap-4 lg:gap-8",
+    hoistBottomGap: "-mb-4 lg:-mb-8",
+    hoistTopGap: "-mt-4 lg:-mt-8",
+  },
   block: {
     padding: "",
     width: "w-full",
@@ -80,7 +89,7 @@ export const cssJs = {
     width: "w-full",
     maxWidth: "max-w-7xl",
     margin: "mx-auto",
-    marginInline: "px-0 lg:px-0",
+    marginInline: "px-6 lg:px-0",
     marginBlock: "",
   },
   content: {
@@ -141,10 +150,15 @@ export function getBlockContentAreaCss() {
 }
 
 export function getFilteredBlockContentAreaCss(
-  { omitKeys = [], padding = "full" }: GetProps<typeof cssJs.blockContentArea> =
-    {},
+  { omitKeys = [], padding = "inline" }: GetProps<
+    typeof cssJs.blockContentArea
+  > = {},
 ) {
-  return getClassesAsString({ source: cssJs.card, omitKeys, padding });
+  return getClassesAsString({
+    source: cssJs.blockContentArea,
+    omitKeys,
+    padding,
+  });
 }
 
 export function getCardsCss(
@@ -279,6 +293,19 @@ export function getContainerPadding(padding: string) {
     const [breakPoint, size] = value.split(":");
     return `${breakPoint}:${sizeToValue(size)}`;
   }).filter(Boolean).join(" ");
+}
+
+export function getPaletteClassName(palette: ContentBlock["palette"]) {
+  if (palette === "none") {
+    return "";
+  }
+  return `color-palette-${palette || "default"}`;
+}
+
+export function filterBreakPoints(css: string, breakPoints: Array<BreakPoint>) {
+  return css.split(" ").filter((value) => {
+    return !breakPoints.includes(value.split(":")[0] as BreakPoint);
+  }).join(" ");
 }
 
 export const bgPaletteClassName = "palette-background-color";

@@ -14,7 +14,7 @@
 
 import { cn } from "@/lib/utils";
 import { ContentBlock } from "../core/types";
-import { bgPaletteClassName, getContentCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getContentCss, getPaletteClassName } from "../cssJs/cssJs";
 import React from "react";
 
 export function ContentContainer({
@@ -41,7 +41,7 @@ export function ContentContainer({
   return (
     <div
       className={cn(
-        `color-palette-${palette}`,
+        getPaletteClassName(palette),
         !asBlock && classes,
         asBlock && "flex flex-col",
         getContentCss({ omitKeys: noSpacing ? ["padding", "paddingInline", "paddingBlock"] : [] }),
