@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Autoilijan opas",
+    "description": "Opas autoiluun sopimuskauden aikana."
+  },
+  "intro": {
+    "title": "Autoilijan opas - Autoilu sopimuskauden aikana",
+    "description": "Me Innolease Oy:llä olemme asiakkaan apuna ajoneuvojen hankinnoissa, kalustonhallinnassa sekä sopimuksen aikana käytännön asioissa. Työsuhdeautoilun tulee olla mahdollisimman helppoa. Alta löydät hyödyllistä tietoa leasing-autosi käytöstä ja palveluistamme. Mikäli jokin asia askarruttaa, oma yhteyshenkilösi ja asiakaspalvelumme ovat valmiina auttamaan.",
+    "image": "Autoilijan  opas placeholder image"
+  },
+  "maintenance": {
+    "title": "Huollot ja korjaukset",
+    "description": "Auton toimintavarmuuden ja takuiden kannalta on tärkeää, että auto huollatetaan valmistajan tai maahantuojan huolto-ohjelman mukaisesti. Huollot tehdään Innolease Oy:n kumppaniverkostoon kuuluvassa huoltopaikassa. Huoltoon tulee pyytää lupa ennen ajanvarausta.",
+    "tips": [
+      "Seuraa huolto-ohjelmaa ja huoltokirjaa.",
+      "Huollot ja korjaukset sisältyvät huolto- ja joustoleasingiin.",
+      "Rahoitusleasing ei sisällä huoltoja tai korjauksia.",
+      "Teknisissä vioissa ota yhteyttä valtuutettuun merkkihuoltoon."
+    ],
+    "note": "Autoilijan opas toimitetaan sähköpostilla auton luovutuksen yhteydessä. Jos et ole saanut opasta, tilaa uusi asiakaspalvelusta.",
+    "image": "Huollot ja korjaukset placeholder image"
+  },
+  "replacementCar": {
+    "title": "Huollon sijaisauto",
+    "description": "Voit saada sijaisauton huollon ajaksi, jos se sisältyy yrityksesi autopolitiikkaan. Pidempiaikaista sijaisautoa varten ota yhteyttä asiakaspalveluun.",
+    "note": "Lisätietoja autonvuokrauksesta – linkki.",
+    "image": "Sijaisauto placeholder image"
+  },
+  "billing": {
+    "title": "Huollon laskutusluvat",
+    "description": "Huoltoihin ja korjauksiin tulee hakea ennakkoon laskutuslupa Innolease Oy:n huoltotiimin kautta. Luvan hakee huoltoliike, ei auton käyttäjä.",
+    "tips": [
+      "Luvan voi anoa, kun vika ja kustannukset ovat tiedossa.",
+      "Sama pätee huoltoihin, renkaiden uusintaan ja muihin laskutettaviin toimenpiteisiin."
+    ],
+    "note": "Lisätietoja laskutusluvista – linkki.",
+    "image": "Laskutusluvat placeholder image"
+  },
+  "tires": {
+    "title": "Rengaspalvelut",
+    "description": "Renkaiden kausivaihdot, säilytys ja uusinnat sopimuskauden aikana. Pääyhteistyökumppanit: Vianor ja Euromaster. Tarkista sopimuksestasi, sisältyvätkö palvelut.",
+    "tips": [
+      "Rengaspaineiden tarkistus on käyttäjän vastuulla.",
+      "Rikkoutumisesta tai väärästä käytöstä johtuvat uusinnat eivät sisälly sopimukseen."
+    ],
+    "image": "Rengaspalvelut placeholder image"
+  },
+  "accidents": {
+    "title": "Vahinkotilanteet",
+    "description": "Toimi vahinkotilanteessa seuraavasti:",
+    "steps": [
+      "Täytä vahinkoilmoitus paikan päällä ja pyydä toinen osapuoli allekirjoittamaan.",
+      "Toimita ilmoitus vakuutusyhtiöön.",
+      "Poliisi paikalle henkilövahingoissa, epäselvissä tapauksissa tai riistaeläinkolarissa.",
+      "Vahingon aiheuttajan vakuutusyhtiö korvaa syyttömän osapuolen kulut.",
+      "Ilmoita myös Innolease Oy:n JM-tiimille tai yhteyshenkilölle vahingosta."
+    ],
+    "image": "Vahinkotilanteet placeholder image"
+  },
+  "roadside": {
+    "title": "Tiepalvelu",
+    "description": "Innolease Oy:n Tiepalvelu palvelee 24/7. Palvelu on lähtökohtaisesti maksuton ja kulut ohjataan vakuutusyhtiölle tai maahantuojalle.",
+    "tips": [
+      "Jos tilannetta ei voi ratkaista puhelimitse, ammattilainen lähetetään paikalle.",
+      "Jos kuluja ei korvata, ne laskutetaan asiakkaalta."
+    ],
+    "image": "Tiepalvelu placeholder image"
+  },
+  "export": {
+    "title": "Maastavienti",
+    "description": "Tarkista työnantajan ohjeistus. Tarvitset maastavientivaltakirjan ja Green Cardin (ei Pohjoismaissa). Omistaja myöntää luvan. Ota rekisteröintitodistus mukaan ulkomaille.",
+    "tips": ["Tilaa asiakirjat hyvissä ajoin ennen matkaa.", "Green Card todistaa liikennevakuutuksen voimassaolon."],
+    "image": "Maastavienti placeholder image"
+  },
+  "return": {
+    "title": "Leasingauton palautus",
+    "description": "Aloita uuden auton hankinta tai sopimusjatko ajoissa. Palauta auto Autollecom myymälään. Täytä palautuslomake ja noudata ohjeita.",
+    "checklist": {
+      "title": "Palautuksessa varmista että:",
+      "items": [
+        "Auto on puhdas sisältä ja ulkoa.",
+        "Auto on huollettu huolto-ohjelman mukaisesti.",
+        "Auto on katsastettu.",
+        "Henkilökohtaiset tiedot on poistettu.",
+        "Vauriot on korjattu tai ilmoitettu vakuutusyhtiöön.",
+        "Puuttuvat lisävarusteet palautettu 7 vrk sisällä."
+      ]
+    },
+    "mustHave": {
+      "title": "Ajoneuvossa tulee olla mukana:",
+      "items": [
+        "Kaikki avaimet ja latauskaapelit.",
+        "Kaikki asiakirjat; huoltokirja ja manuaalit.",
+        "Molemmat rengassarjat.",
+        "Asennetut lisävarusteet."
+      ]
+    },
+    "remove": {
+      "title": "Ajoneuvosta tulee poistaa:",
+      "items": ["Teippaukset.", "Leasingsopimukseen kuulumattomat lisävarusteet.", "Paikanninlaitteet."]
+    },
+    "image": "Auton palautus placeholder image"
+  },
+  "faq": {
+    "title": "Usein kysytyt kysymykset",
+    "sections": [
+      {
+        "title": "Katsastukset ja verot",
+        "description": "Käyttäjän vastuulla on tehdä auton katsastus ja huolehtia veroista. Yhteistyökumppanit: A-Katsastus ja K1. Laskutus ohjautuu suoraan Innoleaselle."
+      },
+      {
+        "title": "Käyttäjän vaihdos",
+        "description": "Käyttäjän vaihtuessa ilmoita rekisterinumero ja uuden käyttäjän tiedot asiakaspalveluun."
+      },
+      {
+        "title": "Vakuutukset",
+        "description": "Vakuutusyhtiön tiedot ja omavastuut saat autopäättäjältä. Tutustu vakuutuksen laajuuteen ja omavastuusiin etukäteen."
+      },
+      {
+        "title": "Maastavienti",
+        "description": "Katso kohta maastavienti – linkki."
+      },
+      {
+        "title": "Auton palautus",
+        "description": "Katso kohta auton palautus – linkki."
+      }
+    ],
+    "image": "FAQ placeholder image"
+  },
+  "contact": {
+    "title": "Jäikö sinulle kysymyksiä?",
+    "description": "Jos et löytänyt vastausta kysymykseesi sivuiltamme, ota meihin yhteyttä.",
+    "note": "Linkki yhteydenottokaavakkeeseen.",
+    "image": "Yhteydenotto placeholder image",
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
+  }
+}

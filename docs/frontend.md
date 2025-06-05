@@ -5,12 +5,13 @@
 ### Public Pages (`/[locale]`)
 
 1. Home Page (`/`)
-   - **Hero Section:** Large background image/video, clear value proposition headline, description, primary CTA ('Request a Quote'), secondary CTA ('Learn More').
+
+   - **Hero Section:** Large background image/video, clear value proposition headline, description, primary CTA ('Request a Quote'), secondary CTA ('Learn More'). Use Hero component for these.
    - **Campaigns Section (New):**
      - **Location:** Below Hero section.
      - **Title:** "Current Campaigns" (localized).
      - **Layout:** Responsive grid (1-col mobile, 2-col tablet/desktop) with light background (e.g., `bg-gray-50`).
-     - **Card Template:** 
+     - **Card Template:**
        - Vehicle Image (16:9 ratio).
        - Tagline Badge (e.g., "Limited Stock!") - styled distinctively.
        - Vehicle Title (Make/Model) - bold.
@@ -25,6 +26,7 @@
    - **Final CTA:** Clear call-to-action section.
 
 2. Leasing Solutions (`/leasing-solutions`)
+
    - Financial Leasing
    - Flexible Leasing
    - Maintenance Leasing
@@ -32,12 +34,14 @@
    - Comparison calculator
 
 3. Fleet Management (`/fleet-management`)
+
    - InnoFleet Manager overview
    - Fleet reporting features
    - Cost tracking tools
    - Service management
 
 4. Services (`/services`)
+
    - Vehicle maintenance network
    - Tire service partners
    - Inspection services
@@ -45,12 +49,14 @@
    - Fleet optimization
 
 5. About Us (`/about`)
+
    - Company history
    - Team information
    - Corporate responsibility
    - Autolle.com Group connection
 
 6. Blog (`/blog`)
+
    - Industry news
    - Leasing tips
    - Fleet management insights
@@ -58,6 +64,7 @@
    - EV transition guidance
 
 7. Contact Page (`/contact`)
+
    - Contact form
    - Office locations
    - Service request form
@@ -71,6 +78,7 @@
 ### Client Portal (`/[locale]/portal`)
 
 1. Dashboard (`/portal`)
+
    - Fleet overview
    - Contract summaries
    - Upcoming service reminders
@@ -78,6 +86,7 @@
    - Cost analytics
 
 2. Vehicles (`/portal/vehicles`)
+
    - Vehicle list with details
    - Status indicators
    - Contract information
@@ -85,6 +94,7 @@
    - Service history
 
 3. Contracts (`/portal/contracts`)
+
    - Active contracts
    - Contract details
    - Payment schedules
@@ -92,6 +102,7 @@
    - Contract documents
 
 4. Maintenance (`/portal/maintenance`)
+
    - Service booking
    - Maintenance history
    - Tire management
@@ -99,6 +110,7 @@
    - Repair records
 
 5. Reports (`/portal/reports`)
+
    - Cost reports
    - Usage reports
    - Emissions analytics
@@ -106,6 +118,7 @@
    - Export options
 
 6. User Management (`/portal/users`)
+
    - Driver accounts
    - Permission settings
    - Role management
@@ -113,6 +126,7 @@
    - Driver-vehicle assignments
 
 7. Documents (`/portal/documents`)
+
    - Contracts
    - Invoices
    - Service records
@@ -129,6 +143,7 @@
 ### Admin Portal (`/[locale]/admin`)
 
 1. Dashboard (`/admin`)
+
    - Client overview
    - Contract analytics
    - Vehicle status summary
@@ -136,6 +151,7 @@
    - Service provider performance
 
 2. Client Management (`/admin/clients`)
+
    - Client list
    - Account details
    - Contract assignments
@@ -143,6 +159,7 @@
    - Notes and follow-ups
 
 3. Vehicle Management (`/admin/vehicles`)
+
    - Vehicle inventory
    - Availability status
    - Maintenance scheduling
@@ -150,6 +167,7 @@
    - Procurement planning
 
 4. Contract Management (`/admin/contracts`)
+
    - Contract creation
    - Template management
    - Approval workflows
@@ -157,6 +175,7 @@
    - Contract analytics
 
 5. Financial Management (`/admin/finance`)
+
    - Invoice generation
    - Payment tracking
    - Pricing management
@@ -164,6 +183,7 @@
    - Expense tracking
 
 6. Service Management (`/admin/services`)
+
    - Service provider network
    - Appointment scheduling
    - Service quality tracking
@@ -171,6 +191,7 @@
    - Service analytics
 
 7. Content Management (`/admin/content`)
+
    - Website content editor
    - Blog post management
    - Document templates
@@ -187,7 +208,36 @@
 ## UI/UX Patterns
 
 ### Design System
+
+#### Palettes
+
+There are ready made palettes used by components:
+
+- "betoni": with background color: #6D6E71 and accessible text and button and icon colors.
+- "kupari" with background color: #C49A6C and accessible text and button and icon colors.
+- "piki" with background color: #231F20 and accessible text and button and icon colors.
+- "light-gray" with background color: #f6f6f6 and accessible text and button and icon colors.
+- "black" with background color: #000000 and accessible text and button and icon colors.
+- "beige" with background color: #E8E4DA and accessible text and button and icon colors.
+- "maantie" with background color: #D9D9D9 and accessible text and button and icon colors.
+- "default" with background color: #ffffff and accessible text and button and icon colors.
+
+Use palettes in the components and not apply other colors with className.
+
+Palettes are used with palette prop:
+
+```typescript
+<Content palette="piki"></Content>
+```
+
+Child components will use colors from palette, so there is no need to apply colors with classNames.
+
+#### Colors
+
+These are brand colors, but do not use them in components. Use palette prop or no colors at all.
+
 - Colors:
+
   - Primary Colors:
     - Kupari (Copper): #C49A6C
     - Piki (Pitch Black): #231F20
@@ -207,15 +257,24 @@
     - Card Background: #0F172A
     - Text: #F5F7FA
 
+#### Typography
+
+Use components that have typography already set:
+
+- Card
+- Paragraph,
+- Heading1, Heading2,Heading3
+
 - Typography:
   - Primary Font: Inter Tight
   - Available Weights: Light, Regular, Bold, Black
   - Headings: Inter Tight
   - Body: Inter Tight
   - Monospace: Inter Tight
-  
 - Heading Styles:
+
   - Main Headings (H1):
+
     - Font: Inter Tight
     - Size: text-4xl (2.25rem) on mobile, text-5xl (3rem) on desktop
     - Weight: font-bold
@@ -224,6 +283,7 @@
     - Margin Bottom: mb-6
 
   - Section Headings (H2):
+
     - Font: Inter Tight
     - Size: text-3xl (1.875rem)
     - Weight: font-semibold
@@ -239,8 +299,37 @@
     - Line Height: leading-normal (1.5)
     - Margin Bottom: mb-3
 
+#### Components
+
+Use only ready made components do not create new ones.
+
+Page structure must be:
+
+```
+<block level component>
+├── <Content level component>
+│   ├──  <Core components>
+```
+
+Most block component already use Content component so do not apply them twice.
+
+Components in local File Structure
+
+```
+app/
+├── components/
+│   ├── block       # top level block components that wrap all other components
+│   ├── card      # Card components to be used inside Content
+│   ├── core        # main UI component to be used in Content and Card
+│   ├── grid        # a grid to be used in Content
+│   ├── hero        # a custom block component to be used as top level component
+
+```
+
 - Components:
+
   - Buttons:
+
     - Primary: Innolease Blue with white text
     - Secondary: White with Innolease Blue border and text
     - Tertiary: Transparent with Innolease Blue text
@@ -251,6 +340,8 @@
     - Focus: Blue outline with 2px width
 
   - Cards:
+
+    - Use the Card component with palettes. Do not make own.
     - Default: White background, light shadow, rounded corners (0.5rem)
     - Elevated: White background, medium shadow, rounded corners (0.5rem)
     - Interactive: Hover effect with scale transform and deeper shadow
@@ -258,6 +349,7 @@
     - Contract Card: Special design for displaying contract information
 
   - Forms:
+
     - Input fields: Light background, dark border, focus state with blue outline
     - Dropdowns: Custom styled with chevron icon
     - Checkboxes: Custom styled with blue check
@@ -267,6 +359,7 @@
     - Form sections: Logical grouping with clear section headers
 
   - Tables:
+
     - Responsive design for all screen sizes
     - Sortable columns with indicators
     - Filterable data
@@ -285,6 +378,7 @@
     - Cost comparisons: Side-by-side bar charts
 
 ### Responsive Design
+
 - Mobile-first approach
 - Breakpoints:
   - sm: 640px
@@ -294,6 +388,7 @@
   - 2xl: 1536px
 
 ### Animations
+
 - Subtle hover effects on interactive elements
 - Loading states with minimal animations
 - Page transitions for a smooth experience
@@ -301,6 +396,7 @@
 - Chart animations for data presentation
 
 ### Accessibility
+
 - WCAG 2.1 AA compliance
 - Keyboard navigation
 - Screen reader support
@@ -313,6 +409,7 @@
 ## Styling Approach
 
 1. Tailwind CSS
+
    - Custom configuration for Innolease brand colors
    - Consistent spacing and sizing
    - Component-specific utilities
@@ -320,6 +417,7 @@
    - Dark mode support
 
 2. CSS Modules
+
    - For complex components
    - Animation keyframes
    - Custom properties
@@ -338,38 +436,41 @@
 ### Graphical Patterns and Overlays
 
 - **Patterns:** The brand utilizes distinct graphical elements derived from the logo:
-    - A single, curved parallelogram shape.
-    - A wavy pattern formed by repeating and mirroring this shape.
-    - A tiled pattern using variations of the shape.
-    - These are typically rendered in neutral colors like 'Road Grey' or 'Concrete Grey'.
+
+  - A single, curved parallelogram shape.
+  - A wavy pattern formed by repeating and mirroring this shape.
+  - A tiled pattern using variations of the shape.
+  - These are typically rendered in neutral colors like 'Road Grey' or 'Concrete Grey'.
 
 - **Usage:** These patterns can be used subtly as background overlays on containers, images, or sections (e.g., hero sections, feature cards) to reinforce brand identity without overwhelming the content.
 
 - **Implementation (CSS Overlay):**
-    - **Method:** Use CSS pseudo-elements (`::before` or `::after`) on the container element.
-    - **Styling:** Apply the pattern using `background-image` (preferably an SVG for scalability and sharpness) or potentially CSS gradients/masks for simpler patterns. Set `background-repeat`, `background-size`, and `background-position` as needed.
-    - **Subtlety:** Control visibility using the `opacity` property (e.g., `opacity: 0.05` or `opacity: 0.1`).
-    - **Interaction:** Ensure the overlay doesn't interfere with user interaction by setting `pointer-events: none;`.
-    - **Layering:** Use `position: absolute`, `inset: 0`, and potentially `z-index` to position the overlay correctly behind content.
-    - **Blending:** Consider `background-blend-mode` (e.g., `multiply`, `overlay`) for interesting effects when layered over images or colors.
-    - **Centralization:** Store SVG patterns or common CSS overlay utility classes centrally for consistency.
+
+  - **Method:** Use CSS pseudo-elements (`::before` or `::after`) on the container element.
+  - **Styling:** Apply the pattern using `background-image` (preferably an SVG for scalability and sharpness) or potentially CSS gradients/masks for simpler patterns. Set `background-repeat`, `background-size`, and `background-position` as needed.
+  - **Subtlety:** Control visibility using the `opacity` property (e.g., `opacity: 0.05` or `opacity: 0.1`).
+  - **Interaction:** Ensure the overlay doesn't interfere with user interaction by setting `pointer-events: none;`.
+  - **Layering:** Use `position: absolute`, `inset: 0`, and potentially `z-index` to position the overlay correctly behind content.
+  - **Blending:** Consider `background-blend-mode` (e.g., `multiply`, `overlay`) for interesting effects when layered over images or colors.
+  - **Centralization:** Store SVG patterns or common CSS overlay utility classes centrally for consistency.
 
 - **Conceptual Example (Pattern Overlay):**
+
   ```css
   .container-with-pattern-overlay {
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
   }
 
   .container-with-pattern-overlay::after {
     content: "";
     position: absolute;
     inset: 0; /* Cover entire container */
-    background-image: url('/path/to/innolease-pattern.svg'); 
+    background-image: url("/path/to/innolease-pattern.svg");
     background-repeat: repeat;
     background-size: 60px 60px; /* Example size */
     opacity: 0.08; /* Adjust for subtlety */
-    pointer-events: none; 
+    pointer-events: none;
     z-index: 0; /* Behind content if needed */
   }
   ```
@@ -379,6 +480,7 @@
 ## User Flows
 
 1. Vehicle Selection Process
+
    - Browse available vehicles
    - Compare specifications
    - View pricing options
@@ -387,6 +489,7 @@
    - Submit inquiry
 
 2. Client Portal Onboarding
+
    - Initial login
    - Profile setup
    - Vehicle assignment
@@ -395,6 +498,7 @@
    - Notification setup
 
 3. Maintenance Booking
+
    - Select vehicle
    - Choose service type
    - View available time slots
@@ -404,6 +508,7 @@
    - Get reminders
 
 4. End-of-Lease Process
+
    - Receive notification of approaching end date
    - Review end-of-lease options
    - Schedule vehicle inspection
@@ -443,6 +548,7 @@ messages/
 ### Using Translations
 
 Translations are organized by namespace, making it easier to:
+
 - Locate translations for specific features
 - Compare translations across languages
 - Maintain consistency within logical sections
@@ -463,6 +569,7 @@ Translations are organized by namespace, making it easier to:
 ## Performance Optimization
 
 1. Image Optimization
+
    - Next.js Image component
    - WebP format for vehicle images
    - Responsive sizing
@@ -470,12 +577,14 @@ Translations are organized by namespace, making it easier to:
    - Blur placeholders
 
 2. Code Splitting
+
    - Route-based splitting
    - Component lazy loading
    - Dynamic imports for heavy components
    - Separate bundles for admin and client portals
 
 3. Caching Strategy
+
    - Static generation for public pages
    - ISR for semi-dynamic content
    - API response caching
@@ -494,29 +603,34 @@ Translations are organized by namespace, making it easier to:
 ### Main Navigation
 
 1. Asiakastarinat (Customer Stories) (`/fi/asiakastarinat`)
+
    - Success stories of clients using Innolease services
    - Case studies categorized by industry and leasing type
    - Testimonials with measurable results
 
 2. Kampanjat (Campaigns) (`/fi/kampanjat`)
+
    - Current vehicle offers
    - Seasonal promotions
    - Limited-time deals
    - Special leasing terms
 
 3. Blogi (Blog) (`/fi/blogi`)
+
    - Industry insights
    - Vehicle information
    - Leasing advice
    - Fleet management tips
 
 4. Avoimet työpaikat (Open Positions) (`/fi/tyopaikat`)
+
    - Career opportunities
    - Company culture information
    - Benefits overview
    - Application process
 
 5. Asiakaspalvelu (Customer Service) (`/fi/asiakaspalvelu`)
+
    - Contact methods
    - FAQ section
    - Support request form
@@ -531,24 +645,28 @@ Translations are organized by namespace, making it easier to:
 ### Main Service Categories
 
 1. Yritysleasingit (Business Leasing) (`/fi/yritysleasingit`)
+
    - B2B leasing solutions
    - Corporate fleet options
    - Volume pricing
    - Custom leasing programs
 
 2. Muut palvelut (Other Services) (`/fi/muut-palvelut`)
+
    - Complementary services beyond leasing
    - Add-on options
    - Partner services
    - Special requirements
 
 3. Tietoa meistä (About Us) (`/fi/tietoa-meista`)
+
    - Company history
    - Mission and values
    - Team information
    - Corporate responsibility
 
 4. Asiakkaille (For Customers) (`/fi/asiakkaille`)
+
    - Client resources
    - Support materials
    - Guides and documentation
@@ -563,96 +681,112 @@ Translations are organized by namespace, making it easier to:
 ### Service Submenu Items
 
 1. Autoleasing (Car Leasing) (`/fi/autoleasing`)
+
    - Personal vehicle leasing
    - Corporate vehicle leasing
    - Leasing term options
    - Vehicle selection
 
 2. Huollon varaus (Service Booking) (`/fi/huollon-varaus`)
+
    - Maintenance scheduling
    - Service center locations
    - Service types
    - Online booking system
 
 3. Autoilijan opas (Driver's Guide) (`/fi/autoilijan-opas`)
+
    - Vehicle operation tips
    - Maintenance guidelines
    - Troubleshooting advice
    - Emergency procedures
 
 4. Vuokraa auto (Rent a Car) (`/fi/vuokraa-auto`)
+
    - Rental process steps
    - Available vehicles
    - Rental terms
    - Reservation system
 
 5. Kone- ja laitelasing (Machine and Equipment Leasing) (`/fi/kone-ja-laitelasing`)
+
    - Industrial equipment options
    - Specialized machinery leasing
    - Equipment maintenance
    - Lease-to-own options
 
 6. Rengaspalvelut (Tire Services) (`/fi/rengaspalvelut`)
+
    - Seasonal tire change
    - Tire storage
    - Tire selection guidance
    - Tire service locations
 
 7. Kalustoraportti (Fleet Report) (`/fi/kalustoraportti`)
+
    - Fleet status reporting
    - Asset management tools
    - Usage analytics
    - Cost tracking
 
 8. Minileasing (`/fi/minileasing`)
+
    - Short-term leasing options
    - Flexible terms
    - Quick vehicle access
    - Simplified process
 
 9. Autokannan hallinnointi (Fleet Management) (`/fi/autokannan-hallinnointi`)
+
    - Fleet administration tools
    - Maintenance scheduling
    - Vehicle lifecycle management
    - Driver management
 
 10. Päästöraportti (Emission Report) (`/fi/paastoraportti`)
+
     - Environmental impact tracking
     - CO2 emissions monitoring
     - Sustainability metrics
     - Regulatory compliance reporting
 
 11. Kausiauito (Seasonal Car) (`/fi/kausiauito`)
+
     - Seasonal vehicle options
     - Short-term availability
     - Specific-use vehicles
     - Seasonal pricing
 
 12. Opas auton palautukseen (Guide to Returning a Car) (`/fi/auton-palautus`)
+
     - End-of-lease procedures
     - Return condition requirements
     - Inspection process
     - Final settlement information
 
 13. Sijaisautopalvelu (Replacement Car Service) (`/fi/sijaisautopalvelu`)
+
     - Temporary vehicle provision
     - Service vehicle options
     - Booking process
     - Availability information
 
 14. Sopimuksen päättyminen (Contract Termination) (`/fi/sopimuksen-paattyminen`)
+
     - End-of-contract options
     - Contract renewal
     - Vehicle return process
     - Final payment information
 
 15. Yhteiskäyttöauto (Shared Use Car) (`/fi/yhteiskayttoauto`)
+
     - Vehicle sharing programs
     - Corporate vehicle pooling
     - Access systems
     - Booking platform
 
 16. Maastavienti asiakirja (Export Documents) (`/fi/maastavienti-asiakirja`)
+
     - Vehicle export documentation
     - International requirements
     - Process guidelines
@@ -681,6 +815,7 @@ The site will use a single main navigation at the top of all pages, with dropdow
 #### Top-Level Navigation Items
 
 1. **Leasing-palvelut** (Leasing Services) - Dropdown
+
    - Autoleasing (Car Leasing)
    - Kone- ja laitelasing (Machine and Equipment Leasing)
    - Minileasing
@@ -689,6 +824,7 @@ The site will use a single main navigation at the top of all pages, with dropdow
    - Yhteiskäyttöauto (Shared Use Car)
 
 2. **Asiakkaalle** (For Customers) - Dropdown
+
    - Autoilijan opas (Driver's Guide)
    - Opas auton palautukseen (Guide to Returning a Car)
    - Leaseingauton palautusohje (Leasing Car Return Instructions)
@@ -697,17 +833,20 @@ The site will use a single main navigation at the top of all pages, with dropdow
    - Maastavienti asiakirja (Export Documents)
 
 3. **Auton vuokraus** (Car Rental) - Dropdown
+
    - Vuokraa auto (Rent a Car)
    - Huollon varaus (Service Booking)
    - Rengaspalvelut (Tire Services)
 
 4. **Ajankohtaista** (Current Topics) - Dropdown
+
    - Blogi (Blog)
    - Kampanjat (Campaigns)
    - Asiakastarinat (Customer Stories)
    - Avoimet työpaikat (Open Positions)
 
 5. **Tietoa meistä** (About Us) - Dropdown
+
    - Yritysleasingit (Business Leasing)
    - Autokannan hallinnointi (Fleet Management)
    - Muut palvelut (Other Services)
@@ -735,6 +874,7 @@ The site will use a single main navigation at the top of all pages, with dropdow
 The footer will be organized into four main columns with links to essential pages and information.
 
 #### Column 1: Company Information
+
 - Logo
 - Company name (Innolease Oy)
 - Address (Katuosoite 10, 01150 Kaupunki)
@@ -742,12 +882,14 @@ The footer will be organized into four main columns with links to essential page
 - Copyright info (© 2025 Innolease Oy)
 
 #### Column 2: Office Locations
+
 - Helsinki (with link)
 - Oulu (with link)
 - Vantaa (with link)
 - Raisio (with link)
 
 #### Column 3: Resources
+
 - Kalustoraportointi (Fleet Reporting)
 - Päästöraportti (Emissions Report)
 - Sähköinen ajopalvkirja (Electronic Driving Log)
@@ -755,11 +897,13 @@ The footer will be organized into four main columns with links to essential page
 - Leasingauton palautusohje (Leasing Car Return Guide)
 
 #### Column 4: Tools
+
 - Autopäättäjän työkalut (Car Decision-maker Tools)
 - Autoetulaskuri (Car Benefit Calculator)
 - Sähköautojen vertailu (Electric Car Comparison)
 
 #### Additional Footer Elements
+
 - Social media icons (Facebook, Twitter, Instagram)
 - Language selector (FI, SV, EN)
 - Privacy policy link
@@ -768,6 +912,7 @@ The footer will be organized into four main columns with links to essential page
 - Newsletter signup
 
 #### Footer Responsive Behavior
+
 - Columns stack on smaller screens
 - Full width on mobile devices
 - Collapsible sections on mobile for better space usage
@@ -777,12 +922,14 @@ The footer will be organized into four main columns with links to essential page
 For implementing the navigation and footer, we'll use the following approach:
 
 1. **Main Navigation Component**
+
    - Create a reusable `MainNavigation` component
    - Implement dropdown functionality with React state management
    - Use CSS transitions for smooth interactions
    - Handle responsive design with Tailwind breakpoints
 
 2. **Footer Component**
+
    - Create a reusable `Footer` component
    - Implement responsive grid layout
    - Ensure all links are accessible

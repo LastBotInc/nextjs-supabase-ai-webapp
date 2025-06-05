@@ -105,15 +105,20 @@ export default function Navigation() {
   // Navigation structure - this represents the dropdown menus
   const navigationStructure = [
     {
-      id: "leasing-services",
-      label: t("leasing_services"),
+      id: "about-us",
+      label: t("about_us"),
+      items: [{ href: "/yritysleasing", label: t("business_leasing") }],
+    },
+    {
+      id: "business-leasing",
+      label: t("business_leasing"),
       items: [
         { href: "/autoleasing", label: t("car_leasing") },
-        { href: "/kone-ja-laitelasing", label: t("machine_leasing") },
-        { href: "/minileasing", label: t("minileasing") },
-        { href: "/kausiauito", label: t("seasonal_car") },
-        { href: "/sijaisautopalvelu", label: t("replacement_car") },
-        { href: "/yhteiskayttoauto", label: t("shared_car") },
+        { href: "/kone-ja-laiteleasing", label: t("machine_leasing") },
+
+        //{ href: "/kausiauto", label: t("seasonal_car") },
+        //{ href: "/sijaisautopalvelu", label: t("replacement_car") },
+        // { href: "/yhteiskayttoauto", label: t("shared_car") },
       ],
     },
     {
@@ -121,49 +126,46 @@ export default function Navigation() {
       label: t("for_customers"),
       items: [
         { href: "/autoilijan-opas", label: t("drivers_guide") },
-        { href: "/auton-palautus", label: t("car_return_guide") },
-        { href: "/leasingauton-palautusohje", label: t("leasing_car_return") },
-        { href: "/sopimuksen-paattyminen", label: t("contract_termination") },
-        { href: "/kilometrien-ilmoitus", label: t("mileage_reporting") },
-        { href: "/maastavienti-asiakirja", label: t("export_documents") },
+        { href: "/autokannan-hallinnointi", label: t("fleet_management") },
+        //{ href: "/auton-palautus", label: t("car_return_guide") },
+        //{ href: "/leasingauton-palautusohje", label: t("leasing_car_return") },
+        //{ href: "/sopimuksen-paattyminen", label: t("contract_termination") },
+        //{ href: "/kilometrien-ilmoitus", label: t("mileage_reporting") },
+        //{ href: "/maastavienti-asiakirja", label: t("export_documents") },
       ],
     },
     {
       id: "car-rental",
       label: t("car_rental"),
       items: [
+        { href: "/minileasing", label: t("minileasing") },
         { href: "/vuokraa-auto", label: t("rent_car") },
-        { href: "/huollon-varaus", label: t("service_booking") },
-        { href: "/rengaspalvelut", label: t("tire_services") },
+        // { href: "/huollon-varaus", label: t("service_booking") },
+        //{ href: "/rengaspalvelut", label: t("tire_services") },
       ],
     },
     {
       id: "current-topics",
       label: t("current_topics"),
       items: [
-        { href: "/blogi", label: t("blog") },
         { href: "/kampanjat", label: t("campaigns") },
         { href: "/asiakastarinat", label: t("customer_stories") },
-        { href: "/tyopaikat", label: t("open_positions") },
+        //{ href: "/blogi", label: t("blog") },
+        //{ href: "/uutiset", label: t("news") },
       ],
     },
     {
-      id: "about-us",
-      label: t("about_us"),
+      id: "contact-info",
+      label: t("contact_info"),
       items: [
-        { href: "/yritysleasingit", label: t("business_leasing") },
-        { href: "/autokannan-hallinnointi", label: t("fleet_management") },
-        { href: "/muut-palvelut", label: t("other_services") },
+        //{ href: "/myynti", label: t("sales") },
+        // { href: "/jälkimarkkinointi", label: t("marketing") },
+        //{ href: "/laskutus", label: t("contact_info") },
         { href: "/asiakaspalvelu", label: t("customer_service") },
+        { href: "/tyopaikat", label: t("open_positions") },
       ],
     },
   ];
-
-  // Contact button
-  const contactButton = {
-    href: "/yhteystiedot",
-    label: t("contact_info"),
-  };
 
   // Admin links - only show if user is admin and auth is complete without errors
   const adminLinks =
@@ -307,16 +309,6 @@ export default function Navigation() {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-3">
-            {/* Contact CTA Button (only show on main navigation) */}
-            {!isAdminPath && (
-              <Link
-                href={contactButton.href}
-                className="hidden md:block px-4 py-2 rounded text-sm font-medium bg-kupari text-white hover:bg-kupari/90 transition-colors"
-              >
-                {contactButton.label}
-              </Link>
-            )}
-
             {/* Locale Switcher */}
             <LocaleSwitcher />
 
@@ -405,14 +397,6 @@ export default function Navigation() {
                   )}
                 </div>
               ))}
-
-              {/* Contact CTA Button */}
-              <Link
-                href={contactButton.href}
-                className="block w-full text-center mt-4 px-4 py-3 rounded-md text-base font-medium bg-kupari text-white hover:bg-kupari/90 transition-colors"
-              >
-                {contactButton.label}
-              </Link>
             </>
           )}
 

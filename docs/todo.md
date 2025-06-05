@@ -3,6 +3,7 @@
 ## Public Pages
 
 ### Home Page
+
 - [x] Hero section with Innolease value proposition
 - [x] Leasing solutions showcase (Financial, Flexible, Maintenance, MiniLeasing)
 - [x] Fleet management tools overview
@@ -21,6 +22,7 @@
   - [ ] Link CTA buttons when detail pages exist
 
 ### Leasing Solutions Page
+
 - [x] Financial Leasing section
   - [x] Key features and benefits
   - [x] Target client profiles
@@ -43,6 +45,7 @@
   - [x] Pricing structure
 
 ### Fleet Management Page
+
 - [ ] InnoFleet Manager overview
 - [ ] Fleet analytics and reporting features
 - [ ] Cost tracking capabilities
@@ -53,6 +56,7 @@
 - [✅] Add multilingual blog articles (FI, SV) to `scripts/seed-blog.ts`
 
 ### Services Page
+
 - [ ] Vehicle maintenance network
 - [ ] Tire service partnerships
 - [ ] Inspection services
@@ -61,6 +65,7 @@
 - [ ] Driver support services
 
 ### About Us Page
+
 - [✅] Company history and Autolle.com Group connection
 - [✅] Leadership team profiles
 - [✅] Corporate values
@@ -71,6 +76,7 @@
 - [✅] Add translations for About Us page content
 
 ### Contact Page
+
 - [ ] Leasing inquiry form
 - [ ] Office locations map
 - [ ] Department contact information
@@ -78,6 +84,7 @@
 - [ ] Feedback submission
 
 ### Blog Page
+
 - [✅] Industry news section
 - [✅] Leasing tips and guides
 - [✅] Vehicle technology updates
@@ -93,6 +100,7 @@
 ## Client Portal
 
 ### Dashboard Development
+
 - [ ] Fleet overview widgets
   - [ ] Vehicle status summary
   - [ ] Contract expiration timeline
@@ -105,6 +113,7 @@
   - [ ] Financial admin view
 
 ### Vehicle Management Module
+
 - [ ] Vehicle inventory list
   - [ ] Filterable/sortable table
   - [ ] Status indicators
@@ -123,6 +132,7 @@
   - [ ] Alerts for threshold breaches
 
 ### Contract Management Module
+
 - [ ] Contract listings
   - [ ] Active/expired/pending filters
   - [ ] Search functionality
@@ -140,6 +150,7 @@
   - [ ] Purchase options
 
 ### Maintenance Management Module
+
 - [ ] Service request system
   - [ ] Request form
   - [ ] Service type selection
@@ -157,6 +168,7 @@
   - [ ] Reminder system
 
 ### Reporting Module
+
 - [ ] Fleet cost reports
   - [ ] Total cost of ownership
   - [ ] Cost per vehicle
@@ -174,6 +186,7 @@
   - [ ] Scheduled reports
 
 ### User Management Module
+
 - [ ] Corporate hierarchy setup
   - [ ] Department structure
   - [ ] Role assignment
@@ -187,6 +200,7 @@
 ## Admin Portal
 
 ### Client Management
+
 - [ ] Client onboarding workflow
   - [ ] Company profile creation
   - [ ] User account setup
@@ -199,6 +213,7 @@
   - [ ] Communication history
 
 ### Vehicle Inventory Management
+
 - [ ] Vehicle catalog administration
   - [ ] Vehicle make/model database
   - [ ] Pricing configuration
@@ -211,6 +226,7 @@
   - [ ] Initial inspection
 
 ### Contract Administration
+
 - [ ] Contract template management
   - [ ] Template editor
   - [ ] Version control
@@ -223,6 +239,7 @@
   - [ ] Notification system
 
 ### Service Provider Management
+
 - [ ] Partner network administration
   - [ ] Service provider database
   - [ ] Service coverage areas
@@ -235,6 +252,7 @@
   - [ ] Service rating
 
 ### Financial Management
+
 - [ ] Invoice generation system
   - [ ] Monthly billing automation
   - [ ] Ad-hoc charge creation
@@ -247,6 +265,7 @@
   - [ ] Financial reporting
 
 ### System Administration
+
 - [ ] User administration
   - [ ] Admin user management
   - [ ] Role configuration
@@ -261,6 +280,7 @@
 ## Technical Tasks
 
 ### Setup
+
 - [ ] Next.js 15 setup
 - [ ] TypeScript configuration
 - [ ] Tailwind CSS setup with Innolease brand colors
@@ -269,6 +289,7 @@
 - [ ] Internationalization setup (Finnish, Swedish, English)
 
 ### Development
+
 - [ ] Design system implementation for Innolease brand
 - [ ] Vehicle data model implementation
 - [ ] Contract management system development
@@ -279,6 +300,7 @@
 - [ ] SMS alert system for critical events
 
 ### Integration
+
 - [ ] Vianor service API integration
 - [ ] Euromaster service API integration
 - [ ] Katsastus inspection API integration
@@ -288,6 +310,7 @@
 - [ ] SMS service provider integration
 
 ### Testing
+
 - [ ] Unit tests for core components
 - [ ] Integration tests for vehicle management
 - [ ] Integration tests for contract system
@@ -297,6 +320,7 @@
 - [ ] Accessibility compliance testing
 
 ### Deployment
+
 - [ ] Development environment setup
 - [ ] Staging environment configuration
 - [ ] Production environment deployment
@@ -306,6 +330,7 @@
 - [ ] Security hardening measures
 
 ### Data Migration
+
 - [ ] Vehicle data import tool
 - [ ] Customer data migration utility
 - [ ] Contract data conversion process
@@ -313,6 +338,7 @@
 - [ ] Document archive migration
 
 ## Phase 1 Implementation (MVP)
+
 - [ ] Public website with leasing information
 - [ ] Basic client portal with vehicle listing
 - [ ] Simple contract view
@@ -322,6 +348,7 @@
 - [ ] Finnish language implementation
 
 ## Phase 2 Implementation
+
 - [ ] Enhanced fleet analytics
 - [ ] Comprehensive reporting system
 - [ ] Contract management workflows
@@ -330,6 +357,7 @@
 - [ ] Swedish language implementation
 
 ## Phase 3 Implementation
+
 - [ ] Full financial management
 - [ ] Advanced analytics and predictions
 - [ ] Mobile application for drivers
@@ -340,6 +368,7 @@
 ## SEO-Optimized Page Implementation
 
 ### Finnish Main Navigation Pages
+
 - [ ] Asiakastarinat (Customer Stories) (`/fi/asiakastarinat`)
   - [ ] Page structure implementation
   - [ ] Customer story templates
@@ -358,6 +387,7 @@
   - [ ] Support request form
 
 ### Finnish Service Category Pages
+
 - [ ] Yritysleasingit (Business Leasing) (`/fi/yritysleasingit`)
   - [ ] B2B leasing solutions
   - [ ] Corporate fleet options
@@ -372,6 +402,7 @@
   - [ ] Rental process explanation
 
 ### Finnish Service Submenu Pages
+
 - [ ] Autoleasing (Car Leasing) (`/fi/autoleasing`)
   - [ ] Personal and corporate options
   - [ ] Term selection interface
@@ -438,6 +469,7 @@
   - [ ] Notification system
 
 ### Multilingual Implementation
+
 - [ ] Apply Finnish page structure to Swedish locale (`/sv/`)
 - [ ] Apply Finnish page structure to English locale (`/en/`)
 - [ ] Implement language switcher across all pages
@@ -446,6 +478,7 @@
 ## Navigation Implementation
 
 ### Main Navigation
+
 - [ ] Create `MainNavigation` component
   - [ ] Implement responsive design (desktop/mobile)
   - [ ] Add dropdown functionality
@@ -467,6 +500,7 @@
 - [ ] Add background transition effect when scrolling
 
 ### Footer Implementation
+
 - [ ] Create `Footer` component
   - [ ] Implement 4-column layout
   - [ ] Add responsive stacking for mobile
@@ -484,6 +518,7 @@
   - [ ] Newsletter signup form
 
 ### Navigation Integration
+
 - [ ] Link navigation to all implemented pages
 - [ ] Set up internationalization for navigation items
 - [ ] Add proper URL routing with Next.js
@@ -492,15 +527,18 @@
 - [ ] Set up analytics tracking for navigation usage
 
 ## Refactoring
+
 - [✅] Move auth links (Sign In/Out, Account, Admin) from Navigation to Footer
 - [✅] Make LocaleSwitcher in Navigation more compact
 
 ## Localization
+
 - [✅] Update Navigation and Footer translations (EN, FI, SV)
 
 ## Client Portal
 
 ### Dashboard Development
+
 - [ ] Fleet overview widgets
   - [ ] Vehicle status summary
   - [ ] Contract expiration timeline
@@ -513,7 +551,21 @@
   - [ ] Financial admin view
 
 ## Translation System
+
 - ✅ Implement dynamic namespace loading to eliminate hardcoded namespace list
 - ⏳ Add missing translations for new UI components
 - ❌ Implement automated translation suggestions using AI
 - ❌ Create visual translation management interface
+
+✅ Create /messages/CorporateLeasing.json translations (fi, sv, en) for yritysleasing page
+✅ Implement yritysleasing/page.tsx with new content blocks and structure
+❌ Validate translation completeness for CorporateLeasing
+❌ Review yritysleasing page in UI
+❌ Create /messages/fi,FleetManager.json, /messages/sv/FleetManager.json, /messages/en/FleetManager.json translations for fleet-manager page
+❌ Implement fleet-manager/page.tsx with new content blocks and structure
+❌ Validate translation completeness for FleetManager
+❌ Review fleet-manager page in UI
+❌ Create /messages/fi/DriversGuide.json, /messages/sv/DriversGuide.json, /messages/en/DriversGuide.json translations for DriversGuide page
+❌ Implement autoilijan-opas/page.tsx with new content blocks and structure
+❌ Validate translation completeness for DriversGuide
+❌ Review DriversGuide page in UI

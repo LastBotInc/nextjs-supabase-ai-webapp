@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 import { Toaster } from "@/components/ui/toaster";
 import AnalyticsWrapper from "@/components/analytics/AnalyticsWrapper";
+import { CookieConsentWrapper } from "@/components/cookie-consent-wrapper";
 import FooterWrapper from "@/app/components/FooterWrapper";
 import AIBotMessageWrapper from "@/components/AIBotMessageWrapper";
 import { cn } from "@/lib/utils";
@@ -122,6 +123,7 @@ export default function RootLayout({
           <FooterWrapper />
           <Toaster />
           <AnalyticsWrapper />
+          <CookieConsentWrapper />
         </Providers>
       </body>
     </html>

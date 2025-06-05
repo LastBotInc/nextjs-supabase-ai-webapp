@@ -152,7 +152,7 @@ const nextConfig = {
       config.optimization.splitChunks = {
         chunks: "all",
         minSize: 20000,
-        maxSize: 240000,
+        maxSize: 409600,
         minChunks: 1,
         maxAsyncRequests: 30,
         maxInitialRequests: 30,

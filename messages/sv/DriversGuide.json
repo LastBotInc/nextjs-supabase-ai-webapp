@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Förares guide",
+    "description": "Guide för bilkörning under leasingperioden."
+  },
+  "intro": {
+    "title": "Förares guide – Bilkörning under leasingperioden",
+    "description": "Vi på Innolease hjälper dig med fordonsanskaffning, vagnparksförvaltning och praktiska frågor under avtalstiden. Tjänstebilsanvändning ska vara så enkelt som möjligt. Nedan hittar du nyttig information om din leasingbil och våra tjänster. Om du har frågor är din kontaktperson och vår kundtjänst redo att hjälpa dig.",
+    "image": "Förares guide platshållarbild"
+  },
+  "maintenance": {
+    "title": "Service och reparationer",
+    "description": "För bilens driftsäkerhet och garantier är det viktigt att servicen utförs enligt tillverkarens eller importörens serviceprogram. Servicen utförs hos en servicepartner i Innoleases nätverk. Tillstånd ska begäras innan tidsbokning.",
+    "tips": [
+      "Följ serviceprogrammet och serviceboken.",
+      "Service och reparationer ingår i service- och flexleasing.",
+      "Finansieringsleasing inkluderar inte service eller reparationer.",
+      "Vid tekniska fel, kontakta auktoriserad märkesverkstad."
+    ],
+    "note": "Förares guide skickas via e-post vid bilens leverans. Om du inte fått guiden, beställ en ny från kundtjänst.",
+    "image": "Service och reparationer platshållarbild"
+  },
+  "replacementCar": {
+    "title": "Ersättningsbil vid service",
+    "description": "Du kan få en ersättningsbil under servicen om det ingår i företagets bilpolicy. För längre behov, kontakta kundtjänst.",
+    "note": "Mer information om biluthyrning – länk.",
+    "image": "Ersättningsbil platshållarbild"
+  },
+  "billing": {
+    "title": "Faktureringstillstånd för service",
+    "description": "För service och reparationer krävs förhandstillstånd från Innoleases serviceteam. Tillståndet ansöks av verkstaden, inte av bilens användare.",
+    "tips": [
+      "Tillstånd kan sökas när felet och kostnaderna är kända.",
+      "Samma gäller för service, däckbyten och andra fakturerbara åtgärder."
+    ],
+    "note": "Mer information om faktureringstillstånd – länk.",
+    "image": "Faktureringstillstånd platshållarbild"
+  },
+  "tires": {
+    "title": "Däcktjänster",
+    "description": "Däckbyten, förvaring och förnyelse under leasingperioden. Huvudpartners: Vianor och Euromaster. Kontrollera i ditt avtal om tjänsterna ingår.",
+    "tips": [
+      "Kontroll av däcktryck är användarens ansvar.",
+      "Förnyelse på grund av skada eller felaktig användning ingår inte i avtalet."
+    ],
+    "image": "Däcktjänster platshållarbild"
+  },
+  "accidents": {
+    "title": "Vid olycka",
+    "description": "Gör så här vid olycka:",
+    "steps": [
+      "Fyll i skadeanmälan på plats och be den andra parten underteckna.",
+      "Skicka anmälan till försäkringsbolaget.",
+      "Polis tillkallas vid personskada, oklarheter eller viltolycka.",
+      "Den skyldiges försäkringsbolag ersätter den oskyldiges kostnader.",
+      "Meddela även Innoleases JM-team eller kontaktperson om skadan."
+    ],
+    "image": "Olycka platshållarbild"
+  },
+  "roadside": {
+    "title": "Vägassistans",
+    "description": "Innoleases vägassistans är tillgänglig dygnet runt. Tjänsten är i regel kostnadsfri och kostnaderna faktureras försäkringsbolaget eller importören.",
+    "tips": [
+      "Om situationen inte kan lösas per telefon skickas en fackman till platsen.",
+      "Om kostnaderna inte ersätts faktureras kunden."
+    ],
+    "image": "Vägassistans platshållarbild"
+  },
+  "export": {
+    "title": "Export av bil",
+    "description": "Kontrollera arbetsgivarens anvisningar. Du behöver exporttillstånd och Green Card (inte i Norden). Ägaren ger tillståndet. Ta med registreringsbeviset vid resa utomlands.",
+    "tips": ["Beställ dokumenten i god tid före resan.", "Green Card visar att trafikförsäkringen är giltig."],
+    "image": "Export platshållarbild"
+  },
+  "return": {
+    "title": "Återlämning av leasingbil",
+    "description": "Påbörja ny bilanskaffning eller förlängning i god tid. Lämna tillbaka bilen till Autollecoms butik. Fyll i återlämningsformuläret och följ instruktionerna.",
+    "checklist": {
+      "title": "Vid återlämning, kontrollera att:",
+      "items": [
+        "Bilen är ren invändigt och utvändigt.",
+        "Bilen är servad enligt serviceprogrammet.",
+        "Bilen är besiktad.",
+        "Personliga uppgifter är borttagna.",
+        "Skador är reparerade eller anmälda till försäkringsbolaget.",
+        "Saknade tillbehör återlämnade inom 7 dagar."
+      ]
+    },
+    "mustHave": {
+      "title": "I fordonet ska finnas:",
+      "items": [
+        "Alla nycklar och laddkablar.",
+        "Alla dokument; servicebok och manualer.",
+        "Båda uppsättningarna däck.",
+        "Installerade tillbehör."
+      ]
+    },
+    "remove": {
+      "title": "Följande ska tas bort från fordonet:",
+      "items": ["Dekaler.", "Eftermonterade tillbehör som inte ingår i leasingavtalet.", "Spårningsutrustning."]
+    },
+    "image": "Återlämning platshållarbild"
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "sections": [
+      {
+        "title": "Besiktning och skatter",
+        "description": "Användaren ansvarar för besiktning och skatter. Partners: A-Katsastus och K1. Fakturering sker direkt till Innolease."
+      },
+      {
+        "title": "Byte av användare",
+        "description": "Vid byte av användare, meddela registreringsnummer och nya användarens uppgifter till kundtjänst."
+      },
+      {
+        "title": "Försäkringar",
+        "description": "Försäkringsuppgifter och självrisker får du av fordonsansvarig. Bekanta dig med försäkringens omfattning och självrisker i förväg."
+      },
+      {
+        "title": "Export",
+        "description": "Se avsnittet om export – länk."
+      },
+      {
+        "title": "Återlämning av bil",
+        "description": "Se avsnittet om återlämning – länk."
+      }
+    ],
+    "image": "FAQ platshållarbild"
+  },
+  "contact": {
+    "title": "Har du frågor?",
+    "description": "Om du inte hittar svar på din fråga på våra sidor, kontakta oss.",
+    "note": "Länk till kontaktformulär.",
+    "image": "Kontakt platshållarbild",
+    "numbers": [
+      {
+        "title": "Ring oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ring oss",
+        "number": "020 743 76700"
+      }
+    ]
+  }
+}

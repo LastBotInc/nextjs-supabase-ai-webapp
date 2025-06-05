@@ -1,0 +1,98 @@
+{
+  "hero": {
+    "heading": "Yritysautoleasing",
+    "subheading": "Fiksu tapa autoilla",
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
+  },
+  "intro": {
+    "title": "Yritysautoleasing – Fiksu tapa autoilla",
+    "description": "Innolease yrityksesi kumppani leasingasioissa. Tarvitsee yrityksesi, sitten henkilö- tai pakettiauton me toimimme apuna yrityksen autohankinnoissa. Kilpailutamme auton hankinnan, rahoituksen ja katsomme teille sopivan leasingvaihtoehdon."
+  },
+  "openModel": {
+    "title": "Avoin toimintamallimme",
+    "description": "Yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan kokonaisuuden."
+  },
+  "contactPerson": {
+    "title": "Oma nimetty yhteyshenkilö",
+    "description": "Auttaa kaikkeen autoiluun liittyvissä asioissa koko sopimuskauden ajan."
+  },
+  "digitalServices": {
+    "title": "Digitaaliset palvelut",
+    "description": "Autopäättäjille, jolla voit tehokkaasti hallinnoida omaa kalustoasi."
+  },
+  "benefits": {
+    "fixedPrice": "Kiinteä kuukausihinta koko sopimuskauden ajan",
+    "contractPeriod": "Sopimusaika tyypillisesti 12-60 kk",
+    "noDownPayment": "Ei käsirahaa",
+    "newCar": "Uusi auto käyttöön, vanhasta eroon vaivattomasti"
+  },
+
+  "leasingTypes": {
+    "rahoitusleasing": {
+      "title": "Rahoitusleasing – kun haluat hallita itse",
+      "description": "Rahoitusleasing on kustannustehokas ja yksinkertainen vaihtoehto yritykselle, joka haluaa pitää langat käsissään. Auton ajomäärää ei rajoiteta ja yritys vastaa itse huolloista ja auton jäännösarvosta vuokra-ajan lopussa. Tämä sopii parhaiten yrityksille, joilla on omat huoltoratkaisut ja jotka haluavat maksimoida kustannustehokkuuden.",
+      "suits": "Sopii kustannustehokasta ratkaisua hakevalle."
+    },
+    "joustoleasing": {
+      "title": "Joustoleasing – vapautta ja ennakoitavuutta yhdellä sopimuksella",
+      "description": "Joustoleasing tuo huollot samalle laskulle, mutta kustannukset määräytyvät todellisten kulujen mukaan. Jäännösarvo arvioidaan markkina-arvon perusteella ja vuokra-ajan lopussa asiakas voi joko jatkaa vuokrasopimusta tai voi etsiä autolle ostajan. Joustoleasing sopii yrityksille, jotka haluavat helppoutta ja pitävät ovet auki eri vaihtoehdoille sopimuskauden jälkeen.",
+      "suits": "Hyvä vaihtoehto, jos haluat yhdistää joustavuuden ja hallinnan."
+    },
+    "huoltoleasing": {
+      "title": "Huoltoleasing – helppoutta ja ennustettavuutta",
+      "description": "Huoltoleasing on vaivaton kokonaisratkaisu. Yhdellä kuukausihinnalla yritys saa auton ja halutut palvelut – huolloista pesuihin ja rengaspalveluihin. Toimittaja vastaa auton jäännösarvosta, eikä ajoneuvon jälleenmyynnistä tarvitse huolehtia. Tämä on erinomainen valinta yrityksille, jotka haluavat budjetoida kulut tarkasti ja minimoida hallinnollisen työn.",
+      "suits": "Täydellinen ratkaisu yrityksille, jotka arvostavat ennakoitavuutta ja vaivattomuutta."
+    },
+    "minileasing": {
+      "title": "Minileasing yrityksille – Tehoa liiketoimintaan ilman sitoutumista",
+      "description": "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia.",
+      "benefits": [
+        "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+        "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+        "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+        "Ei käsirahaa, ei jälleenmyyntihuolia"
+      ],
+      "perfectFor": [
+        "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
+        "Sijaisautoksi huollon tai korjauksen ajaksi",
+        "Projekteihin tai määräaikaisiin työtehtäviin",
+        "Kauden tai tilapäisen lisätarpeen kattamiseen"
+      ],
+      "summary": "Minileasing on mutkaton, kustannustehokas ja nopea tapa varmistaa, että liiketoiminta ei pysähdy!"
+    }
+  },
+  "contact": {
+    "title": "Ota yhteyttä",
+    "subheading": "löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin",
+    "carRentalLink": "kts. lisätietoja auton vuokraus – 'linkki auton vuokraus'"
+  },
+  "equipmentLeasing": {
+    "title": "Kone- ja laiterahoitus – Investoi tehokkuuteen, ilman suuria kertakustannuksia",
+    "description": "Tarvitsetko tuotantoon, rakentamiseen tai liiketoimintaan koneita tai laitteita – mutta et halua sitoa pääomaa tai ostaa omaksi? Kone- ja laiteliisaus tarjoaa yrityksellesi joustavan ja kustannustehokkaan tavan hankkia tarvittavat työkalut käyttöön heti – ilman suuria kertakustannuksia.",
+    "benefits": [
+      "Kiinteä vuokra koko vuokrakauden ajan 12-72 KK",
+      "Laite jää yrityksen omistukseen vuokra-ajan jälkeen",
+      "Leasingvuokrat voidaan vähentää verotuksessa",
+      "Pääomaa ei tarvitse sitoa investointiin",
+      "Ei sido käyttöomaisuutta taseeseen",
+      "Budjetointi on ennustettavampaa"
+    ],
+    "businessToBusiness": "Rahoitamme yritysten välistä kauppaa.",
+    "b2bDescription": "Löysitkö tarvitsemasi koneen tai laitteen toiselta yrittäjältä tai oletko myymässä omaa kalustoasi eteenpäin? Me tarjoamme rahoitusta myös yritysten väliseen kauppaan.",
+    "process": "Haemme puolestasi rahoituspäätöksen, hoidamme sopimukset, lunastamme myyntikohteen ja huolehdimme rahoituksesta. Saat rahoituspäätöksen jopa saman vuorokauden aikana.",
+    "contact": "Ota yhteyttä – autamme löytämään juuri yrityksellesi sopivan rahoitusratkaisun."
+  },
+  "images": {
+    "main": "Yritysleasing placeholder image",
+    "equipment": "Kone- ja laiterahoitus placeholder image"
+  }
+}

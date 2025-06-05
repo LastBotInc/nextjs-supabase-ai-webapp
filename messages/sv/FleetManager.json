@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "FleetManager",
+    "description": ""
+  },
+  "hero": {
+    "heading": "FleetManager",
+    "subheading": "Full kontroll över företagets fordonsflotta",
+    "numbers": [
+      {
+        "title": "Ring oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ring oss",
+        "number": "020 743 76700"
+      }
+    ]
+  },
+
+  "title": "FleetManager",
+  "description": "",
+  "content": "",
+  "intro": {
+    "title": "FleetManager – full kontroll över företagets fordonsflotta",
+    "description": "Innolease erbjuder moderna digitala tjänster som underlättar vardagen för ditt företag under leasingperioden. Fleet Manager-verktyget är utformat för företag som vill hantera sin fordonsflotta enkelt, effektivt och i realtid."
+  },
+  "image": {
+    "alt": "FleetManager platshållarbild"
+  },
+  "mainView": {
+    "title": "En vy, all information",
+    "features": [
+      "Avtalsuppföljning – hantering av avtal",
+      "Kostnadskontroll & optimering",
+      "Optimering av användningsgrad – körsträckeuppföljning",
+      "Miljö- och hållbarhetsperspektiv",
+      "Full insyn och centraliserad information",
+      "Enkel delningsbar rapportering"
+    ]
+  },
+  "summary": {
+    "title": "Intelligent och lättanvänt verktyg",
+    "description": "FleetManager är ett intelligent och lättanvänt verktyg som samlar hanteringen av din fordonsflotta på ett ställe – i realtid och med full insyn. Följ fordonskostnader och optimera användningsgraden enkelt. Tydliga rapporter stöder både ekonomiledningens och hållbarhetsrapporteringens behov."
+  },
+  "benefits": {
+    "title": "FleetManager hjälper dig att:",
+    "items": [
+      "Följa upp avtal",
+      "Hantera kostnader noggrant",
+      "Effektivisera resursanvändningen",
+      "Dela information smidigt vidare",
+      "Uppfylla hållbarhetskrav på uppföljning"
+    ]
+  },
+  "allInOne": {
+    "title": "All information i en vy – utan splittrade Excelark.",
+    "description": "FleetManager tar din fordonsförvaltning till en ny nivå av effektivitet och förutsägbarhet."
+  }
+}
