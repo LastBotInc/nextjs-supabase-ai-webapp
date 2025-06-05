@@ -2,6 +2,13 @@ import { SlotComponentCandidate } from "./types";
 import { getSlotName } from "./getSlotName";
 import { Children, isValidElement, ReactNode } from "react";
 
+/**
+ * mapSlots is a function that maps the children of a component to a record of slots.
+ *
+ * @param children - The children of the component.
+ * @param allowedSlotNames - The allowed slot names.
+ * @returns A record of slots.
+ */
 export function mapSlots<T extends Record<string, SlotComponentCandidate>>(
   children: ReactNode,
   allowedSlotNames: string[] = [],

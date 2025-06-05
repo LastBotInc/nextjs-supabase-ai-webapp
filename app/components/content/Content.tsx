@@ -1,13 +1,46 @@
+/**
+ * Content is a component that is used to render content with common spacing.
+ *
+ * It can be rendered as a flex or grid container.
+ *
+ * It accepts only its own slots as children:
+ *
+ * - Heading - A slot for a heading of the content. Renders a heading component. Use "level" prop to set the heading level.
+ *     If the Heading component is passed as a child for the Content component, it will be rendered, not two headings.
+ * - Columns - A slot for a columns of the content. Renders a columns component. If the Columns component is passed as a child for the Content component, it will be rendered as a columns.
+ * - Text - A slot for a text of the content. Renders a text component. If the Text component is passed as a child for the Content component, it will be rendered as a text.
+ * - Wrapper - A slot for a wrapper of the content. Renders a wrapper component. If the Wrapper component is passed as a child for the Content component, it will be rendered as a wrapper.
+ *
+ * - Heading, Columns, Text and Wrapper are rendered as is, no wrappers are set.
+ *
+ * @param children - The children of the content.
+ * @param palette - The palette of the content. "default" is the default palette.
+ * @param noSpacing - If true, the content will be rendered without spacing.
+ * @param asGrid - If true, the content will be rendered as a grid container.
+ * @param addTextShadow - If true, the content will have a text shadow.
+ * @param className - Optional extra classes for customizing the content.
+ * @returns React.ReactNode
+ */
 import { ReactNode, ReactElement, Children, isValidElement, cloneElement } from "react";
 import { cn } from "@/lib/utils";
 import { getSlotName } from "../core/getSlotName";
 import { ContentBlock } from "../core/types";
 import { getContentCss } from "../cssJs/cssJs";
+import { HeadingComponent, HeadingProps, isHeadingComponent } from "../core/Headings";
 
 type SlotProps = { children: ReactNode; className?: string };
 
-function Heading({ children, className }: SlotProps) {
-  return <h2 className={cn(`flex flex-col`, className)}>{children}</h2>;
+function Heading({ level = 2, children, ...rest }: Omit<HeadingProps, "level"> & { level?: HeadingProps["level"] }) {
+  const firstChild = Children.toArray(children)[0];
+  const isHeading = !!firstChild && isHeadingComponent(firstChild);
+  if (isHeading) {
+    return <>{children}</>;
+  }
+  return (
+    <HeadingComponent level={level} {...rest}>
+      {children}
+    </HeadingComponent>
+  );
 }
 
 function Column({ children, addContainer = false, className }: SlotProps & { addContainer?: boolean }) {
@@ -96,7 +129,7 @@ export function Content({
         className
       )}
     >
-      {slots.Heading && <Heading>{slots.Heading}</Heading>}
+      {slots.Heading && <>{slots.Heading}</>}
 
       {slots.Wrapper ? cloneElement(slots.Wrapper as ReactElement, {}, columns) : renderedColumns}
 

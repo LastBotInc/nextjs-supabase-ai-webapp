@@ -1,3 +1,20 @@
+/**
+ * ImageContainer is a component that is used as an image wrapper
+ *
+ * It accepts only its own props:
+ *
+ * @param children - The children of the image container.
+ * @param padding - The padding of the image container as string or SizeDefinition object.
+ * Example:
+ *  padding: "10px"
+ *  padding: {default: "10px", md: "20px", lg: "30px", xl: "40px"}
+ * @param aspectRatio - The aspect ratio of the image container as string or SizeDefinition object.
+ * @param className - The class name of the image container.
+ * @param props - The props of the image container.
+ *
+ *
+ * @returns React.ReactNode
+ */
 import { cn } from "@/lib/utils";
 import { HTMLAttributes } from "react";
 import { getPadding, SizeDefinition } from "../cssJs/cssJs";

@@ -12,6 +12,15 @@ function ListItem({ children, className, ...props }: React.PropsWithChildren<HTM
 
 ListItem.displayName = "List.ListItem";
 
+/**
+ * List is a component that is used to display a list. Use it as a wrapper for a list of items and items should be List.Item
+ *
+ * It accepts HTMLUListElement props and:
+ * @param variant - The variant of the list.
+ * @returns React.ReactNode
+ *
+ *
+ */
 export function List({
   children,
   className,

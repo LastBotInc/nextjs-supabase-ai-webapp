@@ -7,10 +7,10 @@ import { PersonnelCard } from "../components/layouts/Card";
 import { CallUs } from "../components/CallUs";
 
 import { Heading2Small, LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
-import { Heading1, Heading2, Heading3, ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
+import { ShapedContentFlowInParagraph } from "../components/layouts/CommonElements";
 import { Hero } from "../components/Hero/Hero";
 import { ColumnBlock as CoreColumnBlock } from "../components/block/ColumnBlock";
-import { Heading2 as CoreH2 } from "../components/core/Headings";
+import { Heading1, Heading2, Heading3 } from "../components/core/Headings";
 import { Paragraph as CoreParagraph } from "../components/core/Paragraph";
 import { CustomizableBlock } from "../components/block/CustomizableBlock";
 import { Grid } from "../components/grid/Grid";
@@ -113,7 +113,7 @@ export default async function Page({ params }: Props) {
       */}
       <CoreColumnBlock palette="default" asGrid>
         <CoreColumnBlock.Column addContainer className="pr-10">
-          <CoreH2 responsive>{t("topTeam.heading")}</CoreH2>
+          <Heading2 responsive>{t("topTeam.heading")}</Heading2>
           <ImageContainer className="px-4 md:px-0 md:py-4 w-full aspect-ratio-4/3">
             <Image
               src="/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png"
@@ -339,7 +339,7 @@ export default async function Page({ params }: Props) {
       >
         <Content asGrid addTextShadow palette="black">
           <Content.Column addContainer>
-            <CoreH2>{t("transparency.title")}</CoreH2>
+            <Heading2>{t("transparency.title")}</Heading2>
             {t.raw("transparency.description").map((description: string) => (
               <CoreParagraph key={description}>{description}</CoreParagraph>
             ))}
@@ -558,7 +558,7 @@ export default async function Page({ params }: Props) {
         <Content>
           <Content.Wrapper className="grid gap-4 lg:gap-8 bg-transparent xl:grid-cols-[40%_67%]">
             <Content.Column>
-              <CoreH2 responsive>{t("team.title")}</CoreH2>
+              <Heading2 responsive>{t("team.title")}</Heading2>
             </Content.Column>
             <Content.Column>
               <PersonnelCard people={t.raw("personnel")} />
@@ -609,7 +609,7 @@ export default async function Page({ params }: Props) {
         <Content palette="default" asGrid>
           <Content.Column addContainer>
             <div className="relative space-y-8">
-              <CoreH2 responsive>{t("greenLeasing.title")}</CoreH2>
+              <Heading2 responsive>{t("greenLeasing.title")}</Heading2>
               {t.raw("greenLeasing.description").map((description: string) => (
                 <CoreParagraph key={description}>{description}</CoreParagraph>
               ))}

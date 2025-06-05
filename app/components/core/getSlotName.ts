@@ -2,6 +2,12 @@ import { SlotComponent } from "./types";
 
 import { SlotComponentCandidate } from "./types";
 
+/**
+ * getSlotName is a function that returns the displayName of a component.
+ *
+ * @param child - The child of the component.
+ * @returns The name of the slot of the component.
+ */
 export function getSlotName(child: SlotComponentCandidate): string | null {
   if (!child) {
     return null;

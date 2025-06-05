@@ -3,7 +3,7 @@ import Link from "next/link";
 import { buttonPaletteClassName, buttonTextPaletteClassName } from "../cssJs/cssJs";
 
 /**
- * LinkLikeButton is a button that looks like a link.
+ * LinkButton is a link that looks like a button.
  * @param children - The children of the button.
  * @param className - Optional extra classes for customizing the button.
  * passes also HTML attributes for the button element with rest props.

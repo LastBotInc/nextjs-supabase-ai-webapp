@@ -1,3 +1,22 @@
+/**
+ * Accordion is a component that is used to create an accordion.
+ *
+ * It accepts only its own slots as children:
+ *
+ * - Item - A slot for an item of the accordion. Renders an item component. If the Item component is passed as a child for the Accordion component, it will be rendered as an item.
+ *
+ * - Item has a slot:
+ *   - Heading - A slot for a heading of the item. Renders a heading component. Use "level" prop to set the heading level.
+ *   - Content - A slot for a content of the item. Renders a content component. If the Content component is passed as a child for the Item component, it will be rendered as a content.
+ *
+ * Item has props:
+ * - heading - The heading of the item.
+ * - className - Optional extra classes for customizing the item.
+ *
+ * Its children are rendered to a Accordion content.
+ *
+ * @param children - The children of the accordion.
+ */
 /* eslint-disable react/display-name */
 import { Header, Content, Trigger, Root, Item } from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";

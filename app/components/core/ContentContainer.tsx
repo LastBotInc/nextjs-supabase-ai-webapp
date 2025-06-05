@@ -1,3 +1,17 @@
+/**
+ * ContentContainer is a component that is used to wrap content in a container.
+ *
+ * It accepts any children unline Content component.
+ *
+ * @param children - The children of the content container.
+ * @param palette - The palette of the content container.
+ * @param noSpacing - If true, the content container will be rendered without spacing.
+ * @param asGrid - If true, the content container will be rendered as a grid container.
+ * @param asBlock - If true, the content container will be rendered as a block container.
+ * @param addTextShadow - If true, the content container will have a text shadow.
+ * @param setBg - If true, the content container will have a background from the palette.
+ */
+
 import { cn } from "@/lib/utils";
 import { ContentBlock } from "../core/types";
 import { bgPaletteClassName, getContentCss } from "../cssJs/cssJs";

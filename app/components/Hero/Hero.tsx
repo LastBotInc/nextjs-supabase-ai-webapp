@@ -35,6 +35,21 @@ Text.displayName = "Hero.Text";
 Image.displayName = "Hero.Image";
 ExtraContent.displayName = "Hero.ExtraContent";
 
+/**
+ * Hero is a component that is used to display a hero section with a background image and a content area.
+ *
+ * It's output is restricted with slots and heading area is always tight to the bottom of the hero section.
+ * If Here.Text exists, the Heading and Text area are wider and the extra content is aligned to the bottom of the hero section.
+ * It has slots:
+ * - Heading - A slot for a heading of the hero. Rendered as Heading1 or Heading2 depending on the isFirst prop.
+ * - SubHeading - A slot for a subheading of the hero.
+ * - Text - A slot for a text of the hero.
+ * - Image - A slot for a background image of the hero. It is rendered as a BackgroundImage component.
+ * - ExtraContent - A slot for extra content of the hero.
+ * @param fullWidth - If true, the hero will be full width.
+ * @param useMinHeight - If true, the hero will set the standard height of the hero section. Applied also if there is no text in the hero.
+ * @returns React.ReactNode
+ */
 export function Hero({
   children,
   palette = "default",

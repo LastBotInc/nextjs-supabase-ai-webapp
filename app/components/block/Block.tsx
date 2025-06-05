@@ -1,3 +1,19 @@
+/**
+ * Block is a component that wraps the content of a page. It is used to create a block of content that can be styled and reused.
+ * All contents on the page should be wrapped in a Block component. Component aligns the content to the center of the page and applies spacing and background color.
+ *
+ * Block has two slots:
+ * - FullWidthBackgroundImage - A slot for a full width background image.
+ * - CenteredContentArea - A slot for a centered content area.
+ *
+ * All content blocks should be wrapped in a Block component.
+ *
+ * Blocks use palettes to defined its colors. Palettes bg color is applied to the whole blocks bg.
+ *
+ * @param children - The children of the block.
+ * @param className - Optional extra classes for customizing the block.
+ * @returns React.ReactNode
+ */
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { mapSlots } from "../core/mapSlots";
@@ -19,11 +35,8 @@ CenteredContentArea.displayName = "CenteredContentArea";
 
 type BlockProps = {
   children: ReactNode;
-  fullWidth?: boolean; // true = 100vw, false = max-width only
-  backgroundColor?: string; // Tailwind class like "bg-muted"
   className?: string;
 };
-//  fullWidth = false, backgroundColor,
 export function Block({ children, className }: BlockProps) {
   const slots = mapSlots(children, [FullWidthBackgroundImage.displayName, CenteredContentArea.displayName]);
 

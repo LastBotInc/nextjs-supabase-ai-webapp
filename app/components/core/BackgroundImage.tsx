@@ -1,3 +1,22 @@
+/**
+ * BackgroundImage is a component that is used to display a background image.
+ *
+ * It accepts only its own props:
+ *
+ * - src - The source of the background image.
+ * - backgroundPosition - The position of the background image.
+ * - backgroundSize - The size of the background image.
+ *
+ * backgroundPosition and size can be a string or a SizeDefinition object.
+ * Example:
+ *  backgroundPosition: "top"
+ *  backgroundPosition: {default: "top", md: "center", lg: "bottom", xl: "center"}
+ *
+ * @param src - The source of the background image.
+ * @param backgroundPosition - The position of the background image.
+ * @param backgroundSize - The size of the background image.
+ * @returns React.ReactNode
+ */
 type SizeDefinition = {
   default: string;
   md?: string;
