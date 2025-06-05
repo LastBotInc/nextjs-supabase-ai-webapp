@@ -453,7 +453,7 @@
   --gap: 3rem;
   gap: var(--gap);
   position: relative;
-  margin: var(--gap) 0;
+  @apply mt-4;
   &::after {
     content: "";
     position: absolute;
@@ -724,4 +724,36 @@
 }
 .extra-padding-block-only-md {
   @apply py-6;
+}
+
+.hoist-bottom-gap:not(:last-of-type) {
+  @apply -mb-4 lg:-mb-8;
+}
+
+.hoist-top-gap:not(:first-of-type) {
+  @apply -mt-4 lg:-mt-8;
+}
+
+.hoist-both-gaps {
+  @apply -mb-4 lg:-mb-8 -mt-4 lg:-mt-8;
+}
+
+.highlight-effect {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.2;
+    display: none;
+  }
+  &:hover {
+    &::after {
+      display: block;
+    }
+  }
 }

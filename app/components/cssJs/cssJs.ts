@@ -25,8 +25,8 @@ const paddingPropsToOmitByType = {
 
 const textPropsToOmitByType = {
   default: ["small", "large"],
-  small: ["size", "large"],
-  large: ["size", "small"],
+  small: ["default", "large"],
+  large: ["inline", "small"],
 };
 
 export const cssJs = {
@@ -38,33 +38,33 @@ export const cssJs = {
       mediumFont: "font-medium",
     },
     h1: {
-      size: "text-6xl",
+      default: "text-6xl",
       responsive: "text-6xl lg:text-7xl",
       margin: "mb-4",
       small: "text-5xl",
     },
     h2: {
-      size: "text-5xl",
+      default: "text-5xl",
       responsive: "text-5xl lg:text-6xl",
       small: "text-4xl",
     },
     h3: {
-      size: "text-4xl",
+      default: "text-4xl",
       responsive: "text-4xl lg:text-5xl",
       small: "text-2xl",
     },
     h4: {
-      size: "text-3xl",
+      default: "text-3xl",
       responsive: "text-3xl lg:text-4xl",
       small: "text-lg",
     },
     h5: {
-      size: "text-lg",
+      default: "text-lg",
       responsive: "text-lg lg:text-xl",
       small: "text-xl",
     },
     h6: {
-      size: "text-base",
+      default: "text-base",
       responsive: "text-base lg:text-lg",
       small: "text-lg",
     },
@@ -73,8 +73,8 @@ export const cssJs = {
   page: {
     padding: "pt-24",
     gap: "gap-4 lg:gap-8",
-    hoistBottomGap: "-mb-4 lg:-mb-8",
-    hoistTopGap: "-mt-4 lg:-mt-8",
+    hoistBottomGap: "hoist-bottom-gap",
+    hoistTopGap: "hoist-top-gap",
   },
   block: {
     padding: "",
@@ -89,7 +89,7 @@ export const cssJs = {
     width: "w-full",
     maxWidth: "max-w-7xl",
     margin: "mx-auto",
-    marginInline: "px-6 lg:px-0",
+    marginInline: "",
     marginBlock: "",
   },
   content: {
@@ -115,9 +115,9 @@ export const cssJs = {
     },
   },
   text: {
-    size: "text-lg",
+    inline: "text-lg",
     small: "text-sm",
-    large: "lg:text-2xl",
+    large: "text-lg lg:text-2xl",
   },
 };
 
@@ -200,8 +200,8 @@ export function getHeadingClass(
     source: cssJs.heading[`h${level}`],
     omitKeys: [
       ...omitKeys,
-      small ? "size" : "small",
-      responsive ? "size" : "responsive",
+      small ? "default" : "small",
+      responsive ? "default" : "responsive",
     ],
     padding,
   });

@@ -18,14 +18,14 @@
 import { Block } from "../block/Block";
 import { ContentBlock } from "../core/types";
 import { cn } from "@/lib/utils";
-import { bgPaletteClassName, getFilteredBlockContentAreaCss } from "../cssJs/cssJs";
+import { bgPaletteClassName, getFilteredBlockContentAreaCss, getPaletteClassName } from "../cssJs/cssJs";
 import { ContentContainer } from "../core/ContentContainer";
 
 function Box({ children, className, palette }: ContentBlock) {
   return (
     <div
       className={cn(
-        getFilteredBlockContentAreaCss(),
+        getFilteredBlockContentAreaCss({ padding: "full" }),
         "rounded-xl",
         palette && `color-palette-${palette}`,
         bgPaletteClassName,
@@ -46,7 +46,7 @@ export function InnerBoxes({
   asGrid = true,
 }: ContentBlock & { contentClassName?: string; className?: string; asGrid?: boolean }) {
   return (
-    <Block className={cn(palette && `color-palette-${palette}`, className)}>
+    <Block className={cn(getPaletteClassName(palette), className)}>
       <Block.CenteredContentArea>
         <ContentContainer asGrid={asGrid} className={contentClassName} noSpacing>
           {children}

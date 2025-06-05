@@ -32,7 +32,7 @@ FullWidthBackgroundImage.displayName = "FullWidthBackgroundImage";
 function CenteredContentArea({
   children,
   className,
-  padding,
+  padding = "full",
 }: SlotProps & { padding?: "full" | "inline" | "block" | "none" }) {
   return <div className={cn(getFilteredBlockContentAreaCss({ padding }), className)}>{children}</div>;
 }

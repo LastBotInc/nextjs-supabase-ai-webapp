@@ -18,7 +18,7 @@ function SubHeading({ children }: SlotProps) {
 }
 
 function Text({ children }: SlotProps) {
-  return <p>{children}</p>;
+  return <>{children}</>;
 }
 
 function Image(props: BackgroundImageProps) {
@@ -78,7 +78,7 @@ export function Hero({
 
   const hasText = !!slots[Text.displayName];
   const hasImage = !!slots[Image.displayName];
-  const padding = "none"; //fullWidth ? "none" : "none";
+  const padding = fullWidth ? "full" : "block";
 
   const Container = hasText ? ContainerWithText : ContainerWithoutText;
   return (

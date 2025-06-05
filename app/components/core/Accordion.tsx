@@ -24,14 +24,14 @@ import { forwardRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { bgPaletteClassName, borderPaletteClassName, textPaletteClassName, iconPaletteClassName } from "../cssJs/cssJs";
 import { ContentBlock } from "./types";
+import { ContentContainer } from "./ContentContainer";
 
 const AccordionTrigger = forwardRef<HTMLButtonElement, { children: ReactNode; className?: string }>(
   ({ children, className, ...props }, forwardedRef) => (
     <Header className="flex">
       <Trigger
         className={cn(
-          "p-6 h-16 flex-1 flex items-center justify-between text-xl line-height-1",
-          "hover:font-medium",
+          "p-6 h-16 flex-1 flex items-center justify-between text-xl line-height-1 highlight-effect",
           textPaletteClassName,
           className
         )}
@@ -48,11 +48,13 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, { children: ReactNode; cl
 const AccordionContent = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
   ({ children, className, ...props }, forwardedRef) => (
     <Content
-      className={cn("accordion-animation-content overflow-hidden px-6 pb-6", textPaletteClassName, className)}
+      className={cn("accordion-animation-content overflow-hidden p-6", textPaletteClassName, className)}
       {...props}
       ref={forwardedRef}
     >
-      {children}
+      <ContentContainer asBlock noSpacing palette="none">
+        {children}
+      </ContentContainer>
     </Content>
   )
 );
@@ -65,7 +67,7 @@ function AccordionItem({
   return (
     <Item
       className={cn(
-        "mt-1 overflow-hidden first:mt-0 focus-within:z-10 focus-within:relative border-b",
+        "overflow-hidden first:mt-0 focus-within:z-10 focus-within:relative border-b",
         borderPaletteClassName,
         className
       )}
@@ -82,9 +84,8 @@ export function Accordion({ children, className }: Pick<ContentBlock, "children"
   return (
     <Root
       className={cn("w-full border-t border-piki", bgPaletteClassName, borderPaletteClassName, className)}
-      type="single"
-      defaultValue="item-1"
-      collapsible
+      type="multiple"
+      defaultValue={[]}
     >
       {children}
     </Root>

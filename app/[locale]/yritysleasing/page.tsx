@@ -9,11 +9,12 @@ import React from "react";
 import { cn } from "@/utils/cn";
 import { Hero } from "@/app/components/Hero/Hero";
 import { Heading2, Heading3 } from "@/app/components/core/Headings";
-import { InnerBoxes } from "@/app/components/block/InnerBoxes";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { CustomizableBlock } from "@/app/components/block/CustomizableBlock";
 import { ContentContainer } from "@/app/components/core/ContentContainer";
 import { List } from "@/app/components/core/List";
+import { BoxLayoutBlock } from "@/app/components/block/BoxLayoutBlock";
+import { PageWrapper } from "@/app/components/core/PageWrapper";
 // Leasing comparison table for Finnish market
 const leasingData = [
   {
@@ -167,7 +168,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
   const t = await getTranslations({ locale, namespace: "CorporateLeasing" });
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-white pt-24">
+    <PageWrapper>
       <Hero isFirst palette="piki" fullWidth>
         <Hero.Image src="/images/yritysleasing.png" />
         <Hero.Heading>{t("hero.heading")}</Hero.Heading>
@@ -181,8 +182,8 @@ export default async function CorporateLeasingPage({ params }: { params: { local
       </Hero>
 
       {/* Intro Section */}
-      <InnerBoxes palette="piki">
-        <InnerBoxes.Box palette="default">
+      <BoxLayoutBlock palette="piki">
+        <BoxLayoutBlock.Box palette="default">
           <Heading2>{t("openModel.title")}</Heading2>
           <Paragraph>{t("openModel.description")}</Paragraph>
           <Heading2>{t("contactPerson.title")}</Heading2>
@@ -197,29 +198,28 @@ export default async function CorporateLeasingPage({ params }: { params: { local
             <List.Item>{t("benefits.noDownPayment")}</List.Item>
             <List.Item>{t("benefits.newCar")}</List.Item>
           </List>
-        </InnerBoxes.Box>
-      </InnerBoxes>
+        </BoxLayoutBlock.Box>
+      </BoxLayoutBlock>
 
-      <InnerBoxes palette="light-gray">
-        <InnerBoxes.Box palette="maantie">
+      <BoxLayoutBlock palette="light-gray">
+        <BoxLayoutBlock.Box palette="maantie">
           <Heading2>{t("leasingTypes.rahoitusleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.rahoitusleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.rahoitusleasing.suits")}</Paragraph>
-        </InnerBoxes.Box>
-        <InnerBoxes.Box palette="kupari">
+        </BoxLayoutBlock.Box>
+        <BoxLayoutBlock.Box palette="kupari">
           <Heading2>{t("leasingTypes.joustoleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.joustoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.joustoleasing.suits")}</Paragraph>
-        </InnerBoxes.Box>
-        <InnerBoxes.Box palette="piki">
+        </BoxLayoutBlock.Box>
+        <BoxLayoutBlock.Box palette="piki">
           <Heading2>{t("leasingTypes.huoltoleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.huoltoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.huoltoleasing.suits")}</Paragraph>
-        </InnerBoxes.Box>
-        <InnerBoxes.Box palette="betoni">
+        </BoxLayoutBlock.Box>
+        <BoxLayoutBlock.Box palette="betoni">
           <Heading2>{t("leasingTypes.minileasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.minileasing.description")}</Paragraph>
-          <Paragraph className="font-semibold">{t("leasingTypes.minileasing.suits")}</Paragraph>
           <List>
             {t.raw("leasingTypes.minileasing.benefits").map((b: string) => (
               <List.Item key={b}>{b}</List.Item>
@@ -231,8 +231,8 @@ export default async function CorporateLeasingPage({ params }: { params: { local
               <List.Item key={b}>{b}</List.Item>
             ))}
           </List>
-        </InnerBoxes.Box>
-      </InnerBoxes>
+        </BoxLayoutBlock.Box>
+      </BoxLayoutBlock>
 
       <CustomizableBlock>
         <ContentContainer noSpacing>
@@ -262,13 +262,13 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         <Hero.Image src="/images/Tietoa_meista.png" backgroundPosition="top center" />
         <Hero.Heading>{t("contact.title")}</Hero.Heading>
         <Hero.Text>
-          <Heading2 className="pb-20 max-w-2xl">{t("contact.subheading")}</Heading2>
+          <Heading2 className="max-w-2xl">{t("contact.subheading")}</Heading2>
         </Hero.Text>
 
         <Hero.ExtraContent>
           <CallUs numbers={t.raw("hero.numbers")} />
         </Hero.ExtraContent>
       </Hero>
-    </main>
+    </PageWrapper>
   );
 }
