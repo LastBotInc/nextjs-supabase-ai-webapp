@@ -265,53 +265,93 @@ export default async function PublicPage({ params }: Props) {
 }
 ```
 
-### Common layout components
+### Main layout components
 
 Page layouts always use block elements. All contents must be wrapped with these, so all spacings and alignments match.
-Every page ([locale]/**/page.tsx) must have <main> and its children must be one of block components.
-Block components are in folder "app/components/layouts/Block.tsx" and must be imported from there.
+Every page ([locale]/**/page.tsx) must have <main> and its direct children must be one of block components.
+Block components are in folder "app/components/blocks/*.tsx" and must be imported from there.
 Read their documentation from there too. 
+
+Main blocks are
+- Block
+- BackgroundImageBlock
+- ColumnBlock
+- CustomizableBlock
+- InnerBoxes
+- Hero
+
+Blocks uses and renders slots, like most other components.
+
+The main component Block always require slots as direct children:
+- Block.FullWidthBackgroundImage
+- Block.CenteredContentArea
+
+At least Block.CenteredContentArea must be used, Block.FullWidthBackgroundImage only when a full width background image is needed.
+
+Other block components use the main Block, so do not use slots in them.
 
 Example
 
 ```typescript
 import {
-  BlockPadding,
-  CommonBlock,
-  FullScreenWidthBlock,
-  FullWidthContentBlockWithBg,
-  MaxWidthContentBlock,
-  ColumnBlock,
-  spacing,
-} from "../components/layouts/Block";
+  Block,
+} from "@/app/components/block/Block.tsx";
 ```
+#### Hero
 
-### Common content components
+Hero component is a speacial component that has named slots and renders a block and content and sub components. It does not accept other children than its own slots:
+- Hero.Heading 
+- Hero.SubHeading 
+- Hero.Text 
+- Hero.ExtraContent 
+- Hero.Image
 
-Content like headings, texts, non-background images can be placed directly to block elements.
-But usage of Card or BlockPadding components is preferred to align contents properly.
 
-Card components are in folder "app/components/layouts/Block.tsx" and must be imported from there.
-Read their documentation from there too. 
+### Content components
+
+Content components are used to align content with proper spacings and colors and with responsive layouts.
+
+Content uses and renders slots, like most other components. Only its slots are rendered:
+- Content.Heading
+- Content.Column
+- Content.Text
+- Content.Wrapper
+
+
+Content must be placed in one of the blocks.
 
 Example
 
 ```typescript
-import { TwoColumnCard } from "../components/layouts/Card";
+import {
+  Content,
+} from "@/app/components/content/Content.tsx";
 ```
 
-### Common components
+Use 
 
-There are also common UI components for headings and paragraphs to keep styles consistent. Prioritize their usage over <h1>, <p> etc.
 
-Card components are in folder "app/components/layouts/CommonElements.tsx" and must be imported from there.
-Read their documentation from there too. 
+### Common UI components
+
+Use the components inside Content component that is in one of the blocks.
 
 Example
 
 ```typescript
-import { LinkLikeButton, Paragraph } from "../components/layouts/CommonElements";
+import { Card } from "@/app/components/card/Card.tsx";
+import { Accordion } from "@/app/components/core/Accordion.tsx";
+import { BackgroundImage } from "@/app/components/core/BackgroundImage.tsx";
+import { ContentContainer } from "@/app/components/core/ContentContainer.tsx";
+import { Headings } from "@/app/components/core/Headings.tsx";
+import { ImageContainer } from "@/app/components/core/ImageContainer.tsx";
+import { LinkButton } from "@/app/components/core/LinkButton.tsx";
+import { List } from "@/app/components/core/List.tsx";
+import { Paragraph } from "@/app/components/core/Paragraph.tsx";
+import { Grid } from "@/app/components/core/Grid.tsx";
 ```
+
+
+
 
 ### Key Features
 - Server-side rendering
