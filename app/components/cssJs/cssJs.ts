@@ -51,7 +51,7 @@ export const cssJs = {
     h3: {
       default: "text-4xl",
       responsive: "text-4xl lg:text-5xl",
-      small: "text-2xl",
+      small: "text-3xl lg:text-4xl",
     },
     h4: {
       default: "text-3xl",
@@ -201,6 +201,7 @@ export function getHeadingClass(
     omitKeys: [
       ...omitKeys,
       small ? "default" : "small",
+      small && responsive ? "responsive" : "",
       responsive ? "default" : "responsive",
     ],
     padding,

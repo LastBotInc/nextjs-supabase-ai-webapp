@@ -322,19 +322,19 @@
 
 /* Innolease graphics patterns */
 .overlay-pattern-innolease-1::before {
-  background-image: url("/patterns/Innolease_grafiikka1.svg");
-  background-size: 400px 160px;
+  background-image: url("/patterns/innolease-tile-dense-06-2025.svg");
+  background-size: cover;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
-  z-index: 0;
+  z-index: -1;
 }
 
 .overlay-pattern-innolease-2::before {
-  background-image: url("/patterns/Innolease_grafiikka2.svg");
-  background-size: 600px 900px;
+  background-image: url("/patterns/innolease-shape-06-2025.svg");
+  background-size: cover;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
-  z-index: 0;
+  z-index: -1;
 }
 
 .card-content-aligned-top-bottom {
@@ -454,26 +454,23 @@
   gap: var(--gap);
   position: relative;
   @apply mt-4;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    width: 1px;
-    border-right: 1px solid #000;
-    bottom: 1rem;
-  }
+
   > * {
     white-space: nowrap;
   }
 
   @screen lg {
     margin: 0;
-    --gap: 6rem;
     > * {
       width: auto;
     }
   }
+}
+
+.divider {
+  width: 1px;
+  display: block;
+  border-right: 1px solid #000;
 }
 
 .bottom-right-text-float {
