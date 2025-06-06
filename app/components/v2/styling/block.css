@@ -1,0 +1,65 @@
+.block {
+  @apply flex flex-col;
+  @apply w-full;
+}
+
+.block {
+  z-index: 20;
+  background-color: var(--palette-background-color);
+  color: var(--palette-text-color);
+}
+
+.block-background-image {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* TODO: pos & size from vars */
+}
+
+.block-with-background-image {
+  position: relative;
+}
+.content-area {
+  position: relative;
+  z-index: 20;
+}
+
+.block-content.block-padding-full {
+  @apply p-6 lg:p-14;
+}
+
+.block-padding-inline.block-padding-inline {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.block-padding-block.block-padding-block {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.block-padding-none.block-padding-none {
+  padding: 0;
+}
+
+/* Main block */
+.block-main {
+  --padding: 0;
+  --padding-md: 0;
+  --padding-lg: 0;
+}
+
+.block-main .block-content {
+  @apply max-w-screen-2xl mx-auto;
+}
+
+/* Content block */
+
+.block-content .content {
+  padding: 0;
+}

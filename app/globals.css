@@ -453,14 +453,16 @@
   --gap: 3rem;
   gap: var(--gap);
   position: relative;
+  justify-self: start;
   @apply mt-4;
-
+  @apply flex flex-row bg-white rounded-full p-4 text-sm pr-8;
   > * {
     white-space: nowrap;
   }
 
   @screen lg {
     margin: 0;
+    justify-self: end;
     > * {
       width: auto;
     }
@@ -754,3 +756,6 @@
     }
   }
 }
+
+@import "./components/v2/styling/block.css";
+@import "./components/v2/styling/hero.css";

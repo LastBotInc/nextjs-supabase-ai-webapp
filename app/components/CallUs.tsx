@@ -13,7 +13,7 @@ export function CallUs({ numbers }: CallUsProps) {
   const number = numbers[0].number;
   const email = "info@innolease.fi";
   return (
-    <div className="flex flex-row bg-white rounded-full p-4 lg:self-end call-us text-sm self-start lg:pr-8">
+    <div className="call-us">
       <Link href={`tel:${number}`} className={`flex items-center gap-2 text-gray-700`}>
         <div className="bg-kupari rounded-full p-2">
           <IconPhone className="w-6 h-6" />
