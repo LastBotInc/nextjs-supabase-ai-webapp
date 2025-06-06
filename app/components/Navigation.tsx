@@ -234,8 +234,8 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center py-2">
-              <InnoleaseLogo width={215} height={42} className="h-9 w-auto" color="black" />
+            <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center">
+              <InnoleaseLogo width={215} height={42} />
             </Link>
           </div>
 
@@ -271,7 +271,7 @@ export default function Navigation() {
                   >
                     <button
                       onClick={() => toggleDropdown(section.id)}
-                      className={`px-3 py-2 rounded-md text-lg font-medium transition-colors flex items-center ${
+                      className={`px-3 pb-2 pt-8 rounded-md text-lg font-medium transition-colors flex items-center ${
                         activeDropdown === section.id
                           ? "text-white bg-piki"
                           : "text-piki hover:text-piki/80 hover:bg-gray-100"

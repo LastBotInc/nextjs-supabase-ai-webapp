@@ -73,7 +73,11 @@ export function Hero({
     );
   };
   const ContainerWithText = ({ children }: { children: ReactNode }) => {
-    return <div className={cn(classes, "pt-20", useMinHeight ? "min-h-[500px] lg:h-[600px]" : "")}>{children}</div>;
+    return (
+      <div className={cn(classes, "pt-20", "lg:grid-cols-[50%_1fr]", useMinHeight ? "min-h-[500px] lg:h-[600px]" : "")}>
+        {children}
+      </div>
+    );
   };
 
   const hasText = !!slots[Text.displayName];
@@ -89,7 +93,7 @@ export function Hero({
           className={cn(
             "relative overflow-hidden",
             getCssProp("blockContentArea", fullWidth ? "paddingInline" : "padding"),
-            !fullWidth && padding !== "none" ? "xl:rounded-lg" : "xl:rounded-lg",
+            "xl:rounded-lg",
             `color-palette-${palette}`
           )}
         >
