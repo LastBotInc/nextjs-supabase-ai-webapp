@@ -1,9 +1,12 @@
-import { BreakPoint, NestedBlocksProps, SizeDefinition } from "../core/types";
-import { Columns } from "../core/Columns";
+import { NestedBlocksProps } from "../core/types";
+import { Columns, ColumnProps } from "../core/Columns";
 import { Children, ReactNode } from "react";
 import { FullBlockStructure } from "../blocks/FullBlockStructure";
+import { FlexProps } from "../core/Flex";
 
-export type SpecialColumns = "first-1/3" | "first-2/3" | "first-1/4" | "first-3/4" | "first-1/2";
+export type GridLayoutProps = Omit<NestedBlocksProps, "type"> &
+  Pick<ColumnProps, "columns" | "gaps"> &
+  Pick<FlexProps, "oneColumnBreakpoint">;
 
 export function Column({ children }: { children: ReactNode }) {
   return <>{children}</>;
@@ -31,11 +34,9 @@ export function GridLayout({
   contentClassName,
   columns,
   oneColumnBreakpoint,
+  gaps,
   ...rest
-}: Omit<NestedBlocksProps, "type"> & {
-  columns?: SizeDefinition;
-  oneColumnBreakpoint?: BreakPoint;
-}) {
+}: GridLayoutProps) {
   if (!columns && children) {
     columns = {
       default: 1,
@@ -46,7 +47,9 @@ export function GridLayout({
     <FullBlockStructure {...rest}>
       {mainImage && <FullBlockStructure.MainBlockImage {...mainImage} />}
       <FullBlockStructure.Content contentImage={contentImage} palette={contentPalette} className={contentClassName}>
-        <Columns columns={columns}>{children}</Columns>
+        <Columns columns={columns} gaps={gaps}>
+          {children}
+        </Columns>
       </FullBlockStructure.Content>
     </FullBlockStructure>
   );

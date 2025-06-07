@@ -8,7 +8,7 @@ export function ContentColumn({ children }: { children: ReactNode }) {
 
 ContentColumn.displayName = "NestedBlocks.ContentColumn";
 
-export function NestedBlocks({
+export function NestedBlocksXXX({
   children,
   mainImage,
   contentImage,
@@ -26,4 +26,4 @@ export function NestedBlocks({
   );
 }
 
-NestedBlocks.ContentColumn = ContentColumn;
+NestedBlocksXXX.ContentColumn = ContentColumn;

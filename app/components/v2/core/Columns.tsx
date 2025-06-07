@@ -1,7 +1,12 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, HTMLAttributes } from "react";
 import { SizeDefinition } from "./types";
 import { cn } from "@/lib/utils";
-import { getValuePerBreakpoint } from "../styling/resolveStyles";
+import { getGapClass, getValuePerBreakpoint } from "../styling/resolveStyles";
+import { FlexProps } from "./Flex";
+
+export type ColumnProps = HTMLAttributes<HTMLDivElement> & {
+  columns?: SizeDefinition;
+} & Pick<FlexProps, "gaps">;
 
 const getColumnBreakpoint = (columns: SizeDefinition): CSSProperties => {
   return Object.entries(getValuePerBreakpoint(columns, 1)).reduce((acc, [breakpoint, count]) => {
@@ -15,18 +20,11 @@ const getColumnBreakpoint = (columns: SizeDefinition): CSSProperties => {
   }, {} as Record<string, string>);
 };
 
-export function Columns({
-  children,
-  columns,
-  className,
-  style,
-}: { children: ReactNode; className?: string; style?: CSSProperties } & {
-  columns?: SizeDefinition;
-}) {
+export function Columns({ children, columns, className, style, gaps = "level-based", ...rest }: ColumnProps) {
   const styles = { ...style, ...(columns && getColumnBreakpoint(columns)) };
 
   return (
-    <div style={styles} className={cn("columns", className)}>
+    <div style={styles} className={cn("columns", className, getGapClass(gaps))} {...rest}>
       {children}
     </div>
   );

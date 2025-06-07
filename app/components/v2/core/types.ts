@@ -36,6 +36,7 @@ export const Padding = {
   Inline: "inline",
   Block: "block",
   None: "none",
+  Unset: "unset",
 } as const;
 
 export type PaddingType = (typeof Padding)[keyof typeof Padding];

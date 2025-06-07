@@ -1,5 +1,4 @@
 .columns {
-  @apply gap-4 lg:gap-8;
   /* column has no effect unless you set the --column-count in the style attribute */
   --column-count: auto;
   --column-count-md: auto;
@@ -28,21 +27,14 @@
 .columns.small-gaps {
   @apply gap-2 lg:gap-4;
 }
-
-.columns-first-1_3 {
-  --column-template: 33.3333% minmax(0, 1fr);
-}
-.columns-first-2_3 {
-  --column-template: 66.6666% minmax(0, 1fr);
+.columns.large-gaps {
+  @apply gap-4 lg:gap-8;
 }
 
-.columns-first-1_4 {
-  --column-template: 25% minmax(0, 1fr);
-}
-.columns-first-3_4 {
-  --column-template: 75% minmax(0, 1fr);
+.block-main .block-content .columns.level-based-gaps {
+  @apply gap-4 lg:gap-8;
 }
 
-.columns-first-1_2 {
-  --column-template: 50% minmax(0, 1fr);
+.block-main .block-content .content-area .columns.level-based-gaps {
+  @apply gap-2 lg:gap-2;
 }

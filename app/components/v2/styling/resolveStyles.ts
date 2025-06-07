@@ -1,3 +1,4 @@
+import { FlexProps } from "../core/Flex";
 import {
   BlockTypeValue,
   BreakPoint,
@@ -8,7 +9,8 @@ import {
 
 const classMap: {
   blockTypes: Record<BlockTypeValue, string>;
-  padding: Record<string, string>;
+  padding: Record<PaddingType, string>;
+  gaps: Record<string, string>;
 } = {
   blockTypes: {
     main: "block-main",
@@ -21,6 +23,12 @@ const classMap: {
     inline: "block-padding-inline",
     block: "block-padding-block",
     none: "block-padding-none",
+    unset: "",
+  },
+  gaps: {
+    small: "small-gaps",
+    large: "large-gaps",
+    "level-based": "level-based-gaps",
   },
 };
 export function getBlockStyles(type: BlockTypeValue, padding: PaddingType) {
@@ -29,6 +37,13 @@ export function getBlockStyles(type: BlockTypeValue, padding: PaddingType) {
 
 export function getPaddingStyles(padding: PaddingType) {
   return [classMap.padding[padding]];
+}
+
+export function getGapClass(gaps: FlexProps["gaps"]) {
+  if (!gaps) {
+    return "";
+  }
+  return classMap.gaps[gaps];
 }
 
 export function getPaletteClassName(palette: Palette) {

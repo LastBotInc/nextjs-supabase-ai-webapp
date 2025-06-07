@@ -1,7 +1,13 @@
 import { cloneElement, CSSProperties, ReactElement, ReactNode } from "react";
 import { BreakPoint, SizeDefinition } from "./types";
 import { cn } from "@/lib/utils";
-import { getValuePerBreakpoint } from "../styling/resolveStyles";
+import { getGapClass, getValuePerBreakpoint } from "../styling/resolveStyles";
+
+export type FlexProps = {
+  oneColumnBreakpoint?: BreakPoint;
+  direction?: "row" | "column";
+  gaps?: "small" | "large" | "level-based";
+};
 
 export function FixedWidthColumn({ children, width }: { children: ReactElement; width: string | SizeDefinition }) {
   const widthsAsVars = getValuePerBreakpoint(typeof width === "string" ? { default: width } : width, "0");
@@ -24,16 +30,20 @@ export function Flex({
   oneColumnBreakpoint = "lg",
   className,
   style,
-}: { children: ReactNode; className?: string; style?: CSSProperties } & {
-  oneColumnBreakpoint?: BreakPoint;
-}) {
+  direction = "row",
+  gaps = "level-based",
+}: { children: ReactNode; className?: string; style?: CSSProperties } & FlexProps) {
+  /* default direction is row (is specs), so we don't need to set it */
   const styles = {
     ...style,
-    ...{ [`--flex-direction-${oneColumnBreakpoint}`]: "row" },
+    ...(direction !== "row" && { ["--flex-direction"]: direction }),
+    ...(direction !== "column" && {
+      [`--flex-direction-default`]: "column",
+      [`--flex-direction-${oneColumnBreakpoint}`]: "row",
+    }),
   };
-
   return (
-    <div style={styles} className={cn("flex-container", className)}>
+    <div style={styles} className={cn("flex-container", className, getGapClass(gaps))}>
       {children}
     </div>
   );

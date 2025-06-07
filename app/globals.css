@@ -20,7 +20,7 @@
 
   /* Base container style for image overlays */
   .has-overlay-pattern {
-    @apply relative overflow-hidden;
+    @apply relative;
   }
 
   /* Base pseudo-element style for overlays */
@@ -226,7 +226,7 @@
   height: 100%;
   background-repeat: repeat;
   background-position: center;
-  z-index: -1;
+  z-index: 30;
   opacity: var(--overlay-opacity, 0.2);
   mix-blend-mode: overlay;
   pointer-events: none;
@@ -326,7 +326,7 @@
   background-size: cover;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
-  z-index: -1;
+  z-index: 30;
 }
 
 .overlay-pattern-innolease-2::before {
@@ -334,7 +334,7 @@
   background-size: cover;
   mix-blend-mode: overlay;
   opacity: var(--overlay-opacity, 0.15);
-  z-index: -1;
+  z-index: 30;
 }
 
 .card-content-aligned-top-bottom {
