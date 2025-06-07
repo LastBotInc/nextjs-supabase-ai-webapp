@@ -3,7 +3,7 @@
   /* column has no effect unless you set the --column-count in the style attribute */
   --flex-direction-default: row;
   display: flex;
-  flex-direction: var(--flex-direction, --flex-direction-default);
+  flex-direction: var(--flex-direction, var(--flex-direction-default));
 
   > * {
     flex: 1 1 0;

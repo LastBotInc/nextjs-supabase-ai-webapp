@@ -573,8 +573,8 @@
   --palette-text-color: var(--piki);
   --palette-heading-color: var(--piki);
   --palette-icon-color: var(--piki);
-  --palette-button-color: var(--white);
-  --palette-button-text-color: var(--piki);
+  --palette-button-color: var(--piki);
+  --palette-button-text-color: var(--white);
 }
 
 .color-palette-piki {
