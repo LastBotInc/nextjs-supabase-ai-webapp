@@ -1,4 +1,10 @@
-import { BlockTypeValue, PaddingType, Palette } from "../core/types";
+import {
+  BlockTypeValue,
+  BreakPoint,
+  PaddingType,
+  Palette,
+  SizeDefinition,
+} from "../core/types";
 
 const classMap: {
   blockTypes: Record<BlockTypeValue, string>;
@@ -30,4 +36,23 @@ export function getPaletteClassName(palette: Palette) {
     return "";
   }
   return `color-palette-${palette || "default"}`;
+}
+
+export function getValuePerBreakpoint(
+  definition: SizeDefinition,
+  defaultValue?: string | number,
+): Record<BreakPoint, string> {
+  const breakPoints = ["default", "sm", "md", "lg", "xl"];
+  let currentValue = String(definition.default || defaultValue || "");
+  const values = breakPoints.reduce((acc, breakPoint) => {
+    const value = definition[breakPoint as BreakPoint];
+    if (value === undefined) {
+      acc[breakPoint as BreakPoint] = currentValue || "";
+      return acc;
+    }
+    currentValue = String(value);
+    acc[breakPoint as BreakPoint] = currentValue;
+    return acc;
+  }, {} as Record<BreakPoint, string>);
+  return values;
 }

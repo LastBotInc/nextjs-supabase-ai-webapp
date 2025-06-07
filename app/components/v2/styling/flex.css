@@ -1,0 +1,39 @@
+.flex-container {
+  @apply gap-4 lg:gap-8;
+  /* column has no effect unless you set the --column-count in the style attribute */
+  --flex-direction: column;
+  display: flex;
+  flex-direction: var(--flex-direction);
+
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  @screen md {
+    --flex-direction: var(--flex-direction-md, var(--flex-direction));
+  }
+  @screen lg {
+    --flex-direction: var(--flex-direction-lg, var(--flex-direction-md));
+  }
+  @screen xl {
+    --flex-direction: var(--flex-direction-xl, var(--flex-direction-lg));
+  }
+}
+
+.flex-container.small-gaps {
+  @apply gap-2 lg:gap-4;
+}
+
+.fixed-with-column {
+  width: var(--fixed-width);
+  flex: 0 1 auto;
+  @screen md {
+    --fixed-width: var(--fixed-width-md, var(--fixed-width-default));
+  }
+  @screen lg {
+    --fixed-width: var(--fixed-width-lg, var(--fixed-width-md, var(--fixed-width-default)));
+  }
+  @screen xl {
+    --fixed-width: var(--fixed-width-xl, var(--fixed-width-lg));
+  }
+}

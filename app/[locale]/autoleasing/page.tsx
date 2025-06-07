@@ -2,10 +2,18 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
+import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { MainBlock } from "@/app/components/v2/blocks/MainBlock";
+import { ContentBlock } from "@/app/components/v2/blocks/ContentBlock";
+import { BoxBlock } from "@/app/components/v2/blocks/BoxBlock";
+import { CallUs } from "@/app/components/CallUs";
+import { Hero } from "@/app/components/v2/layouts/Hero";
+import { GridLayout } from "@/app/components/v2/layouts/GridLayout";
+import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "CarLeasing.meta" });
+  const t = await getTranslations({ locale, namespace: "Home.meta" });
 
   return {
     title: t("title"),
@@ -17,40 +25,60 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
   // Setup localization
   const { locale } = await params;
   await setupServerLocale(locale);
-  const t = await getTranslations("CarLeasing");
+  const t = await getTranslations({ locale, namespace: "Home" });
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">{t("title")}</h1>
+    <PageWrapper>
+      <Hero isFirst>
+        <Hero.Image src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
+        <Hero.Heading>{t("hero.heading")}</Hero.Heading>
+        <Hero.SubHeading>{t("hero.subheading")}</Hero.SubHeading>
+        <Hero.ExtraContent>
+          <CallUs numbers={t.raw("hero.numbers")} />
+        </Hero.ExtraContent>
+      </Hero>
+      <GridLayout
+        mainImage={{ src: "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" }}
+        contentImage={{ src: "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" }}
+        contentPalette="piki"
+        oneColumnBreakpoint="lg"
+      >
+        <GridLayout.Column>
+          <h1>{t("hero.heading")}</h1>
+        </GridLayout.Column>
+        <GridLayout.Column>
+          <h1>{t("hero.heading")}</h1>
+        </GridLayout.Column>
+        <GridLayout.Column>
+          <h1>{t("hero.heading")}</h1>
+        </GridLayout.Column>
+        <GridLayout.Column>
+          <h1>{t("hero.heading")}</h1>
+        </GridLayout.Column>
+      </GridLayout>
 
-        <div className="prose prose-lg prose-indigo mx-auto">
-          <p className="lead">{t("intro")}</p>
+      <FlexLayout oneColumnBreakpoint="lg" palette="default">
+        <h1>{t("hero.heading")}</h1>
+        <FlexLayout.FixedWidthColumn width={{ default: "100%", md: "300px", lg: "300px", xl: "400px" }}>
+          <h1>{t("hero.heading")}</h1>
+        </FlexLayout.FixedWidthColumn>
+        <h1>{t("hero.heading")}</h1>
+      </FlexLayout>
 
-          <h2>{t("personal.title")}</h2>
-          <p>{t("personal.description")}</p>
-
-          <h2>{t("corporate.title")}</h2>
-          <p>{t("corporate.description")}</p>
-
-          <h2>{t("terms.title")}</h2>
-          <p>{t("terms.description")}</p>
-
-          <h2>{t("vehicles.title")}</h2>
-          <p>{t("vehicles.description")}</p>
-
-          <div className="bg-gray-50 p-6 rounded-lg my-8">
-            <h3 className="text-xl font-semibold mb-4">{t("cta.title")}</h3>
-            <p>{t("cta.description")}</p>
-            <a
-              href={`/${locale}/yhteystiedot`}
-              className="mt-4 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
-            >
-              {t("cta.button")}
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
+      <MainBlock>
+        <MainBlock.Content>
+          <ContentBlock palette="kupari">
+            <ContentBlock.Content>
+              <h1>{t("hero.heading")}</h1>
+              <BoxBlock>
+                <BoxBlock.Content>
+                  <h2>{t("hero.subheading")}</h2>
+                </BoxBlock.Content>
+              </BoxBlock>
+            </ContentBlock.Content>
+          </ContentBlock>
+        </MainBlock.Content>
+      </MainBlock>
+    </PageWrapper>
   );
 }

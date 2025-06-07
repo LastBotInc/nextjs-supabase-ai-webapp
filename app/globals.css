@@ -759,3 +759,5 @@
 
 @import "./components/v2/styling/block.css";
 @import "./components/v2/styling/hero.css";
+@import "./components/v2/styling/columns.css";
+@import "./components/v2/styling/flex.css";

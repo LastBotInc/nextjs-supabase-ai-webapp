@@ -24,9 +24,12 @@
 .block-with-background-image {
   position: relative;
 }
+
 .content-area {
   position: relative;
   z-index: 20;
+  color: var(--palette-text-color, #000);
+  background-color: var(--palette-background-color, transparent);
 }
 
 .block-content.block-padding-full {

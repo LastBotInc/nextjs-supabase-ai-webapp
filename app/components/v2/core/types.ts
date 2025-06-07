@@ -1,13 +1,14 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { BackgroundImageProps } from "./BackgroundImage";
 
 export type Size = "default" | "small" | "large";
 export type BreakPoint = "md" | "lg" | "xl";
 
 export type SizeDefinition = {
-  default: Size | PaddingType | string;
-  md?: Size | PaddingType | string;
-  lg?: Size | PaddingType | string;
-  xl?: Size | PaddingType | string;
+  default?: Size | PaddingType | string | number;
+  md?: Size | PaddingType | string | number;
+  lg?: Size | PaddingType | string | number;
+  xl?: Size | PaddingType | string | number | undefined;
 };
 
 export type Palette =
@@ -48,3 +49,9 @@ export type BlockProps<T = HTMLDivElement> = HTMLAttributes<T> & {
 };
 
 export type SlotProps = { children: ReactNode; className?: string };
+export type NestedBlocksProps = Omit<BlockProps, "type"> & {
+  contentPalette?: Palette;
+  contentClassName?: string;
+  mainImage?: BackgroundImageProps;
+  contentImage?: BackgroundImageProps;
+};
