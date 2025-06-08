@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/utils/supabase/client';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/app/i18n/navigation';
 import { Link } from '@/app/i18n/navigation';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
@@ -52,7 +52,7 @@ export default function NewSEOProjectPage() {
 
       if (createError) throw createError;
 
-      // Redirect to the new project
+      // Redirect to the new project with proper locale handling
       router.push(`/admin/seo/projects/${data.id}`);
     } catch (err) {
       console.error('Failed to create project:', err);

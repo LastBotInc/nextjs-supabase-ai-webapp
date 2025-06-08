@@ -82,6 +82,37 @@
 - **Fix Build Errors:** Resolved `Dynamic server usage` errors during `npm run build` by adding `export const dynamic = 'force-dynamic';` to necessary page files (admin layout, privacy, root locale page, test, account pages, profile settings, most auth pages). Ignored build-time i18n database errors as requested. Build now completes successfully despite some remaining dynamic usage warnings.
 
 ## [Current Session]
+- **Fix:** Resolved incorrect competition value in keyword research tools.
+  - **Issue:** Keyword competition was showing as 0% in both AI-generated and manually researched keyword lists.
+  - **Root Cause:** Inconsistency in using `competition` vs. `competition_index` fields from the DataForSEO API response.
+  - **Solution:**
+    - Updated `app/api/seo/keywords/research/route.ts` to use `competition_index / 100` when creating keyword suggestions.
+    - Updated `app/api/seo/keywords/ai-generate/route.ts` to fetch and use real keyword difficulty data instead of mock values, ensuring consistency with the research route.
+- **Fix:** Fully resolved keyword metric generation issue.
+  - **Issue:** Keyword research tools were returning 0 or null for all metrics (volume, CPC, competition, difficulty).
+  - **Root Cause Analysis:**
+    1.  Initial bug was incorrect processing of `competition_index`.
+    2.  Second bug was a failure to merge data from two separate API calls (volume/competition and difficulty).
+    3.  Third bug was an API error due to un-sanitized, AI-generated keywords containing punctuation (`?`).
+    4.  Final bug was incorrect parsing of the nested response structure from the bulk keyword difficulty API.
+  - **Solution:**
+    - Correctly implemented a data map in `app/api/seo/keywords/ai-generate/route.ts` to merge results from both keyword data and keyword difficulty APIs.
+    - Added a sanitization step to remove invalid characters from AI-generated keywords.
+    - Corrected the loop logic to properly parse the nested `items` array from the `bulk_keyword_difficulty` API response.
+    - Improved the Gemini prompt to generate keywords more likely to have available data.
+- **Feat:** Implemented SERP Analysis as a fallback.
+  - **Reasoning:** When quantitative data (volume, CPC) is unavailable for a keyword, this provides qualitative analysis.
+  - **Implementation:**
+    - Created `app/api/seo/serp/analysis/route.ts` to fetch live SERP data from DataForSEO.
+    - Built a reusable `SERPAnalysisModal` component.
+    - Integrated an "Analyze SERP" button into the keyword research page that triggers the modal.
+- **Fix:** Corrected a redirect issue when creating a new SEO project. The redirect URL was missing the `[locale]` part, causing a 404 error. Fixed by using the localized `useRouter` from `@/app/i18n/navigation` in `app/[locale]/admin/seo/projects/new/page.tsx`.
+- **Fix:** Resolved DataForSEO API errors for keyword generation (`Invalid Field`) and difficulty (`404 Not Found`).
+  - **Issue:** API calls were failing due to incorrect payload structure and endpoint URLs.
+  - **Solution:**
+    - Modified `getKeywordSuggestions` in `lib/dataforseo/client.ts` to send an array of `keywords` instead of a single string.
+    - Corrected the `getKeywordDifficulty` endpoint to `/dataforseo_labs/google/bulk_keyword_difficulty/live`.
+    - Added logic to `app/api/seo/keywords/research/route.ts` to perform a bulk difficulty lookup for all discovered keywords.
 - **Fix:** Resolved synchronous access errors for `searchParams` and `params` in multiple page components (`/admin/landing-pages`, `/blog`, `/[slug]`).
 - **Fix:** Replaced insecure `getSession`/`onAuthStateChange` usage with `getUser()` in `AuthProvider` and `middleware` as per Supabase recommendations.
 - **Fix:** Addressed authentication flow issues caused by the `getUser` refactor by refining middleware cookie handling.

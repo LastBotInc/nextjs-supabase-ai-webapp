@@ -436,7 +436,12 @@
         "createButton": "Create Your First SEO Project"
       },
       "loading": "Loading keyword research data...",
-      "added": "Added"
+      "added": "Added",
+      "serp": {
+        "title": "SERP Analysis",
+        "analyzeTooltip": "Analyze live SERP results",
+        "noResults": "No organic SERP results found for this keyword."
+      }
     },
     "projects": {
       "title": "SEO Projects",

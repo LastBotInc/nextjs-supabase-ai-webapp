@@ -181,6 +181,7 @@
   - [x] Ensure high quality (90% quality)
 
 ### Bug Fixes
+- [✅] Fix keyword research competition and difficulty values.
 - [x] Fix solutions page button widths
   - Modified Button component to use inline-flex and w-fit
   - Buttons now align with their content width

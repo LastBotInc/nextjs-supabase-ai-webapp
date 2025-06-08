@@ -207,7 +207,7 @@ export async function POST(request: NextRequest) {
             console.log(`📊 Calling DataForSEO getKeywordSuggestions for: "${seedKeyword}"`);
             
             const suggestionsResponse = await dataForSEOClient.getKeywordSuggestions(
-              seedKeyword,
+              [seedKeyword],
               locationCode,
               languageCode
             );
@@ -235,7 +235,7 @@ export async function POST(request: NextRequest) {
                     keyword: item.keyword || '',
                     search_volume: item.search_volume || 0,
                     cpc: item.cpc || 0,
-                    competition: item.competition || 0,
+                    competition: item.competition_index ? item.competition_index / 100 : 0,
                     difficulty: Math.floor(Math.random() * 100), // Mock difficulty for now
                     search_intent: item.search_intent || 'informational',
                   }));
@@ -251,46 +251,60 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      // Get keyword difficulty for saved keywords
-      if (results.keywords.length > 0) {
+      // Consolidate all keywords for difficulty check
+      const allKeywords = [
+        ...results.keywords.map(k => k.keyword),
+        ...results.suggestions.map(s => s.keyword)
+      ];
+      const uniqueKeywords = [...new Set(allKeywords)];
+
+      if (uniqueKeywords.length > 0) {
         try {
-          const keywords = results.keywords.map(k => k.keyword);
+          console.log(`📊 Calling DataForSEO getKeywordDifficulty for ${uniqueKeywords.length} keywords.`);
           const difficultyResponse = await dataForSEOClient.getKeywordDifficulty(
-            keywords,
+            uniqueKeywords,
             locationCode,
             languageCode
           );
 
           if (difficultyResponse && difficultyResponse.status_code === 20000) {
             results.cost += difficultyResponse.cost || 0;
-            
-            if (difficultyResponse.tasks && difficultyResponse.tasks.length > 0) {
-              const task = difficultyResponse.tasks[0];
-              if (task.result && task.result.length > 0) {
-                // Update keywords with difficulty scores
-                for (const difficultyData of task.result) {
-                  const keyword = results.keywords.find(k => k.keyword === difficultyData.keyword);
-                  if (keyword && difficultyData.keyword_difficulty !== undefined) {
-                    // Update in database
-                    await supabase
-                      .from('keyword_research')
-                      .update({ 
-                        difficulty: difficultyData.keyword_difficulty,
-                        search_intent: difficultyData.search_intent || keyword.search_intent,
-                      })
-                      .eq('id', keyword.id);
-                    
-                    // Update in results
-                    keyword.difficulty = difficultyData.keyword_difficulty;
-                    keyword.search_intent = difficultyData.search_intent || keyword.search_intent;
+
+            if (difficultyResponse.tasks && difficultyResponse.tasks.length > 0 && difficultyResponse.tasks[0].result) {
+              const difficultyData = difficultyResponse.tasks[0].result[0].items;
+              const difficultyMap = new Map(difficultyData.map((item: any) => [item.keyword, item.keyword_difficulty]));
+
+              // Update difficulty in the database
+              for (const [keyword, difficulty] of difficultyMap.entries()) {
+                await supabase
+                  .from('keyword_research')
+                  .update({ difficulty: typeof difficulty === 'number' ? difficulty : null })
+                  .eq('project_id', body.project_id)
+                  .eq('keyword', keyword);
+              }
+
+              // Update difficulty in the results objects
+              results.keywords.forEach(k => {
+                if (difficultyMap.has(k.keyword)) {
+                  const difficulty = difficultyMap.get(k.keyword);
+                  if (typeof difficulty === 'number') {
+                    k.difficulty = difficulty;
                   }
                 }
-              }
+              });
+              results.suggestions.forEach(s => {
+                if (difficultyMap.has(s.keyword)) {
+                  const difficulty = difficultyMap.get(s.keyword);
+                  if (typeof difficulty === 'number') {
+                    s.difficulty = difficulty;
+                  }
+                }
+              });
             }
           }
         } catch (difficultyError) {
-          console.warn('Failed to get keyword difficulty:', difficultyError);
-          // Continue without difficulty data
+          console.error('Failed to get keyword difficulty:', difficultyError);
+          // Continue without difficulty data if this fails
         }
       }
 

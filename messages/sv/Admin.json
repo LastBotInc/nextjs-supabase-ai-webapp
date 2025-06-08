@@ -441,6 +441,11 @@
       "title": "SEO-projekt",
       "new": "Nytt projekt",
       "select": "Välj ett projekt..."
+    },
+    "serp": {
+      "title": "SERP-analys",
+      "analyzeTooltip": "Analysera live SERP-resultat",
+      "noResults": "Inga organiska SERP-resultat hittades för detta nyckelord."
     }
   }
 }

@@ -435,7 +435,12 @@
       "loading": "Ladataan avainsanatutkimustietoja...",
       "actions": "Toiminnot",
       "deleteKeyword": "Poista",
-      "added": "Lisätty"
+      "added": "Lisätty",
+      "serp": {
+        "title": "SERP-analyysi",
+        "analyzeTooltip": "Analysoi live SERP-tulokset",
+        "noResults": "Tälle avainsanalle ei löytynyt orgaanisia SERP-tuloksia."
+      }
     },
     "projects": {
       "title": "SEO-projektit",

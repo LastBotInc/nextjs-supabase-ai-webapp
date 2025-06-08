@@ -14,12 +14,17 @@ import {
   CurrencyDollarIcon,
   LightBulbIcon,
   ArrowPathIcon,
-  TrashIcon
+  TrashIcon,
+  PlusCircleIcon
 } from '@heroicons/react/24/outline';
+import { InformationCircleIcon, MagnifyingGlassIcon as MagnifyingGlassSolidIcon } from '@heroicons/react/24/solid';
 import { getKeywordGenerationDescription } from '@/lib/brand-info';
+import SERPAnalysisModal from '@/components/admin/seo/SERPAnalysisModal';
+import { SERPResult } from '@/types/seo';
 
 interface KeywordResearchWithProject extends KeywordResearch {
-  seo_projects?: {
+  project?: {
+    id: string;
     name: string;
     domain: string;
   };
@@ -49,6 +54,12 @@ export default function KeywordResearchPage() {
   const [languageCode, setLanguageCode] = useState('en');
   const [aiGenerating, setAiGenerating] = useState(false);
   const [companyDescription, setCompanyDescription] = useState(getKeywordGenerationDescription());
+  
+  // State for SERP Analysis Modal
+  const [isSERPModalOpen, setSERPModalOpen] = useState(false);
+  const [serpResults, setSerpResults] = useState<SERPResult | null>(null);
+  const [selectedKeywordForSERP, setSelectedKeywordForSERP] = useState<string>('');
+  const [isAnalyzingSERP, setIsAnalyzingSERP] = useState(false);
 
   const fetchProjects = useCallback(async () => {
     if (!session?.user || !isAdmin) return;
@@ -257,6 +268,48 @@ export default function KeywordResearchPage() {
       setError(err instanceof Error ? err.message : 'AI keyword generation failed');
     } finally {
       setAiGenerating(false);
+    }
+  };
+
+  const handleAnalyzeSERP = async (keyword: string) => {
+    setSelectedKeywordForSERP(keyword);
+    setIsAnalyzingSERP(true);
+    setSerpResults(null);
+    setSERPModalOpen(true);
+    setError(null);
+
+    try {
+      const supabase = createClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) throw new Error('Not authenticated');
+
+      const response = await fetch('/api/seo/serp/analysis', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          keyword: keyword,
+          location_code: locationCode,
+          language_code: languageCode,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || result.details || 'Failed to analyze SERP');
+      }
+      
+      const serpData = result.data?.tasks?.[0]?.result?.[0];
+      setSerpResults(serpData || null);
+
+    } catch (err) {
+      console.error('SERP analysis failed:', err);
+      setError(err instanceof Error ? err.message : 'SERP analysis failed');
+      // Keep modal open to show error message or no results
+    } finally {
+      setIsAnalyzingSERP(false);
     }
   };
 
@@ -607,13 +660,22 @@ export default function KeywordResearchPage() {
                           <span className="capitalize">{suggestion.search_intent}</span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          <button
-                            onClick={() => saveKeywordToProject(suggestion)}
-                            className="inline-flex items-center px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-xs rounded-md transition-colors"
-                          >
-                            <PlusIcon className="w-3 h-3 mr-1" />
-                            {t('addKeyword')}
-                          </button>
+                          <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => handleAnalyzeSERP(suggestion.keyword)}
+                              className="text-gray-400 hover:text-blue-500"
+                              title={t('serp.analyzeTooltip')}
+                            >
+                              <MagnifyingGlassSolidIcon className="h-5 w-5" />
+                            </button>
+                            <button
+                              onClick={() => saveKeywordToProject(suggestion)}
+                              className="flex items-center bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600"
+                            >
+                              <PlusCircleIcon className="h-5 w-5 mr-1" />
+                              {t('add.button')}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -735,6 +797,13 @@ export default function KeywordResearchPage() {
           </div>
         </>
       )}
+      <SERPAnalysisModal
+        isOpen={isSERPModalOpen}
+        onClose={() => setSERPModalOpen(false)}
+        results={serpResults}
+        keyword={selectedKeywordForSERP}
+        loading={isAnalyzingSERP}
+      />
     </div>
   );
 }

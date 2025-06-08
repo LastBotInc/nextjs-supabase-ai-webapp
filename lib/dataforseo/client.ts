@@ -179,9 +179,13 @@ export class DataForSEOClient {
   /**
    * Get keyword suggestions
    */
-  async getKeywordSuggestions(keyword: string, locationCode?: number, languageCode?: string): Promise<DataForSEOResponse> {
+  async getKeywordSuggestions(
+    keywords: string[], 
+    locationCode?: number, 
+    languageCode?: string
+  ): Promise<DataForSEOResponse> {
     const task = {
-      keyword,
+      keywords,
       location_code: locationCode,
       language_code: languageCode,
     };
@@ -211,7 +215,7 @@ export class DataForSEOClient {
       location_code: locationCode,
       language_code: languageCode,
     };
-    return this.makeRequest('/dataforseo_labs/google/keyword_difficulty/live', [task]);
+    return this.makeRequest('/dataforseo_labs/google/bulk_keyword_difficulty/live', [task]);
   }
 
   /**

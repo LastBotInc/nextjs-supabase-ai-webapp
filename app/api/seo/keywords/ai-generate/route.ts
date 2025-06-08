@@ -159,20 +159,17 @@ ${existingKeywords.length > 0 ? existingKeywords.join(', ') : 'None'}
 
 Requirements:
 1. Generate exactly ${keywordCount} unique keywords in ${targetLanguage}
-2. Focus on keywords that perform well in ${targetLocation}
-3. Consider local search behavior and cultural preferences for ${targetLocation}
-4. Include a strategic mix of:
-   - Primary keywords (1-2 words, high volume potential in ${targetLocation})
-   - Long-tail keywords (3-5 words, specific local intent)
-   - Location-specific keywords (if relevant for ${targetLocation})
-   - Product/service keywords optimized for ${targetLanguage} speakers
-   - Commercial intent keywords popular in ${targetLocation}
-5. Use natural ${targetLanguage} phrasing and terminology
-6. Consider local competitors and market dynamics in ${targetLocation}
-7. Avoid the existing keywords listed above
-8. Return ONLY the keywords, one per line, no numbering or formatting
+2. Prioritize keywords that are likely to have measurable search volume and commercial intent in ${targetLocation}.
+3. Include a strategic mix of:
+   - Foundational 'head' terms (1-2 words)
+   - Popular long-tail keywords (3-5 words with clear user intent)
+   - Question-based keywords
+   - Commercial investigation keywords
+4. Use natural ${targetLanguage} phrasing and terminology.
+5. Avoid the existing keywords listed above.
+6. Return ONLY the keywords, one per line, no numbering or formatting.
 
-Generate keywords that would rank well in ${targetLocation} search results:
+Generate keywords that are likely to have data in SEO tools for the ${targetLocation} market:
 
 Keywords:`;
 
@@ -197,6 +194,7 @@ Keywords:`;
         .split('\n')
         .map(line => line.trim())
         .filter(line => line && !line.match(/^\d+\./) && line.length > 2)
+        .map(keyword => keyword.replace(/[?]/g, '')) // Sanitize by removing question marks
         .slice(0, keywordCount);
 
       console.log('🤖 Parsed keywords:', generatedKeywords);
@@ -218,42 +216,65 @@ Keywords:`;
         language_code: languageCode,
       });
 
-      console.log('📊 DataForSEO keyword data response:', {
-        status_code: keywordDataResponse?.status_code,
-        cost: keywordDataResponse?.cost,
-        tasks_count: keywordDataResponse?.tasks?.length,
-        first_task_result_count: keywordDataResponse?.tasks?.[0]?.result?.length,
-      });
+      console.log('📊 Raw DataForSEO keyword data response:', JSON.stringify(keywordDataResponse, null, 2));
 
       if (keywordDataResponse && keywordDataResponse.status_code === 20000) {
         results.cost += keywordDataResponse.cost || 0;
         
-        // Process keyword data results
+        // Process keyword data results into a map for easy lookup
+        const keywordDataMap = new Map<string, KeywordSuggestion>();
         if (keywordDataResponse.tasks && keywordDataResponse.tasks.length > 0) {
           const task = keywordDataResponse.tasks[0];
           if (task.result && task.result.length > 0) {
             for (const keywordData of task.result) {
-              // Create suggestion object for immediate display
               const competitionIndex = (keywordData as any).competition_index;
-              const suggestion: KeywordSuggestion = {
-                keyword: keywordData.keyword,
+              keywordDataMap.set(keywordData.keyword, {
+                keyword: keywordData.keyword || '',
                 search_volume: keywordData.search_volume || 0,
                 cpc: keywordData.cpc || 0,
-                competition: competitionIndex ? competitionIndex / 100 : 0,
-                difficulty: Math.floor(Math.random() * 100), // Mock difficulty for now
-                search_intent: 'informational', // Default intent
-              };
-              
-              results.suggestions.push(suggestion);
-
-              // Note: Keywords are no longer automatically saved to database
-              // Users must manually click "Add Keyword" to save them
+                competition: typeof competitionIndex === 'number' ? competitionIndex / 100 : 0,
+                difficulty: 0, // Default difficulty
+                search_intent: (keywordData as any).search_intent || 'informational',
+              });
             }
           }
         }
+        
+        // Fetch keyword difficulty for the same keywords
+        try {
+          const difficultyResponse = await dataForSEOClient.getKeywordDifficulty(
+            generatedKeywords,
+            locationCode,
+            languageCode
+          );
+
+          if (difficultyResponse && difficultyResponse.status_code === 20000) {
+            results.cost += difficultyResponse.cost || 0;
+            
+            const difficultyItems = difficultyResponse.tasks?.[0]?.result?.[0]?.items;
+
+            if (difficultyItems) {
+              for (const item of difficultyItems) {
+                // Perform a case-insensitive lookup to find the original keyword
+                const originalKeyword = generatedKeywords.find(k => k.toLowerCase() === item.keyword.toLowerCase());
+                
+                if (originalKeyword) {
+                  const suggestion = keywordDataMap.get(originalKeyword);
+                  if (suggestion && typeof item.keyword_difficulty === 'number') {
+                    suggestion.difficulty = item.keyword_difficulty;
+                  }
+                }
+              }
+            }
+          }
+        } catch (error) {
+          console.error('❌ Error fetching keyword difficulty:', error);
+        }
+        
+        results.suggestions = Array.from(keywordDataMap.values());
       }
 
-      // 7. Store DataForSEO task records for monitoring
+      // 7. Store the API call details for auditing
       if (results.cost > 0) {
         await supabase
           .from('dataforseo_tasks')
@@ -264,7 +285,7 @@ Keywords:`;
             status: 'completed',
             request_data: body,
             response_data: {
-              generated_keywords: generatedKeywords,
+              generated_keywords: results.generated_keywords,
               keywords_count: results.keywords.length,
               suggestions_count: results.suggestions.length,
               total_cost: results.cost,
@@ -275,7 +296,7 @@ Keywords:`;
       return NextResponse.json({
         success: true,
         data: results,
-        message: `Successfully generated ${generatedKeywords.length} AI keywords with ${results.suggestions.length} suggestions ready to save`,
+        message: `Successfully generated ${results.generated_keywords.length} AI keywords with ${results.suggestions.length} suggestions ready to save`,
       }, { status: 200 });
 
     } catch (aiError) {
