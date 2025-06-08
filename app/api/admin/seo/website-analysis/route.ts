@@ -4,6 +4,8 @@ import { getDataForSEOConfig } from '@/lib/dataforseo/config';
 
 interface WebsiteAnalysisRequest {
   domain: string;
+  location_name?: string;
+  language_name?: string;
   includeKeywords?: boolean;
   includeBacklinks?: boolean;
   includeCompetitors?: boolean;
@@ -115,6 +117,8 @@ export async function POST(request: NextRequest) {
     const requestData: WebsiteAnalysisRequest = await request.json();
     const { 
       domain, 
+      location_name = 'United States',
+      language_name = 'English',
       includeKeywords = true, 
       includeBacklinks = true, 
       includeCompetitors = true, 
@@ -131,6 +135,21 @@ export async function POST(request: NextRequest) {
 
     console.log('📊 Starting analysis for domain:', domain);
     console.log('📊 Analysis options:', { includeKeywords, includeBacklinks, includeCompetitors, includeTechnical, keywordLimit });
+    console.log('🌍 Location settings:', { location_name, language_name });
+
+    // Convert language name to language code
+    const languageMap: { [key: string]: string } = {
+      'English': 'en',
+      'Finnish': 'fi',
+      'Swedish': 'sv',
+      'German': 'de',
+      'French': 'fr',
+      'Spanish': 'es',
+      'Norwegian': 'no',
+      'Danish': 'da'
+    };
+    const language_code = languageMap[language_name] || 'en';
+    console.log('🗣️ Using language code:', language_code);
 
     // 5. Get DataForSEO configuration
     const config = getDataForSEOConfig();
@@ -179,8 +198,8 @@ export async function POST(request: NextRequest) {
       console.log('📊 Fetching domain overview...');
       const domainOverviewPayload = [{
         target: domain,
-        language_code: 'en',
-        location_name: 'United States',
+        language_code: language_code,
+        location_name: location_name,
       }];
       console.log('📤 Domain overview payload:', JSON.stringify(domainOverviewPayload, null, 2));
       
@@ -222,8 +241,8 @@ export async function POST(request: NextRequest) {
         console.log('📊 Fetching ranked keywords...');
         const rankedKeywordsPayload = [{
           target: domain,
-          language_code: 'en',
-          location_name: 'United States',
+          language_code: language_code,
+          location_name: location_name,
           limit: keywordLimit,
           order_by: ['keyword_data.keyword_info.search_volume,desc'],
         }];
@@ -289,8 +308,8 @@ export async function POST(request: NextRequest) {
         console.log('📊 Fetching keywords for site...');
         const keywordsForSitePayload = [{
           target: domain,
-          language_code: 'en',
-          location_name: 'United States',
+          language_code: language_code,
+          location_name: location_name,
           limit: keywordLimit,
           order_by: ['keyword_info.search_volume,desc'],
         }];
@@ -361,8 +380,8 @@ export async function POST(request: NextRequest) {
         console.log('📊 Fetching competitors...');
         const competitorsPayload = [{
           target: domain,
-          language_code: 'en',
-          location_name: 'United States',
+          language_code: language_code,
+          location_name: location_name,
           limit: 20,
           order_by: ['metrics.organic.count,desc'],
         }];

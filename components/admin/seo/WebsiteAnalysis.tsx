@@ -14,6 +14,7 @@ import {
   ClockIcon,
 } from '@heroicons/react/24/outline';
 import { AdminApi } from '@/utils/adminApi';
+import { COMMON_LOCATIONS, DEFAULT_LOCATION, type Location } from '@/lib/seo/locations';
 
 interface WebsiteAnalysisProps {
   onAnalysisComplete?: (data: any) => void;
@@ -79,6 +80,7 @@ export default function WebsiteAnalysis({ onAnalysisComplete }: WebsiteAnalysisP
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<Location>(DEFAULT_LOCATION);
   const [includeKeywords, setIncludeKeywords] = useState(true);
   const [includeBacklinks, setIncludeBacklinks] = useState(true);
   const [includeCompetitors, setIncludeCompetitors] = useState(true);
@@ -107,6 +109,8 @@ export default function WebsiteAnalysis({ onAnalysisComplete }: WebsiteAnalysisP
 
       const response = await AdminApi.callAdminApi('admin/seo/website-analysis', {
         domain: domain.trim(),
+        location_name: selectedLocation.location_name,
+        language_name: selectedLocation.language_name,
         includeKeywords,
         includeBacklinks,
         includeCompetitors,
@@ -171,38 +175,62 @@ export default function WebsiteAnalysis({ onAnalysisComplete }: WebsiteAnalysisP
 
       {/* Analysis Form */}
       <div className="space-y-4 mb-6">
-        <div>
-          <label htmlFor="domain" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Domain to Analyze
-          </label>
-          <div className="flex gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="domain" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Domain to Analyze
+            </label>
             <input
               type="text"
               id="domain"
               value={domain}
               onChange={(e) => setDomain(e.target.value)}
               placeholder="example.com"
-              className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
               disabled={loading}
             />
-            <button
-              onClick={handleAnalyze}
-              disabled={loading || !domain.trim()}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-            >
-              {loading ? (
-                <>
-                  <ClockIcon className="h-4 w-4 animate-spin" />
-                  Analyzing...
-                </>
-              ) : (
-                <>
-                  <MagnifyingGlassIcon className="h-4 w-4" />
-                  Analyze
-                </>
-              )}
-            </button>
           </div>
+          <div>
+            <label htmlFor="location" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Target Location & Language
+            </label>
+            <select
+              id="location"
+              value={selectedLocation.location_code}
+              onChange={(e) => {
+                const location = COMMON_LOCATIONS.find(loc => loc.location_code === parseInt(e.target.value));
+                if (location) setSelectedLocation(location);
+              }}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+              disabled={loading}
+            >
+              {COMMON_LOCATIONS.map((location) => (
+                <option key={location.location_code} value={location.location_code}>
+                  {location.location_name} ({location.language_name})
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="flex justify-end">
+          <button
+            onClick={handleAnalyze}
+            disabled={loading || !domain.trim()}
+            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          >
+            {loading ? (
+              <>
+                <ClockIcon className="h-4 w-4 animate-spin" />
+                Analyzing...
+              </>
+            ) : (
+              <>
+                <MagnifyingGlassIcon className="h-4 w-4" />
+                Analyze
+              </>
+            )}
+          </button>
         </div>
 
         {/* Analysis Options */}

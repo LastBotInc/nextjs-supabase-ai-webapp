@@ -673,7 +673,7 @@ export default function KeywordResearchPage() {
                               className="flex items-center bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600"
                             >
                               <PlusCircleIcon className="h-5 w-5 mr-1" />
-                              {t('add.button')}
+                              {t('addKeyword')}
                             </button>
                           </div>
                         </td>
