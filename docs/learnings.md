@@ -98,6 +98,37 @@ if (name.includes('auth') || name === 'sb-refresh-token') {
 }
 ```
 
+### Database Column Name Mismatch Fix
+- **Issue**: Data source importer failing with "Could not find the 'source_type' column" error
+- **Root Cause**: Migration file renamed column from `source_type` to `feed_type`, but the importer code wasn't updated
+- **Solution**: 
+  1. Updated `tools/data-source-importer.ts` to use `feed_type` instead of `source_type`
+  2. Added missing fields: `detected_schema`, `last_schema_update_at`
+  3. Fixed feed URL to not include timestamps (kept original URL for fetching)
+
+### Product Sync Database Schema Fixes
+- **Issue 1**: Missing `internal_variant_id` column in `external_product_mappings` table
+- **Solution**: Created migration `20250608103747_add_internal_variant_id_to_product_mappings.sql` to add the missing column with proper foreign key constraint
+
+- **Issue 2**: Product status case sensitivity (`DRAFT` vs `draft`)
+- **Solution**: Changed status handling to use lowercase values: `item.status?.toLowerCase() || 'draft'`
+
+- **Issue 3**: Duplicate handle constraint violations during sync retries
+- **Solution**: 
+  1. Generate unique handles by including external product ID: `${baseHandle}-${externalProductId}`
+  2. Implement proper upsert logic to find existing products by handle before creating
+  3. Add robust variant duplicate handling with global SKU uniqueness check
+
+- **Issue 4**: Column name mismatch - `raw_data` vs `meta_data`
+- **Root Cause**: Code was trying to use `raw_data` column, but database table has `meta_data` column
+- **Solution**: Updated mapping insertion to use `meta_data: item` instead of `raw_data: item`
+
+**Key Lessons**:
+1. **Global Constraints**: SKU uniqueness is global across all variants, not per-product
+2. **Idempotent Operations**: Always check for existing records before creating to handle retries
+3. **Schema Consistency**: Verify column names match between code and database schema
+4. **Case Sensitivity**: Database constraints may be case-sensitive (e.g., 'draft' vs 'DRAFT')
+
 ### API Authentication Pattern
 ```typescript
 // 1. Create regular client for auth

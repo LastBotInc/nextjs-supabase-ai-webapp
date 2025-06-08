@@ -8,13 +8,13 @@ import { Button } from '@/app/components/Button'
 export const dynamic = 'force-dynamic'
 
 interface Props {
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params
+  const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'Index' })
   const metadata = await generateLocalizedMetadata(locale, 'Index', {
     title: t('hero.title'),
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale } = params
+  const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'Index' })
 
   return (

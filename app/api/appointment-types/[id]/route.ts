@@ -3,15 +3,16 @@ import { createClient } from '@/utils/supabase/server'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = await createClient()
 
     const { data: appointmentType, error } = await supabase
       .from('appointment_types')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('is_active', true)
       .single()
 

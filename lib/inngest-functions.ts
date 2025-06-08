@@ -83,6 +83,46 @@ export const dispatchDataSourceSyncJobs = inngest.createFunction(
   }
 );
 
+// Helper function to handle product images
+async function handleProductImage(supabase: any, productId: string, imageData: { src: string; alt: string; position: number }) {
+  try {
+    // Check if image already exists for this product
+    const { data: existingImage } = await supabase
+      .from('product_images')
+      .select('id')
+      .eq('product_id', productId)
+      .eq('url', imageData.src)
+      .maybeSingle();
+
+    if (existingImage) {
+      // Update existing image
+      await supabase
+        .from('product_images')
+        .update({
+          alt_text: imageData.alt,
+          position: imageData.position,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', existingImage.id);
+    } else {
+      // Create new image
+      await supabase
+        .from('product_images')
+        .insert({
+          product_id: productId,
+          url: imageData.src,
+          alt_text: imageData.alt,
+          position: imageData.position,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+    }
+  } catch (error) {
+    console.error('Error handling product image:', error);
+    // Don't throw - images are not critical, continue with sync
+  }
+}
+
 // Placeholder for the product sync function
 export const syncProductDataSource = inngest.createFunction(
   { 
@@ -247,10 +287,11 @@ export const syncProductDataSource = inngest.createFunction(
     //    This will involve multiple Supabase operations per item.
     //    Use `step.run` for each logical block of operations for better observability & retries.
 
-    let productsCreated = 0;
-    let productsUpdated = 0;
-    let variantsCreated = 0;
-    let variantsUpdated = 0;
+      let productsCreated = 0;
+  let productsUpdated = 0;
+  let variantsCreated = 0;
+  let variantsUpdated = 0;
+  let skippedItems = 0;
 
     for (const item of itemsToProcess) {
       // Basic field mapping - THIS IS A SIMPLIFICATION and needs to be robust
@@ -273,15 +314,48 @@ export const syncProductDataSource = inngest.createFunction(
       }
 
       const productTitle = item.title || item.name || 'Untitled Product';
-      const productHandle = (item.handle || productTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').substring(0,250));
-      const productStatus = item.status || 'DRAFT'; // Default to DRAFT
+      // Generate unique handle by including external product ID to avoid collisions
+      const baseHandle = (item.handle || productTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''));
+      const productHandle = `${baseHandle}-${externalProductId}`.substring(0, 250);
+      const productStatus = item.status?.toLowerCase() || 'draft'; // Default to draft (lowercase)
       const productDescription = item.body_html || item.description || null;
-      const productVendor = item.vendor || null;
-      const productType = item.product_type || null;
+      
+      // Map categories to vendor and product type
+      let productVendor = item.vendor || null;
+      let productType = item.product_type || null;
+      
+      // Extract categories if available
+      if (item.categories && item.categories.category && Array.isArray(item.categories.category)) {
+        const categories = item.categories.category;
+        // Use first category as product type, or set a default vendor
+        if (categories.length > 0) {
+          productType = productType || categories[0];
+          // Set vendor based on the data source if not provided
+          if (!productVendor) {
+            // Extract vendor from identifier or use a cleaned up version
+            const cleanVendor = identifier.split('_')[0].charAt(0).toUpperCase() + identifier.split('_')[0].slice(1);
+            productVendor = cleanVendor;
+          }
+        }
+      }
+      
+      // Handle images - support various field names for images
+      const imageUrl = item.image_link || item.image || item.featured_image || item.image_url;
+      const productImageData = imageUrl ? {
+        src: imageUrl,
+        alt: productTitle,
+        position: 1
+      } : null;
 
       const variantSku = item.sku || externalVariantId || externalProductId;
-      const variantPrice = parseFloat(item.price) || 0;
-      const variantCompareAtPrice = parseFloat(item.compare_at_price) || null;
+      // Handle European price format (comma as decimal separator)
+      const normalizePrice = (price: string | number) => {
+        if (!price) return 0;
+        const priceStr = price.toString().replace(',', '.');
+        return parseFloat(priceStr) || 0;
+      };
+      const variantPrice = normalizePrice(item.price);
+      const variantCompareAtPrice = item.compare_at_price ? normalizePrice(item.compare_at_price) : null;
       // ... other variant fields like barcode, weight, inventory_quantity etc.
 
       await step.run(`process-item-${externalProductId}`, async () => {
@@ -322,6 +396,11 @@ export const syncProductDataSource = inngest.createFunction(
           if (productUpdateError) throw productUpdateError;
           productsUpdated++;
 
+          // Handle product image for existing product
+          if (productImageData) {
+            await handleProductImage(supabase, internalProductId, productImageData);
+          }
+
           // Update Variant
           const { error: variantUpdateError } = await supabase
             .from('product_variants')
@@ -337,46 +416,127 @@ export const syncProductDataSource = inngest.createFunction(
           if (variantUpdateError) throw variantUpdateError;
           variantsUpdated++;
 
-        } else { // No mapping - CREATE new product and variant
-          // Create Product
-          const { data: newProduct, error: productCreateError } = await supabase
+        } else { // No mapping - CREATE new product and variant OR find existing by handle
+          // First, check if a product with this handle already exists
+          const { data: existingProduct, error: findError } = await supabase
             .from('products')
-            .insert({
-              title: productTitle,
-              handle: productHandle,
-              status: productStatus,
-              description_html: productDescription,
-              vendor: productVendor,
-              product_type: productType,
-              // shopify_product_id: item.shopify_product_id 
-            })
             .select('id')
-            .single();
-          
-          if (productCreateError) throw productCreateError;
-          if (!newProduct) throw new Error('Failed to create product or get ID');
-          internalProductId = newProduct.id;
-          productsCreated++;
+            .eq('handle', productHandle)
+            .maybeSingle();
 
-          // Create Variant
-          const { data: newVariant, error: variantCreateError } = await supabase
+          if (findError) throw findError;
+
+          if (existingProduct) {
+            // Product exists, use it and update it
+            internalProductId = existingProduct.id;
+            
+            // Update the existing product
+            const { error: productUpdateError } = await supabase
+              .from('products')
+              .update({
+                title: productTitle,
+                status: productStatus,
+                description_html: productDescription,
+                vendor: productVendor,
+                product_type: productType,
+              })
+              .eq('id', internalProductId);
+            if (productUpdateError) throw productUpdateError;
+            productsUpdated++;
+
+            // Handle product image for existing product found by handle
+            if (productImageData) {
+              await handleProductImage(supabase, internalProductId, productImageData);
+            }
+          } else {
+            // Create new product
+            const { data: newProduct, error: productCreateError } = await supabase
+              .from('products')
+              .insert({
+                title: productTitle,
+                handle: productHandle,
+                status: productStatus,
+                description_html: productDescription,
+                vendor: productVendor,
+                product_type: productType,
+                // shopify_product_id: item.shopify_product_id 
+              })
+              .select('id')
+              .single();
+            
+            if (productCreateError) throw productCreateError;
+            if (!newProduct) throw new Error('Failed to create product or get ID');
+            internalProductId = newProduct.id;
+            productsCreated++;
+
+            // Handle product image for newly created product
+            if (productImageData) {
+              await handleProductImage(supabase, internalProductId, productImageData);
+            }
+          }
+
+          // Check if variant with this SKU already exists globally (SKU is globally unique)
+          logger.info(`Checking for existing variant with SKU: ${variantSku}`);
+          const { data: existingVariant, error: variantFindError } = await supabase
             .from('product_variants')
-            .insert({
-              product_id: internalProductId,
-              title: item.variant_title || productTitle,
-              sku: variantSku,
-              price: variantPrice,
-              compare_at_price: variantCompareAtPrice,
-              // shopify_variant_id: item.shopify_variant_id,
-              // inventory_quantity: item.inventory_quantity
-            })
-            .select('id')
-            .single();
+            .select('id, product_id')
+            .eq('sku', variantSku)
+            .maybeSingle();
 
-          if (variantCreateError) throw variantCreateError;
-          if (!newVariant) throw new Error('Failed to create variant or get ID');
-          internalVariantId = newVariant.id;
-          variantsCreated++;
+          if (variantFindError) {
+            logger.error('Error finding variant:', variantFindError);
+            throw variantFindError;
+          }
+
+          logger.info('Variant lookup result:', { existingVariant });
+
+          if (existingVariant && existingVariant.id) {
+            // Variant with this SKU already exists
+            if (existingVariant.product_id === internalProductId) {
+              // Variant belongs to the same product - update it
+              internalVariantId = existingVariant.id;
+              logger.info(`Updating existing variant ${internalVariantId} for same product`);
+              
+              const { error: variantUpdateError } = await supabase
+                .from('product_variants')
+                .update({
+                  title: item.variant_title || productTitle,
+                  price: variantPrice,
+                  compare_at_price: variantCompareAtPrice,
+                  // shopify_variant_id: item.shopify_variant_id,
+                  // inventory_quantity: item.inventory_quantity
+                })
+                .eq('id', internalVariantId);
+              if (variantUpdateError) throw variantUpdateError;
+              variantsUpdated++;
+            } else {
+              // SKU conflict: variant belongs to different product
+              // Skip this item by not processing it further
+              logger.warn(`SKU conflict: ${variantSku} belongs to product ${existingVariant.product_id}, not ${internalProductId}. Skipping item.`);
+              skippedItems++;
+              return; // Skip this item and return from the current iteration
+            }
+          } else {
+            // Create new variant
+            const { data: newVariant, error: variantCreateError } = await supabase
+              .from('product_variants')
+              .insert({
+                product_id: internalProductId,
+                title: item.variant_title || productTitle,
+                sku: variantSku,
+                price: variantPrice,
+                compare_at_price: variantCompareAtPrice,
+                // shopify_variant_id: item.shopify_variant_id,
+                // inventory_quantity: item.inventory_quantity
+              })
+              .select('id')
+              .single();
+
+            if (variantCreateError) throw variantCreateError;
+            if (!newVariant) throw new Error('Failed to create variant or get ID');
+            internalVariantId = newVariant.id;
+            variantsCreated++;
+          }
 
           // Create Mapping
           const { error: mappingCreateError } = await supabase
@@ -387,7 +547,7 @@ export const syncProductDataSource = inngest.createFunction(
               external_source_name: identifier,
               external_product_id: externalProductId,
               external_variant_id: externalVariantId,
-              raw_data: item, // Store the raw item for reference/debugging
+              meta_data: item, // Store the raw item for reference/debugging
             });
           if (mappingCreateError) throw mappingCreateError;
         }

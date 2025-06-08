@@ -4,10 +4,11 @@ import { inngest } from '@/lib/inngest-client'; // Your Inngest client
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const dataSourceId = params.id;
+    const { id } = await params;
+    const dataSourceId = id;
     if (!dataSourceId) {
       return NextResponse.json({ error: 'Data source ID is required' }, { status: 400 });
     }

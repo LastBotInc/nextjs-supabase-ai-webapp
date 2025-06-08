@@ -56,6 +56,38 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'replicate.delivery',
         pathname: '/**',
+      },
+      // Product feed images - common e-commerce domains
+      {
+        protocol: 'https',
+        hostname: '*.caffitella.fi',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'caffitella.fi',
+        pathname: '/**',
+      },
+      // Generic pattern for product images from various sources
+      {
+        protocol: 'https',
+        hostname: '*.shopify.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.shopifycdn.com', 
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.wordpress.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.woocommerce.com',
+        pathname: '/**',
       }
     ],
     formats: ['image/webp'],

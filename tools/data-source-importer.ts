@@ -227,10 +227,12 @@ async function importDataSource(
     .insert([{
       name: schemaInfo.name,
       identifier: schemaInfo.identifier + '_' + Date.now(),
-      feed_url: feedUrl + '_' + Date.now(),
+      feed_url: feedUrl, // Keep original URL for fetching
       description: schemaInfo.description,
-      source_type: sourceType,
+      feed_type: sourceType,
       vendor_name: vendorName,
+      detected_schema: schemaInfo.json_schema,
+      last_schema_update_at: now,
     }]);
 
   if (error) {

@@ -870,19 +870,26 @@ async function createShopifyProduct(
     vendor: product.vendor || '',
     productType: product.product_type || '',
     tags: product.tags || [],
-    status: product.status?.toUpperCase() || 'DRAFT',
-    ...(productImages.length > 0 && { images: productImages })
+    status: product.status?.toUpperCase() || 'DRAFT'
+    // Note: images field removed from ProductInput as it's not supported
   };
+
+  // Prepare media input for images (separate from product input)
+  const mediaInput = productImages.length > 0 ? productImages.map(image => ({
+    originalSource: image.url,
+    alt: image.altText,
+    mediaContentType: 'IMAGE'
+  })) : [];
 
   console.log('📤 Sending product input to Shopify:', {
     ...productInput,
     descriptionHtml: `${productInput.descriptionHtml.substring(0, 100)}...`,
-    imagesCount: productImages.length
+    mediaCount: mediaInput.length
   });
 
   const createMutation = `
-    mutation CreateProduct($input: ProductInput!) {
-      productCreate(input: $input) {
+    mutation CreateProduct($input: ProductInput!, $media: [CreateMediaInput!]) {
+      productCreate(input: $input, media: $media) {
         product {
           id
           title
@@ -922,7 +929,10 @@ async function createShopifyProduct(
     headers,
     body: JSON.stringify({
       query: createMutation,
-      variables: { input: productInput }
+      variables: { 
+        input: productInput,
+        media: mediaInput.length > 0 ? mediaInput : null
+      }
     })
   });
 
@@ -951,6 +961,95 @@ async function createShopifyProduct(
   const shopifyProductId = parseInt(createdProduct.id.split('/').pop() || '0');
 
   console.log(`✅ Created product: ${createdProduct.title} (ID: ${createdProduct.id})${productImages.length > 0 ? ` with ${productImages.length} images` : ''}`);
+
+  // Update variant pricing, SKU, and inventory
+  const shopifyVariants = createdProduct.variants?.edges || [];
+  const localVariant = product.product_variants?.[0]; // Get first variant from local DB
+  
+  console.log(`🔍 Debugging variant data for product ${product.title}:`);
+  console.log(`  - Shopify variants count: ${shopifyVariants.length}`);
+  console.log(`  - Local product_variants:`, product.product_variants);
+  console.log(`  - Local variant (first):`, localVariant);
+  
+  if (shopifyVariants.length > 0 && localVariant) {
+    const variantId = shopifyVariants[0].node.id;
+    const price = localVariant.price || 0;
+    const compareAtPrice = localVariant.compare_at_price;
+    const sku = localVariant.sku || '';
+    const inventoryQuantity = localVariant.inventory_quantity || 0;
+    
+    console.log(`💰 Updating variant pricing: ${price} EUR, SKU: ${sku}, Stock: ${inventoryQuantity} for variant ${variantId}`);
+    
+    try {
+      const variantUpdateMutation = `
+        mutation BulkUpdateVariant($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+          productVariantsBulkUpdate(productId: $productId, variants: $variants) {
+            productVariants {
+              id
+              price
+              compareAtPrice
+              sku
+              inventoryQuantity
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      `;
+
+      const variantInput: any = {
+        id: variantId,
+        price: String(price),
+        sku: sku,
+        inventoryQuantity: inventoryQuantity
+      };
+
+      // Only add compareAtPrice if it exists
+      if (compareAtPrice && compareAtPrice > 0) {
+        variantInput.compareAtPrice = String(compareAtPrice);
+      }
+
+              const variantResponse = await fetch(shopifyGraphQLUrl, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            query: variantUpdateMutation,
+            variables: {
+              productId: createdProduct.id,
+              variants: [{
+                id: variantId,
+                price: String(price),
+                ...(compareAtPrice && compareAtPrice > 0 && { compareAtPrice: String(compareAtPrice) })
+              }]
+            }
+          })
+        });
+
+      const variantData = await variantResponse.json();
+      console.log('📊 Variant Update Response:', JSON.stringify(variantData, null, 2));
+
+      const variantResult = variantData.data?.productVariantsBulkUpdate;
+      if (variantResult?.userErrors?.length > 0) {
+        console.error('❌ Error updating variant pricing:', variantResult.userErrors);
+      } else {
+        console.log(`✅ Updated variant pricing: ${price} EUR${compareAtPrice ? ` (compare at: ${compareAtPrice} EUR)` : ''}`);
+        
+        // TODO: Add inventory and SKU management via separate APIs
+        // SKU can be managed via inventoryItem updates
+        // Inventory quantities via inventorySetQuantities mutation  
+        if (sku || inventoryQuantity !== null) {
+          console.log(`ℹ️ SKU (${sku || 'N/A'}) and inventory (${inventoryQuantity}) management will be added in future updates`);
+        }
+      }
+    } catch (variantError) {
+      console.error('❌ Error updating variant pricing:', variantError);
+      // Don't throw here - product creation was successful
+    }
+  } else {
+    console.log(`⚠️ No Shopify variant found (${shopifyVariants.length}) or no local variant data (${!!localVariant}) - skipping variant update`);
+  }
 
   // Update local product with Shopify ID
   await supabase
@@ -1096,6 +1195,17 @@ async function updateShopifyProduct(
               }
             }
           }
+          variants(first: 10) {
+            edges {
+              node {
+                id
+                title
+                price
+                sku
+                inventoryQuantity
+              }
+            }
+          }
         }
         userErrors {
           field
@@ -1137,167 +1247,93 @@ async function updateShopifyProduct(
   const updatedProduct = productUpdateResult.product;
   console.log(`✅ Updated product: ${updatedProduct.title} (ID: ${updatedProduct.id}) - Note: Images require separate update mutations`);
 
-  // Handle image updates separately if there are images to update
-  if (productImages.length > 0) {
-    console.log(`🖼️ Checking if ${productImages.length} images need updating...`);
+  // Update variant pricing, SKU, and inventory if needed
+  const shopifyVariants = updatedProduct.variants?.edges || [];
+  const localVariant = product.product_variants?.[0]; // Get first variant from local DB
+  
+  if (shopifyVariants.length > 0 && localVariant) {
+    const currentVariant = shopifyVariants[0].node;
+    const price = localVariant.price || 0;
+    const compareAtPrice = localVariant.compare_at_price;
+    const sku = localVariant.sku || '';
+    const inventoryQuantity = localVariant.inventory_quantity || 0;
     
-    // Get current Shopify images for comparison
-    const existingImages = updatedProduct.images?.edges || [];
-    console.log(`📊 Current Shopify images: ${existingImages.length}`);
+    // Check if variant needs updating
+    const needsUpdate = 
+      String(currentVariant.price) !== String(price) ||
+      currentVariant.sku !== sku ||
+      currentVariant.inventoryQuantity !== inventoryQuantity;
     
-    // Check if images have actually changed
-    let imagesNeedUpdate = false;
-    
-    // Simple check: if the number of images is different, we need to update
-    if (existingImages.length !== productImages.length) {
-      console.log(`📊 Image count changed: ${existingImages.length} → ${productImages.length}`);
-      imagesNeedUpdate = true;
-    } else {
-      // Check if any of the image URLs are different
-      for (let i = 0; i < productImages.length; i++) {
-        const localImageUrl = productImages[i].url;
-        const existingImageUrl = existingImages[i]?.node?.url;
-        
-        // For localhost URLs, we need to check if they've been uploaded before
-        if (localImageUrl.includes('localhost') || localImageUrl.includes('127.0.0.1')) {
-          // If it's a localhost URL and we have an existing Shopify image, assume it's already uploaded
-          if (!existingImageUrl || !existingImageUrl.includes('cdn.shopify.com')) {
-            console.log(`🔄 Local image ${i + 1} needs upload: ${localImageUrl.substring(0, 50)}...`);
-            imagesNeedUpdate = true;
-            break;
-          } else {
-            console.log(`✅ Local image ${i + 1} already uploaded to Shopify`);
-          }
-        } else {
-          // For external URLs, compare directly
-          if (localImageUrl !== existingImageUrl) {
-            console.log(`🔄 Image ${i + 1} URL changed: ${existingImageUrl?.substring(0, 50)}... → ${localImageUrl.substring(0, 50)}...`);
-            imagesNeedUpdate = true;
-            break;
-          }
-        }
-      }
-    }
-    
-    if (!imagesNeedUpdate) {
-      console.log(`✅ Images are up to date, skipping image update`);
-    } else {
-      console.log(`🖼️ Updating ${productImages.length} images for product...`);
+    if (needsUpdate) {
+      console.log(`💰 Updating variant pricing: ${price} EUR, SKU: ${sku}, Stock: ${inventoryQuantity} for variant ${currentVariant.id}`);
       
       try {
-        // First, delete existing images only if we're actually updating
-        if (existingImages.length > 0) {
-          console.log(`🗑️ Deleting ${existingImages.length} existing images...`);
-          
-          for (const imageEdge of existingImages) {
-            const deleteImageMutation = `
-              mutation productDeleteMedia($productId: ID!, $mediaIds: [ID!]!) {
-                productDeleteMedia(productId: $productId, mediaIds: $mediaIds) {
-                  deletedMediaIds
-                  deletedProductImageIds
-                  mediaUserErrors {
-                    field
-                    message
-                  }
-                  userErrors {
-                    field
-                    message
-                  }
-                }
+        const variantUpdateMutation = `
+          mutation BulkUpdateVariant($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+            productVariantsBulkUpdate(productId: $productId, variants: $variants) {
+              productVariants {
+                id
+                price
+                compareAtPrice
+                sku
+                inventoryQuantity
               }
-            `;
-
-            const deleteResponse = await fetch(shopifyGraphQLUrl, {
-              method: 'POST',
-              headers,
-              body: JSON.stringify({
-                query: deleteImageMutation,
-                variables: {
-                  productId: shopifyProductGid,
-                  mediaIds: [imageEdge.node.id]
-                }
-              })
-            });
-
-            const deleteResult = await deleteResponse.json();
-            if (deleteResult.data?.productDeleteMedia?.mediaUserErrors?.length > 0) {
-              console.error('⚠️ Error deleting image:', deleteResult.data.productDeleteMedia.mediaUserErrors);
+              userErrors {
+                field
+                message
+              }
             }
           }
-        }
+        `;
 
-        // Then, add new images
-        for (const [index, image] of productImages.entries()) {
-          console.log(`📤 Adding image ${index + 1}/${productImages.length}: ${image.url.substring(0, 50)}...`);
-          
-          const createImageMutation = `
-            mutation productCreateMedia($productId: ID!, $media: [CreateMediaInput!]!) {
-              productCreateMedia(productId: $productId, media: $media) {
-                media {
-                  id
-                  status
-                  ... on MediaImage {
-                    id
-                    image {
-                      id
-                      url
-                      altText
-                    }
-                  }
-                }
-                mediaUserErrors {
-                  field
-                  message
-                }
-                userErrors {
-                  field
-                  message
-                }
-              }
+        const variantResponse = await fetch(shopifyGraphQLUrl, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            query: variantUpdateMutation,
+            variables: {
+              productId: shopifyProductGid,
+              variants: [{
+                id: currentVariant.id,
+                price: String(price),
+                ...(compareAtPrice && compareAtPrice > 0 && { compareAtPrice: String(compareAtPrice) })
+              }]
             }
-          `;
+          })
+        });
 
-          const imageResponse = await fetch(shopifyGraphQLUrl, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify({
-              query: createImageMutation,
-              variables: {
-                productId: shopifyProductGid,
-                media: [{
-                  originalSource: image.url,
-                  alt: image.altText,
-                  mediaContentType: 'IMAGE'
-                }]
-              }
-            })
-          });
+        const variantData = await variantResponse.json();
+        console.log('📊 Variant Update Response:', JSON.stringify(variantData, null, 2));
 
-          const imageResult = await imageResponse.json();
-          console.log(`📊 Image creation response for image ${index + 1}:`, JSON.stringify(imageResult, null, 2));
+        const variantResult = variantData.data?.productVariantsBulkUpdate;
+        if (variantResult?.userErrors?.length > 0) {
+          console.error('❌ Error updating variant pricing:', variantResult.userErrors);
+        } else {
+          console.log(`✅ Updated variant pricing: ${price} EUR${compareAtPrice ? ` (compare at: ${compareAtPrice} EUR)` : ''}`);
           
-          if (imageResult.data?.productCreateMedia?.mediaUserErrors?.length > 0) {
-            console.error('❌ Error creating image:', imageResult.data.productCreateMedia.mediaUserErrors);
-          } else if (imageResult.data?.productCreateMedia?.media && imageResult.data.productCreateMedia.media.length > 0) {
-            const media = imageResult.data.productCreateMedia.media[0];
-            console.log(`✅ Added media ${index + 1}: ${media.id} - Status: ${media.status}`);
-            
-            if (media.image && media.image.url) {
-              console.log(`🖼️ Image URL available: ${media.image.url}`);
-            } else {
-              console.log(`⏳ Image processing in progress - URL will be available once processing completes`);
-            }
-          } else {
-            console.error(`❌ Unexpected image creation response for image ${index + 1}:`, imageResult);
+          // TODO: Add inventory and SKU management via separate APIs
+          // SKU can be managed via inventoryItem updates
+          // Inventory quantities via inventorySetQuantities mutation  
+          if (sku || inventoryQuantity !== null) {
+            console.log(`ℹ️ SKU (${sku || 'N/A'}) and inventory (${inventoryQuantity}) management will be added in future updates`);
           }
         }
-        
-        console.log(`✅ Successfully updated ${productImages.length} images for product`);
-      } catch (imageError) {
-        console.error('❌ Error updating product images:', imageError);
-        // Don't throw here - product update was successful, just image update failed
+      } catch (variantError) {
+        console.error('❌ Error updating variant pricing:', variantError);
+        // Don't throw here - product update was successful
       }
+    } else {
+      console.log(`✅ Variant pricing is up to date: ${currentVariant.price} EUR, SKU: ${currentVariant.sku || 'N/A'}, Stock: ${currentVariant.inventoryQuantity}`);
     }
+  } else {
+    console.log(`⚠️ No Shopify variant found (${shopifyVariants.length}) or no local variant data (${!!localVariant}) - skipping variant update`);
+  }
+
+  // For now, skip complex image update logic during product updates
+  // Images will be handled by separate image update functions
+  if (productImages.length > 0) {
+    console.log(`🖼️ Product has ${productImages.length} images, but skipping image update during product update`);
+    console.log(`ℹ️ Image updates should be handled separately via image-specific API endpoints`);
   }
 
   // Update mapping record

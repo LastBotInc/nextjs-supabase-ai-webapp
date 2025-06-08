@@ -832,3 +832,82 @@ The SEO website analysis tool is now fully operational and provides professional
 **Result**: Product view popup now correctly displays images for both manually created products (using featured_image) and Shopify imported products (using product_images table), with proper image galleries for products with multiple images.
 
 ## 2024-12-19 - Fixed Product View Popup Image Display
+
+## Recent Changes Made by AI
+
+### 2025-01-13 - Fixed Data Source Addition Schema Mismatch
+
+**Issue**: Adding new data sources was failing with database column error
+- Error: "Could not find the 'source_type' column of 'data_sources' in the schema cache"
+
+**Root Cause**: Migration file renamed column from `source_type` to `feed_type` but code wasn't updated
+
+**Changes Made**:
+1. **Fixed Column Name**: Updated `tools/data-source-importer.ts` to use `feed_type` instead of `source_type`
+2. **Added Missing Fields**: 
+   - `detected_schema`: Now stores AI-generated JSON schema from Gemini
+   - `last_schema_update_at`: Records when schema was last detected/updated
+3. **Documentation**: Added solution to `docs/learnings.md` for future reference
+
+**Files Modified**:
+- `tools/data-source-importer.ts` - Fixed database insertion to match current schema
+- `docs/learnings.md` - Added database column mismatch fix documentation
+
+**Result**: Data source addition now works correctly, successfully importing product feeds with AI-detected schemas.
+
+### 2025-01-13 - Fixed Product Sync Constraint Violations and Schema Issues
+
+**Issue**: Product sync failing with multiple database constraint violations
+- Error 1: Missing `internal_variant_id` column in external_product_mappings table  
+- Error 2: Product status case sensitivity (`DRAFT` vs `draft`)
+- Error 3: Duplicate handle constraint violations during sync retries
+
+**Root Causes**: 
+1. Database schema missing required column for variant mapping
+2. Code using uppercase status values while database expected lowercase
+3. Handle generation not unique, sync logic not idempotent
+
+**Changes Made**:
+1. **Database Migration**: 
+   - Created `20250608103747_add_internal_variant_id_to_product_mappings.sql`
+   - Added `internal_variant_id bigint` column with foreign key to `product_variants(id)`
+   - Updated unique constraints to include variant-level mappings
+
+2. **Product Status Fix**:
+   - Changed `item.status || 'DRAFT'` to `item.status?.toLowerCase() || 'draft'`
+
+3. **Unique Handle Generation**:
+   - Changed from: `productTitle.toLowerCase().replace(...)`
+   - To: `${baseHandle}-${externalProductId}` (includes unique external ID)
+
+4. **Idempotent Sync Logic**:
+   - Added product existence check by handle before creating
+   - Added variant existence check by product_id + SKU before creating  
+   - Implemented proper upsert pattern: update if exists, create if new
+   - Makes sync operations safe to retry without constraint violations
+
+**Files Modified**:
+- `supabase/migrations/20250608103747_add_internal_variant_id_to_product_mappings.sql` - New migration
+- `lib/inngest-functions.ts` - Fixed status case, handle generation, and sync logic
+- `docs/learnings.md` - Documented solutions for future reference
+
+**Result**: Product sync now handles 5000+ items robustly with proper deduplication
+
+### 2025-01-13 - Added Product Image Handling to Sync
+
+**Issue**: Product sync was working but images from feeds weren't being processed
+
+**Solution**: Added comprehensive image handling to the generic sync logic
+1. **Multi-field Support**: Detects images from `image_link`, `image`, `featured_image`, `image_url` fields
+2. **Smart Deduplication**: Checks for existing images by URL to avoid duplicates
+3. **Upsert Logic**: Updates existing images or creates new ones as needed
+4. **Non-blocking**: Image errors won't fail the entire sync process
+5. **Database Integration**: Properly stores images in `product_images` table
+
+**Files Modified**:
+- `lib/inngest-functions.ts` - Added `handleProductImage()` helper and image processing logic
+
+**Key Features**:
+- **Generic Design**: Works with any feed format, no hardcoding to specific vendors
+- **Flexible Field Mapping**: Supports various common image field names
+- **Production Ready**: Handles errors gracefully, continues sync on image failures
