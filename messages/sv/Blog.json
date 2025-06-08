@@ -46,6 +46,9 @@
     "publishError": "Kunde inte publicera inlägg",
     "unpublishSuccess": "Inlägg avpublicerat",
     "unpublishError": "Kunde inte avpublicera inlägg",
+    "saveSuccess": "Inlägg sparat",
+    "updateSuccess": "Inlägg uppdaterat",
+    "translationsCreated": "och {count} översättningar skapade",
     "research": {
       "title": "Webbundersökning",
       "search": "Sök",

@@ -47,6 +47,9 @@
     "publishError": "Failed to publish post",
     "unpublishSuccess": "Post unpublished successfully",
     "unpublishError": "Failed to unpublish post",
+    "saveSuccess": "Post saved successfully",
+    "updateSuccess": "Post updated successfully",
+    "translationsCreated": "and {count} translations created",
     "research": {
       "title": "Web Research",
       "search": "Search",

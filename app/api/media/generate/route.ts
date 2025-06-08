@@ -97,7 +97,7 @@ async function generateWithOpenAI(options: GenerationOptions): Promise<{ publicU
       prompt: enhancedPrompt,
       n: 1,
       size: options.size || "1024x1024",
-      quality: "standard" as const
+      quality: "auto" as const
     };
 
     // Generate image using the exact pattern from openai-image-tool.js

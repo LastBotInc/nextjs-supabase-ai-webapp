@@ -46,6 +46,9 @@
     "publishError": "Julkaisun julkaiseminen epäonnistui",
     "unpublishSuccess": "Julkaisun julkaisu peruttu onnistuneesti",
     "unpublishError": "Julkaisun julkaisun peruminen epäonnistui",
+    "saveSuccess": "Julkaisu tallennettu onnistuneesti",
+    "updateSuccess": "Julkaisu päivitetty onnistuneesti",
+    "translationsCreated": "ja {count} käännöstä luotu",
     "research": {
       "title": "Verkkotutkimus",
       "search": "Hae",

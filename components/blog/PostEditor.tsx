@@ -29,7 +29,7 @@ interface FormData {
 
 type PostEditorProps = {
   post?: Database['public']['Tables']['posts']['Row']
-  onSave: (post: FormData) => void
+  onSave: (apiResponse: any) => void
   onCancel: () => void
   supabaseClient: ReturnType<typeof createClient>
 }
