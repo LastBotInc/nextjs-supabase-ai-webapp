@@ -40,7 +40,7 @@
   @apply gap-4 lg:gap-8;
 }
 
-.block-main .block-content .content-area .flex-container.level-based-gaps .content-area {
+.block-main .block-content .content-area .flex-container.level-based-gaps .block-box .content-area {
   @apply gap-2 lg:gap-2;
 }
 

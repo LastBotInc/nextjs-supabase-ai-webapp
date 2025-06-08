@@ -16,10 +16,11 @@ export function FixedWidthColumn({ children, width }: { children: ReactElement; 
     return acc;
   }, {} as Record<string, string>);
 
+  const props = children.props || {};
   return cloneElement(children, {
-    ...children.props,
-    className: cn("fixed-with-column", children.props.className),
-    style: { ...children.props.style, ...style },
+    ...props,
+    className: cn("fixed-with-column", props.className),
+    style: { ...props.style, ...style },
   });
 }
 

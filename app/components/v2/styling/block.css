@@ -36,11 +36,13 @@
 }
 
 .main-level-padding-full,
+.block-main > .content-area.block-padding-full,
 .block-content.block-padding-full {
   @apply p-6 lg:p-14;
 }
 
 .main-level-padding-small,
+.block-main > .content-area.block-padding-small,
 .block-content.block-padding-small {
   @apply p-6 lg:p-7;
 }
@@ -52,8 +54,16 @@
 .block-main.with-split-padding .block-content.block-content .content-area,
 .forced-split-padding.forced-split-padding {
   @apply p-3 lg:p-7;
-  .block-box.content-area {
+  .block-box .content-area {
     @apply p-3 lg:p-7;
+  }
+}
+
+.block-main.full-size-boxes .block-content.block-content {
+  padding-left: 0;
+  padding-right: 0;
+  .block-box .content-area {
+    @apply p-6 lg:p-14;
   }
 }
 
@@ -61,11 +71,13 @@
   padding: 0;
 }
 .main-level-padding-inline,
+.block-main > .content-area.block-padding-inline,
 .block-padding-inline.block-padding-inline {
   @apply px-6 lg:px-14;
 }
 
 .main-level-padding-block,
+.block-main > .content-area.block-padding-block,
 .block-padding-block.block-padding-block {
   @apply py-6 lg:py-14;
 }

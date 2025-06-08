@@ -7,10 +7,12 @@ import { Heading2 } from "@/app/components/core/Headings";
 import { Paragraph } from "@/app/components/core/Paragraph";
 import { CallUs } from "../../components/CallUs";
 import Image from "next/image";
-import { Hero } from "@/app/components/Hero/Hero";
-import { CustomizableBlock } from "@/app/components/block/CustomizableBlock";
-import { Card } from "@/app/components/card/Card";
-import { Content } from "@/app/components/content/Content";
+import { Hero } from "@/app/components/v2/layouts/Hero";
+import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
+import { List } from "@/app/components/core/List";
+import { Padding } from "@/app/components/v2/core/types";
+import { ImageContainer } from "@/app/components/core/ImageContainer";
 
 export default async function FleetManagerPage({ params }: { params: { locale: string } }) {
   // Setup localization
@@ -19,10 +21,7 @@ export default async function FleetManagerPage({ params }: { params: { locale: s
   const t = await getTranslations({ locale, namespace: "FleetManager" });
 
   return (
-    <main
-      className="flex min-h-screen flex-col items-center bg-white pt-24
-    "
-    >
+    <PageWrapper>
       <Hero isFirst palette="piki" fullWidth>
         <Hero.Image src="/images/digitaaliset_palvelut.jpg" />
         <Hero.Heading>{t("hero.heading")}</Hero.Heading>
@@ -32,52 +31,70 @@ export default async function FleetManagerPage({ params }: { params: { locale: s
         </Hero.ExtraContent>
       </Hero>
 
-      <CustomizableBlock palette="piki">
-        <Card rounded>
-          <Card.Content>
-            <Heading2>{t("mainView.title")}</Heading2>
-            <Paragraph>{t("intro.description")}</Paragraph>
-            <ul className=" palette-text-color">
-              {t.raw("mainView.features").map((feature: string) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-          </Card.Content>
-        </Card>
-      </CustomizableBlock>
+      <FlexLayout
+        padding={Padding.Block}
+        oneColumnBreakpoint="lg"
+        palette="piki"
+        contentPalette="default"
+        contentClassName="rounded-box"
+      >
+        <FlexLayout.Column>
+          <Heading2>{t("mainView.title")}</Heading2>
+          <Paragraph>{t("intro.description")}</Paragraph>
+          <List className=" palette-text-color">
+            {t.raw("mainView.features").map((feature: string) => (
+              <List.Item key={feature}>{feature}</List.Item>
+            ))}
+          </List>
+        </FlexLayout.Column>
+      </FlexLayout>
 
-      <CustomizableBlock palette="piki">
-        <Card rounded palette="beige">
-          <Card.Content>
-            <Heading2>{t("summary.title")}</Heading2>
-            <Paragraph>{t("summary.description")}</Paragraph>
-          </Card.Content>
-        </Card>
-      </CustomizableBlock>
+      <FlexLayout
+        oneColumnBreakpoint="lg"
+        palette="piki"
+        contentPalette="beige"
+        contentClassName="rounded-box"
+        padding={Padding.Block}
+      >
+        <FlexLayout.Column>
+          <Heading2>{t("summary.title")}</Heading2>
+          <Paragraph>{t("summary.description")}</Paragraph>
+        </FlexLayout.Column>
+      </FlexLayout>
 
       {/* Benefits Section */}
-      <CustomizableBlock palette="piki">
-        <Card rounded palette="maantie">
-          <Card.Content>
-            <Heading2>{t("benefits.title")}</Heading2>
-            <ul className="palette-text-color">
-              {t.raw("benefits.items").map((item: string) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Card.Content>
-        </Card>
-      </CustomizableBlock>
+      <FlexLayout
+        oneColumnBreakpoint="lg"
+        palette="piki"
+        contentPalette="light-gray"
+        contentClassName="rounded-box"
+        padding={Padding.Block}
+      >
+        <FlexLayout.Column>
+          <Heading2>{t("benefits.title")}</Heading2>
+          <List className="palette-text-color">
+            {t.raw("benefits.items").map((item: string) => (
+              <List.Item key={item}>{item}</List.Item>
+            ))}
+          </List>
+        </FlexLayout.Column>
+      </FlexLayout>
 
-      <CustomizableBlock palette="kupari">
-        <Content palette="default" asGrid>
-          <Content.Column addContainer>
-            <div className="relative space-y-8">
-              <Heading2 className="text-piki">{t("allInOne.title")}</Heading2>
-              <Paragraph className="text-piki">{t("allInOne.description")}</Paragraph>
-            </div>
-          </Content.Column>
-          <Content.Column addContainer>
+      <FlexLayout
+        oneColumnBreakpoint="lg"
+        palette="piki"
+        contentPalette="kupari"
+        contentClassName="rounded-box"
+        padding={Padding.Block}
+      >
+        <FlexLayout.Column>
+          <div className="relative space-y-8">
+            <Heading2 className="text-piki">{t("allInOne.title")}</Heading2>
+            <Paragraph className="text-piki">{t("allInOne.description")}</Paragraph>
+          </div>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          <ImageContainer>
             <Image
               src={"/images/home/iphone_05_sleep_image.png"}
               alt={"transparency.imageAlt"}
@@ -88,9 +105,9 @@ export default async function FleetManagerPage({ params }: { params: { locale: s
               sizes="100vw"
               quality={90}
             />
-          </Content.Column>
-        </Content>
-      </CustomizableBlock>
-    </main>
+          </ImageContainer>
+        </FlexLayout.Column>
+      </FlexLayout>
+    </PageWrapper>
   );
 }

@@ -32,12 +32,13 @@ export function ContentBlockImage(props: BackgroundImageProps) {
 
 ContentBlockImage.displayName = "FullBlockStructure.ContentBlockImage";
 
-export function FullBlockStructure({ children, ...rest }: Omit<BlockProps, "type">) {
+export function FullBlockStructure({ padding, children, ...rest }: Omit<BlockProps, "type">) {
+  /** padding is re-routed to content because main block has no padding */
   const slots = mapSlots(children, [MainBlockImage.displayName, ContentBlockImage.displayName, Content.displayName]);
   return (
     <MainBlock {...rest}>
       {slots[MainBlockImage.displayName] && <MainBlock.BackgroundImage {...slots[MainBlockImage.displayName].props} />}
-      <MainBlock.Content>{slots[Content.displayName]}</MainBlock.Content>
+      <MainBlock.Content padding={padding}>{slots[Content.displayName]}</MainBlock.Content>
     </MainBlock>
   );
 }

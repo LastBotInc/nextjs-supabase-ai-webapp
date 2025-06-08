@@ -83,7 +83,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
             <Heading3 className="">{t("leasingOptions.description")}</Heading3>
           </FlexLayout.Column>
         </ContentArea>
-        <ContentArea type="content" className="forced-split-padding">
+        <ContentArea type="content">
           <Flex>
             <BoxLayout.Box
               palette="kupari"
@@ -157,8 +157,9 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         </ContentArea>
         <ContentArea type="content" className="main-level-padding-full">
           <FlexLayout.Column className="lg:text-center">
-            <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
-            <Heading3 className="">{t("leasingOptions.description")}</Heading3>
+            <LinkButton className="self-center" href="#">
+              {t("leasingOptions.allSolutions")}
+            </LinkButton>
           </FlexLayout.Column>
         </ContentArea>
       </CustomMainContent>
