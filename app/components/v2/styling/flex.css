@@ -1,0 +1,61 @@
+.flex-container {
+  /* column has no effect unless you set the --column-count in the style attribute */
+  --flex-direction-default: row;
+  display: flex;
+  flex-direction: var(--flex-direction, var(--flex-direction-default));
+
+  @screen md {
+    --flex-direction: var(--flex-direction-md, var(--flex-direction-default));
+  }
+  @screen lg {
+    --flex-direction: var(--flex-direction-lg, var(--flex-direction-md));
+  }
+  @screen xl {
+    --flex-direction: var(--flex-direction-xl, var(--flex-direction-lg));
+  }
+}
+
+.flex-container.auto-flex-children {
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.flex-container .flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container.small-gaps,
+.flex-container.small-gaps .gap-container {
+  @apply gap-2 lg:gap-4;
+}
+
+.flex-container.large-gaps,
+.flex-container.large-gaps .gap-container {
+  @apply gap-4 lg:gap-8;
+}
+
+.block-main .block-content .content-area .flex-container.level-based-gaps,
+.block-main .block-content .flex-container.level-based-gaps .gap-container {
+  @apply gap-4 lg:gap-8;
+}
+
+.block-main .block-content .content-area .flex-container.level-based-gaps .block-box .content-area {
+  @apply gap-2 lg:gap-2;
+}
+
+.fixed-with-column {
+  width: var(--fixed-width);
+  flex: 0 1 auto;
+  @screen md {
+    --fixed-width: var(--fixed-width-md, var(--fixed-width-default));
+  }
+  @screen lg {
+    --fixed-width: var(--fixed-width-lg, var(--fixed-width-md, var(--fixed-width-default)));
+  }
+  @screen xl {
+    --fixed-width: var(--fixed-width-xl, var(--fixed-width-lg));
+  }
+}

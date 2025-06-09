@@ -1,0 +1,8 @@
+.hero-content {
+  @apply w-full grid grid-cols-1 gap-2 lg:gap-4 items-end;
+  @apply min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr] content-end;
+}
+
+.hero-subheading {
+  @apply block text-5xl font-light;
+}

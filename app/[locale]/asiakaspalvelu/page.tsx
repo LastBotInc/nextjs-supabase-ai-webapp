@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { PhoneIcon, EnvelopeIcon, ClockIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-import { PersonnelCard } from "@/app/components/layouts/Card";
+import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;

@@ -1,0 +1,77 @@
+.heading {
+  @apply font-light font-['Inter_Tight'] leading-tight;
+}
+.heading.medium {
+  @apply font-medium;
+}
+
+h1.heading:not(.small):not(.fixed) {
+  @apply text-6xl lg:text-7xl;
+}
+
+h1.heading.small {
+  @apply text-5xl lg:text-6xl;
+}
+
+h1.heading.fixed:not(.small) {
+  @apply text-6xl;
+}
+
+h1.heading.small.fixed {
+  @apply text-5xl;
+}
+
+h2.heading:not(.small):not(.fixed) {
+  @apply text-5xl lg:text-6xl;
+}
+
+h2.heading.fixed {
+  @apply text-5xl;
+}
+
+h2.heading.small {
+  @apply text-4xl lg:text-5xl;
+}
+
+h2.heading.small.fixed {
+  @apply text-4xl;
+}
+
+h3.heading:not(.small):not(.fixed) {
+  @apply text-4xl lg:text-5xl;
+}
+h3.heading.fixed {
+  @apply text-4xl;
+}
+
+h3.heading.fixed:not(.small) {
+  @apply text-4xl;
+}
+
+h3.heading.small {
+  @apply text-3xl lg:text-4xl;
+}
+
+h3.heading.small.fixed {
+  @apply text-3xl;
+}
+
+h4.heading {
+  @apply text-3xl lg:text-4xl;
+}
+
+h5.heading {
+  @apply text-2xl lg:text-3xl;
+}
+
+.text:not(.small):not(.large) {
+  @apply text-lg;
+}
+
+.text.small {
+  @apply text-sm;
+}
+
+.text.large {
+  @apply text-lg lg:text-2xl;
+}

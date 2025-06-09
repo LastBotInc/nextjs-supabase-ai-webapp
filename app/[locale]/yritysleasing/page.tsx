@@ -3,18 +3,18 @@
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 
-import { CallUs } from "@/app/components/CallUs";
-import { Paragraph } from "@/app/components/core/Paragraph";
+import { CallUs } from "@/app/components/v2/components/CallUs";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
 import React from "react";
 import { cn } from "@/utils/cn";
-import { Hero } from "@/app/components/Hero/Hero";
-import { Heading2, Heading3 } from "@/app/components/core/Headings";
+import { Hero } from "@/app/components/v2/layouts/Hero";
+import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import { CustomizableBlock } from "@/app/components/block/CustomizableBlock";
-import { ContentContainer } from "@/app/components/core/ContentContainer";
-import { List } from "@/app/components/core/List";
-import { BoxLayoutBlock } from "@/app/components/block/BoxLayoutBlock";
-import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { List } from "@/app/components/v2/core/List";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
+import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
+import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
+import { Flex } from "@/app/components/v2/core/Flex";
 // Leasing comparison table for Finnish market
 const leasingData = [
   {
@@ -182,8 +182,8 @@ export default async function CorporateLeasingPage({ params }: { params: { local
       </Hero>
 
       {/* Intro Section */}
-      <BoxLayoutBlock palette="piki">
-        <BoxLayoutBlock.Box palette="default">
+      <FlexLayout oneColumnBreakpoint="lg" palette="default">
+        <FlexLayout.Column>
           <Heading2>{t("openModel.title")}</Heading2>
           <Paragraph>{t("openModel.description")}</Paragraph>
           <Heading2>{t("contactPerson.title")}</Heading2>
@@ -198,26 +198,26 @@ export default async function CorporateLeasingPage({ params }: { params: { local
             <List.Item>{t("benefits.noDownPayment")}</List.Item>
             <List.Item>{t("benefits.newCar")}</List.Item>
           </List>
-        </BoxLayoutBlock.Box>
-      </BoxLayoutBlock>
+        </FlexLayout.Column>
+      </FlexLayout>
 
-      <BoxLayoutBlock palette="light-gray">
-        <BoxLayoutBlock.Box palette="maantie">
+      <BoxLayout palette="light-gray" fullSizeBoxes={true}>
+        <BoxLayout.Box palette="maantie" gaps>
           <Heading2>{t("leasingTypes.rahoitusleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.rahoitusleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.rahoitusleasing.suits")}</Paragraph>
-        </BoxLayoutBlock.Box>
-        <BoxLayoutBlock.Box palette="kupari">
+        </BoxLayout.Box>
+        <BoxLayout.Box palette="kupari" gaps>
           <Heading2>{t("leasingTypes.joustoleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.joustoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.joustoleasing.suits")}</Paragraph>
-        </BoxLayoutBlock.Box>
-        <BoxLayoutBlock.Box palette="piki">
+        </BoxLayout.Box>
+        <BoxLayout.Box palette="piki" gaps>
           <Heading2>{t("leasingTypes.huoltoleasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.huoltoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.huoltoleasing.suits")}</Paragraph>
-        </BoxLayoutBlock.Box>
-        <BoxLayoutBlock.Box palette="betoni">
+        </BoxLayout.Box>
+        <BoxLayout.Box palette="betoni">
           <Heading2>{t("leasingTypes.minileasing.title")}</Heading2>
           <Paragraph>{t("leasingTypes.minileasing.description")}</Paragraph>
           <List>
@@ -231,19 +231,19 @@ export default async function CorporateLeasingPage({ params }: { params: { local
               <List.Item key={b}>{b}</List.Item>
             ))}
           </List>
-        </BoxLayoutBlock.Box>
-      </BoxLayoutBlock>
+        </BoxLayout.Box>
+      </BoxLayout>
 
-      <CustomizableBlock>
-        <ContentContainer noSpacing>
+      <BoxLayout palette="default" fullSizeBoxes={false} maxColumns={1}>
+        <BoxLayout.Box>
           <LeasingComparisonTable />
-        </ContentContainer>
-      </CustomizableBlock>
+        </BoxLayout.Box>
+      </BoxLayout>
 
       {/* Equipment Leasing Section */}
 
-      <CustomizableBlock palette="piki">
-        <ContentContainer asBlock palette="piki">
+      <FlexLayout palette="piki">
+        <FlexLayout.Column>
           <Heading2 className="color-kupari-heading">{t("equipmentLeasing.title")}</Heading2>
           <Paragraph>{t("equipmentLeasing.description")}</Paragraph>
           <List>
@@ -255,20 +255,20 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           <Paragraph>{t("equipmentLeasing.b2bDescription")}</Paragraph>
           <Paragraph>{t("equipmentLeasing.process")}</Paragraph>
           <Paragraph className="font-semibold">{t("equipmentLeasing.contact")}</Paragraph>
-        </ContentContainer>
-      </CustomizableBlock>
+        </FlexLayout.Column>
+      </FlexLayout>
 
-      <Hero palette="piki" fullWidth>
-        <Hero.Image src="/images/Tietoa_meista.png" backgroundPosition="top center" />
-        <Hero.Heading>{t("contact.title")}</Hero.Heading>
-        <Hero.Text>
-          <Heading2 className="max-w-2xl">{t("contact.subheading")}</Heading2>
-        </Hero.Text>
-
-        <Hero.ExtraContent>
-          <CallUs numbers={t.raw("hero.numbers")} />
-        </Hero.ExtraContent>
-      </Hero>
+      <FlexLayout palette="piki" mainImage={{ src: "/images/Tietoa_meista.png", backgroundPosition: "top center" }}>
+        <FlexLayout.Column className="shadow-text-sharp">
+          <Flex direction="column" gaps="large">
+            <Heading2 className="max-w-2xl">{t("contact.title")}</Heading2>
+            <Heading3 className="max-w-2xl">{t("contact.subheading")}</Heading3>
+            <div className="self-start">
+              <CallUs className="justify-self-start" numbers={t.raw("hero.numbers")} />
+            </div>
+          </Flex>
+        </FlexLayout.Column>
+      </FlexLayout>
     </PageWrapper>
   );
 }
