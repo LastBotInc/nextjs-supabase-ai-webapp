@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { buttonPaletteClassName, buttonTextPaletteClassName } from "../cssJs/cssJs";
+import { buttonPaletteClassName, buttonTextPaletteClassName } from "../styling/resolveStyles";
 
 /**
  * LinkButton is a link that looks like a button.
+ * Example:
+ * <LinkButton href="/">Button</LinkButton>
  * @param children - The children of the button.
  * @param className - Optional extra classes for customizing the button.
  * passes also HTML attributes for the button element with rest props.

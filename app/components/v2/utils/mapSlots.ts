@@ -1,4 +1,4 @@
-import { SlotComponentCandidate } from "./types";
+import { SlotComponentCandidate } from "../core/types";
 import { getSlotName } from "./getSlotName";
 import { Children, isValidElement, ReactNode } from "react";
 

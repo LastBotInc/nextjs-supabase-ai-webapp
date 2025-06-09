@@ -1,15 +1,31 @@
 import { cn } from "@/lib/utils";
 import { ElementType, HTMLAttributes, isValidElement } from "react";
-import { getHeadingClass, headingPaletteClassName } from "../cssJs/cssJs";
-import { getSlotName } from "./getSlotName";
+import { getSlotName } from "../utils/getSlotName";
+import { headingPaletteClassName } from "../styling/resolveStyles";
 
 export type HeadingProps = React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   small?: boolean;
   medium?: boolean;
   responsive?: boolean;
+  fixed?: boolean;
 };
 type FixedHeadingProps = Omit<HeadingProps, "level" | "small">;
+
+export function getHeadingClass({ fixed, small, medium }: Omit<HeadingProps, "level">) {
+  const classes = ["heading"];
+  if (small) {
+    classes.push("small");
+  }
+  if (medium) {
+    classes.push("medium");
+  }
+  if (fixed) {
+    classes.push("fixed");
+  }
+
+  return classes.join(" ");
+}
 
 /**
  * HeadingComponent is the base component for all headings. It uses palette colors.
@@ -18,9 +34,18 @@ type FixedHeadingProps = Omit<HeadingProps, "level" | "small">;
  * passes also HTML attributes for the heading element with rest props.
  * @returns React.ReactNode
  */
-export function HeadingComponent({ children, className, level, small, medium, responsive, ...props }: HeadingProps) {
+export function HeadingComponent({
+  children,
+  className,
+  level,
+  small,
+  medium,
+  fixed,
+  responsive,
+  ...props
+}: HeadingProps) {
   const Component = `h${level}` as ElementType<HTMLAttributes<HTMLHeadingElement>>;
-  const headingClasses = getHeadingClass({ level, small, medium, responsive }) + " " + headingPaletteClassName;
+  const headingClasses = getHeadingClass({ small, medium, fixed, responsive }) + " " + headingPaletteClassName;
   return (
     <Component className={cn(headingClasses, className)} {...props}>
       {children}
@@ -39,6 +64,8 @@ export const isHeadingComponent = (component: React.ReactNode): component is Rea
 
 /**
  * Heading1 is the main heading of the page.
+ * Example:
+ * <Heading1>Heading</Heading1>
  * @param children - The children of the heading.
  * @param className - Optional extra classes for customizing the heading.
  * passes also HTML attributes for the heading element with rest props.

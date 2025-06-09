@@ -2,13 +2,21 @@
 
 import React, { HTMLAttributes } from "react";
 import Link from "next/link";
-import { IconEmail, IconPhone } from "./Icons";
+import { IconEmail, IconPhone } from "../../Icons";
 import { cn } from "@/lib/utils";
 
 type CallUsProps = HTMLAttributes<HTMLDivElement> & {
   numbers: { title: string; number: string }[];
 };
 
+/**
+ * CallUs component is used to display a list of phone numbers and email addresses.
+ *
+ * @param numbers - An array of objects with title and number properties.
+ * @param className - Optional className to apply to the component.
+ * @param rest - Additional props to pass to the component.
+ * @returns A div element with a list of phone numbers and email addresses.
+ */
 export function CallUs({ numbers, className, ...rest }: CallUsProps) {
   const title = numbers[0].title;
   const number = numbers[0].number;

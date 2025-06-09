@@ -2,29 +2,29 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { BoxBlock } from "@/app/components/v2/blocks/BoxBlock";
-import { CallUs } from "@/app/components/CallUs";
+import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { GridLayout } from "@/app/components/v2/layouts/GridLayout";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
-import { Heading2, Heading3 } from "@/app/components/core/Headings";
-import { ImageContainer } from "@/app/components/core/ImageContainer";
+import { Heading2, Heading3, Heading2Small } from "@/app/components/v2/core/Headings";
+import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 import Image from "next/image";
-import { Paragraph } from "@/app/components/core/Paragraph";
-import { LinkButton } from "@/app/components/core/LinkButton";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
+import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { CustomMainContent } from "@/app/components/v2/layouts/CustomMainContent";
 import { ContentArea } from "@/app/components/v2/core/ContentArea";
 import { Padding } from "@/app/components/v2/core/types";
-import { Heading2Small, ShapedContentFlowInParagraph } from "@/app/components/layouts/CommonElements";
+import { ShapedContentFlowInParagraph } from "@/app/components/v2/components/ShapedContentFlowInParagraph";
 import { Flex } from "@/app/components/v2/core/Flex";
-import NewsSection from "@/app/components/NewsSection";
-import { iconPaletteClassName } from "@/app/components/cssJs/cssJs";
+import NewsSection from "@/app/components/v2/components/NewsSection";
+import { iconPaletteClassName } from "@/app/components/v2/styling/resolveStyles";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { PersonnelCard } from "@/app/components/layouts/Card";
+import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
 import { IconPlugCar } from "@/app/components/Icons";
-import { List } from "@/app/components/core/List";
+import { List } from "@/app/components/v2/core/List";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;

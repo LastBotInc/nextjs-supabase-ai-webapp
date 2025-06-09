@@ -17,7 +17,8 @@
  */
 import { cn } from "@/lib/utils";
 import { HTMLAttributes } from "react";
-import { getPadding, SizeDefinition } from "../cssJs/cssJs";
+import { PaddingType } from "../core/types";
+import { getPaddingStyles } from "../styling/resolveStyles";
 
 export function ImageContainer({
   children,
@@ -27,12 +28,12 @@ export function ImageContainer({
   ...props
 }: React.PropsWithChildren<
   HTMLAttributes<HTMLParagraphElement> & {
-    padding?: string | SizeDefinition;
+    padding?: PaddingType;
     aspectRatio?: "16/9" | "4/3" | "1/1" | "9/16" | "3/4";
   }
 >) {
   const classes = cn(
-    padding && getPadding(padding),
+    padding && getPaddingStyles(padding),
     "w-full",
     aspectRatio && `image-container-with-aspect-ratio-${aspectRatio.replace("/", "-")}`,
     className

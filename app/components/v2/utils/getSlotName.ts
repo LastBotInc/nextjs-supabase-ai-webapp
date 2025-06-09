@@ -1,6 +1,4 @@
-import { SlotComponent } from "./types";
-
-import { SlotComponentCandidate } from "./types";
+import { SlotComponent, SlotComponentCandidate } from "../core/types";
 
 /**
  * getSlotName is a function that returns the displayName of a component.

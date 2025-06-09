@@ -1,13 +1,17 @@
 "use client";
-import { NewsCard, ThreeColumnCard } from "./layouts/Card";
 import { useTranslations } from "next-intl";
-
+import { Columns } from "../core/Columns";
+import { NewsCard } from "./NewsCard";
+/**
+ * NewsSection component is used to display a list of news cards.
+ * @returns A div element with a list of news cards.
+ */
 export default function NewsSection() {
   // Use client-side translations
   const t = useTranslations("Home");
   return (
     <>
-      <ThreeColumnCard oneColumnBreak="lg">
+      <Columns columns={{ default: 1, lg: 3 }}>
         {/* Card 1 */}
         <NewsCard
           title={t("news.card1.title")}
@@ -38,7 +42,7 @@ export default function NewsSection() {
           }}
           category={t("news.card3.category")}
         />
-      </ThreeColumnCard>
+      </Columns>
     </>
   );
 }

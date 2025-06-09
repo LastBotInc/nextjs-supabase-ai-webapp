@@ -2,27 +2,27 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import { PageWrapper } from "@/app/components/core/PageWrapper";
-import { CallUs } from "@/app/components/CallUs";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
+import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
-import { Heading2, Heading3, Heading3Small } from "@/app/components/core/Headings";
-import { ImageContainer } from "@/app/components/core/ImageContainer";
+import { Heading2, Heading2Small, Heading3, Heading3Small } from "@/app/components/v2/core/Headings";
+import { ShapedContentFlowInParagraph } from "../components/v2/components/ShapedContentFlowInParagraph";
+import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 import Image from "next/image";
-import { Paragraph } from "@/app/components/core/Paragraph";
-import { LinkButton } from "@/app/components/core/LinkButton";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
+import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { CustomMainContent } from "@/app/components/v2/layouts/CustomMainContent";
 import { ContentArea } from "@/app/components/v2/core/ContentArea";
 import { Padding } from "@/app/components/v2/core/types";
-import { Heading2Small, ShapedContentFlowInParagraph } from "@/app/components/layouts/CommonElements";
 import { Flex } from "@/app/components/v2/core/Flex";
-import NewsSection from "@/app/components/NewsSection";
-import { iconPaletteClassName } from "@/app/components/cssJs/cssJs";
+import NewsSection from "@/app/components/v2/components/NewsSection";
+import { iconPaletteClassName } from "@/app/components/v2/styling/resolveStyles";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { PersonnelCard } from "@/app/components/layouts/Card";
+import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
 import { IconPlugCar } from "@/app/components/Icons";
-import { List } from "@/app/components/core/List";
+import { List } from "@/app/components/v2/core/List";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;
@@ -77,90 +77,88 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray">
-        <ContentArea type="content" className="main-level-padding-full">
-          <FlexLayout.Column className="lg:text-center">
-            <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
-            <Heading3 className="">{t("leasingOptions.description")}</Heading3>
-          </FlexLayout.Column>
-        </ContentArea>
         <ContentArea type="content">
-          <Flex>
-            <BoxLayout.Box
-              palette="kupari"
-              padding={Padding.Unset}
-              rounded={true}
-              className="forced-split-padding has-overlay-pattern overlay-pattern-innolease-1"
-              style={{ paddingRight: 0 }}
-            >
-              <Flex>
-                <Image
-                  src="/images/home/leasing1.png"
-                  alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
-                  layout="responsive"
-                  width={1077}
-                  height={397}
-                  className="lg:hidden p-6 object-contain max-h-[260px] self-center h-auto w-auto"
-                  quality={90}
-                  aria-hidden={true}
-                />
-                <Flex direction="column">
-                  <Heading3 className="">{t("leasingOptions.personalizedTitle")}</Heading3>
-                  <ShapedContentFlowInParagraph
-                    image={{
-                      src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
-                      alt: "Leasing options shape",
-                      shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
-                      aspectRatio: "1025/496",
-                    }}
-                  >
-                    {t("leasingOptions.personalizedDescription")}
-                  </ShapedContentFlowInParagraph>
-                  <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
+          <Flex direction="column" autoFlexChildren={false} gaps="large" className="main-level-padding-full-y">
+            <Flex className="text-center pb-7" direction="column" gaps="none">
+              <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
+              <Heading3 className="">{t("leasingOptions.description")}</Heading3>
+            </Flex>
+
+            <Flex>
+              <BoxLayout.Box
+                palette="kupari"
+                padding={Padding.Unset}
+                rounded={true}
+                className="forced-split-padding has-overlay-pattern overlay-pattern-innolease-1"
+                style={{ paddingRight: 0 }}
+              >
+                <Flex>
+                  <Image
+                    src="/images/home/leasing1.png"
+                    alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                    layout="responsive"
+                    width={1077}
+                    height={397}
+                    className="lg:hidden p-6 object-contain max-h-[260px] self-center h-auto w-auto"
+                    quality={90}
+                    aria-hidden={true}
+                  />
+                  <Flex direction="column" autoFlexChildren={false}>
+                    <Heading3 className="">{t("leasingOptions.personalizedTitle")}</Heading3>
+                    <ShapedContentFlowInParagraph
+                      image={{
+                        src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
+                        alt: "Leasing options shape",
+                        shape: "polygon(0% 100%, 0% 54%, 24% 17%, 33% 0%, 100% 0%, 100% 100%)",
+                        aspectRatio: "1025/496",
+                      }}
+                    >
+                      {t("leasingOptions.personalizedDescription")}
+                    </ShapedContentFlowInParagraph>
+                    <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
+                  </Flex>
                 </Flex>
-              </Flex>
-            </BoxLayout.Box>
-            <BoxLayout.Box
-              palette="betoni"
-              padding={Padding.Unset}
-              rounded={true}
-              className="forced-split-padding has-overlay-pattern overlay-pattern-innolease-2"
-              style={{ paddingRight: 0 }}
-            >
-              <Flex>
-                <Image
-                  src="/images/home/leasing2.png"
-                  alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
-                  layout="responsive"
-                  width={1077}
-                  height={397}
-                  className="lg:hidden p-6 object-contain max-h-[260px] self-center h-auto w-auto"
-                  quality={90}
-                  aria-hidden={true}
-                />
-                <Flex direction="column">
-                  <Heading3 className="">{t("leasingOptions.flexibleTitle")}</Heading3>
-                  <ShapedContentFlowInParagraph
-                    image={{
-                      src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
-                      alt: "Leasing options shape",
-                      shape: "polygon(30% 100%, 30% 0%, 100% 0%, 100% 100%)",
-                      aspectRatio: "1025/496",
-                    }}
-                  >
-                    {t("leasingOptions.flexibleDescription")}
-                  </ShapedContentFlowInParagraph>
-                  <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
+              </BoxLayout.Box>
+              <BoxLayout.Box
+                palette="betoni"
+                padding={Padding.Unset}
+                rounded={true}
+                className="forced-split-padding has-overlay-pattern overlay-pattern-innolease-2"
+                style={{ paddingRight: 0 }}
+              >
+                <Flex>
+                  <Image
+                    src="/images/home/leasing2.png"
+                    alt={t("searchingFor.imageAlt", { defaultValue: "Searching for" })}
+                    layout="responsive"
+                    width={1077}
+                    height={397}
+                    className="lg:hidden p-6 object-contain max-h-[260px] self-center h-auto w-auto"
+                    quality={90}
+                    aria-hidden={true}
+                  />
+                  <Flex direction="column" autoFlexChildren={false}>
+                    <ShapedContentFlowInParagraph
+                      image={{
+                        src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
+                        alt: "Leasing options shape",
+                        shape: "polygon(30% 100%, 30% 0%, 100% 0%, 100% 100%)",
+                        aspectRatio: "1025/496",
+                      }}
+                    >
+                      {t("leasingOptions.flexibleDescription")}
+                    </ShapedContentFlowInParagraph>
+                    <LinkButton href="#">{t("leasingOptions.readMore")}</LinkButton>
+                  </Flex>
                 </Flex>
-              </Flex>
-            </BoxLayout.Box>
+              </BoxLayout.Box>
+            </Flex>
+            <Flex direction="column" className="text-center py-7" autoFlexChildren={false} gaps="none">
+              <LinkButton className="self-center" href="#">
+                {t("leasingOptions.allSolutions")}
+              </LinkButton>
+            </Flex>
           </Flex>
-        </ContentArea>
-        <ContentArea type="content" className="main-level-padding-full">
-          <FlexLayout.Column className="lg:text-center">
-            <LinkButton className="self-center" href="#">
-              {t("leasingOptions.allSolutions")}
-            </LinkButton>
-          </FlexLayout.Column>
         </ContentArea>
       </CustomMainContent>
 
@@ -248,18 +246,19 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         </FlexLayout.Column>
       </FlexLayout>
 
-      <CustomMainContent palette="light-gray">
+      <CustomMainContent palette="light-gray" className="compensate-for-split-padding-bottom">
         <ContentArea type="content" className="forced-split-padding">
           <Flex
             gaps="small"
             direction="row"
             className="items-center main-level-padding-block bottom-padding-half-block"
+            autoFlexChildren={false}
           >
             <ArrowRightIcon className={iconPaletteClassName} width={50} height={50} strokeWidth={1} />
             <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
           </Flex>
           <NewsSection />
-          <Flex className="justify-center">
+          <Flex className="justify-center" autoFlexChildren={false}>
             <LinkButton className="self-center" href="#">
               {t("news.viewAll")}
             </LinkButton>

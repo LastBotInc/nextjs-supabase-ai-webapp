@@ -14,17 +14,28 @@
  * - className - Optional extra classes for customizing the item.
  *
  * Its children are rendered to a Accordion content.
+ * Use Accordion.Item as a child wrapper of Accordion and place actual content inside it.
+ * Example:
+ * <Accordion>
+ *   <Accordion.Item heading="Heading">
+ *     <Paragraph>Paragraph</Paragraph>
+ *   </Accordion.Item>
+ * </Accordion>
  *
  * @param children - The children of the accordion.
  */
 /* eslint-disable react/display-name */
 import { Header, Content, Trigger, Root, Item } from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { forwardRef, ReactNode } from "react";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { bgPaletteClassName, borderPaletteClassName, textPaletteClassName, iconPaletteClassName } from "../cssJs/cssJs";
-import { ContentBlock } from "./types";
-import { ContentContainer } from "./ContentContainer";
+import {
+  bgPaletteClassName,
+  borderPaletteClassName,
+  textPaletteClassName,
+  iconPaletteClassName,
+} from "../styling/resolveStyles";
+import { Flex } from "./Flex";
 
 const AccordionTrigger = forwardRef<HTMLButtonElement, { children: ReactNode; className?: string }>(
   ({ children, className, ...props }, forwardedRef) => (
@@ -52,9 +63,7 @@ const AccordionContent = forwardRef<HTMLDivElement, { children: ReactNode; class
       {...props}
       ref={forwardedRef}
     >
-      <ContentContainer asBlock noSpacing palette="none">
-        {children}
-      </ContentContainer>
+      <Flex>{children}</Flex>
     </Content>
   )
 );
@@ -63,7 +72,7 @@ function AccordionItem({
   children,
   className,
   heading,
-}: Pick<ContentBlock, "children" | "className"> & { heading: string }) {
+}: Pick<HTMLAttributes<HTMLDivElement>, "children" | "className"> & { heading: string }) {
   return (
     <Item
       className={cn(
@@ -80,7 +89,7 @@ function AccordionItem({
 }
 AccordionItem.displayName = "Accordion.AccordionItem";
 
-export function Accordion({ children, className }: Pick<ContentBlock, "children" | "className">) {
+export function Accordion({ children, className }: Pick<HTMLAttributes<HTMLDivElement>, "children" | "className">) {
   return (
     <Root
       className={cn("w-full border-t border-piki", bgPaletteClassName, borderPaletteClassName, className)}

@@ -3,15 +3,15 @@
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 
-import { CallUs } from "@/app/components/CallUs";
-import { Paragraph } from "@/app/components/core/Paragraph";
+import { CallUs } from "@/app/components/v2/components/CallUs";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
 import React from "react";
 import { cn } from "@/utils/cn";
 import { Hero } from "@/app/components/v2/layouts/Hero";
-import { Heading2, Heading3 } from "@/app/components/core/Headings";
+import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import { List } from "@/app/components/core/List";
-import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { List } from "@/app/components/v2/core/List";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
 import { Flex } from "@/app/components/v2/core/Flex";

@@ -3,16 +3,16 @@
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 
-import { Heading2 } from "@/app/components/core/Headings";
-import { Paragraph } from "@/app/components/core/Paragraph";
-import { CallUs } from "../../components/CallUs";
+import { Heading2 } from "@/app/components/v2/core/Headings";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
+import { CallUs } from "../../components/v2/components/CallUs";
 import Image from "next/image";
 import { Hero } from "@/app/components/v2/layouts/Hero";
-import { PageWrapper } from "@/app/components/core/PageWrapper";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
-import { List } from "@/app/components/core/List";
+import { List } from "@/app/components/v2/core/List";
 import { Padding } from "@/app/components/v2/core/types";
-import { ImageContainer } from "@/app/components/core/ImageContainer";
+import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 
 export default async function FleetManagerPage({ params }: { params: { locale: string } }) {
   // Setup localization
