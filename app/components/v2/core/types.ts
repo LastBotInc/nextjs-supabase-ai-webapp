@@ -1,4 +1,10 @@
-import { HTMLAttributes, ReactNode } from "react";
+import {
+  HTMLAttributes,
+  JSXElementConstructor,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+} from "react";
 import { BackgroundImageProps } from "./BackgroundImage";
 
 export type Size = "default" | "small" | "large";
@@ -56,3 +62,11 @@ export type NestedBlocksProps = Omit<BlockProps, "type"> & {
   mainImage?: BackgroundImageProps;
   contentImage?: BackgroundImageProps;
 };
+
+export type SlotComponent<P = unknown> = React.ComponentType<P> & {
+  displayName?: string;
+};
+
+export type SlotComponentCandidate =
+  | ReactPortal
+  | ReactElement<unknown, string | JSXElementConstructor<unknown>>;

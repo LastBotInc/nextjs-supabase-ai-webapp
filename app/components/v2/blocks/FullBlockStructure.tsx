@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { ContentBlock } from "./ContentBlock";
 import { MainBlock } from "./MainBlock";
 import { BlockProps, NestedBlocksProps } from "../core/types";
-import { mapSlots } from "../../core/mapSlots";
+import { mapSlots } from "../utils/mapSlots";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 
 export function Content({
@@ -32,6 +32,18 @@ export function ContentBlockImage(props: BackgroundImageProps) {
 
 ContentBlockImage.displayName = "FullBlockStructure.ContentBlockImage";
 
+/**
+ * FullBlockStructure is a wrapper for the whole Block structure. It sets type to BlockType.Main.
+ * It is used to display a full block structure.
+ * It uses names slots to set main block content and background image and content block content and background image.
+ * @param padding - The padding of the main block.
+ * @param children - The children of the main block.
+ * Should be FullBlockStructure.Content or FullBlockStructure.MainBlockImage or ContentBlock.Content or ContentBlock.BackgroundImage.
+ * FullBlockStructure.Content should be used to display a content block.
+ * FullBlockStructure.MainBlockImage should be used to display a background image.
+ * @param rest - Additional props to pass to the MainBlock component.
+ * @returns A div element.
+ */
 export function FullBlockStructure({ padding, children, ...rest }: Omit<BlockProps, "type">) {
   /** padding is re-routed to content because main block has no padding */
   const slots = mapSlots(children, [MainBlockImage.displayName, ContentBlockImage.displayName, Content.displayName]);

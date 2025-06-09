@@ -40,13 +40,21 @@
  *
  * Blocks use palettes to defined its colors. Palettes bg color is applied to the whole blocks bg.
  *
+ * Example:
+ * <Block>
+ *   <Block.BackgroundImage src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
+ *   <Block.Content>
+ *     <Heading2>Heading</Heading2>
+ *     <Paragraph>Paragraph</Paragraph>
+ *   </Block.Content>
+ * </Block>
  * @param children - The children of the block.
  * @param className - Optional extra classes for customizing the block.
  * @returns React.ReactNode
  */
 
 import { cn } from "@/lib/utils";
-import { mapSlots } from "../../core/mapSlots";
+import { mapSlots } from "../utils/mapSlots";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 import { BackgroundImage } from "../core/BackgroundImage";
 import { BlockProps, BlockType, Padding } from "../core/types";

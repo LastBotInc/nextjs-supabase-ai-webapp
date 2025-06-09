@@ -40,7 +40,7 @@ export function getPaddingStyles(padding: PaddingType) {
 }
 
 export function getGapClass(gaps: FlexProps["gaps"]) {
-  if (!gaps) {
+  if (!gaps || gaps === "none") {
     return "";
   }
   return classMap.gaps[gaps];
@@ -71,3 +71,18 @@ export function getValuePerBreakpoint(
   }, {} as Record<BreakPoint, string>);
   return values;
 }
+
+/**sets css class so background color is set to palette color */
+export const bgPaletteClassName = "palette-background-color";
+/**sets css class so heading color is set to palette color */
+export const headingPaletteClassName = "palette-heading-color";
+/**sets css class so text color is set to palette color */
+export const textPaletteClassName = "palette-text-color";
+/**sets css class so icon color is set to palette color */
+export const iconPaletteClassName = "palette-icon-color";
+/**sets css class so button color is set to palette color */
+export const buttonPaletteClassName = "palette-button-color";
+/**sets css class so button text color is set to palette color */
+export const buttonTextPaletteClassName = "palette-button-text-color";
+/**sets css class so border color is set to palette color */
+export const borderPaletteClassName = "palette-border-color";

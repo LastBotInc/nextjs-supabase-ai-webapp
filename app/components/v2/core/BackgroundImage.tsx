@@ -11,7 +11,9 @@
  * Example:
  *  backgroundPosition: "top"
  *  backgroundPosition: {default: "top", md: "center", lg: "bottom", xl: "center"}
- *
+ * Example:
+ * <BackgroundImage src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" backgroundPosition="top" backgroundSize="cover" />
+ * <BackgroundImage src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" backgroundPosition={{default: "top", md: "center", lg: "bottom", xl: "center"}} backgroundSize="cover" />
  * @param src - The source of the background image.
  * @param backgroundPosition - The position of the background image.
  * @param backgroundSize - The size of the background image.
@@ -34,7 +36,7 @@ const sizeDefinitionToStyle = (prefix: string, sizeDefinition: SizeDefinition | 
   return Object.entries(sizeDefinition).reduce((acc, [key, value]) => {
     if (value && key) {
       const cssKey = `--${prefix}-${key}` as keyof React.CSSProperties;
-      acc[cssKey] = value;
+      acc[cssKey] = String(value);
     }
     return acc;
   }, {} as Record<string, string>);
