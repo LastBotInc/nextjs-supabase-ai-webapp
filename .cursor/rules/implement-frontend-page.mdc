@@ -267,89 +267,65 @@ export default async function PublicPage({ params }: Props) {
 
 ### Main layout components
 
-Page layouts always use block elements. All contents must be wrapped with these, so all spacings and alignments match.
-Every page ([locale]/**/page.tsx) must have <main> and its direct children must be one of block components.
-Block components are in folder "app/components/blocks/*.tsx" and must be imported from there.
-Read their documentation from there too. 
+All pages should use PageWrapper as root component and then use block components to wrap contents.
 
-Main blocks are
-- Block
-- BackgroundImageBlock
-- ColumnBlock
-- CustomizableBlock
-- InnerBoxes
-- Hero
+Blocks are the base components that are nested to create correact spacing and aligning.
 
-Blocks uses and renders slots, like most other components.
+Blocks have two slots: background image and content. 
 
-The main component Block always require slots as direct children:
-- Block.FullWidthBackgroundImage
-- Block.CenteredContentArea
+There are four types of blocks:
+- main: the root level
+- content: typical level to render content. Is in main block
+- box: presents a box which can be any container inside a content block. Is in content block
+- component: used for aligning component elements. 
 
-At least Block.CenteredContentArea must be used, Block.FullWidthBackgroundImage only when a full width background image is needed.
-
-Other block components use the main Block, so do not use slots in them.
-
-Example
-
-```typescript
-import {
-  Block,
-} from "@/app/components/block/Block.tsx";
-```
-#### Hero
-
-Hero component is a speacial component that has named slots and renders a block and content and sub components. It does not accept other children than its own slots:
-- Hero.Heading 
-- Hero.SubHeading 
-- Hero.Text 
-- Hero.ExtraContent 
-- Hero.Image
-
+Instead of building the nesting everytime again, there are ready made layouts for different purposes:
+- layout/Hero: create hero layout with image, title and contact information
+- layout/CustomMainContent: basic layout for showing content. Uses Main block + Content block. Accepts images and content.
+- layout/GridLayout: places children in to Content Block and wraps with an element with display:grid
+- layout/FlexLayout: places children in to Content Block and wraps with an element with display:flex
+- layout:BoxLayout: like GridLayout, but content padding is different. Aligns its children (boxes), so they are outside content area, but contents of the boxes is aligned like other content.
 
 ### Content components
 
-Content components are used to align content with proper spacings and colors and with responsive layouts.
+Placed in @app/components/vs/core
 
-Content uses and renders slots, like most other components. Only its slots are rendered:
-- Content.Heading
-- Content.Column
-- Content.Text
-- Content.Wrapper
+- Flex: wraps children with flex box with responsive breakpoints when to show children in one column.
+- Columns: wraps children with grid with responsive breakpoints to change column counts.
+- BackgroundImage: Renders an image to div with inset and position absolute. Accepts responsive backgroundSize and backgroundPosition.
+- PageWrapper: Root wrapper for all pages
+
+### UI components
+- Accordion: basic accordion component
+- Headings: different Heading sizes (h1...h6) with size variants. Uses palette colors.
+- ImageContainer: wrapper to images to handle aspect ratio and padding.
+- LinkButton: renders a link looking like a button
+- List: renders <ul>
+- Paragraph: renders <p> with size variations
+ 
+
+### Core components that should not be used outside blocks
+
+**Do not use these because they must be nested properly in a blocks**
+
+- Block: core component to render block + content
+- ContentArea: render div.content-area
 
 
-Content must be placed in one of the blocks.
 
-Example
+## Component usage
+
+First add a PageWrapper to page
+
+The use layouts:
 
 ```typescript
-import {
-  Content,
-} from "@/app/components/content/Content.tsx";
+
+<FlexLayout>
+{children}
+</FlexLayout>
+
 ```
-
-Use 
-
-
-### Common UI components
-
-Use the components inside Content component that is in one of the blocks.
-
-Example
-
-```typescript
-import { Card } from "@/app/components/card/Card.tsx";
-import { Accordion } from "@/app/components/core/Accordion.tsx";
-import { BackgroundImage } from "@/app/components/core/BackgroundImage.tsx";
-import { ContentContainer } from "@/app/components/core/ContentContainer.tsx";
-import { Headings } from "@/app/components/core/Headings.tsx";
-import { ImageContainer } from "@/app/components/core/ImageContainer.tsx";
-import { LinkButton } from "@/app/components/core/LinkButton.tsx";
-import { List } from "@/app/components/core/List.tsx";
-import { Paragraph } from "@/app/components/core/Paragraph.tsx";
-import { Grid } from "@/app/components/core/Grid.tsx";
-```
-
 
 
 

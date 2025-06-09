@@ -303,50 +303,50 @@ Use components that have typography already set:
 
 Use only ready made components do not create new ones.
 
-Page structure must be:
-
-```
-<block level component>
-├── <Content level component>
-│   ├──  <Core components>
-```
-
-Most block component already use Content component so do not apply them twice.
-
-Components in local File Structure
+Components in app structure:
 
 ```
 app/
-├── components/
-│   ├── block       # top level block components that wrap all other components
-│   ├── card      # Card components to be used inside Content
-│   ├── core        # main UI component to be used in Content and Card
-│   ├── grid        # a grid to be used in Content
-│   ├── hero        # a custom block component to be used as top level component
+├── components
+|   |── v2
+│      ├── blocks      # Wrapper to use nested core/block.tsx components
+│      ├── component   # Custom components for special cases like news.
+│      ├── core        # core components that other components use
+│      ├── layouts     # ready made layout components for aligning and wrapping actual content. **Prefer using these in all pages**!
+│      ├── styling      # css and styling helpers
+│      ├── utils        # utils for components
 
 ```
+
+Read each components documentation in JSDOc format in their \*.tsx files.
+
+#### Pages
+
+All pages must have <PageWrapper> as the root component.
+
+Then each page must use layout/ components to wrap actual components. Block components are located in folder "@/app/components/v2/blocks"
+
+#### Typography
+
+Use components from @/app/components/v2/core/Paragraph and @/app/components/v2/core/Headings
+
+#### Colors
+
+Block components use palette-prop to define colors. Use the prop, do not assign other colors. See [Palettes](#palettes)
+
+### Spacing and alignment
+
+Components set spacing, padding, gaps, and alignment, automatically. Do not set them with classNames.
 
 - Components:
 
   - Buttons:
 
-    - Primary: Innolease Blue with white text
-    - Secondary: White with Innolease Blue border and text
-    - Tertiary: Transparent with Innolease Blue text
-    - Success: Green with white text
-    - Danger: Red with white text
-    - Disabled: Light gray with dark gray text
-    - Hover: Slightly darker shade with smooth transition
-    - Focus: Blue outline with 2px width
+    - Use LinkButton component
 
   - Cards:
 
-    - Use the Card component with palettes. Do not make own.
-    - Default: White background, light shadow, rounded corners (0.5rem)
-    - Elevated: White background, medium shadow, rounded corners (0.5rem)
-    - Interactive: Hover effect with scale transform and deeper shadow
-    - Vehicle Card: Special design for displaying vehicle information
-    - Contract Card: Special design for displaying contract information
+    - Use Flex and Columns components.
 
   - Forms:
 
@@ -360,14 +360,7 @@ app/
 
   - Tables:
 
-    - Responsive design for all screen sizes
-    - Sortable columns with indicators
-    - Filterable data
-    - Pagination
-    - Row actions (edit, delete, view)
-    - Expandable rows for additional details
-    - Zebra striping for better readability
-    - Fixed headers for scrollable tables
+    - Use table component
 
   - Data Visualization:
     - Cost charts: Bar and line charts
