@@ -38,7 +38,7 @@
 .main-level-padding-full,
 .block-main > .content-area.block-padding-full,
 .block-content.block-padding-full {
-  @apply p-6 lg:p-14;
+  @apply p-6 lg:p-14 lg:py-24;
 }
 
 .main-level-padding-small,
@@ -81,6 +81,9 @@
 .block-padding-block.block-padding-block {
   @apply py-6 lg:py-14;
 }
+.bottom-padding-half-block.bottom-padding-half-block {
+  @apply pb-3 lg:pb-7;
+}
 
 .block-padding-none.block-padding-none {
   padding: 0;
@@ -94,7 +97,7 @@
 }
 
 .block-main .block-content {
-  @apply max-w-screen-2xl mx-auto;
+  @apply max-w-7xl mx-auto;
 }
 
 /* Content block */

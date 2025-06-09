@@ -15,7 +15,7 @@ export function LinkButton({
   ...props
 }: { children: React.ReactNode } & Parameters<typeof Link>[0]) {
   const classes = cn(
-    "inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all self-start text-lg z-10 highlight-effect",
+    "inline-block py-2 px-8 rounded-full font-medium hover:bg-opacity-90 transition-all self-start text-lg z-10 highlight-effect overflow-hidden",
     className,
     buttonPaletteClassName,
     buttonTextPaletteClassName

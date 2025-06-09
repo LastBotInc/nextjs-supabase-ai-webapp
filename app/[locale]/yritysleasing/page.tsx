@@ -182,7 +182,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
       </Hero>
 
       {/* Intro Section */}
-      <FlexLayout oneColumnBreakpoint="lg" palette="piki" contentPalette="default" contentClassName="rounded-box">
+      <FlexLayout oneColumnBreakpoint="lg" palette="default">
         <FlexLayout.Column>
           <Heading2>{t("openModel.title")}</Heading2>
           <Paragraph>{t("openModel.description")}</Paragraph>

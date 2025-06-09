@@ -7,7 +7,7 @@ import { CallUs } from "@/app/components/CallUs";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
-import { Heading2, Heading3 } from "@/app/components/core/Headings";
+import { Heading2, Heading3, Heading3Small } from "@/app/components/core/Headings";
 import { ImageContainer } from "@/app/components/core/ImageContainer";
 import Image from "next/image";
 import { Paragraph } from "@/app/components/core/Paragraph";
@@ -224,9 +224,10 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
           backgroundPosition: { default: "center left", md: "center left", lg: "center right", xl: "center right" },
           backgroundSize: { default: "0%", md: "0%", lg: "cover" },
         }}
+        className="z-50"
       >
         <FlexLayout.Column className="shadow-text">
-          <Heading3 className="uppercase text-xl">{t("innoFleet.subtitle")}</Heading3>
+          <Heading3Small className="uppercase text-xl lg:text-xl">{t("innoFleet.subtitle")}</Heading3Small>
           <Heading2 className="color-kupari-heading">{t("innoFleet.title")}</Heading2>
           <Paragraph>{t("innoFleet.description1")}</Paragraph>
           <Paragraph>{t("innoFleet.description2")}</Paragraph>
@@ -248,21 +249,21 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray">
-        <ContentArea type="content" className="main-level-padding-full pb-0 lg:pb-0  align-center">
-          <FlexLayout.Column>
+        <ContentArea type="content" className="forced-split-padding">
+          <Flex
+            gaps="small"
+            direction="row"
+            className="items-center main-level-padding-block bottom-padding-half-block"
+          >
             <ArrowRightIcon className={iconPaletteClassName} width={50} height={50} strokeWidth={1} />
             <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
-          </FlexLayout.Column>
-        </ContentArea>
-        <ContentArea type="content" className="forced-split-padding">
+          </Flex>
           <NewsSection />
-        </ContentArea>
-        <ContentArea type="content" className="main-level-padding-full">
-          <FlexLayout.Column className="lg:text-center">
+          <Flex className="justify-center">
             <LinkButton className="self-center" href="#">
               {t("news.viewAll")}
             </LinkButton>
-          </FlexLayout.Column>
+          </Flex>
         </ContentArea>
       </CustomMainContent>
 

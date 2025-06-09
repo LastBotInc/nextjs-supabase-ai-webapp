@@ -33,7 +33,7 @@ export function List({
 >) {
   return (
     <ul
-      className={cn(getTextClass({ variant }), "list-disc list-inside space-y-2 pt-6", textPaletteClassName, className)}
+      className={cn(getTextClass({ variant }), "list-disc list-inside space-y-2", textPaletteClassName, className)}
       {...props}
     >
       {children}

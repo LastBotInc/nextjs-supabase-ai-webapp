@@ -34,7 +34,7 @@ export function Flex({
   direction = "row",
   gaps = "level-based",
 }: { children: ReactNode; className?: string; style?: CSSProperties } & FlexProps) {
-  /* default direction is row (is specs), so we don't need to set it */
+  /* default direction is row (in css specs), so we don't need to set it */
   const styles = {
     ...style,
     ...(direction !== "row" && { ["--flex-direction"]: direction }),

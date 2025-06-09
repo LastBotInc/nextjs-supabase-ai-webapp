@@ -1,11 +1,10 @@
 .flex-container {
-  /* @apply gap-4 lg:gap-8;*/
   /* column has no effect unless you set the --column-count in the style attribute */
   --flex-direction-default: row;
   display: flex;
   flex-direction: var(--flex-direction, var(--flex-direction-default));
 
-  > * {
+  > div {
     flex: 1 1 0;
     min-width: 0;
   }
