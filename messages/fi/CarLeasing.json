@@ -1,29 +1,57 @@
 {
   "meta": {
-    "title": "Auton Leasing",
-    "description": "Joustavat leasingratkaisut yksityisille ja yrityksille. Tutustu ehtoihin, autovalikoimaan ja pyydä tarjous juuri sinulle."
+    "title": "Auton Leasing – Helppoa ja huoleton autoilu",
+    "description": "Tutustu kattaviin ja joustaviin leasingratkaisuihimme yksityisille ja yrityksille. Lue lisää eduista, autovalikoimasta ja siitä, miten teemme autoilusta vaivatonta."
   },
-  "title": "Auton Leasing",
-  "intro": "Tarjoamme joustavia leasingratkaisuja sekä yksityishenkilöille että yrityksille. Valitse tarpeisiisi sopivin vaihtoehto ja nauti huolettomasta autoilusta.",
+  "title": "Auton Leasing – Sinulle sopivin ratkaisu",
+  "intro": "Innolease tarjoaa monipuoliset ja joustavat leasingratkaisut sekä yksityishenkilöille että yrityksille. Haluamme tehdä autoilusta mahdollisimman helppoa ja huolettomaa – valitse tarpeisiisi sopivin vaihtoehto, ja me huolehdimme lopusta.",
   "personal": {
-    "title": "Yksityisasiakkaille",
-    "description": "Yksityisleasing on helppo ja vaivaton tapa hankkia auto. Saat uuden auton ilman suurta alkupääomaa, ja kuukausimaksu kattaa kaikki olennaiset kulut polttoainetta lukuun ottamatta."
+    "title": "Yksityisasiakkaille – Helppoutta arkeen",
+    "description": "Yksityisleasing on vaivaton tapa hankkia uusi auto ilman suurta alkupääomaa. Kiinteä kuukausihinta kattaa lähes kaikki kulut – huollot, vakuutukset ja renkaat – joten voit keskittyä ajamiseen. Sopimuskauden päättyessä voit palauttaa auton, vaihtaa uuteen tai jatkaa sopimusta."
   },
   "corporate": {
-    "title": "Yrityksille",
-    "description": "Yritysleasing auttaa hallitsemaan yrityksen autokalustoa tehokkaasti. Tarjoamme räätälöityjä sopimuksia, joustavat ehdot ja laajan autovalikoiman kaikkiin tarpeisiin."
+    "title": "Yrityksille – Tehoa ja joustavuutta liiketoimintaan",
+    "description": "Yritysleasing auttaa hallitsemaan yrityksen autokalustoa tehokkaasti ja kustannustehokkaasti. Tarjoamme räätälöityjä sopimuksia, laajan autovalikoiman ja oman yhteyshenkilön, joka auttaa kaikissa autoiluun liittyvissä asioissa. Minileasing on täydellinen ratkaisu lyhytaikaisiin tarpeisiin – saat auton käyttöösi jopa seuraavaksi päiväksi ilman pitkäaikaista sitoutumista."
   },
   "terms": {
-    "title": "Leasingehdot",
-    "description": "Leasingsopimuksemme ovat läpinäkyviä ja joustavia. Voit valita sopimuksen keston, ajokilometrit ja lisäpalvelut tarpeidesi mukaan. Pyydä meiltä henkilökohtainen tarjous."
+    "title": "Leasingehdot – Joustavat ja läpinäkyvät",
+    "description": "Leasingsopimuksemme ovat selkeitä ja joustavia. Voit valita sopimuksen keston (1–60 kk), ajokilometrit ja lisäpalvelut tarpeidesi mukaan. Kiinteä kuukausihinta helpottaa budjetointia, eikä piilokuluja ole. Kysy rohkeasti lisää – räätälöimme ratkaisun juuri sinulle."
   },
   "vehicles": {
-    "title": "Autovalikoima",
-    "description": "Tarjoamme laajan valikoiman autoja pienistä henkilöautoista pakettiautoihin ja sähköautoihin. Kaikki automme ovat hyvin varusteltuja ja huollettuja."
+    "title": "Autovalikoima – Löydä sopiva auto",
+    "description": "Tarjoamme laajan valikoiman autoja: pienistä henkilöautoista tilaviin perheautoihin, pakettiautoihin ja sähköautoihin. Kaikki automme ovat hyvin varusteltuja ja säännöllisesti huollettuja. Voit myös testata eri autotyyppejä ennen pidempää sitoutumista."
+  },
+  "benefits": {
+    "title": "Miksi valita leasing?",
+    "list": [
+      "Ei suurta alkupääomaa – maksat vain käytöstä",
+      "Kiinteä kuukausihinta helpottaa talouden suunnittelua",
+      "Huollot, vakuutukset ja renkaat sisältyvät sopimukseen",
+      "Ei jälleenmyyntihuolia – palautat auton sopimuskauden lopussa",
+      "Nopea toimitus – auto käyttöösi jopa seuraavaksi päiväksi",
+      "Mahdollisuus vaihtaa autoa tarpeen mukaan"
+    ]
+  },
+  "examples": {
+    "title": "Käytännön esimerkkejä",
+    "list": [
+      "Tarvitsetko auton projektin ajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen tarpeeseen.",
+      "Yrityksesi kasvaa nopeasti? Leasing mahdollistaa autokannan laajentamisen ilman suuria investointeja.",
+      "Haluatko testata sähköautoa ennen ostopäätöstä? Leasingilla voit kokeilla eri malleja riskittömästi."
+    ]
+  },
+  "faq": {
+    "title": "Usein kysytyt kysymykset",
+    "q1": "Voinko vaihtaa autoa kesken sopimuskauden?",
+    "a1": "Kyllä, tarjoamme joustavia mahdollisuuksia vaihtaa autoa elämäntilanteen muuttuessa.",
+    "q2": "Sisältyykö vakuutus ja huollot kuukausihintaan?",
+    "a2": "Kyllä, useimmissa sopimuksissa vakuutus ja huollot sisältyvät kiinteään kuukausihintaan.",
+    "q3": "Miten palautan auton sopimuskauden lopussa?",
+    "a3": "Voit palauttaa auton sovittuun toimipisteeseen. Tarkemmat ohjeet saat asiakaspalvelustamme."
   },
   "cta": {
     "title": "Kiinnostuitko leasingista?",
-    "description": "Ota yhteyttä, niin autamme löytämään parhaan leasingratkaisun sinulle tai yrityksellesi.",
+    "description": "Ota yhteyttä asiantuntijoihimme – autamme löytämään juuri sinulle tai yrityksellesi parhaan leasingratkaisun. Voit myös pyytää tarjouksen helposti verkkosivujemme kautta.",
     "button": "Ota yhteyttä"
   }
 }

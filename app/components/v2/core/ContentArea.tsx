@@ -15,6 +15,6 @@ import { BlockProps } from "./types";
  * @param padding - The padding of the content area.
  * @returns A div element with a content area.
  */
-export function ContentArea({ children, className, padding = "full" }: BlockProps): ReactNode {
+export function ContentArea({ children, className, padding = "full" }: Omit<BlockProps, "type">): ReactNode {
   return <div className={cn("content-area", getPaddingStyles(padding), className)}>{children}</div>;
 }

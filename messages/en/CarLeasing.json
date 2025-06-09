@@ -1,29 +1,57 @@
 {
   "meta": {
-    "title": "Car Leasing Services",
-    "description": "Flexible car leasing options for individuals and businesses. Discover our terms, vehicle selection, and get in touch for a tailored offer."
+    "title": "Car Leasing – Easy and Worry-Free Driving",
+    "description": "Discover our comprehensive and flexible car leasing solutions for individuals and businesses. Learn more about the benefits, vehicle selection, and how we make driving effortless."
   },
-  "title": "Car Leasing",
-  "intro": "Our car leasing service offers flexible solutions for both private individuals and companies. Choose the best option for your needs and enjoy worry-free driving.",
+  "title": "Car Leasing – The Right Solution for You",
+  "intro": "Innolease offers versatile and flexible leasing solutions for both private individuals and companies. We want to make driving as easy and worry-free as possible – choose the option that suits your needs, and we'll take care of the rest.",
   "personal": {
-    "title": "For Private Customers",
-    "description": "Leasing a car as a private customer is easy and convenient. You get a new car without a large initial investment, and monthly payments cover all essential costs except fuel."
+    "title": "For Private Customers – Simplicity for Everyday Life",
+    "description": "Private leasing is a convenient way to get a new car without a large upfront payment. The fixed monthly fee covers almost all costs – maintenance, insurance, and tires – so you can focus on driving. At the end of the contract, you can return the car, switch to a new one, or extend the agreement."
   },
   "corporate": {
-    "title": "For Companies",
-    "description": "Our corporate leasing solutions help businesses manage their vehicle fleet efficiently. We offer tailored agreements, flexible terms, and a wide selection of vehicles for every business need."
+    "title": "For Businesses – Efficiency and Flexibility for Your Operations",
+    "description": "Business leasing helps you manage your company's vehicle fleet efficiently and cost-effectively. We offer tailored agreements, a wide selection of vehicles, and a dedicated contact person to assist you with all car-related matters. Mini-leasing is the perfect solution for short-term needs – you can get a car as soon as the next day without long-term commitments."
   },
   "terms": {
-    "title": "Leasing Terms",
-    "description": "Our leasing agreements are transparent and flexible. You can choose the contract length, mileage, and additional services to suit your needs. Contact us for a personalized offer."
+    "title": "Leasing Terms – Flexible and Transparent",
+    "description": "Our leasing agreements are clear and flexible. You can choose the contract length (1–60 months), mileage, and additional services to suit your needs. The fixed monthly fee makes budgeting easy, with no hidden costs. Feel free to ask for more – we'll tailor a solution just for you."
   },
   "vehicles": {
-    "title": "Vehicle Selection",
-    "description": "We offer a wide range of vehicles from compact cars to vans and electric vehicles. All our cars are well-equipped and regularly serviced."
+    "title": "Vehicle Selection – Find the Right Car",
+    "description": "We offer a wide range of vehicles: from compact cars to spacious family cars, vans, and electric vehicles. All our cars are well-equipped and regularly serviced. You can also test different car types before committing to a longer contract."
+  },
+  "benefits": {
+    "title": "Why Choose Leasing?",
+    "list": [
+      "No large upfront payment – you only pay for what you use",
+      "Fixed monthly fee makes budgeting easy",
+      "Maintenance, insurance, and tires are included in the contract",
+      "No resale worries – simply return the car at the end of the contract",
+      "Fast delivery – get a car as soon as the next day",
+      "Option to change cars as your needs change"
+    ]
+  },
+  "examples": {
+    "title": "Practical Examples",
+    "list": [
+      "Need a car for a project? Mini-leasing is a flexible solution for short-term needs.",
+      "Is your business growing quickly? Leasing allows you to expand your fleet without major investments.",
+      "Want to try an electric car before buying? Leasing lets you test different models risk-free."
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Can I change cars during the contract period?",
+    "a1": "Yes, we offer flexible options to change cars if your situation changes.",
+    "q2": "Are insurance and maintenance included in the monthly fee?",
+    "a2": "Yes, in most contracts, insurance and maintenance are included in the fixed monthly fee.",
+    "q3": "How do I return the car at the end of the contract?",
+    "a3": "You can return the car to an agreed location. Our customer service will provide detailed instructions."
   },
   "cta": {
     "title": "Interested in Car Leasing?",
-    "description": "Contact us and we will help you find the best leasing solution for you or your company.",
+    "description": "Contact our experts – we'll help you find the best leasing solution for you or your company. You can also easily request a quote through our website.",
     "button": "Contact Us"
   }
 }

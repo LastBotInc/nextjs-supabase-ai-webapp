@@ -187,3 +187,6 @@ This change eliminates the need to manually maintain the list of translation nam
 
 - Added /messages/CorporateLeasing.json translations for fi, sv, en, split into logical blocks for yritysleasing page.
 - Implemented app/[locale]/yritysleasing/page.tsx using new content blocks, common layout and card components, and translation keys. Used placeholders for images.
+- Rewritten messages/fi/CarLeasing.json to be more verbose, friendly, and informative, using new content from /source and other fi JSONs. Expanded benefits, examples, and FAQ sections.
+- Translated and updated messages/sv/CarLeasing.json and messages/en/CarLeasing.json with the new, improved content and structure.
+- Ensured all three languages have matching, customer-oriented content and structure for CarLeasing.json.

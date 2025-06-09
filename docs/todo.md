@@ -569,3 +569,12 @@
 ❌ Implement autoilijan-opas/page.tsx with new content blocks and structure
 ❌ Validate translation completeness for DriversGuide
 ❌ Review DriversGuide page in UI
+✅ Rewrite and localize CarLeasing.json for fi, sv, en with expanded, friendlier, and more informative content (all languages up to date)
+❌ Implement CarLeasing page using PageWrapper as root and layouts from app/components/v2/layouts
+❌ Render Hero section with title and intro from CarLeasing.json
+❌ Render personal and corporate sections using CustomMainContent or BoxLayout
+❌ Render terms, vehicles, benefits, examples, and FAQ sections using appropriate layouts and core/components
+❌ Use Headings, Paragraph, List, and LinkButton for content rendering
+❌ Ensure all text is localized using t from next-intl
+❌ Add inline comments for maintainability
+❌ Leave placeholders for images if not specified

@@ -1,29 +1,57 @@
 {
   "meta": {
-    "title": "Leasing av bil",
-    "description": "Flexibla leasinglösningar för privatpersoner och företag. Se våra villkor, bilutbud och be om en offert som passar dig."
+    "title": "Leasing av bil – Enkelt och bekymmersfritt bilägande",
+    "description": "Upptäck våra omfattande och flexibla leasinglösningar för privatpersoner och företag. Läs mer om fördelarna, bilutbudet och hur vi gör bilägandet smidigt."
   },
-  "title": "Leasing av bil",
-  "intro": "Vi erbjuder flexibla leasinglösningar för både privatpersoner och företag. Välj det alternativ som passar dig bäst och njut av bekymmersfritt bilägande.",
+  "title": "Leasing av bil – Den bästa lösningen för dig",
+  "intro": "Innolease erbjuder mångsidiga och flexibla leasinglösningar för både privatpersoner och företag. Vi vill göra bilägandet så enkelt och bekymmersfritt som möjligt – välj det alternativ som passar dig bäst, så tar vi hand om resten.",
   "personal": {
-    "title": "För privatpersoner",
-    "description": "Privatleasing är ett enkelt och smidigt sätt att skaffa bil. Du får en ny bil utan stor kontantinsats och månadsavgiften täcker alla väsentliga kostnader utom bränsle."
+    "title": "För privatpersoner – Enkelhet i vardagen",
+    "description": "Privatleasing är ett smidigt sätt att skaffa en ny bil utan stor kontantinsats. Den fasta månadskostnaden täcker nästan alla utgifter – service, försäkring och däck – så du kan fokusera på att köra. När avtalet löper ut kan du lämna tillbaka bilen, byta till en ny eller förlänga avtalet."
   },
   "corporate": {
-    "title": "För företag",
-    "description": "Våra företagsleasinglösningar hjälper företag att hantera sin fordonspark effektivt. Vi erbjuder skräddarsydda avtal, flexibla villkor och ett brett urval av bilar för alla behov."
+    "title": "För företag – Effektivitet och flexibilitet för verksamheten",
+    "description": "Företagsleasing hjälper dig att hantera företagets fordonspark effektivt och kostnadseffektivt. Vi erbjuder skräddarsydda avtal, ett brett urval av bilar och en personlig kontaktperson som hjälper dig med allt som rör bilägande. Minileasing är den perfekta lösningen för kortvariga behov – du får tillgång till en bil redan nästa dag utan långvariga åtaganden."
   },
   "terms": {
-    "title": "Leasingvillkor",
-    "description": "Våra leasingavtal är transparenta och flexibla. Du kan välja avtalets längd, körsträcka och tilläggstjänster enligt dina behov. Kontakta oss för ett personligt erbjudande."
+    "title": "Leasingvillkor – Flexibla och transparenta",
+    "description": "Våra leasingavtal är tydliga och flexibla. Du kan välja avtalets längd (1–60 mån), körsträcka och tilläggstjänster enligt dina behov. Den fasta månadskostnaden gör det lätt att planera ekonomin och det finns inga dolda avgifter. Fråga gärna mer – vi skräddarsyr en lösning just för dig."
   },
   "vehicles": {
-    "title": "Bilutbud",
-    "description": "Vi erbjuder ett brett utbud av bilar från små personbilar till skåpbilar och elbilar. Alla våra bilar är välutrustade och servade."
+    "title": "Bilutbud – Hitta rätt bil",
+    "description": "Vi erbjuder ett brett utbud av bilar: från små personbilar till rymliga familjebilar, transportbilar och elbilar. Alla våra bilar är välutrustade och regelbundet servade. Du kan även testa olika biltyper innan du binder dig för en längre period."
+  },
+  "benefits": {
+    "title": "Varför välja leasing?",
+    "list": [
+      "Ingen stor kontantinsats – du betalar bara för användningen",
+      "Fast månadskostnad gör det lätt att planera ekonomin",
+      "Service, försäkring och däck ingår i avtalet",
+      "Inga bekymmer med andrahandsvärde – du lämnar bara tillbaka bilen vid avtalets slut",
+      "Snabb leverans – bil tillgänglig redan nästa dag",
+      "Möjlighet att byta bil vid behov"
+    ]
+  },
+  "examples": {
+    "title": "Praktiska exempel",
+    "list": [
+      "Behöver du en bil för ett projekt? Minileasing är en flexibel lösning för kortvariga behov.",
+      "Växer ditt företag snabbt? Leasing gör det möjligt att utöka fordonsparken utan stora investeringar.",
+      "Vill du testa en elbil innan du bestämmer dig? Med leasing kan du prova olika modeller utan risk."
+    ]
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "q1": "Kan jag byta bil under avtalstiden?",
+    "a1": "Ja, vi erbjuder flexibla möjligheter att byta bil om din livssituation förändras.",
+    "q2": "Ingår försäkring och service i månadskostnaden?",
+    "a2": "Ja, i de flesta avtal ingår försäkring och service i den fasta månadskostnaden.",
+    "q3": "Hur lämnar jag tillbaka bilen när avtalet slutar?",
+    "a3": "Du kan lämna tillbaka bilen på en överenskommen plats. Du får detaljerade instruktioner från vår kundtjänst."
   },
   "cta": {
     "title": "Intresserad av leasing?",
-    "description": "Kontakta oss så hjälper vi dig att hitta den bästa leasinglösningen för dig eller ditt företag.",
+    "description": "Kontakta våra experter – vi hjälper dig att hitta den bästa leasinglösningen för dig eller ditt företag. Du kan också enkelt be om en offert via vår webbplats.",
     "button": "Kontakta oss"
   }
 }
