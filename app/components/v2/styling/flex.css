@@ -4,10 +4,6 @@
   display: flex;
   flex-direction: var(--flex-direction, var(--flex-direction-default));
 
-  > div {
-    flex: 1 1 0;
-    min-width: 0;
-  }
   @screen md {
     --flex-direction: var(--flex-direction-md, var(--flex-direction-default));
   }
@@ -16,6 +12,13 @@
   }
   @screen xl {
     --flex-direction: var(--flex-direction-xl, var(--flex-direction-lg));
+  }
+}
+
+.flex-container.auto-flex-children {
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 

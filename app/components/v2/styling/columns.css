@@ -1,6 +1,6 @@
 .columns {
   /* column has no effect unless you set the --column-count in the style attribute */
-  --column-count: auto;
+  --column-count: var(--column-count-default, auto);
   --column-count-md: auto;
   --column-count-lg: auto;
   --column-count-xl: auto;

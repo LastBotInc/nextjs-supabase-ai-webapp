@@ -47,6 +47,10 @@
   @apply p-6 lg:p-7;
 }
 
+.main-level-padding-full-y {
+  @apply py-6 lg:py-14;
+}
+
 /* sets half padding to content area of the main block and half to the box content area
   So box background is outside of the content area, but box content is aligned with normal content area
   padding should be half of the full padding
@@ -57,6 +61,10 @@
   .block-box .content-area {
     @apply p-3 lg:p-7;
   }
+}
+
+.block-main.compensate-for-split-padding-bottom.compensate-for-split-padding-bottom {
+  @apply pb-3 lg:pb-7;
 }
 
 .block-main.full-size-boxes .block-content.block-content {
