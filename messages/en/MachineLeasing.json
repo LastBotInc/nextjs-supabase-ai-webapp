@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Machinery and Equipment Leasing",
+    "description": "Everything you need to know about machinery and equipment leasing: terms, benefits, examples, and frequently asked questions."
+  },
+  "title": "Machinery and Equipment Leasing",
+  "intro": "Leasing is a flexible and cost-effective way to acquire the machinery and equipment your business needs without large upfront investments. On this page, you will find comprehensive information about the benefits, terms, and practical examples of leasing.",
+  "terms": {
+    "heading": "Key Leasing Terms",
+    "list": [
+      { "term": "Contract period", "description": "Typically 12–60 months, adjustable as needed." },
+      { "term": "Residual value", "description": "Possible buyout price at the end of the contract period." },
+      { "term": "Maintenance and servicing", "description": "Can be included in the contract or arranged separately." },
+      { "term": "Insurance", "description": "Leasing contracts often include insurance coverage." },
+      { "term": "Taxation", "description": "Leasing payments are usually tax-deductible for businesses." }
+    ]
+  },
+  "vehicles": {
+    "heading": "Machinery and equipment available for leasing",
+    "table": {
+      "columns": ["Category", "Examples"],
+      "rows": [
+        ["Construction machinery", "Excavators, cranes, wheel loaders"],
+        ["Industrial equipment", "CNC machines, production lines, packaging machines"],
+        ["Agricultural machinery", "Tractors, combine harvesters, seeders"],
+        ["Office technology", "Printers, copiers, IT equipment"],
+        ["Other equipment", "3D printers, laboratory equipment"]
+      ]
+    }
+  },
+  "benefits": {
+    "heading": "Benefits of leasing for businesses",
+    "list": [
+      "No large upfront investments – capital remains available for other uses.",
+      "Fixed monthly costs make budgeting easier.",
+      "Option to upgrade equipment at the end of the contract period.",
+      "Tax benefits for the business.",
+      "Maintenance and servicing can be included in the contract."
+    ]
+  },
+  "examples": {
+    "heading": "Practical examples",
+    "cases": [
+      {
+        "title": "Construction company",
+        "description": "A construction company leased three excavators with a 48-month contract. The company was able to start a new project without a large capital outlay, and the equipment was always operational thanks to the maintenance agreement."
+      },
+      {
+        "title": "Farm entrepreneur",
+        "description": "A farm entrepreneur acquired a new tractor through leasing. The fixed monthly payment made financial planning easier, and the machine was available for use quickly."
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "list": [
+      {
+        "question": "Can the leased item be purchased at the end of the contract?",
+        "answer": "Yes, in most cases the equipment can be purchased for a separately agreed residual value."
+      },
+      {
+        "question": "Is maintenance included in the contract?",
+        "answer": "Maintenance can be included in the contract or arranged separately as needed."
+      },
+      {
+        "question": "How does leasing affect business taxation?",
+        "answer": "Leasing payments are usually tax-deductible for businesses."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Interested in machinery and equipment leasing?",
+    "text": "Contact our expert and request a tailored leasing offer for your business!"
+  }
+}
