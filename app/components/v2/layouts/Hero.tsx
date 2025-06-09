@@ -57,10 +57,10 @@ export function Hero({ children, fullWidth, className, isFirst, ...rest }: Omit<
   const hasText = !!slots[Text.displayName];
   const hasImage = !!slots[Image.displayName];
   return (
-    <MainBlock className={cn(!fullWidth && hasImage && "rounded-xl overflow-hidden", className)} {...rest}>
+    <MainBlock className={className} {...rest}>
       {fullWidth && hasImage && slots[Image.displayName]}
       <MainBlock.Content>
-        <ContentBlock>
+        <ContentBlock className={cn(!fullWidth && hasImage && "rounded-xl overflow-hidden")}>
           {!fullWidth && hasImage && slots[Image.displayName]}
           <ContentBlock.Content palette="piki" className="hero-content shadow-text">
             <div className="">

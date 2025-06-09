@@ -2,16 +2,16 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import { Heading2, Heading3, Heading2Small } from "@/app/components/oldCore/Headings";
-import { Paragraph } from "@/app/components/oldCore/Paragraph";
+import { Heading2, Heading3, Heading2Small } from "@/app/components/v2/core/Headings";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
 import Image from "next/image";
-import { Accordion } from "@/app/components/oldCore/Accordion";
+import { Accordion } from "@/app/components/v2/core/Accordion";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { CallUs } from "@/app/components/v2/components/CallUs";
-import { List } from "@/app/components/oldCore/List";
+import { List } from "@/app/components/v2/core/List";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { Flex } from "@/app/components/v2/core/Flex";
-import { PageWrapper } from "@/app/components/oldCore/PageWrapper";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;

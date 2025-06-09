@@ -38,7 +38,7 @@
 .main-level-padding-full,
 .block-main > .content-area.block-padding-full,
 .block-content.block-padding-full {
-  @apply p-6 lg:p-14 lg:py-24;
+  @apply p-6 lg:p-14;
 }
 
 .main-level-padding-small,

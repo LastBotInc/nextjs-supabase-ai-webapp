@@ -222,7 +222,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
           backgroundPosition: { default: "center left", md: "center left", lg: "center right", xl: "center right" },
           backgroundSize: { default: "0%", md: "0%", lg: "cover" },
         }}
-        className="z-50"
+        className="z-30"
       >
         <FlexLayout.Column className="shadow-text">
           <Heading3Small className="uppercase text-xl lg:text-xl">{t("innoFleet.subtitle")}</Heading3Small>
