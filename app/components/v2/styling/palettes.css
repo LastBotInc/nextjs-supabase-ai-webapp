@@ -111,3 +111,8 @@
 .palette-button-text-color {
   color: var(--palette-button-text-color);
 }
+
+.apply-palette {
+  @apply palette-background-color;
+  @apply palette-text-color;
+}

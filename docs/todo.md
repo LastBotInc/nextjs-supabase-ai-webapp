@@ -578,3 +578,9 @@
 ❌ Ensure all text is localized using t from next-intl
 ❌ Add inline comments for maintainability
 ❌ Leave placeholders for images if not specified
+❌ Design LeasingCalculator component props, state, and calculation logic
+❌ Implement LeasingCalculator component with sliders and inputs for car price, contract length, etc.
+❌ Add translation keys for calculator UI to CarLeasing.json
+❌ Integrate LeasingCalculator into CarLeasing page after Hero section
+❌ Add inline comments and ensure accessibility
+❌ Test calculator functionality and UI

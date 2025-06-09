@@ -13,6 +13,7 @@ import { Accordion } from "@/app/components/v2/core/Accordion";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { Flex } from "@/app/components/v2/core/Flex";
 import { ContentArea } from "@/app/components/v2/core/ContentArea";
+import LeasingCalculator from "@/app/components/v2/components/LeasingCalculator";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;
@@ -39,6 +40,13 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
         <Hero.Text>{t("intro")}</Hero.Text>
         {/* Optionally add <Hero.Image src="/images/hero-handshake.jpg" alt="Car leasing" /> */}
       </Hero>
+
+      {/* Leasing Calculator Section */}
+      <FlexLayout palette="default" direction="column">
+        <FlexLayout.Column>
+          <LeasingCalculator texts={t.raw("calculator")} />
+        </FlexLayout.Column>
+      </FlexLayout>
 
       {/* Personal and Corporate Sections */}
       <BoxLayout maxColumns={2} fullSizeBoxes>

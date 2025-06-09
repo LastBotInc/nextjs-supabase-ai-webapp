@@ -53,5 +53,18 @@
     "title": "Interested in Car Leasing?",
     "description": "Contact our experts – we'll help you find the best leasing solution for you or your company. You can also easily request a quote through our website.",
     "button": "Contact Us"
+  },
+  "calculator": {
+    "title": "Leasing Calculator",
+    "carPrice": "Car Price",
+    "contractLength": "Contract Length",
+    "months": "months",
+    "downPayment": "Down Payment",
+    "interestRate": "Interest Rate",
+    "taxRate": "Income Tax Rate",
+    "resultTitle": "Calculation Result",
+    "monthlyFee": "Estimated Monthly Fee",
+    "afterTaxMonthly": "After-Tax Monthly Cost",
+    "disclaimer": "This is an estimate. Actual costs may vary. Tax calculation assumes the monthly fee is paid from net income."
   }
 }

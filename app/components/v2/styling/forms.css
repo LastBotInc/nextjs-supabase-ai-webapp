@@ -1,0 +1,56 @@
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--piki);
+  height: 8px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--piki);
+  height: 8px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  background: var(--kupari);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -11px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: var(--kupari);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -11px;
+}
+
+.calculator-row {
+  position: relative;
+  label,
+  input {
+    @apply text-lg;
+    color: var(--palette-text-color);
+  }
+  input[type="number"] {
+    @apply w-36 border rounded;
+    padding-right: 2rem;
+  }
+}
+
+.unit-marker {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+}
