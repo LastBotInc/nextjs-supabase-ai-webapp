@@ -21,27 +21,34 @@ app/
   [locale]/
     page.tsx                 # Public page
     about/
-      page.tsx              # Public page
+      page.tsx               # Public page
     account/
       settings/
-        page.tsx           # Account page (authenticated)
+        page.tsx            # Account page (authenticated)
       security/
-        page.tsx          # Account page (authenticated)
+        page.tsx            # Account page (authenticated)
     admin/
       contacts/
-        page.tsx         # Admin page (authenticated + admin)
+        page.tsx            # Admin page (authenticated + admin)
       analytics/
-        page.tsx        # Admin page (authenticated + admin)
-      AdminLayoutClient.tsx  # Admin layout wrapper
-    layout.tsx  # Root layout with locale provider
-    page.tsx    # Home page
+        page.tsx            # Admin page (authenticated + admin)
+      AdminLayoutClient.tsx # Admin layout wrapper
+    layout.tsx              # Root layout with locale provider
+    page.tsx                # Home page
   i18n/
-    server-utils.ts  # Server utilities for localization
-    client-utils.ts  # Client utilities for localization
+    server-utils.ts         # Server utilities for localization
+    client-utils.ts         # Client utilities for localization
   messages/
-    en.json     # English translations
-    fi.json     # Finnish translations
-    sv.json     # Swedish translations
+    en/*.json               # English translations
+    fi/*.json               # Finnish translations
+    sv/*.json               # Swedish translations
+  components/
+      v2/
+         blocks/            # components that layout components use. Do not use these alone.
+         components/        # components for custom, single purpose usage, like News, contact
+         core/              # ui components to use in content areas and blocks.
+         layouts/           # all content should be wrapped in layouts, so they are properly spaced and aligned. 
+              
 
 ### Required Dependencies
 ```json
@@ -264,70 +271,9 @@ export default async function PublicPage({ params }: Props) {
   )
 }
 ```
+## Creating React/NextJS pages, content, components and elements
 
-### Main layout components
-
-All pages should use PageWrapper as root component and then use block components to wrap contents.
-
-Blocks are the base components that are nested to create correact spacing and aligning.
-
-Blocks have two slots: background image and content. 
-
-There are four types of blocks:
-- main: the root level
-- content: typical level to render content. Is in main block
-- box: presents a box which can be any container inside a content block. Is in content block
-- component: used for aligning component elements. 
-
-Instead of building the nesting everytime again, there are ready made layouts for different purposes:
-- layout/Hero: create hero layout with image, title and contact information
-- layout/CustomMainContent: basic layout for showing content. Uses Main block + Content block. Accepts images and content.
-- layout/GridLayout: places children in to Content Block and wraps with an element with display:grid
-- layout/FlexLayout: places children in to Content Block and wraps with an element with display:flex
-- layout:BoxLayout: like GridLayout, but content padding is different. Aligns its children (boxes), so they are outside content area, but contents of the boxes is aligned like other content.
-
-### Content components
-
-Placed in @app/components/vs/core
-
-- Flex: wraps children with flex box with responsive breakpoints when to show children in one column.
-- Columns: wraps children with grid with responsive breakpoints to change column counts.
-- BackgroundImage: Renders an image to div with inset and position absolute. Accepts responsive backgroundSize and backgroundPosition.
-- PageWrapper: Root wrapper for all pages
-
-### UI components
-- Accordion: basic accordion component
-- Headings: different Heading sizes (h1...h6) with size variants. Uses palette colors.
-- ImageContainer: wrapper to images to handle aspect ratio and padding.
-- LinkButton: renders a link looking like a button
-- List: renders <ul>
-- Paragraph: renders <p> with size variations
- 
-
-### Core components that should not be used outside blocks
-
-**Do not use these because they must be nested properly in a blocks**
-
-- Block: core component to render block + content
-- ContentArea: render div.content-area
-
-
-
-## Component usage
-
-First add a PageWrapper to page
-
-The use layouts:
-
-```typescript
-
-<FlexLayout>
-{children}
-</FlexLayout>
-
-```
-
-
+All pages should follow the structure and component usage described in [frontend.md](mdc:docs/frontend.md).
 
 ### Key Features
 - Server-side rendering

@@ -207,7 +207,97 @@
 
 ## UI/UX Patterns
 
-### Design System
+### Page structure
+
+All pages in `app[locale]/**/page.tsx` and their components should follow these guidelines strictly.
+
+The first element on all pages is the `PageWrapper` which sets primary padding.
+Next should be a layout component [Main layout components](#main-layout-components) which sets spacing and alignment and gaps.
+Contents should be placed in the layout components.
+
+### Page styles and spacing
+
+All styles, colors, fonts and paddings, margins and gaps are set in the existing components. There should not be need to explicitly set any styling when using existing components.
+
+### Main layout components
+
+All pages should use PageWrapper as root component and then use layout components to wrap contents.
+
+Read the documentation show layout components are built from the `app/components/v2/core/block/Block.tsx`.
+
+#### Layout blocks
+
+Layout components use blocks to render their children. Each block has background and content area. Children are rendered only to content area.
+
+There are four types of blocks:
+
+- main: the root level. Used as a direct child of PageWrapper. If it has a background color or image, it covers full width of the page.
+- content: Content is placed in this block. It has max width and is centered on wide screens. Sets correct padding to the content.
+- box: presents a box which can be any container inside a content block.
+- component: used for aligning component elements.
+
+#### Layout components
+
+There are ready-made layouts for different purposes:
+
+- layout/Hero: create hero layout with image, title and contact information. Must have an image
+- layout/BasicLayout: Content is rendered in a flex box with direction column by default. Use in simple layout.
+- layout/TwoColumnLayout: Renders two children a columns with gaps and spacing. Will render columns vertically in mobile.
+- layout/ThreeColumnLayout: Renders three children a columns with gaps and spacing. Will render columns vertically in mobile.
+- layout/GridLayout: places children in to Content Block and wraps with an element with display:grid
+- layout/FlexLayout: places children in to Content Block and wraps with an element with display:flex
+- layout:BoxLayout: like GridLayout, but content padding is different. Aligns its children (boxes), so they are outside content area but contents of the boxes is aligned like other content.
+- layout/CustomMainContent: basic layout for showing content. Uses Main block + Content block. Accepts images and content. Should only be used if other layouts do not work.
+
+#### Layout custom content components
+
+Layouts expect certain child components. They are not compulsory, but help align content for the layout's purpose.
+Prefer using them as direct children of the layouts.
+
+### Content components
+
+Placed in @app/components/vs/core
+
+- Card: Content component to render elements in a flex box in the content slot of a layout component.
+- Flex: wraps children with flex box with responsive breakpoints when to show children in one column.
+- Columns: wraps children with grid with responsive breakpoints to change column counts.
+- BackgroundImage: Renders an image to div with inset and position absolute. Accepts responsive backgroundSize and backgroundPosition.
+- PageWrapper: Root wrapper for all pages
+
+### Colors and palettes
+
+Each layout has two palettes:
+
+- palette: used by the main block and visually covers the whole block. Use only to set background color of the full page width element. Default is white background with black text, borders, icons and buttons. Palette name is "default"
+- contentPalette: used by the content block and is used by its children. If not set, the palette is inherited from main block. No default.
+
+### UI components
+
+- Accordion: basic accordion component
+- Headings: different Heading sizes (h1...h6) with size variants. Uses palette colors.
+- ImageContainer: wrapper to images to handle aspect ratio and padding.
+- LinkButton: renders a link looking like a button
+- List: renders <ul>
+- Paragraph: renders <p> with size variations
+
+### Core components that should not be used outside blocks
+
+**Do not use these because they must be nested properly in a blocks**
+
+- Block: core component to render block + content
+- ContentArea: render div.content-area
+
+## Component usage
+
+First add a PageWrapper to page
+
+The use layouts:
+
+```typescript
+<FlexLayout>{children}</FlexLayout>
+```
+
+---
 
 #### Palettes
 
@@ -259,19 +349,25 @@ These are brand colors, but do not use them in components. Use palette prop or n
 
 #### Typography
 
-Use components that have typography already set:
+Use components that have typography already set. They can be imported from folder `@/app/components/v2/core/`.
 
-- Card
-- Paragraph,
 - Heading1, Heading2,Heading3
+- Paragraph,
+- Button
+- LinkButton
+- List
 
 - Typography:
+
   - Primary Font: Inter Tight
   - Available Weights: Light, Regular, Bold, Black
   - Headings: Inter Tight
   - Body: Inter Tight
   - Monospace: Inter Tight
+
 - Heading Styles:
+
+  Prefer using `Heading` components which have all necessary variations, colors and fonts built-in.
 
   - Main Headings (H1):
 
@@ -301,7 +397,7 @@ Use components that have typography already set:
 
 #### Components
 
-Use only ready made components do not create new ones.
+Prefer using ready made components and do not create new ones.
 
 Components in app structure:
 
@@ -326,10 +422,6 @@ All pages must have <PageWrapper> as the root component.
 
 Then each page must use layout/ components to wrap actual components. Block components are located in folder "@/app/components/v2/blocks"
 
-#### Typography
-
-Use components from @/app/components/v2/core/Paragraph and @/app/components/v2/core/Headings
-
 #### Colors
 
 Block components use palette-prop to define colors. Use the prop, do not assign other colors. See [Palettes](#palettes)
@@ -338,37 +430,29 @@ Block components use palette-prop to define colors. Use the prop, do not assign 
 
 Components set spacing, padding, gaps, and alignment, automatically. Do not set them with classNames.
 
-- Components:
+### Creating new visuals, components and charts
 
-  - Buttons:
+Always prefer using existing components. See [Components](#components).
 
-    - Use LinkButton component
+When creating new components, use these guidelines:
 
-  - Cards:
+- Forms:
 
-    - Use Flex and Columns components.
+  - Input fields: Light background, dark border, focus state with blue outline
+  - Dropdowns: Custom styled with chevron icon
+  - Checkboxes: Custom styled with blue check
+  - Radio buttons: Custom styled with blue dot
+  - Toggle switches: Blue when active, gray when inactive
+  - Form validation: Inline error messages in red
+  - Form sections: Logical grouping with clear section headers
 
-  - Forms:
-
-    - Input fields: Light background, dark border, focus state with blue outline
-    - Dropdowns: Custom styled with chevron icon
-    - Checkboxes: Custom styled with blue check
-    - Radio buttons: Custom styled with blue dot
-    - Toggle switches: Blue when active, gray when inactive
-    - Form validation: Inline error messages in red
-    - Form sections: Logical grouping with clear section headers
-
-  - Tables:
-
-    - Use table component
-
-  - Data Visualization:
-    - Cost charts: Bar and line charts
-    - Fleet composition: Pie and donut charts
-    - Timeline charts: For contract and maintenance tracking
-    - Vehicle status indicators: Color-coded status badges
-    - Emissions dashboard: Environmental impact visualization
-    - Cost comparisons: Side-by-side bar charts
+- Data Visualization:
+  - Cost charts: Bar and line charts
+  - Fleet composition: Pie and donut charts
+  - Timeline charts: For contract and maintenance tracking
+  - Vehicle status indicators: Color-coded status badges
+  - Emissions dashboard: Environmental impact visualization
+  - Cost comparisons: Side-by-side bar charts
 
 ### Responsive Design
 
@@ -401,7 +485,9 @@ Components set spacing, padding, gaps, and alignment, automatically. Do not set 
 
 ## Styling Approach
 
-1. Tailwind CSS
+1. Colors are fixed in [Palettes](#palettes) and they are used by passing `palette`-props to block components.
+
+2. Tailwind CSS
 
    - Custom configuration for Innolease brand colors
    - Consistent spacing and sizing
@@ -409,7 +495,7 @@ Components set spacing, padding, gaps, and alignment, automatically. Do not set 
    - Responsive utility classes
    - Dark mode support
 
-2. CSS Modules
+3. CSS Modules
 
    - For complex components
    - Animation keyframes
@@ -417,13 +503,19 @@ Components set spacing, padding, gaps, and alignment, automatically. Do not set 
    - Vehicle display modules
    - Fleet dashboard components
 
-3. Reusable Components
-   - Button variants
+4. Layouts
+   Use existing components for new layouts, wrappers and containers.
+
+5. Reusable Components
+   Use existing [Components](#components) and their variations.
+
+6. New components
+   New components should use palettes and not set colors or fonts with classNames.
+   There are no components for:
    - Form elements
    - Card designs
    - Table components
    - Modal dialogs
-   - Navigation elements
    - Vehicle cards
 
 ### Graphical Patterns and Overlays
