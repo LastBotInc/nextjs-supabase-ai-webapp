@@ -1,92 +1,75 @@
 {
   "title": "Tietoa meistä",
-  "subtitle": "Kumppanisi ajoneuvojen hallinnassa",
-  "our_story_title": "Tarinamme",
-  "our_story": "Vuonna 2015 perustettu Auton on kasvanut johtavaksi leasingpalvelujen tarjoajaksi Pohjoismaissa. Tehtävämme on tehdä ajoneuvojen omistamisesta yksinkertaista, kustannustehokasta ja kestävää sekä yrityksille että yksityishenkilöille.",
-  "our_mission_title": "Tehtävämme",
-  "our_mission": "Pyrimme uudistamaan ajoneuvojen leasingtoimialaa innovaatioiden, läpinäkyvyyden ja erinomaisen asiakaspalvelun avulla. Tarjoamalla joustavia, räätälöityjä ratkaisuja autamme asiakkaitamme saavuttamaan kuljetustavoitteensa ja samalla vähentämään ympäristövaikutuksiaan.",
+  "subtitle": "Kokenut ja ketterä leasingkumppani yrityksesi tarpeisiin",
+  "introduction": {
+    "paragraph1": "Innolease.fi on kokenut ja ketterä leasingkumppani, joka tarjoaa asiakaslähtöisiä ja joustavia ratkaisuja yrityksesi tarpeisiin. Olemme erikoistuneet koneiden, laitteiden ja ajoneuvojen leasingratkaisuihin, joita toteutamme vahvan tiimimme vuosien kokemuksella yritysrahoituksesta ja leasingista.",
+    "paragraph2": "Innolease syntyi osana Autolle.com-konsernin kasvutarinaa, kun yhdistimme vuokraamoliiketoimintamme sekä yritysleasing-liiketoiminnat saman katon alle. Näin voimme tarjota kattavammin palveluita yritysasiakkaillemme vastauksena kasvavaan tarpeeseen räätälöidylle yritysleasingille.",
+    "paragraph3": "Toimimme itsenäisesti, mutta hyödynnämme Autolle.comin asiantuntemusta ja verkostoja, mikä mahdollistaa kilpailukykyiset ratkaisut kaikenkokoisille yrityksille."
+  },
+  "our_story_title": "Yrityksemme tarina",
+  "our_story": "Innolease on kasvanut nopeasti osana Autolle.com-konsernia, yhdistäen vuokraus- ja leasingpalvelut yhdeksi kokonaisuudeksi. Tavoitteenamme on tarjota asiakkaillemme mahdollisimman kattavat ja joustavat ratkaisut, jotka vastaavat nykypäivän yritysten ja yksityishenkilöiden muuttuviin tarpeisiin.",
+  "our_mission_title": "Missiomme ja tavoitteemme",
+  "our_mission": "Pyrimme olemaan luotettavin ja asiakaslähtöisin leasingkumppani Suomessa. Tavoitteenamme on helpottaa asiakkaidemme arkea tarjoamalla selkeitä, rehellisiä ja kustannustehokkaita ratkaisuja – oli kyseessä sitten yrityksen kaluston hallinta tai yksityishenkilön liikkumistarpeet.",
   "our_values_title": "Arvomme",
-  "our_values": "Kestävyys, innovaatio ja asiakaskeskeisyys ovat kaiken toimintamme ytimessä. Uskomme pitkäaikaisten suhteiden rakentamiseen asiakkaidemme, toimittajiemme ja tiimijäsentemme kanssa luottamuksen, rehellisyyden ja keskinäisen kunnioituksen pohjalta.",
-  "key_figures_title": "Avainluvut",
-  "vehicles_count": "Ajoneuvoa",
-  "customers_count": "Asiakasta",
-  "team_count": "Tiimin jäsentä",
-  "co2_saved": "tonnia CO2 säästetty vuosittain",
-  "description": "Tutustu Innoleaseen, yhteyteemme Autolle.com-konserniin, arvoihimme, tiimiimme ja sitoutumiseemme tarjota ensiluokkaisia leasingpalveluita.",
+  "our_values": "Toimintaamme ohjaavat kolme keskeistä arvoa:",
+  "values_list": [
+    {
+      "title": "Avoimuus",
+      "description": "Puhumme selkokieltä ja kerromme aina rehellisesti kustannuksista, ehdoista ja vaihtoehdoista."
+    },
+    {
+      "title": "Henkilökohtainen palvelu",
+      "description": "Jokaisella asiakkaalla on oma yhteyshenkilö, joka tuntee toimialasi ja vastaa nopeasti tarpeisiisi."
+    },
+    {
+      "title": "Joustavuus",
+      "description": "Etsimme parhaan ratkaisun yrityksesi tilanteeseen – oli kyseessä työkone, laite tai ajoneuvo."
+    }
+  ],
+  "why_choose_us_title": "Miksi valita Innolease?",
+  "why_choose_us": [
+    "Kokenut tiimi yritysrahoituksen ja leasingin ammattilaisia.",
+    "Asiakaslähtöinen ja joustava palvelu – ratkaisut räätälöidään aina asiakkaan tarpeisiin.",
+    "Kilpailukykyiset ja läpinäkyvät ehdot.",
+    "Vahva taustatuki ja verkostot Autolle.com-konsernista.",
+    "Kattavat digitaaliset palvelut, jotka helpottavat kaluston hallintaa ja raportointia."
+  ],
+  "digital_services_title": "Digitaaliset palvelut – enemmän kuin leasing",
+  "digital_services": [
+    "Kattavat digitaaliset palvelut yrityksille ja yksityishenkilöille.",
+    "Helppo kaluston hallinta, raportointi ja käytännön tilanteiden tuki yhdessä paikassa.",
+    "Nopea yhteys asiantuntijaan myös digipalveluiden kautta – et jää yksin järjestelmän kanssa."
+  ],
+  "offerings_title": "Palvelumme yksityis- ja yritysasiakkaille",
+  "offerings": {
+    "corporate": [
+      "Räätälöidyt leasingratkaisut yrityksille kaikenkokoisiin tarpeisiin.",
+      "Koneiden, laitteiden ja ajoneuvojen leasing joustavilla ehdoilla.",
+      "Oma yhteyshenkilö ja henkilökohtainen palvelu.",
+      "Kilpailukykyiset hinnat ja selkeät sopimusehdot."
+    ],
+    "private": [
+      "Helppoa ja vaivatonta liikkumista leasingin avulla.",
+      "Selkeät kustannukset ja läpinäkyvät sopimukset.",
+      "Digitaaliset palvelut ja asiantunteva tuki myös yksityisasiakkaille."
+    ]
+  },
+  "history_title": "Kasvutarina ja konserniyhteys",
   "history": {
-    "title": "Tarinamme ja yhteys Autolle.comiin",
-    "paragraph1": "Innolease Oy on suomalainen ajoneuvojen leasingpalveluihin erikoistunut kasvuyritys. Osana arvostettua Autolle.com-konsernia hyödynnämme laajaa autoalan asiantuntemusta tarjotaksemme innovatiivisia ja asiakaslähtöisiä leasingratkaisuja.",
-    "paragraph2": "Toimintamme perustuu Autolle.comin vahvaan markkina-asemaan ja laatuun sitoutumiseen. Tämä mahdollistaa luotettavien ja joustavien leasingvaihtoehtojen tarjoamisen yritysten tarpeisiin kaikkialla Suomessa.",
+    "paragraph1": "Innolease on osa Autolle.com-konsernia, jonka asiantuntemus ja verkostot mahdollistavat kilpailukykyiset ja innovatiiviset ratkaisut kaikille asiakkaille.",
+    "paragraph2": "Yhdistämällä vuokraus- ja leasingliiketoiminnat olemme pystyneet vastaamaan kasvavaan tarpeeseen räätälöidyille yritysleasing-palveluille Suomessa.",
     "autolleButton": "Tutustu Autolle.comiin",
     "imageAlt": "Autolle.com-konsernin toimistorakennus"
   },
-  "intro": {
-    "title": "Asiakaslähtöiset leasingpalvelut",
-    "paragraph1": "Innolease kuuluu osana Autolle konserniin. Yhdistimme yritysmyynti-yksikkömme vuokrauspalvelumme kanssa, jolloin voimme aidosti tarjota asiakkaillemme erilasia palveluita pitkäaikaisesta leasingistä lyhyeen vuokraukseen.",
-    "paragraph2": "Innolease Oy:n tärkein tarkoitus on mukautua asiakkaan tarpeisiin ja tarjota asiakkaalle oikeat ratkaisut asiakkaan tarpeisiin.",
-    "paragraph3": "Meillä on omia vuokra-autoja noin 800 verran ympäri suomea.",
-    "paragraph4": "Oma nimetty yhteyshenkilö ja digitaaliset palvelumme tarjoaa asiakkaille osaavan ja joustavan palvelun autoasioihin.",
-    "paragraph5": "Meidän tavoitteemme on, säästää asiakkaan aikaa ja rahaa, vähentää riskejä sekä helpottaa asiakkaan autokannan hallinnointia.",
-    "imageAlt": "Innolease yritysauto"
-  },
-  "facts": {
-    "title": "Tärkeimmät tiedot Autolle.comista",
-    "fact1": {
-      "title": "Digitaalisen autokaupan johtaja",
-      "description": "Autolle.com digitalisoi autokauppaa Euroopassa, ja sen verkosto kattaa koko Suomen."
-    },
-    "fact2": {
-      "title": "Perustettu vuonna 2014",
-      "description": "Tuo innovaatioita autoteollisuuden markkinoille lähes vuosikymmenen ajan."
-    },
-    "fact3": {
-      "title": "Kattavat palvelut",
-      "description": "Tarjoaa verkkokauppaa, rahoitusta, katsastusta, kotiinkuljetusta, leasingia ja takuupalveluita."
-    },
-    "fact4": {
-      "title": "Osa Autollecom-konsernia",
-      "description": "Yhteistyössä Green Motionin, Autoeuroopan, Rahoituskumppanin ja Rahoituskaupan kanssa."
-    }
-  },
-  "values": {
-    "title": "Arvomme",
-    "value1": {
-      "title": "Asiakaslähtöisyys",
-      "description": "Ymmärrämme ja vastaamme asiakkaidemme yksilöllisiin tarpeisiin räätälöidyillä ratkaisuilla."
-    },
-    "value2": {
-      "title": "Joustavuus",
-      "description": "Tarjoamme mukautuvia leasingvaihtoehtoja, jotka joustavat liiketoimintasi mukana."
-    },
-    "value3": {
-      "title": "Luotettavuus",
-      "description": "Autolle.com-konsernin tukemana varmistamme luotettavan palvelun ja laadukkaat ajoneuvot."
-    }
-  },
-  "team": {
-    "title": "Johtoryhmämme",
-    "title1": "Toimitusjohtaja",
-    "title2": "Myyntijohtaja",
-    "title3": "Operatiivinen johtaja"
-  },
+  "coverage_title": "Valtakunnallinen palveluverkosto",
   "coverage": {
-    "title": "Valtakunnallinen palveluverkosto",
     "description": "Strategisesti sijoittuneiden kumppaneiden ja vahvan verkoston avulla Innolease tarjoaa kattavan palveluverkoston koko Suomessa. Varmistamme tuen siellä, missä kalustosi liikkuu.",
     "mapPlaceholder": "Suomen kartta palvelupisteillä",
     "mapAlt": "Innoleasen palveluverkoston kartta Suomessa"
   },
-  "stats": {
-    "fleetSize": "5000+",
-    "fleetSizeLabel": "Hallinnoitua ajoneuvoa",
-    "satisfactionRate": "98",
-    "satisfactionRateLabel": "Asiakastyytyväisyys"
-  },
-  "partners": {
-    "title": "Luotetut kumppanimme"
-  },
   "cta": {
     "title": "Valmiina optimoimaan kalustosi?",
-    "description": "Ota yhteyttä Innoleaseen jo tänään. Keskustellaan tarpeistasi ja löydetään paras leasingratkaisu yrityksellesi.",
+    "description": "Ota yhteyttä Innoleaseen jo tänään. Keskustellaan tarpeistasi ja löydetään paras leasingratkaisu yrityksellesi tai yksityiseen käyttöön.",
     "button": "Ota yhteyttä"
   },
   "meta": {
