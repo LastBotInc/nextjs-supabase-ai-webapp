@@ -67,11 +67,7 @@ function BackgroundImageSlot(props: BackgroundImageProps) {
 BackgroundImageSlot.displayName = "BackgroundImageSlot";
 
 function ContentSlot({ children, ...rest }: Omit<BlockProps, "type">) {
-  return (
-    <ContentArea {...rest} type={BlockType.Content}>
-      {children}
-    </ContentArea>
-  );
+  return <ContentArea {...rest}>{children}</ContentArea>;
 }
 ContentSlot.displayName = "ContentSlot";
 

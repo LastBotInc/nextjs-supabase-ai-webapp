@@ -1,40 +1,6 @@
-import { CSSProperties, Fragment, ReactNode } from "react";
-import { BoxBlock } from "../blocks/BoxBlock";
+import { Card } from "../core/Card";
 import { GridLayout, GridLayoutProps } from "./GridLayout";
-import { PaddingType, Palette } from "../core/types";
 import { cn } from "@/lib/utils";
-import { Flex, FlexProps } from "../core/Flex";
-
-function Box({
-  children,
-  palette,
-  rounded = true,
-  padding,
-  className,
-  style,
-  gaps,
-}: {
-  children: ReactNode;
-  palette?: Palette;
-  rounded?: boolean;
-  padding?: PaddingType;
-  className?: string;
-  style?: CSSProperties;
-  gaps?: FlexProps["gaps"] | boolean;
-}) {
-  const Gapper = gaps ? Flex : Fragment;
-  return (
-    <BoxBlock palette={palette} padding={padding} className={cn(rounded ? "rounded-box" : "", className)} style={style}>
-      <BoxBlock.Content>
-        <Gapper gaps={typeof gaps === "boolean" ? "level-based" : gaps} direction="column">
-          {children}
-        </Gapper>
-      </BoxBlock.Content>
-    </BoxBlock>
-  );
-}
-
-Box.displayName = "BoxLayout.Box";
 
 /**
  * BoxLayout is a component that is used to display a grid of elements. it uses GridLayout component to render the grid with columns.
@@ -84,4 +50,4 @@ export function BoxLayout({
   );
 }
 
-BoxLayout.Box = Box;
+BoxLayout.Box = Card;

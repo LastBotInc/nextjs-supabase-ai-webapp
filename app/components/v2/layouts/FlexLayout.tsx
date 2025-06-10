@@ -1,8 +1,50 @@
-import { NestedBlocksProps } from "../core/types";
+import { LayoutBlocksProps, SizeDefinition } from "../core/types";
 import { FixedWidthColumn, Flex, FlexProps } from "../core/Flex";
 import { FullBlockStructure } from "../blocks/FullBlockStructure";
-import { ReactNode } from "react";
+import { Children, isValidElement, ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { getSlotName } from "../utils/getSlotName";
+
+export type FlexLayoutProps = Omit<LayoutBlocksProps, "type"> &
+  FlexProps & { columnWidths?: Array<string | SizeDefinition | undefined> };
+
+export const isAlreadyWrapper = (child: ReactNode): boolean => {
+  if (!isValidElement(child)) {
+    return false;
+  }
+  const name = getSlotName(child as ReactElement);
+  return name === FixedWidthColumn.displayName || name === Column.displayName;
+};
+
+export function ChildWrapper({
+  children,
+  columnWidths,
+}: {
+  children: FlexLayoutProps["children"];
+  columnWidths?: Array<string | SizeDefinition | undefined>;
+}): ReactNode {
+  if (!children) {
+    return null;
+  }
+
+  return Children.toArray(children).map((child, index: number) => {
+    const widthDefinition = columnWidths && columnWidths[index];
+    const isClonable = isValidElement(child);
+
+    if (isAlreadyWrapper(child)) {
+      return child;
+    }
+
+    if (widthDefinition && isClonable) {
+      return (
+        <FixedWidthColumn key={index} width={widthDefinition}>
+          {child}
+        </FixedWidthColumn>
+      );
+    }
+    return <Column key={index}>{child}</Column>;
+  });
+}
 
 export function Column({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("flex-column gap-container", className)}>{children}</div>;
@@ -29,6 +71,8 @@ Column.displayName = "FlexLayout.Column";
  * @param oneColumnBreakpoint - The breakpoint at which the flex container should switch to a single column.
  * @param direction - The direction of the flex container.
  * @param gaps - The gaps of the flex container.
+ * @param autoWrapChildren - Whether to wrap children in a flex container. Default is true.
+ * @param columnWidths - The widths of the children columns.
  */
 export function FlexLayout({
   children,
@@ -40,7 +84,7 @@ export function FlexLayout({
   direction,
   gaps,
   ...rest
-}: Omit<NestedBlocksProps, "type"> & FlexProps) {
+}: FlexLayoutProps) {
   return (
     <FullBlockStructure {...rest}>
       {mainImage && <FullBlockStructure.MainBlockImage {...mainImage} />}

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { ContentBlock } from "./ContentBlock";
 import { MainBlock } from "./MainBlock";
-import { BlockProps, NestedBlocksProps } from "../core/types";
+import { BlockProps, LayoutBlocksProps } from "../core/types";
 import { mapSlots } from "../utils/mapSlots";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 
@@ -9,7 +9,7 @@ export function Content({
   children,
   contentImage,
   ...rest
-}: { children: ReactNode; contentImage: NestedBlocksProps["contentImage"] } & Omit<BlockProps, "type">) {
+}: { children: ReactNode; contentImage: LayoutBlocksProps["contentImage"] } & Omit<BlockProps, "type">) {
   return (
     <ContentBlock {...rest}>
       {contentImage && <ContentBlock.BackgroundImage {...contentImage} />}

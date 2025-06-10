@@ -5,11 +5,7 @@ import { BlockProps } from "./types";
 
 /**
  * ContentArea is a component that is used to display a content area.
- * Example:
- * <ContentArea padding="full">
- *   <Heading2>Heading</Heading2>
- *   <Paragraph>Paragraph</Paragraph>
- * </ContentArea>
+ * Should not be used directly, only part of the Block component.
  * @param children - The children of the content area.
  * @param className - The className of the content area.
  * @param padding - The padding of the content area.
