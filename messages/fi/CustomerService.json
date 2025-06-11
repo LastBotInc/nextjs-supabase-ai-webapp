@@ -6,7 +6,13 @@
   "hero": {
     "heading": "Asiakaspalvelu",
     "subheading": "Autamme sinua kaikissa leasing- ja autokannan hallintaan liittyvissä asioissa",
-    "backgroundAlt": "Asiakaspalvelun edustajia"
+    "backgroundAlt": "Asiakaspalvelun edustajia",
+    "numbers": [
+      {
+        "number": "+358 9 123 4567",
+        "title": "Soita meille"
+      }
+    ]
   },
   "intro": {
     "title": "Kuinka voimme auttaa?",

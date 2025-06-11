@@ -2,11 +2,20 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { PhoneIcon, EnvelopeIcon, ClockIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Button } from "@/app/components/v2/core/Button";
 import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
+import { Hero } from "@/app/components/v2/layouts/Hero";
+import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
+import { GridLayout } from "@/app/components/v2/layouts/GridLayout";
+import { Heading2, Heading3, Heading3Small } from "@/app/components/v2/core/Headings";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
+import { CallUs } from "@/app/components/v2/components/CallUs";
+import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
+import { Card } from "@/app/components/v2/core/Card";
+import { LinkButton } from "@/app/components/v2/core/LinkButton";
+import { ImagePlaceholder } from "@/app/components/v2/components/ImagePlaceholder";
+import { Flex } from "@/app/components/v2/core/Flex";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = params;
@@ -74,167 +83,89 @@ export default async function CustomerServicePage({ params }: { params: { locale
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <PageWrapper>
       {/* Hero Section */}
-      <section className="w-full bg-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Image container - Full width */}
-          <div className="w-full relative h-[300px] md:h-[400px] mb-12">
-            <Image
-              src="/images/customer-service-hero.jpg"
-              alt={t("hero.backgroundAlt")}
-              fill
-              className="object-cover rounded-lg"
-              priority
-              sizes="100vw"
-              quality={90}
-            />
-            {/* Text overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-piki/80 to-piki/20 rounded-lg flex items-center">
-              <div className="text-white max-w-2xl pl-8 md:pl-16">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">{t("hero.heading")}</h1>
-                <p className="text-xl md:text-2xl font-light">{t("hero.subheading")}</p>
-              </div>
-            </div>
-          </div>
+      <Hero fullWidth isFirst>
+        <Hero.Image src="/images/Tietoa_meista.png" />
+        <Hero.Heading>{t("hero.heading")}</Hero.Heading>
+        <Hero.SubHeading>{t("hero.subheading")}</Hero.SubHeading>
+        <Hero.Text> </Hero.Text>
+        <Hero.ExtraContent>
+          <CallUs numbers={t.raw("hero.numbers")} />
+        </Hero.ExtraContent>
+      </Hero>
 
-          {/* Introduction section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start mb-16">
-            <div>
-              <h2 className="text-3xl font-bold text-piki mb-4">{t("intro.title")}</h2>
-              <div className="h-1 w-16 bg-kupari mb-6"></div>
-              <div className="space-y-5 text-gray-700">
-                <p className="text-lg">{t("intro.paragraph1")}</p>
-                <p className="text-lg">{t("intro.paragraph2")}</p>
-              </div>
-            </div>
-            <div className="bg-beige p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-piki mb-4">{t("quickHelp.title")}</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <PhoneIcon className="h-5 w-5 text-kupari mr-3" />
-                  <span className="text-lg font-medium">{t("quickHelp.phone")}</span>
-                </div>
-                <div className="flex items-center">
-                  <EnvelopeIcon className="h-5 w-5 text-kupari mr-3" />
-                  <span className="text-lg font-medium">{t("quickHelp.email")}</span>
-                </div>
-                <div className="flex items-center">
-                  <ClockIcon className="h-5 w-5 text-kupari mr-3" />
-                  <span className="text-lg font-medium">{t("quickHelp.hours")}</span>
-                </div>
-              </div>
-              <div className="mt-6">
-                <Button size="default" className="bg-kupari hover:bg-kupari/90 text-white px-6 py-3 rounded-md" asChild>
-                  <Link href="#contact-form">{t("quickHelp.contactButton")}</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Introduction & Quick Help */}
+      <TwoColumnLayout>
+        {/* Left: Introduction */}
+        <FlexLayout.Column>
+          <Heading2>{t("intro.title")}</Heading2>
+          <Paragraph>{t("intro.paragraph1")}</Paragraph>
+          <Paragraph>{t("intro.paragraph2")}</Paragraph>
+        </FlexLayout.Column>
+        {/* Right: Quick Help */}
+        <Card palette="beige">
+          <Heading3>{t("quickHelp.title")}</Heading3>
+          <Paragraph>
+            {t("quickHelp.phone")}
+            <br />
+            {t("quickHelp.email")}
+            <br />
+            {t("quickHelp.hours")}
+          </Paragraph>
+          <LinkButton href="#contact-form">{t("quickHelp.contactButton")}</LinkButton>
+        </Card>
+      </TwoColumnLayout>
 
       {/* Support Categories */}
-      <section className="w-full bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-piki mb-4">{t("supportCategories.title")}</h2>
-            <div className="h-1 w-16 bg-kupari mx-auto mb-6"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">{t("supportCategories.description")}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {supportCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="p-2 bg-beige inline-block rounded-full mb-4">
-                  <Image src={category.icon} alt={category.title} width={40} height={40} className="h-10 w-10" />
-                </div>
-                <h3 className="text-xl font-bold text-piki mb-3">{category.title}</h3>
-                <p className="text-gray-700 mb-4">{category.description}</p>
-                <Link href="#" className="text-kupari font-medium flex items-center hover:underline">
-                  {t("supportCategories.learnMore")}
-                  <ArrowRightIcon className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GridLayout columns={{ default: 1, md: 2, lg: 4 }} contentPalette="gray">
+        {supportCategories.map((category, index) => (
+          <Card key={index} gaps="small">
+            <ImagePlaceholder aspectRatio="4:3" />
+            <Heading3>{category.title}</Heading3>
+            <Paragraph>{category.description}</Paragraph>
+            <LinkButton href="#">{t("supportCategories.learnMore")}</LinkButton>
+          </Card>
+        ))}
+      </GridLayout>
 
       {/* Offices section */}
-      <section className="w-full bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-piki mb-4">{t("offices.title")}</h2>
-            <div className="h-1 w-16 bg-kupari mb-6"></div>
-            <p className="text-lg text-gray-700 max-w-3xl">{t("offices.description")}</p>
-          </div>
+      <GridLayout columns={{ default: 1, md: 3 }} contentPalette="beige">
+        {contactOffices.map((office, index) => (
+          <Card key={index} gaps="small">
+            <Heading3>{office.name}</Heading3>
+            <Paragraph>{office.address}</Paragraph>
+            <Paragraph>{office.phone}</Paragraph>
+            <Paragraph>{office.email}</Paragraph>
+            <Paragraph>{office.hours}</Paragraph>
+            <LinkButton href={`https://maps.google.com/?q=${office.name} ${office.address}`} target="_blank">
+              {t("offices.viewMap")}
+            </LinkButton>
+          </Card>
+        ))}
+      </GridLayout>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {contactOffices.map((office, index) => (
-              <div
-                key={index}
-                className="bg-beige rounded-lg p-6 has-overlay-pattern overlay-pattern-innolease-1 overlay-opacity-10"
-              >
-                <h3 className="text-xl font-bold text-piki mb-4">{office.name}</h3>
-                <div className="space-y-3 text-gray-700">
-                  <p>{office.address}</p>
-                  <p className="flex items-center">
-                    <PhoneIcon className="h-4 w-4 text-kupari mr-2" />
-                    {office.phone}
-                  </p>
-                  <p className="flex items-center">
-                    <EnvelopeIcon className="h-4 w-4 text-kupari mr-2" />
-                    {office.email}
-                  </p>
-                  <p className="flex items-center">
-                    <ClockIcon className="h-4 w-4 text-kupari mr-2" />
-                    {office.hours}
-                  </p>
-                </div>
-                <Button
-                  variant="outline"
-                  className="mt-4 border-kupari text-kupari hover:bg-kupari hover:text-white"
-                  asChild
-                >
-                  <Link href={`https://maps.google.com/?q=${office.name} ${office.address}`} target="_blank">
-                    {t("offices.viewMap")}
-                  </Link>
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Contact form and FAQ */}
+      <FlexLayout palette="beige" direction="column">
+        {/* Left: FAQ */}
+        <FlexLayout.Column>
+          <Flex direction="row">
+            <FlexLayout.Column>
+              <Heading2>{t("contactForm.title")}</Heading2>
+              <Paragraph>{t("contactForm.description")}</Paragraph>
+              <FlexLayout.Column>
+                {[1, 2, 3].map((i) => (
+                  <Flex direction="column" gaps="small" key={i}>
+                    <Heading3Small>{t(`contactForm.faq.question${i}`)}</Heading3Small>
+                    <Paragraph>{t(`contactForm.faq.answer${i}`)}</Paragraph>
+                  </Flex>
+                ))}
+              </FlexLayout.Column>
+            </FlexLayout.Column>
 
-      {/* Contact form section */}
-      <section id="contact-form" className="w-full bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-piki mb-4">{t("contactForm.title")}</h2>
-              <div className="h-1 w-16 bg-kupari mb-6"></div>
-              <p className="text-lg text-gray-700 mb-4">{t("contactForm.description")}</p>
-              <div className="mt-8 space-y-4">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-medium text-piki">{t("contactForm.faq.question1")}</h4>
-                  <p className="text-gray-700 mt-2">{t("contactForm.faq.answer1")}</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-medium text-piki">{t("contactForm.faq.question2")}</h4>
-                  <p className="text-gray-700 mt-2">{t("contactForm.faq.answer2")}</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-medium text-piki">{t("contactForm.faq.question3")}</h4>
-                  <p className="text-gray-700 mt-2">{t("contactForm.faq.answer3")}</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-piki mb-6">{t("contactForm.formTitle")}</h3>
+            <FlexLayout.Column>
+              <Heading3>{t("contactForm.formTitle")}</Heading3>
+              {/* The form can be further refactored to use v2/core components for inputs if available */}
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -313,53 +244,30 @@ export default async function CustomerServicePage({ params }: { params: { locale
                     {t("contactForm.privacyConsent")}
                   </label>
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-piki hover:bg-piki/90 text-white py-3">
-                  {t("contactForm.submit")}
-                </Button>
+                <Button>{t("contactForm.submit")}</Button>
               </form>
-            </div>
-          </div>
-        </div>
-      </section>
+            </FlexLayout.Column>
+          </Flex>
+        </FlexLayout.Column>
+
+        {/* Right: Contact Form */}
+      </FlexLayout>
 
       {/* Call-to-action section */}
-      <section className="w-full bg-piki py-16 text-white relative">
-        <div className="absolute inset-0 opacity-70">
-          <Image
-            src="/images/innofleet-car-background.png"
-            alt={t("cta.backgroundAlt")}
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-piki/40 z-10"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-4 font-['Inter_Tight']">{t("cta.title")}</h2>
-            <p className="mb-8 text-lg text-white">{t("cta.description")}</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                variant="default"
-                size="lg"
-                className="bg-kupari hover:bg-kupari/90 text-white px-8 py-3 text-lg"
-                asChild
-              >
-                <Link href={`/${locale}/fleet-management`}>{t("cta.fleetButton")}</Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-piki px-8 py-3 text-lg"
-                asChild
-              >
-                <Link href={`/${locale}/leasing-solutions`}>{t("cta.leasingButton")}</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero fullWidth className="bg-piki text-white relative">
+        <Hero.Image src="/images/innofleet-car-background.png" />
+        <Hero.Heading>{t("cta.title")}</Hero.Heading>
+        <Hero.Text>
+          <Flex direction="column" gaps="small">
+            {t("cta.description")}
+            <LinkButton href={`/${locale}/fleet-management`}>{t("cta.fleetButton")}</LinkButton>
+            <LinkButton href={`/${locale}/leasing-solutions`}>{t("cta.leasingButton")}</LinkButton>
+          </Flex>
+        </Hero.Text>
+      </Hero>
+
+      {/* Personnel section */}
       <PersonnelCard people={t.raw("personnel")} />
-    </main>
+    </PageWrapper>
   );
 }

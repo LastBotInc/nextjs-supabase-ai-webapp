@@ -108,7 +108,7 @@ export default async function CarRentalPage({ params }: Props) {
         </List>
         <Heading3>{t("minileasing.examplesTitle")}</Heading3>
         <List>
-          {t.raw("minileasing.examples").map((item, idx) => (
+          {t.raw("minileasing.examples").map((item: string, idx: number) => (
             <List.Item key={idx}>{item}</List.Item>
           ))}
         </List>
