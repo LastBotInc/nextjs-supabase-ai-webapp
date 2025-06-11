@@ -3,7 +3,6 @@
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 import { Button } from "@/app/components/v2/core/Button";
-import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
 import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
@@ -18,7 +17,7 @@ import { ImagePlaceholder } from "@/app/components/v2/components/ImagePlaceholde
 import { Flex } from "@/app/components/v2/core/Flex";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CustomerService.meta" });
 
   return {
@@ -118,7 +117,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
       </TwoColumnLayout>
 
       {/* Support Categories */}
-      <GridLayout columns={{ default: 1, md: 2, lg: 4 }} contentPalette="gray">
+      <GridLayout columns={{ default: 1, md: 2, lg: 4 }} palette="light-gray">
         {supportCategories.map((category, index) => (
           <Card key={index} gaps="small">
             <ImagePlaceholder aspectRatio="4:3" />
@@ -130,7 +129,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
       </GridLayout>
 
       {/* Offices section */}
-      <GridLayout columns={{ default: 1, md: 3 }} contentPalette="beige">
+      <GridLayout columns={{ default: 1, md: 3 }} palette="beige">
         {contactOffices.map((office, index) => (
           <Card key={index} gaps="small">
             <Heading3>{office.name}</Heading3>
@@ -146,7 +145,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
       </GridLayout>
 
       {/* Contact form and FAQ */}
-      <FlexLayout palette="beige" direction="column">
+      <FlexLayout palette="light-gray" direction="column">
         {/* Left: FAQ */}
         <FlexLayout.Column>
           <Flex direction="row">
@@ -265,9 +264,6 @@ export default async function CustomerServicePage({ params }: { params: { locale
           </Flex>
         </Hero.Text>
       </Hero>
-
-      {/* Personnel section */}
-      <PersonnelCard people={t.raw("personnel")} />
     </PageWrapper>
   );
 }

@@ -53,5 +53,18 @@
     "title": "Kiinnostuitko leasingista?",
     "description": "Ota yhteyttä asiantuntijoihimme – autamme löytämään juuri sinulle tai yrityksellesi parhaan leasingratkaisun. Voit myös pyytää tarjouksen helposti verkkosivujemme kautta.",
     "button": "Ota yhteyttä"
+  },
+  "calculator": {
+    "title": "Leasing-laskuri",
+    "carPrice": "Auton hinta",
+    "contractLength": "Sopimuksen kesto",
+    "months": "kuukautta",
+    "downPayment": "Kontantinsats",
+    "interestRate": "Korko",
+    "taxRate": "Verotus",
+    "resultTitle": "Laskelma",
+    "monthlyFee": "Kuukausimaksu",
+    "afterTaxMonthly": "Kuukausimaksu verojen jälkeen",
+    "disclaimer": "Tämä on arvio. Todelliset kustannukset voivat vaihdella. Verotus oletetaan kuukausimaksun maksamisesta nettoansioista."
   }
 }

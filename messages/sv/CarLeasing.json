@@ -53,5 +53,18 @@
     "title": "Intresserad av leasing?",
     "description": "Kontakta våra experter – vi hjälper dig att hitta den bästa leasinglösningen för dig eller ditt företag. Du kan också enkelt be om en offert via vår webbplats.",
     "button": "Kontakta oss"
+  },
+  "calculator": {
+    "title": "Leasingkalkylator",
+    "carPrice": "Bilpris",
+    "contractLength": "Avtalstid",
+    "months": "månader",
+    "downPayment": "Kontantinsats",
+    "interestRate": "Ränta",
+    "taxRate": "Skatt",
+    "resultTitle": "Beräkning",
+    "monthlyFee": "Månadskostnad",
+    "afterTaxMonthly": "Månadskostnad efter skatt",
+    "disclaimer": "Detta är en uppskattning. Kostnaderna kan variera. Skatteberäkningen antar att månadskostnaden betalas från nettoinkomst."
   }
 }

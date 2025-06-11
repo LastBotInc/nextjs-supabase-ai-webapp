@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Flex } from "../core/Flex";
-import { Heading2, Heading3, Heading3Small } from "../core/Headings";
+import { Heading2, Heading3Small } from "../core/Headings";
 import { Card } from "../core/Card";
 
 // Props: t is a translation function, e.g. from useTranslations("CarLeasing.calculator")
