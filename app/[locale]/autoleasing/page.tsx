@@ -29,7 +29,7 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
   // Setup localization
   const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("CarLeasing");
+  const t = await getTranslations({ locale, namespace: "CarLeasing" });
 
   return (
     <PageWrapper>

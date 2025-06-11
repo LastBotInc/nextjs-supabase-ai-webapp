@@ -46,7 +46,7 @@ function stripHtmlTags(html: string): string {
 export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
   const params = await paramsPromise;
   const { locale, slug } = params;
-  const t = await getTranslations("LandingPages");
+  const t = await getTranslations({ locale, namespace: "LandingPages" });
 
   // Use explicit ANON client for consistency and to ensure anon RLS is checked
   const cookieStore = await cookies();
@@ -178,7 +178,7 @@ export default async function LandingPage({ params: paramsPromise }: Props) {
   const params = await paramsPromise;
   const { locale, slug } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("LandingPages");
+  const t = await getTranslations({ locale, namespace: "LandingPages" });
   const page: PublicLandingPageView | null = await getLandingPage(slug, locale);
 
   if (!page) {

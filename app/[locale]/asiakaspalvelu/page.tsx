@@ -22,7 +22,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
   // Setup localization
   const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("CustomerService");
+  const t = await getTranslations({ locale, namespace: "CustomerService" });
 
   // Contact offices data could come from a database in a real implementation
   const contactOffices = [

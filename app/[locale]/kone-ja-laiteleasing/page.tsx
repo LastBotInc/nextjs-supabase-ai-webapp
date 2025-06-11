@@ -12,6 +12,9 @@ import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { Accordion } from "@/app/components/v2/core/Accordion";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { ContentArea } from "@/app/components/v2/core/ContentArea";
+import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
+import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
+import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 // Placeholder for image container, replace with actual ImageContainer if available
 // import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 
@@ -29,8 +32,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
   // Setup localization
   const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("MachineLeasing");
-
+  const t = await getTranslations({ locale, namespace: "MachineLeasing" });
   // Terms list
   const terms: { term: string; description: string }[] = t.raw("terms.list");
   // Vehicles table
@@ -55,7 +57,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
       </Hero>
 
       {/* Terms Section */}
-      <FlexLayout palette="kupari">
+      <TwoColumnLayout>
         <FlexLayout.Column>
           <Heading2>{t("terms.heading")}</Heading2>
           <List>
@@ -67,67 +69,52 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          {/* Image Placeholder */}
-          <div className="w-full md:w-1/3 h-40 bg-gray-100 flex items-center justify-center mt-4 md:mt-0">
-            Image Placeholder
-          </div>
+          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" />
         </FlexLayout.Column>
-      </FlexLayout>
+      </TwoColumnLayout>
 
       {/* Vehicles Section */}
 
-      <FlexLayout palette="betoni">
-        <ContentArea>
-          <Heading2>{t("vehicles.heading")}</Heading2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-200">
-              <thead>
-                <tr>
-                  {vehicleColumns.map((col: string, idx: number) => (
-                    <th key={idx} className="px-4 py-2 border-b bg-gray-50 text-left">
-                      {col}
-                    </th>
+      <BasicLayout palette="betoni">
+        <Heading2>{t("vehicles.heading")}</Heading2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-200">
+            <thead>
+              <tr>
+                {vehicleColumns.map((col: string, idx: number) => (
+                  <th key={idx} className="px-4 py-2 border-b bg-gray-50 text-left">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {vehicleRows.map((row: string[], idx: number) => (
+                <tr key={idx}>
+                  {row.map((cell, cidx) => (
+                    <td key={cidx} className="px-4 py-2 border-b">
+                      {cell}
+                    </td>
                   ))}
                 </tr>
-              </thead>
-              <tbody>
-                {vehicleRows.map((row: string[], idx: number) => (
-                  <tr key={idx}>
-                    {row.map((cell, cidx) => (
-                      <td key={cidx} className="px-4 py-2 border-b">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </ContentArea>
-        {/* Image Placeholder */}
-        <div className="w-full md:w-1/3 h-40 bg-gray-900 flex items-center justify-center mt-4 md:mt-0">
-          Image Placeholder
+              ))}
+            </tbody>
+          </table>
         </div>
-      </FlexLayout>
+      </BasicLayout>
 
       {/* Benefits Section */}
-      <FlexLayout palette="betoni">
-        <ContentArea>
-          <Heading2>{t("benefits.heading")}</Heading2>
-          <List>
-            {benefits.map((item, idx) => (
-              <List.Item key={idx}>{item}</List.Item>
-            ))}
-          </List>
-        </ContentArea>
-        {/* Image Placeholder */}
-        <div className="w-full md:w-1/3 h-40 bg-gray-900 flex items-center justify-center mt-4 md:mt-0">
-          Image Placeholder
-        </div>
-      </FlexLayout>
+      <BasicLayout>
+        <Heading2>{t("benefits.heading")}</Heading2>
+        <List>
+          {benefits.map((item, idx) => (
+            <List.Item key={idx}>{item}</List.Item>
+          ))}
+        </List>
+      </BasicLayout>
 
       {/* Examples Section */}
-      <BoxLayout maxColumns={2} palette="piki">
+      <FlexLayout palette="piki">
         {cases.map((ex, idx) => (
           <BoxLayout.Box key={idx}>
             {/* Image Placeholder */}
@@ -136,34 +123,34 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
             <Paragraph>{ex.description}</Paragraph>
           </BoxLayout.Box>
         ))}
-      </BoxLayout>
+      </FlexLayout>
 
       {/* FAQ Section */}
-      <BoxLayout maxColumns={1} palette="default">
-        <BoxLayout.Box>
-          <Heading2>{t("faq.heading")}</Heading2>
-          <Accordion>
-            {faqList.map((item, idx) => (
-              <Accordion.Item key={idx} heading={item.question}>
-                <Paragraph>{item.answer}</Paragraph>
-              </Accordion.Item>
-            ))}
-          </Accordion>
-        </BoxLayout.Box>
-      </BoxLayout>
+      <BasicLayout palette="default">
+        <Heading2>{t("faq.heading")}</Heading2>
+        <Accordion>
+          {faqList.map((item, idx) => (
+            <Accordion.Item key={idx} heading={item.question}>
+              <Paragraph>{item.answer}</Paragraph>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </BasicLayout>
 
       {/* CTA Section */}
-      <FlexLayout palette="betoni">
-        <ContentArea>
+      <TwoColumnLayout palette="betoni">
+        <FlexLayout.Column>
           <Heading2>{t("cta.heading")}</Heading2>
           <Paragraph>{t("cta.text")}</Paragraph>
           <LinkButton href="/contact">Ota yhteyttä</LinkButton>
-        </ContentArea>
-        {/* Image Placeholder */}
-        <div className="w-full md:w-1/3 h-40 bg-gray-900 flex items-center justify-center mt-4 md:mt-0">
-          Image Placeholder
-        </div>
-      </FlexLayout>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          {/* Image Placeholder */}
+          <div className="w-full md:w-1/3 h-40 bg-gray-900 flex items-center justify-center mt-4 md:mt-0">
+            Image Placeholder
+          </div>
+        </FlexLayout.Column>
+      </TwoColumnLayout>
     </PageWrapper>
   );
 }

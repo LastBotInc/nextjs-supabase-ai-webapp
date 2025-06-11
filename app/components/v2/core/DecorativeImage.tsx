@@ -29,15 +29,15 @@ export function DecorativeImage({
   src,
   backgroundPosition = "center right",
   backgroundSize = "cover",
-  withHoles = true,
+  useMask = false,
 }: BackgroundImageProps & {
   width: "small" | "medium" | "large";
   height: "tiny" | "medium" | "max" | "overflow-paddings" | "max-block";
-  withHoles?: boolean;
+  useMask?: boolean;
 }) {
   return (
     <div className={cn("decorative-image", "relative", `width-${width}`)}>
-      <div className={cn("decorative-image-sizer", `height-${height}`, withHoles && "decorative-image--with-holes")}>
+      <div className={cn("decorative-image-sizer", `height-${height}`, useMask && "decorative-image--with-holes")}>
         <BackgroundImage src={src} backgroundPosition={backgroundPosition} backgroundSize={backgroundSize} />
       </div>
     </div>

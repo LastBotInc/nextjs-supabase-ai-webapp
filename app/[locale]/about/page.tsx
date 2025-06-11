@@ -25,7 +25,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations("About");
+  const t = await getTranslations({ locale, namespace: "About" });
   return generateLocalizedMetadata({
     locale,
     namespace: "About",
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
-  const t = await getTranslations("About");
+  const t = await getTranslations({ locale, namespace: "About" });
 
   return (
     <PageWrapper>

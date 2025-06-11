@@ -201,7 +201,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          <DecorativeImage width="large" height="overflow-paddings" src="/images/cropped_demo.png" />
+          <DecorativeImage width="large" height="overflow-paddings" src="/images/cropped_demo.png" useMask />
         </FlexLayout.Column>
       </FlexLayout>
 
