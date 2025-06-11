@@ -126,7 +126,7 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
       {/* CTA Section */}
       <FlexLayout palette="piki">
         <ContentArea>
-          <Flex direction="column" autoFlexChildren={false}>
+          <Flex direction="column">
             <Heading2>{t("cta.title")}</Heading2>
             <Paragraph>{t("cta.description")}</Paragraph>
             <LinkButton href="/contact">{t("cta.button")}</LinkButton>

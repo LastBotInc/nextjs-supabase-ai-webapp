@@ -78,7 +78,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
 
       <CustomMainContent palette="light-gray">
         <ContentArea>
-          <Flex direction="column" autoFlexChildren={false} gaps="large" className="main-level-padding-full-y">
+          <Flex direction="column" gaps="large" className="main-level-padding-full-y">
             <Flex className="text-center pb-7" direction="column" gaps="none">
               <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
               <Heading3 className="">{t("leasingOptions.description")}</Heading3>
@@ -103,7 +103,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     quality={90}
                     aria-hidden={true}
                   />
-                  <Flex direction="column" autoFlexChildren={false}>
+                  <Flex direction="column">
                     <Heading3 className="">{t("leasingOptions.personalizedTitle")}</Heading3>
                     <ShapedContentFlowInParagraph
                       image={{
@@ -137,7 +137,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     quality={90}
                     aria-hidden={true}
                   />
-                  <Flex direction="column" autoFlexChildren={false}>
+                  <Flex direction="column">
                     <ShapedContentFlowInParagraph
                       image={{
                         src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
@@ -153,7 +153,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                 </Flex>
               </BoxLayout.Box>
             </Flex>
-            <Flex direction="column" className="text-center py-7" autoFlexChildren={false} gaps="none">
+            <Flex direction="column" className="text-center py-7" gaps="none">
               <LinkButton className="self-center" href="#">
                 {t("leasingOptions.allSolutions")}
               </LinkButton>
@@ -252,13 +252,12 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
             gaps="small"
             direction="row"
             className="items-center main-level-padding-block bottom-padding-half-block"
-            autoFlexChildren={false}
           >
             <ArrowRightIcon className={iconPaletteClassName} width={50} height={50} strokeWidth={1} />
             <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
           </Flex>
           <NewsSection />
-          <Flex className="justify-center" autoFlexChildren={false}>
+          <Flex className="justify-center">
             <LinkButton className="self-center" href="#">
               {t("news.viewAll")}
             </LinkButton>

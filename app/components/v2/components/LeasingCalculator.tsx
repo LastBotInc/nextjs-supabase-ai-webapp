@@ -31,7 +31,7 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
       <Flex direction="column">
         <div className="calculator-row">
           <label htmlFor="carPrice">{texts.carPrice}</label>
-          <Flex gaps="small" autoFlexChildren={false}>
+          <Flex gaps="small">
             <input
               id="carPrice"
               type="range"
@@ -62,7 +62,7 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
           <label htmlFor="contractLength" className="block font-medium mb-1">
             {texts.contractLength} ({texts.months})
           </label>
-          <Flex gaps="small" autoFlexChildren={false}>
+          <Flex gaps="small">
             <input
               id="contractLength"
               type="range"
@@ -92,7 +92,7 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
           <label htmlFor="downPayment" className="block font-medium mb-1">
             {texts.downPayment}
           </label>
-          <Flex gaps="small" autoFlexChildren={false}>
+          <Flex gaps="small">
             <input
               id="downPayment"
               type="range"
@@ -123,7 +123,7 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
           <label htmlFor="interestRate" className="block font-medium mb-1">
             {texts.interestRate}
           </label>
-          <Flex gaps="small" autoFlexChildren={false}>
+          <Flex gaps="small">
             <input
               id="interestRate"
               type="range"
@@ -154,7 +154,7 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
           <label htmlFor="taxRate" className="block font-medium mb-1">
             {texts.taxRate}
           </label>
-          <Flex gaps="small" autoFlexChildren={false}>
+          <Flex gaps="small">
             <input
               id="taxRate"
               type="range"

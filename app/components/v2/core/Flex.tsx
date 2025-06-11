@@ -7,7 +7,6 @@ export type FlexProps = {
   oneColumnBreakpoint?: BreakPoint;
   direction?: "row" | "column";
   gaps?: "small" | "large" | "level-based" | "none";
-  autoFlexChildren?: boolean;
 };
 
 export function FixedWidthColumn({ children, width }: { children: ReactElement; width: string | SizeDefinition }) {
@@ -48,7 +47,6 @@ export function Flex({
   style,
   direction = "row",
   gaps = "level-based",
-  autoFlexChildren = true,
 }: { children: ReactNode; className?: string; style?: CSSProperties } & FlexProps) {
   /* default direction is row (in css specs), so we don't need to set it */
   const styles = {
@@ -60,10 +58,7 @@ export function Flex({
     }),
   };
   return (
-    <div
-      style={styles}
-      className={cn("flex-container", className, getGapClass(gaps), autoFlexChildren && "auto-flex-children")}
-    >
+    <div style={styles} className={cn("flex-container", className, getGapClass(gaps))}>
       {children}
     </div>
   );

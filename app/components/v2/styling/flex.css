@@ -15,16 +15,11 @@
   }
 }
 
-.flex-container.auto-flex-children {
-  > * {
-    flex: 1 1 0;
-    min-width: 0;
-  }
-}
-
 .flex-container .flex-column {
-  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
   flex-direction: column;
+  display: flex;
 }
 
 .flex-container.small-gaps,
