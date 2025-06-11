@@ -27,7 +27,14 @@ export function ChildWrapper({
     return null;
   }
 
-  return Children.toArray(children).map((child, index: number) => {
+  const childrenArray = Children.toArray(children);
+  // if there are more than 3 children, return them as is
+  // because there is no need to make columns etc.
+  if (childrenArray.length > 3) {
+    return children;
+  }
+
+  return childrenArray.map((child, index: number) => {
     const widthDefinition = columnWidths && columnWidths[index];
     const isClonable = isValidElement(child);
 

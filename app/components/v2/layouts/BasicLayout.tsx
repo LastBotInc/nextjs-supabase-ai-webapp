@@ -1,5 +1,5 @@
 import { Padding } from "../core/types";
-import { ChildWrapper, FlexLayout, FlexLayoutProps } from "./FlexLayout";
+import { FlexLayout, FlexLayoutProps } from "./FlexLayout";
 
 export function BasicLayout({ padding, children, direction = "column", ...rest }: FlexLayoutProps) {
   // auto set padding if content palette is set and padding is not set
@@ -11,7 +11,7 @@ export function BasicLayout({ padding, children, direction = "column", ...rest }
   }
   return (
     <FlexLayout {...rest} padding={padding} direction={direction}>
-      <ChildWrapper>{children}</ChildWrapper>
+      {children}
     </FlexLayout>
   );
 }
