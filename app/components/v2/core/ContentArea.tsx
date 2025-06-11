@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { getPaddingStyles } from "../styling/resolveStyles";
+import { getPaddingStyles, getPaletteClassName } from "../styling/resolveStyles";
 import { ReactNode } from "react";
 import { BlockProps } from "./types";
 
@@ -11,6 +11,15 @@ import { BlockProps } from "./types";
  * @param padding - The padding of the content area.
  * @returns A div element with a content area.
  */
-export function ContentArea({ children, className, padding = "full" }: Omit<BlockProps, "type">): ReactNode {
-  return <div className={cn("content-area", getPaddingStyles(padding), className)}>{children}</div>;
+export function ContentArea({
+  children,
+  className,
+  palette = "none",
+  padding = "full",
+}: Omit<BlockProps, "type">): ReactNode {
+  return (
+    <div className={cn("content-area", getPaddingStyles(padding), getPaletteClassName(palette), className)}>
+      {children}
+    </div>
+  );
 }

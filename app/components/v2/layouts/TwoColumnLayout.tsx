@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { ChildWrapper, FlexLayout, FlexLayoutProps } from "./FlexLayout";
-import { Padding } from "../core/types";
+import { ChildWrapper, FlexLayoutProps } from "./FlexLayout";
+import { BasicLayout } from "./BasicLayout";
 
 /**
  * TwoColumnLayout is a layout component that renders two columns side by side. It wraps both children with containers that set gaps and spacing
@@ -14,12 +14,12 @@ import { Padding } from "../core/types";
 export function TwoColumnLayout({
   children,
   columnWidths,
-  padding = Padding.Full,
   ...rest
 }: Omit<FlexLayoutProps, "children"> & { children: [ReactNode, ReactNode] }) {
+  console.log("###direction", "ROW!!!");
   return (
-    <FlexLayout {...rest} direction="row" padding={padding}>
+    <BasicLayout {...rest} direction="row">
       <ChildWrapper columnWidths={columnWidths}>{children}</ChildWrapper>
-    </FlexLayout>
+    </BasicLayout>
   );
 }

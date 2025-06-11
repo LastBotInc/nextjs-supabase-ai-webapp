@@ -1,19 +1,20 @@
 import { ReactNode } from "react";
 import { ContentBlock } from "./ContentBlock";
 import { MainBlock } from "./MainBlock";
-import { BlockProps, LayoutBlocksProps } from "../core/types";
+import { BlockProps, LayoutBlocksProps, Padding } from "../core/types";
 import { mapSlots } from "../utils/mapSlots";
 import { BackgroundImageProps } from "../core/BackgroundImage";
 
 export function Content({
   children,
   contentImage,
+  padding = Padding.None,
   ...rest
 }: { children: ReactNode; contentImage: LayoutBlocksProps["contentImage"] } & Omit<BlockProps, "type">) {
   return (
     <ContentBlock {...rest}>
       {contentImage && <ContentBlock.BackgroundImage {...contentImage} />}
-      <ContentBlock.Content>{children}</ContentBlock.Content>
+      <ContentBlock.Content padding={padding}>{children}</ContentBlock.Content>
     </ContentBlock>
   );
 }

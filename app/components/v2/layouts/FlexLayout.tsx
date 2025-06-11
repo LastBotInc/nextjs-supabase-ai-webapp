@@ -13,7 +13,7 @@ export const isAlreadyWrapper = (child: ReactNode): boolean => {
     return false;
   }
   const name = getSlotName(child as ReactElement);
-  return name === FixedWidthColumn.displayName || name === Column.displayName;
+  return name === FixedWidthColumn.displayName || name === Column.displayName || name === ChildWrapper.displayName;
 };
 
 export function ChildWrapper({
@@ -45,6 +45,8 @@ export function ChildWrapper({
     return <Column key={index}>{child}</Column>;
   });
 }
+
+ChildWrapper.displayName = "FlexLayout.ChildWrapper";
 
 export function Column({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("flex-column gap-container", className)}>{children}</div>;
@@ -85,6 +87,7 @@ export function FlexLayout({
   gaps,
   ...rest
 }: FlexLayoutProps) {
+  console.log("###direction", direction);
   return (
     <FullBlockStructure {...rest}>
       {mainImage && <FullBlockStructure.MainBlockImage {...mainImage} />}
