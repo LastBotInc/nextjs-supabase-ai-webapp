@@ -9,6 +9,7 @@ import React from "react";
 import { cn } from "@/utils/cn";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
+import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { List } from "@/app/components/v2/core/List";
 import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
@@ -182,7 +183,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
       </Hero>
 
       {/* Intro Section */}
-      <FlexLayout oneColumnBreakpoint="lg" palette="default">
+      <FlexLayout oneColumnBreakpoint="lg" palette="default" className="with-overflowing-image">
         <FlexLayout.Column>
           <Heading2>{t("openModel.title")}</Heading2>
           <Paragraph>{t("openModel.description")}</Paragraph>
@@ -198,6 +199,9 @@ export default async function CorporateLeasingPage({ params }: { params: { local
             <List.Item>{t("benefits.noDownPayment")}</List.Item>
             <List.Item>{t("benefits.newCar")}</List.Item>
           </List>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          <DecorativeImage width="large" height="overflow-paddings" src="/images/cropped_demo.png" />
         </FlexLayout.Column>
       </FlexLayout>
 

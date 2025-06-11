@@ -1,0 +1,47 @@
+.decorative-image {
+  height: 100%;
+  @apply z-30;
+  @apply self-end;
+}
+.decorative-image-sizer {
+  @apply inset-0 absolute;
+}
+
+.width-large {
+  width: 70%;
+}
+
+.width-medium {
+  width: 50%;
+}
+
+.width-small {
+  width: 30%;
+}
+
+.height-tiny {
+  top: 40%;
+  bottom: 40%;
+  transform: translateY(-20%);
+}
+
+.height-medium {
+  top: 25%;
+  bottom: 25%;
+  transform: translateY(-12.5%);
+}
+
+.height-max {
+  top: 0;
+  bottom: 0;
+}
+
+.height-max-block {
+  top: -3.5rem;
+  bottom: -3.5rem;
+}
+
+.height-overflow-paddings {
+  top: -4.5rem;
+  bottom: -4.5rem;
+}
