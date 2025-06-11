@@ -94,7 +94,6 @@ export function FlexLayout({
   gaps,
   ...rest
 }: FlexLayoutProps) {
-  console.log("###direction", direction);
   return (
     <FullBlockStructure {...rest}>
       {mainImage && <FullBlockStructure.MainBlockImage {...mainImage} />}

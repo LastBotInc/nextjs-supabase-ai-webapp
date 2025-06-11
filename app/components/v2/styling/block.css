@@ -122,3 +122,7 @@
 .rounded-box .content-area {
   @apply rounded-xl;
 }
+
+.with-overflowing-image {
+  @apply z-30;
+}

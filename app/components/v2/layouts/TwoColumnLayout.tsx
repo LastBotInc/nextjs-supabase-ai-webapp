@@ -16,7 +16,6 @@ export function TwoColumnLayout({
   columnWidths,
   ...rest
 }: Omit<FlexLayoutProps, "children"> & { children: [ReactNode, ReactNode] }) {
-  console.log("###direction", "ROW!!!");
   return (
     <BasicLayout {...rest} direction="row">
       <ChildWrapper columnWidths={columnWidths}>{children}</ChildWrapper>

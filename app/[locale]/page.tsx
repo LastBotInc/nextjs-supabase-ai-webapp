@@ -222,7 +222,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
           backgroundPosition: { default: "center left", md: "center left", lg: "center right", xl: "center right" },
           backgroundSize: { default: "0%", md: "0%", lg: "cover" },
         }}
-        className="z-30"
+        className="with-overflowing-image"
       >
         <FlexLayout.Column className="shadow-text">
           <Heading3Small className="uppercase text-xl lg:text-xl">{t("innoFleet.subtitle")}</Heading3Small>
@@ -233,7 +233,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         </FlexLayout.Column>
         <FlexLayout.Column>
           {" "}
-          <div className="relative h-[200px] md:h-[300px] lg:h-[600px] w-full z-100">
+          <div className="relative h-[200px] md:h-[300px] lg:h-[600px] w-full">
             <Image
               src="/images/home/iphone_05_sleep_image.png"
               alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
