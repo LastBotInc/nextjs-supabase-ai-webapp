@@ -27,7 +27,7 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
   // Setup localization
   const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("DriversGuide");
+  const t = await getTranslations({ locale, namespace: "DriversGuide" });
 
   return (
     <PageWrapper>

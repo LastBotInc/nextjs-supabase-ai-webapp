@@ -1,0 +1,62 @@
+.decorative-image {
+  height: 100%;
+  @apply z-30;
+  @apply self-end;
+}
+.decorative-image-sizer {
+  @apply inset-0 absolute;
+}
+
+.width-large {
+  width: 70%;
+}
+
+.width-medium {
+  width: 50%;
+}
+
+.width-small {
+  width: 30%;
+}
+
+.height-tiny {
+  top: 40%;
+  bottom: 40%;
+  transform: translateY(-20%);
+}
+
+.height-medium {
+  top: 25%;
+  bottom: 25%;
+  transform: translateY(-12.5%);
+}
+
+.height-max {
+  top: 0;
+  bottom: 0;
+}
+
+.height-max-block {
+  top: -3.5rem;
+  bottom: -3.5rem;
+}
+
+.height-overflow-paddings {
+  top: -4.5rem;
+  bottom: -4.5rem;
+}
+
+/*
+ * Adds a mask with square holes to the image area.
+ * The mask is defined as an SVG with transparent squares (holes) and opaque areas elsewhere.
+ * Adjust the mask SVG as needed for different hole patterns.
+ */
+.decorative-image--with-holes {
+  /* Example: 3 square holes, adjust as needed */
+  mask-image: url("/patterns/image-mask.svg");
+  -webkit-mask-image: url("/patterns/image-mask.svg");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 200% 100%;
+  -webkit-mask-size: 200% 100%;
+}

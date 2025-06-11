@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Ajankohtaista – Uutiset ja tiedotteet",
+    "description": "Lue viimeisimmät uutiset, tiedotteet ja blogit yrityksemme palveluista ja ratkaisuista."
+  },
+  "hero": {
+    "heading": "Uutiset ja ajankohtaista",
+    "subheading": "Yhdistämme yritysmyynnin ja autovuokraamon palvelut – entistä joustavammat ratkaisut yrityksesi liikkumiseen."
+  },
+  "featured": {
+    "label": "Uutinen",
+    "company": "Autollecom & Silver Cars Rental",
+    "title": "Yritysmyynnin ja autovuokraamon palvelut yhdistyvät",
+    "summary": "Autollecom yritysmyynnin ja Silver Cars Rental -autovuokraamopalveluiden yhdistäminen tuo joustavuutta yrityksesi liikkumiseen. Kaikki palvelut saman katon alta – lyhytaikaisesta vuokrauksesta joustaviin leasingratkaisuihin.",
+    "quote": "Nyt voimme vastata yrityksesi kaikkiin liikkumisen tarpeisiin – aina lyhytaikaisesta autonvuokrauksesta joustaviin leasingratkaisuihin.",
+    "personName": "Eljas Lohi",
+    "personTitle": "Toimitusjohtaja",
+    "readMore": "Lue lisää",
+    "results": {
+      "stat1": "1.9.2025",
+      "label1": "Palvelut yhdistyvät",
+      "stat2": "3",
+      "label2": "Palvelumallia: vuokraus, minileasing, leasing",
+      "stat3": "100+",
+      "label3": "Yritysasiakasta"
+    }
+  },
+  "testimonial": {
+    "quote": "Olipa tarpeesi pieni tai suuri, lyhyt- tai pitkäaikainen – meiltä saat liikkuvuuden ratkaisut, jotka toimivat.",
+    "author": "Eljas Lohi",
+    "position": "Toimitusjohtaja"
+  },
+  "storiesSection": {
+    "title": "Blogit ja asiakastarinat",
+    "description": "Tutustu asiakkaidemme kokemuksiin ja lue lisää palveluistamme.",
+    "loadMore": "Näytä lisää"
+  },
+  "stories": {
+    "readMore": "Lue lisää",
+    "story1": {
+      "company": "Autollecom",
+      "title": "Yritysmyynnin ja autovuokraamon yhdistäminen",
+      "industry": "Autopalvelut",
+      "excerpt": "Yhdistämme yritysmyynnin ja autovuokraamon palvelut 1.9.2025 alkaen. Tarjoamme entistä kokonaisvaltaisempia ratkaisuja yritysasiakkaillemme."
+    },
+    "story2": {
+      "company": "Silver Cars Rental",
+      "title": "Minileasing – joustava ratkaisu projekteihin",
+      "industry": "Autopalvelut",
+      "excerpt": "Minileasing on erinomainen vaihtoehto määräaikaisiin projekteihin tai tilanteisiin, joissa tarvitaan joustavuutta ilman pitkäaikaisia sitoumuksia."
+    },
+    "story3": {
+      "company": "Autollecom",
+      "title": "Leasingratkaisut yrityksille",
+      "industry": "Autopalvelut",
+      "excerpt": "Tarjoamme leasing-sopimuksia 12–60 kk – yhdellä kuukausihinnalla ja palveluilla, jotka sopivat yrityksesi tarpeisiin."
+    },
+    "story4": {
+      "company": "Silver Cars Rental",
+      "title": "Lyhytaikainen autonvuokraus yrityksille",
+      "industry": "Autopalvelut",
+      "excerpt": "Kun tarvitset auton käyttöösi päiväksi, viikoksi tai kuukaudeksi – helposti ja joustavasti."
+    },
+    "story5": {
+      "company": "Autollecom",
+      "title": "Digitaaliset palvelut yrityksille",
+      "industry": "Autopalvelut",
+      "excerpt": "Digitaaliset palvelumme helpottavat kaluston ja sopimusten hallintaa yrityksille."
+    },
+    "story6": {
+      "company": "Silver Cars Rental",
+      "title": "Asiakashyödyt yhdistetyistä palveluista",
+      "industry": "Autopalvelut",
+      "excerpt": "Kaikki autoilun palvelut yhdestä paikasta, joustavat sopimusmallit ja kustannustehokkaat ratkaisut."
+    }
+  },
+  "filters": {
+    "industryLabel": "Toimiala",
+    "sortLabel": "Järjestä",
+    "industries": {
+      "all": "Kaikki",
+      "logistics": "Logistiikka",
+      "manufacturing": "Teollisuus",
+      "services": "Palvelut",
+      "retail": "Vähittäiskauppa",
+      "construction": "Rakentaminen"
+    },
+    "sortOptions": {
+      "newest": "Uusimmat",
+      "oldest": "Vanhimmat",
+      "company": "Yritys"
+    }
+  },
+  "cta": {
+    "title": "Kiinnostuitko palveluistamme?",
+    "description": "Ota yhteyttä ja räätälöidään yrityksellesi sopiva ratkaisu.",
+    "backgroundAlt": "Yritysautoja pysäköitynä",
+    "contactButton": "Ota yhteyttä",
+    "leasingButton": "Pyydä leasing-tarjous"
+  }
+}

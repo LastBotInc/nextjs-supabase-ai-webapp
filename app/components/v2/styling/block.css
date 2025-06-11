@@ -51,6 +51,10 @@
   @apply py-6 lg:py-14;
 }
 
+.block-box.block-padding-full {
+  @apply p-3 lg:p-6;
+}
+
 /* sets half padding to content area of the main block and half to the box content area
   So box background is outside of the content area, but box content is aligned with normal content area
   padding should be half of the full padding
@@ -117,4 +121,8 @@
 .rounded-box,
 .rounded-box .content-area {
   @apply rounded-xl;
+}
+
+.with-overflowing-image {
+  @apply z-30;
 }

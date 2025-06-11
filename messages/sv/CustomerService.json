@@ -6,7 +6,13 @@
   "hero": {
     "heading": "Kundtjänst",
     "subheading": "Vi hjälper dig med alla dina leasing- och fordonsadministrationsbehov",
-    "backgroundAlt": "Kundtjänstrepresentanter"
+    "backgroundAlt": "Kundtjänstrepresentanter",
+    "numbers": [
+      {
+        "number": "+358 9 123 4567",
+        "title": "Ring oss"
+      }
+    ]
   },
   "intro": {
     "title": "Hur kan vi hjälpa dig?",

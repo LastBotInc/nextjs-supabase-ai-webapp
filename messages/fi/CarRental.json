@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Auton vuokraus yrityksille – helposti ja nopeasti",
+    "description": "Vuokraa auto yrityksellesi joustavasti ja vaivattomasti. Minileasing ja yritysautot lyhyt- ja pitkäaikaiseen käyttöön – toimitus ja nouto tarpeesi mukaan."
+  },
+  "title": "Auton vuokraus yrityksille",
+  "intro": "Haaveiletko yritykselle suunnatusta vuokra-autopalvelusta, jossa auton voi vuokrata helposti netin kautta ja auto toimitetaan sekä noudetaan tarpeen mukaan? Tutustu joustavaan autonvuokrauspalveluumme yrityksille!",
+  "benefits": {
+    "title": "Miksi valita meidät?",
+    "list": [
+      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+      "Ei käsirahaa, ei jälleenmyyntihuolia",
+      "Yhteyshenkilö yrityksesi tueksi"
+    ]
+  },
+  "examples": {
+    "title": "Täydellinen ratkaisu mm.:",
+    "list": [
+      "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
+      "Sijaisautoksi huollon tai korjauksen ajaksi",
+      "Projekteihin tai määräaikaisiin työtehtäviin",
+      "Kauden tai tilapäisen lisätarpeen kattamiseen"
+    ]
+  },
+  "cta": {
+    "title": "Ota yhteyttä – löydämme ratkaisun yrityksellesi",
+    "description": "Räätälöimme yrityksellesi sopivan vuokraus- tai leasingpaketin. Ole meihin yhteydessä ja kerro tarpeistasi!",
+    "button": "Pyydä tarjous"
+  },
+  "hero": {
+    "title": "Yritysautot joustavasti käyttöösi",
+    "description": "Vuokraa auto yrityksellesi helposti ja nopeasti – ilman sitoutumista. Toimitamme auton suoraan yrityksesi ovelle ja noudamme sen vuokrauksen päätyttyä.",
+    "image": "car-rental-hero-fi.jpg"
+  },
+  "minileasing": {
+    "title": "Minileasing yrityksille – Tehoa liiketoimintaan ilman sitoutumista",
+    "description": "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia. Minileasing on mutkaton, kustannustehokas ja nopea tapa varmistaa, että liiketoiminta ei pysähdy!",
+    "list": [
+      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+      "Ei käsirahaa, ei jälleenmyyntihuolia",
+      "Yhteyshenkilö yrityksesi tueksi"
+    ],
+    "examplesTitle": "Täydellinen ratkaisu mm.:",
+    "examples": [
+      "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
+      "Sijaisautoksi huollon tai korjauksen ajaksi",
+      "Projekteihin tai määräaikaisiin työtehtäviin",
+      "Kauden tai tilapäisen lisätarpeen kattamiseen"
+    ],
+    "contactCta": "Ota yhteyttä – löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin"
+  }
+}

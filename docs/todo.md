@@ -569,3 +569,28 @@
 ❌ Implement autoilijan-opas/page.tsx with new content blocks and structure
 ❌ Validate translation completeness for DriversGuide
 ❌ Review DriversGuide page in UI
+✅ Rewrite and localize CarLeasing.json for fi, sv, en with expanded, friendlier, and more informative content (all languages up to date)
+❌ Implement CarLeasing page using PageWrapper as root and layouts from app/components/v2/layouts
+❌ Render Hero section with title and intro from CarLeasing.json
+❌ Render personal and corporate sections using CustomMainContent or BoxLayout
+❌ Render terms, vehicles, benefits, examples, and FAQ sections using appropriate layouts and core/components
+❌ Use Headings, Paragraph, List, and LinkButton for content rendering
+❌ Ensure all text is localized using t from next-intl
+❌ Add inline comments for maintainability
+❌ Leave placeholders for images if not specified
+❌ Design LeasingCalculator component props, state, and calculation logic
+❌ Implement LeasingCalculator component with sliders and inputs for car price, contract length, etc.
+❌ Add translation keys for calculator UI to CarLeasing.json
+❌ Integrate LeasingCalculator into CarLeasing page after Hero section
+❌ Add inline comments and ensure accessibility
+❌ Test calculator functionality and UI
+✅ Create verbose, informative, and well-structured MachineLeasing page content (fi, sv, en) with tables and lists
+✅ Lisää CurrentTopics-uutissisältö ja käännökset (fi, sv, en)
+❌ Design and implement a FeaturedNews component for the "featured" section of CurrentTopics.
+❌ Design and implement a Testimonial component for CurrentTopics.
+❌ Design and implement a StoriesSection with filtering and sorting for CurrentTopics.
+❌ Design and implement a CTASection for the call-to-action in CurrentTopics.
+❌ Integrate all new components into /ajankohtaista/page.tsx using layouts and core components.
+❌ Ensure all text uses translations from messages/CurrentTopics.json.
+❌ Add or adjust tests for new components in CurrentTopics.
+❌ Document the new components and update the changelog for CurrentTopics.

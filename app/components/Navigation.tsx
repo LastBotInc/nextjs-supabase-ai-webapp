@@ -107,12 +107,13 @@ export default function Navigation() {
     {
       id: "about-us",
       label: t("about_us"),
-      items: [{ href: "/yritysleasing", label: t("business_leasing") }],
+      items: [{ href: "/about", label: t("about_us") }],
     },
     {
       id: "business-leasing",
       label: t("business_leasing"),
       items: [
+        { href: "/yritysleasing", label: t("business_leasing") },
         { href: "/autoleasing", label: t("car_leasing") },
         { href: "/kone-ja-laiteleasing", label: t("machine_leasing") },
 
@@ -139,7 +140,7 @@ export default function Navigation() {
       label: t("car_rental"),
       items: [
         { href: "/minileasing", label: t("minileasing") },
-        { href: "/vuokraa-auto", label: t("rent_car") },
+        { href: "/auton-vuokraus", label: t("rent_car") },
         // { href: "/huollon-varaus", label: t("service_booking") },
         //{ href: "/rengaspalvelut", label: t("tire_services") },
       ],
@@ -148,8 +149,9 @@ export default function Navigation() {
       id: "current-topics",
       label: t("current_topics"),
       items: [
-        { href: "/kampanjat", label: t("campaigns") },
-        { href: "/asiakastarinat", label: t("customer_stories") },
+        { href: "/ajankohtaista", label: t("current_topics") },
+        //{ href: "/kampanjat", label: t("campaigns") },
+        //{ href: "/asiakastarinat", label: t("customer_stories") },
         //{ href: "/blogi", label: t("blog") },
         //{ href: "/uutiset", label: t("news") },
       ],
@@ -162,7 +164,7 @@ export default function Navigation() {
         // { href: "/jälkimarkkinointi", label: t("marketing") },
         //{ href: "/laskutus", label: t("contact_info") },
         { href: "/asiakaspalvelu", label: t("customer_service") },
-        { href: "/tyopaikat", label: t("open_positions") },
+        //{ href: "/tyopaikat", label: t("open_positions") },
       ],
     },
   ];

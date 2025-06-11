@@ -11,9 +11,14 @@ import { BlockProps, BlockType, Padding } from "../core/types";
  * @returns A div element.
  */
 
-export function MainBlock({ children, padding = Padding.None, ...rest }: Omit<BlockProps, "type">) {
+export function MainBlock({
+  children,
+  palette = "default",
+  padding = Padding.None,
+  ...rest
+}: Omit<BlockProps, "type">) {
   return (
-    <Block {...rest} type={BlockType.Main} padding={padding}>
+    <Block {...rest} type={BlockType.Main} padding={padding} palette={palette}>
       {children}
     </Block>
   );

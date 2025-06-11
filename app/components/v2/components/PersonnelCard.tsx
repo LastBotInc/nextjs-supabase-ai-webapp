@@ -31,7 +31,7 @@ export function PersonnelCard({
           email: string;
           image: { src: string; alt: string };
         }) => (
-          <Flex key={person.email} autoFlexChildren={false}>
+          <Flex key={person.email}>
             <div className="mb-2 md:mb-0 w-24 relative" style={{ aspectRatio: "120/170" }}>
               <Image src={person.image.src} alt={person.image.alt} layout="fill" className="grayscale object-cover" />
             </div>

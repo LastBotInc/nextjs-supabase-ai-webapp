@@ -56,11 +56,12 @@ export type BlockProps<T = HTMLDivElement> = HTMLAttributes<T> & {
 };
 
 export type SlotProps = { children: ReactNode; className?: string };
-export type NestedBlocksProps = Omit<BlockProps, "type"> & {
+export type LayoutBlocksProps = Omit<BlockProps, "type"> & {
   contentPalette?: Palette;
   contentClassName?: string;
   mainImage?: BackgroundImageProps;
   contentImage?: BackgroundImageProps;
+  autoWrapChildren?: boolean;
 };
 
 export type SlotComponent<P = unknown> = React.ComponentType<P> & {

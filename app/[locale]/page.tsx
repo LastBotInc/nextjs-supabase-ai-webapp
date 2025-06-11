@@ -77,8 +77,8 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray">
-        <ContentArea type="content">
-          <Flex direction="column" autoFlexChildren={false} gaps="large" className="main-level-padding-full-y">
+        <ContentArea>
+          <Flex direction="column" gaps="large" className="main-level-padding-full-y">
             <Flex className="text-center pb-7" direction="column" gaps="none">
               <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
               <Heading3 className="">{t("leasingOptions.description")}</Heading3>
@@ -103,7 +103,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     quality={90}
                     aria-hidden={true}
                   />
-                  <Flex direction="column" autoFlexChildren={false}>
+                  <Flex direction="column">
                     <Heading3 className="">{t("leasingOptions.personalizedTitle")}</Heading3>
                     <ShapedContentFlowInParagraph
                       image={{
@@ -137,7 +137,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     quality={90}
                     aria-hidden={true}
                   />
-                  <Flex direction="column" autoFlexChildren={false}>
+                  <Flex direction="column">
                     <ShapedContentFlowInParagraph
                       image={{
                         src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
@@ -153,7 +153,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                 </Flex>
               </BoxLayout.Box>
             </Flex>
-            <Flex direction="column" className="text-center py-7" autoFlexChildren={false} gaps="none">
+            <Flex direction="column" className="text-center py-7" gaps="none">
               <LinkButton className="self-center" href="#">
                 {t("leasingOptions.allSolutions")}
               </LinkButton>
@@ -222,7 +222,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
           backgroundPosition: { default: "center left", md: "center left", lg: "center right", xl: "center right" },
           backgroundSize: { default: "0%", md: "0%", lg: "cover" },
         }}
-        className="z-30"
+        className="with-overflowing-image"
       >
         <FlexLayout.Column className="shadow-text">
           <Heading3Small className="uppercase text-xl lg:text-xl">{t("innoFleet.subtitle")}</Heading3Small>
@@ -233,7 +233,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         </FlexLayout.Column>
         <FlexLayout.Column>
           {" "}
-          <div className="relative h-[200px] md:h-[300px] lg:h-[600px] w-full z-100">
+          <div className="relative h-[200px] md:h-[300px] lg:h-[600px] w-full">
             <Image
               src="/images/home/iphone_05_sleep_image.png"
               alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
@@ -247,18 +247,17 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray" className="compensate-for-split-padding-bottom">
-        <ContentArea type="content" className="forced-split-padding">
+        <ContentArea className="forced-split-padding">
           <Flex
             gaps="small"
             direction="row"
             className="items-center main-level-padding-block bottom-padding-half-block"
-            autoFlexChildren={false}
           >
             <ArrowRightIcon className={iconPaletteClassName} width={50} height={50} strokeWidth={1} />
             <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
           </Flex>
           <NewsSection />
-          <Flex className="justify-center" autoFlexChildren={false}>
+          <Flex className="justify-center">
             <LinkButton className="self-center" href="#">
               {t("news.viewAll")}
             </LinkButton>

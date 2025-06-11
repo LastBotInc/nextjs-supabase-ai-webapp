@@ -38,7 +38,7 @@ type NewsItem = Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "classNa
  */
 export function NewsCard({ title, text, link, image, category }: NewsItem) {
   return (
-    <Flex direction="column" gaps="small" autoFlexChildren={false}>
+    <Flex direction="column" gaps="small">
       {image && (
         <div className="image-container-with-aspect-ratio-5-3 relative rounded-xl overflow-hidden">
           <Image
@@ -51,7 +51,7 @@ export function NewsCard({ title, text, link, image, category }: NewsItem) {
           />
         </div>
       )}
-      <Flex direction="column" gaps="small" autoFlexChildren={false}>
+      <Flex direction="column" gaps="small">
         <Paragraph className="font-medium text-kupari uppercase">{category}</Paragraph>
         <Heading3Small className="text-piki">{title}</Heading3Small>
         <Paragraph className="text-piki">{text}</Paragraph>

@@ -1,0 +1,18 @@
+import { cn } from "@/lib/utils";
+import { HTMLAttributes } from "react";
+
+export function ImagePlaceholder({
+  aspectRatio,
+  className,
+  ...rest
+}: HTMLAttributes<HTMLDivElement> & { aspectRatio: "16:9" | "4:3" | "1:1" }) {
+  return (
+    <div
+      className={cn("w-full text-white bg-gray-600 flex items-center justify-center rounded-lg", className)}
+      style={{ aspectRatio: aspectRatio.replace(":", "/") }}
+      {...rest}
+    >
+      Image placeholder
+    </div>
+  );
+}

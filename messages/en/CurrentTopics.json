@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Current Topics – News and Announcements",
+    "description": "Read the latest news, announcements, and blogs about our services and solutions."
+  },
+  "hero": {
+    "heading": "News and Updates",
+    "subheading": "We are combining corporate sales and car rental services – even more flexible solutions for your company's mobility."
+  },
+  "featured": {
+    "label": "News",
+    "company": "Autollecom & Silver Cars Rental",
+    "title": "Corporate Sales and Car Rental Services Merge",
+    "summary": "The merger of Autollecom's corporate sales and Silver Cars Rental's car rental services brings flexibility to your company's mobility. All services under one roof – from short-term rentals to flexible leasing solutions.",
+    "quote": "We can now meet all your company's mobility needs – from short-term car rentals to flexible leasing solutions.",
+    "personName": "Eljas Lohi",
+    "personTitle": "CEO",
+    "readMore": "Read more",
+    "results": {
+      "stat1": "1.9.2025",
+      "label1": "Services merge",
+      "stat2": "3",
+      "label2": "Service models: rental, minileasing, leasing",
+      "stat3": "100+",
+      "label3": "Business customers"
+    }
+  },
+  "testimonial": {
+    "quote": "Whether your needs are small or large, short- or long-term – we have mobility solutions that work.",
+    "author": "Eljas Lohi",
+    "position": "CEO"
+  },
+  "storiesSection": {
+    "title": "Blogs and Customer Stories",
+    "description": "Discover our customers' experiences and read more about our services.",
+    "loadMore": "Show more"
+  },
+  "stories": {
+    "readMore": "Read more",
+    "story1": {
+      "company": "Autollecom",
+      "title": "Merging Corporate Sales and Car Rental",
+      "industry": "Car Services",
+      "excerpt": "We are combining corporate sales and car rental services starting 1.9.2025. We offer even more comprehensive solutions for our business customers."
+    },
+    "story2": {
+      "company": "Silver Cars Rental",
+      "title": "Minileasing – a Flexible Solution for Projects",
+      "industry": "Car Services",
+      "excerpt": "Minileasing is an excellent option for fixed-term projects or situations where flexibility is needed without long-term commitments."
+    },
+    "story3": {
+      "company": "Autollecom",
+      "title": "Leasing Solutions for Businesses",
+      "industry": "Car Services",
+      "excerpt": "We offer leasing agreements from 12 to 60 months – with a single monthly price and services tailored to your company's needs."
+    },
+    "story4": {
+      "company": "Silver Cars Rental",
+      "title": "Short-Term Car Rental for Businesses",
+      "industry": "Car Services",
+      "excerpt": "When you need a car for a day, a week, or a month – easily and flexibly."
+    },
+    "story5": {
+      "company": "Autollecom",
+      "title": "Digital Services for Businesses",
+      "industry": "Car Services",
+      "excerpt": "Our digital services make it easier for companies to manage their fleet and contracts."
+    },
+    "story6": {
+      "company": "Silver Cars Rental",
+      "title": "Customer Benefits of Combined Services",
+      "industry": "Car Services",
+      "excerpt": "All car services from one place, flexible contract models, and cost-effective solutions."
+    }
+  },
+  "filters": {
+    "industryLabel": "Industry",
+    "sortLabel": "Sort",
+    "industries": {
+      "all": "All",
+      "logistics": "Logistics",
+      "manufacturing": "Manufacturing",
+      "services": "Services",
+      "retail": "Retail",
+      "construction": "Construction"
+    },
+    "sortOptions": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "company": "Company"
+    }
+  },
+  "cta": {
+    "title": "Interested in our services?",
+    "description": "Contact us and let's tailor a solution for your company.",
+    "backgroundAlt": "Company cars parked",
+    "contactButton": "Contact us",
+    "leasingButton": "Request a leasing offer"
+  }
+}

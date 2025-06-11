@@ -6,7 +6,13 @@
   "hero": {
     "heading": "Customer Service",
     "subheading": "We're here to help you with all your leasing and fleet management needs",
-    "backgroundAlt": "Customer service representatives"
+    "backgroundAlt": "Customer service representatives",
+    "numbers": [
+      {
+        "number": "+358 9 123 4567",
+        "title": "Call us"
+      }
+    ]
   },
   "intro": {
     "title": "How Can We Help You?",

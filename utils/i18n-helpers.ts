@@ -14,10 +14,11 @@ export const getNamespaces = (): string[] => {
   return [
     'About', 'Account', 'Admin', 'Auth',
     'Blog', 'Campaigns', 'CarBenefitCalculator', 'CarLeasing',
-    'Common', 'Contact', 'CookieConsent', 'CorporateLeasing',
-    'CustomerService', 'CustomerStories', 'DriversGuide', 'FleetManager',
-    'Footer', 'Home', 'Index', 'LandingPages',
-    'LeasingSolutions', 'Media', 'Meta', 'Navigation',
-    'Privacy', 'Profile'
+    'CarRental', 'Common', 'Contact', 'CookieConsent',
+    'CorporateLeasing', 'CurrentTopics', 'CustomerService', 'CustomerStories',
+    'DriversGuide', 'FleetManager', 'Footer', 'Home',
+    'Index', 'LandingPages', 'LeasingSolutions', 'MachineLeasing',
+    'Media', 'Meta', 'Navigation', 'Privacy',
+    'Profile'
   ];
 };

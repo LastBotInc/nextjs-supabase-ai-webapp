@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Aktuellt – Nyheter och meddelanden",
+    "description": "Läs de senaste nyheterna, meddelandena och bloggarna om våra tjänster och lösningar."
+  },
+  "hero": {
+    "heading": "Nyheter och aktuellt",
+    "subheading": "Vi samlar företagsförsäljning och biluthyrning – ännu mer flexibla lösningar för ditt företags mobilitet."
+  },
+  "featured": {
+    "label": "Nyhet",
+    "company": "Autollecom & Silver Cars Rental",
+    "title": "Företagsförsäljning och biluthyrning förenas",
+    "summary": "Sammanslagningen av Autollecoms företagsförsäljning och Silver Cars Rentals biluthyrningstjänster ger flexibilitet för ditt företags mobilitet. Alla tjänster under ett och samma tak – från korttidsuthyrning till flexibla leasinglösningar.",
+    "quote": "Nu kan vi möta alla ditt företags mobilitetsbehov – från korttidsuthyrning till flexibla leasinglösningar.",
+    "personName": "Eljas Lohi",
+    "personTitle": "Verkställande direktör",
+    "readMore": "Läs mer",
+    "results": {
+      "stat1": "1.9.2025",
+      "label1": "Tjänsterna förenas",
+      "stat2": "3",
+      "label2": "Tjänstemodeller: uthyrning, minileasing, leasing",
+      "stat3": "100+",
+      "label3": "Företagskunder"
+    }
+  },
+  "testimonial": {
+    "quote": "Oavsett om ditt behov är litet eller stort, kort- eller långvarigt – vi har mobilitetslösningar som fungerar.",
+    "author": "Eljas Lohi",
+    "position": "Verkställande direktör"
+  },
+  "storiesSection": {
+    "title": "Bloggar och kundberättelser",
+    "description": "Bekanta dig med våra kunders erfarenheter och läs mer om våra tjänster.",
+    "loadMore": "Visa mer"
+  },
+  "stories": {
+    "readMore": "Läs mer",
+    "story1": {
+      "company": "Autollecom",
+      "title": "Företagsförsäljning och biluthyrning förenas",
+      "industry": "Biltjänster",
+      "excerpt": "Vi samlar företagsförsäljning och biluthyrningstjänster från och med 1.9.2025. Vi erbjuder ännu mer omfattande lösningar för våra företagskunder."
+    },
+    "story2": {
+      "company": "Silver Cars Rental",
+      "title": "Minileasing – flexibel lösning för projekt",
+      "industry": "Biltjänster",
+      "excerpt": "Minileasing är ett utmärkt alternativ för tidsbundna projekt eller situationer där flexibilitet behövs utan långvariga åtaganden."
+    },
+    "story3": {
+      "company": "Autollecom",
+      "title": "Leasinglösningar för företag",
+      "industry": "Biltjänster",
+      "excerpt": "Vi erbjuder leasingavtal på 12–60 månader – med en månadskostnad och tjänster som passar ditt företags behov."
+    },
+    "story4": {
+      "company": "Silver Cars Rental",
+      "title": "Korttidsuthyrning för företag",
+      "industry": "Biltjänster",
+      "excerpt": "När du behöver en bil för en dag, en vecka eller en månad – enkelt och flexibelt."
+    },
+    "story5": {
+      "company": "Autollecom",
+      "title": "Digitala tjänster för företag",
+      "industry": "Biltjänster",
+      "excerpt": "Våra digitala tjänster underlättar hanteringen av fordonsflottan och avtal för företag."
+    },
+    "story6": {
+      "company": "Silver Cars Rental",
+      "title": "Kundfördelar med sammanslagna tjänster",
+      "industry": "Biltjänster",
+      "excerpt": "Alla biltjänster från ett ställe, flexibla avtalsmodeller och kostnadseffektiva lösningar."
+    }
+  },
+  "filters": {
+    "industryLabel": "Bransch",
+    "sortLabel": "Sortera",
+    "industries": {
+      "all": "Alla",
+      "logistics": "Logistik",
+      "manufacturing": "Industri",
+      "services": "Tjänster",
+      "retail": "Detaljhandel",
+      "construction": "Bygg"
+    },
+    "sortOptions": {
+      "newest": "Nyaste",
+      "oldest": "Äldsta",
+      "company": "Företag"
+    }
+  },
+  "cta": {
+    "title": "Intresserad av våra tjänster?",
+    "description": "Kontakta oss så skräddarsyr vi en lösning för ditt företag.",
+    "backgroundAlt": "Företagsbilar parkerade",
+    "contactButton": "Kontakta oss",
+    "leasingButton": "Begär leasingerbjudande"
+  }
+}

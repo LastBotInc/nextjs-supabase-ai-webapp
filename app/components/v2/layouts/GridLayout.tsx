@@ -1,10 +1,10 @@
-import { NestedBlocksProps } from "../core/types";
+import { LayoutBlocksProps } from "../core/types";
 import { Columns, ColumnProps } from "../core/Columns";
 import { Children, ReactNode } from "react";
 import { FullBlockStructure } from "../blocks/FullBlockStructure";
 import { FlexProps } from "../core/Flex";
 
-export type GridLayoutProps = Omit<NestedBlocksProps, "type"> &
+export type GridLayoutProps = Omit<LayoutBlocksProps, "type"> &
   Pick<ColumnProps, "columns" | "gaps"> &
   Pick<FlexProps, "oneColumnBreakpoint">;
 

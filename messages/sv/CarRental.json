@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Biluthyrning för företag – enkelt och snabbt",
+    "description": "Hyr en bil till ditt företag flexibelt och smidigt. Minileasing och företagsbilar för kort- och långtidsbruk – leverans och upphämtning enligt behov."
+  },
+  "title": "Biluthyrning för företag",
+  "intro": "Drömmer du om en biluthyrningstjänst för företag där du enkelt kan boka en bil online och få den levererad och upphämtad vid behov? Upptäck vår flexibla biluthyrning för företag!",
+  "benefits": {
+    "title": "Varför välja oss?",
+    "list": [
+      "Färdig bil omedelbart – till och med nästa dag",
+      "Avtalstid 1–12 månader, enligt dina behov",
+      "Fast månadspris inkluderar försäkring, service och däckservice",
+      "Ingen handpenning, inga återförsäljningsbekymmer",
+      "Personlig kontaktperson för ditt företag"
+    ]
+  },
+  "examples": {
+    "title": "Perfekt lösning för bl.a.:",
+    "list": [
+      "Under väntetiden på en ny tjänstebil eller leverans",
+      "Som ersättningsbil vid service eller reparation",
+      "För projekt eller tidsbegränsade uppdrag",
+      "För att täcka säsongs- eller tillfälliga extrabehov"
+    ]
+  },
+  "cta": {
+    "title": "Kontakta oss – vi hittar rätt lösning för ditt företag",
+    "description": "Vi skräddarsyr ett hyres- eller leasingpaket som passar ditt företag. Kontakta oss och berätta om dina behov!",
+    "button": "Begär offert"
+  },
+  "hero": {
+    "title": "Företagsbilar flexibelt för dina behov",
+    "description": "Hyr en bil till ditt företag enkelt och snabbt – utan bindningstid. Vi levererar bilen direkt till ditt företag och hämtar den efter hyresperioden.",
+    "image": "car-rental-hero-sv.jpg"
+  },
+  "minileasing": {
+    "title": "Minileasing för företag – Effektivisera verksamheten utan bindningstid",
+    "description": "Behöver du snabbt en bil till ditt företag för en bestämd period? Minileasing är en flexibel lösning för kortvariga fordonsbehov – utan långvariga åtaganden eller ägarbekymmer. Minileasing är ett smidigt, kostnadseffektivt och snabbt sätt att säkerställa att verksamheten rullar på!",
+    "list": [
+      "Färdig bil omedelbart – till och med nästa dag",
+      "Avtalstid 1–12 månader, enligt dina behov",
+      "Fast månadspris inkluderar försäkring, service och däckservice",
+      "Ingen handpenning, inga återförsäljningsbekymmer",
+      "Personlig kontaktperson för ditt företag"
+    ],
+    "examplesTitle": "Perfekt lösning för bl.a.:",
+    "examples": [
+      "Under väntetiden på en ny tjänstebil eller leverans",
+      "Som ersättningsbil vid service eller reparation",
+      "För projekt eller tidsbegränsade uppdrag",
+      "För att täcka säsongs- eller tillfälliga extrabehov"
+    ],
+    "contactCta": "Kontakta oss – vi hittar lösningen som får ditt företag att rulla framåt"
+  }
+}
