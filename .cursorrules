@@ -834,6 +834,92 @@ mcp_supabase_query
         "commander package"
       ],
       "example": "node tools/shopify-articles-tool.cjs generate-articles --blog-id gid://shopify/Blog/12345 -a 3 -i \"Technology and innovation articles for our company blog\""
+    },
+    "adobe-commerce": {
+      "description": "Adobe Commerce API tool for fetching and managing products. Supports both OAuth 1.0 integration authentication and admin token authentication with 2FA. Admin token authentication is simpler but requires 2FA setup.",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/adobe-commerce-tool.cjs",
+      "options": {
+        "test": {
+          "description": "Test API connection and credentials"
+        },
+        "generate-token": {
+          "description": "Generate admin token using 2FA authentication",
+          "arguments": "<otp>: One-time password from 2FA app (e.g., Google Authenticator)"
+        },
+        "search": {
+          "description": "Search products using V1/products endpoint (requires authentication)",
+          "options": {
+            "term": "(Optional) Search term (-t, --term)",
+            "category": "(Optional) Category ID (-c, --category)",
+            "price-from": "(Optional) Minimum price (--price-from)",
+            "price-to": "(Optional) Maximum price (--price-to)",
+            "sku": "(Optional) SKU to search for (-s, --sku)",
+            "container": "(Optional) Search container: quick_search_container, advanced_search_container, catalog_view_container (default: quick_search_container)",
+            "condition": "(Optional) Condition type for SKU search: like, eq, etc. (default: like)",
+            "limit": "(Optional) Number of results per page (default: 20)",
+            "page": "(Optional) Page number (default: 1)"
+          }
+        },
+        "list": {
+          "description": "List products using V1/products endpoint (requires authentication)",
+          "options": {
+            "sku": "(Optional) Filter by SKU partial match (-s, --sku)",
+            "name": "(Optional) Filter by name partial match (-n, --name)",
+            "category": "(Optional) Filter by category ID (-c, --category)",
+            "price-from": "(Optional) Minimum price (--price-from)",
+            "price-to": "(Optional) Maximum price (--price-to)",
+            "status": "(Optional) Product status: 1=enabled, 2=disabled (--status)",
+            "visibility": "(Optional) Product visibility: 1=not visible, 2=catalog, 3=search, 4=catalog+search (--visibility)",
+            "limit": "(Optional) Number of results per page (default: 20)",
+            "page": "(Optional) Page number (default: 1)",
+            "sort-field": "(Optional) Sort field (default: created_at)",
+            "sort-dir": "(Optional) Sort direction: ASC/DESC (default: DESC)"
+          }
+        },
+        "get": {
+          "description": "Get a specific product by SKU",
+          "arguments": "<sku>: Product SKU to retrieve"
+        },
+        "categories": {
+          "description": "List all categories in a hierarchical tree structure"
+        }
+      },
+      "requires": [
+        "ADOBE_API_URL in .env.local",
+        "Authentication Option 1 - OAuth 1.0 Integration:",
+        "  ADOBE_CONSUMER_KEY, ADOBE_CONSUMER_SECRET, ADOBE_ACCESS_TOKEN, ADOBE_ACCESS_TOKEN_SECRET",
+        "Authentication Option 2 - Admin Token (Recommended):",
+        "  ADOBE_ADMIN_TOKEN (generate using generate-token command)",
+        "Authentication Option 3 - Admin Credentials (for token generation):",
+        "  ADOBE_ADMIN_USERNAME, ADOBE_ADMIN_PASSWORD (requires 2FA setup)",
+        "ADOBE_STORE_CODE in .env.local (optional, defaults to 'default')",
+        "axios package",
+        "commander package",
+        "dotenv package"
+      ],
+      "examples": [
+        "# Test connection",
+        "node tools/adobe-commerce-tool.cjs test",
+        "",
+        "# Generate admin token (requires 2FA)",
+        "node tools/adobe-commerce-tool.cjs generate-token 123456",
+        "",
+        "# Search for products containing 'punainen risti'",
+        "node tools/adobe-commerce-tool.cjs search --term \"punainen risti\"",
+        "",
+        "# Search with advanced filtering",
+        "node tools/adobe-commerce-tool.cjs search --container advanced_search_container --price-from 10 --price-to 100",
+        "",
+        "# List products with authentication",
+        "node tools/adobe-commerce-tool.cjs list --name \"punainen\" --limit 10",
+        "",
+        "# Get specific product by SKU",
+        "node tools/adobe-commerce-tool.cjs get PRODUCT-SKU-123",
+        "",
+        "# List categories",
+        "node tools/adobe-commerce-tool.cjs categories"
+      ]
     }
   }
 }

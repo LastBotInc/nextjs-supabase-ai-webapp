@@ -1,0 +1,879 @@
+
+> nextjs-ai-webpage@0.1.0 shopify-product
+> NODE_ENV=development node tools/shopify-product-tool.cjs list --limit 50
+
+[shopify-api/INFO] version 11.12.0, environment Node v22.14.0
+[shopify-api/INFO] Future flag lineItemBilling is disabled.
+
+  Enable this flag to use the new billing API, that supports multiple line items per plan.
+
+[shopify-api/INFO] Future flag customerAddressDefaultFix is disabled.
+
+  Enable this flag to change the CustomerAddress classes to expose a 'is_default' property instead of 'default' when fetching data.
+
+[shopify-api/INFO] Future flag unstable_managedPricingSupport is disabled.
+
+  Enable this flag to support managed pricing, so apps can check for payments without needing a billing config. Learn more at https://shopify.dev/docs/apps/launch/billing/managed-pricing
+
+Gemini client initialized with API Key.
+Listing products (limit: 50)...
+{
+  "products": {
+    "edges": [
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045659054346",
+          "title": "Classic Blue T-Shirt",
+          "handle": "classic-blue-t-shirt",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045667934474",
+          "title": "Classic Blue Crew Neck T-Shirt",
+          "handle": "classic-blue-crew-neck-t-shirt",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045671702794",
+          "title": "Classic Blue Crew Neck T-Shirt",
+          "handle": "classic-blue-crew-neck-t-shirt-1",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045673898250",
+          "title": "Classic Blue Crew Neck T-Shirt",
+          "handle": "classic-blue-crew-neck-t-shirt-2",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045841998090",
+          "title": "The Obsidian Shredder - 7-String Baritone",
+          "handle": "the-obsidian-shredder-7-string-baritone",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045842424074",
+          "title": "The Inferno Serpent - 6-String",
+          "handle": "the-inferno-serpent-6-string",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045873914122",
+          "title": "Baphomet's Fury: Blackened Mahogany Shredder",
+          "handle": "baphomets-fury-blackened-mahogany-shredder",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045875552522",
+          "title": "Infernal Shredder E666 - Blackened Fury",
+          "handle": "infernal-shredder-e666-blackened-fury",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045881254154",
+          "title": "Grimheart SG-84 'Infernal Black' Electric Guitar",
+          "handle": "grimheart-sg-84-infernal-black-electric-guitar",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045883941130",
+          "title": "Malmsteen Fury 87X - Black Mirror",
+          "handle": "malmsteen-fury-87x-black-mirror",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045886300426",
+          "title": "Brimstone 8-String Electric Guitar - Black Blizzard",
+          "handle": "brimstone-8-string-electric-guitar-black-blizzard",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045899735306",
+          "title": "Hellfire SG - Satan's Fury Edition",
+          "handle": "hellfire-sg-satans-fury-edition",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045901930762",
+          "title": "Blaze Ripper - Baritone Electric Guitar",
+          "handle": "blaze-ripper-baritone-electric-guitar",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045905142026",
+          "title": "Infernal SG - Satin Black Devil",
+          "handle": "infernal-sg-satin-black-devil",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045907271946",
+          "title": "Abyssian Dominator - 8-String Electric Guitar",
+          "handle": "abyssian-dominator-8-string-electric-guitar",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045908746506",
+          "title": "Ibanez Iron Label RGIXL7-DCSL Deep Crimson Stain Low Gloss 7-String",
+          "handle": "ibanez-iron-label-rgixl7-dcsl-deep-crimson-stain-low-gloss-7-string",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045917135114",
+          "title": "Abyssian Blackheart Shredder",
+          "handle": "abyssian-blackheart-shredder",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10045918707978",
+          "title": "Reaper 87X - Heavy Metal Electric Guitar",
+          "handle": "reaper-87x-heavy-metal-electric-guitar",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "999.99"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104646631690",
+          "title": "Satiininauha 25mm / 25m light honey",
+          "handle": "satiininauha-25mm-25m-light-honey-18816",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104650727690",
+          "title": "Satiininauha 25mm / 25m valkoinen",
+          "handle": "satiininauha-25mm-25m-valkoinen-18753",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104650760458",
+          "title": "Satiininauha 25mm / 25m minttu",
+          "handle": "satiininauha-25mm-25m-minttu-18756",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104650793226",
+          "title": "Satiininauha 38mm / 25m pink",
+          "handle": "satiininauha-38mm-25m-pink-18759",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "3.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104650825994",
+          "title": "Satiininauha 50mm/25m light dusty rose",
+          "handle": "satiininauha-50mm25m-light-dusty-rose-18761",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.50"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104650891530",
+          "title": "Satiininauha 50mm/25m dark dusty rose",
+          "handle": "satiininauha-50mm25m-dark-dusty-rose-18763",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "0.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653611274",
+          "title": "Satiininauha 50mm/25m dark dusty rose",
+          "handle": "satiininauha-50mm25m-dark-dusty-rose-18764",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.50"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653644042",
+          "title": "Satiininauha 50mm/25m bottle green",
+          "handle": "satiininauha-50mm25m-bottle-green-18765",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.50"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653676810",
+          "title": "Satiininauha 50mm/25m green apple",
+          "handle": "satiininauha-50mm25m-green-apple-18769",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.50"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653709578",
+          "title": "Satiininauha 12mm / 25m green apple",
+          "handle": "satiininauha-12mm-25m-green-apple-18772",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653742346",
+          "title": "Satiininauha 25mm / 25m light misty blue",
+          "handle": "satiininauha-25mm-25m-light-misty-blue-18777",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653775114",
+          "title": "Satiininauha 50mm/25m misty blue",
+          "handle": "satiininauha-50mm25m-misty-blue-18779",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.50"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653807882",
+          "title": "Satiininauha 6mm / 25m misty blue",
+          "handle": "satiininauha-6mm-25m-misty-blue-18781",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.00"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653840650",
+          "title": "Satiininauha 3mm/50m misty blue",
+          "handle": "satiininauha-3mm50m-misty-blue-18783",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653873418",
+          "title": "Satiininauha 3mm/50m light pink",
+          "handle": "satiininauha-3mm50m-light-pink-18784",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104653906186",
+          "title": "Satiininauha 3mm/50m dark pink",
+          "handle": "satiininauha-3mm50m-dark-pink-18787",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654004490",
+          "title": "Satiininauha 3mm/50m bottle green",
+          "handle": "satiininauha-3mm50m-bottle-green-18801",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654037258",
+          "title": "Satiininauha 3mm/50m light honey",
+          "handle": "satiininauha-3mm50m-light-honey-18803",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654070026",
+          "title": "Satiininauha 3mm/50m pink",
+          "handle": "satiininauha-3mm50m-pink-18805",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654102794",
+          "title": "Satiininauha 3mm/50m light honey",
+          "handle": "satiininauha-3mm50m-light-honey-18809",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654168330",
+          "title": "Satiininauha 3mm/50m valkoinen",
+          "handle": "satiininauha-3mm50m-valkoinen-18810",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654201098",
+          "title": "Satiininauha 12mm / 25m light pink",
+          "handle": "satiininauha-12mm-25m-light-pink-18811",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654233866",
+          "title": "Satiininauha 12mm / 25m light honey",
+          "handle": "satiininauha-12mm-25m-light-honey-18812",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "1.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654332170",
+          "title": "Satiininauha 25mm / 25m pink",
+          "handle": "satiininauha-25mm-25m-pink-18817",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654364938",
+          "title": "Satiininauha 38mm / 25m light honey",
+          "handle": "satiininauha-38mm-25m-light-honey-18818",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "3.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654397706",
+          "title": "Foliopallo oh Baby",
+          "handle": "foliopallo-oh-baby-18850",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "2.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654463242",
+          "title": "Huntu Bride pannalla",
+          "handle": "huntu-bride-pannalla-18852",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "6.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654496010",
+          "title": "Sydämenmuotoiset liekkilasit",
+          "handle": "sydmenmuotoiset-liekkilasit-18856",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "6.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654528778",
+          "title": "Röyhelöpääpanta Bride",
+          "handle": "ryhelppanta-bride-18859",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "7.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654594314",
+          "title": "Penis -foliopallo",
+          "handle": "penis-foliopallo-18863",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "5.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654627082",
+          "title": "Mukit -Ryhmä Hau rescue heroes 8kpl",
+          "handle": "mukit-ryhm-hau-rescue-heroes-8kpl-18889",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "3.90"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "gid://shopify/Product/10104654659850",
+          "title": "Muotofoliopallo Siili -kävelevä  51x37cm",
+          "handle": "muotofoliopallo-siili-kvelev-51x37cm-18893",
+          "status": "DRAFT",
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "price": "6.90"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJsYXN0X2lkIjoxMDEwNDY1NDY1OTg1MCwibGFzdF92YWx1ZSI6IjEwMTA0NjU0NjU5ODUwIn0="
+    }
+  }
+}

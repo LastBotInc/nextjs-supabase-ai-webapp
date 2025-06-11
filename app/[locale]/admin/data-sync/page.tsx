@@ -42,6 +42,15 @@ interface ShopifyStoreInfo {
   error?: string;
 }
 
+interface AdobeCommerceInfo {
+  isConfigured: boolean;
+  storeUrl?: string;
+  productCount?: number;
+  lastSync?: string;
+  connectionStatus: 'connected' | 'error' | 'not_configured';
+  error?: string;
+}
+
 async function fetchAdminApi(endpoint: string, token: string, options?: RequestInit) {
   const response = await fetch(`/api/admin/${endpoint}`, {
     ...options,
@@ -125,6 +134,19 @@ export default function DataSyncAdminPage() {
     errors: number;
   } | null>(null);
 
+  // Adobe Commerce integration states
+  const [adobeCommerceInfo, setAdobeCommerceInfo] = useState<AdobeCommerceInfo | null>(null);
+  const [adobeCommerceLoading, setAdobeCommerceLoading] = useState(true);
+  const [syncingAdobeCommerce, setSyncingAdobeCommerce] = useState(false);
+  const [adobeCommerceSyncError, setAdobeCommerceSyncError] = useState<string | null>(null);
+  const [adobeCommerceSyncSuccess, setAdobeCommerceSyncSuccess] = useState<string | null>(null);
+  const [adobeCommerceSyncProgress, setAdobeCommerceSyncProgress] = useState<{
+    fetched: number;
+    created: number;
+    updated: number;
+    errors: number;
+  } | null>(null);
+
   const fetchDataSources = useCallback(async () => {
     if (!session?.access_token || !isAdmin) {
       if (!authLoading) setError(t('errors.unauthorized'));
@@ -166,12 +188,34 @@ export default function DataSyncAdminPage() {
     }
   }, [session, isAdmin]);
 
+  const fetchAdobeCommerceInfo = useCallback(async () => {
+    if (!session?.access_token || !isAdmin) {
+      setAdobeCommerceLoading(false);
+      return;
+    }
+    setAdobeCommerceLoading(true);
+    try {
+      const data = await fetchAdminApi('adobe-commerce/sync', session.access_token);
+      setAdobeCommerceInfo(data);
+    } catch (err) {
+      console.error('Failed to fetch Adobe Commerce info:', err);
+      setAdobeCommerceInfo({
+        isConfigured: false,
+        connectionStatus: 'error',
+        error: err instanceof Error ? err.message : 'Unknown error'
+      });
+    } finally {
+      setAdobeCommerceLoading(false);
+    }
+  }, [session, isAdmin]);
+
   useEffect(() => {
     if (!authLoading) {
       fetchDataSources();
       fetchShopifyInfo();
+      fetchAdobeCommerceInfo();
     }
-  }, [fetchDataSources, fetchShopifyInfo, authLoading]);
+  }, [fetchDataSources, fetchShopifyInfo, fetchAdobeCommerceInfo, authLoading]);
 
   const handleTriggerSync = async (sourceId: string, sourceName: string) => {
     if (!session?.access_token || !isAdmin) {
@@ -395,6 +439,55 @@ export default function DataSyncAdminPage() {
     }
   };
 
+  const handleSyncAdobeCommerce = async (options: { 
+    searchTerm?: string; 
+    limit?: number; 
+    forceSync?: boolean; 
+  } = {}) => {
+    if (!session?.access_token || !isAdmin) {
+      setAdobeCommerceSyncError('No session available or unauthorized');
+      return;
+    }
+
+    setSyncingAdobeCommerce(true);
+    setAdobeCommerceSyncError(null);
+    setAdobeCommerceSyncSuccess(null);
+    setAdobeCommerceSyncProgress(null);
+
+    try {
+      const result = await fetchAdminApi('adobe-commerce/sync', session.access_token, {
+        method: 'POST',
+        body: JSON.stringify({
+          searchTerm: options.searchTerm || 'punainen risti',
+          limit: options.limit || 20,
+          forceSync: options.forceSync || false
+        }),
+      });
+
+      if (result.success) {
+        setAdobeCommerceSyncSuccess(result.message);
+        setAdobeCommerceSyncProgress(result.stats);
+        // Refresh Adobe Commerce info to get updated counts
+        fetchAdobeCommerceInfo();
+      } else {
+        setAdobeCommerceSyncError(result.error || 'Adobe Commerce sync failed');
+        if (result.stats) {
+          setAdobeCommerceSyncProgress(result.stats);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to sync Adobe Commerce products:', error);
+      setAdobeCommerceSyncError(error instanceof Error ? error.message : 'Adobe Commerce sync failed');
+    } finally {
+      setSyncingAdobeCommerce(false);
+      setTimeout(() => {
+        setAdobeCommerceSyncSuccess(null);
+        setAdobeCommerceSyncError(null);
+        setAdobeCommerceSyncProgress(null);
+      }, 10000);
+    }
+  };
+
   if (authLoading || loading) {
     return (
       <div className="p-6">
@@ -451,8 +544,9 @@ export default function DataSyncAdminPage() {
           onClick={() => {
             fetchDataSources();
             fetchShopifyInfo();
+            fetchAdobeCommerceInfo();
           }}
-          disabled={loading || authLoading || shopifyLoading}
+          disabled={loading || authLoading || shopifyLoading || adobeCommerceLoading}
           className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md flex items-center transition-colors text-sm"
         >
           <RefreshCw size={16} className="mr-2" />
@@ -730,6 +824,155 @@ export default function DataSyncAdminPage() {
             ) : (
               <div className="bg-red-900/20 border border-red-500/30 rounded-md p-4">
                 <p className="text-red-200 text-sm">{shopifyInfo.error}</p>
+              </div>
+            )}
+          </div>
+        ) : null}
+      </div>
+
+      {/* Adobe Commerce Integration Section */}
+      <div className="bg-gray-800 rounded-lg p-6">
+        <div className="flex items-center mb-4">
+          <Package className="w-6 h-6 text-orange-500 mr-3" />
+          <h2 className="text-xl font-semibold text-white">Adobe Commerce - Red Cross Finland</h2>
+        </div>
+
+        {adobeCommerceLoading ? (
+          <p className="text-gray-300">Loading Adobe Commerce connection...</p>
+        ) : adobeCommerceInfo ? (
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              {getConnectionStatusIcon(adobeCommerceInfo.connectionStatus)}
+              <span className="text-white font-medium">
+                {adobeCommerceInfo.connectionStatus === 'connected' && 'Connected to Red Cross Finland Store'}
+                {adobeCommerceInfo.connectionStatus === 'error' && 'Connection Error'}
+                {adobeCommerceInfo.connectionStatus === 'not_configured' && 'Not Configured'}
+              </span>
+            </div>
+
+            {!adobeCommerceInfo.isConfigured ? (
+              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-md p-4">
+                <p className="text-yellow-200 text-sm">
+                  Configure Adobe Commerce credentials in environment variables to enable product sync.
+                </p>
+              </div>
+            ) : adobeCommerceInfo.connectionStatus === 'connected' ? (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">Store URL</p>
+                    <p className="text-white font-medium">{adobeCommerceInfo.storeUrl}</p>
+                  </div>
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">Available Products</p>
+                    <div className="flex items-center">
+                      <Package className="w-4 h-4 text-orange-400 mr-2" />
+                      <p className="text-white font-medium">{adobeCommerceInfo.productCount?.toLocaleString() || 'Unknown'}</p>
+                    </div>
+                  </div>
+                  <div className="bg-gray-700 rounded-md p-4">
+                    <p className="text-gray-400 text-sm">Last Sync</p>
+                    <p className="text-white font-medium">
+                      {adobeCommerceInfo.lastSync 
+                        ? new Date(adobeCommerceInfo.lastSync).toLocaleString()
+                        : 'Never'
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                {/* Product Sync Section */}
+                <div className="bg-gray-700 rounded-md p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-medium text-white">Product Sync to Shopify</h3>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => handleSyncAdobeCommerce({ searchTerm: 'punainen risti', limit: 3 })}
+                        disabled={syncingAdobeCommerce}
+                        className="px-3 py-2 bg-green-600 hover:bg-green-700 disabled:bg-green-800 text-white rounded-md flex items-center transition-colors text-sm border border-green-500"
+                      >
+                        <RefreshCw size={16} className={`mr-2 ${syncingAdobeCommerce ? 'animate-spin' : ''}`} />
+                        {syncingAdobeCommerce ? 'Syncing...' : 'Test Sync (3 products)'}
+                      </button>
+                      <button
+                        onClick={() => handleSyncAdobeCommerce({ searchTerm: 'punainen risti', limit: 20 })}
+                        disabled={syncingAdobeCommerce}
+                        className="px-3 py-2 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-800 text-white rounded-md flex items-center transition-colors text-sm"
+                      >
+                        <RefreshCw size={16} className={`mr-2 ${syncingAdobeCommerce ? 'animate-spin' : ''}`} />
+                        {syncingAdobeCommerce ? 'Syncing...' : 'Sync Red Cross Products'}
+                      </button>
+                      <button
+                        onClick={() => handleSyncAdobeCommerce({ searchTerm: 'punainen risti', limit: 10, forceSync: true })}
+                        disabled={syncingAdobeCommerce}
+                        className="px-3 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 text-white rounded-md flex items-center transition-colors text-sm border border-purple-500"
+                      >
+                        <RefreshCw size={16} className={`mr-2 ${syncingAdobeCommerce ? 'animate-spin' : ''}`} />
+                        {syncingAdobeCommerce ? 'Updating...' : 'Force Update Existing'}
+                      </button>
+                      <button
+                        onClick={() => handleSyncAdobeCommerce({ searchTerm: '', limit: 50, forceSync: true })}
+                        disabled={syncingAdobeCommerce}
+                        className="px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white rounded-md flex items-center transition-colors text-sm"
+                      >
+                        <ExternalLink size={16} className={`mr-2 ${syncingAdobeCommerce ? 'animate-spin' : ''}`} />
+                        {syncingAdobeCommerce ? 'Syncing...' : 'Full Sync (50 products)'}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Sync Progress */}
+                  {adobeCommerceSyncProgress && (
+                    <div className="mb-4 bg-gray-600 rounded-md p-3">
+                      <p className="text-white text-sm font-medium mb-2">Sync Progress</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-400">Fetched: </span>
+                          <span className="text-white font-medium">{adobeCommerceSyncProgress.fetched}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Created: </span>
+                          <span className="text-green-400 font-medium">{adobeCommerceSyncProgress.created}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Updated: </span>
+                          <span className="text-blue-400 font-medium">{adobeCommerceSyncProgress.updated}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Errors: </span>
+                          <span className="text-red-400 font-medium">{adobeCommerceSyncProgress.errors}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Sync Messages */}
+                  {adobeCommerceSyncError && (
+                    <div className="mb-4 bg-red-900/20 border border-red-500/30 rounded-md p-3">
+                      <p className="text-red-200 text-sm">{adobeCommerceSyncError}</p>
+                    </div>
+                  )}
+
+                  {adobeCommerceSyncSuccess && (
+                    <div className="mb-4 bg-green-900/20 border border-green-500/30 rounded-md p-3">
+                      <p className="text-green-200 text-sm">{adobeCommerceSyncSuccess}</p>
+                    </div>
+                  )}
+
+                  <p className="text-gray-300 text-sm">
+                    Fetch products from the Red Cross Finland Adobe Commerce store and sync them to your Shopify store. 
+                    Products will be automatically mapped and created/updated in Shopify with appropriate pricing and descriptions.
+                    <br /><br />
+                    <strong>Test Sync:</strong> Sync just 3 products to test the integration.<br />
+                    <strong>Standard Sync:</strong> Sync 20 Red Cross products (skips existing products).<br />
+                    <strong>Force Update Existing:</strong> Update 10 existing products with enhanced data mapping.<br />
+                    <strong>Full Sync:</strong> Force sync 50 products (overwrites existing products).
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-red-900/20 border border-red-500/30 rounded-md p-4">
+                <p className="text-red-200 text-sm">{adobeCommerceInfo.error}</p>
               </div>
             )}
           </div>
