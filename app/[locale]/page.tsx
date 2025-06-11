@@ -77,7 +77,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray">
-        <ContentArea type="content">
+        <ContentArea>
           <Flex direction="column" autoFlexChildren={false} gaps="large" className="main-level-padding-full-y">
             <Flex className="text-center pb-7" direction="column" gaps="none">
               <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
@@ -247,7 +247,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       </FlexLayout>
 
       <CustomMainContent palette="light-gray" className="compensate-for-split-padding-bottom">
-        <ContentArea type="content" className="forced-split-padding">
+        <ContentArea className="forced-split-padding">
           <Flex
             gaps="small"
             direction="row"

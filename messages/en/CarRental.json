@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Car Rental for Businesses – Easy and Fast",
+    "description": "Rent a car for your business flexibly and effortlessly. Mini-leasing and company cars for short- and long-term use – delivery and pickup as needed."
+  },
+  "title": "Car Rental for Businesses",
+  "intro": "Dreaming of a business-focused car rental service where you can book a car online and have it delivered and picked up as needed? Discover our flexible car rental solutions for companies!",
+  "benefits": {
+    "title": "Why choose us?",
+    "list": [
+      "Ready-to-drive car available immediately – even by the next day",
+      "Contract period 1–12 months, tailored to your needs",
+      "Fixed monthly price includes insurance, maintenance, and tire services",
+      "No down payment, no resale worries",
+      "Dedicated contact person for your business"
+    ]
+  },
+  "examples": {
+    "title": "Perfect solution for:",
+    "list": [
+      "While waiting for a new company car or delivery",
+      "As a replacement car during maintenance or repairs",
+      "For projects or fixed-term assignments",
+      "To cover seasonal or temporary additional needs"
+    ]
+  },
+  "cta": {
+    "title": "Contact us – we'll find the right solution for your business",
+    "description": "We tailor a rental or leasing package to suit your company. Get in touch and tell us about your needs!",
+    "button": "Request a quote"
+  },
+  "hero": {
+    "title": "Company cars flexibly for your needs",
+    "description": "Rent a car for your business easily and quickly – with no long-term commitment. We deliver the car directly to your company and pick it up after the rental period.",
+    "image": "car-rental-hero-en.jpg"
+  },
+  "minileasing": {
+    "title": "Mini-leasing for businesses – Power up your operations with no long-term commitment",
+    "description": "Need a car for your business quickly and for a fixed period? Mini-leasing is a flexible solution for short-term vehicle needs – without long-term commitments or the worries of ownership. Mini-leasing is a straightforward, cost-effective, and fast way to keep your business moving!",
+    "list": [
+      "Ready-to-drive car available immediately – even by the next day",
+      "Contract period 1–12 months, tailored to your needs",
+      "Fixed monthly price includes insurance, maintenance, and tire services",
+      "No down payment, no resale worries",
+      "Dedicated contact person for your business"
+    ],
+    "examplesTitle": "Perfect solution for:",
+    "examples": [
+      "While waiting for a new company car or delivery",
+      "As a replacement car during maintenance or repairs",
+      "For projects or fixed-term assignments",
+      "To cover seasonal or temporary additional needs"
+    ],
+    "contactCta": "Contact us – we'll find the solution that keeps your business moving forward"
+  }
+}

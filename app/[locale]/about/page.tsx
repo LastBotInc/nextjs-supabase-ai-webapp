@@ -97,7 +97,7 @@ export default async function AboutPage({ params }: Props) {
           ))}
         </List>
       </BasicLayout>
-      <BasicLayout contentPalette="kupari">
+      <BasicLayout palette="kupari">
         <Heading2>{t("offerings_title")}</Heading2>
         <Flex direction="row" gaps="large">
           <Card>
