@@ -15,9 +15,10 @@ export const getNamespaces = (): string[] => {
     'About', 'Account', 'Admin', 'Auth',
     'Blog', 'Campaigns', 'CarBenefitCalculator', 'CarLeasing',
     'CarRental', 'Common', 'Contact', 'CookieConsent',
-    'CorporateLeasing', 'CustomerService', 'CustomerStories', 'DriversGuide',
-    'FleetManager', 'Footer', 'Home', 'Index',
-    'LandingPages', 'LeasingSolutions', 'MachineLeasing', 'Media',
-    'Meta', 'Navigation', 'Privacy', 'Profile'
+    'CorporateLeasing', 'CurrentTopics', 'CustomerService', 'CustomerStories',
+    'DriversGuide', 'FleetManager', 'Footer', 'Home',
+    'Index', 'LandingPages', 'LeasingSolutions', 'MachineLeasing',
+    'Media', 'Meta', 'Navigation', 'Privacy',
+    'Profile'
   ];
 };

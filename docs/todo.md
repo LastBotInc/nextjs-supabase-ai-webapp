@@ -585,3 +585,12 @@
 ❌ Add inline comments and ensure accessibility
 ❌ Test calculator functionality and UI
 ✅ Create verbose, informative, and well-structured MachineLeasing page content (fi, sv, en) with tables and lists
+✅ Lisää CurrentTopics-uutissisältö ja käännökset (fi, sv, en)
+❌ Design and implement a FeaturedNews component for the "featured" section of CurrentTopics.
+❌ Design and implement a Testimonial component for CurrentTopics.
+❌ Design and implement a StoriesSection with filtering and sorting for CurrentTopics.
+❌ Design and implement a CTASection for the call-to-action in CurrentTopics.
+❌ Integrate all new components into /ajankohtaista/page.tsx using layouts and core components.
+❌ Ensure all text uses translations from messages/CurrentTopics.json.
+❌ Add or adjust tests for new components in CurrentTopics.
+❌ Document the new components and update the changelog for CurrentTopics.

@@ -191,3 +191,4 @@ This change eliminates the need to manually maintain the list of translation nam
 - Translated and updated messages/sv/CarLeasing.json and messages/en/CarLeasing.json with the new, improved content and structure.
 - Ensured all three languages have matching, customer-oriented content and structure for CarLeasing.json.
 - Added comprehensive, verbose, and informative content for the MachineLeasing page in Finnish, Swedish, and English. The new JSON includes meta, title, intro, terms (as a list), vehicles (as a table), benefits (as a list), practical examples, FAQ, and a call-to-action. All translations follow localization and natural language guidelines.
+- Täytetty CurrentTopics.json (fi, sv, en) ajankohtais-/uutissisällöllä kolmella kielellä Ajankohtaista_kotisivu.html:n pohjalta. Käännökset tehtiin idiomattisesti ja liiketoimintaan sopivalla kielellä.
