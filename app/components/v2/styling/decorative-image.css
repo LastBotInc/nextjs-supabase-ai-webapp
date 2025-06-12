@@ -1,14 +1,17 @@
 .decorative-image {
   height: 100%;
   @apply z-30;
-  @apply self-end;
 }
+
 .decorative-image-sizer {
   @apply inset-0 absolute;
 }
 
 .width-large {
   width: 70%;
+}
+.width-full {
+  width: 100%;
 }
 
 .width-medium {
@@ -44,6 +47,11 @@
 .height-overflow-paddings {
   top: -4.5rem;
   bottom: -4.5rem;
+}
+
+.height-overflow-paddings-xl {
+  top: -7rem;
+  bottom: -7rem;
 }
 
 /*
