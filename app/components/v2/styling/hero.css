@@ -1,8 +1,22 @@
 .hero-content {
-  @apply w-full grid grid-cols-1 gap-2 lg:gap-4 items-end;
-  @apply min-h-[500px] lg:h-[600px] lg:grid-cols-[33%_1fr] content-end;
+  @apply w-full grid grid-cols-1 gap-4 lg:gap-8 items-end;
+  @apply min-h-[500px] lg:h-[600px] lg:grid-cols-[1fr_min-content] content-end;
+}
+
+.hero-text {
+  @apply pt-6 max-w-3xl;
 }
 
 .hero-subheading {
-  @apply block text-5xl font-light;
+  font-size: 0.9em;
+  @apply block font-light leading-tight;
+}
+
+.hero-text-prefixed {
+  &:before {
+    content: "–";
+    padding-right: 0.25em;
+  }
+  width: 100%;
+  display: block;
 }

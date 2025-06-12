@@ -54,33 +54,27 @@ export function Hero({ children, fullWidth, className, isFirst, ...rest }: Omit<
     Image.displayName,
     ExtraContent.displayName,
   ]);
-  const hasText = !!slots[Text.displayName];
   const hasImage = !!slots[Image.displayName];
   return (
     <MainBlock className={className} {...rest}>
       {fullWidth && hasImage && slots[Image.displayName]}
       <MainBlock.Content>
-        <ContentBlock className={cn(!fullWidth && hasImage && "rounded-xl overflow-hidden")}>
+        <ContentBlock className={cn(!fullWidth && hasImage && "xl:rounded-xl overflow-hidden")}>
           {!fullWidth && hasImage && slots[Image.displayName]}
           <ContentBlock.Content palette="piki" className="hero-content shadow-text">
-            <div className="">
+            <div className="hero-title">
               {slots[Heading.displayName] && (
                 <HeadingComponent level={isFirst ? 1 : 2} medium>
                   {slots[Heading.displayName]}
                   {slots[SubHeading.displayName] && (
-                    <span
-                      className={cn(
-                        "hero-subheading with-shadow",
-                        hasText ? "hero-text-prefixed" : "hero-text-split-to-lines"
-                      )}
-                    >
+                    <span className={cn("hero-subheading with-shadow", "hero-text-prefixed")}>
                       {slots[SubHeading.displayName]}
                     </span>
                   )}
                 </HeadingComponent>
               )}
               {/* text */}
-              {slots[Text.displayName] && <div className="">{slots[Text.displayName]}</div>}
+              {slots[Text.displayName] && <div className="hero-text">{slots[Text.displayName]}</div>}
             </div>
             {/* extra content like call us */}
             {slots[ExtraContent.displayName] && <>{slots[ExtraContent.displayName]}</>}
