@@ -69,7 +69,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" />
+          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" className="self-end" />
         </FlexLayout.Column>
       </TwoColumnLayout>
 

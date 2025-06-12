@@ -63,7 +63,7 @@ const AccordionContent = forwardRef<HTMLDivElement, { children: ReactNode; class
       {...props}
       ref={forwardedRef}
     >
-      <Flex>{children}</Flex>
+      <Flex direction="column">{children}</Flex>
     </Content>
   )
 );

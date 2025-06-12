@@ -64,7 +64,7 @@ export function Hero({ children, fullWidth, className, isFirst, ...rest }: Omit<
           <ContentBlock.Content palette="piki" className="hero-content shadow-text">
             <div className="hero-title">
               {slots[Heading.displayName] && (
-                <HeadingComponent level={isFirst ? 1 : 2} medium>
+                <HeadingComponent level={isFirst ? 1 : 2} bold>
                   {slots[Heading.displayName]}
                   {slots[SubHeading.displayName] && (
                     <span className={cn("hero-subheading with-shadow", "hero-text-prefixed")}>

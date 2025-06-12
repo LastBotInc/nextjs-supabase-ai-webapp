@@ -201,28 +201,34 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          <DecorativeImage width="large" height="overflow-paddings" src="/images/cropped_demo.png" useMask />
+          <DecorativeImage
+            width="large"
+            height="overflow-paddings"
+            src="/images/cropped_demo.png"
+            useMask
+            className="self-end"
+          />
         </FlexLayout.Column>
       </FlexLayout>
 
       <BoxLayout palette="light-gray" fullSizeBoxes={true}>
         <BoxLayout.Box palette="maantie" gaps>
-          <Heading2>{t("leasingTypes.rahoitusleasing.title")}</Heading2>
+          <Heading3>{t("leasingTypes.rahoitusleasing.title")}</Heading3>
           <Paragraph>{t("leasingTypes.rahoitusleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.rahoitusleasing.suits")}</Paragraph>
         </BoxLayout.Box>
         <BoxLayout.Box palette="kupari" gaps>
-          <Heading2>{t("leasingTypes.joustoleasing.title")}</Heading2>
+          <Heading3>{t("leasingTypes.joustoleasing.title")}</Heading3>
           <Paragraph>{t("leasingTypes.joustoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.joustoleasing.suits")}</Paragraph>
         </BoxLayout.Box>
         <BoxLayout.Box palette="piki" gaps>
-          <Heading2>{t("leasingTypes.huoltoleasing.title")}</Heading2>
+          <Heading3>{t("leasingTypes.huoltoleasing.title")}</Heading3>
           <Paragraph>{t("leasingTypes.huoltoleasing.description")}</Paragraph>
           <Paragraph className="font-semibold">{t("leasingTypes.huoltoleasing.suits")}</Paragraph>
         </BoxLayout.Box>
         <BoxLayout.Box palette="betoni">
-          <Heading2>{t("leasingTypes.minileasing.title")}</Heading2>
+          <Heading3>{t("leasingTypes.minileasing.title")}</Heading3>
           <Paragraph>{t("leasingTypes.minileasing.description")}</Paragraph>
           <List>
             {t.raw("leasingTypes.minileasing.benefits").map((b: string) => (

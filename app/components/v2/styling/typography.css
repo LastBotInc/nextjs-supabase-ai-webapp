@@ -1,7 +1,8 @@
 .heading {
   @apply font-light font-['Inter_Tight'] leading-tight;
 }
-.heading.medium {
+
+.heading.bold {
   @apply font-medium;
 }
 
@@ -13,19 +14,25 @@ h1.heading:not(.small):not(.fixed) {
 }
 
 h1.heading.small {
-  @apply text-5xl lg:text-6xl;
+  font-size: 2.25rem;
+  @screen md {
+    font-size: 2.75rem;
+  }
 }
 
 h1.heading.fixed:not(.small) {
-  @apply text-6xl;
+  font-size: 3.25rem;
 }
 
 h1.heading.small.fixed {
-  @apply text-5xl;
+  font-size: 2.25rem;
 }
 
-h2.heading:not(.small):not(.fixed) {
-  @apply text-5xl lg:text-6xl;
+h2.heading:not(.small):not(.fixed):not(.large) {
+  font-size: 2.25rem;
+  @screen md {
+    font-size: 2.75rem;
+  }
 }
 
 h2.heading.fixed {
@@ -33,16 +40,30 @@ h2.heading.fixed {
 }
 
 h2.heading.small {
-  @apply text-4xl lg:text-5xl;
+  font-size: 1.75rem;
+  @screen md {
+    font-size: 2.25rem;
+  }
 }
 
 h2.heading.small.fixed {
   @apply text-4xl;
 }
 
-h3.heading:not(.small):not(.fixed) {
-  @apply text-4xl lg:text-5xl;
+h2.heading.large {
+  font-size: 2.75rem;
+  @screen md {
+    font-size: 3.25rem;
+  }
 }
+
+h3.heading:not(.small):not(.fixed) {
+  font-size: 1.75rem;
+  @screen md {
+    font-size: 2.25rem;
+  }
+}
+
 h3.heading.fixed {
   @apply text-4xl;
 }
@@ -52,7 +73,7 @@ h3.heading.fixed:not(.small) {
 }
 
 h3.heading.small {
-  @apply text-3xl lg:text-4xl;
+  font-size: 1.25rem;
 }
 
 h3.heading.small.fixed {
@@ -77,6 +98,12 @@ h5.heading {
 
 .text.large {
   @apply text-lg lg:text-2xl;
+}
+
+.category-heading {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
 .shadow-text {

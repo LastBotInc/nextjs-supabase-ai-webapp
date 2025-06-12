@@ -7,7 +7,7 @@ import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
-import { Heading2, Heading2Small, Heading3, Heading3Small } from "@/app/components/v2/core/Headings";
+import { Heading2, Heading2Large, Heading2Small, Heading3, Heading3Small } from "@/app/components/v2/core/Headings";
 import { ShapedContentFlowInParagraph } from "../components/v2/components/ShapedContentFlowInParagraph";
 import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 import Image from "next/image";
@@ -23,6 +23,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { PersonnelCard } from "@/app/components/v2/components/PersonnelCard";
 import { IconPlugCar } from "@/app/components/Icons";
 import { List } from "@/app/components/v2/core/List";
+import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;
@@ -70,9 +71,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         <FlexLayout.Column>
           <Paragraph variant="large">{t("topTeam.paragraph1")}</Paragraph>
           <Paragraph variant="large">{t("topTeam.paragraph2")}</Paragraph>
-          <LinkButton className="mt-8 bg-piki text-white" href="#">
-            {t("topTeam.readMore")}
-          </LinkButton>
+          <LinkButton href="#">{t("topTeam.readMore")}</LinkButton>
         </FlexLayout.Column>
       </FlexLayout>
 
@@ -80,7 +79,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         <ContentArea>
           <Flex direction="column" gaps="large" className="main-level-padding-full-y">
             <Flex className="text-center pb-7" direction="column" gaps="none">
-              <Heading2 className="lg:text-6xl pb-6">{t("leasingOptions.heading")}</Heading2>
+              <Heading2Large className="pb-6">{t("leasingOptions.heading")}</Heading2Large>
               <Heading3 className="">{t("leasingOptions.description")}</Heading3>
             </Flex>
 
@@ -104,7 +103,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     aria-hidden={true}
                   />
                   <Flex direction="column">
-                    <Heading3 className="">{t("leasingOptions.personalizedTitle")}</Heading3>
+                    <Heading3>{t("leasingOptions.personalizedTitle")}</Heading3>
                     <ShapedContentFlowInParagraph
                       image={{
                         src: "/images/home/0f6632b90d20d9cb3e1d6f218e043f46b58094e1.png",
@@ -138,6 +137,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
                     aria-hidden={true}
                   />
                   <Flex direction="column">
+                    <Heading3>{t("leasingOptions.flexibleTitle")}</Heading3>
                     <ShapedContentFlowInParagraph
                       image={{
                         src: "/images/home/09b138d95425dda02cfc752cc17328ca2e0f8a2c_x.png",
@@ -171,7 +171,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
         }}
       >
         <FlexLayout.Column className="shadow-text">
-          <Heading2>{t("transparency.title")}</Heading2>
+          <Heading2Large>{t("transparency.title")}</Heading2Large>
           {t.raw("transparency.description").map((description: string) => (
             <Paragraph key={description}>{description}</Paragraph>
           ))}
@@ -204,7 +204,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
             sizes="(max-width: 768px) 100vw, 400px"
             quality={90}
           />
-          <Heading2 dangerouslySetInnerHTML={{ __html: t.raw("searchingFor.title") }}></Heading2>
+          <Heading2Large dangerouslySetInnerHTML={{ __html: t.raw("searchingFor.title") }}></Heading2Large>
           {t.raw("searchingFor.description").map((description: string) => (
             <Paragraph key={description}>{description}</Paragraph>
           ))}
@@ -226,14 +226,21 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       >
         <FlexLayout.Column className="shadow-text">
           <Heading3Small className="uppercase text-xl lg:text-xl">{t("innoFleet.subtitle")}</Heading3Small>
-          <Heading2 className="color-kupari-heading">{t("innoFleet.title")}</Heading2>
+          <Heading2Large className="color-kupari-heading">{t("innoFleet.title")}</Heading2Large>
           <Paragraph>{t("innoFleet.description1")}</Paragraph>
           <Paragraph>{t("innoFleet.description2")}</Paragraph>
           <LinkButton href={"#"}>{t("transparency.readMore")}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          {" "}
-          <div className="relative h-[200px] md:h-[300px] lg:h-[600px] w-full">
+          <DecorativeImage
+            width="full"
+            height="overflow-paddings"
+            src="/images/home/iphone_05_sleep_image.png"
+            backgroundSize="contain"
+            backgroundPosition="center center"
+            className=""
+          ></DecorativeImage>
+          <div className="relative h-[200px] w-full lg:hidden">
             <Image
               src="/images/home/iphone_05_sleep_image.png"
               alt={t("innoFleet.imageAlt", { defaultValue: "InnoFleet Manager app" })}
@@ -277,7 +284,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
       <FlexLayout oneColumnBreakpoint="lg" palette="kupari">
         <FlexLayout.Column>
           <div className="relative space-y-8">
-            <Heading2 responsive>{t("greenLeasing.title")}</Heading2>
+            <Heading2Large responsive>{t("greenLeasing.title")}</Heading2Large>
             {t.raw("greenLeasing.description").map((description: string) => (
               <Paragraph key={description}>{description}</Paragraph>
             ))}
