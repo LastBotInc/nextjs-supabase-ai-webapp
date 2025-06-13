@@ -6,159 +6,123 @@ import { setupServerLocale } from "@/app/i18n/server-utils";
 import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Paragraph } from "@/app/components/v2/core/Paragraph";
 import React from "react";
-import { cn } from "@/utils/cn";
 import { Hero } from "@/app/components/v2/layouts/Hero";
 import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
 import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
-import { CheckIcon } from "@heroicons/react/24/outline";
 import { List } from "@/app/components/v2/core/List";
 import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { BoxLayout } from "@/app/components/v2/layouts/BoxLayout";
 import { Flex } from "@/app/components/v2/core/Flex";
-// Leasing comparison table for Finnish market
-const leasingData = [
-  {
-    palvelu: "Oma yhteyshenkilö",
-    rahoitus: true,
-    jousto: true,
-    huolto: true,
-    mini: true,
-    kone: true,
-  },
-  {
-    palvelu: "Kuukausivuokra",
-    rahoitus: "Kiinteä",
-    jousto: "Kiinteä",
-    huolto: "Kiinteä",
-    mini: "Kiinteä",
-    kone: "Kiinteä",
-  },
-  {
-    palvelu: "Huollot & korjaukset",
-    rahoitus: false,
-    jousto: true,
-    huolto: true,
-    mini: true,
-    kone: false,
-  },
-  {
-    palvelu: "Renkaiden uusinnat",
-    rahoitus: false,
-    jousto: true,
-    huolto: true,
-    mini: true,
-    kone: false,
-  },
-  {
-    palvelu: "Rengashotelli & vaihdot",
-    rahoitus: false,
-    jousto: true,
-    huolto: true,
-    mini: true,
-    kone: false,
-  },
-  {
-    palvelu: "Sopimuskilometrit",
-    rahoitus: "Avoin",
-    jousto: "Budjetoitu",
-    huolto: "Kiinteä",
-    mini: "Suljettu",
-    kone: false,
-  },
-  {
-    palvelu: "Huolto­budjetti",
-    rahoitus: "Ei sisälly",
-    jousto: "Avoin tasataan sopimuskauden päättyessä",
-    huolto: "Suljettu",
-    mini: "Suljettu",
-    kone: "Ei sisälly",
-  },
-  {
-    palvelu: "Ylimeno­kilometri­veloitus",
-    rahoitus: "Ei",
-    jousto: "Budjetoitu",
-    huolto: "Budjetoitu",
-    mini: "Budjetoitu",
-    kone: false,
-  },
-  {
-    palvelu: "Jäännösarvo",
-    rahoitus: "Asiakkaan",
-    jousto: "Avoin tasataan sopimuskauden päättyessä",
-    huolto: "Suljettu",
-    mini: "Suljettu",
-    kone: "Asiakkaan",
-  },
-  {
-    palvelu: "Ennenaikainen sopimuksen katkaisu",
-    rahoitus: "Pääomatasauksella",
-    jousto: "Pääomatasauksella",
-    huolto: "Pääomatasauksella",
-    mini: false,
-    kone: "Pääomatasauksella",
-  },
-  {
-    palvelu: "Käytetty ajoneuvo",
-    rahoitus: true,
-    jousto: true,
-    huolto: true,
-    mini: true,
-    kone: false,
-  },
-];
-
-// Helper to render check/cross or text
-const renderCell = (value: boolean | string) => {
-  if (value === true)
-    return (
-      <span aria-label="Kyllä" title="Kyllä" className="text-green-600 flex items-center justify-center">
-        <CheckIcon className="w-6 h-6" strokeWidth={4} />
-      </span>
-    );
-  if (value === false)
-    return (
-      <span aria-label="Ei" title="Ei" className=" text-2xl">
-        -
-      </span>
-    );
-  return <span>{value}</span>;
-};
+import { Table } from "@/app/components/v2/core/Table";
+import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
+import { Padding } from "@/app/components/v2/core/types";
 
 function LeasingComparisonTable() {
+  // Leasing comparison table for Finnish market
+  const leasingData = [
+    {
+      palvelu: "Oma yhteyshenkilö",
+      rahoitus: "+",
+      jousto: "+",
+      huolto: "+",
+      mini: "+",
+      kone: "+",
+    },
+    {
+      palvelu: "Kuukausivuokra",
+      rahoitus: "Kiinteä",
+      jousto: "Kiinteä",
+      huolto: "Kiinteä",
+      mini: "Kiinteä",
+      kone: "Kiinteä",
+    },
+    {
+      palvelu: "Huollot & korjaukset",
+      rahoitus: "-",
+      jousto: "+",
+      huolto: "+",
+      mini: "+",
+      kone: "-",
+    },
+    {
+      palvelu: "Renkaiden uusinnat",
+      rahoitus: "-",
+      jousto: "+",
+      huolto: "+",
+      mini: "+",
+      kone: "-",
+    },
+    {
+      palvelu: "Rengashotelli & vaihdot",
+      rahoitus: "-",
+      jousto: "+",
+      huolto: "+",
+      mini: "+",
+      kone: "-",
+    },
+    {
+      palvelu: "Sopimuskilometrit",
+      rahoitus: "Avoin",
+      jousto: "Budjetoitu",
+      huolto: "Kiinteä",
+      mini: "Suljettu",
+      kone: "-",
+    },
+    {
+      palvelu: "Huolto­budjetti",
+      rahoitus: "Ei sisälly",
+      jousto: "Avoin tasataan sopimuskauden päättyessä",
+      huolto: "Suljettu",
+      mini: "Suljettu",
+      kone: "Ei sisälly",
+    },
+    {
+      palvelu: "Ylimeno­kilometri­veloitus",
+      rahoitus: "Ei",
+      jousto: "Budjetoitu",
+      huolto: "Budjetoitu",
+      mini: "Budjetoitu",
+      kone: "-",
+    },
+    {
+      palvelu: "Jäännösarvo",
+      rahoitus: "Asiakkaan",
+      jousto: "Avoin tasataan sopimuskauden päättyessä",
+      huolto: "Suljettu",
+      mini: "Suljettu",
+      kone: "Asiakkaan",
+    },
+    {
+      palvelu: "Ennenaikainen sopimuksen katkaisu",
+      rahoitus: "Pääomatasauksella",
+      jousto: "Pääomatasauksella",
+      huolto: "Pääomatasauksella",
+      mini: "-",
+      kone: "Pääomatasauksella",
+    },
+    {
+      palvelu: "Käytetty ajoneuvo",
+      rahoitus: "+",
+      jousto: "+",
+      huolto: "+",
+      mini: "+",
+      kone: "-",
+    },
+  ];
   return (
-    <div className="overflow-x-auto  custom-table">
-      <table className="min-w-full border-collapse rounded-xl">
-        <thead>
-          <tr>
-            <th className=" sticky left-0 z-10">Palvelut</th>
-            <th>Rahoitusleasing</th>
-            <th>Joustoleasing</th>
-            <th>Huoltoleasing</th>
-            <th>Mini-leasing</th>
-            <th>Kone- ja laitteleasing</th>
-          </tr>
-        </thead>
-        <tbody>
-          {leasingData.map((row, idx) => (
-            <tr key={row.palvelu} className={cn("text-piki", idx % 2 === 0 ? "bg-gray-50" : "bg-white")}>
-              <th className="bg-[#C49A6C] text-piki font-medium px-4 py-2 text-left sticky left-0 z-10">
-                {row.palvelu}
-              </th>
-              <td className="text-center px-4 py-2">{renderCell(row.rahoitus)}</td>
-              <td className="text-center px-4 py-2">{renderCell(row.jousto)}</td>
-              <td className="text-center px-4 py-2">{renderCell(row.huolto)}</td>
-              <td className="text-center px-4 py-2">{renderCell(row.mini)}</td>
-              <td className="text-center px-4 py-2">{renderCell(row.kone)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="flex flex-col gap-4 p-6">
-        <span className="text-sm palette-text-color">* Selite kohdalle X</span>
-        <span className="text-sm palette-text-color">** Selite toiselle kohdalle Y</span>
-      </div>
-    </div>
+    <Table
+      headings={[
+        "Palvelut",
+        "Rahoitusleasing",
+        "Joustoleasing",
+        "Huoltoleasing",
+        "Mini-leasing",
+        "Kone- ja laitteleasing",
+      ]}
+      rows={leasingData.map((row) => [row.palvelu, row.rahoitus, row.jousto, row.huolto, row.mini, row.kone])}
+      explanations={["Selite kohdalle", "Selite toiselle kohdalle"]}
+    />
   );
 }
 
@@ -244,11 +208,11 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         </BoxLayout.Box>
       </BoxLayout>
 
-      <BoxLayout palette="default" fullSizeBoxes={false} maxColumns={1}>
-        <BoxLayout.Box>
+      <BasicLayout palette="default" padding={Padding.None} contentPadding={Padding.Block}>
+        <FlexLayout.Column>
           <LeasingComparisonTable />
-        </BoxLayout.Box>
-      </BoxLayout>
+        </FlexLayout.Column>
+      </BasicLayout>
 
       {/* Equipment Leasing Section */}
 
