@@ -1074,3 +1074,31 @@ Next Priority Tasks:
 - [✅] Fix delete button in MediaGrid.tsx.
 - [✅] Add download button to media grid.
 - [✅] Make default image grid images a bit larger.
+
+### Shopify Metafields Support System
+- ✅ **Database Schema**: Create Supabase tables for metafield definitions and mappings
+- ✅ **Metafield Detection**: Enhance data source schema detection to identify metafield candidates
+- ✅ **Metafield Definition API**: Create endpoints to manage metafield definitions in Shopify
+- ⏳ **Metafield Value Management**: Implement APIs to set/get metafield values for products/collections/etc
+- ✅ **Schema-to-Metafield Tool**: Build tool to analyze API specs/schemas and generate metafield definitions
+- ⏳ **Integration with Data Sources**: Auto-create metafields when importing data that doesn't match standard Shopify fields
+- ❌ **Admin UI**: Create admin interface to manage metafield definitions and mappings
+- ⏳ **Documentation**: Document the metafields system and its usage patterns
+
+### Shopify Metafields Implementation Details
+- ✅ **Core Tables**: `metafield_definitions`, `metafield_mappings`, `external_field_mappings`
+- ✅ **API Endpoints**: `/admin/metafields/*` routes for CRUD operations
+- ✅ **Shopify GraphQL Integration**: Use metafieldDefinitionCreate/metafieldsSet mutations
+- ✅ **Field Detection Logic**: Analyze schemas to identify non-standard fields requiring metafields
+- ✅ **Type Mapping**: Map JSON schema types to Shopify metafield types
+- ⏳ **Validation Rules**: Implement metafield validation based on detected data patterns
+- ⏳ **Bulk Operations**: Support bulk metafield creation and updates
+- ❌ **Testing**: Comprehensive test coverage for metafield functionality
+
+### Schema-to-Metafield Generator Tool
+- ✅ **Tool Implementation**: `tools/schema-to-metafields-generator.cjs`
+- ✅ **API Schema Analysis**: Analyze API specs/schemas for metafield candidates
+- ✅ **JSON Schema Analysis**: Analyze JSON schemas for metafield candidates
+- ✅ **CSV Header Detection**: Parse CSV files to identify potential metafields
+- ✅ **Feed Analysis**: Enhance existing data source analysis for metafield detection
+- ✅ **Definition Generation**: Auto-generate metafield definitions with appropriate types

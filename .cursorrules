@@ -920,6 +920,144 @@ mcp_supabase_query
         "# List categories",
         "node tools/adobe-commerce-tool.cjs categories"
       ]
+    },
+    "shopify-collections": {
+      "description": "Manage Shopify collections using the GraphQL Admin API. Supports fetching collections, creating/updating collections, and adding/removing products from collections.",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/shopify-collections-tool.cjs",
+      "options": {
+        "list": {
+          "description": "List collections",
+          "options": {
+            "limit": "(Optional) Number of collections to list (default: 10)",
+            "query": "(Optional) Search query string",
+            "sort-key": "(Optional) Sort key: ID, TITLE, UPDATED_AT (default: ID)",
+            "reverse": "(Optional) Reverse sort order"
+          }
+        },
+        "get": {
+          "description": "Get a collection by ID or handle",
+          "options": {
+            "id": "(Optional) Collection GID (e.g., gid://shopify/Collection/12345)",
+            "handle": "(Optional) Collection handle"
+          }
+        },
+        "create": {
+          "description": "Create a new collection",
+          "options": {
+            "title": "Required: Collection title (-t, --title)",
+            "handle": "(Optional) Collection handle/URL slug (-h, --handle)",
+            "description": "(Optional) Collection description (-d, --description)",
+            "sort-order": "(Optional) Sort order: ALPHA_ASC, ALPHA_DESC, BEST_SELLING, CREATED, CREATED_DESC, MANUAL, PRICE_ASC, PRICE_DESC (default: MANUAL)"
+          }
+        },
+        "update": {
+          "description": "Update an existing collection",
+          "options": {
+            "id": "Required: Collection GID (-i, --id)",
+            "title": "(Optional) New collection title (-t, --title)",
+            "handle": "(Optional) New collection handle (-h, --handle)",
+            "description": "(Optional) New collection description (-d, --description)",
+            "sort-order": "(Optional) New sort order (-s, --sort-order)"
+          }
+        },
+        "delete": {
+          "description": "Delete a collection",
+          "options": {
+            "id": "Required: Collection GID (-i, --id)"
+          }
+        },
+        "add-products": {
+          "description": "Add products to a collection",
+          "options": {
+            "id": "Required: Collection GID (-i, --id)",
+            "product-ids": "Required: Comma-separated list of product GIDs (-p, --product-ids)"
+          }
+        },
+        "remove-products": {
+          "description": "Remove products from a collection",
+          "options": {
+            "id": "Required: Collection GID (-i, --id)",
+            "product-ids": "Required: Comma-separated list of product GIDs (-p, --product-ids)",
+            "wait": "(Optional) Wait for the job to complete (--wait)"
+          }
+        },
+        "job-status": {
+          "description": "Check the status of a job",
+          "options": {
+            "job-id": "Required: Job GID (-j, --job-id)"
+          }
+        }
+      },
+      "requires": [
+        "SHOPIFY_SHOP_DOMAIN in .env.local",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN in .env.local",
+        "SHOPIFY_API_KEY in .env.local",
+        "SHOPIFY_API_SECRET in .env.local",
+        "@shopify/shopify-api package",
+        "commander package",
+        "dotenv package"
+      ],
+      "examples": [
+        "# List all collections",
+        "node tools/shopify-collections-tool.cjs list",
+        "",
+        "# List collections with search and limit",
+        "node tools/shopify-collections-tool.cjs list --query \"winter\" --limit 5",
+        "",
+        "# Get a collection by ID",
+        "node tools/shopify-collections-tool.cjs get --id gid://shopify/Collection/12345",
+        "",
+        "# Get a collection by handle",
+        "node tools/shopify-collections-tool.cjs get --handle \"winter-collection\"",
+        "",
+        "# Create a new collection",
+        "node tools/shopify-collections-tool.cjs create --title \"Summer Sale\" --handle \"summer-sale\" --description \"Hot summer deals\"",
+        "",
+        "# Update a collection",
+        "node tools/shopify-collections-tool.cjs update --id gid://shopify/Collection/12345 --title \"Updated Title\"",
+        "",
+        "# Add products to a collection",
+        "node tools/shopify-collections-tool.cjs add-products --id gid://shopify/Collection/12345 --product-ids \"gid://shopify/Product/1,gid://shopify/Product/2\"",
+        "",
+        "# Remove products from a collection",
+        "node tools/shopify-collections-tool.cjs remove-products --id gid://shopify/Collection/12345 --product-ids \"gid://shopify/Product/1\" --wait",
+        "",
+        "# Check job status",
+        "node tools/shopify-collections-tool.cjs job-status --job-id gid://shopify/Job/12345",
+        "",
+        "# Delete a collection",
+        "node tools/shopify-collections-tool.cjs delete --id gid://shopify/Collection/12345"
+      ]
+    },
+    "schema-to-metafields": {
+      "description": "Analyzes JSON schemas and generates Shopify metafield definitions for fields that don't match standard Shopify attributes. Auto-detects field types and creates appropriate metafield definitions.",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/schema-to-metafields-generator.cjs",
+      "options": {
+        "schema-path": "Required: Path to the JSON schema file to analyze",
+        "output": "(Optional) Output file for generated metafield definitions (-o, --output)",
+        "create": "(Optional) Create metafield definitions via API (-c, --create)",
+        "api-url": "(Optional) API base URL (default: http://localhost:3000/api)",
+        "auth-token": "(Optional) Authentication token for API (--auth-token)",
+        "owner-type": "(Optional) Default owner type for metafields (default: PRODUCT)"
+      },
+      "requires": [
+        "commander package",
+        "dotenv package",
+        "Valid JSON schema file with properties",
+        "API access token (if using --create flag)"
+      ],
+      "examples": [
+        "# Analyze schema and save results",
+        "node tools/schema-to-metafields-generator.cjs schemas/caffitella_product_feed.json -o metafields.json",
+        "",
+        "# Analyze and create metafields via API",
+        "node tools/schema-to-metafields-generator.cjs schemas/caffitella_product_feed.json --create --auth-token YOUR_TOKEN",
+        "",
+        "# Use custom API URL",
+        "node tools/schema-to-metafields-generator.cjs schemas/product_schema.json --create --api-url https://api.example.com --auth-token YOUR_TOKEN"
+      ]
     }
   }
 }

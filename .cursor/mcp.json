@@ -17,6 +17,10 @@
               "DATAFORSEO_USERNAME": "pasi@lastbot.com",
               "DATAFORSEO_PASSWORD": "f7f66e352f23be10"
             }
+        },
+        "shopify-dev-mcp": {
+          "command": "npx",
+          "args": ["-y", "@shopify/dev-mcp@latest"]
         }
     }
 }

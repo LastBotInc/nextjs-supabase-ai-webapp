@@ -1,0 +1,70 @@
+{
+  "schema_info": {
+    "name": "Caffitella Product Feed",
+    "identifier": "caffitella_product_feed",
+    "description": "Schema for product data feed from the vendor Caffitella."
+  },
+  "metafield_candidates": [
+    {
+      "field_name": "link",
+      "field_path": "link",
+      "metafield_definition": {
+        "name": "Link",
+        "namespace": "caffitella",
+        "key": "link",
+        "owner_type": "PRODUCT",
+        "metafield_type": "url",
+        "description": "The URL link to the product page on the Caffitella website.",
+        "storefront_visible": true,
+        "auto_generated": true,
+        "source_identifier": "caffitella_product_feed"
+      }
+    },
+    {
+      "field_name": "image_link",
+      "field_path": "image_link",
+      "metafield_definition": {
+        "name": "Image link",
+        "namespace": "caffitella",
+        "key": "image_link",
+        "owner_type": "PRODUCT",
+        "metafield_type": "url",
+        "description": "The URL link to the product image.",
+        "storefront_visible": true,
+        "auto_generated": true,
+        "source_identifier": "caffitella_product_feed"
+      }
+    },
+    {
+      "field_name": "category",
+      "field_path": "categories.category",
+      "metafield_definition": {
+        "name": "Category",
+        "namespace": "caffitella",
+        "key": "category",
+        "owner_type": "PRODUCT",
+        "metafield_type": "json",
+        "description": "An array of category strings that the product belongs to.",
+        "storefront_visible": true,
+        "auto_generated": true,
+        "source_identifier": "caffitella_product_feed"
+      }
+    },
+    {
+      "field_name": "description",
+      "field_path": "description",
+      "metafield_definition": {
+        "name": "Description",
+        "namespace": "caffitella",
+        "key": "description",
+        "owner_type": "PRODUCT",
+        "metafield_type": "multi_line_text_field",
+        "description": "A detailed description of the product.",
+        "storefront_visible": true,
+        "auto_generated": true,
+        "source_identifier": "caffitella_product_feed"
+      }
+    }
+  ],
+  "generated_at": "2025-06-13T10:58:10.283Z"
+}

@@ -188,6 +188,78 @@ table: bookings
 - calendar_event_id (text)
 ```
 
+### Shopify Integration
+
+#### Metafield Definitions
+```sql
+table: metafield_definitions
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- name (text) -- Human-readable name
+- namespace (text) -- Shopify metafield namespace
+- key (text) -- Shopify metafield key
+- owner_type (text) -- PRODUCT, COLLECTION, ARTICLE, etc.
+- metafield_type (text) -- Shopify metafield type (single_line_text_field, etc.)
+- description (text)
+- validation_rules (jsonb) -- Shopify validation options
+- shopify_definition_id (text) -- Shopify GID for the definition
+- is_active (boolean)
+- created_by (uuid, references auth.users)
+- storefront_visible (boolean) -- Whether visible on storefront
+- auto_generated (boolean) -- Whether auto-generated from schema detection
+- source_identifier (text) -- Reference to data source or schema that generated this
+```
+
+#### Metafield Mappings
+```sql
+table: metafield_mappings
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- metafield_definition_id (uuid, references metafield_definitions)
+- data_source_id (bigint, references data_sources)
+- external_field_name (text) -- Field name in external data source
+- external_field_path (text) -- JSON path if nested field
+- transformation_rules (jsonb) -- Rules for transforming external data to metafield value
+- is_active (boolean)
+```
+
+#### External Field Mappings
+```sql
+table: external_field_mappings
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- data_source_id (bigint, references data_sources)
+- external_field_name (text) -- Original field name from external source
+- external_field_type (text) -- Detected field type
+- external_field_path (text) -- JSON path if nested
+- shopify_field_type (text) -- Standard Shopify field it maps to (if any)
+- is_metafield_candidate (boolean) -- Whether this should become a metafield
+- sample_values (jsonb) -- Sample values for type detection
+- frequency (integer) -- How often this field appears across records
+- created_by_detection (boolean) -- Whether detected automatically
+```
+
+#### Metafield Values
+```sql
+table: metafield_values
+- id (uuid, primary key)
+- created_at (timestamp with time zone)
+- updated_at (timestamp with time zone)
+- metafield_definition_id (uuid, references metafield_definitions)
+- resource_type (text) -- PRODUCT, COLLECTION, etc.
+- resource_id (text) -- Internal ID of the resource
+- shopify_resource_gid (text) -- Shopify GID of the resource
+- shopify_metafield_id (text) -- Shopify metafield GID
+- value (text) -- The metafield value (always stored as text per Shopify)
+- parsed_value (jsonb) -- Parsed value for complex types
+- sync_status (text) -- pending, synced, error
+- sync_error (text) -- Error message if sync failed
+- last_synced_at (timestamp with time zone)
+```
+
 ## Row Level Security Policies
 
 ### Posts

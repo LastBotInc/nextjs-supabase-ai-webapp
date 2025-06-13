@@ -911,3 +911,55 @@ The SEO website analysis tool is now fully operational and provides professional
 - **Generic Design**: Works with any feed format, no hardcoding to specific vendors
 - **Flexible Field Mapping**: Supports various common image field names
 - **Production Ready**: Handles errors gracefully, continues sync on image failures
+
+## 2024-06-13 - Shopify Metafields Support System Implementation
+
+### Overview
+Implemented a comprehensive Shopify metafields support system that automatically detects fields from external data sources that don't match standard Shopify attributes and generates appropriate metafield definitions.
+
+### Completed Components
+
+#### Database Schema ✅
+- Created 4 new tables: `metafield_definitions`, `metafield_mappings`, `external_field_mappings`, `metafield_values`
+- Applied migration: `supabase/migrations/20250130120000_create_metafields_tables.sql`
+- Includes proper indexing, RLS policies, and foreign key relationships
+
+#### API Endpoints ✅
+- **GET/POST** `/api/admin/metafields/` - CRUD operations for metafield definitions
+- **GET/POST** `/api/admin/metafields/shopify-sync/` - Sync definitions to Shopify via GraphQL
+- Full authentication and admin verification
+- Type mapping from internal to Shopify metafield types
+- Batch processing support
+
+#### Schema-to-Metafields Generator Tool ✅
+- **Tool**: `tools/schema-to-metafields-generator.cjs`
+- **Command**: `node tools/schema-to-metafields-generator.cjs <schema-path> [options]`
+- Analyzes JSON schemas and identifies non-standard fields requiring metafields
+- Intelligent type mapping (string → single_line_text_field, URLs → url, etc.)
+- Skips standard Shopify fields (id, title, price, etc.)
+- Generates appropriate namespaces and keys
+- Can output results to JSON or create via API
+
+#### Caffitella Testing ✅
+Successfully tested with `schemas/caffitella_product_feed.json`:
+- **Analyzed**: 7 fields from schema
+- **Skipped**: 3 standard fields (id, title, price)
+- **Generated**: 4 metafield definitions:
+  - `caffitella.link` (url) - Product page URL
+  - `caffitella.image_link` (url) - Product image URL  
+  - `caffitella.category` (json) - Product categories array
+  - `caffitella.description` (multi_line_text_field) - Product description
+
+### Technical Features
+- **Smart Field Detection**: Automatically identifies which fields need metafields vs. standard Shopify fields
+- **Type Intelligence**: Maps JSON schema types to appropriate Shopify metafield types based on content and context
+- **Namespace Generation**: Creates logical namespaces from source identifiers
+- **Validation Rules**: Preserves min/max/enum constraints from original schemas
+- **Shopify Integration**: Full GraphQL integration with metafieldDefinitionCreate mutations
+- **Authentication**: Secure API endpoints with admin verification
+
+### Next Steps
+- ⏳ Metafield value management APIs
+- ⏳ Integration with data source imports
+- ❌ Admin UI for metafield management
+- ❌ Comprehensive test coverage
