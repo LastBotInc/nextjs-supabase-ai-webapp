@@ -2,7 +2,7 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
-import { Heading2, Heading3, Heading2Small } from "@/app/components/v2/core/Headings";
+import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
 import { Paragraph } from "@/app/components/v2/core/Paragraph";
 import Image from "next/image";
 import { Accordion } from "@/app/components/v2/core/Accordion";
@@ -40,7 +40,7 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
 
       <FlexLayout palette="beige">
         <FlexLayout.Column>
-          <Heading2Small>{t("intro.title")}</Heading2Small>
+          <Heading2>{t("intro.title")}</Heading2>
           <Paragraph className="mt-2 text-lg">{t("intro.description")}</Paragraph>
           <Image
             src={"/images/ajankohtaista.png"}

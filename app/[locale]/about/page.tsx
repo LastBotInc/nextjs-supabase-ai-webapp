@@ -48,7 +48,7 @@ export default async function AboutPage({ params }: Props) {
         <Hero.SubHeading>{t("subtitle")}</Hero.SubHeading>
       </Hero>
 
-      <TwoColumnLayout contentPalette="betoni" columnWidths={["70%", "30%"]}>
+      <TwoColumnLayout palette="betoni" columnWidths={["70%", "30%"]}>
         <FlexLayout.Column>
           <Heading2>{t("our_story_title")}</Heading2>
           <Paragraph>{t("introduction.paragraph1")}</Paragraph>
@@ -61,7 +61,7 @@ export default async function AboutPage({ params }: Props) {
           </ImageContainer>
         </FlexLayout.Column>
       </TwoColumnLayout>
-      <BasicLayout contentPalette="beige">
+      <BasicLayout palette="beige">
         <Heading2>{t("our_story_title")}</Heading2>
         <Paragraph>{t("our_story")}</Paragraph>
       </BasicLayout>

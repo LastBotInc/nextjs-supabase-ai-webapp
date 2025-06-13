@@ -6,22 +6,26 @@ import { headingPaletteClassName } from "../styling/resolveStyles";
 export type HeadingProps = React.PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   small?: boolean;
-  medium?: boolean;
+  large?: boolean;
+  bold?: boolean;
   responsive?: boolean;
   fixed?: boolean;
 };
 type FixedHeadingProps = Omit<HeadingProps, "level" | "small">;
 
-export function getHeadingClass({ fixed, small, medium }: Omit<HeadingProps, "level">) {
+export function getHeadingClass({ fixed, small, large, bold }: Omit<HeadingProps, "level">) {
   const classes = ["heading"];
   if (small) {
     classes.push("small");
   }
-  if (medium) {
-    classes.push("medium");
+  if (large) {
+    classes.push("large");
   }
   if (fixed) {
     classes.push("fixed");
+  }
+  if (bold) {
+    classes.push("bold");
   }
 
   return classes.join(" ");
@@ -39,13 +43,14 @@ export function HeadingComponent({
   className,
   level,
   small,
-  medium,
+  large,
   fixed,
+  bold,
   responsive,
   ...props
 }: HeadingProps) {
   const Component = `h${level}` as ElementType<HTMLAttributes<HTMLHeadingElement>>;
-  const headingClasses = getHeadingClass({ small, medium, fixed, responsive }) + " " + headingPaletteClassName;
+  const headingClasses = getHeadingClass({ small, large, bold, fixed, responsive }) + " " + headingPaletteClassName;
   return (
     <Component className={cn(headingClasses, className)} {...props}>
       {children}
@@ -101,6 +106,18 @@ export function Heading2Small({ ...props }: FixedHeadingProps) {
 }
 
 Heading2Small.displayName = "HeadingComponent";
+/**
+ * Heading2Large is a larger heading than Heading2.
+ * @param children - The children of the heading.
+ * @param className - Optional extra classes for customizing the heading.
+ * passes also HTML attributes for the heading element with rest props.
+ * @returns React.ReactNode
+ */
+export function Heading2Large({ ...props }: FixedHeadingProps) {
+  return <HeadingComponent level={2} {...props} large />;
+}
+
+Heading2Small.displayName = "HeadingComponent";
 
 /**
  * Heading3 is a subheading of the page.
@@ -110,7 +127,7 @@ Heading2Small.displayName = "HeadingComponent";
  * @returns React.ReactNode
  */
 export function Heading3({ ...props }: FixedHeadingProps) {
-  return <HeadingComponent level={3} {...props} small />;
+  return <HeadingComponent level={3} {...props} />;
 }
 
 Heading3.displayName = "HeadingComponent";

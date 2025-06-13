@@ -50,6 +50,7 @@ export type PaddingType = (typeof Padding)[keyof typeof Padding];
 export type BlockProps<T = HTMLDivElement> = HTMLAttributes<T> & {
   type: BlockTypeValue;
   padding?: PaddingType;
+  contentPadding?: PaddingType;
   palette?: Palette;
   isFirst?: boolean;
   fullWidth?: boolean;
@@ -58,6 +59,7 @@ export type BlockProps<T = HTMLDivElement> = HTMLAttributes<T> & {
 export type SlotProps = { children: ReactNode; className?: string };
 export type LayoutBlocksProps = Omit<BlockProps, "type"> & {
   contentPalette?: Palette;
+
   contentClassName?: string;
   mainImage?: BackgroundImageProps;
   contentImage?: BackgroundImageProps;

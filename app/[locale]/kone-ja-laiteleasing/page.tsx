@@ -15,6 +15,7 @@ import { ContentArea } from "@/app/components/v2/core/ContentArea";
 import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
 import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
+import { Table } from "@/app/components/v2/core/Table";
 // Placeholder for image container, replace with actual ImageContainer if available
 // import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 
@@ -69,7 +70,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" />
+          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" className="self-end" />
         </FlexLayout.Column>
       </TwoColumnLayout>
 
@@ -77,30 +78,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
 
       <BasicLayout palette="betoni">
         <Heading2>{t("vehicles.heading")}</Heading2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border border-gray-200">
-            <thead>
-              <tr>
-                {vehicleColumns.map((col: string, idx: number) => (
-                  <th key={idx} className="px-4 py-2 border-b bg-gray-50 text-left">
-                    {col}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {vehicleRows.map((row: string[], idx: number) => (
-                <tr key={idx}>
-                  {row.map((cell, cidx) => (
-                    <td key={cidx} className="px-4 py-2 border-b">
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Table headings={vehicleColumns} rows={vehicleRows} />
       </BasicLayout>
 
       {/* Benefits Section */}

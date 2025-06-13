@@ -18,9 +18,5 @@ import { cn } from "@/lib/utils";
  * @returns A div element with a page.
  */
 export const PageWrapper = ({ children, className }: { children: ReactNode; className?: string }) => {
-  return (
-    <main className={cn("flex min-h-screen flex-col items-center bg-white pt-24 overflow-x-hidden", className)}>
-      {children}
-    </main>
-  );
+  return <main className={cn("page-wrapper", className)}>{children}</main>;
 };

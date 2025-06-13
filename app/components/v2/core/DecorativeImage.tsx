@@ -20,6 +20,10 @@ import { BackgroundImage, BackgroundImageProps } from "./BackgroundImage";
  * @param src - The source of the background image.
  * @param backgroundPosition - The position of the background image.
  * @param backgroundSize - The size of the background image.
+ * @param alwaysShow - If true, the image will be always shown.
+ * @param width - The width of the image.
+ * @param height - The height of the image.
+ * @param useMask - If true, the image will be masked.
  * @returns React.ReactNode
  */
 
@@ -30,13 +34,20 @@ export function DecorativeImage({
   backgroundPosition = "center right",
   backgroundSize = "cover",
   useMask = false,
+  alwaysShow = false,
+  className,
 }: BackgroundImageProps & {
-  width: "small" | "medium" | "large";
-  height: "tiny" | "medium" | "max" | "overflow-paddings" | "max-block";
+  width: "small" | "medium" | "large" | "full";
+  height: "tiny" | "medium" | "max" | "overflow-paddings" | "max-block" | "overflow-paddings-xl";
   useMask?: boolean;
+  alwaysShow?: boolean;
+  className?: string;
 }) {
   return (
-    <div className={cn("decorative-image", "relative", `width-${width}`)}>
+    <div
+      aria-hidden="true"
+      className={cn("decorative-image", "relative", `width-${width}`, !alwaysShow && "hidden lg:block", className)}
+    >
       <div className={cn("decorative-image-sizer", `height-${height}`, useMask && "decorative-image--with-holes")}>
         <BackgroundImage src={src} backgroundPosition={backgroundPosition} backgroundSize={backgroundSize} />
       </div>

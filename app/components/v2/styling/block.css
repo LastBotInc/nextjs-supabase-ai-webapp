@@ -52,7 +52,7 @@
 }
 
 .block-box.block-padding-full {
-  @apply p-3 lg:p-6;
+  @apply p-4 lg:p-8;
 }
 
 /* sets half padding to content area of the main block and half to the box content area
@@ -74,9 +74,6 @@
 .block-main.full-size-boxes .block-content.block-content {
   padding-left: 0;
   padding-right: 0;
-  .block-box .content-area {
-    @apply p-6 lg:p-14;
-  }
 }
 
 .block-main.with-split-padding .content-area .block-content {
@@ -110,6 +107,10 @@
 
 .block-main .block-content {
   @apply max-w-7xl mx-auto;
+}
+
+.block-main-without-bg.block-main-without-bg + .block-main-without-bg.block-main-without-bg {
+  padding-top: 0;
 }
 
 /* Content block */

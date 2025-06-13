@@ -52,7 +52,7 @@ export function NewsCard({ title, text, link, image, category }: NewsItem) {
         </div>
       )}
       <Flex direction="column" gaps="small">
-        <Paragraph className="font-medium text-kupari uppercase">{category}</Paragraph>
+        <Paragraph className="font-medium text-kupari category-heading">{category}</Paragraph>
         <Heading3Small className="text-piki">{title}</Heading3Small>
         <Paragraph className="text-piki">{text}</Paragraph>
         {link && <Link href={link.href}>{link.text}</Link>}
