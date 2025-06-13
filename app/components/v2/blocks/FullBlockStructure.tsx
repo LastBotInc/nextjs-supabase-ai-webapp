@@ -45,13 +45,13 @@ ContentBlockImage.displayName = "FullBlockStructure.ContentBlockImage";
  * @param rest - Additional props to pass to the MainBlock component.
  * @returns A div element.
  */
-export function FullBlockStructure({ padding, children, ...rest }: Omit<BlockProps, "type">) {
+export function FullBlockStructure({ padding, contentPadding, children, ...rest }: Omit<BlockProps, "type">) {
   /** padding is re-routed to content because main block has no padding */
   const slots = mapSlots(children, [MainBlockImage.displayName, ContentBlockImage.displayName, Content.displayName]);
   return (
-    <MainBlock {...rest}>
+    <MainBlock {...rest} padding={padding}>
       {slots[MainBlockImage.displayName] && <MainBlock.BackgroundImage {...slots[MainBlockImage.displayName].props} />}
-      <MainBlock.Content padding={padding}>{slots[Content.displayName]}</MainBlock.Content>
+      <MainBlock.Content padding={contentPadding}>{slots[Content.displayName]}</MainBlock.Content>
     </MainBlock>
   );
 }

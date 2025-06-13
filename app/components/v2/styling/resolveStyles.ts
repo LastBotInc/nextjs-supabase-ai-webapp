@@ -53,6 +53,10 @@ export function getPaletteClassName(palette: Palette) {
   return `color-palette-${palette || "default"}`;
 }
 
+export function hasVisualPalette(palette?: Palette) {
+  return palette && palette !== "none" && palette !== "default";
+}
+
 export function getValuePerBreakpoint(
   definition: SizeDefinition,
   defaultValue?: string | number,

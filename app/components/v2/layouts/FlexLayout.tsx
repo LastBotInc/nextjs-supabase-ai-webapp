@@ -88,6 +88,7 @@ export function FlexLayout({
   mainImage,
   contentImage,
   contentPalette,
+  contentPadding,
   contentClassName,
   oneColumnBreakpoint,
   direction,
@@ -97,7 +98,12 @@ export function FlexLayout({
   return (
     <FullBlockStructure {...rest}>
       {mainImage && <FullBlockStructure.MainBlockImage {...mainImage} />}
-      <FullBlockStructure.Content contentImage={contentImage} palette={contentPalette} className={contentClassName}>
+      <FullBlockStructure.Content
+        padding={contentPadding}
+        contentImage={contentImage}
+        palette={contentPalette}
+        className={contentClassName}
+      >
         <Flex oneColumnBreakpoint={oneColumnBreakpoint} direction={direction} gaps={gaps}>
           {children}
         </Flex>

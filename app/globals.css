@@ -201,6 +201,10 @@
   }
 }
 
+.page-wrapper {
+  @apply flex min-h-screen flex-col items-center bg-white pt-24 overflow-x-hidden;
+}
+
 /* Overlay Patterns */
 .has-overlay-pattern {
   position: relative;
