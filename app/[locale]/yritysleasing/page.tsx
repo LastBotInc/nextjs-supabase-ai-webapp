@@ -18,110 +18,22 @@ import { Table } from "@/app/components/v2/core/Table";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 import { Padding } from "@/app/components/v2/core/types";
 
-function LeasingComparisonTable() {
-  // Leasing comparison table for Finnish market
-  const leasingData = [
-    {
-      palvelu: "Oma yhteyshenkilö",
-      rahoitus: "+",
-      jousto: "+",
-      huolto: "+",
-      mini: "+",
-      kone: "+",
-    },
-    {
-      palvelu: "Kuukausivuokra",
-      rahoitus: "Kiinteä",
-      jousto: "Kiinteä",
-      huolto: "Kiinteä",
-      mini: "Kiinteä",
-      kone: "Kiinteä",
-    },
-    {
-      palvelu: "Huollot & korjaukset",
-      rahoitus: "-",
-      jousto: "+",
-      huolto: "+",
-      mini: "+",
-      kone: "-",
-    },
-    {
-      palvelu: "Renkaiden uusinnat",
-      rahoitus: "-",
-      jousto: "+",
-      huolto: "+",
-      mini: "+",
-      kone: "-",
-    },
-    {
-      palvelu: "Rengashotelli & vaihdot",
-      rahoitus: "-",
-      jousto: "+",
-      huolto: "+",
-      mini: "+",
-      kone: "-",
-    },
-    {
-      palvelu: "Sopimuskilometrit",
-      rahoitus: "Avoin",
-      jousto: "Budjetoitu",
-      huolto: "Kiinteä",
-      mini: "Suljettu",
-      kone: "-",
-    },
-    {
-      palvelu: "Huolto­budjetti",
-      rahoitus: "Ei sisälly",
-      jousto: "Avoin tasataan sopimuskauden päättyessä",
-      huolto: "Suljettu",
-      mini: "Suljettu",
-      kone: "Ei sisälly",
-    },
-    {
-      palvelu: "Ylimeno­kilometri­veloitus",
-      rahoitus: "Ei",
-      jousto: "Budjetoitu",
-      huolto: "Budjetoitu",
-      mini: "Budjetoitu",
-      kone: "-",
-    },
-    {
-      palvelu: "Jäännösarvo",
-      rahoitus: "Asiakkaan",
-      jousto: "Avoin tasataan sopimuskauden päättyessä",
-      huolto: "Suljettu",
-      mini: "Suljettu",
-      kone: "Asiakkaan",
-    },
-    {
-      palvelu: "Ennenaikainen sopimuksen katkaisu",
-      rahoitus: "Pääomatasauksella",
-      jousto: "Pääomatasauksella",
-      huolto: "Pääomatasauksella",
-      mini: "-",
-      kone: "Pääomatasauksella",
-    },
-    {
-      palvelu: "Käytetty ajoneuvo",
-      rahoitus: "+",
-      jousto: "+",
-      huolto: "+",
-      mini: "+",
-      kone: "-",
-    },
-  ];
+interface TranslationFunction {
+  (key: string): string;
+  raw: (key: string) => unknown;
+}
+
+function LeasingComparisonTable({ t }: { t: TranslationFunction }) {
+  const table = t.raw("table") as {
+    headings: string[];
+    rows: string[][];
+    explanations?: string[];
+  };
   return (
     <Table
-      headings={[
-        "Palvelut",
-        "Rahoitusleasing",
-        "Joustoleasing",
-        "Huoltoleasing",
-        "Mini-leasing",
-        "Kone- ja laitteleasing",
-      ]}
-      rows={leasingData.map((row) => [row.palvelu, row.rahoitus, row.jousto, row.huolto, row.mini, row.kone])}
-      explanations={["Selite kohdalle", "Selite toiselle kohdalle"]}
+      headings={table.headings}
+      rows={table.rows}
+      explanations={table.explanations}
     />
   );
 }
@@ -156,7 +68,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
           <Heading2>{t("digitalServices.title")}</Heading2>
           <Paragraph>{t("digitalServices.description")}</Paragraph>
 
-          <Heading2>Edut</Heading2>
+          <Heading2>{t("section.benefits")}</Heading2>
           <List>
             <List.Item>{t("benefits.fixedPrice")}</List.Item>
             <List.Item>{t("benefits.contractPeriod")}</List.Item>
@@ -199,7 +111,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
               <List.Item key={b}>{b}</List.Item>
             ))}
           </List>
-          <Paragraph className="font-semibold">Täydellinen ratkaisu mm.:</Paragraph>
+          <Paragraph className="font-semibold">{t("section.perfectFor")}</Paragraph>
           <List>
             {t.raw("leasingTypes.minileasing.perfectFor").map((b: string) => (
               <List.Item key={b}>{b}</List.Item>
@@ -210,7 +122,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
 
       <BasicLayout palette="default" padding={Padding.None} contentPadding={Padding.Block}>
         <FlexLayout.Column>
-          <LeasingComparisonTable />
+          <LeasingComparisonTable t={t} />
         </FlexLayout.Column>
       </BasicLayout>
 

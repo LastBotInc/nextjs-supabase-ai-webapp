@@ -26,9 +26,36 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
     setEditedValue(value)
   }, [value])
 
+  // Helper to check if a string is a JSON object (not array, not primitive)
+  function isJsonObjectString(str: string): boolean {
+    try {
+      const parsed = JSON.parse(str)
+      return typeof parsed === 'object' && parsed !== null
+    } catch {
+      return false
+    }
+  }
+
+  // Track if the original value is a JSON object
+  const isJsonObject = isJsonObjectString(value)
+
   const handleSave = useCallback(async (valueToSave?: string) => {
     setIsSaving(true)
     setError(null)
+
+    // If the value is a JSON object, validate the edited value as JSON before saving
+    if (isJsonObject) {
+      try {
+        const isStillJSON = isJsonObjectString(valueToSave || editedValue)
+        if (!isStillJSON) {
+          throw new Error('Not a valid JSON object')
+        }
+      } catch (err) {
+        setIsSaving(false)
+        setError(t('editor.invalidJson'))
+        return
+      }
+    }
 
     try {
       await onSave(valueToSave || editedValue)
@@ -41,7 +68,7 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
     } finally {
       setIsSaving(false)
     }
-  }, [editedValue, onSave, t])
+  }, [editedValue, onSave, t, isJsonObject])
 
   const handleCancel = useCallback(() => {
     setIsEditing(false)
@@ -101,7 +128,7 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
           onChange={(e) => setEditedValue(e.target.value)}
           onKeyDown={handleKeyDown}
           className="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
-          placeholder={t('editor.placeholder')}
+          placeholder={t('editor.placeholder') + (isJsonObject ? ' (JSON object required)' : '')}
           rows={3}
         />
         <div className="flex space-x-2">
@@ -130,6 +157,10 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
         </div>
         {error && (
           <p className="text-xs text-red-500">{error}</p>
+        )}
+        {/* Show a hint if JSON object is required */}
+        {isJsonObject && (
+          <p className="text-xs text-white font-bold">{t('editor.jsonHint') || 'Value must be a valid JSON object.'}</p>
         )}
       </div>
     )

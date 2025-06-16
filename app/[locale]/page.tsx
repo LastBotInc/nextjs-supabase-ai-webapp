@@ -261,7 +261,7 @@ export default async function AutoleasingPage({ params }: { params: { locale: st
             className="items-center main-level-padding-block bottom-padding-half-block"
           >
             <ArrowRightIcon className={iconPaletteClassName} width={50} height={50} strokeWidth={1} />
-            <Heading2Small className="text-piki">Ajankohtaista</Heading2Small>
+            <Heading2Small className="text-piki">{t("newsSection.heading")}</Heading2Small>
           </Flex>
           <NewsSection />
           <Flex className="justify-center">

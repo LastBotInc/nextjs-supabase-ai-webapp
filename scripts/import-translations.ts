@@ -89,14 +89,25 @@ console.log('-------------------\n')
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
+// Utility function to safely stringify values for storage
+function toSafeString(value: unknown): string {
+  // Stringify if value is an object or array (and not null), else convert to string
+  if (typeof value === 'object' && value !== null) {
+    return JSON.stringify(value)
+  }
+  return String(value)
+}
+
 // Flatten nested object with dot notation
-function flattenObject(obj: any, prefix = ''): Record<string, string> {
+function flattenObject(obj: Record<string, unknown>, prefix = ''): Record<string, string> {
   return Object.keys(obj).reduce((acc: Record<string, string>, k: string) => {
     const pre = prefix.length ? prefix + '.' : ''
-    if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
-      Object.assign(acc, flattenObject(obj[k], pre + k))
+    const value = obj[k]
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      Object.assign(acc, flattenObject(value as Record<string, unknown>, pre + k))
     } else {
-      acc[pre + k] = String(obj[k])
+      // Use toSafeString for arrays or objects, otherwise String
+      acc[pre + k] = toSafeString(value)
     }
     return acc
   }, {})
@@ -198,12 +209,14 @@ async function importTranslations() {
         
         // Prepare translations for batch insert
         const translations = Object.entries(flatTranslations).map(([key, value]) => {
+          // Use toSafeString for all values
+          const storedValue = toSafeString(value)
           return {
             namespace,
             key,
             locale,
-            value,
-            is_html: value.includes('<') && value.includes('>')
+            value: storedValue,
+            is_html: storedValue.includes('<') && storedValue.includes('>')
           }
         })
         

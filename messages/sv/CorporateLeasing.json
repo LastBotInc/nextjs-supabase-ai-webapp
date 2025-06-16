@@ -94,5 +94,36 @@
   "images": {
     "main": "Företagsleasing platshållarbild",
     "equipment": "Maskin- och utrustningsfinansiering platshållarbild"
+  },
+  "table": {
+    "headings": [
+      "Tjänster",
+      "Finansieringsleasing",
+      "Flexleasing",
+      "Serviceleasing",
+      "Minileasing",
+      "Maskin- och utrustningsleasing"
+    ],
+    "rows": [
+      ["Egen kontaktperson", "+", "+", "+", "+", "+"],
+      ["Månadshyra", "Fast", "Fast", "Fast", "Fast", "Fast"],
+      ["Service & reparationer", "-", "+", "+", "+", "-"],
+      ["Däckbyten", "-", "+", "+", "+", "-"],
+      ["Däckhotell & byten", "-", "+", "+", "+", "-"],
+      ["Avtalskilometer", "Öppen", "Budgeterad", "Fast", "Stängd", "-"],
+      ["Servicebudget", "Ingår ej", "Regleras vid avtalets slut", "Stängd", "Stängd", "Ingår ej"],
+      ["Överskjutande kilometeravgift", "Ingår ej", "Budgeterad", "Budgeterad", "Budgeterad", "-"],
+      ["Restvärde", "Kundens", "Regleras vid avtalets slut", "Stängd", "Stängd", "Kundens"],
+      ["Förtida uppsägning av avtal", "Med kapitaljustering", "Med kapitaljustering", "Med kapitaljustering", "-", "Med kapitaljustering"],
+      ["Begagnat fordon", "+", "+", "+", "+", "-"]
+    ],
+    "explanations": [
+      "Förklaring för posten",
+      "Förklaring för en annan post"
+    ]
+  },
+  "section": {
+    "benefits": "Fördelar",
+    "perfectFor": "Perfekt lösning för:"
   }
 }

@@ -277,6 +277,24 @@
   - [ ] API integrations
   - [ ] Scheduled tasks
 
+### Translation Management (Admin)
+- [ ] Admin translation editor page/component
+  - [ ] Fetch and display namespaces using getNamespaces()
+  - [ ] Add language selector (en, fi, sv)
+  - [ ] Fetch and display translation keys/values for selected namespace/language
+  - [ ] Implement Save and Undo functionality
+  - [ ] Implement/extend API endpoints for fetching and saving translations (admin protected)
+  - [ ] Ensure admin authentication for translation editing
+  - [ ] Test the UI and API integration
+  - [ ] Update documentation and changelog
+
+### Add "Update the UI" button to the admin translations page
+- [ ] Add "Update the UI" button to the admin translations page
+- [ ] Implement API or function to invalidate translation cache
+- [ ] Connect button to cache invalidation logic
+- [ ] Show success/error notification to the admin user
+- [ ] Test that UI updates immediately after clicking the button
+
 ## Technical Tasks
 
 ### Setup
@@ -594,3 +612,4 @@
 ❌ Ensure all text uses translations from messages/CurrentTopics.json.
 ❌ Add or adjust tests for new components in CurrentTopics.
 ❌ Document the new components and update the changelog for CurrentTopics.
+✅ Fix: Admin translation save now uses anon client for authentication and service role client for upsert, resolving Supabase RLS errors.

@@ -94,5 +94,36 @@
   "images": {
     "main": "Yritysleasing placeholder image",
     "equipment": "Kone- ja laiterahoitus placeholder image"
+  },
+  "table": {
+    "headings": [
+      "Palvelut",
+      "Rahoitusleasing",
+      "Joustoleasing",
+      "Huoltoleasing",
+      "Mini-leasing",
+      "Kone- ja laitteleasing"
+    ],
+    "rows": [
+      ["Oma yhteyshenkilö", "+", "+", "+", "+", "+"],
+      ["Kuukausivuokra", "Kiinteä", "Kiinteä", "Kiinteä", "Kiinteä", "Kiinteä"],
+      ["Huollot & korjaukset", "-", "+", "+", "+", "-"],
+      ["Renkaiden uusinnat", "-", "+", "+", "+", "-"],
+      ["Rengashotelli & vaihdot", "-", "+", "+", "+", "-"],
+      ["Sopimuskilometrit", "Avoin", "Budjetoitu", "Kiinteä", "Suljettu", "-"],
+      ["Huolto­budjetti", "Ei sisälly", "Avoin tasataan sopimuskauden päättyessä", "Suljettu", "Suljettu", "Ei sisälly"],
+      ["Ylimeno­kilometri­veloitus", "Ei sisälly", "Budjetoitu", "Budjetoitu", "Budjetoitu", "-"],
+      ["Jäännösarvo", "Asiakkaan", "Avoin tasataan sopimuskauden päättyessä", "Suljettu", "Suljettu", "Asiakkaan"],
+      ["Ennenaikainen sopimuksen katkaisu", "Pääomatasauksella", "Pääomatasauksella", "Pääomatasauksella", "-", "Pääomatasauksella"],
+      ["Käytetty ajoneuvo", "+", "+", "+", "+", "-"]
+    ],
+    "explanations": [
+      "Selite kohdalle",
+      "Selite toiselle kohdalle"
+    ]
+  },
+  "section": {
+    "benefits": "Edut",
+    "perfectFor": "Täydellinen ratkaisu mm.:"
   }
 }

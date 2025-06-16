@@ -3,13 +3,7 @@
     "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
     "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut läpinäkyvällä hinnoittelulla ja tehokkailla digitaalisilla työkaluilla."
   },
-  "nav": {
-    "leasingServices": "Leasing-palvelut",
-    "customers": "Asiakkaat",
-    "jobOpening": "Avoin työpaikka",
-    "news": "Ajankohtaista",
-    "contact": "Yhteydenotto"
-  },
+
   "hero": {
     "heading": "Innolease",
     "subheading": "Yrityksesi kumppani leasingasioissa",
@@ -118,6 +112,9 @@
     },
     "viewAll": "Katso ajankohtaiset"
   },
+  "newsSection": {
+    "heading": "Ajankohtaista"
+  },
   "innoFleet": {
     "subtitle": "Raportointityökalu",
     "title": "InnoFleet Manager",
@@ -177,23 +174,5 @@
     ],
     "readMore": "Lue lisää",
     "imageAlt": "Tumma auto"
-  },
-  "footer": {
-    "exchange": "VAIHDE",
-    "service": "HUOLTOVARAUS",
-    "openingHours": "Arkisin 8:00-16:30",
-    "publishingPlatform": "JULKAISUALUSTA",
-    "copyright": "© 2023 Innolease Oy",
-    "address": {
-      "street": "Lehtikatu 1",
-      "city": "01750 Vantaa"
-    },
-    "businessId": "Y-tunnus 2354-234-9",
-    "exchangePhone": "020 123 4567",
-    "exchangeEmail": "info@innolease.fi",
-    "servicePhone": "020 123 4568",
-    "serviceEmail": "huolto@innolease.fi",
-    "publishingCompany": "Tmi Verkkokauppa",
-    "publishingEmail": "design@verkkokauppa.fi"
   }
 }

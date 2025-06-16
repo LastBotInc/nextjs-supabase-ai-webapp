@@ -93,5 +93,36 @@
   "images": {
     "main": "Corporate leasing placeholder image",
     "equipment": "Equipment leasing placeholder image"
+  },
+  "table": {
+    "headings": [
+      "Services",
+      "Finance Leasing",
+      "Flexible Leasing",
+      "Maintenance Leasing",
+      "Mini-Leasing",
+      "Equipment Leasing"
+    ],
+    "rows": [
+      ["Dedicated contact person", "+", "+", "+", "+", "+"],
+      ["Monthly rent", "Fixed", "Fixed", "Fixed", "Fixed", "Fixed"],
+      ["Maintenance & repairs", "-", "+", "+", "+", "-"],
+      ["Tire replacements", "-", "+", "+", "+", "-"],
+      ["Tire hotel & changes", "-", "+", "+", "+", "-"],
+      ["Contract kilometers", "Open", "Budgeted", "Fixed", "Closed", "-"],
+      ["Maintenance budget", "Not included", "Settled at contract end", "Closed", "Closed", "Not included"],
+      ["Excess kilometer charge", "Not included", "Budgeted", "Budgeted", "Budgeted", "-"],
+      ["Residual value", "Customer", "Settled at contract end", "Closed", "Closed", "Customer"],
+      ["Early contract termination", "With capital adjustment", "With capital adjustment", "With capital adjustment", "-", "With capital adjustment"],
+      ["Used vehicle", "+", "+", "+", "+", "-"]
+    ],
+    "explanations": [
+      "Explanation for item",
+      "Explanation for another item"
+    ]
+  },
+  "section": {
+    "benefits": "Benefits",
+    "perfectFor": "Perfect solution for:"
   }
 }

@@ -198,5 +198,8 @@
     ],
     "readMore": "Read More",
     "imageAlt": "Dark car"
+  },
+  "newsSection": {
+    "heading": "News"
   }
 }

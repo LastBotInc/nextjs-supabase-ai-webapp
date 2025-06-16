@@ -11,7 +11,6 @@ import { List } from "@/app/components/v2/core/List";
 import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { Accordion } from "@/app/components/v2/core/Accordion";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
-import { ContentArea } from "@/app/components/v2/core/ContentArea";
 import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
 import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
@@ -120,7 +119,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
         <FlexLayout.Column>
           <Heading2>{t("cta.heading")}</Heading2>
           <Paragraph>{t("cta.text")}</Paragraph>
-          <LinkButton href="/contact">Ota yhteyttä</LinkButton>
+          <LinkButton href="/contact">{t("cta.button")}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           {/* Image Placeholder */}
