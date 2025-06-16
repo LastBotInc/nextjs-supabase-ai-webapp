@@ -1,6 +1,6 @@
 'use client'
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 import TranslationEditor from './TranslationEditor'
@@ -69,7 +69,7 @@ export default function TranslationsPage() {
   const [languages, setLanguages] = useState<Language[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
-  const supabase = createClientComponentClient()
+  const supabase = createClient()
   const [selectedNamespace, setSelectedNamespace] = useState<string>(namespacePathMap[0].namespace);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
 
@@ -183,11 +183,16 @@ export default function TranslationsPage() {
           : t
       ))
 
-      // Update database through API
+      // Get current session and access token
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) throw new Error('Not authenticated. Please sign in again.');
+
+      // Update database through API with auth header
       const response = await fetch('/api/translations', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
           namespace,

@@ -39,7 +39,7 @@ export async function PUT(request: Request) {
       )
     }
 
-    // Create regular client to verify the token
+    // Use anon client for authentication
     const authClient = createClient()
     const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
     
@@ -65,8 +65,8 @@ export async function PUT(request: Request) {
       )
     }
 
-    // After authentication, use service role client for database operations
-    const supabase = createClient(true)
+    // Use service role client for database operations
+    const supabase = createClient(undefined, true)
     
     const body = await request.json()
     const { namespace, key, locale, value } = body

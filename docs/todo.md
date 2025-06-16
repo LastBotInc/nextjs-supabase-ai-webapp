@@ -605,3 +605,4 @@
 ❌ Ensure all text uses translations from messages/CurrentTopics.json.
 ❌ Add or adjust tests for new components in CurrentTopics.
 ❌ Document the new components and update the changelog for CurrentTopics.
+✅ Fix: Admin translation save now uses anon client for authentication and service role client for upsert, resolving Supabase RLS errors.
