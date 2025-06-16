@@ -16,14 +16,6 @@ type Props = {
 // Validate locale before using it
 async function validateLocale(locale: string) {
   // Use static locales during build, production, or if no site URL is set
-  if (
-    !process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL ||
-    process.env.NEXT_PHASE // Next.js build phase
-  ) {
-    return locales.includes(locale) ? locale : defaultLocale;
-  }
 
   try {
     // Get enabled locales from database

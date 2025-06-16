@@ -15,9 +15,7 @@ export async function getEnabledLocales(): Promise<Locale[]> {
   // Use static locales during build, production, or if no site URL is set
   if (
     !process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL ||
-    process.env.NEXT_PHASE // Next.js build phase
+    process.env.NODE_ENV === "production"
   ) {
     console.log("Using static locales for build:", staticLocales);
     return staticLocales;
