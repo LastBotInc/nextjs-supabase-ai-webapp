@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import getI18nConfig from "@/app/i18n";
 import { dedupingServerFetch } from "@/lib/utils/server-deduplication";
+import { getBaseUrl } from "@/utils/getBaseUrl";
 
 type Props = {
   children: React.ReactNode;
@@ -19,10 +20,7 @@ async function validateLocale(locale: string) {
 
   try {
     // Get enabled locales from database
-    const baseUrl =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+    const baseUrl = getBaseUrl();
 
     const response = await dedupingServerFetch(`${baseUrl}/api/languages`);
 
