@@ -16,6 +16,7 @@
     "personName": "Eljas Lohi",
     "personTitle": "Verkställande direktör",
     "readMore": "Läs mer",
+    "readMoreHref": "#",
     "results": {
       "stat1": "1.9.2025",
       "label1": "Tjänsterna förenas",
@@ -96,6 +97,7 @@
     "description": "Kontakta oss så skräddarsyr vi en lösning för ditt företag.",
     "backgroundAlt": "Företagsbilar parkerade",
     "contactButton": "Kontakta oss",
-    "leasingButton": "Begär leasingerbjudande"
+    "leasingButton": "Begär leasingerbjudande",
+    "buttonHref": "#"
   }
 }
