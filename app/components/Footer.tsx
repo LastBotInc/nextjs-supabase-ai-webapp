@@ -183,7 +183,7 @@ export default function Footer() {
                     {tNav("account.title")}
                   </Link>
                   {isAdmin && (
-                    <Link href="/admin/blog" className="text-gray-500 hover:text-gray-700">
+                    <Link href="/admin/" className="text-gray-500 hover:text-gray-700">
                       {tNav("admin_link")}
                     </Link>
                   )}
