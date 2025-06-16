@@ -109,13 +109,7 @@ async function loadNamespacesUsingImport(locale: Locale): Promise<Messages> {
   
   try {
     // Updated list based on actual files in messages/en/
-    const commonNamespaces = [
-      'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
-      'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
-      'Media', 'Navigation', 'Privacy', 'Profile', 
-      'Footer', 'Index'
-      // Removed: 'Booking', 'Analytics', 'Security', 'User' (if they don't have corresponding files)
-    ];
+    const commonNamespaces = getNamespaces()
     
     for (const namespace of commonNamespaces) {
       try {
