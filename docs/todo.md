@@ -288,6 +288,13 @@
   - [ ] Test the UI and API integration
   - [ ] Update documentation and changelog
 
+### Add "Update the UI" button to the admin translations page
+- [ ] Add "Update the UI" button to the admin translations page
+- [ ] Implement API or function to invalidate translation cache
+- [ ] Connect button to cache invalidation logic
+- [ ] Show success/error notification to the admin user
+- [ ] Test that UI updates immediately after clicking the button
+
 ## Technical Tasks
 
 ### Setup

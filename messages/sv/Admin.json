@@ -62,7 +62,9 @@
       "placeholder": "Ange översättning",
       "success": "Översättning sparad",
       "error": "Det gick inte att spara översättningen",
-      "generate": "Generera översättning med AI"
+      "generate": "Generera översättning med AI",
+      "invalidJson": "Översättningen är inte i rätt format",
+      "jsonHint": "Översättningen måste vara i samma format som den föregående!"
     },
     "languages": {
       "title": "Språk",
