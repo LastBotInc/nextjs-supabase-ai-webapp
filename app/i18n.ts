@@ -215,7 +215,7 @@ async function loadTranslations(locale: Locale): Promise<Messages> {
     // If we got some namespaces, great! 
     if (Object.keys(messages).length > 0) {
       log('✅ [i18n] Successfully loaded namespace-based translations for', locale, 'using imports')
-      return messages
+      //return messages
     }
     
     // If dynamic imports didn't yield results, try API (on client) or file system (on server)
