@@ -41,7 +41,7 @@ const namespacePathMap: { namespace: string, path: string, label: string }[] = g
       return { namespace: ns, path: '/fi/leasingratkaisut', label: 'Leasingratkaisut' };
     case 'MachineLeasing':
       return { namespace: ns, path: '/fi/koneleasing', label: 'Koneleasing' };
-    case 'Index':
+    case 'Home':
       return { namespace: ns, path: '/fi/', label: 'Etusivu' };
     case 'About':
       return { namespace: ns, path: '/fi/tietoa-meista', label: 'Tietoa meistä' };
