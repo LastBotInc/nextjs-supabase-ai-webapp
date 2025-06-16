@@ -7,39 +7,8 @@ import { staticLocales as locales } from "@/app/i18n/config";
 import { useAuth } from "@/components/auth/AuthProvider";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import InnoleaseLogo from "./InnoleaseLogo";
-
-// Separate AdminSidebar component
-function AdminSidebar({ links, pathname }: { links: Array<{ href: string; label: string }>; pathname?: string }) {
-  return (
-    <div className="hidden sm:flex fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-900 border-r border-gray-800 overflow-y-auto">
-      <div className="w-full py-6">
-        <div className="px-4 mb-6">
-          <h2 className="text-lg font-semibold text-white">Admin Dashboard</h2>
-        </div>
-        <nav className="space-y-1 px-2">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors ${
-                pathname?.endsWith(href) ? "bg-gray-800 text-white" : "text-gray-300 hover:text-white hover:bg-gray-800"
-              }`}
-            >
-              {label}
-              <ChevronRight
-                className={`ml-auto h-4 w-4 transition-transform ${
-                  pathname?.endsWith(href) ? "transform rotate-90" : ""
-                }`}
-              />
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </div>
-  );
-}
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -239,6 +208,7 @@ export default function Navigation() {
             <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center">
               <InnoleaseLogo width={215} height={42} />
             </Link>
+            {isAdmin && isAdminPath && <span className="text-piki text-2xl self-center py-4">{t("admin_link")}</span>}
           </div>
 
           {/* Desktop Navigation */}
@@ -410,9 +380,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-
-      {/* Admin Sidebar - Desktop only */}
-      {!loading && isAdmin && isAdminPath && <AdminSidebar links={adminLinks} pathname={pathname} />}
     </nav>
   );
 }
