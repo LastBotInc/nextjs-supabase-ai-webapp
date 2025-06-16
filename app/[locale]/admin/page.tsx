@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "Admin",
 };
 
-export default function AdminPage({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default async function AdminPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
 
   return (
     <div className="flex flex-col items-center justify-center mx-auto p-20">
