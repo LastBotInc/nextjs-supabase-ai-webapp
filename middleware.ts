@@ -40,6 +40,10 @@ export async function middleware(request: NextRequest) {
     })
     return response
   }
+  
+  if (request.nextUrl.pathname === '/admin') {
+    return NextResponse.redirect(new URL(`/${defaultLocale}/admin`, request.url));
+  }
 
   let response = NextResponse.next()
 
@@ -254,6 +258,7 @@ export const config = {
     // - robots.txt (SEO file)
     '/((?!_next/static|_next/image|favicon.ico|images|patterns|robots.txt).*))',
     '/', // Match the root path
-    '/api/:path*' // Match API routes
+    '/api/:path*', // Match API routes
+    '/admin', // used when re-routing /admin to /fi/admin
   ]
 }
