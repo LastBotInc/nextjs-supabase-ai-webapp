@@ -2,6 +2,7 @@ import { getNamespaces } from "@/utils/i18n-helpers";
 import type { Locale } from "./i18n/config";
 import { dedupingServerFetch } from "@/lib/utils/server-deduplication";
 import { getBaseUrl } from "@/utils/getBaseUrl";
+import { isBuildPhase } from "@/utils/env-checks";
 
 // Define message structure
 type Messages = {
@@ -115,16 +116,16 @@ async function loadNamespaceFromApi(
 async function loadTranslations(locale: Locale): Promise<Messages> {
   log("\n🌍 [i18n] ===== TRANSLATION LOADING START =====");
   log("🔍 [i18n] Loading translations for locale:", locale);
-
   try {
     const messages: Messages = {};
     const commonNamespaces = getNamespaces();
 
     for (const namespace of commonNamespaces) {
       // add env.USE_JSON_FILES etc check here to use JSON files and skip loading?
-      const translations = process.env.USE_JSON_FILES === "true"
-        ? null
-        : await loadNamespaceFromApi(locale, namespace);
+      const translations =
+        process.env.USE_JSON_FILES === "true" || isBuildPhase()
+          ? null
+          : await loadNamespaceFromApi(locale, namespace);
 
       if (translations) {
         log("🔍 [i18n] Loaded api translations for locale:", namespace, locale);
