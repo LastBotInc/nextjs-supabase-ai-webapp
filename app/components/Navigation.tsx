@@ -150,6 +150,7 @@ export default function Navigation() {
           { href: "/admin/landing-pages", label: t("admin.landingPages") },
           { href: "/admin/media", label: t("admin.media") },
           { href: "/admin/translations", label: t("admin.translations") },
+          { href: "/auth/sign-out", label: t("signOut") },
         ]
       : [];
 
