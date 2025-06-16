@@ -30,6 +30,37 @@ interface Language {
   native_name: string
 }
 
+// Build a mapping for all namespaces
+const namespacePathMap: { namespace: string, path: string, label: string }[] = getNamespaces().map(ns => {
+  switch (ns) {
+    case 'CorporateLeasing':
+      return { namespace: ns, path: '/fi/yritysleasing', label: 'Yritysleasing' };
+    case 'CarLeasing':
+      return { namespace: ns, path: '/fi/auton-leasing', label: 'Auton Leasing' };
+    case 'LeasingSolutions':
+      return { namespace: ns, path: '/fi/leasingratkaisut', label: 'Leasingratkaisut' };
+    case 'MachineLeasing':
+      return { namespace: ns, path: '/fi/koneleasing', label: 'Koneleasing' };
+    case 'Index':
+      return { namespace: ns, path: '/fi/', label: 'Etusivu' };
+    case 'About':
+      return { namespace: ns, path: '/fi/tietoa-meista', label: 'Tietoa meistä' };
+    case 'Contact':
+      return { namespace: ns, path: '/fi/yhteystiedot', label: 'Yhteystiedot' };
+    case 'Blog':
+      return { namespace: ns, path: '/fi/blogi', label: 'Blogi' };
+    case 'FleetManager':
+      return { namespace: ns, path: '/fi/fleet-management', label: 'Fleet Management' };
+    case 'Privacy':
+      return { namespace: ns, path: '/fi/tietosuoja', label: 'Tietosuoja' };
+    case 'DriversGuide':
+      return { namespace: ns, path: '/fi/autoilijan-opas', label: 'Autoilijan opas' };
+    // Add more explicit mappings as needed
+    default:
+      return { namespace: ns, path: ``, label: ns };
+  }
+});
+
 export default function TranslationsPage() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search') || ''
@@ -39,8 +70,7 @@ export default function TranslationsPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
   const supabase = createClientComponentClient()
-  const namespaces = getNamespaces();
-  const [selectedNamespace, setSelectedNamespace] = useState<string>(namespaces[0]);
+  const [selectedNamespace, setSelectedNamespace] = useState<string>(namespacePathMap[0].namespace);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
 
   useEffect(() => {
@@ -183,6 +213,10 @@ export default function TranslationsPage() {
     }
   }
 
+  const handleNamespaceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedNamespace(e.target.value);
+  };
+
   if (loading) {
     return <div className="container mx-auto py-8">Loading translations...</div>
   }
@@ -211,29 +245,32 @@ export default function TranslationsPage() {
 
       <SearchFilter />
 
-              {/* Namespace Selector */}
-              <div className="mt-4 flex flex-wrap gap-2 items-center">
-          <label className="font-semibold">Namespace:</label>
-          <select
-            value={selectedNamespace}
-            onChange={e => setSelectedNamespace(e.target.value)}
-            className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
-          >
-            {namespaces.map(ns => (
-              <option key={ns} value={ns}>{ns}</option>
+      {/* Namespace Selector (shows label/path, value is namespace) */}
+      <div className="mt-4 flex flex-wrap gap-2 items-center">
+        <label className="font-semibold">Page:</label>
+        <select
+          value={selectedNamespace}
+          onChange={handleNamespaceChange}
+          className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
+        >
+          {namespacePathMap
+            .filter(({ path }) => !!path)
+            .sort((a, b) => a.label.localeCompare(b.label, 'fi'))
+            .map(({ namespace, label }) => (
+              <option key={namespace} value={namespace}>{label}</option>
             ))}
-          </select>
-          <label className="font-semibold ml-4">Language:</label>
-          <select
-            value={selectedLanguage}
-            onChange={e => setSelectedLanguage(e.target.value)}
-            className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
-          >
-            {languages.map(lang => (
-              <option key={lang.code} value={lang.code}>{lang.name} ({lang.native_name})</option>
-            ))}
-          </select>
-        </div>
+        </select>
+        <label className="font-semibold ml-4">Language:</label>
+        <select
+          value={selectedLanguage}
+          onChange={e => setSelectedLanguage(e.target.value)}
+          className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
+        >
+          {languages.map(lang => (
+            <option key={lang.code} value={lang.code}>{lang.name} ({lang.native_name})</option>
+          ))}
+        </select>
+      </div>
       
       <div className="overflow-x-auto mt-4">
         <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
