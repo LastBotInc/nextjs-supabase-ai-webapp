@@ -9,6 +9,7 @@ import LanguageManager from './LanguageManager'
 import { invalidateTranslationCache } from '@/app/i18n'
 import { Locale } from '@/app/i18n/config'
 import { useSearchParams } from 'next/navigation'
+import { getNamespaces } from '@/utils/i18n-helpers'
 
 interface Translation {
   namespace: string
@@ -29,13 +30,7 @@ interface Language {
   native_name: string
 }
 
-interface Props {
-  params: {
-    locale: string
-  }
-}
-
-export default function TranslationsPage({ params }: Props) {
+export default function TranslationsPage() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search') || ''
   const t = useTranslations('Admin.translations')
@@ -44,29 +39,29 @@ export default function TranslationsPage({ params }: Props) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
   const supabase = createClientComponentClient()
+  const namespaces = getNamespaces();
+  const [selectedNamespace, setSelectedNamespace] = useState<string>(namespaces[0]);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
 
   useEffect(() => {
     async function fetchData() {
       console.log('Fetching translations and languages...')
       try {
-        // Fetch translations
-        const translationsResponse = await fetch('/api/translations')
+        // Fetch translations for selected namespace and language
+        const translationsResponse = await fetch(`/api/translations?namespace=${encodeURIComponent(selectedNamespace)}&locale=${encodeURIComponent(selectedLanguage)}`)
         const { data: translationsData, error: translationsError } = await translationsResponse.json()
-
         if (translationsError) {
           throw new Error(translationsError)
         }
-
         // Fetch languages
         const languagesResponse = await fetch('/api/languages')
         const { data: languagesData, error: languagesError } = await languagesResponse.json()
-
         if (languagesError) {
           throw new Error(languagesError)
         }
-        
         console.log('Fetched translations:', translationsData)
         console.log('Fetched languages:', languagesData)
+        console.log('Raw translations from API:', translationsData)
         setTranslations(translationsData || [])
         setLanguages(languagesData || [])
       } catch (err) {
@@ -76,10 +71,8 @@ export default function TranslationsPage({ params }: Props) {
         setLoading(false)
       }
     }
-
-    // Initial fetch
+    // Initial fetch and refetch on namespace/language change
     fetchData()
-
     // Subscribe to changes
     const channel = supabase
       .channel('translations_changes')
@@ -108,12 +101,17 @@ export default function TranslationsPage({ params }: Props) {
         }
       )
       .subscribe()
-
     // Cleanup subscription
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [supabase])
+  }, [supabase, selectedNamespace, selectedLanguage])
+
+  useEffect(() => {
+    if (languages.length > 0 && !languages.find(l => l.code === selectedLanguage)) {
+      setSelectedLanguage(languages[0].code);
+    }
+  }, [languages,selectedLanguage]);
 
   // Group translations by namespace and key
   console.log('Current translations state:', translations)
@@ -140,6 +138,11 @@ export default function TranslationsPage({ params }: Props) {
         )
       )
     : translationGroups
+
+  // Filter translations by selected namespace and language
+  const filteredTranslationsByNamespace = filteredTranslations.filter(group =>
+    group.namespace === selectedNamespace
+  );
 
   const handleSave = async (namespace: string, key: string, locale: string, newValue: string) => {
     try {
@@ -193,6 +196,7 @@ export default function TranslationsPage({ params }: Props) {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-black dark:text-white">{t('title')}</h1>
         <p className="text-gray-600 dark:text-gray-300 mt-2">{t('description')}</p>
+
         <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
           <p>{t('shortcuts.title')}</p>
           <ul className="mt-1 list-disc list-inside">
@@ -206,36 +210,52 @@ export default function TranslationsPage({ params }: Props) {
       <LanguageManager />
 
       <SearchFilter />
+
+              {/* Namespace Selector */}
+              <div className="mt-4 flex flex-wrap gap-2 items-center">
+          <label className="font-semibold">Namespace:</label>
+          <select
+            value={selectedNamespace}
+            onChange={e => setSelectedNamespace(e.target.value)}
+            className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
+          >
+            {namespaces.map(ns => (
+              <option key={ns} value={ns}>{ns}</option>
+            ))}
+          </select>
+          <label className="font-semibold ml-4">Language:</label>
+          <select
+            value={selectedLanguage}
+            onChange={e => setSelectedLanguage(e.target.value)}
+            className="border rounded px-2 py-1 dark:bg-gray-800 dark:text-white"
+          >
+            {languages.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name} ({lang.native_name})</option>
+            ))}
+          </select>
+        </div>
       
       <div className="overflow-x-auto mt-4">
         <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-900">
-              <th className="px-4 py-2 text-left text-black dark:text-white">{t('table.namespace')}</th>
               <th className="px-4 py-2 text-left text-black dark:text-white">{t('table.key')}</th>
-              {languages.map(lang => (
-                <th key={lang.code} className="px-4 py-2 text-left text-black dark:text-white">
-                  {lang.name} ({lang.native_name})
-                </th>
-              ))}
+              <th className="px-4 py-2 text-left text-black dark:text-white">{t('table.value')}</th>
             </tr>
           </thead>
           <tbody>
-            {filteredTranslations.map((group) => (
+            {filteredTranslationsByNamespace.map((group) => (
               <tr key={`${group.namespace}.${group.key}`} className="border-t border-gray-200 dark:border-gray-700">
-                <td className="px-4 py-2 text-gray-800 dark:text-gray-200">{group.namespace}</td>
                 <td className="px-4 py-2 text-gray-800 dark:text-gray-200">{group.key}</td>
-                {languages.map(lang => (
-                  <td key={lang.code} className="px-4 py-2">
-                    <TranslationEditor
-                      namespace={group.namespace}
-                      translationKey={group.key}
-                      locale={lang.code}
-                      value={group.translations[lang.code] || ''}
-                      onSave={(newValue) => handleSave(group.namespace, group.key, lang.code, newValue)}
-                    />
-                  </td>
-                ))}
+                <td className="px-4 py-2">
+                  <TranslationEditor
+                    namespace={group.namespace}
+                    translationKey={group.key}
+                    locale={selectedLanguage}
+                    value={group.translations[selectedLanguage] || ''}
+                    onSave={(newValue) => handleSave(group.namespace, group.key, selectedLanguage, newValue)}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

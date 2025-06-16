@@ -277,6 +277,17 @@
   - [ ] API integrations
   - [ ] Scheduled tasks
 
+### Translation Management (Admin)
+- [ ] Admin translation editor page/component
+  - [ ] Fetch and display namespaces using getNamespaces()
+  - [ ] Add language selector (en, fi, sv)
+  - [ ] Fetch and display translation keys/values for selected namespace/language
+  - [ ] Implement Save and Undo functionality
+  - [ ] Implement/extend API endpoints for fetching and saving translations (admin protected)
+  - [ ] Ensure admin authentication for translation editing
+  - [ ] Test the UI and API integration
+  - [ ] Update documentation and changelog
+
 ## Technical Tasks
 
 ### Setup

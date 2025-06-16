@@ -2,22 +2,25 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { invalidateTranslationCache } from '@/app/i18n';
 
-export async function GET() {
+export async function GET(request: Request) {
   const supabase = await createClient()
-  
   try {
-    const { data, error } = await supabase
-      .from('translations')
-      .select('*')
-      .order('namespace')
-      .order('key')
-      .order('locale')
-
+    const { searchParams } = new URL(request.url)
+    const namespace = searchParams.get('namespace')
+    const locale = searchParams.get('locale')
+    let query = supabase.from('translations').select('*')
+    if (namespace) {
+      query = query.eq('namespace', namespace)
+    }
+    if (locale) {
+      query = query.eq('locale', locale)
+    }
+    query = query.order('namespace').order('key').order('locale')
+    const { data, error } = await query
     if (error) {
       console.error('Database error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
-    
     return NextResponse.json({ data })
   } catch (err) {
     console.error('Error fetching translations:', err)
