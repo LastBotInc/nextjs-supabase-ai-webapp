@@ -50,7 +50,8 @@
     },
     "table": {
       "namespace": "Namespace",
-      "key": "Key"
+      "key": "Key",
+      "value": "Translation"
     },
     "editor": {
       "save": "Save",
