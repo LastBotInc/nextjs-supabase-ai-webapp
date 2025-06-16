@@ -1,3 +1,4 @@
+import { getNamespaces } from '@/utils/i18n-helpers';
 import type { Locale } from './i18n/config'
 
 // Check if we're running on the server
@@ -158,13 +159,7 @@ async function loadMonolithicFile(locale: Locale): Promise<Messages> {
   
   try {
     // Updated list based on actual files in messages/en/
-    const commonNamespaces = [
-      'Common', 'Home', 'LeasingSolutions', 'Meta', 'About', 'Account', 
-      'Admin', 'Auth', 'Blog', 'Contact', 'CookieConsent', 'LandingPages', 
-      'Media', 'Navigation', 'Privacy', 'Profile', 
-      'Footer', 'Index'
-      // Removed: 'Booking', 'Analytics', 'Security', 'User'
-    ];
+    const commonNamespaces = getNamespaces()
     
     // Try to use dynamic imports of namespace files since we no longer have monolithic files
     try {

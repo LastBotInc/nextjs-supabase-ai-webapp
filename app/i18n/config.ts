@@ -133,15 +133,7 @@ async function loadMonolithicTranslation(
 
       // Get essential namespaces to try as fallback
       // Using a subset of all namespaces for fallback to ensure core functionality
-      const essentialNamespaces = [
-        "Navigation",
-        "Common",
-        "Footer",
-        "Auth",
-        "Blog",
-        "Index",
-        "Home",
-      ];
+      const essentialNamespaces = getNamespaces();
 
       for (const namespace of essentialNamespaces) {
         try {
