@@ -23,7 +23,7 @@ type PublicLandingPageView = {
   custom_js: string | null;
   featured_image: string | null;
   meta_description: string | null;
-  seo_data: any | null; // Use 'any' or a more specific type if the structure is known
+  seo_data: unknown | null; // Use 'any' or a more specific type if the structure is known
   cta_headline: string | null;
   cta_description: string | null;
   cta_button_text: string | null;
@@ -178,11 +178,10 @@ export default async function LandingPage({ params: paramsPromise }: Props) {
   const params = await paramsPromise;
   const { locale, slug } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations({ locale, namespace: "LandingPages" });
   const page: PublicLandingPageView | null = await getLandingPage(slug, locale);
 
   if (!page) {
-    //notFound()
+    notFound()
   }
 
   return (
