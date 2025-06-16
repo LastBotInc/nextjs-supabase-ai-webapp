@@ -198,5 +198,8 @@
     ],
     "readMore": "Läs mer",
     "imageAlt": "Mörk bil"
+  },
+  "newsSection": {
+    "heading": "Aktuellt"
   }
 }

@@ -118,6 +118,9 @@
     },
     "viewAll": "Katso ajankohtaiset"
   },
+  "newsSection": {
+    "heading": "Ajankohtaista"
+  },
   "innoFleet": {
     "subtitle": "Raportointityökalu",
     "title": "InnoFleet Manager",
