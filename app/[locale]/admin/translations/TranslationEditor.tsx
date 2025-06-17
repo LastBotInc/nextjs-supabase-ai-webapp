@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import type { KeyboardEvent } from "react";
 import JsonArrayEditor from "./JsonArrayEditor";
 import JsonObjectEditor from "./JsonObjectEditor";
-import { isJsonFormat } from "./utils";
+import { isJsonArrayString, isJsonFormat, isJsonObjectString, isValidJsonObject } from "./utils";
 
 interface Props {
   namespace: string;
@@ -39,24 +39,6 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
   }, [value]);
 
   // Helper to check if a string is a JSON object (not array, not primitive)
-  function isJsonObjectString(str: string): boolean {
-    try {
-      const parsed = JSON.parse(str);
-      return typeof parsed === "object" && parsed !== null && !Array.isArray(parsed);
-    } catch {
-      return false;
-    }
-  }
-
-  // Helper to check if a string is a JSON array
-  function isJsonArrayString(str: string): boolean {
-    try {
-      const parsed = JSON.parse(str);
-      return Array.isArray(parsed);
-    } catch {
-      return false;
-    }
-  }
 
   const handleSave = useCallback(
     async (valueToSave?: string) => {
@@ -66,6 +48,8 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
       // If the value is a JSON object, validate the edited value as JSON before saving
       if (isJsonData()) {
         try {
+          console.log("valueToSave", valueToSave);
+          console.log("editedValue", editedValue);
           const isStillJSON =
             isJsonObjectString(valueToSave || editedValue) || isJsonArrayString(valueToSave || editedValue);
           if (!isStillJSON) {
@@ -151,11 +135,8 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
     try {
       if (isJsonFormat(textEditValue)) {
         const parsed = JSON.parse(textEditValue);
-        if (isJsonData()) {
-          if (!Array.isArray(parsed)) throw new Error("Value must be a JSON array");
-          if (Array.isArray(parsed) || typeof parsed !== "object" || parsed === null)
-            throw new Error("Value must be a JSON object");
-        }
+        if (valueFormat === "jsonArray" && !Array.isArray(parsed)) throw new Error("Value must be a JSON array");
+        if (valueFormat === "jsonObject" && !isValidJsonObject(parsed)) throw new Error("Value must be a JSON object");
       } else {
         setValueFormat("text");
       }
