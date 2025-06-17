@@ -25,3 +25,9 @@ export function isJsonArrayString(str: string): boolean {
     return false;
   }
 }
+
+export function cloneAndClearObject(
+  obj: Record<string, string>,
+): Record<string, string> {
+  return Object.fromEntries(Object.keys(obj).map((k) => [k, ""]));
+}

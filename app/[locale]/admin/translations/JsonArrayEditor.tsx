@@ -1,9 +1,9 @@
 "use client";
 
-import { PlusIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import JsonObjectEditor from "./JsonObjectEditor";
-import { isJsonFormat } from "./utils";
+import { cloneAndClearObject, isJsonFormat } from "./utils";
 
 interface JsonArrayEditorProps {
   value: string; // JSON stringified array
@@ -94,28 +94,18 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
 
   // Remove an item
   const handleRemove = (idx: number) => {
-    setItems((prev) => {
-      const newItems = prev.filter((_, i) => i !== idx);
-      onChangeAction(JSON.stringify(newItems));
-      return newItems;
-    });
+    const newItems = items.filter((_, i) => i !== idx);
+    setItems(newItems);
+    onChangeAction(JSON.stringify(newItems));
   };
 
   // Add a new item: if object array, clone first object with empty values; else, add empty string
   const handleAdd = () => {
-    setItems((prev) => {
-      let newItems;
-      if (isObjectArray && prev.length > 0 && isPlainObject(prev[0])) {
-        // Clone first object, set all values to empty string
-        const template = prev[0] as Record<string, string>;
-        const emptyObj: Record<string, string> = Object.fromEntries(Object.keys(template).map((k) => [k, ""]));
-        newItems = [...prev, emptyObj];
-      } else {
-        newItems = [...prev, ""];
-      }
-      onChangeAction(JSON.stringify(newItems));
-      return newItems;
-    });
+    const hasObjects = items.length > 0 && isPlainObject(items[0]);
+    const newItem = hasObjects ? cloneAndClearObject(items[0] as Record<string, string>) : "";
+    const newItems = [...items, newItem];
+    setItems(newItems);
+    onChangeAction(JSON.stringify(newItems));
   };
 
   return (
@@ -149,10 +139,10 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
             type="button"
             onClick={() => handleRemove(idx)}
             disabled={disabled}
-            className="px-2 py-1 text-xs text-red-500 bg-gray-100 rounded hover:bg-red-100 disabled:opacity-50"
+            className="p-2 text-xs text-red-500 bg-gray-100 rounded hover:bg-red-100 disabled:opacity-50"
             aria-label="Remove item"
           >
-            &times;
+            <TrashIcon className="w-4 h-4" />
           </button>
         </div>
       ))}
