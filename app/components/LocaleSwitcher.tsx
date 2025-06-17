@@ -7,7 +7,6 @@ import { languages as availableLanguages } from "@/app/i18n/languages";
 import { staticLocales } from "@/app/i18n/config";
 import { createClient } from "@/utils/supabase/client";
 import { dedupingFetch } from "@/lib/utils/deduplication";
-import { ChevronDown, ChevronUp } from "lucide-react";
 interface Language {
   code: string;
   name: string;
@@ -19,12 +18,9 @@ export default function LocaleSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const t = useTranslations("Common.languageSelector");
   const [languages, setLanguages] = useState<Language[]>([]);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
-  const [isOpen, setOpen] = useState(false);
-  const elementRef = useRef<HTMLDivElement | null>(null);
   // Memoize fetchLanguages to prevent recreation on each render
   const fetchLanguages = async () => {
     try {
@@ -35,7 +31,13 @@ export default function LocaleSwitcher() {
       if (error) throw new Error(error);
 
       // Filter enabled languages
-      const enabledLanguages = data?.filter((lang: Language) => lang.enabled);
+      const enabledLanguages = data
+        ?.filter((lang: Language) => lang.enabled)
+        .sort((a: Language) => {
+          if (a.code === "fi") return -1;
+          if (a.code === "sv") return 1;
+          return 0;
+        });
 
       if (!enabledLanguages?.length) {
         // If no enabled languages found, use static locales
@@ -115,70 +117,27 @@ export default function LocaleSwitcher() {
       console.error("Error changing locale:", err);
     }
   };
-  const toggleDropdown = async () => {
-    setOpen((v) => !v);
-  };
-
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && elementRef.current && !elementRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
 
   if (loading) {
-    return (
-      <div className="flex items-center">
-        <div
-          className="h-8 w-28 animate-pulse bg-gray-700 rounded-md"
-          style={{
-            minWidth: "120px",
-            height: "32px",
-            borderRadius: "0.375rem",
-          }}
-        />
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div className="relative" ref={elementRef}>
-      <button
-        onClick={() => toggleDropdown()}
-        className={`capitalize px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center ${
-          isOpen ? "text-white bg-piki" : "text-piki hover:text-piki/80 hover:bg-gray-100"
-        }`}
-        aria-label={t("ariaLabel")}
-        aria-expanded={isOpen}
-      >
-        {locale}
-        {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-      </button>
-      {isOpen && (
-        <div className="absolute right-0 mt-1 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden">
-          <div className="py-1">
-            {languages.map((lang) => (
-              <div key={lang.code} className={`block px-4 py-2 text-sm w-full`}>
-                <button
-                  key={lang.code}
-                  value={lang.code}
-                  className="bg-white block text-piki text-left py-1 w-full disabled:opacity-50 hover:text-piki/80 hover:bg-gray-100 w-100"
-                  aria-label={`${lang.name} - ${lang.native_name}`}
-                  onClick={() => handleChange(lang.code)}
-                  disabled={locale === lang.code}
-                >
-                  {lang.native_name}
-                </button>
-              </div>
-            ))}
-          </div>
+    <div className="relative flex flex-row gap-1">
+      {languages.map((lang) => (
+        <div key={lang.code}>
+          <button
+            key={lang.code}
+            value={lang.code}
+            className="p-2 bg-white block text-piki text-left disabled:opacity-50 hover:text-piki/80 hover:bg-gray-100 rounded-xl"
+            aria-label={`${lang.name} - ${lang.native_name}`}
+            onClick={() => handleChange(lang.code)}
+            disabled={locale === lang.code}
+          >
+            {lang.code.toUpperCase()}
+          </button>
         </div>
-      )}
+      ))}
     </div>
   );
 }
