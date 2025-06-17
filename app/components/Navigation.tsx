@@ -230,7 +230,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center">
-              <InnoleaseLogo width={215} height={42} />
+              <InnoleaseLogo />
             </Link>
             {isAdmin && isAdminPath && <span className="text-piki text-2xl self-center py-4">{t("admin_link")}</span>}
           </div>
