@@ -30,7 +30,10 @@ function toStringObject(obj: Record<string, unknown>): Record<string, string> {
   );
 }
 
-function valueToOriginalFormat(value: unknown): string | Error {
+function valueToOriginalFormat(value: unknown): Record<string, string> | string | Error {
+  if (typeof value === "object") {
+    return (value as Record<string, string>) || "";
+  }
   if (typeof value === "string") {
     if (isJsonFormat(value)) {
       try {
@@ -43,7 +46,7 @@ function valueToOriginalFormat(value: unknown): string | Error {
   return String(value);
 }
 
-function toJsonObject(obj: Record<string, unknown>): Record<string, string | Error> {
+function toJsonObject(obj: Record<string, unknown>): Record<string, string | Record<string, string> | Error> {
   // Convert all values to strings or errors
   return Object.fromEntries(
     Object.entries(obj).map(([k, v]) => {
@@ -60,9 +63,7 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
   try {
     const parsed = JSON.parse(value);
     if (Array.isArray(parsed)) {
-      initialArray = parsed.map((item) =>
-        isPlainObject(item) ? toStringObject(item as Record<string, unknown>) : String(item)
-      );
+      initialArray = parsed;
     }
   } catch {
     // Ignore parse errors, start with empty array

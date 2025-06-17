@@ -31,3 +31,11 @@ export function cloneAndClearObject(
 ): Record<string, string> {
   return Object.fromEntries(Object.keys(obj).map((k) => [k, ""]));
 }
+
+export function stringify(
+  obj: unknown,
+): string {
+  if (obj === "" || obj === null || obj === undefined) return "";
+  if (isValidJsonObject(obj) || Array.isArray(obj)) return JSON.stringify(obj);
+  return obj.toString();
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { stringify } from "./utils";
 
 interface JsonObjectEditorProps {
   value: Record<string, string>; // JSON object
@@ -31,7 +32,7 @@ export default function JsonObjectEditor({ value, onChangeAction: onChange, disa
           <input
             id={`jsonobj-${key}`}
             type="text"
-            value={val}
+            value={stringify(val)}
             onChange={(e) => handleFieldChange(key, e.target.value)}
             className="flex-grow p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
             disabled={disabled}
