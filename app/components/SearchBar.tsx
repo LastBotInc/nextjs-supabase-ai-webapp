@@ -45,7 +45,7 @@ export default function SearchBar() {
       <button
         type="button"
         aria-label="Open search"
-        className="absolute right-2 top-1/2 -translate-y-1/2 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
+        className="absolute right-[9px] top-1/2 -translate-y-1/2 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
         tabIndex={-1}
         onMouseDown={(e) => {
           e.preventDefault();

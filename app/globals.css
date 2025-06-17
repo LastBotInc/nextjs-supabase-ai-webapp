@@ -546,7 +546,7 @@ Navigation grid layout for desktop and mobile
 @screen md {
   .navigation-menu {
     .toggle-button {
-      @apply p-1;
+      @apply rounded-md;
     }
   }
 }
@@ -592,7 +592,7 @@ Navigation grid layout for desktop and mobile
     }
 
     .dropdown {
-      @apply hidden absolute left-0 mt-1 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden;
+      @apply hidden absolute left-0 mt-2 py-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden;
     }
     .active-dropdown {
       display: block;
