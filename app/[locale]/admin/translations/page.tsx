@@ -148,7 +148,6 @@ export default function TranslationsPage() {
   }, [languages, selectedLanguage]);
 
   // Group translations by namespace and key
-  console.log("Current translations state:", translations);
   const groupedTranslations = translations.reduce(
     (acc: Record<string, GroupedTranslation>, translation: Translation) => {
       const key = `${translation.namespace}.${translation.key}`;
