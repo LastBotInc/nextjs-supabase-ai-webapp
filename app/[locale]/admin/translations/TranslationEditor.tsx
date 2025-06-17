@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
 import type { KeyboardEvent } from "react";
 import JsonArrayEditor from "./JsonArrayEditor";
+import JsonObjectEditor from "./JsonObjectEditor";
 
 interface Props {
   namespace: string;
@@ -63,7 +64,7 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
           if (!isStillJSON) {
             throw new Error("Not a valid JSON object");
           }
-        } catch (err) {
+        } catch {
           setIsSaving(false);
           setError(t("editor.invalidJson"));
           return;
@@ -139,12 +140,20 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
   };
 
   if (isEditing) {
-    // If the value is a JSON array, use the new JsonArrayEditor
-
     return (
       <div className="space-y-2">
         {isJsonArray ? (
           <JsonArrayEditor
+            value={editedValue}
+            onChange={async (jsonString) => {
+              setEditedValue(jsonString);
+            }}
+            disabled={isSaving}
+            error={error}
+            locale={locale}
+          />
+        ) : isJsonObject ? (
+          <JsonObjectEditor
             value={editedValue}
             onChange={async (jsonString) => {
               setEditedValue(jsonString);
@@ -199,10 +208,6 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
           </button>
         </div>
         {error && <p className="text-xs text-red-500">{error}</p>}
-        {/* Show a hint if JSON object is required */}
-        {isJsonObject && (
-          <p className="text-xs text-white font-bold">{t("editor.jsonHint") || "Value must be a valid JSON object."}</p>
-        )}
       </div>
     );
   }
