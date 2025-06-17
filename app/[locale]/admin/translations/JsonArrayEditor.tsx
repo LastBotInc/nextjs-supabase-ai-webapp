@@ -3,7 +3,7 @@
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import JsonObjectEditor from "./JsonObjectEditor";
-import { cloneAndClearObject, isJsonFormat } from "./utils";
+import { cloneAndClearObject, isJsonFormat, isValidJsonObject } from "./utils";
 
 interface JsonArrayEditorProps {
   value: string; // JSON stringified array
@@ -11,23 +11,6 @@ interface JsonArrayEditorProps {
   disabled?: boolean;
   error?: string | null;
   locale?: string;
-}
-
-// Helper to check if a value is a plain object (not array, not primitive)
-function isPlainObject(val: unknown): val is Record<string, unknown> {
-  return typeof val === "object" && val !== null && !Array.isArray(val);
-}
-
-function toStringObject(obj: Record<string, unknown>): Record<string, string> {
-  // Convert all values to strings
-  return Object.fromEntries(
-    Object.entries(obj).map(([k, v]) => {
-      if (typeof v === "object" && v !== null) {
-        return [k, JSON.stringify(v)];
-      }
-      return [k, String(v)];
-    })
-  );
 }
 
 function valueToOriginalFormat(value: unknown): Record<string, string> | string | Error {
@@ -72,12 +55,15 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
   const [items, setItems] = useState<(string | Record<string, string>)[]>(initialArray);
 
   // Check if the array should be treated as objects (homogeneous)
-  const isObjectArray = items.length > 0 && isPlainObject(items[0]);
+  const isObjectArray = items.length > 0 && isValidJsonObject(items[0]);
+  const isArrayArray = !isObjectArray && Array.isArray(items[0]);
 
   // Handle input change for an item (string or object)
   const handleItemChange = (idx: number, newValue: string | Record<string, string>) => {
-    const newValueWithJSONValues = isPlainObject(newValue)
+    const newValueWithJSONValues = isValidJsonObject(newValue)
       ? toJsonObject(newValue as Record<string, string>)
+      : isArrayArray && typeof newValue === "string"
+      ? newValue.split(",")
       : newValue;
     const errorKey = Object.keys(newValueWithJSONValues).find(
       (k) => (newValueWithJSONValues as Record<string, string | Error>)[k] instanceof Error
@@ -102,7 +88,7 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
 
   // Add a new item: if object array, clone first object with empty values; else, add empty string
   const handleAdd = () => {
-    const hasObjects = items.length > 0 && isPlainObject(items[0]);
+    const hasObjects = items.length > 0 && isValidJsonObject(items[0]);
     const newItem = hasObjects ? cloneAndClearObject(items[0] as Record<string, string>) : "";
     const newItems = [...items, newItem];
     setItems(newItems);
