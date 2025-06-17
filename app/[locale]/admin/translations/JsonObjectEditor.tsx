@@ -3,33 +3,22 @@
 import React, { useState } from "react";
 
 interface JsonObjectEditorProps {
-  value: string; // JSON stringified object
-  onChange: (value: string) => Promise<void>;
+  value: Record<string, string>; // JSON object
+  onChange: (obj: Record<string, string>) => Promise<void>;
   disabled?: boolean;
   error?: string | null;
   locale?: string;
 }
 
 export default function JsonObjectEditor({ value, onChange, disabled }: JsonObjectEditorProps) {
-  // Parse the initial value as a JSON object, fallback to empty object if invalid
-  let initialObject: Record<string, string> = {};
-  try {
-    const parsed = JSON.parse(value);
-    if (typeof parsed === "object" && parsed !== null && !Array.isArray(parsed)) {
-      // Convert all values to strings for editing
-      initialObject = Object.fromEntries(Object.entries(parsed).map(([k, v]) => [k, String(v)]));
-    }
-  } catch {
-    // Ignore parse errors, start with empty object
-  }
-
-  const [fields, setFields] = useState<Record<string, string>>(initialObject);
+  // Use the value prop directly as the object to edit
+  const [fields, setFields] = useState<Record<string, string>>(value);
 
   // Handle input change for a key
   const handleFieldChange = (key: string, newValue: string) => {
     const newFields = { ...fields, [key]: newValue };
     setFields(newFields);
-    onChange(JSON.stringify(newFields));
+    onChange(newFields);
   };
 
   return (
