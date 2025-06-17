@@ -3,6 +3,7 @@
 import { PlusIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import JsonObjectEditor from "./JsonObjectEditor";
+import { isJsonFormat } from "./utils";
 
 interface JsonArrayEditorProps {
   value: string; // JSON stringified array
@@ -19,12 +20,43 @@ function isPlainObject(val: unknown): val is Record<string, unknown> {
 
 function toStringObject(obj: Record<string, unknown>): Record<string, string> {
   // Convert all values to strings
-  return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, String(v)]));
+  return Object.fromEntries(
+    Object.entries(obj).map(([k, v]) => {
+      if (typeof v === "object" && v !== null) {
+        return [k, JSON.stringify(v)];
+      }
+      return [k, String(v)];
+    })
+  );
+}
+
+function valueToOriginalFormat(value: unknown): string | Error {
+  if (typeof value === "string") {
+    if (isJsonFormat(value)) {
+      try {
+        return JSON.parse(value);
+      } catch {
+        return new Error("Invalid JSON format");
+      }
+    }
+  }
+  return String(value);
+}
+
+function toJsonObject(obj: Record<string, unknown>): Record<string, string | Error> {
+  // Convert all values to strings or errors
+  return Object.fromEntries(
+    Object.entries(obj).map(([k, v]) => {
+      const formattedValue = valueToOriginalFormat(v);
+      return [k, formattedValue];
+    })
+  );
 }
 
 export default function JsonArrayEditor({ value, onChangeAction, disabled }: JsonArrayEditorProps) {
   // Parse the initial value as an array of string | object
   let initialArray: (string | Record<string, string>)[] = [];
+  const [errorField, setErrorField] = useState<[number, string] | null>(null);
   try {
     const parsed = JSON.parse(value);
     if (Array.isArray(parsed)) {
@@ -43,9 +75,21 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
 
   // Handle input change for an item (string or object)
   const handleItemChange = (idx: number, newValue: string | Record<string, string>) => {
-    const newItems = items.map((item, i) => (i === idx ? newValue : item));
-    setItems(newItems);
-    onChangeAction(JSON.stringify(newItems));
+    const newValueWithJSONValues = isPlainObject(newValue)
+      ? toJsonObject(newValue as Record<string, string>)
+      : newValue;
+    const errorKey = Object.keys(newValueWithJSONValues).find(
+      (k) => (newValueWithJSONValues as Record<string, string | Error>)[k] instanceof Error
+    );
+    if (errorKey) {
+      setErrorField([idx, errorKey]);
+    } else {
+      setErrorField(null);
+
+      const newItems = items.map((item, i) => (i === idx ? newValueWithJSONValues : item));
+      setItems(newItems as Record<string, string>[] | string[]);
+      onChangeAction(JSON.stringify(newItems));
+    }
   };
 
   // Remove an item
@@ -87,6 +131,9 @@ export default function JsonArrayEditor({ value, onChangeAction, disabled }: Jso
                 disabled={disabled}
                 locale={undefined}
               />
+              {errorField && errorField[0] === idx && (
+                <p className="text-red-500 text-sm">{errorField[1]} has invalid value</p>
+              )}
             </div>
           ) : (
             // Render input for primitive items

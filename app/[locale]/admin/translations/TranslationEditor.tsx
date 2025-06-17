@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import type { KeyboardEvent } from "react";
 import JsonArrayEditor from "./JsonArrayEditor";
 import JsonObjectEditor from "./JsonObjectEditor";
+import { isJsonFormat } from "./utils";
 
 interface Props {
   namespace: string;
@@ -37,10 +38,6 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
     setEditedValue(value);
   }, [value]);
 
-  function isJsonFormat(str: string): boolean {
-    return str.includes("[") || str.includes("{");
-  }
-
   // Helper to check if a string is a JSON object (not array, not primitive)
   function isJsonObjectString(str: string): boolean {
     try {
@@ -69,7 +66,8 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
       // If the value is a JSON object, validate the edited value as JSON before saving
       if (isJsonData()) {
         try {
-          const isStillJSON = isJsonObjectString(valueToSave || editedValue);
+          const isStillJSON =
+            isJsonObjectString(valueToSave || editedValue) || isJsonArrayString(valueToSave || editedValue);
           if (!isStillJSON) {
             throw new Error("Not a valid JSON object");
           }
