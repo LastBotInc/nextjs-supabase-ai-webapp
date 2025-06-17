@@ -11,6 +11,7 @@ import { createClient } from "@/utils/supabase/client";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import InnoleaseLogo from "./InnoleaseLogo";
 import { cn } from "@/lib/utils";
+import SearchBar from "./SearchBar";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -225,11 +226,11 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white`}>
-      <div className="max-w-7xl mx-auto">
+    <nav className={`fixed top-0 left-0 right-0 z-40 duration-300 bg-white`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-14">
         <div className="navigation">
           {/* Logo */}
-          <div className="navigation__logo">
+          <div className="navigation-logo">
             <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center">
               <InnoleaseLogo />
             </Link>
@@ -255,7 +256,10 @@ export default function Navigation() {
             </div>
           ) : (
             // Main navigation with dropdowns
-            <div className={cn("navigation__menu", isMenuOpen && "is-open")}>
+            <div className={cn("navigation-menu", isMenuOpen && "is-open")}>
+              <div className="navigation-search navigation-search-menu">
+                <SearchBar />
+              </div>
               {shouldShowLinks &&
                 navigationStructure.map((section) => (
                   <div
@@ -268,9 +272,7 @@ export default function Navigation() {
                   >
                     <button
                       onClick={() => toggleDropdown(section.id)}
-                      className={`rounded-xl transition-colors flex items-center toggle-button ${
-                        activeDropdown === section.id && "active"
-                      }`}
+                      className={`flex items-center toggle-button ${activeDropdown === section.id && "active"}`}
                       aria-expanded={activeDropdown === section.id}
                     >
                       {section.label}
@@ -299,19 +301,13 @@ export default function Navigation() {
             </div>
           )}
 
-          {/* Right side actions */}
-          <div className="navigation__languages">
-            {/* Locale Switcher */}
+          <div className="navigation-languages">
             <LocaleSwitcher />
           </div>
-          <div className="navigation__search">
-            {/* Locale Switcher */}
-            <span className="text-piki">
-              <input type="text" placeholder="Search" />
-            </span>
+          <div className="navigation-search">
+            <SearchBar />
           </div>
-          <div className="navigation__toggle">
-            {/* Mobile menu button */}
+          <div className="navigation-toggle">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-piki hover:text-piki/80 hover:bg-gray-100 transition-colors"

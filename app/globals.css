@@ -202,7 +202,7 @@
 }
 
 .page-wrapper {
-  @apply flex min-h-screen flex-col items-center bg-white pt-24 overflow-x-hidden;
+  @apply flex min-h-screen flex-col items-center bg-white pt-20 lg:pt-32 overflow-x-hidden;
 }
 
 /* Overlay Patterns */
@@ -478,12 +478,12 @@ Navigation grid layout for desktop and mobile
   grid-template-areas: "logo languages toggle";
   gap: 1rem;
   display: grid;
-  padding: 1rem;
+  padding: 1rem 0;
 }
-.navigation__logo {
+.navigation-logo {
   grid-area: logo;
 }
-.navigation__languages {
+.navigation-languages {
   grid-area: languages;
   justify-self: end;
   align-self: center;
@@ -491,16 +491,28 @@ Navigation grid layout for desktop and mobile
     @apply text-sm font-medium p-1;
   }
 }
-.navigation__toggle {
+.navigation-toggle {
   display: block;
   grid-area: toggle;
   justify-self: end;
   align-self: center;
 }
-.navigation__search {
+.navigation-search {
   display: none;
+  grid-area: search;
+  justify-self: end;
+  input {
+    @apply rounded-lg;
+  }
 }
-.navigation__menu {
+.navigation-search-menu {
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  @apply z-10;
+}
+.navigation-menu {
   /* Hidden by default, shown when menu is open (add .is-open class in JS/TSX) */
   display: none;
   grid-area: menu;
@@ -512,7 +524,7 @@ Navigation grid layout for desktop and mobile
   top: 100%;
   position: absolute;
   z-index: 40;
-  padding: 1.5rem 1rem 2rem 1rem;
+  padding: 1rem;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   .toggle-button {
     @apply text-piki text-base font-medium p-1;
@@ -528,13 +540,13 @@ Navigation grid layout for desktop and mobile
     @apply rounded-xl transition-colors flex items-center;
   }
 }
-.navigation__menu.is-open {
+.navigation-menu.is-open {
   display: flex;
 }
 @screen md {
-  .navigation__menu {
+  .navigation-menu {
     .toggle-button {
-      @apply p-2;
+      @apply p-1;
     }
   }
 }
@@ -550,16 +562,16 @@ Navigation grid layout for desktop and mobile
     gap: 1rem 1rem;
     background: white;
     z-index: 50;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0;
   }
 
-  .navigation__logo {
+  .navigation-logo {
     /* Explicitly span both rows and first column */
     grid-area: logo / logo / span 2 / auto;
     align-self: end;
     padding-bottom: 0.8rem;
   }
-  .navigation__menu {
+  .navigation-menu {
     grid-area: menu;
     display: flex;
     flex-direction: row;
@@ -578,9 +590,7 @@ Navigation grid layout for desktop and mobile
     .toggle-button.active {
       @apply text-white bg-piki;
     }
-    .toggle-button:not(.active) {
-      @apply hover:text-piki/80 hover:bg-gray-100;
-    }
+
     .dropdown {
       @apply hidden absolute left-0 mt-1 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden;
     }
@@ -589,22 +599,23 @@ Navigation grid layout for desktop and mobile
     }
   }
 
-  .navigation__search {
-    grid-area: search;
-    justify-self: end;
+  .navigation-search {
     display: flex;
   }
-  .navigation__languages {
+  .navigation-search.navigation-search-menu {
+    display: none;
+  }
+  .navigation-languages {
     grid-area: languages;
     justify-self: end;
   }
-  .navigation__toggle {
+  .navigation-toggle {
     display: none; /* Hidden on desktop */
   }
 }
 
 @screen xl {
-  .navigation__menu {
+  .navigation-menu {
     gap: 1rem;
   }
 }

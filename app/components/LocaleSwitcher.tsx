@@ -129,7 +129,7 @@ export default function LocaleSwitcher() {
           <button
             key={lang.code}
             value={lang.code}
-            className="p-2 bg-white block text-piki text-left disabled:opacity-50 hover:text-piki/80 hover:bg-gray-100 rounded-xl"
+            className="p-2 bg-white block text-piki text-left disabled:opacity-50 hover:text-piki/80 hover:bg-gray-100"
             aria-label={`${lang.name} - ${lang.native_name}`}
             onClick={() => handleChange(lang.code)}
             disabled={locale === lang.code}
