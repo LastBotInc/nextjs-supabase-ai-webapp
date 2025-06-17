@@ -4,16 +4,17 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
 import type { KeyboardEvent } from "react";
+import JsonArrayEditor from "./JsonArrayEditor";
 
 interface Props {
   namespace: string;
   translationKey: string;
   locale: string;
   value: string;
-  onSave: (value: string) => Promise<void>;
+  onSaveAction: (value: string) => Promise<void>;
 }
 
-export default function TranslationEditor({ locale, value, onSave }: Props) {
+export default function TranslationEditor({ locale, value, onSaveAction }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState(value);
   const [isSaving, setIsSaving] = useState(false);
@@ -30,7 +31,17 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
   function isJsonObjectString(str: string): boolean {
     try {
       const parsed = JSON.parse(str);
-      return typeof parsed === "object" && parsed !== null;
+      return typeof parsed === "object" && parsed !== null && !Array.isArray(parsed);
+    } catch {
+      return false;
+    }
+  }
+
+  // Helper to check if a string is a JSON array
+  function isJsonArrayString(str: string): boolean {
+    try {
+      const parsed = JSON.parse(str);
+      return Array.isArray(parsed);
     } catch {
       return false;
     }
@@ -38,7 +49,8 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
 
   // Track if the original value is a JSON object
   const isJsonObject = isJsonObjectString(value);
-
+  // Track if the original value is a JSON array
+  const isJsonArray = isJsonArrayString(value);
   const handleSave = useCallback(
     async (valueToSave?: string) => {
       setIsSaving(true);
@@ -59,7 +71,7 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
       }
 
       try {
-        await onSave(valueToSave || editedValue);
+        await onSaveAction(valueToSave || editedValue);
         setIsEditing(false);
         toast.success(t("editor.success"));
       } catch (err) {
@@ -70,7 +82,7 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
         setIsSaving(false);
       }
     },
-    [editedValue, onSave, t, isJsonObject]
+    [editedValue, onSaveAction, t, isJsonObject]
   );
 
   const handleCancel = useCallback(() => {
@@ -127,16 +139,30 @@ export default function TranslationEditor({ locale, value, onSave }: Props) {
   };
 
   if (isEditing) {
+    // If the value is a JSON array, use the new JsonArrayEditor
+
     return (
       <div className="space-y-2">
-        <textarea
-          value={editedValue}
-          onChange={(e) => setEditedValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
-          placeholder={t("editor.placeholder") + (isJsonObject ? " (JSON object required)" : "")}
-          rows={3}
-        />
+        {isJsonArray ? (
+          <JsonArrayEditor
+            value={editedValue}
+            onChange={async (jsonString) => {
+              setEditedValue(jsonString);
+            }}
+            disabled={isSaving}
+            error={error}
+            locale={locale}
+          />
+        ) : (
+          <textarea
+            value={editedValue}
+            onChange={(e) => setEditedValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
+            placeholder={t("editor.placeholder") + (isJsonObject ? " (JSON object required)" : "")}
+            rows={3}
+          />
+        )}
         <div className="flex space-x-2">
           <button
             onClick={() => handleSave()}
