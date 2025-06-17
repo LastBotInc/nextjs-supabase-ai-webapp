@@ -4,17 +4,12 @@ import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
 import { Button } from "@/app/components/v2/core/Button";
 import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
-import { Hero } from "@/app/components/v2/layouts/Hero";
-import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
-import { GridLayout } from "@/app/components/v2/layouts/GridLayout";
 import { Heading2 } from "@/app/components/v2/core/Headings";
 import { Paragraph } from "@/app/components/v2/core/Paragraph";
-import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Card } from "@/app/components/v2/core/Card";
 import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 import { List } from "@/app/components/v2/core/List";
-import Image from "next/image";
 import { NewsCard } from "@/app/components/v2/components/NewsCard";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { Columns } from "@/app/components/v2/core/Columns";
@@ -51,16 +46,10 @@ export default async function CustomerServicePage({ params }: { params: { locale
     link: undefined, // Add links if available
   }));
 
-  // Prepare industries and sort options
-  const industries = Object.entries(t.raw("filters.industries")).map(([value, label]) => ({
-    value,
-    label: label as string,
-  }));
-
   return (
     <PageWrapper>
       {/* Hero Section */}
-      <FlexLayout fullWidth isFirst palette="piki" direction="column">
+      <FlexLayout palette="piki" direction="column">
         <FlexLayout.Column>
           <Heading2>{t("hero.heading")}</Heading2>
           <Paragraph>{t("hero.subheading")}</Paragraph>
@@ -99,7 +88,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
         <Heading2>{t("storiesSection.title")}</Heading2>
         {t("storiesSection.description") && <Paragraph>{t("storiesSection.description")}</Paragraph>}
         {/* Stories Grid */}
-        <Columns columns={{ default: 1, md: 2, lg: 3 }} gaps="large" padding="none" contentPadding="none">
+        <Columns columns={{ default: 1, md: 2, lg: 3 }} gaps="large">
           {stories.map((story, i) => (
             <NewsCard
               key={i}
@@ -127,7 +116,7 @@ export default async function CustomerServicePage({ params }: { params: { locale
           <Heading2>{t("cta.title")}</Heading2>
           <Paragraph className="mb-4">{t("cta.description")}</Paragraph>
           <LinkButton href={t("cta.buttonHref")} className="mt-2">
-            {t("cta.buttonText")}
+            {t("cta.contactButton")}
           </LinkButton>
         </FlexLayout.Column>
       </BasicLayout>

@@ -16,6 +16,7 @@
     "personName": "Eljas Lohi",
     "personTitle": "CEO",
     "readMore": "Read more",
+    "readMoreHref": "#",
     "results": {
       "stat1": "1.9.2025",
       "label1": "Services merge",
@@ -96,6 +97,7 @@
     "description": "Contact us and let's tailor a solution for your company.",
     "backgroundAlt": "Company cars parked",
     "contactButton": "Contact us",
-    "leasingButton": "Request a leasing offer"
+    "leasingButton": "Request a leasing offer",
+    "buttonHref": "#"
   }
 }

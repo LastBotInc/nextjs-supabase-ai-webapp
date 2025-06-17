@@ -7,6 +7,7 @@ import { staticLocales as locales } from "@/app/i18n/config";
 import { useAuth } from "@/components/auth/AuthProvider";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { createClient } from "@/utils/supabase/client";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import InnoleaseLogo from "./InnoleaseLogo";
 
@@ -19,6 +20,7 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const supabase = createClient();
 
   // Fetch enabled locales
   const fetchEnabledLocales = useCallback(async () => {
@@ -42,7 +44,28 @@ export default function Navigation() {
 
   useEffect(() => {
     fetchEnabledLocales();
-  }, [fetchEnabledLocales]);
+
+    // Subscribe to changes
+    const channel = supabase
+      .channel("languages_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "languages",
+        },
+        () => {
+          // Refetch enabled locales when any change occurs
+          fetchEnabledLocales();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [supabase, fetchEnabledLocales]);
 
   // Force loading to false after a timeout
   useEffect(() => {

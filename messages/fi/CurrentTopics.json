@@ -16,6 +16,7 @@
     "personName": "Eljas Lohi",
     "personTitle": "Toimitusjohtaja",
     "readMore": "Lue lisää",
+    "readMoreHref": "#",
     "results": {
       "stat1": "1.9.2025",
       "label1": "Palvelut yhdistyvät",
@@ -96,6 +97,7 @@
     "description": "Ota yhteyttä ja räätälöidään yrityksellesi sopiva ratkaisu.",
     "backgroundAlt": "Yritysautoja pysäköitynä",
     "contactButton": "Ota yhteyttä",
-    "leasingButton": "Pyydä leasing-tarjous"
+    "leasingButton": "Pyydä leasing-tarjous",
+    "buttonHref": "#"
   }
 }

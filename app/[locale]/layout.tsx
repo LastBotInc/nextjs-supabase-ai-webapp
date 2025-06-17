@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import getI18nConfig from "@/app/i18n";
 import { dedupingServerFetch } from "@/lib/utils/server-deduplication";
+import { getBaseUrl } from "@/utils/getBaseUrl";
+import { hasUrlForNetwork, isBuildPhase, isProduction } from "@/utils/env-checks";
 
 type Props = {
   children: React.ReactNode;
@@ -16,21 +18,13 @@ type Props = {
 // Validate locale before using it
 async function validateLocale(locale: string) {
   // Use static locales during build, production, or if no site URL is set
-  if (
-    !process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL ||
-    process.env.NEXT_PHASE // Next.js build phase
-  ) {
+  if (!hasUrlForNetwork() || isProduction() || isBuildPhase()) {
     return locales.includes(locale) ? locale : defaultLocale;
   }
 
   try {
     // Get enabled locales from database
-    const baseUrl =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+    const baseUrl = getBaseUrl();
 
     const response = await dedupingServerFetch(`${baseUrl}/api/languages`);
 
