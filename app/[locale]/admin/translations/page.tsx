@@ -93,9 +93,9 @@ export default function TranslationsPage() {
         if (languagesError) {
           throw new Error(languagesError);
         }
-        console.log("Fetched translations:", translationsData);
-        console.log("Fetched languages:", languagesData);
-        console.log("Raw translations from API:", translationsData);
+        // console.log("Fetched translations:", translationsData);
+        // console.log("Fetched languages:", languagesData);
+        // console.log("Raw translations from API:", translationsData);
         setTranslations(translationsData || []);
         setLanguages(languagesData || []);
       } catch (err) {
@@ -160,8 +160,6 @@ export default function TranslationsPage() {
     {}
   );
 
-  console.log("Grouped translations:", groupedTranslations);
-
   const translationGroups = Object.values(groupedTranslations) as GroupedTranslation[];
 
   // Filter translations based on search term
@@ -185,7 +183,6 @@ export default function TranslationsPage() {
           t.namespace === namespace && t.key === key && t.locale === locale ? { ...t, value: newValue } : t
         )
       );
-
       // Get current session and access token
       const {
         data: { session },

@@ -48,8 +48,6 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
       // If the value is a JSON object, validate the edited value as JSON before saving
       if (isJsonData()) {
         try {
-          console.log("valueToSave", valueToSave);
-          console.log("editedValue", editedValue);
           const isStillJSON =
             isJsonObjectString(valueToSave || editedValue) || isJsonArrayString(valueToSave || editedValue);
           if (!isStillJSON) {
