@@ -200,8 +200,8 @@ export default function Navigation() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mouseup", handleClickOutside);
+    return () => document.removeEventListener("mouseup", handleClickOutside);
   }, [activeDropdown]);
 
   // Close menu and dropdowns when path changes
