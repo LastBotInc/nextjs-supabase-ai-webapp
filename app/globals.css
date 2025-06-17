@@ -202,7 +202,7 @@
 }
 
 .page-wrapper {
-  @apply flex min-h-screen flex-col items-center bg-white pt-24 overflow-x-hidden;
+  @apply flex min-h-screen flex-col items-center bg-white pt-20 lg:pt-32 overflow-x-hidden;
 }
 
 /* Overlay Patterns */
@@ -463,6 +463,160 @@
     &::after {
       display: block;
     }
+  }
+}
+
+/*
+Navigation grid layout for desktop and mobile
+- Desktop: 2 rows, grid areas for logo, menu, search, languages
+- Mobile: 1 row (logo, languages, toggle), menu drops down below when open
+*/
+/* Mobile styles */
+.navigation {
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 3rem;
+  grid-template-areas: "logo languages toggle";
+  gap: 1rem;
+  display: grid;
+  padding: 1rem 0;
+}
+.navigation-logo {
+  grid-area: logo;
+}
+.navigation-languages {
+  grid-area: languages;
+  justify-self: end;
+  align-self: center;
+  button {
+    @apply text-sm font-medium p-1;
+  }
+}
+.navigation-toggle {
+  display: block;
+  grid-area: toggle;
+  justify-self: end;
+  align-self: center;
+}
+.navigation-search {
+  display: none;
+  grid-area: search;
+  justify-self: end;
+  input {
+    @apply rounded-lg;
+  }
+}
+.navigation-search-menu {
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  @apply z-10;
+}
+.navigation-menu {
+  /* Hidden by default, shown when menu is open (add .is-open class in JS/TSX) */
+  display: none;
+  grid-area: menu;
+  flex-direction: column;
+  gap: 1rem;
+  background: white;
+  width: 100vw;
+  left: 0;
+  top: 100%;
+  position: absolute;
+  z-index: 40;
+  padding: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  .toggle-button {
+    @apply text-piki text-base font-medium p-1;
+    white-space: nowrap;
+  }
+  .dropdown {
+    @apply hidden mt-1 w-60 rounded-md;
+  }
+  .active-dropdown {
+    @apply block;
+  }
+  .dropdown-toggle {
+    @apply rounded-xl transition-colors flex items-center;
+  }
+}
+.navigation-menu.is-open {
+  display: flex;
+}
+@screen md {
+  .navigation-menu {
+    .toggle-button {
+      @apply rounded-md;
+    }
+  }
+}
+@screen lg {
+  .navigation {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: 2.5rem 2.5rem;
+    grid-template-areas:
+      "logo . search languages"
+      "logo menu menu menu";
+    align-items: center;
+    width: 100%;
+    gap: 1rem 1rem;
+    background: white;
+    z-index: 50;
+    padding: 1rem 0;
+  }
+
+  .navigation-logo {
+    /* Explicitly span both rows and first column */
+    grid-area: logo / logo / span 2 / auto;
+    align-self: end;
+    padding-bottom: 0.8rem;
+  }
+  .navigation-menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    position: relative;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
+    left: auto;
+    top: auto;
+    position: relative;
+    .toggle-button {
+      @apply text-base;
+    }
+    .toggle-button.active {
+      @apply text-white bg-piki;
+    }
+
+    .dropdown {
+      @apply hidden absolute left-0 mt-2 py-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden;
+    }
+    .active-dropdown {
+      display: block;
+    }
+  }
+
+  .navigation-search {
+    display: flex;
+  }
+  .navigation-search.navigation-search-menu {
+    display: none;
+  }
+  .navigation-languages {
+    grid-area: languages;
+    justify-self: end;
+  }
+  .navigation-toggle {
+    display: none; /* Hidden on desktop */
+  }
+}
+
+@screen xl {
+  .navigation-menu {
+    gap: 1rem;
   }
 }
 

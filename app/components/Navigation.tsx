@@ -10,6 +10,8 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import InnoleaseLogo from "./InnoleaseLogo";
+import { cn } from "@/lib/utils";
+import SearchBar from "./SearchBar";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -198,8 +200,8 @@ export default function Navigation() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mouseup", handleClickOutside);
+    return () => document.removeEventListener("mouseup", handleClickOutside);
   }, [activeDropdown]);
 
   // Close menu and dropdowns when path changes
@@ -224,13 +226,13 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white`}>
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-24">
+    <nav className={`fixed top-0 left-0 right-0 z-40 duration-300 bg-white`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-14">
+        <div className="navigation">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="navigation-logo">
             <Link href={!loading && isAdmin && isAdminPath ? "/admin/blog" : "/"} className="flex items-center">
-              <InnoleaseLogo width={215} height={42} />
+              <InnoleaseLogo />
             </Link>
             {isAdmin && isAdminPath && <span className="text-piki text-2xl self-center py-4">{t("admin_link")}</span>}
           </div>
@@ -244,7 +246,7 @@ export default function Navigation() {
                   <Link
                     key={href}
                     href={href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`font-medium transition-colors ${
                       pathname?.endsWith(href) ? "text-white bg-piki" : "text-piki hover:text-piki/80 hover:bg-gray-100"
                     }`}
                   >
@@ -254,7 +256,10 @@ export default function Navigation() {
             </div>
           ) : (
             // Main navigation with dropdowns
-            <div className="hidden md:flex items-center space-x-2 mx-auto">
+            <div className={cn("navigation-menu", isMenuOpen && "is-open")}>
+              <div className="navigation-search navigation-search-menu">
+                <SearchBar />
+              </div>
               {shouldShowLinks &&
                 navigationStructure.map((section) => (
                   <div
@@ -267,51 +272,45 @@ export default function Navigation() {
                   >
                     <button
                       onClick={() => toggleDropdown(section.id)}
-                      className={`px-3 pb-2 pt-8 rounded-md text-lg font-medium transition-colors flex items-center ${
-                        activeDropdown === section.id
-                          ? "text-white bg-piki"
-                          : "text-piki hover:text-piki/80 hover:bg-gray-100"
-                      }`}
+                      className={`flex items-center toggle-button ${activeDropdown === section.id && "active"}`}
                       aria-expanded={activeDropdown === section.id}
                     >
                       {section.label}
                       {activeDropdown === section.id ? (
-                        <ChevronUp className="ml-1 h-4 w-4" />
+                        <ChevronUp className="chevron ml-1 h-4 w-4" />
                       ) : (
-                        <ChevronDown className="ml-1 h-4 w-4" />
+                        <ChevronDown className="chevron ml-1 h-4 w-4" />
                       )}
                     </button>
-                    {activeDropdown === section.id && (
-                      <div className="absolute left-0 mt-1 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden">
-                        <div className="py-1">
-                          {section.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className={`block px-4 py-2 text-sm text-piki hover:bg-gray-100 ${
-                                pathname?.endsWith(item.href) ? "bg-gray-100 font-medium" : ""
-                              }`}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+
+                    <div className={cn("dropdown", activeDropdown === section.id && "active-dropdown")}>
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`block px-4 py-2 text-sm text-piki hover:bg-gray-100 ${
+                            pathname?.endsWith(item.href) ? "bg-gray-100 font-medium" : ""
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 ))}
             </div>
           )}
 
-          {/* Right side actions */}
-          <div className="flex items-center space-x-3">
-            {/* Locale Switcher */}
+          <div className="navigation-languages">
             <LocaleSwitcher />
-
-            {/* Mobile menu button */}
+          </div>
+          <div className="navigation-search">
+            <SearchBar />
+          </div>
+          <div className="navigation-toggle">
             <button
               onClick={toggleMenu}
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-piki hover:text-piki/80 hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-piki hover:text-piki/80 hover:bg-gray-100 transition-colors"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -321,86 +320,6 @@ export default function Navigation() {
                 <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        className={`${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } fixed inset-y-0 right-0 w-full md:hidden bg-white transform transition-transform duration-300 ease-in-out z-50 overflow-y-auto`}
-      >
-        <div className="pt-20 pb-3 px-4">
-          {/* Show admin or main navigation based on path */}
-          {!loading && isAdmin && isAdminPath ? (
-            <>
-              {adminLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    pathname?.endsWith(href) ? "text-white bg-piki" : "text-piki hover:text-piki/80 hover:bg-gray-100"
-                  }`}
-                >
-                  {label}
-                </Link>
-              ))}
-              <Link
-                href="/"
-                className="block px-3 py-2 mt-4 rounded-md text-base font-medium text-piki hover:text-piki/80 hover:bg-gray-100 border-t border-gray-200"
-              >
-                {t("backToSite")}
-              </Link>
-            </>
-          ) : (
-            <>
-              {/* Navigation structure for mobile */}
-              {navigationStructure.map((section) => (
-                <div key={section.id} className="mb-2">
-                  <button
-                    onClick={() => toggleDropdown(section.id)}
-                    className={`w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium ${
-                      activeDropdown === section.id
-                        ? "text-white bg-piki"
-                        : "text-piki hover:text-piki/80 hover:bg-gray-100"
-                    }`}
-                  >
-                    {section.label}
-                    {activeDropdown === section.id ? (
-                      <ChevronUp className="h-5 w-5" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5" />
-                    )}
-                  </button>
-
-                  {activeDropdown === section.id && (
-                    <div className="mt-1 pl-4 border-l-2 border-gray-200 ml-3">
-                      {section.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`block px-3 py-2 rounded-md text-sm font-medium ${
-                            pathname?.endsWith(item.href)
-                              ? "text-white bg-piki"
-                              : "text-piki hover:text-piki/80 hover:bg-gray-100"
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </>
-          )}
-
-          {/* Mobile Locale Switcher */}
-          <div className="pt-4 mt-4 border-t border-gray-200">
-            <div className="flex items-center justify-between px-3 py-2">
-              <LocaleSwitcher />
-            </div>
           </div>
         </div>
       </div>
