@@ -6,7 +6,7 @@ import JsonObjectEditor from "./JsonObjectEditor";
 
 interface JsonArrayEditorProps {
   value: string; // JSON stringified array
-  onChange: (value: string) => Promise<void>;
+  onChangeAction: (value: string) => Promise<void>;
   disabled?: boolean;
   error?: string | null;
   locale?: string;
@@ -22,7 +22,7 @@ function toStringObject(obj: Record<string, unknown>): Record<string, string> {
   return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, String(v)]));
 }
 
-export default function JsonArrayEditor({ value, onChange, disabled }: JsonArrayEditorProps) {
+export default function JsonArrayEditor({ value, onChangeAction, disabled }: JsonArrayEditorProps) {
   // Parse the initial value as an array of string | object
   let initialArray: (string | Record<string, string>)[] = [];
   try {
@@ -45,14 +45,14 @@ export default function JsonArrayEditor({ value, onChange, disabled }: JsonArray
   const handleItemChange = (idx: number, newValue: string | Record<string, string>) => {
     const newItems = items.map((item, i) => (i === idx ? newValue : item));
     setItems(newItems);
-    onChange(JSON.stringify(newItems));
+    onChangeAction(JSON.stringify(newItems));
   };
 
   // Remove an item
   const handleRemove = (idx: number) => {
     setItems((prev) => {
       const newItems = prev.filter((_, i) => i !== idx);
-      onChange(JSON.stringify(newItems));
+      onChangeAction(JSON.stringify(newItems));
       return newItems;
     });
   };
@@ -69,7 +69,7 @@ export default function JsonArrayEditor({ value, onChange, disabled }: JsonArray
       } else {
         newItems = [...prev, ""];
       }
-      onChange(JSON.stringify(newItems));
+      onChangeAction(JSON.stringify(newItems));
       return newItems;
     });
   };
@@ -83,7 +83,7 @@ export default function JsonArrayEditor({ value, onChange, disabled }: JsonArray
             <div className="flex-grow">
               <JsonObjectEditor
                 value={item as Record<string, string>}
-                onChange={async (newObj) => handleItemChange(idx, newObj)}
+                onChangeAction={async (newObj) => handleItemChange(idx, newObj)}
                 disabled={disabled}
                 locale={undefined}
               />

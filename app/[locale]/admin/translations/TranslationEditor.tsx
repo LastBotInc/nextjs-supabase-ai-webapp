@@ -22,11 +22,24 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
   const [error, setError] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const t = useTranslations("Admin.translations");
+  // State for text edit mode
+  const [isTextEditMode, setIsTextEditMode] = useState(false);
+  const [textEditValue, setTextEditValue] = useState<string>("");
+  const [textEditError, setTextEditError] = useState<string | null>(null);
+  const [valueFormat, setValueFormat] = useState<"jsonArray" | "jsonObject" | "text">(
+    isJsonObjectString(value) ? "jsonObject" : isJsonArrayString(value) ? "jsonArray" : "text"
+  );
+
+  const isJsonData = useCallback(() => valueFormat !== "text", [valueFormat]);
 
   // Reset edited value when value prop changes
   useEffect(() => {
     setEditedValue(value);
   }, [value]);
+
+  function isJsonFormat(str: string): boolean {
+    return str.includes("[") || str.includes("{");
+  }
 
   // Helper to check if a string is a JSON object (not array, not primitive)
   function isJsonObjectString(str: string): boolean {
@@ -48,17 +61,13 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
     }
   }
 
-  // Track if the original value is a JSON object
-  const isJsonObject = isJsonObjectString(value);
-  // Track if the original value is a JSON array
-  const isJsonArray = isJsonArrayString(value);
   const handleSave = useCallback(
     async (valueToSave?: string) => {
       setIsSaving(true);
       setError(null);
 
       // If the value is a JSON object, validate the edited value as JSON before saving
-      if (isJsonObject) {
+      if (isJsonData()) {
         try {
           const isStillJSON = isJsonObjectString(valueToSave || editedValue);
           if (!isStillJSON) {
@@ -83,7 +92,7 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
         setIsSaving(false);
       }
     },
-    [editedValue, onSaveAction, t, isJsonObject]
+    [editedValue, onSaveAction, t, isJsonData]
   );
 
   const handleCancel = useCallback(() => {
@@ -139,24 +148,93 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
     }
   };
 
+  // Handler for saving in text edit mode
+  const handleTextEditSave = () => {
+    try {
+      if (isJsonFormat(textEditValue)) {
+        const parsed = JSON.parse(textEditValue);
+        if (isJsonData()) {
+          if (!Array.isArray(parsed)) throw new Error("Value must be a JSON array");
+          if (Array.isArray(parsed) || typeof parsed !== "object" || parsed === null)
+            throw new Error("Value must be a JSON object");
+        }
+      } else {
+        setValueFormat("text");
+      }
+      setEditedValue(textEditValue);
+      setIsTextEditMode(false);
+      setTextEditError(null);
+    } catch {
+      setTextEditError("Invalid JSON array or object");
+    }
+  };
+
+  // Handler for canceling text edit mode
+  const handleTextEditCancel = () => {
+    setIsTextEditMode(false);
+    setTextEditError(null);
+    setTextEditValue(editedValue);
+  };
+
   if (isEditing) {
+    // If in text edit mode, show textarea and Save/Cancel
+    if (isTextEditMode) {
+      return (
+        <div className="space-y-2">
+          <textarea
+            className="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
+            rows={6}
+            value={textEditValue}
+            onChange={(e) => setTextEditValue(e.target.value)}
+            disabled={isSaving}
+          />
+          <div className="flex space-x-2">
+            <button
+              type="button"
+              onClick={handleTextEditSave}
+              disabled={isSaving}
+              className="px-2 py-1 text-xs text-white bg-blue-500 rounded hover:bg-blue-600 disabled:opacity-50"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              onClick={handleTextEditCancel}
+              disabled={isSaving}
+              className="px-2 py-1 text-xs text-gray-600 bg-gray-100 rounded hover:bg-gray-200 disabled:opacity-50"
+            >
+              Cancel
+            </button>
+          </div>
+          {textEditError && <p className="text-xs text-red-500">{textEditError}</p>}
+        </div>
+      );
+    }
     return (
       <div className="space-y-2">
-        {isJsonArray ? (
+        {valueFormat === "jsonArray" ? (
           <JsonArrayEditor
             value={editedValue}
-            onChange={async (jsonString) => {
+            onChangeAction={async (jsonString) => {
               setEditedValue(jsonString);
             }}
             disabled={isSaving}
             error={error}
             locale={locale}
           />
-        ) : isJsonObject ? (
+        ) : valueFormat === "jsonObject" ? (
           <JsonObjectEditor
-            value={editedValue}
-            onChange={async (jsonString) => {
-              setEditedValue(jsonString);
+            value={(() => {
+              try {
+                const parsed = JSON.parse(editedValue);
+                if (typeof parsed === "object" && parsed !== null && !Array.isArray(parsed)) {
+                  return Object.fromEntries(Object.entries(parsed).map(([k, v]) => [k, String(v)]));
+                }
+              } catch {}
+              return {};
+            })()}
+            onChangeAction={async (obj) => {
+              setEditedValue(JSON.stringify(obj));
             }}
             disabled={isSaving}
             error={error}
@@ -168,7 +246,7 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
             onChange={(e) => setEditedValue(e.target.value)}
             onKeyDown={handleKeyDown}
             className="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600"
-            placeholder={t("editor.placeholder") + (isJsonObject ? " (JSON object required)" : "")}
+            placeholder={t("editor.placeholder") + (isJsonData() ? " (JSON array or object required)" : "")}
             rows={3}
           />
         )}
@@ -206,6 +284,21 @@ export default function TranslationEditor({ locale, value, onSaveAction }: Props
           >
             {t("editor.cancel")}
           </button>
+          {/* Edit as text button for JSON arrays/objects */}
+          {isJsonData() && !isTextEditMode && (
+            <button
+              type="button"
+              onClick={() => {
+                setIsTextEditMode(true);
+                setTextEditValue(editedValue);
+                setTextEditError(null);
+              }}
+              disabled={isSaving}
+              className="px-2 py-1 text-xs text-gray-600 bg-gray-100 rounded self-end hover:bg-gray-200 disabled:opacity-50"
+            >
+              {"Edit as text"}
+            </button>
+          )}
         </div>
         {error && <p className="text-xs text-red-500">{error}</p>}
       </div>

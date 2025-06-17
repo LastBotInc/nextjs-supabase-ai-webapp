@@ -4,13 +4,13 @@ import React, { useState } from "react";
 
 interface JsonObjectEditorProps {
   value: Record<string, string>; // JSON object
-  onChange: (obj: Record<string, string>) => Promise<void>;
+  onChangeAction: (obj: Record<string, string>) => Promise<void>;
   disabled?: boolean;
   error?: string | null;
   locale?: string;
 }
 
-export default function JsonObjectEditor({ value, onChange, disabled }: JsonObjectEditorProps) {
+export default function JsonObjectEditor({ value, onChangeAction: onChange, disabled }: JsonObjectEditorProps) {
   // Use the value prop directly as the object to edit
   const [fields, setFields] = useState<Record<string, string>>(value);
 
