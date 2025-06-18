@@ -15,6 +15,8 @@ import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
 import { DecorativeImage } from "@/app/components/v2/core/DecorativeImage";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 import { Table } from "@/app/components/v2/core/Table";
+import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
+import Image from "next/image";
 // Placeholder for image container, replace with actual ImageContainer if available
 // import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 
@@ -49,8 +51,8 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
     <PageWrapper>
       {/* Hero Section */}
 
-      <Hero isFirst>
-        <Hero.Image src="/images/digitaaliset_palvelut.jpg" />
+      <Hero isFirst fullWidth>
+        <Hero.Image src="/images/Koneiden_laitteidenLeasing_hero.png" backgroundPosition="bottom left" />
         <Hero.Heading>{t("title")}</Hero.Heading>
         <Hero.Text>{t("intro")}</Hero.Text>
         {/* Optionally add <Hero.Image src="/images/hero-handshake.jpg" alt="Car leasing" /> */}
@@ -69,7 +71,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
-          <DecorativeImage width="large" height="max" src="/images/cropped_demo2.png" className="self-end" />
+          <DecorativeImage width="full" height="max" src="/images/LeasinginKeskeisetEhdot.png" className="self-end" />
         </FlexLayout.Column>
       </TwoColumnLayout>
 
@@ -95,7 +97,13 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
         {cases.map((ex, idx) => (
           <BoxLayout.Box key={idx}>
             {/* Image Placeholder */}
-            <div className="w-full h-32 bg-gray-900 flex items-center justify-center mb-2">Image Placeholder</div>
+            <ImageContainer aspectRatio="16/9">
+              <img
+                src={idx === 0 ? "/images/Rakennusyritys.png" : "/images/Maatilayrittaja.png"}
+                alt="Rakennusyritys"
+                className="w-full h-full object-cover"
+              />
+            </ImageContainer>
             <Heading3>{ex.title}</Heading3>
             <Paragraph>{ex.description}</Paragraph>
           </BoxLayout.Box>
@@ -115,17 +123,14 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
       </BasicLayout>
 
       {/* CTA Section */}
-      <TwoColumnLayout palette="betoni">
-        <FlexLayout.Column>
+      <TwoColumnLayout
+        palette="betoni"
+        mainImage={{ src: "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", backgroundPosition: "top left" }}
+      >
+        <FlexLayout.Column className="shadow-text min-h-[400px] justify-center">
           <Heading2>{t("cta.heading")}</Heading2>
           <Paragraph>{t("cta.text")}</Paragraph>
           <LinkButton href="/contact">{t("cta.button")}</LinkButton>
-        </FlexLayout.Column>
-        <FlexLayout.Column>
-          {/* Image Placeholder */}
-          <div className="w-full md:w-1/3 h-40 bg-gray-900 flex items-center justify-center mt-4 md:mt-0">
-            Image Placeholder
-          </div>
         </FlexLayout.Column>
       </TwoColumnLayout>
     </PageWrapper>
