@@ -1,62 +1,97 @@
 {
   "meta": {
-    "title": "Machinery and Equipment Leasing",
-    "description": "Everything you need to know about machinery and equipment leasing: terms, benefits, examples, and frequently asked questions."
+    "title": "Equipment and Machinery Leasing | Innolease - Flexible Financing Solution",
+    "description": "Comprehensive guide to equipment and machinery leasing. Leasing terms, benefits, practical examples and frequently asked questions for businesses.",
+    "keywords": "equipment leasing, machinery leasing, business leasing, construction equipment, industrial equipment, agricultural machinery, lease agreement",
+    "image": "/images/Koneiden_laitteidenLeasing_hero.png"
   },
-  "title": "Machinery and Equipment Leasing",
-  "intro": "Leasing is a flexible and cost-effective way to acquire the machinery and equipment your business needs without large upfront investments. On this page, you will find comprehensive information about the benefits, terms, and practical examples of leasing.",
+
+  "hero": {
+    "heading": "Equipment and Machinery Leasing",
+    "texts": [
+      "Leasing is a flexible and cost-effective way to acquire the necessary equipment and machinery for your business without large initial investments. On this page, you'll find comprehensive information about the benefits, terms, and practical examples of leasing."
+    ],
+    "image": { "src": "/images/Koneiden_laitteidenLeasing_hero.png", "alt": "Equipment and machinery leasing" }
+  },
+
   "terms": {
     "heading": "Key Leasing Terms",
+    "texts": [
+      "Leasing contract terms define the contract content and the obligations of the parties. The most important terms concern contract duration, residual value, and maintenance."
+    ],
     "list": [
-      { "term": "Contract period", "description": "Typically 12–60 months, adjustable as needed." },
-      { "term": "Residual value", "description": "Possible buyout price at the end of the contract period." },
-      { "term": "Maintenance and servicing", "description": "Can be included in the contract or arranged separately." },
+      { "term": "Contract duration", "description": "Usually 12–60 months, negotiable as needed." },
+      { "term": "Residual value", "description": "Possible purchase price at the end of the contract period." },
+      { "term": "Service and maintenance", "description": "Can be included in the contract or arranged separately." },
       { "term": "Insurance", "description": "Leasing contracts often include insurance coverage." },
-      { "term": "Taxation", "description": "Leasing payments are usually tax-deductible for businesses." }
-    ]
+      { "term": "Taxation", "description": "Leasing payments are generally tax-deductible for business taxation." }
+    ],
+    "image": { "src": "/images/LeasinginKeskeisetEhdot.png", "alt": "Key leasing terms" }
   },
+
   "vehicles": {
-    "heading": "Machinery and equipment available for leasing",
+    "heading": "Leasable Equipment and Machinery",
+    "texts": [
+      "We offer a wide selection of different equipment and machinery for leasing. You can find a suitable solution for almost any industry."
+    ],
     "table": {
       "columns": ["Category", "Examples"],
       "rows": [
-        ["Construction machinery", "Excavators, cranes, wheel loaders"],
-        ["Industrial equipment", "CNC machines, production lines, packaging machines"],
-        ["Agricultural machinery", "Tractors, combine harvesters, seeders"],
+        ["Construction equipment", "Excavators, cranes, wheel loaders"],
+        ["Industrial equipment", "CNC machines, production lines, packaging equipment"],
+        ["Agricultural machinery", "Tractors, harvesters, seeding machines"],
         ["Office technology", "Printers, copiers, IT equipment"],
         ["Other equipment", "3D printers, laboratory equipment"]
       ]
     }
   },
+
   "benefits": {
-    "heading": "Benefits of leasing for businesses",
+    "heading": "Benefits of Leasing for Business",
+    "texts": [
+      "Leasing offers businesses many significant advantages compared to traditional purchasing or taking a loan."
+    ],
     "list": [
-      "No large upfront investments – capital remains available for other uses.",
-      "Fixed monthly costs make budgeting easier.",
-      "Option to upgrade equipment at the end of the contract period.",
-      "Tax benefits for the business.",
-      "Maintenance and servicing can be included in the contract."
+      "No large initial investments – capital remains available for other uses",
+      "Fixed monthly costs make budgeting easier",
+      "Opportunity to update equipment at the end of the contract period",
+      "Tax benefits for the business",
+      "Service and maintenance can be included in the contract"
     ]
   },
+
   "examples": {
-    "heading": "Practical examples",
+    "heading": "Practical Examples",
+    "texts": [
+      "See how leasing has helped businesses in different industries acquire the equipment they need efficiently."
+    ],
     "cases": [
       {
-        "title": "Construction company",
-        "description": "A construction company leased three excavators with a 48-month contract. The company was able to start a new project without a large capital outlay, and the equipment was always operational thanks to the maintenance agreement."
+        "title": "Construction Company",
+        "texts": [
+          "A construction company leased three excavators with a 48-month contract. The company was able to start a new project without a large capital investment, and the equipment remained operational thanks to the maintenance contract."
+        ],
+        "image": { "src": "/images/Rakennusyritys.png", "alt": "Construction company" }
       },
       {
-        "title": "Farm entrepreneur",
-        "description": "A farm entrepreneur acquired a new tractor through leasing. The fixed monthly payment made financial planning easier, and the machine was available for use quickly."
+        "title": "Farm Entrepreneur",
+        "texts": [
+          "A farm entrepreneur acquired a new tractor through leasing. The fixed monthly payment made financial planning easier and the machine was quickly available for use."
+        ],
+        "image": { "src": "/images/Maatilayrittaja.png", "alt": "Farm entrepreneur" }
       }
     ]
   },
+
   "faq": {
-    "heading": "Frequently asked questions",
-    "list": [
+    "heading": "Frequently Asked Questions",
+    "texts": [
+      "Answers to the most common questions about equipment and machinery leasing."
+    ],
+    "questions": [
       {
-        "question": "Can the leased item be purchased at the end of the contract?",
-        "answer": "Yes, in most cases the equipment can be purchased for a separately agreed residual value."
+        "question": "Can the leased equipment be purchased at the end of the contract period?",
+        "answer": "Yes, in most cases the equipment can be purchased at a separately agreed residual value."
       },
       {
         "question": "Is maintenance included in the contract?",
@@ -64,13 +99,35 @@
       },
       {
         "question": "How does leasing affect business taxation?",
-        "answer": "Leasing payments are usually tax-deductible for businesses."
+        "answer": "Leasing payments are generally tax-deductible for business taxation."
       }
     ]
   },
+
   "cta": {
-    "heading": "Interested in machinery and equipment leasing?",
-    "text": "Contact our expert and request a tailored leasing offer for your business!",
-    "button": "Contact us"
+    "heading": "Interested in Equipment and Machinery Leasing?",
+    "texts": [
+      "Contact our expert and request a customized leasing quote for your business!"
+    ],
+    "link": { "label": "Contact Us", "href": "/yhteystiedot" },
+    "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Contact us" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Calculate Leasing Costs",
+      "text": "Use our car benefit calculator to get an idea of leasing costs.",
+      "buttonText": "Go to Calculator"
+    },
+    "carLeasing": {
+      "heading": "Car Leasing",
+      "text": "Also explore our car leasing services for individuals and businesses.",
+      "buttonText": "Car Leasing"
+    },
+    "contact": {
+      "heading": "Need a Customized Solution?",
+      "text": "Our experts will help you find the right leasing solution for your business.",
+      "buttonText": "Contact Information"
+    }
   }
 }

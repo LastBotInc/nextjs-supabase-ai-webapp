@@ -1,23 +1,39 @@
 {
   "meta": {
-    "title": "Koneiden ja laitteiden leasing",
-    "description": "Kaikki mitä sinun tarvitsee tietää koneiden ja laitteiden leasingista: ehdot, hyödyt, esimerkit ja usein kysytyt kysymykset."
+    "title": "Koneiden ja laitteiden leasing | Innolease - Joustava rahoitusratkaisu",
+    "description": "Kattava opas koneiden ja laitteiden leasingiin. Leasingehdot, hyödyt, käytännön esimerkit ja usein kysytyt kysymykset yrityksille.",
+    "keywords": "koneleasing, laiteleasing, yritysleasing, rakennuskoneet, teollisuuslaitteet, maatalouskoneet, leasingsopimus",
+    "image": "/images/Koneiden_laitteidenLeasing_hero.png"
   },
-  "title": "Koneiden ja laitteiden leasing",
-  "intro": "Leasing on joustava ja kustannustehokas tapa hankkia yrityksellesi tarvittavat koneet ja laitteet ilman suuria alkuinvestointeja. Tältä sivulta löydät kattavat tiedot leasingin eduista, ehdoista ja käytännön esimerkeistä.",
+
+  "hero": {
+    "heading": "Koneiden ja laitteiden leasing",
+    "texts": [
+      "Leasing on joustava ja kustannustehokas tapa hankkia yrityksellesi tarvittavat koneet ja laitteet ilman suuria alkuinvestointeja. Tältä sivulta löydät kattavat tiedot leasingin eduista, ehdoista ja käytännön esimerkeistä."
+    ],
+    "image": { "src": "/images/Koneiden_laitteidenLeasing_hero.png", "alt": "Koneiden ja laitteiden leasing" }
+  },
 
   "terms": {
     "heading": "Leasingin keskeiset ehdot",
+    "texts": [
+      "Leasingsopimuksen ehdot määrittävät sopimuksen sisällön ja osapuolten velvollisuudet. Tärkeimmät ehdot koskevat sopimusaikaa, jäännösarvoa ja ylläpitoa."
+    ],
     "list": [
       { "term": "Sopimusaika", "description": "Yleensä 12–60 kuukautta, sovittavissa tarpeen mukaan." },
       { "term": "Jäännösarvo", "description": "Sopimuskauden lopussa mahdollinen lunastushinta." },
       { "term": "Huolto ja ylläpito", "description": "Voidaan sisällyttää sopimukseen tai järjestää erikseen." },
       { "term": "Vakuutukset", "description": "Leasingsopimukseen sisältyy usein vakuutusturva." },
       { "term": "Verotus", "description": "Leasingmaksut ovat yleensä vähennyskelpoisia yrityksen verotuksessa." }
-    ]
+    ],
+    "image": { "src": "/images/LeasinginKeskeisetEhdot.png", "alt": "Leasingin keskeiset ehdot" }
   },
+
   "vehicles": {
     "heading": "Leasattavat koneet ja laitteet",
+    "texts": [
+      "Tarjoamme laajan valikoiman erilaisia koneita ja laitteita leasingiin. Voit löytää sopivan ratkaisun lähes mihin tahansa toimialaan."
+    ],
     "table": {
       "columns": ["Kategoria", "Esimerkkejä"],
       "rows": [
@@ -29,32 +45,50 @@
       ]
     }
   },
+
   "benefits": {
     "heading": "Leasingin hyödyt yritykselle",
+    "texts": [
+      "Leasing tarjoaa yrityksille monia merkittäviä etuja verrattuna perinteiseen ostamiseen tai lainan ottamiseen."
+    ],
     "list": [
-      "Ei suuria alkuinvestointeja – pääoma säilyy muuhun käyttöön.",
-      "Kiinteät kuukausikustannukset helpottavat budjetointia.",
-      "Mahdollisuus päivittää kalustoa sopimuskauden päättyessä.",
-      "Verotukselliset edut yritykselle.",
-      "Huolto ja ylläpito voidaan sisällyttää sopimukseen."
+      "Ei suuria alkuinvestointeja – pääoma säilyy muuhun käyttöön",
+      "Kiinteät kuukausikustannukset helpottavat budjetointia",
+      "Mahdollisuus päivittää kalustoa sopimuskauden päättyessä",
+      "Verotukselliset edut yritykselle",
+      "Huolto ja ylläpito voidaan sisällyttää sopimukseen"
     ]
   },
+
   "examples": {
     "heading": "Käytännön esimerkkejä",
+    "texts": [
+      "Katso miten leasing on auttanut eri alojen yrityksiä hankkimaan tarvitsemansa kalusto tehokkaasti."
+    ],
     "cases": [
       {
         "title": "Rakennusyritys",
-        "description": "Rakennusliike leasasi kolme kaivinkonetta 48 kuukauden sopimuksella. Yritys pystyi aloittamaan uuden projektin ilman suurta pääomapanosta ja laitteet pysyivät aina toimintakunnossa huoltosopimuksen ansiosta."
+        "texts": [
+          "Rakennusliike leasasi kolme kaivinkonetta 48 kuukauden sopimuksella. Yritys pystyi aloittamaan uuden projektin ilman suurta pääomapanosta ja laitteet pysyivät aina toimintakunnossa huoltosopimuksen ansiosta."
+        ],
+        "image": { "src": "/images/Rakennusyritys.png", "alt": "Rakennusyritys" }
       },
       {
         "title": "Maatilayrittäjä",
-        "description": "Maatilayrittäjä hankki uuden traktorin leasingilla. Kiinteä kuukausimaksu helpotti talouden suunnittelua ja koneen sai käyttöön nopeasti."
+        "texts": [
+          "Maatilayrittäjä hankki uuden traktorin leasingilla. Kiinteä kuukausimaksu helpotti talouden suunnittelua ja koneen sai käyttöön nopeasti."
+        ],
+        "image": { "src": "/images/Maatilayrittaja.png", "alt": "Maatilayrittäjä" }
       }
     ]
   },
+
   "faq": {
     "heading": "Usein kysytyt kysymykset",
-    "list": [
+    "texts": [
+      "Vastaukset yleisimpiin koneiden ja laitteiden leasingia koskeviin kysymyksiin."
+    ],
+    "questions": [
       {
         "question": "Voiko leasingkohteen lunastaa sopimuskauden lopussa?",
         "answer": "Kyllä, useimmissa tapauksissa laite voidaan lunastaa erikseen sovittavalla jäännösarvolla."
@@ -69,9 +103,31 @@
       }
     ]
   },
+
   "cta": {
     "heading": "Kiinnostuitko koneiden ja laitteiden leasingista?",
-    "text": "Ota yhteyttä asiantuntijaamme ja pyydä räätälöity leasingtarjous yrityksellesi!",
-    "button": "Ota yhteyttä"
+    "texts": [
+      "Ota yhteyttä asiantuntijaamme ja pyydä räätälöity leasingtarjous yrityksellesi!"
+    ],
+    "link": { "label": "Ota yhteyttä", "href": "/yhteystiedot" },
+    "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Ota yhteyttä" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Laske leasingkustannukset",
+      "text": "Käytä autoetulaskuriamme saadaksesi käsitys leasingkustannuksista.",
+      "buttonText": "Siirry laskuriin"
+    },
+    "carLeasing": {
+      "heading": "Auton leasing",
+      "text": "Tutustu myös autoleasingpalveluihimme yksityisille ja yrityksille.",
+      "buttonText": "Auton leasing"
+    },
+    "contact": {
+      "heading": "Tarvitsetko räätälöidyn ratkaisun?",
+      "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan leasingratkaisun.",
+      "buttonText": "Yhteystiedot"
+    }
   }
 }

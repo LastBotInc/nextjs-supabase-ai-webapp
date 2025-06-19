@@ -1,76 +1,133 @@
 {
   "meta": {
-    "title": "Leasing av maskiner och utrustning",
-    "description": "Allt du behöver veta om leasing av maskiner och utrustning: villkor, fördelar, exempel och vanliga frågor."
+    "title": "Maskin- och utrustningsleasing | Innolease - Flexibel finansieringslösning",
+    "description": "Omfattande guide till maskin- och utrustningsleasing. Leasingvillkor, fördelar, praktiska exempel och vanliga frågor för företag.",
+    "keywords": "maskinleasing, utrustningsleasing, företagsleasing, byggmaskiner, industriutrustning, jordbruksmaskiner, leasingavtal",
+    "image": "/images/Koneiden_laitteidenLeasing_hero.png"
   },
-  "title": "Leasing av maskiner och utrustning",
-  "intro": "Leasing är ett flexibelt och kostnadseffektivt sätt att skaffa de maskiner och den utrustning ditt företag behöver utan stora initiala investeringar. På denna sida hittar du omfattande information om leasingens fördelar, villkor och praktiska exempel.",
+
+  "hero": {
+    "heading": "Maskin- och utrustningsleasing",
+    "texts": [
+      "Leasing är ett flexibelt och kostnadseffektivt sätt att skaffa nödvändiga maskiner och utrustning för ditt företag utan stora initiala investeringar. På denna sida hittar du omfattande information om fördelarna, villkoren och praktiska exempel på leasing."
+    ],
+    "image": { "src": "/images/Koneiden_laitteidenLeasing_hero.png", "alt": "Maskin- och utrustningsleasing" }
+  },
+
   "terms": {
-    "heading": "Viktiga leasingvillkor",
+    "heading": "Centrala leasingvillkor",
+    "texts": [
+      "Leasingavtalets villkor definierar avtalets innehåll och parternas skyldigheter. De viktigaste villkoren gäller avtalstid, restvärde och underhåll."
+    ],
     "list": [
-      { "term": "Avtalstid", "description": "Vanligtvis 12–60 månader, kan anpassas efter behov." },
-      { "term": "Restvärde", "description": "Eventuell lösenkostnad vid avtalstidens slut." },
+      { "term": "Avtalstid", "description": "Vanligtvis 12–60 månader, förhandlingsbar efter behov." },
+      { "term": "Restvärde", "description": "Möjligt inköpspris vid avtalets slut." },
       { "term": "Service och underhåll", "description": "Kan inkluderas i avtalet eller ordnas separat." },
       { "term": "Försäkringar", "description": "Leasingavtal inkluderar ofta försäkringsskydd." },
-      { "term": "Beskattning", "description": "Leasingavgifter är vanligtvis avdragsgilla i företagets beskattning." }
-    ]
+      { "term": "Beskattning", "description": "Leasingavgifter är generellt avdragsgilla för företagsbeskattning." }
+    ],
+    "image": { "src": "/images/LeasinginKeskeisetEhdot.png", "alt": "Centrala leasingvillkor" }
   },
+
   "vehicles": {
-    "heading": "Maskiner och utrustning som kan leasas",
+    "heading": "Leasingbara maskiner och utrustning",
+    "texts": [
+      "Vi erbjuder ett brett urval av olika maskiner och utrustning för leasing. Du kan hitta en lämplig lösning för nästan vilken bransch som helst."
+    ],
     "table": {
       "columns": ["Kategori", "Exempel"],
       "rows": [
         ["Byggmaskiner", "Grävmaskiner, kranar, hjullastare"],
-        ["Industriutrustning", "CNC-maskiner, produktionslinjer, förpackningsmaskiner"],
+        ["Industriutrustning", "CNC-maskiner, produktionslinjer, förpackningsutrustning"],
         ["Jordbruksmaskiner", "Traktorer, skördetröskor, såmaskiner"],
-        ["Kontorsteknik", "Skrivare, kopiatorer, IT-utrustning"],
-        ["Övrig utrustning", "3D-skrivare, laboratorieutrustning"]
+        ["Kontorteknik", "Skrivare, kopiatorer, IT-utrustning"],
+        ["Annan utrustning", "3D-skrivare, laboratorieutrustning"]
       ]
     }
   },
+
   "benefits": {
     "heading": "Fördelar med leasing för företag",
+    "texts": [
+      "Leasing erbjuder företag många betydande fördelar jämfört med traditionellt köp eller att ta lån."
+    ],
     "list": [
-      "Inga stora initiala investeringar – kapitalet kan användas till annat.",
-      "Fasta månadskostnader underlättar budgeteringen.",
-      "Möjlighet att uppgradera utrustningen vid avtalstidens slut.",
-      "Skattefördelar för företaget.",
-      "Service och underhåll kan inkluderas i avtalet."
+      "Inga stora initiala investeringar – kapital förblir tillgängligt för andra ändamål",
+      "Fasta månadskostnader gör budgetering enklare",
+      "Möjlighet att uppdatera utrustning vid avtalets slut",
+      "Skattefördelar för företaget",
+      "Service och underhåll kan inkluderas i avtalet"
     ]
   },
+
   "examples": {
     "heading": "Praktiska exempel",
+    "texts": [
+      "Se hur leasing har hjälpt företag inom olika branscher att effektivt skaffa den utrustning de behöver."
+    ],
     "cases": [
       {
         "title": "Byggföretag",
-        "description": "Ett byggföretag leasade tre grävmaskiner med ett 48-månadersavtal. Företaget kunde starta ett nytt projekt utan stor kapitalinsats och maskinerna hölls alltid i skick tack vare serviceavtalet."
+        "texts": [
+          "Ett byggföretag leasade tre grävmaskiner med ett 48-månaders avtal. Företaget kunde starta ett nytt projekt utan stor kapitalinvestering, och utrustningen förblev operativ tack vare underhållsavtalet."
+        ],
+        "image": { "src": "/images/Rakennusyritys.png", "alt": "Byggföretag" }
       },
       {
-        "title": "Jordbruksföretagare",
-        "description": "En jordbruksföretagare skaffade en ny traktor via leasing. Den fasta månadskostnaden gjorde det lättare att planera ekonomin och maskinen kunde tas i bruk snabbt."
+        "title": "Lantbrukare",
+        "texts": [
+          "En lantbrukare skaffade en ny traktor genom leasing. Den fasta månadsavgiften gjorde ekonomisk planering enklare och maskinen blev snabbt tillgänglig för användning."
+        ],
+        "image": { "src": "/images/Maatilayrittaja.png", "alt": "Lantbrukare" }
       }
     ]
   },
+
   "faq": {
     "heading": "Vanliga frågor",
-    "list": [
+    "texts": [
+      "Svar på de vanligaste frågorna om maskin- och utrustningsleasing."
+    ],
+    "questions": [
       {
-        "question": "Kan man lösa in leasingobjektet vid avtalstidens slut?",
-        "answer": "Ja, i de flesta fall kan utrustningen lösas in till ett separat överenskommet restvärde."
+        "question": "Kan den leasade utrustningen köpas vid avtalets slut?",
+        "answer": "Ja, i de flesta fall kan utrustningen köpas till ett separat överenskommet restvärde."
       },
       {
-        "question": "Ingår service i avtalet?",
-        "answer": "Service kan inkluderas i avtalet eller ordnas separat vid behov."
+        "question": "Ingår underhåll i avtalet?",
+        "answer": "Underhåll kan inkluderas i avtalet eller ordnas separat efter behov."
       },
       {
-        "question": "Hur påverkar leasing företagets beskattning?",
-        "answer": "Leasingavgifter är vanligtvis avdragsgilla i företagets beskattning."
+        "question": "Hur påverkar leasing företagsbeskattningen?",
+        "answer": "Leasingavgifter är generellt avdragsgilla för företagsbeskattning."
       }
     ]
   },
+
   "cta": {
-    "heading": "Intresserad av leasing av maskiner och utrustning?",
-    "text": "Kontakta vår expert och be om en skräddarsydd leasingoffert för ditt företag!",
-    "button": "Kontakta oss"
+    "heading": "Intresserad av maskin- och utrustningsleasing?",
+    "texts": [
+      "Kontakta vår expert och begär en skräddarsydd leasingoffert för ditt företag!"
+    ],
+    "link": { "label": "Kontakta oss", "href": "/yhteystiedot" },
+    "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Kontakta oss" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Beräkna leasingkostnader",
+      "text": "Använd vår bilförmånskalkylator för att få en uppfattning om leasingkostnader.",
+      "buttonText": "Gå till kalkylatorn"
+    },
+    "carLeasing": {
+      "heading": "Billeasing",
+      "text": "Utforska också våra billeasingtjänster för privatpersoner och företag.",
+      "buttonText": "Billeasing"
+    },
+    "contact": {
+      "heading": "Behöver du en skräddarsydd lösning?",
+      "text": "Våra experter hjälper dig att hitta rätt leasinglösning för ditt företag.",
+      "buttonText": "Kontaktuppgifter"
+    }
   }
 }
