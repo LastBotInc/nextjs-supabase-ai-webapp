@@ -2,6 +2,7 @@
 
 import { getTranslations } from "next-intl/server";
 import { setupServerLocale } from "@/app/i18n/server-utils";
+import { generateLocalizedMetadata } from "@/utils/metadata";
 
 import { CallUs } from "@/app/components/v2/components/CallUs";
 import { Paragraph } from "@/app/components/v2/core/Paragraph";
@@ -17,25 +18,112 @@ import { Flex } from "@/app/components/v2/core/Flex";
 import { Table } from "@/app/components/v2/core/Table";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 import { Padding } from "@/app/components/v2/core/types";
+import { LinkButton } from "@/app/components/v2/core/LinkButton";
 
 interface TranslationFunction {
   (key: string): string;
   raw: (key: string) => unknown;
 }
 
+interface HeroData {
+  heading: string;
+  subheading: string;
+  texts?: string[];
+  numbers: Array<{ title: string; number: string }>;
+  image: { src: string; alt: string };
+}
+
+interface SectionData {
+  heading: string;
+  texts?: string[];
+}
+
+interface BenefitsData {
+  heading: string;
+  list?: string[];
+}
+
+interface LeasingCard {
+  title: string;
+  texts?: string[];
+  benefits?: string[];
+  perfectFor?: string[];
+  summary?: string;
+  palette: string;
+}
+
+interface LeasingTypesData {
+  heading: string;
+  cards?: LeasingCard[];
+}
+
+interface EquipmentLeasingData {
+  heading: string;
+  texts?: string[];
+  benefits?: string[];
+  b2bSection: {
+    heading: string;
+    texts?: string[];
+  };
+}
+
+interface ContactCtaData {
+  heading: string;
+  subheading: string;
+  numbers: Array<{ title: string; number: string }>;
+  image: { src: string; alt: string };
+}
+
+interface CtaData {
+  heading: string;
+  texts?: string[];
+  link: { label: string; href: string };
+}
+
+interface AdditionalCtaData {
+  calculator: {
+    heading: string;
+    text: string;
+    buttonText: string;
+  };
+  rental: {
+    heading: string;
+    text: string;
+    buttonText: string;
+  };
+  contact: {
+    heading: string;
+    text: string;
+    buttonText: string;
+  };
+}
+
 function LeasingComparisonTable({ t }: { t: TranslationFunction }) {
-  const table = t.raw("table") as {
+  const tableData = t.raw("comparisonTable.table") as {
     headings: string[];
     rows: string[][];
     explanations?: string[];
   };
   return (
     <Table
-      headings={table.headings}
-      rows={table.rows}
-      explanations={table.explanations}
+      headings={tableData.headings}
+      rows={tableData.rows}
+      explanations={tableData.explanations}
     />
   );
+}
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "About" });
+  const meta = t.raw("meta");
+  return generateLocalizedMetadata({
+    locale: params.locale,
+    namespace: "CorporateLeasing",
+    title: meta.title,
+    description: meta.description,
+    path: "/about",
+  });
 }
 
 export default async function CorporateLeasingPage({ params }: { params: { locale: string } }) {
@@ -44,36 +132,57 @@ export default async function CorporateLeasingPage({ params }: { params: { local
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "CorporateLeasing" });
 
+  // Extract structured data with proper types
+  const hero = t.raw("hero") as HeroData;
+  const ourModel = t.raw("ourModel") as SectionData;
+  const personalService = t.raw("personalService") as SectionData;
+  const digitalServices = t.raw("digitalServices") as SectionData;
+  const benefits = t.raw("benefits") as BenefitsData;
+  const leasingTypes = t.raw("leasingTypes") as LeasingTypesData;
+  const equipmentLeasing = t.raw("equipmentLeasing") as EquipmentLeasingData;
+  const contactCta = t.raw("contactCta") as ContactCtaData;
+  const cta = t.raw("cta") as CtaData;
+  const additionalCta = t.raw("additionalCta") as AdditionalCtaData;
+
   return (
     <PageWrapper>
       <Hero isFirst palette="piki" fullWidth>
-        <Hero.Image src="/images/yritysleasing.png" />
-        <Hero.Heading>{t("hero.heading")}</Hero.Heading>
-        <Hero.SubHeading>{t("hero.subheading")}</Hero.SubHeading>
+        <Hero.Image src={hero.image.src} />
+        <Hero.Heading>{hero.heading}</Hero.Heading>
+        <Hero.SubHeading>{hero.subheading}</Hero.SubHeading>
         <Hero.Text>
-          <Paragraph variant="large">{t("intro.description")}</Paragraph>
+          {hero.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx} variant="large">{text}</Paragraph>
+          ))}
         </Hero.Text>
         <Hero.ExtraContent>
-          <CallUs numbers={t.raw("hero.numbers")} />
+          <CallUs numbers={hero.numbers} />
         </Hero.ExtraContent>
       </Hero>
 
       {/* Intro Section */}
       <FlexLayout oneColumnBreakpoint="lg" palette="default" className="with-overflowing-image">
         <FlexLayout.Column>
-          <Heading2>{t("openModel.title")}</Heading2>
-          <Paragraph>{t("openModel.description")}</Paragraph>
-          <Heading2>{t("contactPerson.title")}</Heading2>
-          <Paragraph>{t("contactPerson.description")}</Paragraph>
-          <Heading2>{t("digitalServices.title")}</Heading2>
-          <Paragraph>{t("digitalServices.description")}</Paragraph>
+          <Heading2>{ourModel.heading}</Heading2>
+          {ourModel.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
 
-          <Heading2>{t("section.benefits")}</Heading2>
+          <Heading2>{personalService.heading}</Heading2>
+          {personalService.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
+
+          <Heading2>{digitalServices.heading}</Heading2>
+          {digitalServices.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
+
+          <Heading2>{benefits.heading}</Heading2>
           <List>
-            <List.Item>{t("benefits.fixedPrice")}</List.Item>
-            <List.Item>{t("benefits.contractPeriod")}</List.Item>
-            <List.Item>{t("benefits.noDownPayment")}</List.Item>
-            <List.Item>{t("benefits.newCar")}</List.Item>
+            {benefits.list?.map((item: string, idx: number) => (
+              <List.Item key={idx}>{item}</List.Item>
+            ))}
           </List>
         </FlexLayout.Column>
         <FlexLayout.Column>
@@ -87,74 +196,114 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         </FlexLayout.Column>
       </FlexLayout>
 
+      {/* Leasing Types Section */}
       <BoxLayout palette="light-gray" fullSizeBoxes={true}>
-        <BoxLayout.Box palette="maantie" gaps>
-          <Heading3>{t("leasingTypes.rahoitusleasing.title")}</Heading3>
-          <Paragraph>{t("leasingTypes.rahoitusleasing.description")}</Paragraph>
-          <Paragraph className="font-semibold">{t("leasingTypes.rahoitusleasing.suits")}</Paragraph>
-        </BoxLayout.Box>
-        <BoxLayout.Box palette="kupari" gaps>
-          <Heading3>{t("leasingTypes.joustoleasing.title")}</Heading3>
-          <Paragraph>{t("leasingTypes.joustoleasing.description")}</Paragraph>
-          <Paragraph className="font-semibold">{t("leasingTypes.joustoleasing.suits")}</Paragraph>
-        </BoxLayout.Box>
-        <BoxLayout.Box palette="piki" gaps>
-          <Heading3>{t("leasingTypes.huoltoleasing.title")}</Heading3>
-          <Paragraph>{t("leasingTypes.huoltoleasing.description")}</Paragraph>
-          <Paragraph className="font-semibold">{t("leasingTypes.huoltoleasing.suits")}</Paragraph>
-        </BoxLayout.Box>
-        <BoxLayout.Box palette="betoni">
-          <Heading3>{t("leasingTypes.minileasing.title")}</Heading3>
-          <Paragraph>{t("leasingTypes.minileasing.description")}</Paragraph>
-          <List>
-            {t.raw("leasingTypes.minileasing.benefits").map((b: string) => (
-              <List.Item key={b}>{b}</List.Item>
+        {leasingTypes.cards?.map((card: LeasingCard, idx: number) => (
+          <BoxLayout.Box key={idx} gaps>
+            <Heading3>{card.title}</Heading3>
+            {card.texts?.map((text: string, textIdx: number) => (
+              <Paragraph key={textIdx} className={textIdx === card.texts!.length - 1 ? "font-semibold" : ""}>
+                {text}
+              </Paragraph>
             ))}
-          </List>
-          <Paragraph className="font-semibold">{t("section.perfectFor")}</Paragraph>
-          <List>
-            {t.raw("leasingTypes.minileasing.perfectFor").map((b: string) => (
-              <List.Item key={b}>{b}</List.Item>
-            ))}
-          </List>
-        </BoxLayout.Box>
+            {card.benefits && (
+              <List>
+                {card.benefits.map((benefit: string, benefitIdx: number) => (
+                  <List.Item key={benefitIdx}>{benefit}</List.Item>
+                ))}
+              </List>
+            )}
+            {card.perfectFor && (
+              <>
+                <Paragraph className="font-semibold">{t("labels.perfectFor")}</Paragraph>
+                <List>
+                  {card.perfectFor.map((item: string, itemIdx: number) => (
+                    <List.Item key={itemIdx}>{item}</List.Item>
+                  ))}
+                </List>
+              </>
+            )}
+            {card.summary && (
+              <Paragraph className="font-semibold">{card.summary}</Paragraph>
+            )}
+          </BoxLayout.Box>
+        ))}
       </BoxLayout>
 
+      {/* Comparison Table */}
       <BasicLayout palette="default" padding={Padding.None} contentPadding={Padding.Block}>
         <FlexLayout.Column>
+          <Heading2>{t("comparisonTable.heading")}</Heading2>
           <LeasingComparisonTable t={t} />
         </FlexLayout.Column>
       </BasicLayout>
 
       {/* Equipment Leasing Section */}
-
       <FlexLayout palette="piki">
         <FlexLayout.Column>
-          <Heading2 className="color-kupari-heading">{t("equipmentLeasing.title")}</Heading2>
-          <Paragraph>{t("equipmentLeasing.description")}</Paragraph>
+          <Heading2 className="color-kupari-heading">{equipmentLeasing.heading}</Heading2>
+          {equipmentLeasing.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
           <List>
-            {t.raw("equipmentLeasing.benefits").map((b: string) => (
-              <List.Item key={b}>{b}</List.Item>
+            {equipmentLeasing.benefits?.map((benefit: string, idx: number) => (
+              <List.Item key={idx}>{benefit}</List.Item>
             ))}
           </List>
-          <Heading3 className="color-kupari-heading">{t("equipmentLeasing.businessToBusiness")}</Heading3>
-          <Paragraph>{t("equipmentLeasing.b2bDescription")}</Paragraph>
-          <Paragraph>{t("equipmentLeasing.process")}</Paragraph>
-          <Paragraph className="font-semibold">{t("equipmentLeasing.contact")}</Paragraph>
+          
+          <Heading3 className="color-kupari-heading">{equipmentLeasing.b2bSection.heading}</Heading3>
+          {equipmentLeasing.b2bSection.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx} className={idx === equipmentLeasing.b2bSection.texts!.length - 1 ? "font-semibold" : ""}>
+              {text}
+            </Paragraph>
+          ))}
         </FlexLayout.Column>
       </FlexLayout>
 
-      <FlexLayout palette="piki" mainImage={{ src: "/images/Tietoa_meista.png", backgroundPosition: "top center" }}>
+      {/* Contact CTA */}
+      <FlexLayout palette="piki" mainImage={{ src: contactCta.image.src, backgroundPosition: "top center" }}>
         <FlexLayout.Column className="shadow-text-sharp">
           <Flex direction="column" gaps="large">
-            <Heading2 className="max-w-2xl">{t("contact.title")}</Heading2>
-            <Heading3 className="max-w-2xl">{t("contact.subheading")}</Heading3>
+            <Heading2 className="max-w-2xl">{contactCta.heading}</Heading2>
+            <Heading3 className="max-w-2xl">{contactCta.subheading}</Heading3>
             <div className="self-start">
-              <CallUs className="justify-self-start" numbers={t.raw("hero.numbers")} />
+              <CallUs className="justify-self-start" numbers={contactCta.numbers} />
             </div>
           </Flex>
         </FlexLayout.Column>
       </FlexLayout>
+
+      {/* Main CTA SECTION */}
+      <BasicLayout contentPalette="light-gray">
+        <Heading2>{cta.heading}</Heading2>
+        {cta.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
+        {cta.link && (
+          <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
+        )}
+      </BasicLayout>
+
+      {/* ADDITIONAL CTA SECTIONS */}
+      <FlexLayout oneColumnBreakpoint="lg" palette="kupari">
+        <FlexLayout.Column>
+          <Heading2>{additionalCta.calculator.heading}</Heading2>
+          <Paragraph>{additionalCta.calculator.text}</Paragraph>
+          <LinkButton href="/autoetulaskuri">{additionalCta.calculator.buttonText}</LinkButton>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          <Heading2>{additionalCta.rental.heading}</Heading2>
+          <Paragraph>{additionalCta.rental.text}</Paragraph>
+          <LinkButton href="/auton-vuokraus">{additionalCta.rental.buttonText}</LinkButton>
+        </FlexLayout.Column>
+      </FlexLayout>
+
+      {/* CONTACT CTA */}
+      <BasicLayout contentPalette="maantie">
+        <Heading2>{additionalCta.contact.heading}</Heading2>
+        <Paragraph>{additionalCta.contact.text}</Paragraph>
+        <LinkButton href="/yhteystiedot">{additionalCta.contact.buttonText}</LinkButton>
+      </BasicLayout>
     </PageWrapper>
   );
 }
