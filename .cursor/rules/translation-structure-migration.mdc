@@ -1,0 +1,379 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Translation Structure Migration and Creation Guide
+
+This document outlines the standardized structure for translation JSON files and the corresponding React component updates needed to support JSON file format.
+
+## Overview
+
+We've migrated from mixed/inconsistent JSON structures to a unified format that:
+- Uses consistent field naming conventions
+- Employs `texts` arrays instead of individual text fields
+- Standardizes `link` objects with `{label, href}` structure
+- Uses `heading`/`subheading` instead of `title`/`description`
+- Groups related content logically
+
+## JSON Structure Standards
+
+Use standard keys:
+- heading: string
+- subheading: string
+- texts: array of strings, even if one.
+- link: { "label": "Read more", "href": "#" }
+- image: { "src": "/path/to/image.png", "alt": "Alt text" }
+
+if multiple links of images, use same format, but in an array and keys is "links" and "images" and 
+
+If content is rendered as columns use "columns" as the key and is and array of same
+- heading: string
+- subheading: string
+- texts: array of strings, even if one.
+- link: { "label": "Read more", "href": "#" }
+- image: { "src": "/path/to/image.png", "alt": "Alt text" }
+
+**(avoid):**
+
+Avoid and **do not use** keys like: "link1", "text1", "contactLink", "bigImage".
+
+
+### 1. Meta Information
+```json
+{
+  "meta": {
+    "title": "Page Title | Company Name",
+    "description": "SEO description text",
+    "keywords": "comma, separated, keywords, list",
+    "image": "/path/to/meta-image.png"
+  }
+}
+```
+
+### 2. Hero Sections
+```json
+{
+  "hero": {
+    "heading": "Main heading",
+    "subheading": "Secondary heading",
+    "numbers": [
+      { "title": "Label", "number": "Phone/contact" }
+    ],
+    "image": { "src": "/path/to/image.png", "alt": "Alt text" }
+  }
+}
+```
+
+### 3. Content Sections with Text Arrays
+**OLD FORMAT (avoid):**
+```json
+{
+  "section": {
+    "title": "Section title",
+    "paragraph1": "First paragraph",
+    "paragraph2": "Second paragraph",
+    "description": "Description text"
+  }
+}
+```
+
+**NEW FORMAT (use this):**
+```json
+{
+  "sectionId": {
+    "heading": "Section heading",
+    "subheading": "Optional subheading",
+    "texts": [
+      "First paragraph or text block",
+      "Second paragraph or text block"
+    ],
+    "link": { "label": "Link text", "href": "#" },
+    "image": { "src": "/path/to/image.png", "alt": "Alt text" }
+  }
+}
+```
+
+### 4. Card/List Structures
+**OLD FORMAT (avoid):**
+```json
+{
+  "news": {
+    "title": "News title",
+    "card1": { "title": "...", "description": "..." },
+    "card2": { "title": "...", "description": "..." },
+    "card3": { "title": "...", "description": "..." }
+  }
+}
+```
+
+**NEW FORMAT (use this):**
+```json
+{
+  "news": {
+    "heading": "News heading",
+    "cards": [
+      {
+        "title": "Card title",
+        "texts": ["Card description text"],
+        "link": { "label": "Read more", "href": "#" },
+        "image": { "src": "/path/to/image.png", "alt": "Alt text" },
+        "category": "Category name"
+      }
+    ],
+    "link": { "label": "View all news", "href": "#" }
+  }
+}
+```
+
+### 5. Multi-Column Layouts
+```json
+{
+  "leasingOptions": {
+    "heading": "Main heading",
+    "subheading": "Subtitle or description",
+    "columns": [
+      {
+        "subheading": "Column heading",
+        "texts": ["Column description"],
+        "link": { "label": "Learn more", "href": "#" },
+        "image": { "src": "/path/to/image.png", "alt": "Alt text" }
+      }
+    ],
+    "link": { "label": "View all options", "href": "#" }
+  }
+}
+```
+
+### 6. Team/Personnel Sections
+```json
+{
+  "team": {
+    "heading": "Team section heading",
+    "role": "Default role title",
+    "email": "email.format@company.com",
+    "members": [
+      { "name": "Person Name", "phone": "+358 XX XXX XXXX" }
+    ],
+    "memberAlt": "Alt text for member images"
+  },
+  "personnel": [
+    {
+      "name": "Full Name",
+      "title": "Job Title",
+      "phone": "Phone number",
+      "email": "email@company.com",
+      "image": { "src": "/path/to/photo.jpg", "alt": "Person Name" }
+    }
+  ]
+}
+```
+
+### 7. Service Links
+**OLD FORMAT:**
+```json
+{
+  "serviceLinks": {
+    "fleetManagerTools": "Fleet Tools",
+    "carCalculator": "Calculator"
+  }
+}
+```
+
+**NEW FORMAT:**
+```json
+{
+  "serviceLinks": [
+    { "label": "Fleet Management Tools", "href": "#" },
+    { "label": "Car Calculator", "href": "#" }
+  ]
+}
+```
+
+### 8. Call-to-action (CTA) sections
+
+Every page must a call to action section at the end of the page. CTA section should have 1-3 columns.
+
+Columns should have have one or many of these:
+- promotion of other page with similar content. Promotion should have a heading and a link, preferably also text. For example a lease a car page could have rent a card promo.
+- phone number, email and link to contact page
+
+
+
+## React Component Updates
+
+### 1. Server Component Pattern (page.tsx)
+```typescript
+// OLD: Using individual fields
+<h1>{t("section.title")}</h1>
+<p>{t("section.paragraph1")}</p>
+<p>{t("section.paragraph2")}</p>
+
+// NEW: Using arrays and objects
+<h1>{section.heading}</h1>
+{section.texts?.map((text: string, idx: number) => (
+  <p key={idx}>{text}</p>
+))}
+{section.link && (
+  <Link href={section.link.href}>{section.link.label}</Link>
+)}
+```
+
+### 2. Component Props Updates
+```typescript
+// OLD: Individual props
+interface NewsCardProps {
+  title: string;
+  description: string;
+  readMore: string;
+  imageAlt: string;
+}
+
+// NEW: Structured props
+interface NewsCardProps {
+  title: string;
+  text: string; // Note: singular, uses first item from texts array
+  link: { label: string; href: string };
+  image: { src: string; alt: string };
+  category?: string;
+}
+```
+
+### 3. Component Implementation Updates
+```typescript
+// OLD: Client-side translations with hardcoded structure
+"use client";
+import { useTranslations } from "next-intl";
+
+export default function NewsSection() {
+  const t = useTranslations("Home");
+  return (
+    <div>
+      <NewsCard
+        title={t("news.card1.title")}
+        text={t("news.card1.description")}
+        // ... more hardcoded fields
+      />
+    </div>
+  );
+}
+
+// NEW: Accept props with fallback
+interface NewsSectionProps {
+  cards?: Array<{
+    title: string;
+    texts: string[];
+    link: { label: string; href: string };
+    image: { src: string; alt: string };
+    category?: string;
+  }>;
+}
+
+export default function NewsSection({ cards }: NewsSectionProps) {
+  if (cards && cards.length > 0) {
+    return (
+      <Columns columns={{ default: 1, lg: 3 }}>
+        {cards.map((card, index) => (
+          <NewsCard
+            key={index}
+            title={card.title}
+            text={card.texts?.[0] || ""} // Use first text from array
+            link={{ text: card.link.label, href: card.link.href }}
+            image={{
+              src: card.image?.src as string,
+              alt: card.image?.alt || card.title,
+            }}
+            category={card.category}
+          />
+        ))}
+      </Columns>
+    );
+  }
+  
+  // Fallback can be removed once all files are migrated
+  return null;
+}
+```
+
+## Migration Checklist
+
+### For JSON Files:
+- [ ] Make sure `meta` is the first content
+- [ ] Add `meta.keywords` and `meta.image` fields
+- [ ] Convert `title`/`description` to `heading`/`subheading`
+- [ ] Replace individual text fields with `texts` arrays
+- [ ] Standardize link objects to `{label, href}` format
+- [ ] Convert card structures from `card1, card2, card3` to `cards` array
+- [ ] Update image objects to `{src, alt}` format
+- [ ] Ensure consistent field naming across all sections
+
+### For React Components:
+- [ ] Update component props to accept new data structures
+- [ ] Handle `texts` arrays properly (usually use first item for single text)
+- [ ] Convert link prop handling from `{text, href}` to `{label, href}`
+- [ ] Update server components to use raw data instead of translation functions
+- [ ] Remove hardcoded translation keys in favor of props
+- [ ] Add proper TypeScript interfaces for new structures
+
+### For Page Components:
+- [ ] Pass raw translation data as props instead of using `useTranslations`
+- [ ] Update component calls to use new prop structure
+- [ ] Remove commented fallback code once migration is complete
+- [ ] Ensure proper error handling for missing data
+
+## Translation Guidelines
+
+### Field Naming Conventions:
+- `heading` for main titles
+- `subheading` for subtitles
+- `texts` for arrays of paragraphs/descriptions
+- `link` for call-to-action links
+- `image` for image objects with src/alt
+- `cards` for arrays of card data
+- `columns` for multi-column layouts
+- `members` for team member arrays
+
+### Content Structure:
+- Keep related content grouped logically
+- Use arrays for repeated content types
+- Maintain consistent object structures across languages
+- Include proper alt text for all images
+- Use descriptive link labels instead of generic "Read more"
+
+## Example Migration
+
+### Before (Old Structure):
+```json
+{
+  "news": {
+    "title": "News",
+    "card1": {
+      "title": "News Item 1",
+      "description": "Description text",
+      "readMore": "Read more",
+      "imageAlt": "Image description"
+    }
+  }
+}
+```
+
+### After (New Structure):
+```json
+{
+  "news": {
+    "heading": "News",
+    "cards": [
+      {
+        "title": "News Item 1",
+        "texts": ["Description text"],
+        "link": { "label": "Read more", "href": "#" },
+        "image": { "src": "/path/to/image.png", "alt": "Image description" },
+        "category": "News"
+      }
+    ],
+    "link": { "label": "View all news", "href": "#" }
+  }
+}
+```
+
+This migration ensures consistency across all translation files and makes components more maintainable and reusable.
