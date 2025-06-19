@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t palette-border-color mt-auto color-palette-light-gray palette-text-color palette-background-color">
-      <FlexLayout direction="column">
+      <FlexLayout direction="column" palette="none">
         <Flex gaps="large" className="justify-between">
           {/* Column 1: Company Information */}
           <div>

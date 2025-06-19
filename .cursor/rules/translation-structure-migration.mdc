@@ -198,7 +198,85 @@ Columns should have have one or many of these:
 - promotion of other page with similar content. Promotion should have a heading and a link, preferably also text. For example a lease a car page could have rent a card promo.
 - phone number, email and link to contact page
 
+```json
+"promotion": {
+    "heading": "Another thing",
+    "texts": [
+      "Need something else"
+    ],
+    "columns": [
+      {
+        "title": "go to title 1",
+        "texts": ["Go here..."],
+        "link": { "label": "Link there", "href": "" }
+      },
+      {
+        "title": "go to title 1",
+        "texts": ["Go here..."],
+        "link": { "label": "Link there", "href": "" }
+      },
+     {
+        "title": "go to title 1",
+        "texts": ["Go here..."],
+        "link": { "label": "Link there", "href": "" }
+      },
+    ]
+  },
 
+```
+
+```tsx
+<BasicLayout contentPalette="maantie">
+        <Heading2>{promotion.heading}</Heading2>
+        {promotion.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
+        <Flex direction="row" gaps="large">
+          {promotion.columns?.map((value: { title: string; texts: string[] }, idx: number) => (
+            <Card palette="beige" key={idx}>
+              <Heading3>{value.title}</Heading3>
+              {value.texts?.map((text: string, textIdx: number) => (
+                <Paragraph key={textIdx}>{text}</Paragraph>
+              ))}
+              {cta.link && (
+                <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
+              )}
+            </Card>
+          ))}
+        </Flex>
+      </BasicLayout>
+```
+
+There should also be a section just for promoting contacting the business about the contents of the page. There should be
+- heading: Selling suggestion to contact, preferably in questing format: "Need to rent"?
+- text: text why to contact with reference what is offered on the page
+- link
+
+```json
+  "cta": {
+    "heading": "Ready to Optimize Your Fleet?",
+    "texts": [
+      "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use."
+    ],
+    "link": { "label": "Contact Us", "href": "/contact" }
+  }
+```
+
+React:
+
+```tsx
+
+  {/* CTA SECTION */}
+  <BasicLayout contentPalette="light-gray">
+    <Heading2>{cta.heading}</Heading2>
+    {cta.texts?.map((text: string, idx: number) => (
+      <Paragraph key={idx}>{text}</Paragraph>
+    ))}
+    {cta.link && (
+      <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
+    )}
+  </BasicLayout>
+```
 
 ## React Component Updates
 
