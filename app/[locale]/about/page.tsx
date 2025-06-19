@@ -26,11 +26,12 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "About" });
+  const meta = t.raw("meta");
   return generateLocalizedMetadata({
     locale,
     namespace: "About",
-    title: t("title"),
-    description: "description", // Non existing translation:|| t("description"),
+    title: meta.title,
+    description: meta.description,
     path: "/about",
   });
 }
@@ -40,108 +41,167 @@ export default async function AboutPage({ params }: Props) {
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "About" });
 
+  // Raw data blocks
+  const hero = t.raw("hero");
+  const introduction = t.raw("introduction");
+  const ourStory = t.raw("ourStory");
+  const ourMission = t.raw("ourMission");
+  const ourValues = t.raw("ourValues");
+  const whyChooseUs = t.raw("whyChooseUs");
+  const digitalServices = t.raw("digitalServices");
+  const offerings = t.raw("offerings");
+  const history = t.raw("history");
+  const coverage = t.raw("coverage");
+  const cta = t.raw("cta");
+
   return (
     <PageWrapper>
+      {/* HERO SECTION */}
       <Hero palette="piki" fullWidth isFirst>
-        <Hero.Image src="/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png" />
-        <Hero.Heading>{t("title")}</Hero.Heading>
-        <Hero.SubHeading>{t("subtitle")}</Hero.SubHeading>
+        <Hero.Image src={hero.image?.src} />
+        <Hero.Heading>{hero.heading}</Hero.Heading>
+        <Hero.SubHeading>{hero.subheading}</Hero.SubHeading>
       </Hero>
 
+      {/* INTRODUCTION SECTION */}
       <TwoColumnLayout palette="betoni" columnWidths={["70%", "30%"]}>
         <FlexLayout.Column>
-          <Heading2>{t("our_story_title")}</Heading2>
-          <Paragraph>{t("introduction.paragraph1")}</Paragraph>
-          <Paragraph>{t("introduction.paragraph2")}</Paragraph>
-          <Paragraph>{t("introduction.paragraph3")}</Paragraph>
+          <Heading2>{introduction.heading}</Heading2>
+          {introduction.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
         </FlexLayout.Column>
         <FlexLayout.Column>
           <ImageContainer aspectRatio="4/3" className="flex items-center justify-center">
-            <Image src="/images/innolease-car.png" alt={t("history.imageAlt") as string} width={320} height={240} />
+            <Image 
+              src={introduction.image?.src || "/images/innolease-car.png"} 
+              alt={introduction.image?.alt || "Innolease"} 
+              width={320} 
+              height={240} 
+            />
           </ImageContainer>
         </FlexLayout.Column>
       </TwoColumnLayout>
+
+      {/* OUR STORY SECTION */}
       <BasicLayout palette="beige">
-        <Heading2>{t("our_story_title")}</Heading2>
-        <Paragraph>{t("our_story")}</Paragraph>
+        <Heading2>{ourStory.heading}</Heading2>
+        {ourStory.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
       </BasicLayout>
+
+      {/* OUR MISSION SECTION */}
       <BasicLayout contentPalette="betoni">
-        <Heading2>{t("our_mission_title")}</Heading2>
-        <Paragraph>{t("our_mission")}</Paragraph>
+        <Heading2>{ourMission.heading}</Heading2>
+        {ourMission.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
       </BasicLayout>
+
+      {/* OUR VALUES SECTION */}
       <BasicLayout contentPalette="maantie">
-        <Heading2>{t("our_values_title")}</Heading2>
-        <Paragraph>{t("our_values")}</Paragraph>
+        <Heading2>{ourValues.heading}</Heading2>
+        {ourValues.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
         <Flex direction="row" gaps="large">
-          {t.raw("values_list").map((value: { title: string; description: string }, idx: number) => (
+          {ourValues.cards?.map((value: { title: string; texts: string[] }, idx: number) => (
             <Card palette="beige" key={idx}>
               <Heading3>{value.title}</Heading3>
-              <Paragraph>{value.description}</Paragraph>
+              {value.texts?.map((text: string, textIdx: number) => (
+                <Paragraph key={textIdx}>{text}</Paragraph>
+              ))}
             </Card>
           ))}
         </Flex>
       </BasicLayout>
+
+      {/* WHY CHOOSE US SECTION */}
       <TwoColumnLayout contentPalette="piki">
-        <Heading2>{t("why_choose_us_title")}</Heading2>
+        <Heading2>{whyChooseUs.heading}</Heading2>
         <List>
-          {t.raw("why_choose_us").map((item: string, idx: number) => (
+          {whyChooseUs.list?.map((item: string, idx: number) => (
             <List.Item key={idx}>{item}</List.Item>
           ))}
         </List>
       </TwoColumnLayout>
+
+      {/* DIGITAL SERVICES SECTION */}
       <BasicLayout contentPalette="default">
-        <Heading2>{t("digital_services_title")}</Heading2>
+        <Heading2>{digitalServices.heading}</Heading2>
         <List>
-          {t.raw("digital_services").map((item: string, idx: number) => (
+          {digitalServices.list?.map((item: string, idx: number) => (
             <List.Item key={idx}>{item}</List.Item>
           ))}
         </List>
       </BasicLayout>
+
+      {/* OFFERINGS SECTION */}
       <BasicLayout palette="kupari">
-        <Heading2>{t("offerings_title")}</Heading2>
+        <Heading2>{offerings.heading}</Heading2>
         <Flex direction="row" gaps="large">
-          <Card>
-            <Heading3>Yrityksille</Heading3>
-            <List>
-              {t.raw("offerings.corporate").map((item: string, idx: number) => (
-                <List.Item key={idx}>{item}</List.Item>
-              ))}
-            </List>
-          </Card>
-          <Card>
-            <Heading3>Yksityisasiakkaille</Heading3>
-            <List>
-              {t.raw("offerings.private").map((item: string, idx: number) => (
-                <List.Item key={idx}>{item}</List.Item>
-              ))}
-            </List>
-          </Card>
+          {offerings.columns?.map((column: { subheading: string; list: string[] }, idx: number) => (
+            <Card key={idx}>
+              <Heading3>{column.subheading}</Heading3>
+              <List>
+                {column.list?.map((item: string, itemIdx: number) => (
+                  <List.Item key={itemIdx}>{item}</List.Item>
+                ))}
+              </List>
+            </Card>
+          ))}
         </Flex>
       </BasicLayout>
+
+      {/* HISTORY SECTION */}
       <TwoColumnLayout contentPalette="betoni">
         <FlexLayout.Column>
-          <Heading2>{t("history_title")}</Heading2>
-          <Paragraph>{t("history.paragraph1")}</Paragraph>
-          <Paragraph>{t("history.paragraph2")}</Paragraph>
-          <LinkButton href="https://autolle.com">{t("history.autolleButton")}</LinkButton>
+          <Heading2>{history.heading}</Heading2>
+          {history.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
+          {history.link && (
+            <LinkButton href={history.link.href}>{history.link.label}</LinkButton>
+          )}
         </FlexLayout.Column>
         <FlexLayout.Column>
           <ImageContainer aspectRatio="4/3" className="flex items-center justify-center mt-6">
-            <Image src="/images/innolease-car.png" alt={t("history.imageAlt") as string} width={320} height={240} />
+            <Image 
+              src={history.image?.src || "/images/innolease-car.png"} 
+              alt={history.image?.alt || "Innolease"} 
+              width={320} 
+              height={240} 
+            />
           </ImageContainer>
         </FlexLayout.Column>
       </TwoColumnLayout>
+
+      {/* COVERAGE SECTION */}
       <BasicLayout contentPalette="piki">
-        <Heading2>{t("coverage_title")}</Heading2>
-        <Paragraph>{t("coverage.description")}</Paragraph>
+        <Heading2>{coverage.heading}</Heading2>
+        {coverage.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
         <ImageContainer aspectRatio="4/3" className="flex items-center justify-center mt-6">
-          <Image src="/images/placeholders/map.png" alt={t("coverage.mapAlt") as string} width={320} height={240} />
+          <Image 
+            src={coverage.image?.src || "/images/placeholders/map.png"} 
+            alt={coverage.image?.alt || "Palveluverkosto"} 
+            width={320} 
+            height={240} 
+          />
         </ImageContainer>
       </BasicLayout>
+
+      {/* CTA SECTION */}
       <BasicLayout contentPalette="light-gray">
-        <Heading2>{t("cta.title")}</Heading2>
-        <Paragraph>{t("cta.description")}</Paragraph>
-        <LinkButton href="/contact">{t("cta.button")}</LinkButton>
+        <Heading2>{cta.heading}</Heading2>
+        {cta.texts?.map((text: string, idx: number) => (
+          <Paragraph key={idx}>{text}</Paragraph>
+        ))}
+        {cta.link && (
+          <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
+        )}
       </BasicLayout>
     </PageWrapper>
   );

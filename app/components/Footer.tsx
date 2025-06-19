@@ -6,7 +6,6 @@ import InnoleaseLogo from "@/app/components/InnoleaseLogo";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import { FlexLayout } from "./v2/layouts/FlexLayout";
 import { Flex } from "./v2/core/Flex";
-import { Columns } from "./v2/core/Columns";
 
 export default function Footer() {
   const locale = useLocale();
