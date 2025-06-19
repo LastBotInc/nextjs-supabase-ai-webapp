@@ -1,30 +1,31 @@
 {
   "meta": {
     "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
-    "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut läpinäkyvällä hinnoittelulla ja tehokkailla digitaalisilla työkaluilla."
+    "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut läpinäkyvällä hinnoittelulla ja tehokkailla digitaalisilla työkaluilla.",
+    "keywords": "yritysautojen leasing, kalustonhallinta, autoleasing, yritysleasing, InnoFleet Manager, leasingratkaisut, autokannan hallinta, sähköautot, hybridiauto leasing",
+    "image": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png"
   },
 
   "hero": {
     "heading": "Innolease",
     "subheading": "Yrityksesi kumppani leasingasioissa",
     "numbers": [
-      {
-        "title": "Soita meille",
-        "number": "020 743 7670"
-      },
-      {
-        "title": "Soita meille",
-        "number": "020 743 76700"
-      }
-    ]
+      { "title": "Soita meille", "number": "020 743 7670" },
+      { "title": "Soita meille", "number": "020 743 76700" }
+    ],
+    "image": { "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png", "alt": "Innolease Hero" }
   },
+
   "topTeam": {
     "heading": "Laaja-alainen osaajatiimi palveluksessasi",
-    "paragraph1": "Innoleasen tärkein tarkoitus on mukautua asiakkaan tarpeisiin ja tarjota asiakkaalle eri vaihtoehtoja, joiden pohjalta asiakkaan on helpompi tehdä heidän tilanteeseen sopiva ratkaisu.",
-    "paragraph2": "Avoin toimintamallimme missä yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan palvelukokonaisuuden. Tavoitteemme on säästää asiakkaan aikaa ja rahaa, vähentää riskejä sekä helpottaa asiakkaan autokannan budjetointia.",
-    "readMore": "Lue lisää",
-    "imageAlt": "Tiimikuva"
+    "texts": [
+      "Innoleasen tärkein tarkoitus on mukautua asiakkaan tarpeisiin ja tarjota asiakkaalle eri vaihtoehtoja, joiden pohjalta asiakkaan on helpompi tehdä heidän tilanteeseen sopiva ratkaisu.",
+      "Avoin toimintamallimme missä yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan palvelukokonaisuuden. Tavoitteemme on säästää asiakkaan aikaa ja rahaa, vähentää riskejä sekä helpottaa asiakkaan autokannan budjetointia."
+    ],
+    "link": { "label": "Lue lisää", "href": "#" },
+    "image": { "src": "/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png", "alt": "Tiimikuva" }
   },
+
   "personnel": [
     {
       "name": "Ville Mäkinen",
@@ -69,110 +70,132 @@
       "image": { "src": "/images/team/niclas_yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
     }
   ],
+
   "leasingOptions": {
     "heading": "Leasingratkaisut",
-    "description": "Valitse yrityksellesi parhaiten sopiva leasingratkaisu.",
-    "readMore": "Lue lisää",
-    "allSolutions": "Kaikki leasingratkaisut",
-    "personalizedTitle": "Sinulle sopivin leasingvaihtoehto ja rahoitusmalli",
-    "personalizedDescription": "Meiltä löytyy asiakkaalle aina tilanteeseen sopiva leasingvaihtoehto ja rahoitusmalli. Tavoitteemme on tarjota joustavuutta ja räätälöityjä ratkaisuja.",
-    "flexibleTitle": "Joustava ja helppo kone- ja laiteleasing",
-    "flexibleDescription": "Ketteränä toimijana palvelumme on joustavaa. Erityistoiveet aikataulun ja auton varustelun suhteen ovat meille arkipäivää.",
-    "learnMore": "Lue lisää"
+    "subheading": "Valitse yrityksellesi parhaiten sopiva leasingratkaisu.",
+    "columns": [
+      {
+        "subheading": "Sinulle sopivin leasingvaihtoehto ja rahoitusmalli",
+        "texts": [
+          "Meiltä löytyy asiakkaalle aina tilanteeseen sopiva leasingvaihtoehto ja rahoitusmalli. Tavoitteemme on tarjota joustavuutta ja räätälöityjä ratkaisuja."
+        ],
+        "link": { "label": "Lue lisää", "href": "#" },
+        "image": { "src": "/images/home/leasing1.png", "alt": "Leasingvaihtoehto" }
+      },
+      {
+        "subheading": "Joustava ja helppo kone- ja laiteleasing",
+        "texts": [
+          "Ketteränä toimijana palvelumme on joustavaa. Erityistoiveet aikataulun ja auton varustelun suhteen ovat meille arkipäivää."
+        ],
+        "link": { "label": "Lue lisää", "href": "#" },
+        "image": { "src": "/images/home/leasing2.png", "alt": "Joustava leasing" }
+      }
+    ],
+    "link": { "label": "Kaikki leasingratkaisut", "href": "#" }
   },
-  "serviceLinks": {
-    "fleetManagerTools": "Kalustonhallintatyökalut",
-    "carCalculator": "Autolaskuri",
-    "companyCarGuide": "Työsuhdeauto-opas",
-    "businessLeasing": "Yritysten leasing",
-    "personalLeasing": "Yksityisleasing"
-  },
+
+  "serviceLinks": [
+    { "label": "Kalustonhallintatyökalut", "href": "#" },
+    { "label": "Autolaskuri", "href": "#" },
+    { "label": "Työsuhdeauto-opas", "href": "#" },
+    { "label": "Yritysten leasing", "href": "#" },
+    { "label": "Yksityisleasing", "href": "#" }
+  ],
+
   "news": {
-    "title": "Ajankohtaista",
-    "card1": {
-      "title": "Uusi Ford Transit Custom",
-      "description": "Kuvaukset saapuvat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "readMore": "Lue lisää",
-      "imageAlt": "Ford Transit",
-      "category": "Uutiset"
-    },
-    "card2": {
-      "title": "Tarjoamme kaikki merkit ja mallit",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "readMore": "Lue lisää",
-      "imageAlt": "Urheiluautot",
-      "category": "Kampanjat"
-    },
-    "card3": {
-      "title": "Leasing ratkaisu ETruck",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "readMore": "Lue lisää",
-      "imageAlt": "Sähköinen kuorma-auto",
-      "category": "Blogit"
-    },
-    "viewAll": "Katso ajankohtaiset"
+    "heading": "Ajankohtaista",
+    "cards": [
+      {
+        "title": "Uusi Ford Transit Custom",
+        "texts": [
+          "Kuvaukset saapuvat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "#" },
+        "image": { "src": "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png", "alt": "Ford Transit" },
+        "category": "Uutiset"
+      },
+      {
+        "title": "Tarjoamme kaikki merkit ja mallit",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "#" },
+        "image": { "src": "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png", "alt": "Urheiluautot" },
+        "category": "Kampanjat"
+      },
+      {
+        "title": "Leasing ratkaisu ETruck",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "#" },
+        "image": { "src": "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png", "alt": "Sähköinen kuorma-auto" },
+        "category": "Blogit"
+      }
+    ],
+    "link": { "label": "Katso ajankohtaiset", "href": "#" }
   },
+
   "newsSection": {
     "heading": "Ajankohtaista"
   },
+
   "innoFleet": {
     "subtitle": "Raportointityökalu",
-    "title": "InnoFleet Manager",
-    "description1": "Teet autosi yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko autokannastasi antaa sinulle mahdollisuuden hallita autoihisi liittyviä asioita tehokkaasti ja aikaa säästäen.",
-    "description2": "Koko autokantasi ylläpito ja huoltotoiminnallisuus ovat helposti saatavilla myös mobiililaitteellasi.",
-    "readMore": "Lue lisää",
-    "imageAlt": "InnoFleet Manager -sovellus"
+    "heading": "InnoFleet Manager",
+    "texts": [
+      "Teet autosi yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko autokannastasi antaa sinulle mahdollisuuden hallita autoihisi liittyviä asioita tehokkaasti ja aikaa säästäen.",
+      "Koko autokantasi ylläpito ja huoltotoiminnallisuus ovat helposti saatavilla myös mobiililaitteellasi."
+    ],
+    "link": { "label": "Lue lisää", "href": "#" },
+    "image": { "src": "/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png", "alt": "InnoFleet Manager -sovellus" },
+    "smallImage": { "src": "/images/home/iphone_05_sleep_image.png", "alt": "InnoFleet Manager -sovellus" }
   },
+
   "team": {
-    "title": "Yritysautoilun ja -rahoituksen asiantuntijat palveluksessasi",
+    "heading": "Yritysautoilun ja -rahoituksen asiantuntijat palveluksessasi",
     "role": "Myyntipäällikkö",
     "email": "etunimi.sukunimi@innolease.fi",
-    "memberAlt": "Tiimin jäsen",
-    "member1": {
-      "name": "Jukka Mäkinen",
-      "phone": "+358 50 123 4567"
-    },
-    "member2": {
-      "name": "Liisa Korhonen",
-      "phone": "+358 50 123 4568"
-    },
-    "member3": {
-      "name": "Mikko Nieminen",
-      "phone": "+358 50 123 4569"
-    },
-    "member4": {
-      "name": "Anna Virtanen",
-      "phone": "+358 50 123 4570"
-    }
+    "members": [
+      { "name": "Jukka Mäkinen", "phone": "+358 50 123 4567" },
+      { "name": "Liisa Korhonen", "phone": "+358 50 123 4568" },
+      { "name": "Mikko Nieminen", "phone": "+358 50 123 4569" },
+      { "name": "Anna Virtanen", "phone": "+358 50 123 4570" }
+    ],
+    "memberAlt": "Tiimin jäsen"
   },
+
   "transparency": {
-    "title": "Leasing-ratkaisujen kustannukset läpinäkyvästi",
-    "description": [
+    "heading": "Leasing-ratkaisujen kustannukset läpinäkyvästi",
+    "texts": [
       "Haluamme tehdä leasing-autoilusta mahdollisimman selkeää ja yksinkertaista. Siksi Innoleasen hinnoittelu on läpinäkyvää. Saat meiltä aina todenmukaisen ja selkeän tarjouksen, joka ei sisällä piilotettuja kuluja. Teemme asiat ilman ylimääräistä byrokratiaa ja hoidamme hommat kuntoon.",
       "Toteutamme yrityksenne autopolitiikkaa ja teemme autokannan kustannusten kilpailutuksen puolestanne, sekä realisoimme vanhan kaluston."
     ],
-    "readMore": "Lue lisää",
-    "imageAlt": "Tumma auto"
+    "link": { "label": "Lue lisää", "href": "#" },
+    "image": { "src": "/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png", "alt": "Tumma auto" }
   },
+
   "searchingFor": {
-    "title": "<span class=\"text-kupari\">Uusi</span> vai <span class=\"text-kupari\">käytetty</span> auto etsinnässä?",
-    "description": [
+    "heading": "<span class=\"text-kupari\">Uusi</span> vai <span class=\"text-kupari\">käytetty</span> auto etsinnässä?",
+    "texts": [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     ],
-    "readMore": "Lue lisää",
-    "imageAlt": "Tumma auto"
+    "link": { "label": "Lue lisää", "href": "#" },
+    "image": { "src": "/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png", "alt": "Tumma auto" }
   },
+
   "greenLeasing": {
-    "title": "Kohti vihreämpää kalustoa Innoleasen kanssa",
-    "description": ["Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla."],
+    "heading": "Kohti vihreämpää kalustoa Innoleasen kanssa",
+    "texts": ["Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla."],
     "list": [
       "Laaja valikoima sähköautoja",
       "Yksityiskohtainen päästöraportointi",
       "Latausratkaisut sähköautoille",
       "Neuvontaa kaluston sähköistämiseen"
     ],
-    "readMore": "Lue lisää",
-    "imageAlt": "Tumma auto"
+    "link": { "label": "Lue lisää", "href": "#" },
+    "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png", "alt": "Vihreä leasing" }
   }
 }
