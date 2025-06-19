@@ -1,70 +1,134 @@
 {
   "meta": {
-    "title": "Car Leasing – Easy and Worry-Free Driving",
-    "description": "Discover our comprehensive and flexible car leasing solutions for individuals and businesses. Learn more about the benefits, vehicle selection, and how we make driving effortless."
+    "title": "Car Leasing | Innolease - Easy and Worry-Free Driving",
+    "description": "Comprehensive and flexible leasing solutions for individuals and businesses. Fixed monthly payments, maintenance included, and hassle-free returns.",
+    "keywords": "car leasing, personal leasing, business leasing, mini leasing, auto leasing, lease agreement, car rental",
+    "image": "/images/autonvuokraus.png"
   },
-  "title": "Car Leasing – The Right Solution for You",
-  "intro": "Innolease offers versatile and flexible leasing solutions for both private individuals and companies. We want to make driving as easy and worry-free as possible – choose the option that suits your needs, and we'll take care of the rest.",
-  "personal": {
-    "title": "For Private Customers – Simplicity for Everyday Life",
-    "description": "Private leasing is a convenient way to get a new car without a large upfront payment. The fixed monthly fee covers almost all costs – maintenance, insurance, and tires – so you can focus on driving. At the end of the contract, you can return the car, switch to a new one, or extend the agreement."
+
+  "hero": {
+    "heading": "Car Leasing – The Right Solution for You",
+    "texts": [
+      "Innolease offers comprehensive and flexible leasing solutions for both individuals and businesses. We want to make driving as easy and worry-free as possible – choose the option that best suits your needs, and we'll take care of the rest."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Car leasing" }
   },
-  "corporate": {
-    "title": "For Businesses – Efficiency and Flexibility for Your Operations",
-    "description": "Business leasing helps you manage your company's vehicle fleet efficiently and cost-effectively. We offer tailored agreements, a wide selection of vehicles, and a dedicated contact person to assist you with all car-related matters. Mini-leasing is the perfect solution for short-term needs – you can get a car as soon as the next day without long-term commitments."
-  },
-  "terms": {
-    "title": "Leasing Terms – Flexible and Transparent",
-    "description": "Our leasing agreements are clear and flexible. You can choose the contract length (1–60 months), mileage, and additional services to suit your needs. The fixed monthly fee makes budgeting easy, with no hidden costs. Feel free to ask for more – we'll tailor a solution just for you."
-  },
-  "vehicles": {
-    "title": "Vehicle Selection – Find the Right Car",
-    "description": "We offer a wide range of vehicles: from compact cars to spacious family cars, vans, and electric vehicles. All our cars are well-equipped and regularly serviced. You can also test different car types before committing to a longer contract."
-  },
-  "benefits": {
-    "title": "Why Choose Leasing?",
-    "list": [
-      "No large upfront payment – you only pay for what you use",
-      "Fixed monthly fee makes budgeting easy",
-      "Maintenance, insurance, and tires are included in the contract",
-      "No resale worries – simply return the car at the end of the contract",
-      "Fast delivery – get a car as soon as the next day",
-      "Option to change cars as your needs change"
-    ]
-  },
-  "examples": {
-    "title": "Practical Examples",
-    "list": [
-      "Need a car for a project? Mini-leasing is a flexible solution for short-term needs.",
-      "Is your business growing quickly? Leasing allows you to expand your fleet without major investments.",
-      "Want to try an electric car before buying? Leasing lets you test different models risk-free."
-    ]
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "q1": "Can I change cars during the contract period?",
-    "a1": "Yes, we offer flexible options to change cars if your situation changes.",
-    "q2": "Are insurance and maintenance included in the monthly fee?",
-    "a2": "Yes, in most contracts, insurance and maintenance are included in the fixed monthly fee.",
-    "q3": "How do I return the car at the end of the contract?",
-    "a3": "You can return the car to an agreed location. Our customer service will provide detailed instructions."
-  },
-  "cta": {
-    "title": "Interested in Car Leasing?",
-    "description": "Contact our experts – we'll help you find the best leasing solution for you or your company. You can also easily request a quote through our website.",
-    "button": "Contact Us"
-  },
+
   "calculator": {
-    "title": "Leasing Calculator",
-    "carPrice": "Car Price",
-    "contractLength": "Contract Length",
-    "months": "months",
-    "downPayment": "Down Payment",
-    "interestRate": "Interest Rate",
-    "taxRate": "Income Tax Rate",
-    "resultTitle": "Calculation Result",
-    "monthlyFee": "Estimated Monthly Fee",
-    "afterTaxMonthly": "After-Tax Monthly Cost",
-    "disclaimer": "This is an estimate. Actual costs may vary. Tax calculation assumes the monthly fee is paid from net income."
+    "heading": "Leasing Calculator",
+    "texts": [
+      "Calculate your own leasing payment and see how affordable leasing can be."
+    ],
+    "fields": {
+      "carPrice": "Car price",
+      "contractLength": "Contract duration",
+      "months": "months",
+      "downPayment": "Down payment",
+      "interestRate": "Interest rate",
+      "taxRate": "Tax rate",
+      "resultTitle": "Calculation",
+      "monthlyFee": "Monthly payment",
+      "afterTaxMonthly": "Monthly payment after taxes",
+      "disclaimer": "This is an estimate. Actual costs may vary. Taxation is assumed to be paid from net earnings on the monthly payment."
+    }
+  },
+
+  "leasingOptions": {
+    "heading": "Leasing Options",
+    "cards": [
+      {
+        "title": "For Individuals – Simplicity for Everyday Life",
+        "texts": [
+          "Personal leasing is a hassle-free way to get a new car without a large down payment. The fixed monthly price covers almost all costs – maintenance, insurance, and tires – so you can focus on driving. At the end of the contract period, you can return the car, switch to a new one, or continue the contract."
+        ],
+        "palette": "maantie"
+      },
+      {
+        "title": "For Businesses – Efficiency and Flexibility for Business",
+        "texts": [
+          "Business leasing helps manage your company's vehicle fleet efficiently and cost-effectively. We offer customized contracts, a wide selection of vehicles, and a dedicated contact person who assists with all driving-related matters. Mini leasing is the perfect solution for short-term needs – you can get a car for use even the next day without long-term commitment."
+        ],
+        "palette": "kupari"
+      },
+      {
+        "title": "Leasing Terms – Flexible and Transparent",
+        "texts": [
+          "Our leasing contracts are clear and flexible. You can choose the contract duration (1–60 months), mileage, and additional services according to your needs. The fixed monthly price makes budgeting easier, and there are no hidden costs. Feel free to ask for more – we'll tailor a solution just for you."
+        ],
+        "palette": "piki"
+      },
+      {
+        "title": "Vehicle Selection – Find the Right Car",
+        "texts": [
+          "We offer a wide selection of cars: from small passenger cars to spacious family cars, vans, and electric vehicles. All our cars are well-equipped and regularly maintained. You can also test different car types before making a longer commitment."
+        ],
+        "palette": "piki"
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Why Choose Leasing?",
+    "list": [
+      "No large down payment – you only pay for usage",
+      "Fixed monthly price makes financial planning easier",
+      "Maintenance, insurance, and tires are included in the contract",
+      "No resale worries – return the car at the end of the contract period",
+      "Fast delivery – car available even the next day",
+      "Possibility to change cars as needed"
+    ]
+  },
+
+  "examples": {
+    "heading": "Practical Examples",
+    "list": [
+      "Need a car for a project? Mini leasing is a flexible solution for short-term needs.",
+      "Is your business growing rapidly? Leasing enables fleet expansion without large investments.",
+      "Want to test an electric car before making a purchase decision? With leasing, you can try different models risk-free."
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "Can I change cars during the contract period?",
+        "answer": "Yes, we offer flexible options to change cars when your life situation changes."
+      },
+      {
+        "question": "Are insurance and maintenance included in the monthly price?",
+        "answer": "Yes, in most contracts, insurance and maintenance are included in the fixed monthly price."
+      },
+      {
+        "question": "How do I return the car at the end of the contract period?",
+        "answer": "You can return the car to an agreed location. You'll get detailed instructions from our customer service."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Interested in Leasing?",
+    "texts": [
+      "Contact our experts – we'll help you find the best leasing solution for you or your business. You can also easily request a quote through our website."
+    ],
+    "link": { "label": "Contact Us", "href": "/yhteystiedot" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you save with a company car.",
+      "buttonText": "Go to Calculator"
+    },
+    "corporate": {
+      "heading": "Business Leasing",
+      "text": "Explore our comprehensive business car leasing solutions. Financial leasing, flexible leasing, and maintenance leasing.",
+      "buttonText": "Business Leasing"
+    },
+    "contact": {
+      "heading": "Need Help with Your Choice?",
+      "text": "Our experts will help you find the leasing solution that's right for you.",
+      "buttonText": "Contact Information"
+    }
   }
 }
