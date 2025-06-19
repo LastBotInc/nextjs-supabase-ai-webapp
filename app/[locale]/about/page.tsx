@@ -203,6 +203,38 @@ export default async function AboutPage({ params }: Props) {
           <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
         )}
       </BasicLayout>
+
+      {/* ADDITIONAL CTA SECTIONS */}
+      <FlexLayout oneColumnBreakpoint="lg" palette="kupari">
+        <FlexLayout.Column>
+          <Heading2>{t("additionalCta.services.heading")}</Heading2>
+          <Paragraph>{t("additionalCta.services.text")}</Paragraph>
+          <LinkButton href="/leasing-solutions">{t("additionalCta.services.buttonText")}</LinkButton>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          <Heading2>{t("additionalCta.calculator.heading")}</Heading2>
+          <Paragraph>{t("additionalCta.calculator.text")}</Paragraph>
+          <LinkButton href="/autoetulaskuri">{t("additionalCta.calculator.buttonText")}</LinkButton>
+        </FlexLayout.Column>
+      </FlexLayout>
+
+      <TwoColumnLayout palette="piki">
+        <FlexLayout.Column>
+          <Heading2>{t("additionalCta.team.heading")}</Heading2>
+          <Paragraph>{t("additionalCta.team.text")}</Paragraph>
+          <LinkButton href="/yhteystiedot">{t("additionalCta.team.buttonText")}</LinkButton>
+        </FlexLayout.Column>
+        <FlexLayout.Column>
+          <ImageContainer aspectRatio="4/3" className="flex items-center justify-center">
+            <Image 
+              src="/images/team/team-meeting.jpg" 
+              alt={t("additionalCta.team.imageAlt")} 
+              width={320} 
+              height={240} 
+            />
+          </ImageContainer>
+        </FlexLayout.Column>
+      </TwoColumnLayout>
     </PageWrapper>
   );
 }

@@ -124,5 +124,24 @@
       "Kontakta Innolease idag. Låt oss diskutera dina behov och hitta den bästa leasinglösningen för ditt företag eller personliga bruk."
     ],
     "link": { "label": "Kontakta Oss", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "services": {
+      "heading": "Utforska Våra Tjänster",
+      "text": "Upptäck ett brett utbud av leasinglösningar för ditt företag och personligt bruk. Billeasing, maskinleasing och andra flexibla finansieringslösningar.",
+      "buttonText": "Visa Alla Tjänster"
+    },
+    "calculator": {
+      "heading": "Beräkna Din Bilförmån",
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du kan spara med en tjänstebil. Få en exakt beräkning av din bilförmåns beskattningsvärde.",
+      "buttonText": "Gå till Kalkylatorn"
+    },
+    "team": {
+      "heading": "Träffa Vårt Team",
+      "text": "Våra erfarna specialister är redo att hjälpa dig hitta den bästa lösningen. Ta kontakt och diskutera dina behov.",
+      "buttonText": "Kontaktinformation",
+      "imageAlt": "Innolease team i ett möte"
+    }
   }
 }

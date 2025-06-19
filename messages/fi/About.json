@@ -124,5 +124,24 @@
       "Ota yhteyttä Innoleaseen jo tänään. Keskustellaan tarpeistasi ja löydetään paras leasingratkaisu yrityksellesi tai yksityiseen käyttöön."
     ],
     "link": { "label": "Ota yhteyttä", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "services": {
+      "heading": "Tutustu palveluihimme",
+      "text": "Löydä laaja valikoima leasingratkaisuja yrityksellesi ja yksityiskäyttöön. Autoleasing, koneleasing ja muut joustavat rahoitusratkaisut.",
+      "buttonText": "Näytä kaikki palvelut"
+    },
+    "calculator": {
+      "heading": "Laske autoetusi",
+      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta. Saat tarkan laskennan autoedun verotusarvosta.",
+      "buttonText": "Siirry laskuriin"
+    },
+    "team": {
+      "heading": "Tapaa tiimimme",
+      "text": "Kokeneet asiantuntijamme ovat valmiita auttamaan sinua löytämään parhaan ratkaisun. Ota yhteyttä ja keskustele tarpeistasi.",
+      "buttonText": "Yhteystiedot",
+      "imageAlt": "Innoleasen tiimi kokouksessa"
+    }
   }
 }

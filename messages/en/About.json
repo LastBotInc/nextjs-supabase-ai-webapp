@@ -186,5 +186,23 @@
       "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use."
     ],
     "link": { "label": "Contact Us", "href": "/contact" }
+  },
+  "additionalCta": {
+    "services": {
+      "heading": "Explore Our Services",
+      "text": "Discover a wide range of leasing solutions for your business and personal use. Car leasing, machinery leasing, and other flexible financing solutions.",
+      "buttonText": "View All Services"
+    },
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you can save with a company car. Get an accurate calculation of your car benefit tax value.",
+      "buttonText": "Go to Calculator"
+    },
+    "team": {
+      "heading": "Meet Our Team",
+      "text": "Our experienced specialists are ready to help you find the best solution. Get in touch and discuss your needs.",
+      "buttonText": "Contact Information",
+      "imageAlt": "Innolease team in a meeting"
+    }
   }
 }
