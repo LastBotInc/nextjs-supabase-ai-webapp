@@ -1,12 +1,17 @@
 {
   "meta": {
-    "title": "Kundtjänst | Innolease",
-    "description": "Kontakta Innoleases kundtjänst för personlig hjälp med dina leasing- och fordonsadministrationsbehov."
+    "title": "Kundservice | Innolease - Personlig hjälp med leasing och fordonsparkshantering",
+    "description": "Kontakta Innoleases kundservice för personlig hjälp med leasing och fordonsparkshantering. Vårt expertteam är redo att hjälpa.",
+    "keywords": "kundservice, leasingstöd, underhållstjänster, fakturering, kontohantering, kontaktinformation, kontor",
+    "image": "/images/ajankohtaista.png"
   },
   "hero": {
-    "heading": "Kundtjänst",
-    "subheading": "Vi hjälper dig med alla dina leasing- och fordonsadministrationsbehov",
-    "backgroundAlt": "Kundtjänstrepresentanter",
+    "heading": "Kundservice",
+    "subheading": "Vi hjälper dig med alla frågor som rör leasing och fordonsparkshantering",
+    "texts": [
+      "På Innolease är vi engagerade i att erbjuda utmärkt kundservice. Vårt expertteam är redo att hjälpa dig med alla frågor och bekymmer som rör fordonsleasing och fordonsparkshantering."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kundservicerepresentanter" },
     "numbers": [
       {
         "number": "+358 9 123 4567",
@@ -15,143 +20,174 @@
     ]
   },
   "intro": {
-    "title": "Hur kan vi hjälpa dig?",
-    "paragraph1": "På Innolease är vi engagerade i att erbjuda exceptionell kundservice. Vårt team av experter är redo att hjälpa dig med alla frågor eller funderingar gällande dina fordonsleasing-arrangemang och fordonsadministration.",
-    "paragraph2": "Oavsett om du behöver hjälp med att schemalägga underhåll, fakturafrågor eller avtalsinformation, är vi bara ett telefonsamtal eller meddelande bort."
+    "heading": "Hur kan vi hjälpa?",
+    "texts": [
+      "På Innolease är vi engagerade i att erbjuda utmärkt kundservice. Vårt expertteam är redo att hjälpa dig med alla frågor och bekymmer som rör fordonsleasing och fordonsparkshantering.",
+      "Oavsett om du behöver hjälp med att boka service, faktureringsfrågor eller avtalsärenden, är vi bara ett telefonsamtal eller meddelande bort."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kundservice" }
   },
   "quickHelp": {
-    "title": "Snabbhjälp",
+    "heading": "Snabbkontakt",
     "phone": "+358 9 123 4567",
-    "email": "kundtjanst@innolease.fi",
+    "email": "kundservice@innolease.fi",
     "hours": "Mån-Fre: 8:00 - 18:00",
-    "contactButton": "Kontakta oss"
+    "contactButton": "Kontakta oss",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Snabbkontakt" }
   },
   "supportCategories": {
-    "title": "Supportkategorier",
-    "description": "Vårt kundtjänstteam är specialiserat inom olika områden för att ge dig experthjälp för alla problem du kan stöta på.",
+    "heading": "Servicekategorier",
+    "texts": [
+      "Vårt kundserviceteam specialiserar sig på olika områden för att ge experthjälp i alla möjliga situationer."
+    ],
     "learnMore": "Läs mer",
     "categories": {
       "leasing": {
-        "title": "Leasingsupport",
-        "description": "Få hjälp med avtalsvillkor, leasingalternativ och arrangemang vid leasingperiodens slut."
+        "heading": "Leasingstöd",
+        "texts": ["Få hjälp med avtalsvillkor, leasingalternativ och avtalsuppsägning."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Leasingstöd" }
       },
       "maintenance": {
-        "title": "Underhållstjänster",
-        "description": "Planera underhåll, däckbyten eller besiktningar för dina leasade fordon."
+        "heading": "Underhållstjänster",
+        "texts": ["Boka service, däckbyte eller besiktning för dina leasade fordon."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Underhållstjänster" }
       },
       "billing": {
-        "title": "Fakturering & Betalningar",
-        "description": "Hjälp med fakturor, betalningsalternativ och ekonomiska frågor."
+        "heading": "Fakturering och betalningar",
+        "texts": ["Hjälp med fakturering, betalningsmetoder och ekonomiska frågor."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Fakturering och betalningar" }
       },
       "accounts": {
-        "title": "Kontohantering",
-        "description": "Hjälp med ditt InnoFleet Manager-konto, användaråtkomst och inställningar."
+        "heading": "Kontohantering",
+        "texts": ["Hjälp med ditt InnoFleet Manager-konto, åtkomsträttigheter och inställningar."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Kontohantering" }
       }
-    }
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Servicekategorier" }
   },
   "offices": {
-    "title": "Våra kontor",
-    "description": "Besök oss på något av våra kontor i Finland för personlig hjälp.",
+    "heading": "Våra kontor",
+    "texts": [
+      "Besök något av våra kontor runt om i Finland för personlig service."
+    ],
     "viewMap": "Visa på karta",
-    "helsinki": {
-      "name": "Helsingforskontoret",
-      "address": "Aleksanterinkatu 15, 00100 Helsingfors",
-      "phone": "+358 9 123 4567",
-      "email": "helsinki@innolease.fi",
-      "hours": "Mån-Fre: 9:00 - 17:00"
-    },
-    "tampere": {
-      "name": "Tammerforskontoret",
-      "address": "Hämeenkatu 10, 33200 Tammerfors",
-      "phone": "+358 3 456 7890",
-      "email": "tampere@innolease.fi",
-      "hours": "Mån-Fre: 9:00 - 16:00"
-    },
-    "oulu": {
-      "name": "Uleåborgskontoret",
-      "address": "Isokatu 35, 90100 Uleåborg",
-      "phone": "+358 8 789 0123",
-      "email": "oulu@innolease.fi",
-      "hours": "Mån-Fre: 9:00 - 16:00"
-    }
+    "locations": [
+      {
+        "name": "Helsingfors kontor",
+        "address": "Aleksanterinkatu 15, 00100 Helsinki",
+        "phone": "+358 9 123 4567",
+        "email": "helsinki@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 17:00"
+      },
+      {
+        "name": "Tammerfors kontor",
+        "address": "Hämeenkatu 10, 33200 Tampere",
+        "phone": "+358 3 456 7890",
+        "email": "tampere@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 16:00"
+      },
+      {
+        "name": "Uleåborg kontor",
+        "address": "Isokatu 35, 90100 Oulu",
+        "phone": "+358 8 789 0123",
+        "email": "oulu@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 16:00"
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kontor" }
   },
   "contactForm": {
-    "title": "Kontakta oss",
-    "description": "Fyll i formuläret nedan, så återkommer vårt team till dig så snart som möjligt.",
+    "heading": "Kontakta oss",
+    "texts": [
+      "Fyll i formuläret nedan så kontaktar vårt team dig så snart som möjligt."
+    ],
     "formTitle": "Kontaktformulär",
-    "firstName": "Förnamn",
-    "lastName": "Efternamn",
-    "email": "E-postadress",
-    "phone": "Telefonnummer",
-    "subject": "Ämne",
-    "selectSubject": "Välj ett ämne",
+    "fields": {
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "email": "E-postadress",
+      "phone": "Telefonnummer",
+      "subject": "Ämne",
+      "selectSubject": "Välj ämne",
+      "message": "Ditt meddelande"
+    },
     "subjects": {
       "leasing": "Leasingförfrågan",
-      "maintenance": "Underhållstjänst",
+      "maintenance": "Underhållsservice",
       "billing": "Faktureringsfråga",
-      "other": "Annat"
+      "other": "Annat ärende"
     },
-    "message": "Ditt meddelande",
-    "privacyConsent": "Jag godkänner att Innolease hanterar mina uppgifter enligt integritetspolicyn.",
+    "privacyConsent": "Jag godkänner att Innolease behandlar mina uppgifter enligt integritetspolicyn.",
     "submit": "Skicka meddelande",
     "faq": {
-      "question1": "Vilken information bör jag ha tillgänglig när jag kontaktar kundtjänst?",
-      "answer1": "Det är bra att ha ditt avtalsnummer, fordonsuppgifter och eventuell relevant dokumentation redo när du kontaktar oss för snabbare hjälp.",
-      "question2": "Hur snabbt kan jag förvänta mig ett svar på min förfrågan?",
-      "answer2": "Vi strävar efter att svara på alla förfrågningar inom 24 timmar under arbetsdagar. Brådskande ärenden prioriteras och hanteras vanligtvis inom några timmar.",
-      "question3": "Kan jag boka underhåll genom kundtjänst?",
-      "answer3": "Ja, vårt kundtjänstteam kan hjälpa dig att boka underhållstjänster, däckbyten och besiktningar för dina leasade fordon hos våra servicepartners."
-    }
+      "questions": [
+        {
+          "question": "Vilken information bör jag ha redo när jag kontaktar kundservice?",
+          "answer": "Det är bra om du har ditt avtalsnummer, fordonsinformation och eventuella nödvändiga dokument redo för att påskynda servicen."
+        },
+        {
+          "question": "Hur snabbt kan jag förvänta mig svar på min förfrågan?",
+          "answer": "Vi strävar efter att svara på alla förfrågningar inom 24 timmar på vardagar. Brådskande ärenden prioriteras och hanteras vanligtvis inom några timmar."
+        },
+        {
+          "question": "Kan jag boka service genom kundservice?",
+          "answer": "Ja, vårt kundserviceteam hjälper dig att boka underhållstjänster, däckbyten och besiktningar för dina leasade fordon hos våra partnerserviceställen."
+        }
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kontaktformulär" }
   },
   "personnel": [
     {
       "name": "Ville Mäkinen",
-      "title": "Myyntijohtaja",
+      "title": "Försäljningschef",
       "phone": "040 7570 309",
       "email": "ville.makinen@innolease.fi",
       "image": { "src": "/images/personnel/ville-makinen.jpg", "alt": "Ville Mäkinen" }
     },
     {
       "name": "Samuli Hintikka",
-      "title": "Myyntipäällikkö",
+      "title": "Försäljningschef",
       "phone": "045 6468 184",
       "email": "samuli.hintikka@innolease.fi",
       "image": { "src": "/images/personnel/samuli-hintikka.jpg", "alt": "Samuli Hintikka" }
     },
     {
       "name": "Anssi Hyvärinen",
-      "title": "Myyntipäällikkö",
+      "title": "Försäljningschef",
       "phone": "050 4734 817",
       "email": "anssi.hyvarinen@innolease.fi",
       "image": { "src": "/images/personnel/anssi-hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
     },
     {
       "name": "Jesse Hämäläinen",
-      "title": "Myyntipäällikkö",
+      "title": "Försäljningschef",
       "phone": "050 4738 049",
       "email": "jesse.hamalainen@innolease.fi",
       "image": { "src": "/images/personnel/jesse-hamalainen.jpg", "alt": "Jesse Hämäläinen" }
     },
     {
       "name": "Veikka Jurvelin",
-      "title": "Myyntipäällikkö",
+      "title": "Försäljningschef",
       "phone": "050 4735 816",
       "email": "veikka.jurvelin@innolease.fi",
       "image": { "src": "/images/personnel/veikka-jurvelin.jpg", "alt": "Veikka Jurvelin" }
     },
     {
       "name": "Niclas Yrttimaa",
-      "title": "Myyntipäällikkö",
+      "title": "Försäljningschef",
       "phone": "050 4611 119",
       "email": "niclas.yrttimaa@innolease.fi",
       "image": { "src": "/images/personnel/niclas-yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
     }
   ],
   "cta": {
-    "title": "Redo att optimera din fordonsflotta?",
-    "description": "Upptäck hur våra lösningar för fordonsadministration kan hjälpa ditt företag att spara tid och minska kostnader.",
-    "backgroundAlt": "Flotta av företagsfordon",
-    "fleetButton": "Utforska flottalösningar",
-    "leasingButton": "Visa leasingalternativ"
+    "heading": "Redo att optimera din fordonsparkshantering?",
+    "texts": [
+      "Upptäck hur våra fordonsparkshanteringslösningar kan spara tid och kostnader för ditt företag."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Företagsfordonspark" },
+    "fleetButton": "Utforska fordonsparklösningar",
+    "leasingButton": "Se leasingalternativ"
   }
 }
