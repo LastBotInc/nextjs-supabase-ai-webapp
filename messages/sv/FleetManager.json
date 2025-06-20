@@ -1,11 +1,17 @@
 {
   "meta": {
-    "title": "FleetManager",
-    "description": ""
+    "title": "FleetManager | Innolease - Fullständig kontroll över företagets fordonspark",
+    "description": "FleetManager är ett intelligent och användarvänligt verktyg som samlar din fordonsparkshantering på ett ställe – i realtid och transparent.",
+    "keywords": "FleetManager, fordonsparkshantering, fordonsförvaltarverktyg, kostnadsrapporter, avtalsövervakning, kostnadskontroll",
+    "image": "/images/ajankohtaista.png"
   },
+
   "hero": {
-    "heading": "FleetManager",
-    "subheading": "Full kontroll över företagets fordonsflotta",
+    "heading": "FleetManager – fullständig kontroll över företagets fordonspark",
+    "texts": [
+      "Innolease erbjuder moderna digitala tjänster som underlättar ditt företags vardag under leasingperioden. Fleet Manager-verktyget är designat för företag som vill hålla sin fordonspark under kontroll enkelt, effektivt och i realtid."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager" },
     "numbers": [
       {
         "title": "Ring oss",
@@ -29,32 +35,65 @@
     "alt": "FleetManager platshållarbild"
   },
   "mainView": {
-    "title": "En vy, all information",
+    "heading": "En hanteringsvy, all information",
+    "texts": [
+      "FleetManager samlar all viktig information i en tydlig vy där du effektivt kan hantera hela fordonsparksdata."
+    ],
     "features": [
-      "Avtalsuppföljning – hantering av avtal",
+      "Avtalsövervakning – avtalshantering",
       "Kostnadskontroll & optimering",
-      "Optimering av användningsgrad – körsträckeuppföljning",
+      "Användningsoptimering – milspårning",
       "Miljö- och hållbarhetsperspektiv",
-      "Full insyn och centraliserad information",
-      "Enkel delningsbar rapportering"
-    ]
+      "Fullständig transparens och centraliserad information",
+      "Enkel delbar rapportering"
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "En hanteringsvy" }
   },
   "summary": {
-    "title": "Intelligent och lättanvänt verktyg",
-    "description": "FleetManager är ett intelligent och lättanvänt verktyg som samlar hanteringen av din fordonsflotta på ett ställe – i realtid och med full insyn. Följ fordonskostnader och optimera användningsgraden enkelt. Tydliga rapporter stöder både ekonomiledningens och hållbarhetsrapporteringens behov."
+    "heading": "Intelligent och användarvänligt verktyg",
+    "texts": [
+      "FleetManager är ett intelligent och användarvänligt verktyg som samlar din fordonsparkshantering på ett ställe – i realtid och transparent. Spåra fordonsspecifika kostnader och optimera användning enkelt. Tydliga rapporter stöder både ekonomistyrning och hållbarhetsrapportering."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Intelligent verktyg" }
   },
   "benefits": {
-    "title": "FleetManager hjälper dig att:",
+    "heading": "FleetManager hjälper dig att:",
+    "texts": [
+      "Med det moderna FleetManager-verktyget får du kontroll över alla din fordonsparks viktigaste funktioner och information."
+    ],
     "items": [
-      "Följa upp avtal",
-      "Hantera kostnader noggrant",
-      "Effektivisera resursanvändningen",
-      "Dela information smidigt vidare",
-      "Uppfylla hållbarhetskrav på uppföljning"
-    ]
+      "Övervaka avtal",
+      "Hantera kostnader exakt",
+      "Effektivisera resursanvändning",
+      "Dela information enkelt",
+      "Uppfylla hållbarhetsövervakningskrav"
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager fördelar" }
   },
   "allInOne": {
-    "title": "All information i en vy – utan splittrade Excelark.",
-    "description": "FleetManager tar din fordonsförvaltning till en ny nivå av effektivitet och förutsägbarhet."
+    "heading": "All information i en vy – inga spridda Excel-filer",
+    "texts": [
+      "FleetManager ger din fordonsparkshantering en ny nivå av effektivitet och förutsägbarhet."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Allt i ett" }
+  },
+  "cta": {
+    "heading": "Implementera FleetManager i ditt företag",
+    "texts": [
+      "Utforska FleetManagers möjligheter och kontakta våra experter."
+    ],
+    "link": { "label": "Begär demonstration", "href": "/contact" }
+  },
+  "additionalCta": {
+    "leasing": {
+      "heading": "Intresserad av leasinglösningar?",
+      "text": "Utforska våra omfattande leasingtjänster för företag.",
+      "buttonText": "Leasinglösningar"
+    },
+    "contact": {
+      "heading": "Behöver du personlig rådgivning?",
+      "text": "Våra experter hjälper dig hitta den perfekta lösningen för ditt företag.",
+      "buttonText": "Kontakta oss"
+    }
   }
 }
