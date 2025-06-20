@@ -12,19 +12,100 @@ import { ImageContainer } from "@/app/components/v2/core/ImageContainer";
 import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
 import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
 import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
-
 interface Props {
   params: Promise<{
     locale: string;
   }>;
 }
 
+// TypeScript interfaces for the structured data
+interface MetaData {
+  title: string;
+  description: string;
+  keywords: string;
+  image: string;
+}
+
+interface ImageObject {
+  src: string;
+  alt: string;
+}
+
+interface LinkObject {
+  label: string;
+  href: string;
+}
+
+interface HeroSection {
+  heading: string;
+  texts: string[];
+  image: ImageObject;
+}
+
+interface BenefitsSection {
+  heading: string;
+  texts: string[];
+  list: string[];
+  image: ImageObject;
+}
+
+interface ExamplesSection {
+  heading: string;
+  texts: string[];
+  list: string[];
+  image: ImageObject;
+}
+
+interface UseCases {
+  heading: string;
+  list: string[];
+}
+
+interface MinileasingSection {
+  heading: string;
+  texts: string[];
+  benefits: string[];
+  useCases: UseCases;
+  cta: string;
+}
+
+interface CtaSection {
+  heading: string;
+  texts: string[];
+  link: LinkObject;
+}
+
+interface AdditionalCtaItem {
+  heading: string;
+  text: string;
+  buttonText: string;
+}
+
+interface AdditionalCta {
+  leasing: AdditionalCtaItem;
+  calculator: AdditionalCtaItem;
+  contact: AdditionalCtaItem;
+}
+
+// interface CarRentalData {
+//   meta: MetaData;
+//   hero: HeroSection;
+//   benefits: BenefitsSection;
+//   examples: ExamplesSection;
+//   minileasing: MinileasingSection;
+//   cta: CtaSection;
+//   additionalCta: AdditionalCta;
+// }
+
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CarRental" });
+  const meta = t.raw('meta') as MetaData;
+
   return {
-    title: t("meta.title"),
-    description: t("meta.description"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
       canonical: `/${locale}/auton-vuokraus`,
     },
@@ -36,61 +117,55 @@ export default async function CarRentalPage({ params }: Props) {
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "CarRental" });
 
-  // Hero section
-  const heroTitle = t("hero.title");
-  const heroDescription = t("hero.description");
-
-  // Benefits and examples lists
-  const benefitsTitle = t("benefits.title");
-  const benefitsList: string[] = t.raw("benefits.list");
-  const examplesTitle = t("examples.title");
-  const examplesList: string[] = t.raw("examples.list");
-
-  // CTA section
-  const ctaTitle = t("cta.title");
-  const ctaDescription = t("cta.description");
-  const ctaButton = t("cta.button");
+  // Extract structured data using specific keys
+  const hero = t.raw('hero') as HeroSection;
+  const benefits = t.raw('benefits') as BenefitsSection;
+  const examples = t.raw('examples') as ExamplesSection;
+  const minileasing = t.raw('minileasing') as MinileasingSection;
+  const cta = t.raw('cta') as CtaSection;
+  const additionalCta = t.raw('additionalCta') as AdditionalCta;
 
   return (
     <PageWrapper>
       {/* Hero Section */}
       <Hero>
-        <Hero.Image src={`/images/yritysleasing.png`} backgroundSize="cover" backgroundPosition="center" />
-        <Hero.Heading>{heroTitle}</Hero.Heading>
-        <Hero.Text>{heroDescription}</Hero.Text>
+        <Hero.Image src={hero.image.src} backgroundSize="cover" backgroundPosition="center" />
+        <Hero.Heading>{hero.heading}</Hero.Heading>
+        {hero.texts.map((text, index) => (
+          <Hero.Text key={index}>{text}</Hero.Text>
+        ))}
       </Hero>
 
-      {/* Intro Paragraph */}
-      <BasicLayout>
-        <Paragraph>{t("intro")}</Paragraph>
-      </BasicLayout>
-
-      {/* Benefits Section with TwoColumnLayout and image placeholder */}
+      {/* Benefits Section */}
       <TwoColumnLayout>
         <FlexLayout.Column>
-          <Heading2>{benefitsTitle}</Heading2>
+          <Heading2>{benefits.heading}</Heading2>
+          {benefits.texts.map((text, index) => (
+            <Paragraph key={index}>{text}</Paragraph>
+          ))}
           <List className="mt-4">
-            {benefitsList.map((item, idx) => (
+            {benefits.list.map((item, idx) => (
               <List.Item key={idx}>{item}</List.Item>
             ))}
           </List>
         </FlexLayout.Column>
-        {/* Image placeholder using ImageContainer with an <img> */}
         <ImageContainer aspectRatio="4/3" className="rounded-xl shadow-lg">
-          <img src="/images/autonvuokraus.png" alt="Auton vuokraus" className="object-cover w-full h-full rounded-xl" />
+          <img src={benefits.image.src} alt={benefits.image.alt} className="object-cover w-full h-full rounded-xl" />
         </ImageContainer>
       </TwoColumnLayout>
 
-      {/* Examples Section with TwoColumnLayout and image placeholder (reversed order) */}
+      {/* Examples Section */}
       <TwoColumnLayout>
-        {/* Image placeholder using ImageContainer with an <img> */}
         <ImageContainer aspectRatio="4/3" className="rounded-xl shadow-lg">
-          <img src="/images/yritysleasing.png" alt="Yritysleasing" className="object-cover w-full h-full rounded-xl" />
+          <img src={examples.image.src} alt={examples.image.alt} className="object-cover w-full h-full rounded-xl" />
         </ImageContainer>
         <div>
-          <Heading3>{examplesTitle}</Heading3>
+          <Heading3>{examples.heading}</Heading3>
+          {examples.texts.map((text, index) => (
+            <Paragraph key={index}>{text}</Paragraph>
+          ))}
           <List className="mt-4">
-            {examplesList.map((item, idx) => (
+            {examples.list.map((item, idx) => (
               <List.Item key={idx}>{item}</List.Item>
             ))}
           </List>
@@ -99,27 +174,58 @@ export default async function CarRentalPage({ params }: Props) {
 
       {/* Minileasing Section */}
       <BasicLayout>
-        <Heading2>{t("minileasing.title")}</Heading2>
-        <Paragraph>{t("minileasing.description")}</Paragraph>
+        <Heading2>{minileasing.heading}</Heading2>
+        {minileasing.texts.map((text, index) => (
+          <Paragraph key={index}>{text}</Paragraph>
+        ))}
         <List>
-          {t.raw("minileasing.list").map((item: string, idx: number) => (
+          {minileasing.benefits.map((item, idx) => (
             <List.Item key={idx}>{item}</List.Item>
           ))}
         </List>
-        <Heading3>{t("minileasing.examplesTitle")}</Heading3>
+        <Heading3>{minileasing.useCases.heading}</Heading3>
         <List>
-          {t.raw("minileasing.examples").map((item: string, idx: number) => (
+          {minileasing.useCases.list.map((item, idx) => (
             <List.Item key={idx}>{item}</List.Item>
           ))}
         </List>
-        <Paragraph>{t("minileasing.contactCta")}</Paragraph>
+        <Paragraph>{minileasing.cta}</Paragraph>
       </BasicLayout>
 
-      {/* CTA Section */}
+      {/* Main CTA Section */}
       <BasicLayout palette="piki">
-        <Heading2>{ctaTitle}</Heading2>
-        <Paragraph className="mt-2 mb-6">{ctaDescription}</Paragraph>
-        <LinkButton href={`/${locale}/yhteydenotto`}>{ctaButton}</LinkButton>
+        <Heading2>{cta.heading}</Heading2>
+        {cta.texts.map((text, index) => (
+          <Paragraph key={index} className="mt-2 mb-6">{text}</Paragraph>
+        ))}
+        <LinkButton href={`/${locale}${cta.link.href}`}>{cta.link.label}</LinkButton>
+      </BasicLayout>
+
+      {/* Additional CTA Sections */}
+      <TwoColumnLayout>
+        <BasicLayout palette="beige">
+          <Heading3>{additionalCta.leasing.heading}</Heading3>
+          <Paragraph>{additionalCta.leasing.text}</Paragraph>
+          <LinkButton href={`/${locale}/autoleasing`} className="mt-4">
+            {additionalCta.leasing.buttonText}
+          </LinkButton>
+        </BasicLayout>
+        <BasicLayout palette="beige">
+          <Heading3>{additionalCta.calculator.heading}</Heading3>
+          <Paragraph>{additionalCta.calculator.text}</Paragraph>
+          <LinkButton href={`/${locale}/autoetulaskuri`} className="mt-4">
+            {additionalCta.calculator.buttonText}
+          </LinkButton>
+        </BasicLayout>
+      </TwoColumnLayout>
+
+      {/* Expert Contact CTA */}
+      <BasicLayout palette="kupari">
+        <Heading2>{additionalCta.contact.heading}</Heading2>
+        <Paragraph className="mb-6">{additionalCta.contact.text}</Paragraph>
+        <LinkButton href={`/${locale}/yhteystiedot`}>
+          {additionalCta.contact.buttonText}
+        </LinkButton>
       </BasicLayout>
     </PageWrapper>
   );
