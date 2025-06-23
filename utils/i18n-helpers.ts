@@ -45,6 +45,7 @@ export const getNamespaces = (): string[] => {
     "MiniLeasing",
     "Navigation",
     "OpenPositions",
+    "PostMarketing",
     "Privacy",
     "Profile",
     "Sales",

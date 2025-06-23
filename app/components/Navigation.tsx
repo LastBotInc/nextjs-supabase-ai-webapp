@@ -152,7 +152,7 @@ export default function Navigation() {
       items: [
         { href: "/asiakaspalvelu", label: t("customer_service") },
         { href: "/myynti", label: t("sales") },
-        { href: "/jälkimarkkinointi", label: t("marketing") },
+        { href: "/jalkimarkkinointi", label: t("marketing") },
         { href: "/laskutus", label: t("billing") },
         { href: "/avoimet-tyopaikat", label: t("open_positions") },
       ],
