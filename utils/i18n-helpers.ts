@@ -15,7 +15,7 @@ export const getNamespaces = (): string[] => {
     'About', 'Account', 'Admin', 'Auth',
     'Blog', 'Campaigns', 'CarBenefitCalculator', 'CarLeasing',
     'CarRental', 'Common', 'Contact', 'CookieConsent',
-    'CorporateLeasing', 'CurrentTopics', 'CustomerService', 'CustomerStories',
+    'CorporateLeasing', 'CurrentTopics', 'CustomerService', 'CustomerStories', "DigitalServices",
     'DriversGuide', 'FleetManager', 'Footer', 'Home',
     'Index', 'LandingPages', 'LeasingSolutions', 'MachineLeasing',
     'Media', 'Meta', 'Navigation', 'OpenPositions',
