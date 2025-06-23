@@ -68,7 +68,7 @@ export default async function CampaignsPage({ params }: { params: { locale: stri
   // Setup localization
   const { locale } = params;
   await setupServerLocale(locale);
-  const t = await getTranslations("Campaigns");
+  const t = await getTranslations({ locale, namespace: "Campaigns" });
 
   return (
     <PageWrapper>

@@ -147,7 +147,8 @@ export function useLocale() {
 import { getTranslations } from "next-intl/server";
 
 export default async function Page() {
-  const t = await getTranslations("Namespace");
+  const t = await getTranslations({ locale, namespace: "Namespace" });
+  Namespace;
   return <h1>{t("title")}</h1>;
 }
 ```
@@ -273,7 +274,7 @@ export default async function PublicPage({ params }: Props) {
   // 1. Setup localization
   const { locale } = await params;
   await setupServerLocale(locale);
-  const t = await getTranslations("PageNamespace");
+  const t = await getTranslations({ locale, namespace: "PageNamespace" });
 
   // 2. Optional: Server-side data fetching
   const data = await fetchServerData();
@@ -546,8 +547,7 @@ useEffect(() => {
 
 ```typescript
 // Server-side
-const t = await getTranslations("Namespace");
-
+const t = await getTranslations({ locale, namespace: "Namespace" });
 // Client-side
 const t = useTranslations("Namespace");
 ```

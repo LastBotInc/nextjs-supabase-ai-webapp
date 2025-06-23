@@ -39,7 +39,7 @@ export default async function CustomerStoriesPage({ params }: Props) {
   // Setup localization
   const { locale } = await params;
   await setupServerLocale(locale);
-  const t = await getTranslations("CustomerStories");
+  const t = await getTranslations({ locale, namespace: "CustomerStories" });
 
   // Get translation data
   const hero = t.raw("hero");

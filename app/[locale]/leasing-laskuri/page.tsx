@@ -39,8 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   await setupServerLocale(locale);
-  const t = await getTranslations("LeasingCalculator");
-
+  const t = await getTranslations({ locale, namespace: "LeasingCalculator" });
   // Extract structured data
   const hero = t.raw("hero");
   const intro = t.raw("intro");

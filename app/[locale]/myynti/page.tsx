@@ -35,8 +35,8 @@ export default async function SalesPage({ params }: Props) {
   // Setup localization
   const { locale } = await params;
   await setupServerLocale(locale);
-  const salesT = await getTranslations("Sales");
-  const homeT = await getTranslations("Home");
+  const salesT = await getTranslations({ locale, namespace: "Sales" });
+  const homeT = await getTranslations({ locale, namespace: "Home" });
 
   // Get translation data
   const intro = salesT.raw("intro");
