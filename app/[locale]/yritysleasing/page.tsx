@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     namespace: "CorporateLeasing",
     title: meta.title,
     description: meta.description,
-    path: "/about",
+    path: "/yritysleasing",
   });
 }
 

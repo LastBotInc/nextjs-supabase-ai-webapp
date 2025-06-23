@@ -58,10 +58,19 @@
   "campaigns": "Campaigns",
   "customer_stories": "Customer Stories",
   "open_positions": "Open Positions",
-  "about_us": "About Us",
+  "about_us": "Who We Are",
   "business_leasing": "Business Leasing",
   "fleet_management": "Fleet Management",
   "other_services": "Other Services",
   "customer_service": "Customer Service",
-  "contact_info": "Contact Information"
+  "contact_info": "Contact Information",
+  "digital_services": "Digital Services",
+  "financing_solutions": "Financing Solutions",
+  "leasing_calculator": "Leasing Calculator",
+  "service_prices": "Service Prices",
+  "calculators": "Calculators",
+  "faq": "FAQ",
+  "sales": "Sales",
+  "marketing": "Marketing",
+  "news": "News"
 }

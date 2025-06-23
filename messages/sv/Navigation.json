@@ -58,10 +58,19 @@
   "campaigns": "Kampanjer",
   "customer_stories": "Kundberättelser",
   "open_positions": "Lediga tjänster",
-  "about_us": "Om oss",
+  "about_us": "Vem vi är",
   "business_leasing": "Företagsleasing",
   "fleet_management": "Fordonshantering",
   "other_services": "Övriga tjänster",
   "customer_service": "Kundtjänst",
-  "contact_info": "Kontaktuppgifter"
+  "contact_info": "Kontaktuppgifter",
+  "digital_services": "Digitala tjänster",
+  "financing_solutions": "Finansieringslösningar",
+  "leasing_calculator": "Leasingkalkylator",
+  "service_prices": "Servicepriser",
+  "calculators": "Kalkylatorer",
+  "faq": "Vanliga frågor",
+  "sales": "Försäljning",
+  "marketing": "Marknadsföring",
+  "news": "Nyheter"
 }
