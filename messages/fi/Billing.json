@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "title": "Laskutustiedot | Innolease",
+    "description": "Tutustu Innoleasen laskutusprosesseihin, maksutapoihin ja laskutuksen yksityiskohtiin leasing-palveluissa.",
+    "keywords": "laskutus, laskut, maksaminen, leasing-laskut, maksutavat, Innolease laskutus",
+    "image": "/images/billing-info.jpg"
+  },
+
+  "introduction": {
+    "heading": "Laskutustiedot",
+    "texts": [
+      "Innoleasessa pyrimme pitämään laskutuksen läpinäkyvänä ja selkeänä. Laskutusjärjestelmämme varmistaa tarkan ja oikea-aikaisen laskutuksen kaikista leasing-palveluistasi."
+    ]
+  },
+
+  "billingProcess": {
+    "heading": "Näin laskutus toimii",
+    "texts": [
+      "Kuukausittaiset leasing-maksusi lasketaan automaattisesti sopimusehtojen mukaan. Laskut luodaan kuukausittain ja lähetetään sähköisesti rekisteröityyn sähköpostiosoitteeseesi."
+    ],
+    "list": [
+      {
+        "term": "Kuukausilaskutus",
+        "description": "Laskut luodaan samana päivänä joka kuukausi sopimuksen alkamispäivän mukaan"
+      },
+      {
+        "term": "Sähköinen toimitus",
+        "description": "Kaikki laskut lähetetään sähköpostitse PDF-muodossa helppoa käyttöä ja säilytystä varten"
+      },
+      {
+        "term": "Yksityiskohtainen erittely",
+        "description": "Jokaisessa laskussa on täydellinen erittely maksuista, veroista ja lisäpalveluista"
+      },
+      { "term": "Maksuaika", "description": "Vakiomaksuehdot ovat 14 päivää laskun päivämäärästä, ellei toisin sovita" }
+    ]
+  },
+
+  "paymentMethods": {
+    "heading": "Maksuvaihtoehdot",
+    "texts": ["Tarjoamme useita käteviä maksutapoja mieltymystesi mukaan ja oikea-aikaisten maksujen varmistamiseksi."],
+    "table": {
+      "columns": ["Maksutapa", "Käsittelyaika"],
+      "rows": [
+        ["Suoraveloitus (Suositeltu)", "Automaattinen eräpäivänä"],
+        ["Tilisiirto", "1-2 arkipäivää"],
+        ["Verkkopankki", "Välitön"],
+        ["Mobiilimaksusovellukset", "Välitön"],
+        ["Luottokortti", "Välitön"]
+      ]
+    }
+  },
+
+  "billingSupport": {
+    "heading": "Laskutustuki",
+    "texts": [
+      "Laskutustiimimme on valmiina auttamaan kaikissa laskuja, maksutapoja tai tilin tilaa koskevissa kysymyksissä ja huolissa."
+    ],
+    "list": [
+      "Laskujen selitykset ja erittelyt",
+      "Maksutavan asetus ja muutokset",
+      "Laskutusaikataulun säädöt",
+      "Maksuhistoria ja tiliottelot",
+      "Riitojen ratkaisu ja korjaukset"
+    ]
+  },
+
+  "companyBillingInfo": {
+    "heading": "Yrityksen laskutustiedot",
+    "texts": [
+      "Käytä seuraavia tietoja maksuja suorittaessasi tai suoraveloitusta perustettaessa Innolease-palveluillesi."
+    ],
+    "details": {
+      "companyName": "Innolease Oy",
+      "businessId": "FI12345678",
+      "vatNumber": "FI12345678",
+      "address": {
+        "street": "Teollisuuskatu 15",
+        "postalCode": "00510",
+        "city": "Helsinki",
+        "country": "Suomi"
+      },
+      "bankDetails": {
+        "bankName": "Nordea Pankki Oyj",
+        "iban": "FI21 1234 5600 0007 85",
+        "bic": "NDEAFIHH",
+        "accountHolder": "Innolease Oy"
+      },
+      "reference": {
+        "heading": "Maksuviite",
+        "text": "Sisällytä aina laskultasi löytyvä asiakasviitteesi maksuja suorittaessasi."
+      }
+    }
+  },
+
+  "paymentInstructions": {
+    "heading": "Maksuohjeet",
+    "texts": ["Seuraa näitä ohjeita varmistaaksesi, että maksusi käsitellään oikein ja ajallaan."],
+    "steps": [
+      {
+        "title": "Verkkopankki",
+        "description": "Kirjaudu verkkopankkiisi, lisää Innolease maksunsaajaksi IBAN-tilimme avulla ja sisällytä viitteesi"
+      },
+      {
+        "title": "Tilisiirto",
+        "description": "Käytä yllä annettua IBAN- ja BIC-koodia, sisällytä aina asiakasviitteesi viestikenttään"
+      },
+      {
+        "title": "Suoraveloitus",
+        "description": "Ota yhteyttä laskutustimiimme automaattisten maksujen perustamiseksi - viitettä ei tarvita, koska se käsitellään automaattisesti"
+      },
+      {
+        "title": "Mobiilipankki",
+        "description": "Käytä mobiilipankkisovellustasi IBAN-tilimme ja viitteesi kanssa nopeiden maksujen suorittamiseen"
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": ["Yleisiä kysymyksiä laskutusprosessistamme ja maksumenettelyistä."],
+    "questions": [
+      {
+        "question": "Milloin saan ensimmäisen laskun?",
+        "answer": "Ensimmäinen laskusi luodaan tyypillisesti 30 päivän kuluessa leasing-sopimuksen alkamispäivästä ja sisältää mahdolliset aloitusmaksut sekä ensimmäisen kuukauden maksun."
+      },
+      {
+        "question": "Voinko vaihtaa maksutapaa?",
+        "answer": "Kyllä, voit päivittää maksutapasi milloin tahansa ottamalla yhteyttä laskutustimiimme tai verkkoasiakasportaalin kautta."
+      },
+      {
+        "question": "Mitä tapahtuu, jos unohdan maksun?",
+        "answer": "Lähetämme maksumuistutuksen sähköpostitse. Viivästysmaksuja voi koitua armonajan jälkeen. Ota yhteyttä välittömästi, jos sinulla on maksuvaikeuksia."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Tarvitsetko laskutusapua?",
+    "texts": ["Laskutusasiantuntijamme ovat valmiina auttamaan tilisi, maksujen tai laskujen kanssa."],
+    "link": { "label": "Ota yhteyttä laskutustiimiin", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "portal": {
+      "heading": "Verkkoasiakasportaali",
+      "text": "Käytä laskujasi, maksuhistoriaasi ja tilin tietojasi verkossa.",
+      "buttonText": "Siirry portaaliin"
+    },
+    "support": {
+      "heading": "Asiakastuki",
+      "text": "Saa apua laskutus- tai tilikysymyksiin tukitiimiltämme.",
+      "buttonText": "Hanki tukea"
+    },
+    "contact": {
+      "heading": "Suora yhteydenotto",
+      "text": "Keskustele suoraan laskutusasiantuntijoiden kanssa henkilökohtaista apua varten.",
+      "buttonText": "Ota yhteyttä"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "title": "Faktureringsinformation | Innolease",
+    "description": "Lär dig om Innoleases faktureringsprocesser, betalningsmetoder och faktureringsdetaljer för leasingtjänster.",
+    "keywords": "fakturering, betalning, leasing-fakturor, betalningsmetoder, Innolease fakturering",
+    "image": "/images/billing-info.jpg"
+  },
+
+  "introduction": {
+    "heading": "Faktureringsinformation",
+    "texts": [
+      "På Innolease strävar vi efter att göra faktureringen transparent och enkel. Vårt faktureringssystem säkerställer noggrann och välitad fakturering för alla dina leasingtjänster."
+    ]
+  },
+
+  "billingProcess": {
+    "heading": "Så fungerar faktureringen",
+    "texts": [
+      "Dina månatliga leasingbetalningar beräknas automatiskt baserat på dina avtalsvillkor. Fakturor genereras månadsvis och skickas elektroniskt till din registrerade e-postadress."
+    ],
+    "list": [
+      {
+        "term": "Månadsvis fakturering",
+        "description": "Fakturor genereras samma datum varje månad enligt ditt avtals startdatum"
+      },
+      {
+        "term": "Elektronisk leverans",
+        "description": "Alla fakturor skickas via e-post i PDF-format för enkel åtkomst och lagring"
+      },
+      {
+        "term": "Detaljerad uppdelning",
+        "description": "Varje faktura innehåller en fullständig uppdelning av avgifter, skatter och eventuella tilläggstjänster"
+      },
+      {
+        "term": "Förfallodag",
+        "description": "Standardbetalningsvillkor är 14 dagar från fakturadatum om inte annat överenskommits"
+      }
+    ]
+  },
+
+  "paymentMethods": {
+    "heading": "Betalningsalternativ",
+    "texts": [
+      "Vi erbjuder flera bekväma betalningsmetoder för att passa dina preferenser och säkerställa välitade betalningar."
+    ],
+    "table": {
+      "columns": ["Betalningsmetod", "Behandlingstid"],
+      "rows": [
+        ["Autogiro (Rekommenderat)", "Automatisk på förfallodagen"],
+        ["Banköverföring", "1-2 arbetsdagar"],
+        ["Internetbank", "Omedelbar"],
+        ["Mobilbetalningsappar", "Omedelbar"],
+        ["Kreditkort", "Omedelbar"]
+      ]
+    }
+  },
+
+  "billingSupport": {
+    "heading": "Faktureringsstöd",
+    "texts": [
+      "Vårt faktureringsteam är här för att hjälpa till med eventuella frågor eller problem gällande dina fakturor, betalningsmetoder eller kontostatus."
+    ],
+    "list": [
+      "Fakturerförklaringar och uppdelningar",
+      "Betalningsmetodsinställningar och ändringar",
+      "Justeringar av faktureringsschema",
+      "Betalningshistorik och kontoutdrag",
+      "Tvistlösning och korrigeringar"
+    ]
+  },
+
+  "companyBillingInfo": {
+    "heading": "Företagets faktureringsinformation",
+    "texts": [
+      "Använd följande information när du gör betalningar eller ställer in autogiro för dina Innolease-tjänster."
+    ],
+    "details": {
+      "companyName": "Innolease Oy",
+      "businessId": "FI12345678",
+      "vatNumber": "FI12345678",
+      "address": {
+        "street": "Teollisuuskatu 15",
+        "postalCode": "00510",
+        "city": "Helsingfors",
+        "country": "Finland"
+      },
+      "bankDetails": {
+        "bankName": "Nordea Bank Oyj",
+        "iban": "FI21 1234 5600 0007 85",
+        "bic": "NDEAFIHH",
+        "accountHolder": "Innolease Oy"
+      },
+      "reference": {
+        "heading": "Betalningsreferens",
+        "text": "Inkludera alltid ditt kundreferensnummer som finns på din faktura när du gör betalningar."
+      }
+    }
+  },
+
+  "paymentInstructions": {
+    "heading": "Betalningsinstruktioner",
+    "texts": ["Följ dessa instruktioner för att säkerställa att dina betalningar behandlas korrekt och i tid."],
+    "steps": [
+      {
+        "title": "Internetbank",
+        "description": "Logga in på din internetbank, lägg till Innolease som betalningsmottagare med vårt IBAN och inkludera ditt referensnummer"
+      },
+      {
+        "title": "Banköverföring",
+        "description": "Använd IBAN och BIC som anges ovan, inkludera alltid ditt kundreferensnummer i meddelandefältet"
+      },
+      {
+        "title": "Autogiro",
+        "description": "Kontakta vårt faktureringsteam för att ställa in automatiska betalningar - inget referensnummer behövs då detta hanteras automatiskt"
+      },
+      {
+        "title": "Mobilbank",
+        "description": "Använd din mobilbanksapp med vårt IBAN och ditt referensnummer för snabba betalningar"
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Vanliga frågor",
+    "texts": ["Vanliga frågor om vår faktureringsprocess och betalningsprocedurer."],
+    "questions": [
+      {
+        "question": "När kommer jag att få min första faktura?",
+        "answer": "Din första faktura genereras vanligtvis inom 30 dagar från ditt leasingavtals startdatum och inkluderar eventuella uppstartsavgifter och första månadens betalning."
+      },
+      {
+        "question": "Kan jag ändra min betalningsmetod?",
+        "answer": "Ja, du kan uppdatera din betalningsmetod när som helst genom att kontakta vårt faktureringsteam eller via din onlinekontorapport."
+      },
+      {
+        "question": "Vad händer om jag missar en betalning?",
+        "answer": "Vi skickar en betalningspåminnelse via e-post. Förseningsavgifter kan tillkomma efter respitperioden. Kontakta oss omedelbart om du upplever betalningssvårigheter."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Behöver du faktureringsjälp?",
+    "texts": [
+      "Våra faktureringsspecialister är redo att hjälpa till med eventuella frågor om ditt konto, betalningar eller fakturor."
+    ],
+    "link": { "label": "Kontakta faktureringsteamet", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "portal": {
+      "heading": "Online kontoportal",
+      "text": "Få tillgång till dina fakturor, betalningshistorik och kontodetaljer online.",
+      "buttonText": "Använd portalen"
+    },
+    "support": {
+      "heading": "Kundsupport",
+      "text": "Få hjälp med eventuella fakturerings- eller kontofrågor från vårt supportteam.",
+      "buttonText": "Få support"
+    },
+    "contact": {
+      "heading": "Direktkontakt",
+      "text": "Tala direkt med våra faktureringsspecialister för personlig hjälp.",
+      "buttonText": "Kontakta oss"
+    }
+  }
+}

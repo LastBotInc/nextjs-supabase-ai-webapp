@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "Billing Information | Innolease",
+    "description": "Learn about Innolease billing processes, payment methods, and invoicing details for leasing services.",
+    "keywords": "billing, invoicing, payment, leasing bills, payment methods, Innolease billing",
+    "image": "/images/billing-info.jpg"
+  },
+
+  "introduction": {
+    "heading": "Billing Information",
+    "texts": [
+      "At Innolease, we strive to make billing transparent and straightforward. Our billing system ensures accurate and timely invoicing for all your leasing services."
+    ]
+  },
+
+  "billingProcess": {
+    "heading": "How Billing Works",
+    "texts": [
+      "Your monthly leasing payments are automatically calculated based on your contract terms. Invoices are generated monthly and sent electronically to your registered email address."
+    ],
+    "list": [
+      {
+        "term": "Monthly Invoicing",
+        "description": "Invoices are generated on the same date each month according to your contract start date"
+      },
+      {
+        "term": "Electronic Delivery",
+        "description": "All invoices are sent via email in PDF format for easy access and storage"
+      },
+      {
+        "term": "Detailed Breakdown",
+        "description": "Each invoice includes a complete breakdown of charges, taxes, and any additional services"
+      },
+      {
+        "term": "Payment Due Date",
+        "description": "Standard payment terms are 14 days from invoice date unless otherwise agreed"
+      }
+    ]
+  },
+
+  "paymentMethods": {
+    "heading": "Payment Options",
+    "texts": ["We offer multiple convenient payment methods to suit your preferences and ensure timely payments."],
+    "table": {
+      "columns": ["Payment Method", "Processing Time"],
+      "rows": [
+        ["Direct Debit (Recommended)", "Automatic on due date"],
+        ["Bank Transfer", "1-2 business days"],
+        ["Online Banking", "Instant"],
+        ["Mobile Payment Apps", "Instant"],
+        ["Credit Card", "Instant"]
+      ]
+    }
+  },
+
+  "billingSupport": {
+    "heading": "Billing Support",
+    "texts": [
+      "Our billing team is here to help with any questions or concerns about your invoices, payment methods, or account status."
+    ],
+    "list": [
+      "Invoice explanations and breakdowns",
+      "Payment method setup and changes",
+      "Billing schedule adjustments",
+      "Payment history and account statements",
+      "Dispute resolution and corrections"
+    ]
+  },
+
+  "companyBillingInfo": {
+    "heading": "Company Billing Information",
+    "texts": [
+      "Use the following information when making payments or setting up direct debits for your Innolease services."
+    ],
+    "details": {
+      "companyName": "Innolease Oy",
+      "businessId": "FI12345678",
+      "vatNumber": "FI12345678",
+      "address": {
+        "street": "Teollisuuskatu 15",
+        "postalCode": "00510",
+        "city": "Helsinki",
+        "country": "Finland"
+      },
+      "bankDetails": {
+        "bankName": "Nordea Bank Oyj",
+        "iban": "FI21 1234 5600 0007 85",
+        "bic": "NDEAFIHH",
+        "accountHolder": "Innolease Oy"
+      },
+      "reference": {
+        "heading": "Payment Reference",
+        "text": "Always include your customer reference number found on your invoice when making payments."
+      }
+    }
+  },
+
+  "paymentInstructions": {
+    "heading": "Payment Instructions",
+    "texts": ["Follow these instructions to ensure your payments are processed correctly and on time."],
+    "steps": [
+      {
+        "title": "Online Banking",
+        "description": "Log into your online banking, add Innolease as a payee using our IBAN, and include your reference number"
+      },
+      {
+        "title": "Bank Transfer",
+        "description": "Use the IBAN and BIC provided above, always include your customer reference number in the message field"
+      },
+      {
+        "title": "Direct Debit",
+        "description": "Contact our billing team to set up automatic payments - no reference number needed as this is handled automatically"
+      },
+      {
+        "title": "Mobile Banking",
+        "description": "Use your mobile banking app with our IBAN and your reference number for quick payments"
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "texts": ["Common questions about our billing process and payment procedures."],
+    "questions": [
+      {
+        "question": "When will I receive my first invoice?",
+        "answer": "Your first invoice is typically generated within 30 days of your lease agreement start date and includes any setup fees and the first month's payment."
+      },
+      {
+        "question": "Can I change my payment method?",
+        "answer": "Yes, you can update your payment method at any time by contacting our billing team or through your online account portal."
+      },
+      {
+        "question": "What happens if I miss a payment?",
+        "answer": "We'll send a payment reminder via email. Late fees may apply after the grace period. Contact us immediately if you're experiencing payment difficulties."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Billing Assistance?",
+    "texts": [
+      "Our billing specialists are ready to help with any questions about your account, payments, or invoices."
+    ],
+    "link": { "label": "Contact Billing Team", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "portal": {
+      "heading": "Online Account Portal",
+      "text": "Access your invoices, payment history, and account details online.",
+      "buttonText": "Access Portal"
+    },
+    "support": {
+      "heading": "Customer Support",
+      "text": "Get help with any billing or account questions from our support team.",
+      "buttonText": "Get Support"
+    },
+    "contact": {
+      "heading": "Direct Contact",
+      "text": "Speak directly with our billing specialists for personalized assistance.",
+      "buttonText": "Contact Us"
+    }
+  }
+}

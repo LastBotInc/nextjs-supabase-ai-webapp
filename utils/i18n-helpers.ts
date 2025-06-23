@@ -16,6 +16,7 @@ export const getNamespaces = (): string[] => {
     "Account",
     "Admin",
     "Auth",
+    "Billing",
     "Blog",
     "Campaigns",
     "Calculators",
