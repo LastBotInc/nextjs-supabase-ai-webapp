@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Lediga tjänster | Gå med i Innoleases team",
+    "description": "Upptäck spännande karriärmöjligheter på Innolease. Gå med i vårt expertteam och hjälp till att forma framtiden för företagsfordonsleasning i Finland.",
+    "keywords": "karriärer, jobb, lediga tjänster, billeasing karriärer, finska jobb, företagsfinansiering jobb, kundservice karriärer",
+    "image": "/images/team/careers-hero.jpg"
+  },
+  "aboutCompany": {
+    "heading": "Om Innolease",
+    "texts": [
+      "Innolease är en erfaren och smidig leasingpartner som erbjuder kundcentrerade och flexibla lösningar för företags behov. Som en del av Autolle.com-koncernen specialiserar vi oss på maskin-, utrustnings- och fordonsleasinglösningar med vårt starka teams mångåriga erfarenhet av företagsfinansiering och leasing.",
+      "Vi har vuxit snabbt genom att kombinera uthyrnings- och leasingtjänster till en helhet. Vårt mål är att erbjuda kunderna de mest omfattande och flexibla lösningarna som möter dagens företags och privatpersoners föränderliga behov.",
+      "Med över 800 fordon rikstäckande och digitala verktyg som InnoFleet Manager, stärker vi finska företag att hantera mobilitet kostnadseffektivt, tydligt och skalbart."
+    ],
+    "image": { "src": "/images/team/innolease-office.jpg", "alt": "Innoleases team på jobbet" }
+  },
+  "whyWorkHere": {
+    "heading": "Varför arbeta på Innolease?",
+    "subheading": "Gå med i ett företag som värdesätter expertis, transparens och innovation",
+    "cards": [
+      {
+        "title": "Expertteammiljö",
+        "texts": ["Arbeta tillsammans med erfarna proffs inom företagsfinansiering och leasing. Lär dig av branschexperter och utveckla dina färdigheter i en stödjande miljö."],
+        "image": { "src": "/images/team/expert-team.jpg", "alt": "Professionellt teamarbete" }
+      },
+      {
+        "title": "Kundcentrerad kultur",
+        "texts": ["Var en del av ett företag som sätter kunderna först. Varje roll bidrar till att leverera personlig service och skräddarsydda lösningar till våra kunder."],
+        "image": { "src": "/images/team/customer-service.jpg", "alt": "Kundservice excellens" }
+      },
+      {
+        "title": "Digital innovation",
+        "texts": ["Arbeta med banbrytande digitala verktyg och tjänster. Hjälp till att utveckla och implementera moderna lösningar som förenklar flottstyrning för företag."],
+        "image": { "src": "/images/team/digital-innovation.jpg", "alt": "Digitala verktyg och teknik" }
+      },
+      {
+        "title": "Tillväxtmöjligheter",
+        "texts": ["Gå med i ett snabbt växande företag med tydliga karriärutvecklingsvägar. Dra nytta av expertis och nätverk från Autolle.com-koncernen."],
+        "image": { "src": "/images/team/career-growth.jpg", "alt": "Professionell utveckling" }
+      },
+      {
+        "title": "Flexibel arbetsmiljö",
+        "texts": ["Njut av moderna arbetsmetoder med flexibilitet att balansera arbete och privatliv. Vi tror på resultat, inte bara timmar vid skrivbordet."],
+        "image": { "src": "/images/team/flexible-work.jpg", "alt": "Modern arbetsplats" }
+      }
+    ]
+  },
+  "openPositions": {
+    "heading": "Aktuella lediga tjänster",
+    "subheading": "Gå med i vårt växande team och hjälp till att forma framtiden för företagsleasing",
+    "positions": [
+      {
+        "title": "Senior Leasingspecialist",
+        "department": "Affärsutveckling",
+        "location": "Helsingfors",
+        "type": "Heltid",
+        "texts": [
+          "Leda komplexa leasingförhandlingar och utveckla skräddarsydda lösningar för stora företagskunder. Kräver 5+ års erfarenhet av företagsfinansiering eller leasing."
+        ],
+        "requirements": [
+          "Kandidatexamen inom ekonomi, handel eller relaterat område",
+          "5+ års erfarenhet av leasing eller företagsfinansiering",
+          "Starka analytiska och förhandlingsfärdigheter",
+          "Flyt i finska och engelska"
+        ]
+      },
+      {
+        "title": "Kundservicerepresentant",
+        "department": "Kundservice",
+        "location": "Tammerfors / Distans",
+        "type": "Heltid",
+        "texts": [
+          "Tillhandahåll enastående kundsupport till våra leasingkunder. Hantera förfrågningar, koordinera underhållstjänster och säkerställa kundnöjdhet."
+        ],
+        "requirements": [
+          "Erfarenhet av kundservice eller relaterat område",
+          "Utmärkta kommunikationsfärdigheter",
+          "Problemlösningsmentalitet",
+          "Kunskap om bilindustrin är en fördel"
+        ]
+      },
+      {
+        "title": "Digital produktchef",
+        "department": "Teknik",
+        "location": "Helsingfors",
+        "type": "Heltid",
+        "texts": [
+          "Driva utvecklingen av vår InnoFleet Manager-plattform och andra digitala tjänster. Leda produktstrategi och arbeta med utvecklingsteam."
+        ],
+        "requirements": [
+          "Produkthanteringserfarehet inom SaaS eller fintech",
+          "Förståelse av flottstyrningssystem",
+          "Erfarenhet av agila metoder",
+          "Starka intressenthanteringsfärdigheter"
+        ]
+      },
+      {
+        "title": "Flottkoordinator",
+        "department": "Verksamhet",
+        "location": "Åbo",
+        "type": "Heltid",
+        "texts": [
+          "Hantera fordonslogistik, koordinera underhållsscheman och säkerställ optimal flottutnyttjande. Arbeta nära kunder och servicepartners."
+        ],
+        "requirements": [
+          "Erfarenhet av logistik eller flottstyrning",
+          "Starka organisationsfärdigheter",
+          "Körkort krävs",
+          "Förmåga att arbeta med flera intressenter"
+        ]
+      },
+      {
+        "title": "Affärsutvecklingstrainee",
+        "department": "Försäljning",
+        "location": "Helsingfors",
+        "type": "Traineeprogram",
+        "texts": [
+          "12-månaders traineeprogram som täcker alla aspekter av företagsleasing. Perfekt möjlighet för nyutexaminerade att starta sin karriär inom leasingbranschen."
+        ],
+        "requirements": [
+          "Kandidat- eller masterexamen genomförd",
+          "Intresse för företagsfinansiering och kundservice",
+          "Starka kommunikationsfärdigheter",
+          "Ambition att växa inom leasingbranschen"
+        ]
+      }
+    ]
+  },
+  "howToApply": {
+    "heading": "Så här ansöker du",
+    "texts": [
+      "Redo att gå med i vårt team? Vi skulle gärna höra från dig! Skicka din ansökan inklusive ditt CV och ett personligt brev som förklarar varför du är intresserad av tjänsten och vad du kan bidra med till vårt team.",
+      "Alla ansökningar behandlas konfidentiellt, och vi återkommer till dig inom två veckor. Om du har frågor om någon tjänst, tveka inte att kontakta oss."
+    ],
+    "requirements": [
+      "Skicka ditt CV i PDF-format",
+      "Inkludera ett personligt följebrev",
+      "Ange vilken tjänst du söker",
+      "Inkludera din tillgänglighet och löneförväntningar"
+    ],
+    "process": [
+      "Initial ansökningsgranskning (1-2 veckor)",
+      "Telefon- eller videointervju (30-45 minuter)",
+      "Personlig intervju med teammedlemmar",
+      "Referenskontroller och slutligt beslut"
+    ]
+  },
+  "cta": {
+    "heading": "Redo att starta din karriär med Innolease?",
+    "texts": [
+      "Gå med i vårt expertteam och hjälp till att forma framtiden för företagsfordonsleasning i Finland. Vi söker talangfulla individer som delar våra värderingar: transparens, kundfokus och innovation."
+    ],
+    "link": { "label": "Kontakta vårt HR-team", "href": "/contact" }
+  },
+  "promotion": {
+    "heading": "Utforska mer om Innolease",
+    "texts": [
+      "Lär dig mer om vårt företag, våra tjänster och vår kultur innan du ansöker."
+    ],
+    "columns": [
+      {
+        "title": "Om vårt företag",
+        "texts": ["Upptäck vår historia, mission och värderingar som guidar allt vi gör."],
+        "link": { "label": "Läs mer om oss", "href": "/about" }
+      },
+      {
+        "title": "Våra tjänster",
+        "texts": ["Utforska våra omfattande leasinglösningar för företag och privatpersoner."],
+        "link": { "label": "Se tjänster", "href": "/leasing-solutions" }
+      },
+      {
+        "title": "Kontaktinformation",
+        "texts": ["Har du frågor? Kontakta vårt team för mer information."],
+        "link": { "label": "Kontakta oss", "href": "/contact" }
+      }
+    ]
+  }
+} 

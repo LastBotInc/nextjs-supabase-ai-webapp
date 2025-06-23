@@ -20,6 +20,7 @@ export function Card({
   palette,
   rounded = true,
   padding = Padding.Full,
+  contentPadding = Padding.None,
   className,
   style,
   gaps = true,
@@ -28,6 +29,7 @@ export function Card({
   palette?: Palette;
   rounded?: boolean;
   padding?: PaddingType;
+  contentPadding?: PaddingType;
   className?: string;
   style?: CSSProperties;
   gaps?: FlexProps["gaps"] | boolean;
@@ -35,7 +37,7 @@ export function Card({
   const Gapper = gaps ? Flex : Fragment;
   return (
     <BoxBlock palette={palette} padding={padding} className={cn(rounded ? "rounded-box" : "", className)} style={style}>
-      <BoxBlock.Content>
+      <BoxBlock.Content padding={contentPadding}>
         <Gapper gaps={typeof gaps === "boolean" ? "level-based" : gaps} direction="column">
           {children}
         </Gapper>

@@ -194,3 +194,36 @@ This change eliminates the need to manually maintain the list of translation nam
 - Täytetty CurrentTopics.json (fi, sv, en) ajankohtais-/uutissisällöllä kolmella kielellä Ajankohtaista_kotisivu.html:n pohjalta. Käännökset tehtiin idiomattisesti ja liiketoimintaan sopivalla kielellä.
 - Fixed translation save in admin translations page to include Supabase access token in Authorization header for PUT requests, resolving authentication errors and enabling admin-only updates.
 - Fixed admin translation save: API route now uses anon client for authentication and service role client for upsert, resolving Supabase RLS errors and enabling secure admin-only updates to translations.
+
+## Recent Changes
+
+### 2025-01-02 - Created Open Positions Content Files
+- **Created comprehensive OpenPositions.json files** for all three locales (en, fi, sv)
+- **Content structure includes:**
+  - About the company section with brand-aligned content
+  - Why work here section with 5 benefit cards (expert team, customer culture, digital innovation, growth opportunities, flexible environment)
+  - List of 5 diverse open positions (Senior Leasing Specialist, Customer Service Rep, Digital Product Manager, Fleet Coordinator, Business Development Trainee)
+  - How to apply section with requirements and process details
+  - CTA section with contact information
+  - Promotion section with 3 columns linking to related pages
+- **Translation approach:** Natural, culturally appropriate translations prioritizing idiomatic expressions over literal word-for-word translations
+- **Structure compliance:** Followed the standardized JSON structure using `heading`, `subheading`, `texts` arrays, `link` objects, and `cards`/`columns` arrays
+- **Brand alignment:** Content reflects Innolease's brand voice emphasizing transparency, expertise, customer focus, and digital innovation
+- **Verification:** Translation completeness confirmed with `npm run check-translations` - all 25 keys present in all locales
+
+### 2025-01-02 - Implemented Open Positions Page
+- **Created server-side page** at `/app/[locale]/avoimet-tyopaikat/page.tsx` using the OpenPositions content
+- **Page structure implemented:**
+  - About Company section (TwoColumnLayout with image)
+  - Why Work Here section (BasicLayout with responsive card grid)
+  - Open Positions section (BasicLayout with detailed position cards including requirements)
+  - How to Apply section (TwoColumnLayout with requirements and process)
+  - CTA section (BasicLayout with contact link)
+  - Promotion section (BasicLayout with 3-column grid)
+- **Component usage:** Followed frontend patterns using PageWrapper, BasicLayout, TwoColumnLayout, FlexLayout, and core components
+- **Responsive design:** Implemented with proper mobile/tablet/desktop breakpoints using Tailwind CSS classes
+- **Build verification:** Successfully built and generated static pages for all three locales (en, fi, sv)
+- **TypeScript compliance:** All types properly defined and linter errors resolved
+
+### Previous Changes
+...existing changelog entries...
