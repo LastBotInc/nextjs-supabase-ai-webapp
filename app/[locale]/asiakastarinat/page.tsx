@@ -184,7 +184,7 @@ export default async function CustomerStoriesPage({ params }: Props) {
         </div>
 
         {/* Stories Grid */}
-        <GridLayout columns={{ default: 1, md: 2, lg: 3 }}>
+        <GridLayout columns={{ default: 1, md: 2, lg: 2 }}>
           {stories.map(
             (
               story: {
@@ -198,7 +198,7 @@ export default async function CustomerStoriesPage({ params }: Props) {
             ) => (
               <Card key={index} palette="beige" className="shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="relative h-48 mb-4">
-                  <ImagePlaceholder aspectRatio="3:4" />
+                  <ImagePlaceholder aspectRatio="full" />
                 </div>
 
                 <div className="flex items-center mb-3">
