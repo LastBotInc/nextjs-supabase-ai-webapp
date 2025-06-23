@@ -13,6 +13,7 @@ import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { Flex } from "@/app/components/v2/core/Flex";
 import LeasingCalculator from "@/app/components/v2/components/LeasingCalculator";
 import CarBenefitCalculatorClient from "@/app/[locale]/leasing-laskuri/CarBenefitCalculatorClient";
+import { generateLocalizedMetadata } from "@/utils/metadata";
 
 // Define generateMetadata directly in the server component
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
@@ -20,10 +21,13 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "Calculators.meta" });
 
-  return {
+  return generateLocalizedMetadata({
     title: t("title"),
     description: t("description"),
-  };
+    locale,
+    namespace: "Calculators",
+    path: "/laskurit",
+  });
 }
 
 // Make the page component async
