@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Usein kysytyt kysymykset - Innolease",
+    "description": "Löydä vastauksia yleisimpiin kysymyksiin Innoleasen palveluista. Autoleasing, laskurit, asiakaspalvelu ja digitaaliset palvelut.",
+    "keywords": "FAQ, usein kysytyt kysymykset, autoleasing, leasinglaskuri, asiakaspalvelu, digitaaliset palvelut",
+    "image": "/images/faq-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": [
+      "Löydä vastauksia yleisimpiin kysymyksiin Innoleasen palveluista. Jos et löydä etsimääsi vastausta, ota rohkeasti yhteyttä asiakaspalveluumme."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Usein kysytyt kysymykset" }
+  },
+
+  "sections": {
+    "carLeasing": {
+      "heading": "Autoleasing",
+      "description": "Kysymyksiä ja vastauksia autoleasingista, sopimusehdoista ja leasingvaihtoehtoista.",
+      "namespace": "CarLeasing"
+    },
+    "leasingCalculator": {
+      "heading": "Leasinglaskurit",
+      "description": "Apua leasinglaskureiden käyttöön, verotusarvojen laskemiseen ja autoedun optimointiin.",
+      "namespace": "LeasingCalculator"
+    },
+    "customerService": {
+      "heading": "Asiakaspalvelu",
+      "description": "Tietoa asiakaspalvelustamme, yhteystiedoista ja palvelupyyntöjen tekemisestä.",
+      "namespace": "CustomerService"
+    },
+    "digitalServices": {
+      "heading": "Digitaaliset palvelut",
+      "description": "Kysymyksiä FleetManager-järjestelmästä, verkkopalveluista ja digitaalisista työkaluista.",
+      "namespace": "DigitalServices"
+    },
+    "servicePrice": {
+      "heading": "Palveluhinnasto",
+      "description": "Kysymyksiä hinnoittelusta, palvelumaksuista ja laskutuksesta.",
+      "namespace": "ServicePrices"
+    },
+    "machineLeasing": {
+      "heading": "Kone- ja laiteleasing",
+      "description": "Tietoa koneiden ja laitteiden leasingista sekä erikoisratkaisuista.",
+      "namespace": "MachineLeasing"
+    },
+    "financialSolutions": {
+      "heading": "Rahoitusratkaisut",
+      "description": "Kysymyksiä rahoitusvaihtoehdoista ja taloudellisista ratkaisuista.",
+      "namespace": "FinancialSolutions"
+    },
+    "leasingSolutions": {
+      "heading": "Leasingratkaisut",
+      "description": "Yleisiä kysymyksiä erilaisista leasingratkaisuista ja -malleista.",
+      "namespace": "LeasingSolutions"
+    },
+    "driversGuide": {
+      "heading": "Autoilijan opas",
+      "description": "Neuvoja ja vinkkejä turvalliseen ja taloudelliseen autoiluun.",
+      "namespace": "DriversGuide"
+    }
+  },
+
+  "contact": {
+    "heading": "Etkö löytänyt vastausta?",
+    "texts": ["Jos et löytänyt etsimääsi tietoa, asiakaspalvelumme on valmis auttamaan sinua kaikissa kysymyksissäsi."],
+    "phone": "+358 20 743 7670",
+    "email": "asiakaspalvelu@innolease.fi",
+    "hours": "Ma-Pe: 8:00-18:00",
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
+  }
+}

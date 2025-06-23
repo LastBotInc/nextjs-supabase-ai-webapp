@@ -30,6 +30,7 @@ export const getNamespaces = (): string[] => {
     "CustomerStories",
     "DigitalServices",
     "DriversGuide",
+    "Faq",
     "FinancialSolutions",
     "FleetManager",
     "Footer",
