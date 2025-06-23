@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "Service Price List | Innolease",
+    "description": "Explore Innolease's comprehensive service price list. Transparent pricing for car leasing, equipment rental, and our other services.",
+    "keywords": "service price list, leasing prices, car leasing prices, equipment leasing prices, rental prices, Innolease",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "section1": {
+    "heading": "Our Service Price List",
+    "texts": [
+      "Innolease offers transparent and competitive pricing for all our services. Our pricing is based on fairness and long-term customer relationships.",
+      "All prices include VAT and are valid until further notice. Detailed quotes are always customized to meet customer needs."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Transparent pricing" }
+  },
+
+  "section2": {
+    "heading": "Car Leasing - Setup Costs",
+    "texts": ["One-time costs and processing fees related to starting car leasing."],
+    "list": [
+      { "term": "Contract processing fee", "description": "€150 - €300 (depending on contract complexity)" },
+      { "term": "Credit check", "description": "€25 per applicant" },
+      { "term": "Vehicle registration and insurance", "description": "€200 - €400" },
+      { "term": "Delivery costs", "description": "€100 - €250 (depending on distance)" },
+      { "term": "Special equipment installation", "description": "€50 - €200 per equipment" }
+    ],
+    "image": { "src": "/images/car-leasing-costs.jpg", "alt": "Car leasing setup costs" }
+  },
+
+  "section3": {
+    "heading": "Monthly Leasing Rates",
+    "texts": [
+      "The prices below are indicative monthly payments for 36-month leasing contracts. Final prices depend on vehicle value, contract period, and additional services."
+    ],
+    "table": {
+      "columns": ["Vehicle Category", "Monthly Payment (from)"],
+      "rows": [
+        ["Small cars (e.g., Toyota Yaris)", "€189/month"],
+        ["Medium cars (e.g., Volkswagen Golf)", "€289/month"],
+        ["Premium cars (e.g., BMW 3 Series)", "€459/month"],
+        ["Electric cars (e.g., Tesla Model 3)", "€549/month"],
+        ["Vans (e.g., Ford Transit)", "€329/month"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Additional Services and Options",
+    "texts": [
+      "We offer a comprehensive range of additional services that make your leasing experience smooth and worry-free."
+    ],
+    "list": [
+      "Comprehensive maintenance and repair package (+€89/month)",
+      "Tire change and storage (+€45/month)",
+      "Replacement car when needed (+€25/month)",
+      "Fuel card and refueling service (+€15/month)",
+      "24/7 roadside assistance included in all contracts"
+    ]
+  },
+
+  "section5": {
+    "heading": "Customer Stories - Savings Examples",
+    "texts": ["See how our customers have saved by choosing Innolease services."],
+    "cases": [
+      {
+        "title": "Small business saves €2000 per year",
+        "texts": [
+          "A Helsinki-based IT company switched their company car to leasing and saves significantly annually on taxation and maintenance costs. Fixed monthly payment simplifies budgeting."
+        ],
+        "image": { "src": "/images/business-savings.jpg", "alt": "Business customer saves" }
+      },
+      {
+        "title": "Family found their dream car",
+        "texts": [
+          "A Tampere family was able to drive their dream electric car without a large initial investment. Leasing enabled testing new technology with low risk."
+        ],
+        "image": { "src": "/images/family-electric-car.jpg", "alt": "Family with electric car" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions About Pricing",
+    "texts": ["Answers to the most common questions about pricing."],
+    "questions": [
+      {
+        "question": "Do the prices include VAT?",
+        "answer": "Yes, all prices in our price list include value-added tax (24%). For business customers, we can offer VAT-free prices."
+      },
+      {
+        "question": "Can prices be negotiated?",
+        "answer": "Yes, for long-term customers and larger orders, we can offer special prices. Contact our sales team to discuss options."
+      },
+      {
+        "question": "Do prices change during the contract period?",
+        "answer": "Monthly payments remain fixed throughout the entire contract period. Possible index increases are agreed upon in advance in the contract."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need a Personal Price Quote?",
+    "texts": ["Contact our experts and we'll create a customized quote just for you. Free consultation and pricing."],
+    "link": { "label": "Request Quote", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/personal-quote.jpg", "alt": "Personal quote" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Leasing Calculator",
+      "text": "Calculate your own monthly payment easily",
+      "buttonText": "Go to Calculator"
+    },
+    "carLeasing": {
+      "heading": "Car Leasing",
+      "text": "Explore car leasing possibilities",
+      "buttonText": "Learn More"
+    },
+    "contact": {
+      "heading": "Customer Service",
+      "text": "Questions about pricing? Contact us",
+      "buttonText": "Contact Us"
+    }
+  }
+}

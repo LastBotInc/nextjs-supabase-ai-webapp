@@ -44,5 +44,6 @@ export const getNamespaces = (): string[] => {
     "OpenPositions",
     "Privacy",
     "Profile",
+    "ServicePrices",
   ];
 };

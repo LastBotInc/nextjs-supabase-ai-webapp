@@ -267,3 +267,51 @@ This change eliminates the need to manually maintain the list of translation nam
   - Professional business terminology appropriate for B2B leasing context
   - Complete FAQ section with detailed answers about car benefit taxation
   - Structured content blocks for optimization tips and tax information
+
+## 2025-01-05 - Service Prices Page Implementation
+
+**Task:** Create ServicePrices.json translations and page implementation
+
+**Changes Made:**
+
+- Created comprehensive `ServicePrices.json` files in all three locales (fi, sv, en) with 41 keys each
+- Implemented realistic leasing service pricing content including:
+  - Company introduction and pricing philosophy
+  - Car leasing setup costs with detailed breakdown
+  - Monthly leasing rates table with vehicle categories and pricing
+  - Additional services and options with monthly costs
+  - Customer success stories with savings examples
+  - FAQ section addressing common pricing questions
+  - Call-to-action sections for quotes and contact
+  - Additional CTA cards for calculator, car leasing, and contact
+
+**Technical Implementation:**
+
+- Updated `app/[locale]/palveluhinnasto/page.tsx` to use the new ServicePrices namespace
+- Used proper v2 component patterns with layout components (TwoColumnLayout, BasicLayout, FlexLayout)
+- Implemented Table component for pricing display
+- Used ImageContainer with Next.js Image for proper image handling
+- Applied appropriate color palettes for different sections
+- Fixed TypeScript errors by using valid palette values and proper component props
+
+**Content Structure:**
+
+- Followed JSON translation guidelines with consistent structure
+- Used proper heading/subheading instead of title/description
+- Implemented texts arrays for multiple paragraphs
+- Used standard link and image object formats
+- Included comprehensive pricing table with realistic Finnish market prices
+- Added FAQ section for common pricing questions
+
+**Files Modified:**
+
+- `messages/fi/ServicePrices.json` (new)
+- `messages/sv/ServicePrices.json` (new)
+- `messages/en/ServicePrices.json` (new)
+- `app/[locale]/palveluhinnasto/page.tsx` (updated)
+
+**Verification:**
+
+- All translation files pass validation with 41 keys each across all locales
+- Page renders with proper component hierarchy and no TypeScript errors
+- Content is business-appropriate for a leasing company service pricing page

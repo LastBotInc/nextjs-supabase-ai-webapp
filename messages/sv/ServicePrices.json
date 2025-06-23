@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "title": "Serviceprisplan | Innolease",
+    "description": "Utforska Innoleases omfattande serviceprisplan. Transparenta priser för billeasing, maskinuthyrning och våra andra tjänster.",
+    "keywords": "serviceprisplan, leasingpriser, billeasing priser, maskinleasing priser, hyrespriser, Innolease",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "section1": {
+    "heading": "Vår serviceprisplan",
+    "texts": [
+      "Innolease erbjuder transparenta och konkurrenskraftiga priser för alla våra tjänster. Vår prissättning bygger på rättvisa och långsiktiga kundrelationer.",
+      "Alla priser inkluderar moms och gäller tills vidare. Detaljerade offerter skräddarsys alltid efter kundens behov."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Transparent prissättning" }
+  },
+
+  "section2": {
+    "heading": "Billeasing - Startkostnader",
+    "texts": ["Engångskostnader och hanteringsavgifter relaterade till att påbörja billeasing."],
+    "list": [
+      { "term": "Avtalshanteringsavgift", "description": "150€ - 300€ (beroende på avtalets komplexitet)" },
+      { "term": "Kreditupplysning", "description": "25€ per sökande" },
+      { "term": "Fordonsregistrering och försäkring", "description": "200€ - 400€" },
+      { "term": "Leveranskostnader", "description": "100€ - 250€ (beroende på avstånd)" },
+      { "term": "Installation av specialutrustning", "description": "50€ - 200€ per utrustning" }
+    ],
+    "image": { "src": "/images/car-leasing-costs.jpg", "alt": "Billeasing startkostnader" }
+  },
+
+  "section3": {
+    "heading": "Månatliga leasingpriser",
+    "texts": [
+      "Priserna nedan är vägledande månadsavgifter för 36-månaders leasingavtal. Slutliga priser beror på fordonets värde, avtalsperiod och tilläggstjänster."
+    ],
+    "table": {
+      "columns": ["Fordonskategori", "Månadsavgift (från)"],
+      "rows": [
+        ["Småbilar (t.ex. Toyota Yaris)", "189€/mån"],
+        ["Medelstora bilar (t.ex. Volkswagen Golf)", "289€/mån"],
+        ["Premiumbilar (t.ex. BMW 3-serie)", "459€/mån"],
+        ["Elbilar (t.ex. Tesla Model 3)", "549€/mån"],
+        ["Transportbilar (t.ex. Ford Transit)", "329€/mån"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Tilläggstjänster och alternativ",
+    "texts": [
+      "Vi erbjuder ett omfattande utbud av tilläggstjänster som gör din leasingupplevelse smidig och bekymmersfri."
+    ],
+    "list": [
+      "Omfattande service- och reparationspaket (+89€/mån)",
+      "Däckbyte och förvaring (+45€/mån)",
+      "Ersättningsbil vid behov (+25€/mån)",
+      "Bränslekort och tankningstjänst (+15€/mån)",
+      "24/7 vägassistans ingår i alla avtal"
+    ]
+  },
+
+  "section5": {
+    "heading": "Kundberättelser - Besparingsexempel",
+    "texts": ["Se hur våra kunder har sparat genom att välja Innoleases tjänster."],
+    "cases": [
+      {
+        "title": "Småföretag sparar 2000€ per år",
+        "texts": [
+          "Ett IT-företag från Helsingfors bytte till leasing för företagsbilen och sparar årligen betydligt på beskattning och underhållskostnader. Fast månadsavgift förenklar budgetering."
+        ],
+        "image": { "src": "/images/business-savings.jpg", "alt": "Företagskund sparar" }
+      },
+      {
+        "title": "Familj hittade sin drömbil",
+        "texts": [
+          "En familj från Tammerfors kunde köra sin drömelbil utan stor initialsatsvariation. Leasing möjliggjorde att testa ny teknologi med liten risk."
+        ],
+        "image": { "src": "/images/family-electric-car.jpg", "alt": "Familj med elbil" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Vanliga frågor om prissättning",
+    "texts": ["Svar på de vanligaste frågorna om prissättning."],
+    "questions": [
+      {
+        "question": "Ingår moms i prislistan?",
+        "answer": "Ja, alla priser i vår prislista inkluderar mervärdesskatt (24%). För företagskunder kan vi erbjuda priser exklusive moms."
+      },
+      {
+        "question": "Kan man förhandla om priserna?",
+        "answer": "Ja, för långsiktiga kunder och större beställningar kan vi erbjuda specialpriser. Kontakta vårt säljteam för att diskutera alternativ."
+      },
+      {
+        "question": "Ändras priserna under avtalsperioden?",
+        "answer": "Månadsavgifterna förblir fasta under hela avtalsperioden. Eventuella indexhöjningar avtalas i förväg i kontraktet."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Behöver du en personlig prisoffert?",
+    "texts": [
+      "Kontakta våra experter så upprättar vi en skräddarsydd offert just för dig. Gratis konsultation och prissättning."
+    ],
+    "link": { "label": "Begär offert", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/personal-quote.jpg", "alt": "Personlig offert" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Leasingkalkylator",
+      "text": "Räkna ut din egen månadsavgift enkelt",
+      "buttonText": "Gå till kalkylatorn"
+    },
+    "carLeasing": {
+      "heading": "Billeasing",
+      "text": "Utforska möjligheterna med billeasing",
+      "buttonText": "Läs mer"
+    },
+    "contact": {
+      "heading": "Kundservice",
+      "text": "Frågor om prissättning? Kontakta oss",
+      "buttonText": "Kontakta oss"
+    }
+  }
+}
