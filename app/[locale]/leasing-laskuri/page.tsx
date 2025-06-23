@@ -1,175 +1,195 @@
-'use server'
+"use server";
 
-import { getTranslations } from 'next-intl/server'
-import { setupServerLocale } from '@/app/i18n/server-utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
-import CarBenefitCalculatorClient from './CarBenefitCalculatorClient' // Import the client component
-import { Metadata } from 'next'
+import { getTranslations } from "next-intl/server";
+import { setupServerLocale } from "@/app/i18n/server-utils";
+import { generateLocalizedMetadata } from "@/utils/metadata";
+import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
+import { Hero } from "@/app/components/v2/layouts/Hero";
+import { BasicLayout } from "@/app/components/v2/layouts/BasicLayout";
+import { TwoColumnLayout } from "@/app/components/v2/layouts/TwoColumnLayout";
+import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
+import { Heading2, Heading3 } from "@/app/components/v2/core/Headings";
+import { Paragraph } from "@/app/components/v2/core/Paragraph";
+import { Card } from "@/app/components/v2/core/Card";
+import { LinkButton } from "@/app/components/v2/core/LinkButton";
+import { List } from "@/app/components/v2/core/List";
+import { Accordion } from "@/app/components/v2/core/Accordion";
+import { Columns } from "@/app/components/v2/core/Columns";
+import CarBenefitCalculatorClient from "./CarBenefitCalculatorClient";
 
-// Define generateMetadata directly in the server component
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const { locale } = params
-  await setupServerLocale(locale)
-  const t = await getTranslations({ locale, namespace: 'CarBenefitCalculator.meta' })
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  }
+interface Props {
+  params: Promise<{
+    locale: string;
+  }>;
 }
 
-// Make the page component async
-export default async function CarBenefitCalculatorPage({ params }: { params: { locale: string } }) {
-  const { locale } = params
-  await setupServerLocale(locale)
-  const t = await getTranslations('CarBenefitCalculator')
-  // Note: format is not used in the server part, it's needed in the client component
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "LeasingCalculator.meta" });
+
+  return generateLocalizedMetadata({
+    title: t("title"),
+    description: t("description"),
+    locale,
+    namespace: "LeasingCalculator",
+    path: "/leasing-laskuri",
+  });
+}
+
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  await setupServerLocale(locale);
+  const t = await getTranslations("LeasingCalculator");
+
+  // Extract structured data
+  const hero = t.raw("hero");
+  const intro = t.raw("intro");
+  const calculator = t.raw("calculator");
+  const optimizationTips = t.raw("optimizationTips");
+  const taxInfo = t.raw("taxInfo");
+  const cta = t.raw("cta");
+  const faq = t.raw("faq");
 
   return (
-    <main className="flex flex-col">
-      {/* Hero section - Server Rendered */}
-      <section className="relative bg-gradient-to-r from-piki to-teal-700 py-24 text-white">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="flex flex-col justify-center space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                {t('hero.heading')}
-              </h1>
-              <p className="max-w-[600px] text-white/90 md:text-xl">
-                {t('hero.subheading')}
-              </p>
-            </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/images/car-benefit-hero.jpg"
-                alt={t('hero.backgroundAlt')}
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl"
-                priority // Added priority for LCP image
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+    <PageWrapper>
+      {/* HERO SECTION */}
+      <Hero isFirst palette="piki" fullWidth>
+        <Hero.Image src={hero.image.src} />
+        <Hero.Heading>{hero.heading}</Hero.Heading>
+        <Hero.SubHeading>{hero.subheading}</Hero.SubHeading>
+      </Hero>
 
-      {/* Intro section - Server Rendered */}
-      <section className="py-12 bg-beige">
-        <div className="container px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('intro.title')}
-            </h2>
-            <p className="text-gray-700 mb-8">
-              {t('intro.description')}
-            </p>
-            <Button
-              className="bg-piki hover:bg-piki/90"
-              // Scroll logic needs to be client-side, handled within the client component or via separate client script
-              // For server component, link directly if possible or indicate action
-              asChild
-            >
-              <a href="#calculator"> {/* Simple anchor link for server component */} 
-                {t('intro.getStarted')} <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* INTRO SECTION */}
+      <BasicLayout contentPalette="beige">
+        <Heading2>{intro.title}</Heading2>
+        <Paragraph>{intro.description}</Paragraph>
+        <LinkButton href="#calculator">{intro.getStarted}</LinkButton>
+      </BasicLayout>
 
-      {/* Calculator section - Use Client Component */}
-      <section id="calculator" className="py-16">
-        <div className="container px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('calculator.title')}
-            </h2>
-            <p className="text-gray-700 max-w-3xl mx-auto">
-              {t('calculator.description')}
-            </p>
-          </div>
+      {/* CALCULATOR SECTION */}
+      <BasicLayout id="calculator" contentPalette="default">
+        <Heading2>{calculator.title}</Heading2>
+        <Paragraph>{calculator.description}</Paragraph>
 
-          {/* Render the client component for the interactive parts */}
-          <CarBenefitCalculatorClient 
-            locale={locale} 
-            // Pass required translations matching the Client component's expected structure
-            translations={{
-              calculatorTab: {
-                selectBenefitType: t('calculator.selectBenefitType'),
-                free: t('calculator.tabs.free'),
-                limited: t('calculator.tabs.limited')
+        {/* Render the client component for the interactive calculator */}
+        <CarBenefitCalculatorClient
+          locale={locale}
+          translations={{
+            calculatorTab: {
+              selectBenefitType: calculator.selectBenefitType,
+              free: calculator.tabs.free,
+              limited: calculator.tabs.limited,
+            },
+            inputs: {
+              title: calculator.inputs.title,
+              carValue: calculator.inputs.carValue,
+              annualDriving: calculator.inputs.annualDriving,
+              homeToWork: calculator.inputs.homeToWork,
+              monthlyCost: calculator.inputs.monthlyCost,
+            },
+            results: {
+              title: calculator.results.title,
+              monthlyTitle: calculator.results.monthlyTitle,
+              annualTitle: calculator.results.annualTitle,
+              employerCost: calculator.results.employerCost,
+              employeeCost: calculator.results.employeeCost,
+              taxBenefit: calculator.results.taxBenefit,
+              totalCost: calculator.results.totalCost,
+              freeBenefit: {
+                description: calculator.freeBenefit.description,
+                advantages: calculator.freeBenefit.advantages,
+                advantage1: calculator.freeBenefit.advantage1,
+                advantage2: calculator.freeBenefit.advantage2,
+                advantage3: calculator.freeBenefit.advantage3,
+                considerations: calculator.freeBenefit.considerations,
+                consideration1: calculator.freeBenefit.consideration1,
+                consideration2: calculator.freeBenefit.consideration2,
+                consideration3: calculator.freeBenefit.consideration3,
               },
-              inputs: {
-                title: t('calculator.parameters.title'),
-                carValue: t('calculator.parameters.carValue'),
-                annualDriving: t('calculator.parameters.annualDriving'),
-                homeToWork: t('calculator.parameters.homeToWork'),
-                monthlyCost: t('calculator.parameters.monthlyCost')
+              limitedBenefit: {
+                description: calculator.limitedBenefit.description,
+                advantages: calculator.limitedBenefit.advantages,
+                advantage1: calculator.limitedBenefit.advantage1,
+                advantage2: calculator.limitedBenefit.advantage2,
+                advantage3: calculator.limitedBenefit.advantage3,
+                considerations: calculator.limitedBenefit.considerations,
+                consideration1: calculator.limitedBenefit.consideration1,
+                consideration2: calculator.limitedBenefit.consideration2,
+                consideration3: calculator.limitedBenefit.consideration3,
               },
-              results: {
-                title: t('calculator.results.title'),
-                monthlyTitle: t('calculator.results.monthlyTitle'),
-                annualTitle: t('calculator.results.annualTitle'),
-                employerCost: t('calculator.results.employerCost'),
-                employeeCost: t('calculator.results.employeeCost'),
-                taxBenefit: t('calculator.results.taxBenefit'),
-                totalCost: t('calculator.results.totalCost'),
-                // Include benefit descriptions here if needed by the client component results section
-                freeBenefit: {
-                  description: t('calculator.freeBenefit.description'),
-                  advantages: t('calculator.freeBenefit.advantages'),
-                  advantage1: t('calculator.freeBenefit.advantage1'),
-                  advantage2: t('calculator.freeBenefit.advantage2'),
-                  advantage3: t('calculator.freeBenefit.advantage3'),
-                  considerations: t('calculator.freeBenefit.considerations'),
-                  consideration1: t('calculator.freeBenefit.consideration1'),
-                  consideration2: t('calculator.freeBenefit.consideration2'),
-                  consideration3: t('calculator.freeBenefit.consideration3')
-                },
-                limitedBenefit: {
-                  description: t('calculator.limitedBenefit.description'),
-                  advantages: t('calculator.limitedBenefit.advantages'),
-                  advantage1: t('calculator.limitedBenefit.advantage1'),
-                  advantage2: t('calculator.limitedBenefit.advantage2'),
-                  advantage3: t('calculator.limitedBenefit.advantage3'),
-                  considerations: t('calculator.limitedBenefit.considerations'),
-                  consideration1: t('calculator.limitedBenefit.consideration1'),
-                  consideration2: t('calculator.limitedBenefit.consideration2'),
-                  consideration3: t('calculator.limitedBenefit.consideration3')
-                },
-                callToAction: t('cta.title') // Or wherever the CTA text is needed
-              }
-            }}
-          />
-          
-          {/* Call to action - Server Rendered */}
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              {t('cta.title')}
-            </h3>
-            <p className="text-gray-700 max-w-2xl mx-auto mb-8">
-              {t('cta.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="bg-piki hover:bg-piki/90" asChild>
-                 {/* Assuming contact page exists */}
-                <Link href={`/${locale}/yhteystiedot`}>
-                  {t('cta.contactButton')} <ArrowRightIcon className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild>
-                {/* Assuming leasing solutions page exists */}
-                <Link href={`/${locale}/leasing-solutions`}>
-                  {t('cta.learnMoreButton')}
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
-} 
+              callToAction: calculator.callToAction,
+            },
+          }}
+        />
+      </BasicLayout>
+
+      {/* OPTIMIZATION TIPS SECTION */}
+      <BasicLayout contentPalette="beige">
+        <Heading2>{optimizationTips.title}</Heading2>
+        <Columns columns={{ default: 1, md: 2 }}>
+          {optimizationTips.tips?.map((tip: { title: string; description: string }, index: number) => (
+            <Card key={index}>
+              <Heading3>{tip.title}</Heading3>
+              <Paragraph>{tip.description}</Paragraph>
+            </Card>
+          ))}
+        </Columns>
+      </BasicLayout>
+
+      {/* TAX INFORMATION SECTION */}
+      <BasicLayout contentPalette="default">
+        <Heading2>{taxInfo.title}</Heading2>
+        <Paragraph>{taxInfo.description}</Paragraph>
+        <Paragraph>{taxInfo.disclaimer}</Paragraph>
+
+        <TwoColumnLayout>
+          <FlexLayout.Column>
+            <Heading3>{taxInfo.freeBenefit.title}</Heading3>
+            <Paragraph>{taxInfo.freeBenefit.formula}</Paragraph>
+            <Paragraph>{taxInfo.freeBenefit.baseValues}</Paragraph>
+            <List>
+              <List.Item>{taxInfo.freeBenefit.ageGroups.group1}</List.Item>
+              <List.Item>{taxInfo.freeBenefit.ageGroups.group2}</List.Item>
+              <List.Item>{taxInfo.freeBenefit.ageGroups.group3}</List.Item>
+            </List>
+          </FlexLayout.Column>
+          <FlexLayout.Column>
+            <Heading3>{taxInfo.limitedBenefit.title}</Heading3>
+            <Paragraph>{taxInfo.limitedBenefit.formula}</Paragraph>
+            <Paragraph>{taxInfo.limitedBenefit.baseValues}</Paragraph>
+            <List>
+              <List.Item>{taxInfo.limitedBenefit.ageGroups.group1}</List.Item>
+              <List.Item>{taxInfo.limitedBenefit.ageGroups.group2}</List.Item>
+              <List.Item>{taxInfo.limitedBenefit.ageGroups.group3}</List.Item>
+            </List>
+          </FlexLayout.Column>
+        </TwoColumnLayout>
+
+        <Card>
+          <Heading3>{taxInfo.electricVehicles.title}</Heading3>
+          <Paragraph>{taxInfo.electricVehicles.description}</Paragraph>
+        </Card>
+      </BasicLayout>
+
+      {/* FAQ SECTION */}
+      <BasicLayout contentPalette="beige">
+        <Heading2>{faq.title}</Heading2>
+        <Accordion>
+          {faq.questions?.map((item: { question: string; answer: string }, index: number) => (
+            <Accordion.Item key={index} heading={item.question}>
+              <Paragraph>{item.answer}</Paragraph>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </BasicLayout>
+
+      {/* CTA SECTION */}
+      <BasicLayout contentPalette="maantie">
+        <Heading2>{cta.title}</Heading2>
+        <Paragraph>{cta.description}</Paragraph>
+        <LinkButton href={`/${locale}/yhteystiedot`}>{cta.contactButton}</LinkButton>
+        <LinkButton href={`/${locale}/autoleasing`}>{cta.learnMoreButton}</LinkButton>
+      </BasicLayout>
+    </PageWrapper>
+  );
+}

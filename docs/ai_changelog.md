@@ -198,6 +198,7 @@ This change eliminates the need to manually maintain the list of translation nam
 ## Recent Changes
 
 ### 2025-01-02 - Created Open Positions Content Files
+
 - **Created comprehensive OpenPositions.json files** for all three locales (en, fi, sv)
 - **Content structure includes:**
   - About the company section with brand-aligned content
@@ -212,6 +213,7 @@ This change eliminates the need to manually maintain the list of translation nam
 - **Verification:** Translation completeness confirmed with `npm run check-translations` - all 25 keys present in all locales
 
 ### 2025-01-02 - Implemented Open Positions Page
+
 - **Created server-side page** at `/app/[locale]/avoimet-tyopaikat/page.tsx` using the OpenPositions content
 - **Page structure implemented:**
   - About Company section (TwoColumnLayout with image)
@@ -226,4 +228,42 @@ This change eliminates the need to manually maintain the list of translation nam
 - **TypeScript compliance:** All types properly defined and linter errors resolved
 
 ### Previous Changes
+
 ...existing changelog entries...
+
+## 2025-01-02
+
+### Converted Car Benefit Calculator Page to v2 Layout Components
+
+- **File updated**: `app/[locale]/leasing-laskuri/page.tsx`
+- **Context**: Converted the car benefit calculator page from custom CSS classes and containers to use the v2 layout component system
+- **Changes made**:
+  - Replaced custom HTML sections with v2 layout components (Hero, BasicLayout, TwoColumnLayout)
+  - Used proper v2 core components (Heading2, Heading3, Paragraph, Card, LinkButton, List, Accordion, Columns)
+  - Implemented structured content blocks for optimization tips, tax information, and FAQ sections
+  - Fixed metadata generation to use proper generateLocalizedMetadata function
+  - Maintained all existing functionality while improving code structure and consistency
+  - Used appropriate content palettes (beige, default, maantie) for visual hierarchy
+- **Key improvements**:
+  - Better maintainability with consistent v2 component patterns
+  - Improved responsive design through v2 layout system
+  - Proper content structure with Cards and Columns for optimization tips
+  - Clean FAQ implementation using Accordion component
+  - Consistent styling through palette system
+
+### Created CarBenefitCalculator Translation Files
+
+- **Files created/updated**: `messages/fi/CarBenefitCalculator.json`, `messages/sv/CarBenefitCalculator.json`, `messages/en/CarBenefitCalculator.json`
+- **Context**: The car benefit calculator page at `/leasing-laskuri` was missing comprehensive translation files
+- **Changes made**:
+  - Created complete Finnish translation with natural business terminology
+  - Created Swedish translation with appropriate formal business language
+  - Updated English translation to include all missing keys used in the client component
+  - Included all calculator parameters, results, benefits information, tax details, FAQ, and CTA sections
+  - Ensured all translation keys match what the `CarBenefitCalculatorClient.tsx` component expects
+- **Key features**:
+  - Natural, idiomatic expressions in each language rather than literal translations
+  - Comprehensive coverage of all calculator features and explanations
+  - Professional business terminology appropriate for B2B leasing context
+  - Complete FAQ section with detailed answers about car benefit taxation
+  - Structured content blocks for optimization tips and tax information
