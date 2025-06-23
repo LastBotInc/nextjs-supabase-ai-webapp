@@ -18,6 +18,7 @@ export const getNamespaces = (): string[] => {
     "Auth",
     "Blog",
     "Campaigns",
+    "Calculators",
     "CarLeasing",
     "CarRental",
     "Common",

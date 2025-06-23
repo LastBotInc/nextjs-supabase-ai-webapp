@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Leasingkalkylatorer - Innolease",
+    "description": "Använd våra hjälpsamma leasingkalkylatorer. Beräkna bilförmånsvärden och leasingkostnader enkelt online.",
+    "keywords": "leasingkalkylator, bilförmån, leasingkostnader, billeasing, bilförmånsvärde",
+    "image": "/images/calculators-meta.jpg"
+  },
+
+  "section1": {
+    "heading": "Hjälpsamma Leasingkalkylatorer",
+    "texts": [
+      "Utforska våra omfattande leasingkalkylatorer som hjälper dig att fatta välgrundade beslut om billeasing och bilförmåner.",
+      "Våra kalkylatorer ger dig noggranna uppskattningar av kostnader och fördelar, så att du kan planera din budget noggrant."
+    ],
+    "image": { "src": "/images/calculators-hero.jpg", "alt": "Leasingkalkylatorer" }
+  },
+
+  "section2": {
+    "heading": "",
+    "texts": [""],
+    "list": [
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" }
+    ],
+    "image": { "src": "", "alt": "" }
+  },
+
+  "section3": {
+    "heading": "",
+    "texts": [""],
+    "table": {
+      "columns": ["", ""],
+      "rows": [
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "",
+    "texts": [""],
+    "list": ["", "", "", "", ""]
+  },
+
+  "section5": {
+    "heading": "",
+    "texts": [""],
+    "cases": [
+      {
+        "title": "",
+        "texts": [""],
+        "image": { "src": "", "alt": "" }
+      },
+      {
+        "title": "",
+        "texts": [""],
+        "image": { "src": "", "alt": "" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "",
+    "texts": [""],
+    "questions": [
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Behöver du hjälp med kalkylatorerna?",
+    "texts": ["Våra experter hjälper dig att tolka resultaten och hitta den bästa lösningen för dina behov."],
+    "link": { "label": "Kontakta oss", "href": "/kontakt" },
+    "image": { "src": "/images/help-cta.jpg", "alt": "Hjälp med kalkylatoranvändning" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Bilförmånskalkylator",
+      "text": "Beräkna bilförmånens skattemässiga värde och kostnader noggrant",
+      "buttonText": "Gå till bilförmånskalkylatorn"
+    },
+    "carLeasing": {
+      "heading": "Billeasing",
+      "text": "Lär dig om billeasing och dess fördelar",
+      "buttonText": "Läs mer om billeasing"
+    },
+    "contact": {
+      "heading": "Personlig service",
+      "text": "Få expertråd och skräddarsydda lösningar",
+      "buttonText": "Boka tid"
+    }
+  }
+}
