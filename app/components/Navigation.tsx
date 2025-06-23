@@ -102,7 +102,7 @@ export default function Navigation() {
       id: "about-us",
       label: t("about_us"),
       items: [
-        { href: "/keita-olemme", label: t("about_us") },
+        { href: "/keita-olemme", label: t("who_we_are") },
         { href: "/digitaaliset-palvelut", label: t("digital_services") },
         { href: "/rahoitusratkaisut", label: t("financing_solutions") },
       ],
