@@ -101,7 +101,7 @@ interface AdditionalCtaData {
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "About" });
+  const t = await getTranslations({ locale, namespace: "MachineLeasing" });
   const meta = t.raw("meta");
   return generateLocalizedMetadata({
     locale: params.locale,

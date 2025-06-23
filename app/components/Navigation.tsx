@@ -123,7 +123,7 @@ export default function Navigation() {
       label: t("for_customers"),
       items: [
         { href: "/autoilijan-opas", label: t("drivers_guide") },
-        { href: "/autokannan-hallinnointi", label: t("fleet_management") },
+        { href: "/fleet-manager", label: t("fleet_management") },
         { href: "/laskurit", label: t("calculators") },
         { href: "/ukk", label: t("faq") },
       ],
@@ -154,7 +154,7 @@ export default function Navigation() {
         { href: "/myynti", label: t("sales") },
         { href: "/jälkimarkkinointi", label: t("marketing") },
         { href: "/laskutus", label: t("contact_info") },
-        { href: "/tyopaikat", label: t("open_positions") },
+        { href: "/avoimet-tyopaikat", label: t("open_positions") },
       ],
     },
   ];

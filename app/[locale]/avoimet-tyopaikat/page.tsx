@@ -15,6 +15,7 @@ import { Card } from "@/app/components/v2/core/Card";
 import { Flex } from "@/app/components/v2/core/Flex";
 import { LinkButton } from "@/app/components/v2/core/LinkButton";
 import { generateLocalizedMetadata } from "@/utils/metadata";
+import { ImagePlaceholder } from "@/app/components/v2/components/ImagePlaceholder";
 
 interface Props {
   params: Promise<{
@@ -76,20 +77,13 @@ export default async function OpenPositionsPage({ params }: Props) {
       <BasicLayout contentPalette="maantie">
         <Heading2>{whyWorkHere.heading}</Heading2>
         {whyWorkHere.subheading && (
-          <Paragraph className="text-lg text-center mb-8">{whyWorkHere.subheading}</Paragraph>
+          <Paragraph className="text-lg">{whyWorkHere.subheading}</Paragraph>
         )}
         <Flex direction="row" gaps="large" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {whyWorkHere.cards?.map((card: { title: string; texts: string[]; image?: { src: string; alt: string } }, idx: number) => (
-            <Card palette="beige" key={idx} className="flex flex-col">
+            <Card palette="beige" key={idx} className="flex flex-col" padding="none" contentPadding="full">
               {card.image && (
-                <ImageContainer aspectRatio="16/9" className="mb-4">
-                  <Image 
-                    src={card.image.src} 
-                    alt={card.image.alt} 
-                    width={300} 
-                    height={169} 
-                  />
-                </ImageContainer>
+                <ImagePlaceholder aspectRatio="4:3" />
               )}
               <Heading3>{card.title}</Heading3>
               {card.texts?.map((text: string, textIdx: number) => (
@@ -104,7 +98,7 @@ export default async function OpenPositionsPage({ params }: Props) {
       <BasicLayout palette="piki">
         <Heading2>{openPositions.heading}</Heading2>
         {openPositions.subheading && (
-          <Paragraph className="text-lg text-center mb-8">{openPositions.subheading}</Paragraph>
+          <Paragraph className="text-lg">{openPositions.subheading}</Paragraph>
         )}
         <Flex direction="column" gaps="small">
           {openPositions.positions?.map((position: { 
