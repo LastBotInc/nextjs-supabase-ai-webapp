@@ -16,27 +16,30 @@
   },
 
   "cta": {
-    "heading": "Tarvitsetko apua laskurien käytössä?",
-    "texts": ["Asiantuntijamme auttavat sinua tulkitsemaan tuloksia ja löytämään parhaan ratkaisun tarpeisiisi."],
-    "link": { "label": "Ota yhteyttä", "href": "/yhteystiedot" },
-    "image": { "src": "/images/help-cta.jpg", "alt": "Apua laskurien käytössä" }
+    "heading": "Tarvitsetko apua laskureiden käytössä?",
+    "texts": ["Asiantuntijamme auttavat tulkitsemaan tuloksia ja löytämään parhaan ratkaisun tarpeisiisi."],
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/help-cta.jpg", "alt": "Apua laskureiden käytössä" }
   },
 
   "additionalCta": {
     "calculator": {
       "heading": "Autoetulaskuri",
       "text": "Laske autoedun verotusarvo ja kustannukset tarkasti",
-      "buttonText": "Siirry autoetulaskuriin"
+      "buttonText": "Siirry autoetulaskuriin",
+      "href": "/leasing-laskuri"
     },
     "carLeasing": {
       "heading": "Autoleasing",
       "text": "Tutustu autoleasingiin ja sen etuihin",
-      "buttonText": "Lue lisää autoleasingista"
+      "buttonText": "Lue lisää autoleasingista",
+      "href": "/autoleasing"
     },
     "contact": {
       "heading": "Henkilökohtainen palvelu",
-      "text": "Saat asiantuntevaa neuvontaa ja räätälöityjä ratkaisuja",
-      "buttonText": "Varaa aika"
+      "text": "Saat asiantuntija-apua ja räätälöityjä ratkaisuja",
+      "buttonText": "Varaa aika",
+      "href": "/asiakaspalvelu"
     }
   }
 }

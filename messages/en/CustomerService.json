@@ -41,6 +41,7 @@
       "Our customer service team specializes in different areas to provide expert assistance in all possible situations."
     ],
     "learnMore": "Learn more",
+    "learnMoreHref": "/asiakaspalvelu",
     "categories": {
       "leasing": {
         "heading": "Leasing Support",
@@ -139,6 +140,8 @@
     "texts": ["Discover how our fleet management solutions can save your company time and costs."],
     "image": { "src": "/images/ajankohtaista.png", "alt": "Corporate vehicle fleet" },
     "fleetButton": "Explore Fleet Solutions",
-    "leasingButton": "View Leasing Options"
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "View Leasing Options",
+    "leasingHref": "/yritysleasing"
   }
 }

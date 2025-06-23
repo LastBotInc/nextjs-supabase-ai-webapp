@@ -9,11 +9,13 @@
     "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png" }
   },
   "from": "Från",
-  "month": "mån",
-  "view_offer": "Se erbjudande",
+  "month": "månad",
+  "view_offer": "Visa Erbjudande",
+  "campaign_detail_href": "/kampanjat",
   "cta": {
     "title": "Intresserad av ett kampanjerbjudande?",
-    "description": "Kontakta oss för mer information eller för att reservera din kampanjbil. Vi hjälper dig att hitta den bästa lösningen för dina behov.",
-    "button": "Kontakta oss"
+    "description": "Kontakta oss för mer information eller för att reservera ditt kampanjfordon. Vårt team hjälper dig att hitta den bästa lösningen för dina behov.",
+    "button": "Kontakta Oss",
+    "buttonHref": "/yhteystiedot"
   }
 }

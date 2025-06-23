@@ -72,28 +72,26 @@
   },
   "allInOne": {
     "heading": "All Information in One View – No More Scattered Spreadsheets",
-    "texts": [
-      "FleetManager brings a new level of efficiency and predictability to your fleet management."
-    ],
+    "texts": ["FleetManager brings a new level of efficiency and predictability to your fleet management."],
     "image": { "src": "/images/ajankohtaista.png", "alt": "All in one" }
   },
   "cta": {
     "heading": "Implement FleetManager in Your Company",
-    "texts": [
-      "Explore FleetManager's possibilities and contact our experts."
-    ],
+    "texts": ["Explore FleetManager's possibilities and contact our experts."],
     "link": { "label": "Request Demo", "href": "/contact" }
   },
   "additionalCta": {
     "leasing": {
       "heading": "Interested in Leasing Solutions?",
       "text": "Explore our comprehensive leasing services for businesses.",
-      "buttonText": "Leasing Solutions"
+      "buttonText": "Leasing Solutions",
+      "buttonHref": "/leasing-solutions"
     },
     "contact": {
       "heading": "Need Personal Consultation?",
       "text": "Our experts will help you find the perfect solution for your company.",
-      "buttonText": "Contact Us"
+      "buttonText": "Contact Us",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

@@ -68,9 +68,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     image: { src: string; alt: string };
   };
   const additionalCta = t.raw("additionalCta") as {
-    calculator: { heading: string; text: string; buttonText: string };
-    carLeasing: { heading: string; text: string; buttonText: string };
-    contact: { heading: string; text: string; buttonText: string };
+    calculator: { heading: string; text: string; buttonText: string; buttonHref: string };
+    carLeasing: { heading: string; text: string; buttonText: string; buttonHref: string };
+    contact: { heading: string; text: string; buttonText: string; buttonHref: string };
   };
 
   return (
@@ -218,17 +218,17 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <Card palette="default">
             <Heading3>{additionalCta.calculator.heading}</Heading3>
             <Paragraph>{additionalCta.calculator.text}</Paragraph>
-            <LinkButton href="/leasinglaskuri">{additionalCta.calculator.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.calculator.buttonHref}>{additionalCta.calculator.buttonText}</LinkButton>
           </Card>
           <Card palette="default">
             <Heading3>{additionalCta.carLeasing.heading}</Heading3>
             <Paragraph>{additionalCta.carLeasing.text}</Paragraph>
-            <LinkButton href="/autoleasing">{additionalCta.carLeasing.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.carLeasing.buttonHref}>{additionalCta.carLeasing.buttonText}</LinkButton>
           </Card>
           <Card palette="default">
             <Heading3>{additionalCta.contact.heading}</Heading3>
             <Paragraph>{additionalCta.contact.text}</Paragraph>
-            <LinkButton href="/asiakaspalvelu">{additionalCta.contact.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.contact.buttonHref}>{additionalCta.contact.buttonText}</LinkButton>
           </Card>
         </Flex>
       </BasicLayout>

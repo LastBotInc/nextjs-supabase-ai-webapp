@@ -59,6 +59,7 @@ interface SupportCategoriesData {
   heading: string;
   texts: string[];
   learnMore: string;
+  learnMoreHref: string;
   categories: {
     leasing: SupportCategory;
     maintenance: SupportCategory;
@@ -129,7 +130,9 @@ interface CtaData {
   texts: string[];
   image: { src: string; alt: string };
   fleetButton: string;
+  fleetHref: string;
   leasingButton: string;
+  leasingHref: string;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -212,46 +215,46 @@ export default async function CustomerServicePage({ params }: Props) {
       {/* Support Categories */}
       <BasicLayout palette="light-gray">
         <Flex direction="column">
-        <Heading2>{supportCategories.heading}</Heading2>
-        {supportCategories.texts?.map((text: string, idx: number) => (
-          <Paragraph key={idx}>{text}</Paragraph>
-        ))}
-       </Flex>
-       <Columns columns={{ default: 1, md: 2, lg: 4}}>
-        {Object.entries(supportCategories.categories).map(([key, category]) => (
-          <Card key={key} gaps="small" padding="none">
-            <ImagePlaceholder aspectRatio="4:3" />
-            <Heading3>{category.heading}</Heading3>
-            {category.texts?.map((text: string, idx: number) => (
-              <Paragraph key={idx}>{text}</Paragraph>
-            ))}
-            <LinkButton href="#">{supportCategories.learnMore}</LinkButton>
-          </Card>
-        ))}
+          <Heading2>{supportCategories.heading}</Heading2>
+          {supportCategories.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
+        </Flex>
+        <Columns columns={{ default: 1, md: 2, lg: 4 }}>
+          {Object.entries(supportCategories.categories).map(([key, category]) => (
+            <Card key={key} gaps="small" padding="none">
+              <ImagePlaceholder aspectRatio="4:3" />
+              <Heading3>{category.heading}</Heading3>
+              {category.texts?.map((text: string, idx: number) => (
+                <Paragraph key={idx}>{text}</Paragraph>
+              ))}
+              <LinkButton href={supportCategories.learnMoreHref}>{supportCategories.learnMore}</LinkButton>
+            </Card>
+          ))}
         </Columns>
       </BasicLayout>
 
       {/* Offices section */}
       <BasicLayout palette="beige">
-      <Flex direction="column">
-        <Heading2>{offices.heading}</Heading2>
-        {offices.texts?.map((text: string, idx: number) => (
-          <Paragraph key={idx}>{text}</Paragraph>
-        ))}
+        <Flex direction="column">
+          <Heading2>{offices.heading}</Heading2>
+          {offices.texts?.map((text: string, idx: number) => (
+            <Paragraph key={idx}>{text}</Paragraph>
+          ))}
         </Flex>
-        <Columns columns={{ default: 1, md: 3}}>    
-        {offices.locations?.map((office: OfficeLocation, index: number) => (
-          <Card key={index} gaps="small" padding="none">
-            <Heading3>{office.name}</Heading3>
-            <Paragraph>{office.address}</Paragraph>
-            <Paragraph>{office.phone}</Paragraph>
-            <Paragraph>{office.email}</Paragraph>
-            <Paragraph>{office.hours}</Paragraph>
-            <LinkButton href={`https://maps.google.com/?q=${office.name} ${office.address}`} target="_blank">
-              {offices.viewMap}
-            </LinkButton>
-          </Card>
-        ))}
+        <Columns columns={{ default: 1, md: 3 }}>
+          {offices.locations?.map((office: OfficeLocation, index: number) => (
+            <Card key={index} gaps="small" padding="none">
+              <Heading3>{office.name}</Heading3>
+              <Paragraph>{office.address}</Paragraph>
+              <Paragraph>{office.phone}</Paragraph>
+              <Paragraph>{office.email}</Paragraph>
+              <Paragraph>{office.hours}</Paragraph>
+              <LinkButton href={`https://maps.google.com/?q=${office.name} ${office.address}`} target="_blank">
+                {offices.viewMap}
+              </LinkButton>
+            </Card>
+          ))}
         </Columns>
       </BasicLayout>
 
@@ -370,8 +373,8 @@ export default async function CustomerServicePage({ params }: Props) {
             {cta.texts?.map((text: string, idx: number) => (
               <Paragraph key={idx}>{text}</Paragraph>
             ))}
-            <LinkButton href={`/${locale}/autokannan-hallinnointi`}>{cta.fleetButton}</LinkButton>
-            <LinkButton href={`/${locale}/leasing-solutions`}>{cta.leasingButton}</LinkButton>
+            <LinkButton href={cta.fleetHref}>{cta.fleetButton}</LinkButton>
+            <LinkButton href={cta.leasingHref}>{cta.leasingButton}</LinkButton>
           </Flex>
         </Hero.Text>
       </Hero>

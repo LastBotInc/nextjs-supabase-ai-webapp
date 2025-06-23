@@ -20,7 +20,7 @@
     "quote": "Siirtyminen Innoleasen kalustonhallintaratkaisuun sujui vaivattomasti. Pelkästään data-analyysi on muuttanut tapaamme tehdä päätöksiä ajoneuvokannastamme.",
     "personName": "Maria Korhonen",
     "personTitle": "Kalustojohtaja, Nordic Logistics",
-    "link": { "label": "Lue koko tarina", "href": "#" },
+    "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/nordic-logistics" },
     "results": [
       { "stat": "22%", "label": "Kustannusten vähennys" },
       { "stat": "15%", "label": "Polttoainetehokkuuden parannus" },
@@ -37,7 +37,7 @@
     "texts": [
       "Tutustu, kuinka kaikenkokoisten yritysten eri toimialoilla ovat hyötyneet räätälöidyistä leasing-ratkaisuistamme."
     ],
-    "link": { "label": "Lataa lisää tarinoita", "href": "#" }
+    "link": { "label": "Lataa lisää tarinoita", "href": "/asiakastarinat" }
   },
   "stories": [
     {
@@ -47,7 +47,7 @@
       "texts": [
         "TechFinland Solutions otti käyttöön Innoleasen InnoFleet Manager -järjestelmän digitalisoidakseen ajoneuvojen hallinnan, mikä johti toiminnan tehostumiseen ja merkittäviin kustannussäästöihin."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/techfinland-solutions" }
     },
     {
       "company": "EcoConstruct Oy",
@@ -56,7 +56,7 @@
       "texts": [
         "EcoConstruct siirtyi sähköajoneuvoihin Innoleasen joustavien leasing-vaihtoehtojen avulla, pienentäen hiilijalanjälkeään ja säilyttäen toimintakykynsä."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/ecoconstruct" }
     },
     {
       "company": "Nordic Healthcare Group",
@@ -65,7 +65,7 @@
       "texts": [
         "Nordic Healthcare Group luottaa Innoleaseen varmistaakseen, että heidän hoitajillaan on aina luotettava kuljetus, erikoisvarustellut ajoneuvot ja huoltopalvelut."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/nordic-healthcare" }
     },
     {
       "company": "Fresh Delivery Express",
@@ -74,7 +74,7 @@
       "texts": [
         "Kun Fresh Delivery Express laajensi toimintaansa, Innolease tarjosi skaalautuvia kalustoratkaisuja, jotka mahdollistivat ajoneuvokapasiteetin säätämisen kausittaisen kysynnän mukaan."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/fresh-delivery" }
     },
     {
       "company": "Retail Innovators Oy",
@@ -83,7 +83,7 @@
       "texts": [
         "Retail Innovators työskenteli Innoleasen kanssa analysoidakseen ja optimoidakseen toimitusreittinsä ja ajoneuvovalintansa, vähentäen kilometrikustannuksiaan 18%."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/retail-innovators" }
     },
     {
       "company": "Arctic Tours",
@@ -92,7 +92,7 @@
       "texts": [
         "Arctic Tours kumppanoi Innoleasen kanssa hankkiakseen ja ylläpitääkseen erikoisajoneuvoja, jotka pystyvät toimimaan äärimmäisissä pohjoisissa olosuhteissa matkailutoimintaa varten."
       ],
-      "link": { "label": "Lue koko tarina", "href": "#" }
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/arctic-tours" }
     }
   ],
   "filters": {

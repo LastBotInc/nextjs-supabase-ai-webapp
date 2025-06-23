@@ -144,17 +144,20 @@
     "portal": {
       "heading": "Verkkoasiakasportaali",
       "text": "Käytä laskujasi, maksuhistoriaasi ja tilin tietojasi verkossa.",
-      "buttonText": "Siirry portaaliin"
+      "buttonText": "Siirry portaaliin",
+      "buttonHref": "/account"
     },
     "support": {
       "heading": "Asiakastuki",
       "text": "Saa apua laskutus- tai tilikysymyksiin tukitiimiltämme.",
-      "buttonText": "Hanki tukea"
+      "buttonText": "Hanki tukea",
+      "buttonHref": "/contact"
     },
     "contact": {
       "heading": "Suora yhteydenotto",
       "text": "Keskustele suoraan laskutusasiantuntijoiden kanssa henkilökohtaista apua varten.",
-      "buttonText": "Ota yhteyttä"
+      "buttonText": "Ota yhteyttä",
+      "buttonHref": "/contact"
     }
   }
 }

@@ -149,17 +149,20 @@
     "portal": {
       "heading": "Online Account Portal",
       "text": "Access your invoices, payment history, and account details online.",
-      "buttonText": "Access Portal"
+      "buttonText": "Access Portal",
+      "buttonHref": "/account"
     },
     "support": {
       "heading": "Customer Support",
       "text": "Get help with any billing or account questions from our support team.",
-      "buttonText": "Get Support"
+      "buttonText": "Get Support",
+      "buttonHref": "/contact"
     },
     "contact": {
       "heading": "Direct Contact",
       "text": "Speak directly with our billing specialists for personalized assistance.",
-      "buttonText": "Contact Us"
+      "buttonText": "Contact Us",
+      "buttonHref": "/contact"
     }
   }
 }

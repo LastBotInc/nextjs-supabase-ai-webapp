@@ -48,9 +48,7 @@
 
   "benefits": {
     "heading": "Fördelar med leasing för företag",
-    "texts": [
-      "Leasing erbjuder företag många betydande fördelar jämfört med traditionellt köp eller att ta lån."
-    ],
+    "texts": ["Leasing erbjuder företag många betydande fördelar jämfört med traditionellt köp eller att ta lån."],
     "list": [
       "Inga stora initiala investeringar – kapital förblir tillgängligt för andra ändamål",
       "Fasta månadskostnader gör budgetering enklare",
@@ -62,9 +60,7 @@
 
   "examples": {
     "heading": "Praktiska exempel",
-    "texts": [
-      "Se hur leasing har hjälpt företag inom olika branscher att effektivt skaffa den utrustning de behöver."
-    ],
+    "texts": ["Se hur leasing har hjälpt företag inom olika branscher att effektivt skaffa den utrustning de behöver."],
     "cases": [
       {
         "title": "Byggföretag",
@@ -85,9 +81,7 @@
 
   "faq": {
     "heading": "Vanliga frågor",
-    "texts": [
-      "Svar på de vanligaste frågorna om maskin- och utrustningsleasing."
-    ],
+    "texts": ["Svar på de vanligaste frågorna om maskin- och utrustningsleasing."],
     "questions": [
       {
         "question": "Kan den leasade utrustningen köpas vid avtalets slut?",
@@ -106,9 +100,7 @@
 
   "cta": {
     "heading": "Intresserad av maskin- och utrustningsleasing?",
-    "texts": [
-      "Kontakta vår expert och begär en skräddarsydd leasingoffert för ditt företag!"
-    ],
+    "texts": ["Kontakta vår expert och begär en skräddarsydd leasingoffert för ditt företag!"],
     "link": { "label": "Kontakta oss", "href": "/yhteystiedot" },
     "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Kontakta oss" }
   },
@@ -117,17 +109,20 @@
     "calculator": {
       "heading": "Beräkna leasingkostnader",
       "text": "Använd vår bilförmånskalkylator för att få en uppfattning om leasingkostnader.",
-      "buttonText": "Gå till kalkylatorn"
+      "buttonText": "Gå till kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
     },
     "carLeasing": {
       "heading": "Billeasing",
       "text": "Utforska också våra billeasingtjänster för privatpersoner och företag.",
-      "buttonText": "Billeasing"
+      "buttonText": "Billeasing",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Behöver du en skräddarsydd lösning?",
       "text": "Våra experter hjälper dig att hitta rätt leasinglösning för ditt företag.",
-      "buttonText": "Kontaktuppgifter"
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

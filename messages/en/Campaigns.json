@@ -11,9 +11,11 @@
   "from": "From",
   "month": "month",
   "view_offer": "View Offer",
+  "campaign_detail_href": "/kampanjat",
   "cta": {
     "title": "Interested in a campaign offer?",
     "description": "Contact us for more information or to reserve your campaign vehicle. Our team will help you find the best solution for your needs.",
-    "button": "Contact Us"
+    "button": "Contact Us",
+    "buttonHref": "/yhteystiedot"
   }
 }

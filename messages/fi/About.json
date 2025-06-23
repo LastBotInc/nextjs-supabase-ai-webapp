@@ -38,9 +38,7 @@
 
   "ourValues": {
     "heading": "Arvomme",
-    "texts": [
-      "Toimintaamme ohjaavat kolme keskeistä arvoa:"
-    ],
+    "texts": ["Toimintaamme ohjaavat kolme keskeistä arvoa:"],
     "cards": [
       {
         "title": "Avoimuus",
@@ -128,20 +126,23 @@
 
   "additionalCta": {
     "services": {
-      "heading": "Tutustu palveluihimme",
-      "text": "Löydä laaja valikoima leasingratkaisuja yrityksellesi ja yksityiskäyttöön. Autoleasing, koneleasing ja muut joustavat rahoitusratkaisut.",
-      "buttonText": "Näytä kaikki palvelut"
+      "heading": "Tutustu Palveluihimme",
+      "text": "Löydä laaja valikoima leasingratkaisuja yrityskäyttöön ja yksityiskäyttöön. Autoleasing, koneleasing ja muut joustavat rahoitusratkaisut.",
+      "buttonText": "Katso Kaikki Palvelut",
+      "buttonHref": "/leasing-solutions"
     },
     "calculator": {
-      "heading": "Laske autoetusi",
-      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta. Saat tarkan laskennan autoedun verotusarvosta.",
-      "buttonText": "Siirry laskuriin"
+      "heading": "Laske Autoetusi",
+      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä, kuinka paljon voit säästää työsuhdeoautolla. Saat tarkan laskelman autoetusi verotusarvosta.",
+      "buttonText": "Siirry Laskuriin",
+      "buttonHref": "/autoetulaskuri"
     },
     "team": {
-      "heading": "Tapaa tiimimme",
-      "text": "Kokeneet asiantuntijamme ovat valmiita auttamaan sinua löytämään parhaan ratkaisun. Ota yhteyttä ja keskustele tarpeistasi.",
+      "heading": "Tutustu Tiimiimme",
+      "text": "Kokeneet asiantuntijamme ovat valmiita auttamaan sinua löytämään parhaan ratkaisun. Ota yhteyttä ja keskustellaan tarpeistasi.",
       "buttonText": "Yhteystiedot",
-      "imageAlt": "Innoleasen tiimi kokouksessa"
+      "buttonHref": "/yhteystiedot",
+      "imageAlt": "Innolease-tiimi kokouksessa"
     }
   }
 }

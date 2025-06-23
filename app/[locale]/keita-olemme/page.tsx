@@ -73,11 +73,11 @@ export default async function AboutPage({ params }: Props) {
         </FlexLayout.Column>
         <FlexLayout.Column>
           <ImageContainer aspectRatio="4/3" className="flex items-center justify-center">
-            <Image 
-              src={introduction.image?.src || "/images/innolease-car.png"} 
-              alt={introduction.image?.alt || "Innolease"} 
-              width={320} 
-              height={240} 
+            <Image
+              src={introduction.image?.src || "/images/innolease-car.png"}
+              alt={introduction.image?.alt || "Innolease"}
+              width={320}
+              height={240}
             />
           </ImageContainer>
         </FlexLayout.Column>
@@ -161,17 +161,15 @@ export default async function AboutPage({ params }: Props) {
           {history.texts?.map((text: string, idx: number) => (
             <Paragraph key={idx}>{text}</Paragraph>
           ))}
-          {history.link && (
-            <LinkButton href={history.link.href}>{history.link.label}</LinkButton>
-          )}
+          {history.link && <LinkButton href={history.link.href}>{history.link.label}</LinkButton>}
         </FlexLayout.Column>
         <FlexLayout.Column>
           <ImageContainer aspectRatio="4/3" className="flex items-center justify-center mt-6">
-            <Image 
-              src={history.image?.src || "/images/innolease-car.png"} 
-              alt={history.image?.alt || "Innolease"} 
-              width={320} 
-              height={240} 
+            <Image
+              src={history.image?.src || "/images/innolease-car.png"}
+              alt={history.image?.alt || "Innolease"}
+              width={320}
+              height={240}
             />
           </ImageContainer>
         </FlexLayout.Column>
@@ -184,11 +182,11 @@ export default async function AboutPage({ params }: Props) {
           <Paragraph key={idx}>{text}</Paragraph>
         ))}
         <ImageContainer aspectRatio="4/3" className="flex items-center justify-center mt-6">
-          <Image 
-            src={coverage.image?.src || "/images/placeholders/map.png"} 
-            alt={coverage.image?.alt || "Palveluverkosto"} 
-            width={320} 
-            height={240} 
+          <Image
+            src={coverage.image?.src || "/images/placeholders/map.png"}
+            alt={coverage.image?.alt || "Palveluverkosto"}
+            width={320}
+            height={240}
           />
         </ImageContainer>
       </BasicLayout>
@@ -199,9 +197,7 @@ export default async function AboutPage({ params }: Props) {
         {cta.texts?.map((text: string, idx: number) => (
           <Paragraph key={idx}>{text}</Paragraph>
         ))}
-        {cta.link && (
-          <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
-        )}
+        {cta.link && <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>}
       </BasicLayout>
 
       {/* ADDITIONAL CTA SECTIONS */}
@@ -209,12 +205,16 @@ export default async function AboutPage({ params }: Props) {
         <FlexLayout.Column>
           <Heading2>{t("additionalCta.services.heading")}</Heading2>
           <Paragraph>{t("additionalCta.services.text")}</Paragraph>
-          <LinkButton href="/leasing-solutions">{t("additionalCta.services.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.services.buttonHref")}>
+            {t("additionalCta.services.buttonText")}
+          </LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Heading2>{t("additionalCta.calculator.heading")}</Heading2>
           <Paragraph>{t("additionalCta.calculator.text")}</Paragraph>
-          <LinkButton href="/autoetulaskuri">{t("additionalCta.calculator.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.calculator.buttonHref")}>
+            {t("additionalCta.calculator.buttonText")}
+          </LinkButton>
         </FlexLayout.Column>
       </FlexLayout>
 
@@ -222,15 +222,15 @@ export default async function AboutPage({ params }: Props) {
         <FlexLayout.Column>
           <Heading2>{t("additionalCta.team.heading")}</Heading2>
           <Paragraph>{t("additionalCta.team.text")}</Paragraph>
-          <LinkButton href="/yhteystiedot">{t("additionalCta.team.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.team.buttonHref")}>{t("additionalCta.team.buttonText")}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           <ImageContainer aspectRatio="4/3" className="flex items-center justify-center">
-            <Image 
-              src="/images/team/team-meeting.jpg" 
-              alt={t("additionalCta.team.imageAlt")} 
-              width={320} 
-              height={240} 
+            <Image
+              src="/images/team/team-meeting.jpg"
+              alt={t("additionalCta.team.imageAlt")}
+              width={320}
+              height={240}
             />
           </ImageContainer>
         </FlexLayout.Column>

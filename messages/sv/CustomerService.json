@@ -41,6 +41,7 @@
       "Vårt kundserviceteam specialiserar sig på olika områden för att ge experthjälp i alla möjliga situationer."
     ],
     "learnMore": "Läs mer",
+    "learnMoreHref": "/asiakaspalvelu",
     "categories": {
       "leasing": {
         "heading": "Leasingstöd",
@@ -135,10 +136,12 @@
   },
 
   "cta": {
-    "heading": "Redo att optimera din fordonsparkshantering?",
-    "texts": ["Upptäck hur våra fordonsparkshanteringslösningar kan spara tid och kostnader för ditt företag."],
-    "image": { "src": "/images/ajankohtaista.png", "alt": "Företagsfordonspark" },
-    "fleetButton": "Utforska fordonsparklösningar",
-    "leasingButton": "Se leasingalternativ"
+    "heading": "Redo att optimera din flotthantering?",
+    "texts": ["Upptäck hur våra flotthanteringslösningar kan spara ditt företag tid och kostnader."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Företagsfordonsflotta" },
+    "fleetButton": "Utforska flottlösningar",
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "Visa leasing-alternativ",
+    "leasingHref": "/yritysleasing"
   }
 }

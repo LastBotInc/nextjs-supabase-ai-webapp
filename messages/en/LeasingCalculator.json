@@ -152,7 +152,9 @@
     "title": "Ready to Optimize Your Company Car Strategy?",
     "description": "Our fleet management experts can help you implement the most cost-effective car benefit structure based on your company's specific needs.",
     "contactButton": "Contact Our Experts",
-    "learnMoreButton": "Learn About Our Leasing Solutions"
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButton": "Learn About Our Leasing Solutions",
+    "learnMoreButtonHref": "/autoleasing"
   },
   "faq": {
     "title": "Frequently Asked Questions",

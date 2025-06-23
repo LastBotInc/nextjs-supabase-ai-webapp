@@ -151,17 +151,20 @@
     "portal": {
       "heading": "Online kontoportal",
       "text": "Få tillgång till dina fakturor, betalningshistorik och kontodetaljer online.",
-      "buttonText": "Använd portalen"
+      "buttonText": "Använd portalen",
+      "buttonHref": "/account"
     },
     "support": {
       "heading": "Kundsupport",
       "text": "Få hjälp med eventuella fakturerings- eller kontofrågor från vårt supportteam.",
-      "buttonText": "Få support"
+      "buttonText": "Få support",
+      "buttonHref": "/contact"
     },
     "contact": {
       "heading": "Direktkontakt",
       "text": "Tala direkt med våra faktureringsspecialister för personlig hjälp.",
-      "buttonText": "Kontakta oss"
+      "buttonText": "Kontakta oss",
+      "buttonHref": "/contact"
     }
   }
 }

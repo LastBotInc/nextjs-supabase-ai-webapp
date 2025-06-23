@@ -79,6 +79,7 @@ interface AdditionalCtaItem {
   heading: string;
   text: string;
   buttonText: string;
+  buttonHref: string;
 }
 
 interface AdditionalCta {
@@ -100,7 +101,7 @@ interface AdditionalCta {
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CarRental" });
-  const meta = t.raw('meta') as MetaData;
+  const meta = t.raw("meta") as MetaData;
 
   return {
     title: meta.title,
@@ -118,12 +119,12 @@ export default async function CarRentalPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "CarRental" });
 
   // Extract structured data using specific keys
-  const hero = t.raw('hero') as HeroSection;
-  const benefits = t.raw('benefits') as BenefitsSection;
-  const examples = t.raw('examples') as ExamplesSection;
-  const minileasing = t.raw('minileasing') as MinileasingSection;
-  const cta = t.raw('cta') as CtaSection;
-  const additionalCta = t.raw('additionalCta') as AdditionalCta;
+  const hero = t.raw("hero") as HeroSection;
+  const benefits = t.raw("benefits") as BenefitsSection;
+  const examples = t.raw("examples") as ExamplesSection;
+  const minileasing = t.raw("minileasing") as MinileasingSection;
+  const cta = t.raw("cta") as CtaSection;
+  const additionalCta = t.raw("additionalCta") as AdditionalCta;
 
   return (
     <PageWrapper>
@@ -196,7 +197,9 @@ export default async function CarRentalPage({ params }: Props) {
       <BasicLayout palette="piki">
         <Heading2>{cta.heading}</Heading2>
         {cta.texts.map((text, index) => (
-          <Paragraph key={index} className="mt-2 mb-6">{text}</Paragraph>
+          <Paragraph key={index} className="mt-2 mb-6">
+            {text}
+          </Paragraph>
         ))}
         <LinkButton href={`/${locale}${cta.link.href}`}>{cta.link.label}</LinkButton>
       </BasicLayout>
@@ -206,14 +209,14 @@ export default async function CarRentalPage({ params }: Props) {
         <BasicLayout palette="beige">
           <Heading3>{additionalCta.leasing.heading}</Heading3>
           <Paragraph>{additionalCta.leasing.text}</Paragraph>
-          <LinkButton href={`/${locale}/autoleasing`} className="mt-4">
+          <LinkButton href={`/${locale}${additionalCta.leasing.buttonHref}`} className="mt-4">
             {additionalCta.leasing.buttonText}
           </LinkButton>
         </BasicLayout>
         <BasicLayout palette="beige">
           <Heading3>{additionalCta.calculator.heading}</Heading3>
           <Paragraph>{additionalCta.calculator.text}</Paragraph>
-          <LinkButton href={`/${locale}/autoetulaskuri`} className="mt-4">
+          <LinkButton href={`/${locale}${additionalCta.calculator.buttonHref}`} className="mt-4">
             {additionalCta.calculator.buttonText}
           </LinkButton>
         </BasicLayout>
@@ -223,7 +226,7 @@ export default async function CarRentalPage({ params }: Props) {
       <BasicLayout palette="kupari">
         <Heading2>{additionalCta.contact.heading}</Heading2>
         <Paragraph className="mb-6">{additionalCta.contact.text}</Paragraph>
-        <LinkButton href={`/${locale}/yhteystiedot`}>
+        <LinkButton href={`/${locale}${additionalCta.contact.buttonHref}`}>
           {additionalCta.contact.buttonText}
         </LinkButton>
       </BasicLayout>

@@ -152,7 +152,9 @@
     "title": "Redo att optimera ditt företags bilstrategi?",
     "description": "Våra flottstyrningsexperter kan hjälpa dig implementera den mest kostnadseffektiva bilförmånsstrukturen baserat på ditt företags specifika behov.",
     "contactButton": "Kontakta våra experter",
-    "learnMoreButton": "Utforska våra leasinglösningar"
+    "learnMoreButton": "Utforska våra leasinglösningar",
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButtonHref": "/autoleasing"
   },
   "faq": {
     "title": "Vanliga frågor",

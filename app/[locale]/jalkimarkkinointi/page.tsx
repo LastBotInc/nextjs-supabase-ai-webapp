@@ -108,19 +108,23 @@ export default async function PostMarketingPage({ params }: { params: Promise<{ 
         <Card>
           <Heading3>{t("additionalCta.calculator.heading")}</Heading3>
           <Paragraph>{t("additionalCta.calculator.text")}</Paragraph>
-          <LinkButton href="/laskurit">{t("additionalCta.calculator.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.calculator.buttonHref")}>
+            {t("additionalCta.calculator.buttonText")}
+          </LinkButton>
         </Card>
 
         <Card>
           <Heading3>{t("additionalCta.carLeasing.heading")}</Heading3>
           <Paragraph>{t("additionalCta.carLeasing.text")}</Paragraph>
-          <LinkButton href="/autoleasing">{t("additionalCta.carLeasing.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.carLeasing.buttonHref")}>
+            {t("additionalCta.carLeasing.buttonText")}
+          </LinkButton>
         </Card>
 
         <Card>
           <Heading3>{t("additionalCta.contact.heading")}</Heading3>
           <Paragraph>{t("additionalCta.contact.text")}</Paragraph>
-          <LinkButton href="/asiakaspalvelu">{t("additionalCta.contact.buttonText")}</LinkButton>
+          <LinkButton href={t("additionalCta.contact.buttonHref")}>{t("additionalCta.contact.buttonText")}</LinkButton>
         </Card>
       </ThreeColumnLayout>
     </PageWrapper>

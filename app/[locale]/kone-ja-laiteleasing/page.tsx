@@ -86,16 +86,19 @@ interface AdditionalCtaData {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
   carLeasing: {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
   contact: {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
 }
 
@@ -196,11 +199,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
         {examples.cases?.map((caseItem: CaseItem, idx: number) => (
           <BoxLayout.Box key={idx}>
             <ImageContainer aspectRatio="16/9">
-              <img
-                src={caseItem.image.src}
-                alt={caseItem.image.alt}
-                className="w-full h-full object-cover"
-              />
+              <img src={caseItem.image.src} alt={caseItem.image.alt} className="w-full h-full object-cover" />
             </ImageContainer>
             <Heading3>{caseItem.title}</Heading3>
             {caseItem.texts?.map((text: string, textIdx: number) => (
@@ -226,18 +225,13 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
       </BasicLayout>
 
       {/* CTA Section */}
-      <TwoColumnLayout
-        palette="betoni"
-        mainImage={{ src: cta.image.src, backgroundPosition: "top left" }}
-      >
+      <TwoColumnLayout palette="betoni" mainImage={{ src: cta.image.src, backgroundPosition: "top left" }}>
         <FlexLayout.Column className="shadow-text min-h-[400px] justify-center">
           <Heading2>{cta.heading}</Heading2>
           {cta.texts?.map((text: string, idx: number) => (
             <Paragraph key={idx}>{text}</Paragraph>
           ))}
-          {cta.link && (
-            <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
-          )}
+          {cta.link && <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>}
         </FlexLayout.Column>
         <div></div>
       </TwoColumnLayout>
@@ -247,12 +241,12 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
         <FlexLayout.Column>
           <Heading2>{additionalCta.calculator.heading}</Heading2>
           <Paragraph>{additionalCta.calculator.text}</Paragraph>
-          <LinkButton href="/autoetulaskuri">{additionalCta.calculator.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.calculator.buttonHref}>{additionalCta.calculator.buttonText}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Heading2>{additionalCta.carLeasing.heading}</Heading2>
           <Paragraph>{additionalCta.carLeasing.text}</Paragraph>
-          <LinkButton href="/autoleasing">{additionalCta.carLeasing.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.carLeasing.buttonHref}>{additionalCta.carLeasing.buttonText}</LinkButton>
         </FlexLayout.Column>
       </FlexLayout>
 
@@ -260,7 +254,7 @@ export default async function MachineLeasingPage({ params }: { params: { locale:
       <BasicLayout contentPalette="maantie">
         <Heading2>{additionalCta.contact.heading}</Heading2>
         <Paragraph>{additionalCta.contact.text}</Paragraph>
-        <LinkButton href="/yhteystiedot">{additionalCta.contact.buttonText}</LinkButton>
+        <LinkButton href={additionalCta.contact.buttonHref}>{additionalCta.contact.buttonText}</LinkButton>
       </BasicLayout>
     </PageWrapper>
   );

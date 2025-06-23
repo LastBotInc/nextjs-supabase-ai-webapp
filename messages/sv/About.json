@@ -38,9 +38,7 @@
 
   "ourValues": {
     "heading": "Våra Värderingar",
-    "texts": [
-      "Vår verksamhet styrs av tre kärnvärden:"
-    ],
+    "texts": ["Vår verksamhet styrs av tre kärnvärden:"],
     "cards": [
       {
         "title": "Transparens",
@@ -52,7 +50,9 @@
       },
       {
         "title": "Flexibilitet",
-        "texts": ["Vi hittar den bästa lösningen för ditt företags situation – oavsett om det gäller maskiner, utrustning eller fordon."]
+        "texts": [
+          "Vi hittar den bästa lösningen för ditt företags situation – oavsett om det gäller maskiner, utrustning eller fordon."
+        ]
       }
     ]
   },
@@ -129,19 +129,22 @@
   "additionalCta": {
     "services": {
       "heading": "Utforska Våra Tjänster",
-      "text": "Upptäck ett brett utbud av leasinglösningar för ditt företag och personligt bruk. Billeasing, maskinleasing och andra flexibla finansieringslösningar.",
-      "buttonText": "Visa Alla Tjänster"
+      "text": "Upptäck ett brett utbud av leasinglösningar för företag och privat bruk. Billeasing, maskinleasing och andra flexibla finansieringslösningar.",
+      "buttonText": "Visa Alla Tjänster",
+      "buttonHref": "/leasing-solutions"
     },
     "calculator": {
       "heading": "Beräkna Din Bilförmån",
-      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du kan spara med en tjänstebil. Få en exakt beräkning av din bilförmåns beskattningsvärde.",
-      "buttonText": "Gå till Kalkylatorn"
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du kan spara med en tjänstebil. Få en noggrann beräkning av din bilförmåns beskattningsvärde.",
+      "buttonText": "Gå Till Kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
     },
     "team": {
       "heading": "Träffa Vårt Team",
-      "text": "Våra erfarna specialister är redo att hjälpa dig hitta den bästa lösningen. Ta kontakt och diskutera dina behov.",
-      "buttonText": "Kontaktinformation",
-      "imageAlt": "Innolease team i ett möte"
+      "text": "Våra erfarna specialister är redo att hjälpa dig hitta den bästa lösningen. Kontakta oss och låt oss diskutera dina behov.",
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot",
+      "imageAlt": "Innolease-teamet i ett möte"
     }
   }
 }

@@ -21,23 +21,17 @@
 
   "ourModel": {
     "heading": "Our Open Business Model",
-    "texts": [
-      "Together with the customer, we define a comprehensive solution that serves the customer's needs."
-    ]
+    "texts": ["Together with the customer, we define a comprehensive solution that serves the customer's needs."]
   },
 
   "personalService": {
     "heading": "Your Dedicated Contact Person",
-    "texts": [
-      "Helps with all driving-related matters throughout the entire contract period."
-    ]
+    "texts": ["Helps with all driving-related matters throughout the entire contract period."]
   },
 
   "digitalServices": {
     "heading": "Digital Services",
-    "texts": [
-      "For fleet managers, allowing you to efficiently manage your own fleet."
-    ]
+    "texts": ["For fleet managers, allowing you to efficiently manage your own fleet."]
   },
 
   "benefits": {
@@ -121,13 +115,17 @@
         ["Maintenance budget", "Not included", "Open, settled at contract end", "Closed", "Closed", "Not included"],
         ["Excess kilometer charge", "Not included", "Budgeted", "Budgeted", "Budgeted", "-"],
         ["Residual value", "Customer's", "Open, settled at contract end", "Closed", "Closed", "Customer's"],
-        ["Early contract termination", "With capital settlement", "With capital settlement", "With capital settlement", "-", "With capital settlement"],
+        [
+          "Early contract termination",
+          "With capital settlement",
+          "With capital settlement",
+          "With capital settlement",
+          "-",
+          "With capital settlement"
+        ],
         ["Used vehicle", "+", "+", "+", "+", "-"]
       ],
-      "explanations": [
-        "Explanation for item",
-        "Explanation for another item"
-      ]
+      "explanations": ["Explanation for item", "Explanation for another item"]
     }
   },
 
@@ -176,17 +174,20 @@
     "calculator": {
       "heading": "Calculate Your Car Benefit",
       "text": "Use our free car benefit calculator and find out how much you can save with a company car. Get an accurate calculation of your car benefit tax value.",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
     },
     "rental": {
       "heading": "Need a car for a short time?",
       "text": "Explore our car rental services. A flexible solution for temporary vehicle needs without long-term commitments.",
-      "buttonText": "Rent a Car"
+      "buttonText": "Rent a Car",
+      "buttonHref": "/auton-vuokraus"
     },
     "contact": {
       "heading": "Expert help when needed",
       "text": "Contact our experienced team. We'll help you find the leasing solution that fits your specific needs.",
-      "buttonText": "Contact Information"
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot"
     }
   },
 

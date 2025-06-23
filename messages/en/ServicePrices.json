@@ -110,17 +110,20 @@
     "calculator": {
       "heading": "Leasing Calculator",
       "text": "Calculate your own monthly payment easily",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/leasinglaskuri"
     },
     "carLeasing": {
       "heading": "Car Leasing",
       "text": "Explore car leasing possibilities",
-      "buttonText": "Learn More"
+      "buttonText": "Learn More",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Customer Service",
       "text": "Questions about pricing? Contact us",
-      "buttonText": "Contact Us"
+      "buttonText": "Contact Us",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

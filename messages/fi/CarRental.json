@@ -32,9 +32,7 @@
 
   "examples": {
     "heading": "Täydellinen ratkaisu mm.:",
-    "texts": [
-      "Autonvuokrauspalvelumme soveltuu monenlaisiin tilanteisiin ja tarpeisiin."
-    ],
+    "texts": ["Autonvuokrauspalvelumme soveltuu monenlaisiin tilanteisiin ja tarpeisiin."],
     "list": [
       "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
       "Sijaisautoksi huollon tai korjauksen ajaksi",
@@ -80,17 +78,20 @@
     "leasing": {
       "heading": "Kiinnostuitko leasingista?",
       "text": "Tutustu kattaviin autoleasingpalveluihimme yksityisille ja yrityksille.",
-      "buttonText": "Auton leasing"
+      "buttonText": "Auton leasing",
+      "buttonHref": "/autoleasing"
     },
     "calculator": {
       "heading": "Laske autoetusi",
       "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta.",
-      "buttonText": "Siirry laskuriin"
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/autoetulaskuri"
     },
     "contact": {
       "heading": "Tarvitsetko henkilökohtaista neuvontaa?",
       "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan ratkaisun.",
-      "buttonText": "Yhteystiedot"
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

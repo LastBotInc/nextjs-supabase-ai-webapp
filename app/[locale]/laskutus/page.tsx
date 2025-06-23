@@ -200,19 +200,19 @@ export default async function BillingPage({ params }: { params: { locale: string
         <Card palette="beige">
           <Heading3>{additionalCta.portal.heading}</Heading3>
           <Paragraph>{additionalCta.portal.text}</Paragraph>
-          <LinkButton href="/account">{additionalCta.portal.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.portal.buttonHref}>{additionalCta.portal.buttonText}</LinkButton>
         </Card>
 
         <Card palette="beige">
           <Heading3>{additionalCta.support.heading}</Heading3>
           <Paragraph>{additionalCta.support.text}</Paragraph>
-          <LinkButton href="/contact">{additionalCta.support.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.support.buttonHref}>{additionalCta.support.buttonText}</LinkButton>
         </Card>
 
         <Card palette="beige">
           <Heading3>{additionalCta.contact.heading}</Heading3>
           <Paragraph>{additionalCta.contact.text}</Paragraph>
-          <LinkButton href="/contact">{additionalCta.contact.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.contact.buttonHref}>{additionalCta.contact.buttonText}</LinkButton>
         </Card>
       </ThreeColumnLayout>
     </PageWrapper>

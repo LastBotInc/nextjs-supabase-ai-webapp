@@ -9,11 +9,13 @@
     "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png" }
   },
   "from": "Alkaen",
-  "month": "kk",
-  "view_offer": "Katso tarjous",
+  "month": "kuukausi",
+  "view_offer": "Katso Tarjous",
+  "campaign_detail_href": "/kampanjat",
   "cta": {
-    "title": "Kiinnostuitko kampanjasta?",
-    "description": "Ota yhteyttä saadaksesi lisätietoja tai varataksesi kampanja-auton. Autamme löytämään juuri sinulle sopivan ratkaisun.",
-    "button": "Ota yhteyttä"
+    "title": "Kiinnostunut kampanjatarjouksesta?",
+    "description": "Ota yhteyttä saadaksesi lisätietoja tai varataksesi kampanja-autosi. Tiimimme auttaa sinua löytämään parhaan ratkaisun tarpeisiisi.",
+    "button": "Ota Yhteyttä",
+    "buttonHref": "/yhteystiedot"
   }
 }

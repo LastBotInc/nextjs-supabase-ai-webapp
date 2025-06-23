@@ -125,7 +125,7 @@ export default async function CampaignsPage({ params }: { params: { locale: stri
                 </List>
               </div>
 
-              <LinkButton href={`/${locale}/kampanjat/${campaign.id}`} className="mt-auto">
+              <LinkButton href={`/${locale}${t("campaign_detail_href")}/${campaign.id}`} className="mt-auto">
                 {t("view_offer")}
               </LinkButton>
             </Card>
@@ -136,7 +136,7 @@ export default async function CampaignsPage({ params }: { params: { locale: stri
       <BasicLayout palette="beige">
         <Heading2>{t("cta.title")}</Heading2>
         <Paragraph variant="large">{t("cta.description")}</Paragraph>
-        <LinkButton href={`/${locale}/yhteystiedot`}>{t("cta.button")}</LinkButton>
+        <LinkButton href={`/${locale}${t("cta.buttonHref")}`}>{t("cta.button")}</LinkButton>
       </BasicLayout>
     </PageWrapper>
   );

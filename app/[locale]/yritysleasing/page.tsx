@@ -85,16 +85,19 @@ interface AdditionalCtaData {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
   rental: {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
   contact: {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
 }
 
@@ -104,13 +107,7 @@ function LeasingComparisonTable({ t }: { t: TranslationFunction }) {
     rows: string[][];
     explanations?: string[];
   };
-  return (
-    <Table
-      headings={tableData.headings}
-      rows={tableData.rows}
-      explanations={tableData.explanations}
-    />
-  );
+  return <Table headings={tableData.headings} rows={tableData.rows} explanations={tableData.explanations} />;
 }
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
@@ -152,7 +149,9 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         <Hero.SubHeading>{hero.subheading}</Hero.SubHeading>
         <Hero.Text>
           {hero.texts?.map((text: string, idx: number) => (
-            <Paragraph key={idx} variant="large">{text}</Paragraph>
+            <Paragraph key={idx} variant="large">
+              {text}
+            </Paragraph>
           ))}
         </Hero.Text>
         <Hero.ExtraContent>
@@ -223,9 +222,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
                 </List>
               </>
             )}
-            {card.summary && (
-              <Paragraph className="font-semibold">{card.summary}</Paragraph>
-            )}
+            {card.summary && <Paragraph className="font-semibold">{card.summary}</Paragraph>}
           </BoxLayout.Box>
         ))}
       </BoxLayout>
@@ -250,10 +247,13 @@ export default async function CorporateLeasingPage({ params }: { params: { local
               <List.Item key={idx}>{benefit}</List.Item>
             ))}
           </List>
-          
+
           <Heading3 className="color-kupari-heading">{equipmentLeasing.b2bSection.heading}</Heading3>
           {equipmentLeasing.b2bSection.texts?.map((text: string, idx: number) => (
-            <Paragraph key={idx} className={idx === equipmentLeasing.b2bSection.texts!.length - 1 ? "font-semibold" : ""}>
+            <Paragraph
+              key={idx}
+              className={idx === equipmentLeasing.b2bSection.texts!.length - 1 ? "font-semibold" : ""}
+            >
               {text}
             </Paragraph>
           ))}
@@ -279,9 +279,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         {cta.texts?.map((text: string, idx: number) => (
           <Paragraph key={idx}>{text}</Paragraph>
         ))}
-        {cta.link && (
-          <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
-        )}
+        {cta.link && <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>}
       </BasicLayout>
 
       {/* ADDITIONAL CTA SECTIONS */}
@@ -289,12 +287,12 @@ export default async function CorporateLeasingPage({ params }: { params: { local
         <FlexLayout.Column>
           <Heading2>{additionalCta.calculator.heading}</Heading2>
           <Paragraph>{additionalCta.calculator.text}</Paragraph>
-          <LinkButton href="/autoetulaskuri">{additionalCta.calculator.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.calculator.buttonHref}>{additionalCta.calculator.buttonText}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Heading2>{additionalCta.rental.heading}</Heading2>
           <Paragraph>{additionalCta.rental.text}</Paragraph>
-          <LinkButton href="/auton-vuokraus">{additionalCta.rental.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.rental.buttonHref}>{additionalCta.rental.buttonText}</LinkButton>
         </FlexLayout.Column>
       </FlexLayout>
 
@@ -302,7 +300,7 @@ export default async function CorporateLeasingPage({ params }: { params: { local
       <BasicLayout contentPalette="maantie">
         <Heading2>{additionalCta.contact.heading}</Heading2>
         <Paragraph>{additionalCta.contact.text}</Paragraph>
-        <LinkButton href="/yhteystiedot">{additionalCta.contact.buttonText}</LinkButton>
+        <LinkButton href={additionalCta.contact.buttonHref}>{additionalCta.contact.buttonText}</LinkButton>
       </BasicLayout>
     </PageWrapper>
   );

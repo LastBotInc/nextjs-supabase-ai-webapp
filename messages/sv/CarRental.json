@@ -17,9 +17,7 @@
 
   "benefits": {
     "heading": "Varför Välja Oss?",
-    "texts": [
-      "Vi erbjuder företag en flexibel och smidig biluthyrningstjänst som passar olika behov."
-    ],
+    "texts": ["Vi erbjuder företag en flexibel och smidig biluthyrningstjänst som passar olika behov."],
     "list": [
       "Körfärdig bil omedelbart – även till nästa dag",
       "Avtalsperiod 1–12 månader, precis enligt dina behov",
@@ -32,9 +30,7 @@
 
   "examples": {
     "heading": "Perfekt Lösning för:",
-    "texts": [
-      "Vår biluthyrningstjänst passar många olika situationer och behov."
-    ],
+    "texts": ["Vår biluthyrningstjänst passar många olika situationer och behov."],
     "list": [
       "Väntetid för ny företagsbil eller leveransslutförande",
       "Ersättningsbil under service eller reparation",
@@ -80,17 +76,20 @@
     "leasing": {
       "heading": "Intresserad av Leasing?",
       "text": "Utforska våra omfattande billeasingtjänster för privatpersoner och företag.",
-      "buttonText": "Billeasing"
+      "buttonText": "Billeasing",
+      "buttonHref": "/autoleasing"
     },
     "calculator": {
       "heading": "Beräkna Din Bilförmån",
       "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du sparar med en tjänstebil.",
-      "buttonText": "Gå till Kalkylatorn"
+      "buttonText": "Gå till Kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
     },
     "contact": {
       "heading": "Behöver Du Personlig Rådgivning?",
       "text": "Våra experter hjälper dig hitta rätt lösning för ditt företag.",
-      "buttonText": "Kontaktuppgifter"
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

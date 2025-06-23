@@ -21,23 +21,17 @@
 
   "ourModel": {
     "heading": "Vår öppna affärsmodell",
-    "texts": [
-      "Tillsammans med kunden definierar vi en helhetslösning som tjänar kundens behov."
-    ]
+    "texts": ["Tillsammans med kunden definierar vi en helhetslösning som tjänar kundens behov."]
   },
 
   "personalService": {
     "heading": "Din egen utnämnda kontaktperson",
-    "texts": [
-      "Hjälper till med alla bilrelaterade frågor under hela avtalsperioden."
-    ]
+    "texts": ["Hjälper till med alla bilrelaterade frågor under hela avtalsperioden."]
   },
 
   "digitalServices": {
     "heading": "Digitala tjänster",
-    "texts": [
-      "För bilansvariga, som gör det möjligt att effektivt administrera din egen bilpark."
-    ]
+    "texts": ["För bilansvariga, som gör det möjligt att effektivt administrera din egen bilpark."]
   },
 
   "benefits": {
@@ -103,14 +97,7 @@
   "comparisonTable": {
     "heading": "Servicejämförelse",
     "table": {
-      "headings": [
-        "Tjänster",
-        "Finansieringsleasing",
-        "Flexleasing",
-        "Serviceleasing",
-        "Minileasing",
-        "Maskinleasing"
-      ],
+      "headings": ["Tjänster", "Finansieringsleasing", "Flexleasing", "Serviceleasing", "Minileasing", "Maskinleasing"],
       "rows": [
         ["Egen kontaktperson", "+", "+", "+", "+", "+"],
         ["Månadshyra", "Fast", "Fast", "Fast", "Fast", "Fast"],
@@ -121,13 +108,17 @@
         ["Underhållsbudget", "Ingår ej", "Öppen, regleras vid avtalsslut", "Stängd", "Stängd", "Ingår ej"],
         ["Överkilometerdebitering", "Ingår ej", "Budgeterad", "Budgeterad", "Budgeterad", "-"],
         ["Restvärde", "Kundens", "Öppen, regleras vid avtalsslut", "Stängd", "Stängd", "Kundens"],
-        ["Förtida avtalsuppsägning", "Med kapitalreglering", "Med kapitalreglering", "Med kapitalreglering", "-", "Med kapitalreglering"],
+        [
+          "Förtida avtalsuppsägning",
+          "Med kapitalreglering",
+          "Med kapitalreglering",
+          "Med kapitalreglering",
+          "-",
+          "Med kapitalreglering"
+        ],
         ["Begagnat fordon", "+", "+", "+", "+", "-"]
       ],
-      "explanations": [
-        "Förklaring för punkt",
-        "Förklaring för annan punkt"
-      ]
+      "explanations": ["Förklaring för punkt", "Förklaring för annan punkt"]
     }
   },
 
@@ -176,17 +167,20 @@
     "calculator": {
       "heading": "Beräkna din bilförmån",
       "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du kan spara med en tjänstebil. Få en exakt beräkning av din bilförmåns beskattningsvärde.",
-      "buttonText": "Gå till kalkylatorn"
+      "buttonText": "Gå till kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
     },
     "rental": {
       "heading": "Behöver du en bil för kort tid?",
       "text": "Utforska våra biluthyrningstjänster. En flexibel lösning för tillfälliga fordonsbehov utan långsiktiga åtaganden.",
-      "buttonText": "Hyr en bil"
+      "buttonText": "Hyr en bil",
+      "buttonHref": "/auton-vuokraus"
     },
     "contact": {
       "heading": "Experthjälp när det behövs",
       "text": "Kontakta vårt erfarna team. Vi hjälper dig att hitta leasinglösningen som passar just dina behov.",
-      "buttonText": "Kontaktuppgifter"
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot"
     }
   },
 

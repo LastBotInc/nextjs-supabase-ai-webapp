@@ -152,7 +152,9 @@
     "title": "Valmis optimoimaan yrityksesi autostrategiaa?",
     "description": "Kalustonhallinnan asiantuntijamme voivat auttaa toteuttamaan kustannustehokkaimman autoetujen rakenteen yrityksesi erityistarpeiden mukaan.",
     "contactButton": "Ota yhteyttä asiantuntijoihimme",
-    "learnMoreButton": "Tutustu leasingratkaisuihimme"
+    "learnMoreButton": "Tutustu leasingratkaisuihimme",
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButtonHref": "/autoleasing"
   },
   "faq": {
     "title": "Usein kysytyt kysymykset",

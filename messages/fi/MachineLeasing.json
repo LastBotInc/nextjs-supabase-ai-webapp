@@ -62,9 +62,7 @@
 
   "examples": {
     "heading": "Käytännön esimerkkejä",
-    "texts": [
-      "Katso miten leasing on auttanut eri alojen yrityksiä hankkimaan tarvitsemansa kalusto tehokkaasti."
-    ],
+    "texts": ["Katso miten leasing on auttanut eri alojen yrityksiä hankkimaan tarvitsemansa kalusto tehokkaasti."],
     "cases": [
       {
         "title": "Rakennusyritys",
@@ -85,9 +83,7 @@
 
   "faq": {
     "heading": "Usein kysytyt kysymykset",
-    "texts": [
-      "Vastaukset yleisimpiin koneiden ja laitteiden leasingia koskeviin kysymyksiin."
-    ],
+    "texts": ["Vastaukset yleisimpiin koneiden ja laitteiden leasingia koskeviin kysymyksiin."],
     "questions": [
       {
         "question": "Voiko leasingkohteen lunastaa sopimuskauden lopussa?",
@@ -106,9 +102,7 @@
 
   "cta": {
     "heading": "Kiinnostuitko koneiden ja laitteiden leasingista?",
-    "texts": [
-      "Ota yhteyttä asiantuntijaamme ja pyydä räätälöity leasingtarjous yrityksellesi!"
-    ],
+    "texts": ["Ota yhteyttä asiantuntijaamme ja pyydä räätälöity leasingtarjous yrityksellesi!"],
     "link": { "label": "Ota yhteyttä", "href": "/yhteystiedot" },
     "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Ota yhteyttä" }
   },
@@ -117,17 +111,20 @@
     "calculator": {
       "heading": "Laske leasingkustannukset",
       "text": "Käytä autoetulaskuriamme saadaksesi käsitys leasingkustannuksista.",
-      "buttonText": "Siirry laskuriin"
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/autoetulaskuri"
     },
     "carLeasing": {
       "heading": "Auton leasing",
       "text": "Tutustu myös autoleasingpalveluihimme yksityisille ja yrityksille.",
-      "buttonText": "Auton leasing"
+      "buttonText": "Auton leasing",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Tarvitsetko räätälöidyn ratkaisun?",
       "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan leasingratkaisun.",
-      "buttonText": "Yhteystiedot"
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

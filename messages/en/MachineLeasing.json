@@ -85,9 +85,7 @@
 
   "faq": {
     "heading": "Frequently Asked Questions",
-    "texts": [
-      "Answers to the most common questions about equipment and machinery leasing."
-    ],
+    "texts": ["Answers to the most common questions about equipment and machinery leasing."],
     "questions": [
       {
         "question": "Can the leased equipment be purchased at the end of the contract period?",
@@ -106,9 +104,7 @@
 
   "cta": {
     "heading": "Interested in Equipment and Machinery Leasing?",
-    "texts": [
-      "Contact our expert and request a customized leasing quote for your business!"
-    ],
+    "texts": ["Contact our expert and request a customized leasing quote for your business!"],
     "link": { "label": "Contact Us", "href": "/yhteystiedot" },
     "image": { "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png", "alt": "Contact us" }
   },
@@ -117,17 +113,20 @@
     "calculator": {
       "heading": "Calculate Leasing Costs",
       "text": "Use our car benefit calculator to get an idea of leasing costs.",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
     },
     "carLeasing": {
       "heading": "Car Leasing",
       "text": "Also explore our car leasing services for individuals and businesses.",
-      "buttonText": "Car Leasing"
+      "buttonText": "Car Leasing",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Need a Customized Solution?",
       "text": "Our experts will help you find the right leasing solution for your business.",
-      "buttonText": "Contact Information"
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

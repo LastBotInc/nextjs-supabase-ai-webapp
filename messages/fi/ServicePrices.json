@@ -112,17 +112,20 @@
     "calculator": {
       "heading": "Leasinglaskuri",
       "text": "Laske oma kuukausimaksusi helposti",
-      "buttonText": "Siirry laskuriin"
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/leasing-laskuri"
     },
     "carLeasing": {
       "heading": "Autoleasing",
       "text": "Tutustu autoleasingin mahdollisuuksiin",
-      "buttonText": "Lue lisää"
+      "buttonText": "Lue lisää",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Asiakaspalvelu",
       "text": "Kysymyksiä hinnoittelusta? Ota yhteyttä",
-      "buttonText": "Ota yhteyttä"
+      "buttonText": "Ota yhteyttä",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

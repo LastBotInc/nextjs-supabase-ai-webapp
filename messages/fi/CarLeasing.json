@@ -16,9 +16,7 @@
 
   "calculator": {
     "heading": "Leasing-laskuri",
-    "texts": [
-      "Laske oma leasingmaksusi ja katso kuinka edullista leasing voi olla."
-    ],
+    "texts": ["Laske oma leasingmaksusi ja katso kuinka edullista leasing voi olla."],
     "fields": {
       "carPrice": "Auton hinta",
       "contractLength": "Sopimuksen kesto",
@@ -107,28 +105,31 @@
   },
 
   "cta": {
-    "heading": "Kiinnostuitko leasingista?",
+    "heading": "Kiinnostaako leasing?",
     "texts": [
-      "Ota yhteyttä asiantuntijoihimme – autamme löytämään juuri sinulle tai yrityksellesi parhaan leasingratkaisun. Voit myös pyytää tarjouksen helposti verkkosivujemme kautta."
+      "Ota yhteyttä asiantuntijoihimme – autamme löytämään sinulle tai yrityksellesi parhaan leasing-ratkaisun. Voit myös pyytää tarjouksen helposti verkkosivujemme kautta."
     ],
-    "link": { "label": "Ota yhteyttä", "href": "/yhteystiedot" }
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
   },
 
   "additionalCta": {
     "calculator": {
       "heading": "Laske autoetusi",
-      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta.",
-      "buttonText": "Siirry laskuriin"
+      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät yritysautolla.",
+      "buttonText": "Siirry laskuriin",
+      "href": "/leasing-laskuri"
     },
     "corporate": {
       "heading": "Yritysleasing",
-      "text": "Tutustu kattaviin yritysautoleasingratkaisuihimme. Rahoitusleasing, joustoleasing ja huoltoleasing.",
-      "buttonText": "Yritysleasing"
+      "text": "Tutustu kattaviin yritysautoleasing-ratkaisuihimme. Rahoitusleasing, joustava leasing ja huoltoleasing.",
+      "buttonText": "Yritysleasing",
+      "href": "/yritysleasing"
     },
     "contact": {
       "heading": "Tarvitsetko apua valinnassa?",
-      "text": "Asiantuntijamme auttavat löytämään juuri sinulle sopivan leasingratkaisun.",
-      "buttonText": "Yhteystiedot"
+      "text": "Asiantuntijamme auttavat löytämään sinulle sopivan leasing-ratkaisun.",
+      "buttonText": "Yhteystiedot",
+      "href": "/asiakaspalvelu"
     }
   }
 }

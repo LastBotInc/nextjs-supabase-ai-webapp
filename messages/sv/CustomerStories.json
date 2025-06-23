@@ -20,7 +20,7 @@
     "quote": "Övergången till Innoleases fordonsadministrationslösning var sömlös. Enbart datainsikterna har förändrat hur vi fattar beslut om vår fordonsflotta.",
     "personName": "Maria Korhonen",
     "personTitle": "Flottchef, Nordic Logistics",
-    "link": { "label": "Läs hela berättelsen", "href": "#" },
+    "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/nordic-logistics" },
     "results": [
       { "stat": "22%", "label": "Kostnadsminskning" },
       { "stat": "15%", "label": "Förbättrad bränsleeffektivitet" },
@@ -37,7 +37,7 @@
     "texts": [
       "Upptäck hur företag av alla storlekar inom olika branscher har dragit nytta av våra skräddarsydda leasinglösningar."
     ],
-    "link": { "label": "Ladda fler berättelser", "href": "#" }
+    "link": { "label": "Ladda fler berättelser", "href": "/asiakastarinat" }
   },
   "stories": [
     {
@@ -47,7 +47,7 @@
       "texts": [
         "TechFinland Solutions implementerade Innoleases InnoFleet Manager-system för att digitalisera sina fordonshanteringsprocesser, vilket resulterade i effektivare verksamhet och betydande kostnadsbesparingar."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/techfinland-solutions" }
     },
     {
       "company": "EcoConstruct AB",
@@ -56,7 +56,7 @@
       "texts": [
         "EcoConstruct övergick till elfordon genom Innoleases flexibla leasingalternativ, vilket minskade deras koldioxidavtryck samtidigt som de behöll sin operativa kapacitet."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/ecoconstruct" }
     },
     {
       "company": "Nordic Healthcare Group",
@@ -65,7 +65,7 @@
       "texts": [
         "Nordic Healthcare Group förlitar sig på Innolease för att säkerställa att deras vårdgivare alltid har tillförlitlig transport, med specialanpassade fordon och underhållstjänster."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/nordic-healthcare" }
     },
     {
       "company": "Fresh Delivery Express",
@@ -74,7 +74,7 @@
       "texts": [
         "När Fresh Delivery Express expanderade sin verksamhet tillhandahöll Innolease skalbara flottlösningar som gjorde det möjligt för dem att justera fordonskapaciteten efter säsongsbehov."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/fresh-delivery" }
     },
     {
       "company": "Retail Innovators AB",
@@ -83,7 +83,7 @@
       "texts": [
         "Retail Innovators samarbetade med Innolease för att analysera och optimera sina leveransrutter och fordonsval, vilket minskade deras kostnad per kilometer med 18%."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/retail-innovators" }
     },
     {
       "company": "Arctic Tours",
@@ -92,7 +92,7 @@
       "texts": [
         "Arctic Tours samarbetade med Innolease för att hitta och underhålla specialfordon som kan prestera i extrema nordliga förhållanden för deras turistverksamhet."
       ],
-      "link": { "label": "Läs hela berättelsen", "href": "#" }
+      "link": { "label": "Läs hela berättelsen", "href": "/asiakastarinat/arctic-tours" }
     }
   ],
   "filters": {

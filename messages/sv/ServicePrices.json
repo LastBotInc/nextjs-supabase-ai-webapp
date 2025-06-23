@@ -112,17 +112,20 @@
     "calculator": {
       "heading": "Leasingkalkylator",
       "text": "Räkna ut din egen månadsavgift enkelt",
-      "buttonText": "Gå till kalkylatorn"
+      "buttonText": "Gå till kalkylatorn",
+      "buttonHref": "/leasing-laskuri"
     },
     "carLeasing": {
       "heading": "Billeasing",
       "text": "Utforska möjligheterna med billeasing",
-      "buttonText": "Läs mer"
+      "buttonText": "Läs mer",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Kundservice",
       "text": "Frågor om prissättning? Kontakta oss",
-      "buttonText": "Kontakta oss"
+      "buttonText": "Kontakta oss",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

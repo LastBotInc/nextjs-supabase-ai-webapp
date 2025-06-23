@@ -109,19 +109,22 @@
 
   "additionalCta": {
     "calculator": {
-      "heading": "Beräkna era servicebesparingar",
-      "text": "Använd vår servicekostnadskalkylator för att uppskatta potentiella besparingar med vår eftermarknadsservice.",
-      "buttonText": "Beräkna besparingar"
+      "heading": "Beräkna Dina Servicebesparingar",
+      "text": "Använd vår servicekostnadskalkylator för att uppskatta potentiella besparingar med våra eftermarknadsservicetjänster.",
+      "buttonText": "Beräkna Besparingar",
+      "buttonHref": "/laskurit"
     },
     "carLeasing": {
-      "heading": "Utforska leasingalternativ",
-      "text": "Upptäck våra omfattande leasinglösningar med integrerad eftermarknadsservice.",
-      "buttonText": "Se leasingalternativ"
+      "heading": "Utforska Leasingalternativ",
+      "text": "Upptäck våra omfattande leasinglösningar med integrerade eftermarknadsservicetjänster.",
+      "buttonText": "Visa Leasingalternativ",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
-      "heading": "Få expertkonsultation",
-      "text": "Tala med våra eftermarknadsspecialister om era flotthanteringsbehov.",
-      "buttonText": "Kontakta experter"
+      "heading": "Få Expertkonsultation",
+      "text": "Tala med våra eftermarknadsspecialister om dina flottstyrningsbehov.",
+      "buttonText": "Kontakta Experterna",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

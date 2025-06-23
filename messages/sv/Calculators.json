@@ -86,27 +86,30 @@
   },
 
   "cta": {
-    "heading": "Behöver du hjälp med kalkylatorerna?",
-    "texts": ["Våra experter hjälper dig att tolka resultaten och hitta den bästa lösningen för dina behov."],
-    "link": { "label": "Kontakta oss", "href": "/kontakt" },
+    "heading": "Behöver du hjälp med att använda kalkylatorerna?",
+    "texts": ["Våra experter hjälper dig tolka resultaten och hitta den bästa lösningen för dina behov."],
+    "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" },
     "image": { "src": "/images/help-cta.jpg", "alt": "Hjälp med kalkylatoranvändning" }
   },
 
   "additionalCta": {
     "calculator": {
       "heading": "Bilförmånskalkylator",
-      "text": "Beräkna bilförmånens skattemässiga värde och kostnader noggrant",
-      "buttonText": "Gå till bilförmånskalkylatorn"
+      "text": "Beräkna bilförmånens skatteöverskott och kostnader noggrant",
+      "buttonText": "Gå till bilförmånskalkylatorn",
+      "href": "/leasing-laskuri"
     },
     "carLeasing": {
       "heading": "Billeasing",
       "text": "Lär dig om billeasing och dess fördelar",
-      "buttonText": "Läs mer om billeasing"
+      "buttonText": "Läs mer om billeasing",
+      "href": "/autoleasing"
     },
     "contact": {
       "heading": "Personlig service",
-      "text": "Få expertråd och skräddarsydda lösningar",
-      "buttonText": "Boka tid"
+      "text": "Få experthjälp och skräddarsydda lösningar",
+      "buttonText": "Boka tid",
+      "href": "/asiakaspalvelu"
     }
   }
 }

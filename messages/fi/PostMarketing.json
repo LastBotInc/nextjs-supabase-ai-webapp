@@ -109,19 +109,22 @@
 
   "additionalCta": {
     "calculator": {
-      "heading": "Laske palvelusäästösi",
+      "heading": "Laske Palvelusäästösi",
       "text": "Käytä palvelukustannuslaskuriamme arvioidaksesi mahdolliset säästöt jälkimarkkinointipalveluillamme.",
-      "buttonText": "Laske säästöt"
+      "buttonText": "Laske Säästöt",
+      "buttonHref": "/laskurit"
     },
     "carLeasing": {
-      "heading": "Tutustu leasingvaihtoehtoihin",
-      "text": "Tutustu kattaviin leasingratkaisuihimme, joihin sisältyvät jälkimarkkinointipalvelut.",
-      "buttonText": "Katso leasingvaihtoehdot"
+      "heading": "Tutustu Leasingvaihtoehtoisiin",
+      "text": "Löydä kattavat leasingratkaisumme integroiduilla jälkimarkkinointipalveluilla.",
+      "buttonText": "Katso Leasingvaihtoehdot",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
-      "heading": "Hanki asiantuntijan konsultaatio",
-      "text": "Keskustele jälkimarkkinoinnin asiantuntijoiden kanssa kalustonhallinnan tarpeistanne.",
-      "buttonText": "Ota yhteyttä asiantuntijoihin"
+      "heading": "Hanki Asiantuntijakonsultaatio",
+      "text": "Keskustele jälkimarkkinointiasiantuntijoidemme kanssa kalustonhallintasi tarpeista.",
+      "buttonText": "Ota Yhteyttä Asiantuntijoihin",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

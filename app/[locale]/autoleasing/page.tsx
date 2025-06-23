@@ -70,16 +70,19 @@ interface AdditionalCtaData {
     heading: string;
     text: string;
     buttonText: string;
+    href: string;
   };
   corporate: {
     heading: string;
     text: string;
     buttonText: string;
+    href: string;
   };
   contact: {
     heading: string;
     text: string;
     buttonText: string;
+    href: string;
   };
 }
 
@@ -197,9 +200,7 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
             {cta.texts?.map((text: string, idx: number) => (
               <Paragraph key={idx}>{text}</Paragraph>
             ))}
-            {cta.link && (
-              <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
-            )}
+            {cta.link && <LinkButton href={`/${locale}${cta.link.href}`}>{cta.link.label}</LinkButton>}
           </Flex>
         </FlexLayout.Column>
       </FlexLayout>
@@ -209,12 +210,12 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
         <FlexLayout.Column>
           <Heading2>{additionalCta.calculator.heading}</Heading2>
           <Paragraph>{additionalCta.calculator.text}</Paragraph>
-          <LinkButton href="/autoetulaskuri">{additionalCta.calculator.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.calculator.href}>{additionalCta.calculator.buttonText}</LinkButton>
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Heading2>{additionalCta.corporate.heading}</Heading2>
           <Paragraph>{additionalCta.corporate.text}</Paragraph>
-          <LinkButton href="/yritysleasing">{additionalCta.corporate.buttonText}</LinkButton>
+          <LinkButton href={additionalCta.corporate.href}>{additionalCta.corporate.buttonText}</LinkButton>
         </FlexLayout.Column>
       </FlexLayout>
 
@@ -222,7 +223,7 @@ export default async function CarLeasingPage({ params }: { params: { locale: str
       <BasicLayout contentPalette="maantie">
         <Heading2>{additionalCta.contact.heading}</Heading2>
         <Paragraph>{additionalCta.contact.text}</Paragraph>
-        <LinkButton href="/yhteystiedot">{additionalCta.contact.buttonText}</LinkButton>
+        <LinkButton href={additionalCta.contact.href}>{additionalCta.contact.buttonText}</LinkButton>
       </BasicLayout>
     </PageWrapper>
   );

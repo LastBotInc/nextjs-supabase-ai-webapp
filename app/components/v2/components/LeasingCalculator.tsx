@@ -190,15 +190,15 @@ export default function LeasingCalculator({ texts }: { texts: Record<string, str
         >
           <Heading3Small>{texts.resultTitle}</Heading3Small>
           <div className="flex flex-col">
-            {texts.monthlyFee}:{" "}
+            {texts.monthlyFee}:
             <span className="font-bold text-2xl">
-              {monthlyFee.toLocaleString(undefined, { maximumFractionDigits: 2 })} €
+              {monthlyFee.toLocaleString("fi-FI", { maximumFractionDigits: 2 })} €
             </span>
           </div>
           <div className="flex flex-col">
             {texts.afterTaxMonthly}:{" "}
             <span className="font-bold text-2xl">
-              {afterTaxMonthly.toLocaleString(undefined, { maximumFractionDigits: 2 })} €
+              {afterTaxMonthly.toLocaleString("fi-FI", { maximumFractionDigits: 2 })} €
             </span>
           </div>
           <div className="text-xs">{texts.disclaimer}</div>

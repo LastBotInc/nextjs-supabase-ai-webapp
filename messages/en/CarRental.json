@@ -17,9 +17,7 @@
 
   "benefits": {
     "heading": "Why Choose Us?",
-    "texts": [
-      "We offer businesses a flexible and effortless car rental service that suits various needs."
-    ],
+    "texts": ["We offer businesses a flexible and effortless car rental service that suits various needs."],
     "list": [
       "Ready-to-use car immediately – even for the next day",
       "Contract period 1–12 months, exactly according to your needs",
@@ -32,9 +30,7 @@
 
   "examples": {
     "heading": "Perfect Solution for:",
-    "texts": [
-      "Our car rental service is suitable for many different situations and needs."
-    ],
+    "texts": ["Our car rental service is suitable for many different situations and needs."],
     "list": [
       "Waiting period for new company car or delivery completion",
       "Replacement car during maintenance or repair",
@@ -80,17 +76,20 @@
     "leasing": {
       "heading": "Interested in Leasing?",
       "text": "Explore our comprehensive car leasing services for individuals and businesses.",
-      "buttonText": "Car Leasing"
+      "buttonText": "Car Leasing",
+      "buttonHref": "/autoleasing"
     },
     "calculator": {
       "heading": "Calculate Your Car Benefit",
       "text": "Use our free car benefit calculator and find out how much you save with a company car.",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
     },
     "contact": {
       "heading": "Need Personal Consultation?",
       "text": "Our experts help you find the right solution for your business.",
-      "buttonText": "Contact Information"
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

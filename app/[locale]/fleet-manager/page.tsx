@@ -70,11 +70,13 @@ interface AdditionalCtaData {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
   contact: {
     heading: string;
     text: string;
     buttonText: string;
+    buttonHref: string;
   };
 }
 
@@ -196,7 +198,9 @@ export default async function FleetManagerPage({ params }: Props) {
           <div className="relative space-y-8">
             <Heading2 className="text-piki">{allInOne.heading}</Heading2>
             {allInOne.texts?.map((text: string, idx: number) => (
-              <Paragraph key={idx} className="text-piki">{text}</Paragraph>
+              <Paragraph key={idx} className="text-piki">
+                {text}
+              </Paragraph>
             ))}
           </div>
         </FlexLayout.Column>
@@ -222,9 +226,7 @@ export default async function FleetManagerPage({ params }: Props) {
         {cta.texts?.map((text: string, idx: number) => (
           <Paragraph key={idx}>{text}</Paragraph>
         ))}
-        {cta.link && (
-          <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>
-        )}
+        {cta.link && <LinkButton href={cta.link.href}>{cta.link.label}</LinkButton>}
       </BasicLayout>
 
       {/* Additional CTA Section */}
@@ -233,12 +235,16 @@ export default async function FleetManagerPage({ params }: Props) {
           <Card palette="default">
             <Heading2>{additionalCta.leasing.heading}</Heading2>
             <Paragraph>{additionalCta.leasing.text}</Paragraph>
-            <LinkButton href={`/${locale}/leasing-solutions`}>{additionalCta.leasing.buttonText}</LinkButton>
+            <LinkButton href={`/${locale}${additionalCta.leasing.buttonHref}`}>
+              {additionalCta.leasing.buttonText}
+            </LinkButton>
           </Card>
           <Card palette="default">
             <Heading2>{additionalCta.contact.heading}</Heading2>
             <Paragraph>{additionalCta.contact.text}</Paragraph>
-            <LinkButton href={`/${locale}/yhteystiedot`}>{additionalCta.contact.buttonText}</LinkButton>
+            <LinkButton href={`/${locale}${additionalCta.contact.buttonHref}`}>
+              {additionalCta.contact.buttonText}
+            </LinkButton>
           </Card>
         </Flex>
       </BasicLayout>

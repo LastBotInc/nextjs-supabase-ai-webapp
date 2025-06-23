@@ -111,17 +111,20 @@
     "calculator": {
       "heading": "Calculate Your Service Savings",
       "text": "Use our service cost calculator to estimate potential savings with our post marketing services.",
-      "buttonText": "Calculate Savings"
+      "buttonText": "Calculate Savings",
+      "buttonHref": "/laskurit"
     },
     "carLeasing": {
       "heading": "Explore Leasing Options",
       "text": "Discover our comprehensive leasing solutions with integrated post marketing services.",
-      "buttonText": "View Leasing Options"
+      "buttonText": "View Leasing Options",
+      "buttonHref": "/autoleasing"
     },
     "contact": {
       "heading": "Get Expert Consultation",
       "text": "Speak with our post marketing specialists about your fleet management needs.",
-      "buttonText": "Contact Experts"
+      "buttonText": "Contact Experts",
+      "buttonHref": "/asiakaspalvelu"
     }
   }
 }

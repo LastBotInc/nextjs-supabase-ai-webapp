@@ -72,28 +72,26 @@
   },
   "allInOne": {
     "heading": "All information i en vy – inga spridda Excel-filer",
-    "texts": [
-      "FleetManager ger din fordonsparkshantering en ny nivå av effektivitet och förutsägbarhet."
-    ],
+    "texts": ["FleetManager ger din fordonsparkshantering en ny nivå av effektivitet och förutsägbarhet."],
     "image": { "src": "/images/ajankohtaista.png", "alt": "Allt i ett" }
   },
   "cta": {
     "heading": "Implementera FleetManager i ditt företag",
-    "texts": [
-      "Utforska FleetManagers möjligheter och kontakta våra experter."
-    ],
+    "texts": ["Utforska FleetManagers möjligheter och kontakta våra experter."],
     "link": { "label": "Begär demonstration", "href": "/contact" }
   },
   "additionalCta": {
     "leasing": {
       "heading": "Intresserad av leasinglösningar?",
       "text": "Utforska våra omfattande leasingtjänster för företag.",
-      "buttonText": "Leasinglösningar"
+      "buttonText": "Leasinglösningar",
+      "buttonHref": "/leasing-solutions"
     },
     "contact": {
       "heading": "Behöver du personlig rådgivning?",
       "text": "Våra experter hjälper dig hitta den perfekta lösningen för ditt företag.",
-      "buttonText": "Kontakta oss"
+      "buttonText": "Kontakta oss",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

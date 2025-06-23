@@ -21,23 +21,17 @@
 
   "ourModel": {
     "heading": "Avoin toimintamallimme",
-    "texts": [
-      "Yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan kokonaisuuden."
-    ]
+    "texts": ["Yhdessä asiakkaan kanssa määrittelemme asiakkaan tarpeita palvelevan kokonaisuuden."]
   },
 
   "personalService": {
     "heading": "Oma nimetty yhteyshenkilö",
-    "texts": [
-      "Auttaa kaikkeen autoiluun liittyvissä asioissa koko sopimuskauden ajan."
-    ]
+    "texts": ["Auttaa kaikkeen autoiluun liittyvissä asioissa koko sopimuskauden ajan."]
   },
 
   "digitalServices": {
     "heading": "Digitaaliset palvelut",
-    "texts": [
-      "Autopäättäjille, jolla voit tehokkaasti hallinnoida omaa kalustoasi."
-    ]
+    "texts": ["Autopäättäjille, jolla voit tehokkaasti hallinnoida omaa kalustoasi."]
   },
 
   "benefits": {
@@ -118,16 +112,27 @@
         ["Renkaiden uusinnat", "-", "+", "+", "+", "-"],
         ["Rengashotelli & vaihdot", "-", "+", "+", "+", "-"],
         ["Sopimuskilometrit", "Avoin", "Budjetoitu", "Kiinteä", "Suljettu", "-"],
-        ["Huolto­budjetti", "Ei sisälly", "Avoin tasataan sopimuskauden päättyessä", "Suljettu", "Suljettu", "Ei sisälly"],
+        [
+          "Huolto­budjetti",
+          "Ei sisälly",
+          "Avoin tasataan sopimuskauden päättyessä",
+          "Suljettu",
+          "Suljettu",
+          "Ei sisälly"
+        ],
         ["Ylimeno­kilometri­veloitus", "Ei sisälly", "Budjetoitu", "Budjetoitu", "Budjetoitu", "-"],
         ["Jäännösarvo", "Asiakkaan", "Avoin tasataan sopimuskauden päättyessä", "Suljettu", "Suljettu", "Asiakkaan"],
-        ["Ennenaikainen sopimuksen katkaisu", "Pääomatasauksella", "Pääomatasauksella", "Pääomatasauksella", "-", "Pääomatasauksella"],
+        [
+          "Ennenaikainen sopimuksen katkaisu",
+          "Pääomatasauksella",
+          "Pääomatasauksella",
+          "Pääomatasauksella",
+          "-",
+          "Pääomatasauksella"
+        ],
         ["Käytetty ajoneuvo", "+", "+", "+", "+", "-"]
       ],
-      "explanations": [
-        "Selite kohdalle",
-        "Selite toiselle kohdalle"
-      ]
+      "explanations": ["Selite kohdalle", "Selite toiselle kohdalle"]
     }
   },
 
@@ -176,17 +181,20 @@
     "calculator": {
       "heading": "Laske autoetusi",
       "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta. Saat tarkan laskennan autoedun verotusarvosta.",
-      "buttonText": "Siirry laskuriin"
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/autoetulaskuri"
     },
     "rental": {
       "heading": "Tarvitsetko autoa lyhyeksi aikaa?",
       "text": "Tutustu auton vuokrauspalveluihimme. Joustava ratkaisu tilapäisiin ajoneuvotarpeisiin ilman pitkäaikaisia sitoumuksia.",
-      "buttonText": "Vuokraa auto"
+      "buttonText": "Vuokraa auto",
+      "buttonHref": "/auton-vuokraus"
     },
     "contact": {
       "heading": "Asiantuntija-apua tarvittaessa",
       "text": "Ota yhteyttä kokeneeseen tiimiimme. Autamme löytämään juuri sinun tarpeisiisi sopivan leasingratkaisun.",
-      "buttonText": "Yhteystiedot"
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
     }
   },
 

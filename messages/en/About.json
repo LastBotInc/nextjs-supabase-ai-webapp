@@ -106,9 +106,7 @@
   },
   "ourValues": {
     "heading": "Our Values",
-    "texts": [
-      "Our operations are guided by three core values:"
-    ],
+    "texts": ["Our operations are guided by three core values:"],
     "cards": [
       {
         "title": "Transparency",
@@ -116,11 +114,15 @@
       },
       {
         "title": "Personal Service",
-        "texts": ["Every customer has their own contact person who knows your industry and responds quickly to your needs."]
+        "texts": [
+          "Every customer has their own contact person who knows your industry and responds quickly to your needs."
+        ]
       },
       {
         "title": "Flexibility",
-        "texts": ["We find the best solution for your company's situation – whether it's machinery, equipment, or vehicles."]
+        "texts": [
+          "We find the best solution for your company's situation – whether it's machinery, equipment, or vehicles."
+        ]
       }
     ]
   },
@@ -191,17 +193,20 @@
     "services": {
       "heading": "Explore Our Services",
       "text": "Discover a wide range of leasing solutions for your business and personal use. Car leasing, machinery leasing, and other flexible financing solutions.",
-      "buttonText": "View All Services"
+      "buttonText": "View All Services",
+      "buttonHref": "/leasing-solutions"
     },
     "calculator": {
       "heading": "Calculate Your Car Benefit",
       "text": "Use our free car benefit calculator and find out how much you can save with a company car. Get an accurate calculation of your car benefit tax value.",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
     },
     "team": {
       "heading": "Meet Our Team",
       "text": "Our experienced specialists are ready to help you find the best solution. Get in touch and discuss your needs.",
       "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot",
       "imageAlt": "Innolease team in a meeting"
     }
   }

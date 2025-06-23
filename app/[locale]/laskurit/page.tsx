@@ -44,7 +44,11 @@ export default async function CalculatorsPage({ params }: { params: { locale: st
   const section1 = tCalculators.raw("section1");
 
   const cta = tCalculators.raw("cta");
-  const additionalCta = tCalculators.raw("additionalCta");
+  const additionalCta = tCalculators.raw("additionalCta") as {
+    calculator: { heading: string; text: string; buttonText: string; href: string };
+    carLeasing: { heading: string; text: string; buttonText: string; href: string };
+    contact: { heading: string; text: string; buttonText: string; href: string };
+  };
 
   // Extract structured data for calculators
   const leasingCalculator = tCarLeasing.raw("calculator");
@@ -143,17 +147,17 @@ export default async function CalculatorsPage({ params }: { params: { locale: st
           <Card palette="beige">
             <Heading3>{additionalCta.calculator.heading}</Heading3>
             <Paragraph>{additionalCta.calculator.text}</Paragraph>
-            <LinkButton href={`/${locale}/leasing-laskuri`}>{additionalCta.calculator.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.calculator.href}>{additionalCta.calculator.buttonText}</LinkButton>
           </Card>
           <Card palette="beige">
             <Heading3>{additionalCta.carLeasing.heading}</Heading3>
             <Paragraph>{additionalCta.carLeasing.text}</Paragraph>
-            <LinkButton href={`/${locale}/autoleasing`}>{additionalCta.carLeasing.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.carLeasing.href}>{additionalCta.carLeasing.buttonText}</LinkButton>
           </Card>
           <Card palette="beige">
             <Heading3>{additionalCta.contact.heading}</Heading3>
             <Paragraph>{additionalCta.contact.text}</Paragraph>
-            <LinkButton href={`/${locale}/yhteystiedot`}>{additionalCta.contact.buttonText}</LinkButton>
+            <LinkButton href={additionalCta.contact.href}>{additionalCta.contact.buttonText}</LinkButton>
           </Card>
         </Flex>
       </BasicLayout>

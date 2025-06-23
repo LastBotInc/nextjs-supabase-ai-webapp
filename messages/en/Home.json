@@ -20,7 +20,7 @@
       "Innolease's main purpose is to adapt to customer needs and offer various options that make it easier for the customer to make decisions that suit their situation.",
       "Our open operating model where we work together with the customer to define a service package that serves their needs. Our goal is to save the customer's time and money, reduce risks, and make fleet budgeting easier."
     ],
-    "link": { "label": "Read more", "href": "#" },
+    "link": { "label": "Read more", "href": "/keita-olemme" },
     "image": { "src": "/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png", "alt": "Team photo" }
   },
   "personnel": [
@@ -76,7 +76,7 @@
         "texts": [
           "We always have a leasing option and financing model that suits the customer's situation. Our goal is to offer flexibility and tailored solutions."
         ],
-        "link": { "label": "Read more", "href": "#" },
+        "link": { "label": "Read more", "href": "/autoleasing" },
         "image": { "src": "/images/home/leasing1.png", "alt": "Leasing option" }
       },
       {
@@ -84,18 +84,18 @@
         "texts": [
           "As an agile operator, our service is flexible. Special requests regarding schedule and vehicle equipment are everyday matters for us."
         ],
-        "link": { "label": "Read more", "href": "#" },
+        "link": { "label": "Read more", "href": "/kone-ja-laiteleasing" },
         "image": { "src": "/images/home/leasing2.png", "alt": "Flexible leasing" }
       }
     ],
-    "link": { "label": "All leasing solutions", "href": "#" }
+    "link": { "label": "All leasing solutions", "href": "/yritysleasing" }
   },
   "serviceLinks": [
-    { "label": "Fleet management tools", "href": "#" },
-    { "label": "Car calculator", "href": "#" },
-    { "label": "Company car guide", "href": "#" },
-    { "label": "Corporate leasing", "href": "#" },
-    { "label": "Private leasing", "href": "#" }
+    { "label": "Fleet management tools", "href": "/fleet-manager" },
+    { "label": "Car calculator", "href": "/laskurit" },
+    { "label": "Company car guide", "href": "/autoilijan-opas" },
+    { "label": "Corporate leasing", "href": "/yritysleasing" },
+    { "label": "Private leasing", "href": "/autoleasing" }
   ],
   "news": {
     "heading": "Current News",
@@ -105,7 +105,7 @@
         "texts": [
           "Descriptions coming. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         ],
-        "link": { "label": "Read more", "href": "#" },
+        "link": { "label": "Read more", "href": "/uutiset" },
         "image": { "src": "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png", "alt": "Ford Transit" },
         "category": "News"
       },
@@ -114,7 +114,7 @@
         "texts": [
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         ],
-        "link": { "label": "Read more", "href": "#" },
+        "link": { "label": "Read more", "href": "/kampanjat" },
         "image": { "src": "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png", "alt": "Sports cars" },
         "category": "Campaigns"
       },
@@ -123,12 +123,12 @@
         "texts": [
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         ],
-        "link": { "label": "Read more", "href": "#" },
+        "link": { "label": "Read more", "href": "/blogi" },
         "image": { "src": "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png", "alt": "Electric truck" },
         "category": "Blogs"
       }
     ],
-    "link": { "label": "View current news", "href": "#" }
+    "link": { "label": "View current news", "href": "/uutiset" }
   },
   "newsSection": {
     "heading": "Current News"
@@ -140,8 +140,11 @@
       "Create all the reports your company needs directly from the web service. Up-to-date information about your entire fleet gives you the opportunity to manage vehicle-related matters efficiently and save time.",
       "Maintenance of your entire fleet and service functionality are also easily available on your mobile device."
     ],
-    "link": { "label": "Read more", "href": "#" },
-    "image": { "src": "/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png", "alt": "InnoFleet Manager app" },
+    "link": { "label": "Read more", "href": "/fleet-manager" },
+    "image": {
+      "src": "/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png",
+      "alt": "InnoFleet Manager app"
+    },
     "smallImage": { "src": "/images/home/iphone_05_sleep_image.png", "alt": "InnoFleet Manager app" }
   },
   "team": {
@@ -162,7 +165,7 @@
       "We want to make car leasing as clear and simple as possible. That's why Innolease's pricing is transparent. You always get a truthful and clear offer from us that doesn't include hidden costs. We do things without unnecessary bureaucracy and get things done.",
       "We implement your company's vehicle policy and conduct cost comparisons of your fleet on your behalf, as well as realize old equipment."
     ],
-    "link": { "label": "Read more", "href": "#" },
+    "link": { "label": "Read more", "href": "/palveluhinnasto" },
     "image": { "src": "/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png", "alt": "Dark car" }
   },
   "searchingFor": {
@@ -171,7 +174,7 @@
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     ],
-    "link": { "label": "Read more", "href": "#" },
+    "link": { "label": "Read more", "href": "/myynti" },
     "image": { "src": "/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png", "alt": "Dark car" }
   },
   "greenLeasing": {
@@ -183,7 +186,7 @@
       "Charging solutions for electric cars",
       "Guidance for fleet electrification"
     ],
-    "link": { "label": "Read more", "href": "#" },
+    "link": { "label": "Read more", "href": "/yritysleasing" },
     "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png", "alt": "Green leasing" }
   }
 }

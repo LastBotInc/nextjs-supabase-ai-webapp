@@ -50,9 +50,7 @@
 
   "benefits": {
     "heading": "FleetManager auttaa sinua:",
-    "texts": [
-      "Modernilla FleetManager-työkalulla saat haltuun kaikki kalustosi tärkeimmät toiminnot ja tiedot."
-    ],
+    "texts": ["Modernilla FleetManager-työkalulla saat haltuun kaikki kalustosi tärkeimmät toiminnot ja tiedot."],
     "items": [
       "Seuraamaan sopimuksia",
       "Hallitsemaan kustannuksia tarkasti",
@@ -65,17 +63,13 @@
 
   "allInOne": {
     "heading": "Kaikki tieto yhdessä näkymässä – ilman hajanaisia Exceleitä",
-    "texts": [
-      "FleetManager tuo kalustosi hallintaan uuden tason tehokkuutta ja ennustettavuutta."
-    ],
+    "texts": ["FleetManager tuo kalustosi hallintaan uuden tason tehokkuutta ja ennustettavuutta."],
     "image": { "src": "/images/ajankohtaista.png", "alt": "Kaikki yhdessä" }
   },
 
   "cta": {
     "heading": "Ota FleetManager käyttöön yrityksessäsi",
-    "texts": [
-      "Tutustu FleetManagerin mahdollisuuksiin ja ota yhteyttä asiantuntijoihimme."
-    ],
+    "texts": ["Tutustu FleetManagerin mahdollisuuksiin ja ota yhteyttä asiantuntijoihimme."],
     "link": { "label": "Pyydä esittely", "href": "/yhteystiedot" }
   },
 
@@ -83,12 +77,14 @@
     "leasing": {
       "heading": "Kiinnostuitko leasingratkaisuista?",
       "text": "Tutustu kattaviin leasingpalveluihimme yrityksille.",
-      "buttonText": "Leasingratkaisut"
+      "buttonText": "Leasingratkaisut",
+      "buttonHref": "/leasing-solutions"
     },
     "contact": {
       "heading": "Tarvitsetko henkilökohtaista neuvontaa?",
       "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan ratkaisun.",
-      "buttonText": "Yhteystiedot"
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
     }
   }
 }

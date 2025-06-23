@@ -20,7 +20,7 @@
     "quote": "The transition to Innolease's fleet management solution was seamless. The data insights alone have transformed how we make decisions about our vehicle fleet.",
     "personName": "Maria Korhonen",
     "personTitle": "Fleet Manager, Nordic Logistics",
-    "link": { "label": "Read the full story", "href": "#" },
+    "link": { "label": "Read the full story", "href": "/asiakastarinat/nordic-logistics" },
     "results": [
       { "stat": "22%", "label": "Cost reduction" },
       { "stat": "15%", "label": "Fuel efficiency improvement" },
@@ -37,7 +37,7 @@
     "texts": [
       "Discover how businesses of all sizes across various industries have benefited from our tailored leasing solutions."
     ],
-    "link": { "label": "Load more stories", "href": "#" }
+    "link": { "label": "Load more stories", "href": "/asiakastarinat" }
   },
   "stories": [
     {
@@ -47,7 +47,7 @@
       "texts": [
         "TechFinland Solutions implemented Innolease's InnoFleet Manager system to digitize their vehicle management processes, resulting in streamlined operations and significant cost savings."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/techfinland-solutions" }
     },
     {
       "company": "EcoConstruct Ltd",
@@ -56,7 +56,7 @@
       "texts": [
         "EcoConstruct transitioned to electric vehicles through Innolease's flexible leasing options, reducing their carbon footprint while maintaining operational capability."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/ecoconstruct" }
     },
     {
       "company": "Nordic Healthcare Group",
@@ -65,7 +65,7 @@
       "texts": [
         "Nordic Healthcare Group relies on Innolease to ensure their caregivers always have reliable transportation, with specialized vehicles and maintenance services."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/nordic-healthcare" }
     },
     {
       "company": "Fresh Delivery Express",
@@ -74,7 +74,7 @@
       "texts": [
         "As Fresh Delivery Express expanded their operations, Innolease provided scalable fleet solutions that allowed them to adjust vehicle capacity to meet seasonal demand."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/fresh-delivery" }
     },
     {
       "company": "Retail Innovators Ltd",
@@ -83,7 +83,7 @@
       "texts": [
         "Retail Innovators worked with Innolease to analyze and optimize their delivery routes and vehicle selection, reducing their cost per kilometer by 18%."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/retail-innovators" }
     },
     {
       "company": "Arctic Tours",
@@ -92,7 +92,7 @@
       "texts": [
         "Arctic Tours partnered with Innolease to source and maintain specialized vehicles capable of performing in extreme northern conditions for their tourism operations."
       ],
-      "link": { "label": "Read the full story", "href": "#" }
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/arctic-tours" }
     }
   ],
   "filters": {

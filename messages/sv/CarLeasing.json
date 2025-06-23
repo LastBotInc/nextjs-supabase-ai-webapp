@@ -16,9 +16,7 @@
 
   "calculator": {
     "heading": "Leasingkalkylator",
-    "texts": [
-      "Beräkna din egen leasingavgift och se hur förmånligt leasing kan vara."
-    ],
+    "texts": ["Beräkna din egen leasingavgift och se hur förmånligt leasing kan vara."],
     "fields": {
       "carPrice": "Bilens pris",
       "contractLength": "Kontraktets längd",
@@ -109,26 +107,29 @@
   "cta": {
     "heading": "Intresserad av leasing?",
     "texts": [
-      "Kontakta våra experter – vi hjälper dig att hitta den bästa leasinglösningen för dig eller ditt företag. Du kan också enkelt begära en offert via vår webbplats."
+      "Kontakta våra experter – vi hjälper dig hitta den bästa leasing-lösningen för dig eller ditt företag. Du kan också enkelt begära en offert via vår webbplats."
     ],
-    "link": { "label": "Kontakta oss", "href": "/yhteystiedot" }
+    "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" }
   },
 
   "additionalCta": {
     "calculator": {
       "heading": "Beräkna din bilförmån",
-      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du sparar med en tjänstebil.",
-      "buttonText": "Gå till kalkylatorn"
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du sparar med en företagsbil.",
+      "buttonText": "Gå till kalkylatorn",
+      "href": "/leasing-laskuri"
     },
     "corporate": {
       "heading": "Företagsleasing",
-      "text": "Utforska våra omfattande företagsbilsleasinglösningar. Finansiell leasing, flexleasing och serviceleasing.",
-      "buttonText": "Företagsleasing"
+      "text": "Utforska våra omfattande billeasing-lösningar för företag. Finansiell leasing, flexibel leasing och underhållsleasing.",
+      "buttonText": "Företagsleasing",
+      "href": "/yritysleasing"
     },
     "contact": {
-      "heading": "Behöver du hjälp med valet?",
-      "text": "Våra experter hjälper dig att hitta leasinglösningen som passar dig.",
-      "buttonText": "Kontaktuppgifter"
+      "heading": "Behöver du hjälp med ditt val?",
+      "text": "Våra experter hjälper dig hitta leasing-lösningen som passar dig.",
+      "buttonText": "Kontaktuppgifter",
+      "href": "/asiakaspalvelu"
     }
   }
 }

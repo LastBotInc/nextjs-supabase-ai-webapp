@@ -186,8 +186,8 @@ export default async function Page({ params }: Props) {
       <BasicLayout contentPalette="maantie">
         <Heading2>{cta.title}</Heading2>
         <Paragraph>{cta.description}</Paragraph>
-        <LinkButton href={`/${locale}/yhteystiedot`}>{cta.contactButton}</LinkButton>
-        <LinkButton href={`/${locale}/autoleasing`}>{cta.learnMoreButton}</LinkButton>
+        <LinkButton href={cta.contactButtonHref}>{cta.contactButton}</LinkButton>
+        <LinkButton href={cta.learnMoreButtonHref}>{cta.learnMoreButton}</LinkButton>
       </BasicLayout>
     </PageWrapper>
   );

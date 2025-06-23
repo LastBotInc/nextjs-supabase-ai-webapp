@@ -41,6 +41,7 @@
       "Asiakaspalvelutiimimme on erikoistunut eri osa-alueisiin tarjotakseen asiantuntevaa apua kaikissa mahdollisissa tilanteissa."
     ],
     "learnMore": "Lue lisää",
+    "learnMoreHref": "/asiakaspalvelu",
     "categories": {
       "leasing": {
         "heading": "Leasing-tuki",
@@ -135,10 +136,12 @@
   },
 
   "cta": {
-    "heading": "Valmiina optimoimaan autokannan hallintaa?",
-    "texts": ["Tutustu, kuinka autokannan hallintaratkaisumme voivat säästää yrityksesi aikaa ja kustannuksia."],
-    "image": { "src": "/images/ajankohtaista.png", "alt": "Yritysajoneuvojen autokanta" },
-    "fleetButton": "Tutustu autokantaratkaisuihin",
-    "leasingButton": "Katso leasing-vaihtoehdot"
+    "heading": "Valmis optimoimaan kalustonhallintaasi?",
+    "texts": ["Tutustu kuinka kalustonhallintaratkaisumme voivat säästää yrityksesi aikaa ja kustannuksia."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Yritysautokalusto" },
+    "fleetButton": "Tutustu kalustoratkaisuihin",
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "Katso leasing-vaihtoehdot",
+    "leasingHref": "/yritysleasing"
   }
 }

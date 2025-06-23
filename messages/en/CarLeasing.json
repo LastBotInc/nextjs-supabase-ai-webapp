@@ -16,9 +16,7 @@
 
   "calculator": {
     "heading": "Leasing Calculator",
-    "texts": [
-      "Calculate your own leasing payment and see how affordable leasing can be."
-    ],
+    "texts": ["Calculate your own leasing payment and see how affordable leasing can be."],
     "fields": {
       "carPrice": "Car price",
       "contractLength": "Contract duration",
@@ -111,24 +109,27 @@
     "texts": [
       "Contact our experts – we'll help you find the best leasing solution for you or your business. You can also easily request a quote through our website."
     ],
-    "link": { "label": "Contact Us", "href": "/yhteystiedot" }
+    "link": { "label": "Contact Us", "href": "/asiakaspalvelu" }
   },
 
   "additionalCta": {
     "calculator": {
       "heading": "Calculate Your Car Benefit",
       "text": "Use our free car benefit calculator and find out how much you save with a company car.",
-      "buttonText": "Go to Calculator"
+      "buttonText": "Go to Calculator",
+      "href": "/leasing-laskuri"
     },
     "corporate": {
       "heading": "Business Leasing",
       "text": "Explore our comprehensive business car leasing solutions. Financial leasing, flexible leasing, and maintenance leasing.",
-      "buttonText": "Business Leasing"
+      "buttonText": "Business Leasing",
+      "href": "/yritysleasing"
     },
     "contact": {
       "heading": "Need Help with Your Choice?",
       "text": "Our experts will help you find the leasing solution that's right for you.",
-      "buttonText": "Contact Information"
+      "buttonText": "Contact Information",
+      "href": "/asiakaspalvelu"
     }
   }
 }
