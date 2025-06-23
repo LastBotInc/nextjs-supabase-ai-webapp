@@ -32,30 +32,90 @@ interface Language {
 
 // Build a mapping for all namespaces
 const namespacePathMap: { namespace: string; path: string; label: string }[] = getNamespaces().map((ns) => {
+  /*
+  Excluded from client editing
+
+      case "Privacy":
+      return { namespace: ns, path: "/privacy", label: "Tietosuoja" };
+    case "Profile":
+      return { namespace: ns, path: "/profile", label: "Profiili" };
+        case "Account":
+      return { namespace: ns, path: "/account", label: "Tili" };
+    case "Admin":
+      return { namespace: ns, path: "/admin", label: "Hallinta" };
+    case "Auth":
+      return { namespace: ns, path: "/auth", label: "Kirjautuminen" };
+
+          case "Footer":
+      return { namespace: ns, path: "/", label: "Alatunniste" };
+          case "LandingPages":
+      return { namespace: ns, path: "/[slug]", label: "Laskeutumissivut" };
+          case "Media":
+      return { namespace: ns, path: "/admin/media", label: "Media" };
+    case "Meta":
+      return { namespace: ns, path: "/", label: "Meta-tiedot" };
+       case "Contact":
+      return { namespace: ns, path: "/asiakaspalvelu", label: "Asiakaspalvelu" };
+ */
   switch (ns) {
-    case "CorporateLeasing":
-      return { namespace: ns, path: "/fi/yritysleasing", label: "Yritysleasing" };
-    case "CarLeasing":
-      return { namespace: ns, path: "/fi/auton-leasing", label: "Auton Leasing" };
-    case "LeasingSolutions":
-      return { namespace: ns, path: "/fi/leasingratkaisut", label: "Leasingratkaisut" };
-    case "MachineLeasing":
-      return { namespace: ns, path: "/fi/koneleasing", label: "Koneleasing" };
-    case "Home":
-      return { namespace: ns, path: "/fi/", label: "Etusivu" };
     case "About":
-      return { namespace: ns, path: "/fi/tietoa-meista", label: "Tietoa meistä" };
-    case "Contact":
-      return { namespace: ns, path: "/fi/yhteystiedot", label: "Yhteystiedot" };
+      return { namespace: ns, path: "/keita-olemme", label: "Keita olemme" };
+
+    case "Billing":
+      return { namespace: ns, path: "/laskutus", label: "Laskutus" };
     case "Blog":
-      return { namespace: ns, path: "/fi/blogi", label: "Blogi" };
-    case "FleetManager":
-      return { namespace: ns, path: "/fi/fleet-management", label: "Fleet Management" };
-    case "Privacy":
-      return { namespace: ns, path: "/fi/tietosuoja", label: "Tietosuoja" };
+      return { namespace: ns, path: "/blogi", label: "Blogi" };
+    case "Campaigns":
+      return { namespace: ns, path: "/kampanjat", label: "Kampanjat" };
+    case "Calculators":
+      return { namespace: ns, path: "/laskurit", label: "Laskurit" };
+    case "CarLeasing":
+      return { namespace: ns, path: "/autoleasing", label: "Autoleasing" };
+    case "CarRental":
+      return { namespace: ns, path: "/auton-vuokraus", label: "Auton vuokraus" };
+    case "Common":
+      return { namespace: ns, path: "/", label: "Yleiset" };
+
+    case "CookieConsent":
+      return { namespace: ns, path: "/cookies", label: "Evästeet" };
+    case "CorporateLeasing":
+      return { namespace: ns, path: "/yritysleasing", label: "Yritysleasing" };
+    case "CurrentTopics":
+      return { namespace: ns, path: "/uutiset", label: "Uutiset" };
+    case "CustomerService":
+      return { namespace: ns, path: "/asiakaspalvelu", label: "Asiakaspalvelu" };
+    case "CustomerStories":
+      return { namespace: ns, path: "/asiakastarinat", label: "Asiakastarinat" };
+    case "DigitalServices":
+      return { namespace: ns, path: "/digitaaliset-palvelut", label: "Digitaaliset palvelut" };
     case "DriversGuide":
-      return { namespace: ns, path: "/fi/autoilijan-opas", label: "Autoilijan opas" };
-    // Add more explicit mappings as needed
+      return { namespace: ns, path: "/autoilijan-opas", label: "Autoilijan opas" };
+    case "Faq":
+      return { namespace: ns, path: "/ukk", label: "UKK" };
+    case "FinancialSolutions":
+      return { namespace: ns, path: "/rahoitusratkaisut", label: "Rahoitusratkaisut" };
+    case "FleetManager":
+      return { namespace: ns, path: "/fleet-manager", label: "Fleet Manager" };
+    case "Home":
+      return { namespace: ns, path: "/", label: "Etusivu" };
+    case "LeasingCalculator":
+      return { namespace: ns, path: "/leasing-laskuri", label: "Leasing-laskuri" };
+    case "LeasingSolutions":
+      return { namespace: ns, path: "/leasingratkaisut", label: "Leasingratkaisut" };
+    case "MachineLeasing":
+      return { namespace: ns, path: "/kone-ja-laiteleasing", label: "Kone- ja laiteleasing" };
+    case "MiniLeasing":
+      return { namespace: ns, path: "/minileasing", label: "Minileasing" };
+    case "Navigation":
+      return { namespace: ns, path: "/", label: "Navigointi" };
+    case "OpenPositions":
+      return { namespace: ns, path: "/avoimet-tyopaikat", label: "Avoimet työpaikat" };
+    case "PostMarketing":
+      return { namespace: ns, path: "/jalkimarkkinointi", label: "Jälkimarkkinointi" };
+    case "Sales":
+      return { namespace: ns, path: "/myynti", label: "Myynti" };
+    case "ServicePrices":
+      return { namespace: ns, path: "/palveluhinnasto", label: "Palveluhinnasto" };
     default:
       return { namespace: ns, path: ``, label: ns };
   }
