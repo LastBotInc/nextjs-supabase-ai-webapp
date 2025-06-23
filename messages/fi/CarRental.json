@@ -1,42 +1,25 @@
 {
   "meta": {
-    "title": "Auton vuokraus yrityksille – helposti ja nopeasti",
-    "description": "Vuokraa auto yrityksellesi joustavasti ja vaivattomasti. Minileasing ja yritysautot lyhyt- ja pitkäaikaiseen käyttöön – toimitus ja nouto tarpeesi mukaan."
+    "title": "Auton vuokraus yrityksille | Innolease - Joustava ja nopea ratkaisu",
+    "description": "Vuokraa auto yrityksellesi joustavasti ja vaivattomasti. Minileasing ja yritysautot lyhyt- ja pitkäaikaiseen käyttöön – toimitus ja nouto tarpeesi mukaan.",
+    "keywords": "auton vuokraus, yritysauto, minileasing, lyhytaikainen autovuokraus, sijaisauto, projektiauto, autonvuokraus yrityksille",
+    "image": "/images/autonvuokraus.png"
   },
-  "title": "Auton vuokraus yrityksille",
-  "intro": "Haaveiletko yritykselle suunnatusta vuokra-autopalvelusta, jossa auton voi vuokrata helposti netin kautta ja auto toimitetaan sekä noudetaan tarpeen mukaan? Tutustu joustavaan autonvuokrauspalveluumme yrityksille!",
-  "benefits": {
-    "title": "Miksi valita meidät?",
-    "list": [
-      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
-      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
-      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
-      "Ei käsirahaa, ei jälleenmyyntihuolia",
-      "Yhteyshenkilö yrityksesi tueksi"
-    ]
-  },
-  "examples": {
-    "title": "Täydellinen ratkaisu mm.:",
-    "list": [
-      "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
-      "Sijaisautoksi huollon tai korjauksen ajaksi",
-      "Projekteihin tai määräaikaisiin työtehtäviin",
-      "Kauden tai tilapäisen lisätarpeen kattamiseen"
-    ]
-  },
-  "cta": {
-    "title": "Ota yhteyttä – löydämme ratkaisun yrityksellesi",
-    "description": "Räätälöimme yrityksellesi sopivan vuokraus- tai leasingpaketin. Ole meihin yhteydessä ja kerro tarpeistasi!",
-    "button": "Pyydä tarjous"
-  },
+
   "hero": {
-    "title": "Yritysautot joustavasti käyttöösi",
-    "description": "Vuokraa auto yrityksellesi helposti ja nopeasti – ilman sitoutumista. Toimitamme auton suoraan yrityksesi ovelle ja noudamme sen vuokrauksen päätyttyä.",
-    "image": "car-rental-hero-fi.jpg"
+    "heading": "Yritysautot joustavasti käyttöösi",
+    "texts": [
+      "Vuokraa auto yrityksellesi helposti ja nopeasti – ilman sitoutumista. Toimitamme auton suoraan yrityksesi ovelle ja noudamme sen vuokrauksen päätyttyä.",
+      "Haaveiletko yritykselle suunnatusta vuokra-autopalvelusta, jossa auton voi vuokrata helposti netin kautta ja auto toimitetaan sekä noudetaan tarpeen mukaan? Tutustu joustavaan autonvuokrauspalveluumme yrityksille!"
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Yritysautot joustavasti käyttöösi" }
   },
-  "minileasing": {
-    "title": "Minileasing yrityksille – Tehoa liiketoimintaan ilman sitoutumista",
-    "description": "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia. Minileasing on mutkaton, kustannustehokas ja nopea tapa varmistaa, että liiketoiminta ei pysähdy!",
+
+  "benefits": {
+    "heading": "Miksi valita meidät?",
+    "texts": [
+      "Tarjoamme yrityksille joustavan ja vaivattoman autonvuokrauspalvelun, joka sopii erilaisiin tarpeisiin."
+    ],
     "list": [
       "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
       "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
@@ -44,13 +27,71 @@
       "Ei käsirahaa, ei jälleenmyyntihuolia",
       "Yhteyshenkilö yrityksesi tueksi"
     ],
-    "examplesTitle": "Täydellinen ratkaisu mm.:",
-    "examples": [
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Auton vuokraus" }
+  },
+
+  "examples": {
+    "heading": "Täydellinen ratkaisu mm.:",
+    "texts": ["Autonvuokrauspalvelumme soveltuu monenlaisiin tilanteisiin ja tarpeisiin."],
+    "list": [
       "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
       "Sijaisautoksi huollon tai korjauksen ajaksi",
       "Projekteihin tai määräaikaisiin työtehtäviin",
       "Kauden tai tilapäisen lisätarpeen kattamiseen"
     ],
-    "contactCta": "Ota yhteyttä – löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin"
+    "image": { "src": "/images/yritysleasing.png", "alt": "Yritysleasing" }
+  },
+
+  "minileasing": {
+    "heading": "Minileasing yrityksille – Tehoa liiketoimintaan ilman sitoutumista",
+    "texts": [
+      "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia. Minileasing on mutkaton, kustannustehokas ja nopea tapa varmistaa, että liiketoiminta ei pysähdy!"
+    ],
+    "benefits": [
+      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+      "Ei käsirahaa, ei jälleenmyyntihuolia",
+      "Yhteyshenkilö yrityksesi tueksi"
+    ],
+    "useCases": {
+      "heading": "Täydellinen ratkaisu mm.:",
+      "list": [
+        "Odotusajaksi uuden työsuhdeauton tai toimituksen valmistumista varten",
+        "Sijaisautoksi huollon tai korjauksen ajaksi",
+        "Projekteihin tai määräaikaisiin työtehtäviin",
+        "Kauden tai tilapäisen lisätarpeen kattamiseen"
+      ]
+    },
+    "cta": "Ota yhteyttä – löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin"
+  },
+
+  "cta": {
+    "heading": "Ota yhteyttä – löydämme ratkaisun yrityksellesi",
+    "texts": [
+      "Räätälöimme yrityksellesi sopivan vuokraus- tai leasingpaketin. Ole meihin yhteydessä ja kerro tarpeistasi!"
+    ],
+    "link": { "label": "Pyydä tarjous", "href": "/yhteystiedot" }
+  },
+
+  "additionalCta": {
+    "leasing": {
+      "heading": "Kiinnostuitko leasingista?",
+      "text": "Tutustu kattaviin autoleasingpalveluihimme yksityisille ja yrityksille.",
+      "buttonText": "Auton leasing",
+      "buttonHref": "/autoleasing"
+    },
+    "calculator": {
+      "heading": "Laske autoetusi",
+      "text": "Käytä ilmaista autoetulaskuriamme ja selvitä kuinka paljon säästät työsuhdeautosta.",
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/autoetulaskuri"
+    },
+    "contact": {
+      "heading": "Tarvitsetko henkilökohtaista neuvontaa?",
+      "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan ratkaisun.",
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
+    }
   }
 }

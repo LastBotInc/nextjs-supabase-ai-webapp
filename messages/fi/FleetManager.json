@@ -1,11 +1,17 @@
 {
   "meta": {
-    "title": "FleetManager",
-    "description": ""
+    "title": "FleetManager | Innolease - Täysihallinta yrityksesi kalustoon",
+    "description": "FleetManager on älykäs ja helppokäyttöinen työkalu, joka tuo ajoneuvokalustosi hallinnan yhteen paikkaan – reaaliaikaisesti ja läpinäkyvästi.",
+    "keywords": "FleetManager, kalustonhallinta, autopäättäjän työkalut, kuluraportit, sopimusseuranta, kustannusten hallinta",
+    "image": "/images/ajankohtaista.png"
   },
+
   "hero": {
-    "heading": "FleetManager",
-    "subheading": "Täysihallinta yrityksesi kalustoon",
+    "heading": "FleetManager – täysihallinta yrityksesi kalustoon",
+    "texts": [
+      "Innolease tarjoaa modernit digitaaliset palvelut, jotka helpottavat yrityksesi arkea leasingkauden aikana. Fleet Manager -työkalu on suunniteltu yrityksille, jotka haluavat pitää ajoneuvokannan hallinnassa helposti, tehokkaasti ja reaaliaikaisesti."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager" },
     "numbers": [
       {
         "title": "Soita meille",
@@ -17,18 +23,12 @@
       }
     ]
   },
-  "title": "FleetManager",
-  "description": "",
-  "content": "",
-  "intro": {
-    "title": "FleetManager – täysihallinta yrityksesi kalustoon",
-    "description": "Innolease tarjoaa modernit digitaaliset palvelut, jotka helpottavat yrityksesi arkea leasingkauden aikana. Fleet Manager -työkalu on suunniteltu yrityksille, jotka haluavat pitää ajoneuvokannan hallinnassa helposti, tehokkaasti ja reaaliaikaisesti."
-  },
-  "image": {
-    "alt": "FleetManager placeholder image"
-  },
+
   "mainView": {
-    "title": "Yksi hallintanäkymä, kaikki tieto",
+    "heading": "Yksi hallintanäkymä, kaikki tieto",
+    "texts": [
+      "FleetManager tuo kaikki tärkeät tiedot yhteen selkeään näkymään, jossa voit hallita koko autokannan tietoja tehokkaasti."
+    ],
     "features": [
       "Sopimuksen seuranta – sopimusten hallinnointi",
       "Kustannusten hallinta & optimointi",
@@ -36,24 +36,55 @@
       "Ympäristö ja vastuullisuusnäkökulmat",
       "Täydellinen läpinäkyvyys ja keskitetty tieto",
       "Helppo jaettava raportointi"
-    ]
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Yksi hallintanäkymä" }
   },
+
   "summary": {
-    "title": "Älykäs ja helppokäyttöinen työkalu",
-    "description": "FleetManager on älykäs ja helppokäyttöinen työkalu, joka tuo ajoneuvokalustosi hallinnan yhteen paikkaan – reaaliaikaisesti ja läpinäkyvästi. Seuraa ajoneuvokohtaisia kustannuksia ja optimoi käyttöaste helposti. Selkeät raportit tukevat niin talousjohdon kuin vastuullisuusraportoinnin tarpeita."
+    "heading": "Älykäs ja helppokäyttöinen työkalu",
+    "texts": [
+      "FleetManager on älykäs ja helppokäyttöinen työkalu, joka tuo ajoneuvokalustosi hallinnan yhteen paikkaan – reaaliaikaisesti ja läpinäkyvästi. Seuraa ajoneuvokohtaisia kustannuksia ja optimoi käyttöaste helposti. Selkeät raportit tukevat niin talousjohdon kuin vastuullisuusraportoinnin tarpeita."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Älykäs työkalu" }
   },
+
   "benefits": {
-    "title": "FleetManager auttaa sinua:",
+    "heading": "FleetManager auttaa sinua:",
+    "texts": ["Modernilla FleetManager-työkalulla saat haltuun kaikki kalustosi tärkeimmät toiminnot ja tiedot."],
     "items": [
       "Seuraamaan sopimuksia",
       "Hallitsemaan kustannuksia tarkasti",
       "Tehostamaan resurssien käyttöä",
       "Jakamaan tiedot vaivattomasti eteenpäin",
       "Täyttämään vastuullisuuden seurantavelvoitteet"
-    ]
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager edut" }
   },
+
   "allInOne": {
-    "title": "Kaikki tieto yhdessä näkymässä – ilman hajanaisia Exceleitä.",
-    "description": "FleetManager tuo kalustosi hallintaan uuden tason tehokkuutta ja ennustettavuutta."
+    "heading": "Kaikki tieto yhdessä näkymässä – ilman hajanaisia Exceleitä",
+    "texts": ["FleetManager tuo kalustosi hallintaan uuden tason tehokkuutta ja ennustettavuutta."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kaikki yhdessä" }
+  },
+
+  "cta": {
+    "heading": "Ota FleetManager käyttöön yrityksessäsi",
+    "texts": ["Tutustu FleetManagerin mahdollisuuksiin ja ota yhteyttä asiantuntijoihimme."],
+    "link": { "label": "Pyydä esittely", "href": "/yhteystiedot" }
+  },
+
+  "additionalCta": {
+    "leasing": {
+      "heading": "Kiinnostuitko leasingratkaisuista?",
+      "text": "Tutustu kattaviin leasingpalveluihimme yrityksille.",
+      "buttonText": "Leasingratkaisut",
+      "buttonHref": "/leasing-solutions"
+    },
+    "contact": {
+      "heading": "Tarvitsetko henkilökohtaista neuvontaa?",
+      "text": "Asiantuntijamme auttavat löytämään juuri yrityksellesi sopivan ratkaisun.",
+      "buttonText": "Yhteystiedot",
+      "buttonHref": "/yhteystiedot"
+    }
   }
 }

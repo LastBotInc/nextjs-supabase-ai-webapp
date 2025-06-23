@@ -1,137 +1,181 @@
 {
   "meta": {
-    "title": "Driver's Guide",
-    "description": "Guide for driving during the lease period."
+    "title": "Driver's Guide | Innolease - Everything You Need to Know About Using Your Leasing Car",
+    "description": "Comprehensive guide for driving during the contract period. Maintenance, repairs, accidents, returns and much more useful information.",
+    "keywords": "driver's guide, leasing car, maintenance, repairs, accidents, car return, roadside assistance, export abroad",
+    "image": "/images/ajankohtaista.png"
   },
-  "intro": {
-    "title": "Driver's Guide – Driving During the Lease Period",
-    "description": "At Innolease, we support you with vehicle acquisition, fleet management, and practical matters during your contract. Company car use should be as easy as possible. Below you'll find useful information about your leased car and our services. If you have any questions, your contact person and our customer service are ready to help.",
-    "image": "Driver's Guide placeholder image"
+
+  "hero": {
+    "heading": "Driver's Guide - Driving During the Contract Period",
+    "texts": [
+      "At Innolease Oy, we assist customers in vehicle acquisitions, fleet management, and practical matters during the contract. Company car driving should be as easy as possible.",
+      "Below you'll find useful information about using your leasing car and our services. If you have any questions, your personal contact person and our customer service are ready to help."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Driver's guide" }
   },
+
   "maintenance": {
-    "title": "Maintenance and Repairs",
-    "description": "For reliability and warranty, it's important to service the car according to the manufacturer's or importer's schedule. Services are performed at Innolease's partner locations. Always request approval before booking a service.",
-    "tips": [
-      "Follow the service schedule and logbook.",
-      "Maintenance and repairs are included in service and flexible leasing.",
-      "Finance leasing does not include maintenance or repairs.",
-      "For technical faults, contact an authorized service center."
+    "heading": "Maintenance and Repairs",
+    "texts": [
+      "For the car's reliability and warranties, it's important that the car is serviced according to the manufacturer's or importer's maintenance schedule. Maintenance is performed at service points belonging to Innolease Oy's partner network. Permission must be requested for maintenance before booking an appointment."
     ],
-    "note": "The Driver's Guide is sent by email when the car is delivered. If you haven't received it, request a new one from customer service.",
-    "image": "Maintenance and repairs placeholder image"
+    "tips": [
+      "Follow the maintenance schedule and service book.",
+      "Maintenance and repairs are included in maintenance and flexible leasing.",
+      "Financial leasing does not include maintenance or repairs.",
+      "For technical faults, contact an authorized brand service center."
+    ],
+    "note": "The driver's guide is delivered by email when the car is handed over. If you haven't received the guide, order a new one from customer service.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Maintenance and repairs" }
   },
+
   "replacementCar": {
-    "title": "Replacement Car During Service",
-    "description": "You can get a replacement car during service if it's included in your company's car policy. For longer needs, contact customer service.",
-    "note": "More about car rental – link.",
-    "image": "Replacement car placeholder image"
-  },
-  "billing": {
-    "title": "Service Billing Approvals",
-    "description": "Advance billing approval from Innolease's service team is required for maintenance and repairs. The workshop applies for approval, not the car user.",
-    "tips": [
-      "Approval can be requested when the fault and costs are known.",
-      "The same applies to maintenance, tire replacements, and other billable actions."
+    "heading": "Replacement Car for Maintenance",
+    "texts": [
+      "You can get a replacement car during maintenance if it's included in your company's car policy. For longer-term replacement cars, contact customer service."
     ],
-    "note": "More about billing approvals – link.",
-    "image": "Billing approvals placeholder image"
+    "note": "More information about car rental – link.",
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Replacement car" }
   },
+
+  "billing": {
+    "heading": "Maintenance Billing Permits",
+    "texts": [
+      "Billing permits must be obtained in advance for maintenance and repairs through Innolease Oy's maintenance team. The permit is requested by the service shop, not the car user."
+    ],
+    "tips": [
+      "A permit can be requested when the fault and costs are known.",
+      "The same applies to maintenance, tire replacement and other billable actions."
+    ],
+    "note": "More information about billing permits – link.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Billing permits" }
+  },
+
   "tires": {
-    "title": "Tire Services",
-    "description": "Seasonal tire changes, storage, and replacements during the lease. Main partners: Vianor and Euromaster. Check your contract to see if services are included.",
+    "heading": "Tire Services",
+    "texts": [
+      "Seasonal tire changes, storage and replacements during the contract period. Main cooperation partners: Vianor and Euromaster. Check your contract to see if services are included."
+    ],
     "tips": [
       "Checking tire pressure is the user's responsibility.",
-      "Replacements due to damage or misuse are not included."
+      "Replacements due to damage or incorrect use are not included in the contract."
     ],
-    "image": "Tire services placeholder image"
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Tire services" }
   },
+
   "accidents": {
-    "title": "In Case of Accident",
-    "description": "Follow these steps in case of an accident:",
+    "heading": "Accident Situations",
+    "texts": [
+      "In case of an accident, proceed as follows:"
+    ],
     "steps": [
-      "Fill out an accident report on site and have the other party sign it.",
-      "Submit the report to your insurance company.",
-      "Call the police in case of injury, unclear situations, or animal collisions.",
-      "The at-fault party's insurance covers the innocent party's costs.",
-      "Also inform Innolease's JM team or your contact person about the accident."
+      "Fill out the accident report on site and ask the other party to sign it.",
+      "Submit the report to the insurance company.",
+      "Call police for personal injuries, unclear cases or wildlife collisions.",
+      "The at-fault party's insurance company compensates the innocent party's costs.",
+      "Also notify Innolease Oy's JM team or your contact person about the damage."
     ],
-    "image": "Accident placeholder image"
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Accident situations" }
   },
+
   "roadside": {
-    "title": "Roadside Assistance",
-    "description": "Innolease Roadside Assistance is available 24/7. The service is usually free, and costs are billed to the insurance company or importer.",
-    "tips": [
-      "If the issue can't be resolved by phone, a professional will be sent to help.",
-      "If costs aren't covered, they will be billed to the customer."
+    "heading": "Roadside Assistance",
+    "texts": [
+      "Innolease Oy's Roadside Assistance serves 24/7. The service is basically free and costs are directed to the insurance company or importer."
     ],
-    "image": "Roadside assistance placeholder image"
+    "tips": [
+      "If the situation cannot be resolved by phone, a professional is sent to the location.",
+      "If costs are not covered, they will be billed to the customer."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Roadside assistance" }
   },
+
   "export": {
-    "title": "Exporting the Car",
-    "description": "Check your employer's policy. You need an export permit and Green Card (not needed in the Nordics). The owner grants the permit. Take the registration certificate when traveling abroad.",
-    "tips": ["Order documents well in advance of your trip.", "The Green Card proves your insurance is valid."],
-    "image": "Export placeholder image"
+    "heading": "Export Abroad",
+    "texts": [
+      "Check your employer's instructions. You need an export power of attorney and Green Card (not in Nordic countries). The owner grants permission. Take the registration certificate abroad."
+    ],
+    "tips": [
+      "Order documents well in advance before travel.",
+      "Green Card proves the validity of traffic insurance."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Export abroad" }
   },
+
   "return": {
-    "title": "Returning the Leased Car",
-    "description": "Start the process for a new car or contract extension early. Return the car to an Autollecom store. Fill out the return form and follow the instructions.",
+    "heading": "Leasing Car Return",
+    "texts": [
+      "Start acquiring a new car or contract extension in time. Return the car to an Autollecom store. Fill out the return form and follow the instructions."
+    ],
     "checklist": {
-      "title": "When returning, make sure that:",
+      "heading": "When returning, make sure that:",
       "items": [
         "The car is clean inside and out.",
-        "The car is serviced according to the schedule.",
-        "The car is inspected.",
-        "Personal data is removed.",
-        "Damages are repaired or reported to the insurance company.",
-        "Missing accessories are returned within 7 days."
+        "The car has been serviced according to the maintenance schedule.",
+        "The car has been inspected.",
+        "Personal data has been removed.",
+        "Damages have been repaired or reported to the insurance company.",
+        "Missing accessories returned within 7 days."
       ]
     },
     "mustHave": {
-      "title": "The vehicle must include:",
+      "heading": "The vehicle must include:",
       "items": [
         "All keys and charging cables.",
         "All documents; service book and manuals.",
-        "Both sets of tires.",
+        "Both tire sets.",
         "Installed accessories."
       ]
     },
     "remove": {
-      "title": "Remove from the vehicle:",
-      "items": ["Decals.", "Accessories not included in the lease.", "Tracking devices."]
+      "heading": "Remove from the vehicle:",
+      "items": [
+        "Decals.",
+        "Accessories not included in the leasing contract.",
+        "Tracking devices."
+      ]
     },
-    "image": "Return placeholder image"
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Car return" }
   },
+
   "faq": {
-    "title": "Frequently Asked Questions",
-    "sections": [
+    "heading": "Frequently Asked Questions",
+    "texts": [
+      "In this section you'll find answers to the most common questions about using a leasing car."
+    ],
+    "questions": [
       {
-        "title": "Inspections and Taxes",
-        "description": "The user is responsible for inspections and taxes. Partners: A-Katsastus and K1. Billing goes directly to Innolease."
+        "question": "Inspections and Taxes",
+        "answer": "The user is responsible for car inspection and handling taxes. Partners: A-Katsastus and K1. Billing is directed directly to Innolease."
       },
       {
-        "title": "User Change",
-        "description": "If the user changes, report the registration number and new user's details to customer service."
+        "question": "User Change",
+        "answer": "When the user changes, report the registration number and new user's information to customer service."
       },
       {
-        "title": "Insurance",
-        "description": "Get insurance details and deductibles from your fleet manager. Review your coverage and deductibles in advance."
+        "question": "Insurance",
+        "answer": "You can get insurance company information and deductibles from the car manager. Familiarize yourself with the insurance coverage and deductibles in advance."
       },
       {
-        "title": "Export",
-        "description": "See the export section – link."
+        "question": "Export Abroad",
+        "answer": "See the export abroad section – link."
       },
       {
-        "title": "Car Return",
-        "description": "See the car return section – link."
+        "question": "Car Return",
+        "answer": "See the car return section – link."
       }
     ],
-    "image": "FAQ placeholder image"
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Frequently asked questions" }
   },
+
   "contact": {
-    "title": "Any questions?",
-    "description": "If you can't find the answer on our site, contact us.",
+    "heading": "Do You Have Questions?",
+    "texts": [
+      "If you didn't find an answer to your question on our pages, contact us."
+    ],
     "note": "Link to contact form.",
-    "image": "Contact placeholder image",
+    "image": { "src": "/images/Tietoa_meista.png", "alt": "Contact" },
     "numbers": [
       {
         "title": "Call us",

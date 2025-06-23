@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "",
+    "description": "",
+    "keywords": "",
+    "image": ""
+  },
+
+  "section1": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "image": { "src": "", "alt": "" }
+  },
+
+  "section2": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "list": [
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" }
+    ],
+    "image": { "src": "", "alt": "" }
+  },
+
+  "section3": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "table": {
+      "columns": ["", ""],
+      "rows": [
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "list": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "section5": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "cases": [
+      {
+        "title": "",
+        "texts": [
+          ""
+        ],
+        "image": { "src": "", "alt": "" }
+      },
+      {
+        "title": "",
+        "texts": [
+          ""
+        ],
+        "image": { "src": "", "alt": "" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "questions": [
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "",
+    "texts": [
+      ""
+    ],
+    "link": { "label": "", "href": "" },
+    "image": { "src": "", "alt": "" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "",
+      "text": "",
+      "buttonText": ""
+    },
+    "carLeasing": {
+      "heading": "",
+      "text": "",
+      "buttonText": ""
+    },
+    "contact": {
+      "heading": "",
+      "text": "",
+      "buttonText": ""
+    }
+  }
+}

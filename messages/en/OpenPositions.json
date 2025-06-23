@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Open Positions | Join Our Team at Innolease",
+    "description": "Discover exciting career opportunities at Innolease. Join our expert team and help shape the future of business vehicle leasing in Finland.",
+    "keywords": "careers, jobs, open positions, vehicle leasing careers, Finnish jobs, business finance jobs, customer service careers",
+    "image": "/images/team/careers-hero.jpg"
+  },
+  "aboutCompany": {
+    "heading": "About Innolease",
+    "texts": [
+      "Innolease is an experienced and agile leasing partner that offers customer-focused and flexible solutions for business needs. As part of the Autolle.com Group, we specialize in machinery, equipment, and vehicle leasing solutions with our strong team's years of experience in business financing and leasing.",
+      "We've grown rapidly by combining rental and leasing services into one comprehensive entity. Our goal is to offer customers the most comprehensive and flexible solutions that meet the changing needs of today's businesses and individuals.",
+      "With 800+ vehicles nationwide and digital tools like InnoFleet Manager, we empower Finnish businesses to manage mobility with cost-efficiency, clarity, and scalability."
+    ],
+    "image": { "src": "/images/team/innolease-office.jpg", "alt": "Innolease team at work" }
+  },
+  "whyWorkHere": {
+    "heading": "Why Work at Innolease?",
+    "subheading": "Join a company that values expertise, transparency, and innovation",
+    "cards": [
+      {
+        "title": "Expert Team Environment",
+        "texts": ["Work alongside experienced professionals in business financing and leasing. Learn from industry experts and develop your skills in a supportive environment."],
+        "image": { "src": "/images/team/expert-team.jpg", "alt": "Professional team collaboration" }
+      },
+      {
+        "title": "Customer-Centric Culture",
+        "texts": ["Be part of a company that puts customers first. Every role contributes to delivering personalized service and tailored solutions to our clients."],
+        "image": { "src": "/images/team/customer-service.jpg", "alt": "Customer service excellence" }
+      },
+      {
+        "title": "Digital Innovation",
+        "texts": ["Work with cutting-edge digital tools and services. Help develop and implement modern solutions that simplify fleet management for businesses."],
+        "image": { "src": "/images/team/digital-innovation.jpg", "alt": "Digital tools and technology" }
+      },
+      {
+        "title": "Growth Opportunities",
+        "texts": ["Join a rapidly growing company with clear career progression paths. Benefit from the expertise and networks of the Autolle.com Group."],
+        "image": { "src": "/images/team/career-growth.jpg", "alt": "Professional development" }
+      },
+      {
+        "title": "Flexible Work Environment",
+        "texts": ["Enjoy modern working practices with flexibility to balance work and personal life. We believe in results, not just hours at the desk."],
+        "image": { "src": "/images/team/flexible-work.jpg", "alt": "Modern workplace" }
+      }
+    ]
+  },
+  "openPositions": {
+    "heading": "Current Open Positions",
+    "subheading": "Join our growing team and help shape the future of business leasing",
+    "positions": [
+      {
+        "title": "Senior Leasing Specialist",
+        "department": "Business Development",
+        "location": "Helsinki",
+        "type": "Full-time",
+        "texts": [
+          "Lead complex leasing negotiations and develop tailored solutions for large corporate clients. Requires 5+ years experience in business financing or leasing."
+        ],
+        "requirements": [
+          "Bachelor's degree in Finance, Business, or related field",
+          "5+ years experience in leasing or business financing",
+          "Strong analytical and negotiation skills",
+          "Fluent in Finnish and English"
+        ]
+      },
+      {
+        "title": "Customer Service Representative",
+        "department": "Customer Service",
+        "location": "Tampere / Remote",
+        "type": "Full-time",
+        "texts": [
+          "Provide exceptional customer support to our leasing clients. Handle inquiries, coordinate maintenance services, and ensure customer satisfaction."
+        ],
+        "requirements": [
+          "Experience in customer service or related field",
+          "Excellent communication skills",
+          "Problem-solving mindset",
+          "Knowledge of automotive industry preferred"
+        ]
+      },
+      {
+        "title": "Digital Product Manager",
+        "department": "Technology",
+        "location": "Helsinki",
+        "type": "Full-time",
+        "texts": [
+          "Drive the development of our InnoFleet Manager platform and other digital services. Lead product strategy and work with development teams."
+        ],
+        "requirements": [
+          "Product management experience in SaaS or fintech",
+          "Understanding of fleet management systems",
+          "Agile methodology experience",
+          "Strong stakeholder management skills"
+        ]
+      },
+      {
+        "title": "Fleet Coordinator",
+        "department": "Operations",
+        "location": "Turku",
+        "type": "Full-time",
+        "texts": [
+          "Manage vehicle logistics, coordinate maintenance schedules, and ensure optimal fleet utilization. Work closely with clients and service partners."
+        ],
+        "requirements": [
+          "Experience in logistics or fleet management",
+          "Strong organizational skills",
+          "Driver's license required",
+          "Ability to work with multiple stakeholders"
+        ]
+      },
+      {
+        "title": "Business Development Trainee",
+        "department": "Sales",
+        "location": "Helsinki",
+        "type": "Trainee Program",
+        "texts": [
+          "12-month trainee program covering all aspects of business leasing. Perfect opportunity for recent graduates to start their career in the leasing industry."
+        ],
+        "requirements": [
+          "Bachelor's or Master's degree completed",
+          "Interest in business finance and customer service",
+          "Strong communication skills",
+          "Ambition to grow in the leasing industry"
+        ]
+      }
+    ]
+  },
+  "howToApply": {
+    "heading": "How to Apply",
+    "texts": [
+      "Ready to join our team? We'd love to hear from you! Send us your application including your CV and a cover letter explaining why you're interested in the position and what you can bring to our team.",
+      "All applications are treated confidentially, and we'll get back to you within two weeks. If you have questions about any position, don't hesitate to contact us."
+    ],
+    "requirements": [
+      "Submit your CV in PDF format",
+      "Include a personalized cover letter",
+      "Specify which position you're applying for",
+      "Include your availability and salary expectations"
+    ],
+    "process": [
+      "Initial application review (1-2 weeks)",
+      "Phone or video interview (30-45 minutes)",
+      "In-person interview with team members",
+      "Reference checks and final decision"
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Start Your Career with Innolease?",
+    "texts": [
+      "Join our expert team and help shape the future of business vehicle leasing in Finland. We're looking for talented individuals who share our values of transparency, customer focus, and innovation."
+    ],
+    "link": { "label": "Contact Our HR Team", "href": "/contact" }
+  },
+  "promotion": {
+    "heading": "Explore More About Innolease",
+    "texts": [
+      "Learn more about our company, services, and culture before applying."
+    ],
+    "columns": [
+      {
+        "title": "About Our Company",
+        "texts": ["Discover our story, mission, and values that guide everything we do."],
+        "link": { "label": "Learn About Us", "href": "/about" }
+      },
+      {
+        "title": "Our Services",
+        "texts": ["Explore our comprehensive leasing solutions for businesses and individuals."],
+        "link": { "label": "View Services", "href": "/leasing-solutions" }
+      },
+      {
+        "title": "Contact Information",
+        "texts": ["Have questions? Get in touch with our team for more information."],
+        "link": { "label": "Contact Us", "href": "/contact" }
+      }
+    ]
+  }
+} 

@@ -1,11 +1,17 @@
 {
   "meta": {
-    "title": "FleetManager",
-    "description": ""
+    "title": "FleetManager | Innolease - Complete Control Over Your Company Fleet",
+    "description": "FleetManager is an intelligent and user-friendly tool that brings your vehicle fleet management to one place – real-time and transparent.",
+    "keywords": "FleetManager, fleet management, fleet manager tools, cost reports, contract monitoring, cost control",
+    "image": "/images/ajankohtaista.png"
   },
+
   "hero": {
-    "heading": "FleetManager",
-    "subheading": "Complete Control of Your Company Fleet",
+    "heading": "FleetManager – Complete Control Over Your Company Fleet",
+    "texts": [
+      "Innolease offers modern digital services that make your company's daily operations easier during the leasing period. The Fleet Manager tool is designed for companies that want to keep their vehicle fleet under control easily, efficiently, and in real-time."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager" },
     "numbers": [
       {
         "title": "Call us",
@@ -29,32 +35,63 @@
     "alt": "FleetManager placeholder image"
   },
   "mainView": {
-    "title": "One Dashboard, All Information",
+    "heading": "One Management View, All Information",
+    "texts": [
+      "FleetManager brings all important information together in one clear view, where you can efficiently manage all your fleet data."
+    ],
     "features": [
-      "Contract tracking – contract management",
+      "Contract monitoring – contract management",
       "Cost control & optimization",
       "Utilization optimization – mileage tracking",
-      "Environmental and responsibility perspectives",
-      "Complete transparency and centralized data",
+      "Environmental and sustainability perspectives",
+      "Complete transparency and centralized information",
       "Easy shareable reporting"
-    ]
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "One management view" }
   },
   "summary": {
-    "title": "Smart and Easy-to-Use Tool",
-    "description": "FleetManager is a smart and easy-to-use tool that brings your fleet management into one place – in real time and with full transparency. Track vehicle-specific costs and optimize utilization easily. Clear reports support both financial management and sustainability reporting needs."
+    "heading": "Intelligent and User-Friendly Tool",
+    "texts": [
+      "FleetManager is an intelligent and user-friendly tool that brings your vehicle fleet management to one place – real-time and transparent. Track vehicle-specific costs and optimize utilization easily. Clear reports support both financial management and sustainability reporting needs."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Intelligent tool" }
   },
   "benefits": {
-    "title": "FleetManager helps you:",
+    "heading": "FleetManager helps you:",
+    "texts": [
+      "With the modern FleetManager tool, you gain control over all your fleet's most important functions and information."
+    ],
     "items": [
-      "Track contracts",
-      "Manage costs accurately",
-      "Optimize resource usage",
+      "Monitor contracts",
+      "Manage costs precisely",
+      "Improve resource efficiency",
       "Share information effortlessly",
-      "Fulfill sustainability tracking requirements"
-    ]
+      "Meet sustainability monitoring requirements"
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "FleetManager benefits" }
   },
   "allInOne": {
-    "title": "All information in one view – no scattered spreadsheets.",
-    "description": "FleetManager brings a new level of efficiency and predictability to your fleet management."
+    "heading": "All Information in One View – No More Scattered Spreadsheets",
+    "texts": ["FleetManager brings a new level of efficiency and predictability to your fleet management."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "All in one" }
+  },
+  "cta": {
+    "heading": "Implement FleetManager in Your Company",
+    "texts": ["Explore FleetManager's possibilities and contact our experts."],
+    "link": { "label": "Request Demo", "href": "/contact" }
+  },
+  "additionalCta": {
+    "leasing": {
+      "heading": "Interested in Leasing Solutions?",
+      "text": "Explore our comprehensive leasing services for businesses.",
+      "buttonText": "Leasing Solutions",
+      "buttonHref": "/leasing-solutions"
+    },
+    "contact": {
+      "heading": "Need Personal Consultation?",
+      "text": "Our experts will help you find the perfect solution for your company.",
+      "buttonText": "Contact Us",
+      "buttonHref": "/yhteystiedot"
+    }
   }
 }

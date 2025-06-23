@@ -1,70 +1,135 @@
 {
   "meta": {
-    "title": "Leasing av bil – Enkelt och bekymmersfritt bilägande",
-    "description": "Upptäck våra omfattande och flexibla leasinglösningar för privatpersoner och företag. Läs mer om fördelarna, bilutbudet och hur vi gör bilägandet smidigt."
+    "title": "Billeasing | Innolease - Enkelt och bekymmersfritt bilägande",
+    "description": "Omfattande och flexibla leasinglösningar för privatpersoner och företag. Fast månadsavgift, service inkluderad och smidig återlämning.",
+    "keywords": "billeasing, privatleasing, företagsleasing, minileasing, autoleasing, leasingavtal, biluthyrning",
+    "image": "/images/autonvuokraus.png"
   },
-  "title": "Leasing av bil – Den bästa lösningen för dig",
-  "intro": "Innolease erbjuder mångsidiga och flexibla leasinglösningar för både privatpersoner och företag. Vi vill göra bilägandet så enkelt och bekymmersfritt som möjligt – välj det alternativ som passar dig bäst, så tar vi hand om resten.",
-  "personal": {
-    "title": "För privatpersoner – Enkelhet i vardagen",
-    "description": "Privatleasing är ett smidigt sätt att skaffa en ny bil utan stor kontantinsats. Den fasta månadskostnaden täcker nästan alla utgifter – service, försäkring och däck – så du kan fokusera på att köra. När avtalet löper ut kan du lämna tillbaka bilen, byta till en ny eller förlänga avtalet."
+
+  "hero": {
+    "heading": "Billeasing – Den rätta lösningen för dig",
+    "texts": [
+      "Innolease erbjuder omfattande och flexibla leasinglösningar för både privatpersoner och företag. Vi vill göra bilkörning så enkelt och bekymmersfritt som möjligt – välj det alternativ som passar dina behov bäst, så sköter vi resten."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Billeasing" }
   },
-  "corporate": {
-    "title": "För företag – Effektivitet och flexibilitet för verksamheten",
-    "description": "Företagsleasing hjälper dig att hantera företagets fordonspark effektivt och kostnadseffektivt. Vi erbjuder skräddarsydda avtal, ett brett urval av bilar och en personlig kontaktperson som hjälper dig med allt som rör bilägande. Minileasing är den perfekta lösningen för kortvariga behov – du får tillgång till en bil redan nästa dag utan långvariga åtaganden."
+
+  "calculator": {
+    "heading": "Leasingkalkylator",
+    "texts": ["Beräkna din egen leasingavgift och se hur förmånligt leasing kan vara."],
+    "fields": {
+      "carPrice": "Bilens pris",
+      "contractLength": "Kontraktets längd",
+      "months": "månader",
+      "downPayment": "Kontantinsats",
+      "interestRate": "Ränta",
+      "taxRate": "Skattesats",
+      "resultTitle": "Beräkning",
+      "monthlyFee": "Månadsavgift",
+      "afterTaxMonthly": "Månadsavgift efter skatt",
+      "disclaimer": "Detta är en uppskattning. Verkliga kostnader kan variera. Beskattning antas betalas från nettoinkomst på månadsavgiften."
+    }
   },
-  "terms": {
-    "title": "Leasingvillkor – Flexibla och transparenta",
-    "description": "Våra leasingavtal är tydliga och flexibla. Du kan välja avtalets längd (1–60 mån), körsträcka och tilläggstjänster enligt dina behov. Den fasta månadskostnaden gör det lätt att planera ekonomin och det finns inga dolda avgifter. Fråga gärna mer – vi skräddarsyr en lösning just för dig."
+
+  "leasingOptions": {
+    "heading": "Leasingalternativ",
+    "cards": [
+      {
+        "title": "För privatpersoner – Enkelhet för vardagen",
+        "texts": [
+          "Privatleasing är ett bekymmersfritt sätt att få en ny bil utan stor kontantinsats. Det fasta månadspriset täcker nästan alla kostnader – service, försäkring och däck – så du kan fokusera på körningen. När avtalsperioden slutar kan du lämna tillbaka bilen, byta till en ny eller fortsätta avtalet."
+        ],
+        "palette": "maantie"
+      },
+      {
+        "title": "För företag – Effektivitet och flexibilitet för verksamheten",
+        "texts": [
+          "Företagsleasing hjälper till att hantera företagets bilflotta effektivt och kostnadseffektivt. Vi erbjuder skräddarsydda avtal, ett brett bilutbud och en egen kontaktperson som hjälper till med alla bilrelaterade frågor. Minileasing är den perfekta lösningen för kortsiktiga behov – du kan få en bil till användning redan nästa dag utan långsiktigt åtagande."
+        ],
+        "palette": "kupari"
+      },
+      {
+        "title": "Leasingvillkor – Flexibla och transparenta",
+        "texts": [
+          "Våra leasingavtal är tydliga och flexibla. Du kan välja avtalets längd (1–60 månader), körsträcka och tilläggstjänster enligt dina behov. Den fasta månadsavgiften underlättar budgetering och det finns inga dolda kostnader. Fråga gärna mer – vi skräddarsyr en lösning just för dig."
+        ],
+        "palette": "piki"
+      },
+      {
+        "title": "Bilutbud – Hitta rätt bil",
+        "texts": [
+          "Vi erbjuder ett brett utbud av bilar: från små personbilar till rymliga familjebilar, transportbilar och elbilar. Alla våra bilar är välutformade och regelbundet underhållna. Du kan också testa olika biltyper innan du gör ett längre åtagande."
+        ],
+        "palette": "piki"
+      }
+    ]
   },
-  "vehicles": {
-    "title": "Bilutbud – Hitta rätt bil",
-    "description": "Vi erbjuder ett brett utbud av bilar: från små personbilar till rymliga familjebilar, transportbilar och elbilar. Alla våra bilar är välutrustade och regelbundet servade. Du kan även testa olika biltyper innan du binder dig för en längre period."
-  },
+
   "benefits": {
-    "title": "Varför välja leasing?",
+    "heading": "Varför välja leasing?",
     "list": [
       "Ingen stor kontantinsats – du betalar bara för användningen",
-      "Fast månadskostnad gör det lätt att planera ekonomin",
+      "Fast månadsavgift underlättar ekonomisk planering",
       "Service, försäkring och däck ingår i avtalet",
-      "Inga bekymmer med andrahandsvärde – du lämnar bara tillbaka bilen vid avtalets slut",
+      "Inga återförsäljningsbekymmer – lämna tillbaka bilen vid avtalets slut",
       "Snabb leverans – bil tillgänglig redan nästa dag",
-      "Möjlighet att byta bil vid behov"
+      "Möjlighet att byta bil efter behov"
     ]
   },
+
   "examples": {
-    "title": "Praktiska exempel",
+    "heading": "Praktiska exempel",
     "list": [
-      "Behöver du en bil för ett projekt? Minileasing är en flexibel lösning för kortvariga behov.",
-      "Växer ditt företag snabbt? Leasing gör det möjligt att utöka fordonsparken utan stora investeringar.",
-      "Vill du testa en elbil innan du bestämmer dig? Med leasing kan du prova olika modeller utan risk."
+      "Behöver du en bil för ett projekt? Minileasing är en flexibel lösning för kortsiktiga behov.",
+      "Växer ditt företag snabbt? Leasing möjliggör flottexpansion utan stora investeringar.",
+      "Vill du testa en elbil innan köpbeslut? Med leasing kan du prova olika modeller riskfritt."
     ]
   },
+
   "faq": {
-    "title": "Vanliga frågor",
-    "q1": "Kan jag byta bil under avtalstiden?",
-    "a1": "Ja, vi erbjuder flexibla möjligheter att byta bil om din livssituation förändras.",
-    "q2": "Ingår försäkring och service i månadskostnaden?",
-    "a2": "Ja, i de flesta avtal ingår försäkring och service i den fasta månadskostnaden.",
-    "q3": "Hur lämnar jag tillbaka bilen när avtalet slutar?",
-    "a3": "Du kan lämna tillbaka bilen på en överenskommen plats. Du får detaljerade instruktioner från vår kundtjänst."
+    "heading": "Vanliga frågor",
+    "questions": [
+      {
+        "question": "Kan jag byta bil under avtalsperioden?",
+        "answer": "Ja, vi erbjuder flexibla möjligheter att byta bil när livssituationen förändras."
+      },
+      {
+        "question": "Ingår försäkring och service i månadsavgiften?",
+        "answer": "Ja, i de flesta avtal ingår försäkring och service i den fasta månadsavgiften."
+      },
+      {
+        "question": "Hur lämnar jag tillbaka bilen vid avtalets slut?",
+        "answer": "Du kan lämna tillbaka bilen till överenskommen plats. Detaljerade instruktioner får du från vår kundservice."
+      }
+    ]
   },
+
   "cta": {
-    "title": "Intresserad av leasing?",
-    "description": "Kontakta våra experter – vi hjälper dig att hitta den bästa leasinglösningen för dig eller ditt företag. Du kan också enkelt be om en offert via vår webbplats.",
-    "button": "Kontakta oss"
+    "heading": "Intresserad av leasing?",
+    "texts": [
+      "Kontakta våra experter – vi hjälper dig hitta den bästa leasing-lösningen för dig eller ditt företag. Du kan också enkelt begära en offert via vår webbplats."
+    ],
+    "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" }
   },
-  "calculator": {
-    "title": "Leasingkalkylator",
-    "carPrice": "Bilpris",
-    "contractLength": "Avtalstid",
-    "months": "månader",
-    "downPayment": "Kontantinsats",
-    "interestRate": "Ränta",
-    "taxRate": "Skatt",
-    "resultTitle": "Beräkning",
-    "monthlyFee": "Månadskostnad",
-    "afterTaxMonthly": "Månadskostnad efter skatt",
-    "disclaimer": "Detta är en uppskattning. Kostnaderna kan variera. Skatteberäkningen antar att månadskostnaden betalas från nettoinkomst."
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Beräkna din bilförmån",
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du sparar med en företagsbil.",
+      "buttonText": "Gå till kalkylatorn",
+      "href": "/leasing-laskuri"
+    },
+    "corporate": {
+      "heading": "Företagsleasing",
+      "text": "Utforska våra omfattande billeasing-lösningar för företag. Finansiell leasing, flexibel leasing och underhållsleasing.",
+      "buttonText": "Företagsleasing",
+      "href": "/yritysleasing"
+    },
+    "contact": {
+      "heading": "Behöver du hjälp med ditt val?",
+      "text": "Våra experter hjälper dig hitta leasing-lösningen som passar dig.",
+      "buttonText": "Kontaktuppgifter",
+      "href": "/asiakaspalvelu"
+    }
   }
 }

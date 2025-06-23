@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "title": "Mini Leasing - Flexible Short-term Car Leasing for Businesses | Innolease",
+    "description": "Mini leasing is a flexible solution for short-term vehicle needs. Contract period 1-12 months, fixed monthly price includes everything. Get a car even by the next day.",
+    "keywords": "mini leasing, short-term car leasing, business car rental, flexible car leasing, project cars, replacement cars",
+    "image": "/images/minileasing-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Mini Leasing for Businesses",
+    "subheading": "Power your business without commitment",
+    "texts": [
+      "Need a car for your business quickly and for a defined period? Mini leasing is a flexible solution for short-term vehicle needs – without long-term commitments or ownership concerns."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Mini leasing for businesses" },
+    "numbers": [{ "title": "Call us", "number": "+358 20 743 7670" }]
+  },
+
+  "intro": {
+    "heading": "Fast and flexible solution",
+    "texts": [
+      "Looking for a business-oriented car rental service where you can rent a car easily online, with delivery when your rental begins and pickup when it ends?",
+      "We can provide you with a car rental for 1-12 months or leasing for longer periods when needed. We'll assign you a dedicated contact person who you can always reach when you need help with car rental matters."
+    ]
+  },
+
+  "features": {
+    "heading": "Mini Leasing Benefits",
+    "texts": ["Mini leasing is a straightforward, cost-effective, and fast way to ensure your business keeps moving!"],
+    "list": [
+      "Ready-to-use car immediately – even by the next day",
+      "Contract period 1–12 months, exactly according to your needs",
+      "Fixed monthly price includes insurance, maintenance, and tire services",
+      "No down payment, no resale worries",
+      "Dedicated contact person throughout the contract period",
+      "Flexible delivery and pickup options"
+    ]
+  },
+
+  "useCases": {
+    "heading": "Perfect solution for many needs",
+    "texts": [
+      "Mini leasing is excellently suited for various business situations where you need a car for a defined period."
+    ],
+    "cases": [
+      {
+        "title": "Waiting Period",
+        "texts": [
+          "Replacement car while waiting for a new company car or delivery completion.",
+          "Avoid downtime and keep your business moving."
+        ],
+        "image": { "src": "/images/minileasing-waiting.jpg", "alt": "Waiting period solution" }
+      },
+      {
+        "title": "Replacement Car",
+        "texts": ["Substitute vehicle during maintenance or repairs.", "Ensure staff mobility in all situations."],
+        "image": { "src": "/images/minileasing-replacement.jpg", "alt": "Replacement car" }
+      },
+      {
+        "title": "Projects",
+        "texts": [
+          "Vehicles needed for temporary assignments or projects.",
+          "Scale your vehicle fleet according to project needs."
+        ],
+        "image": { "src": "/images/minileasing-projects.jpg", "alt": "Project car" }
+      },
+      {
+        "title": "Seasonal Changes",
+        "texts": ["Covering seasonal or temporary additional needs.", "React quickly to business fluctuations."],
+        "image": { "src": "/images/minileasing-seasonal.jpg", "alt": "Seasonal variation" }
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How mini leasing works",
+    "texts": ["A simple process that gets you moving quickly."],
+    "steps": [
+      {
+        "step": "1",
+        "title": "Contact us",
+        "description": "Tell us your needs and timeline"
+      },
+      {
+        "step": "2",
+        "title": "Choose a car",
+        "description": "Find a suitable vehicle from our selection"
+      },
+      {
+        "step": "3",
+        "title": "Sign the contract",
+        "description": "Quick and simple contract process"
+      },
+      {
+        "step": "4",
+        "title": "Receive the car",
+        "description": "Delivery or pickup as agreed"
+      }
+    ]
+  },
+
+  "pricing": {
+    "heading": "Transparent pricing",
+    "texts": ["Fixed monthly price includes everything needed – no surprises or hidden costs."],
+    "included": [
+      "Vehicle usage rights",
+      "Insurance (comprehensive, traffic insurance)",
+      "Maintenance and repair services",
+      "Tire services (summer/winter tires)",
+      "Roadside assistance (automobile association)",
+      "Personal customer service"
+    ],
+    "note": "Fuel is the user's responsibility"
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "How quickly can I get a car?",
+        "answer": "At best, the car can be available to you by the next business day, depending on availability and delivery options."
+      },
+      {
+        "question": "What does the mini leasing price include?",
+        "answer": "The monthly price includes insurance, maintenance, tire services, and roadside assistance. Fuel is the user's responsibility."
+      },
+      {
+        "question": "Can I extend the contract if needed?",
+        "answer": "Yes, the contract can be flexibly extended as needed. Discuss this with your contact person."
+      },
+      {
+        "question": "What if the car breaks down?",
+        "answer": "Repairs are included in the contract. If necessary, we provide a replacement car during repairs."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need a car quickly?",
+    "texts": [
+      "Contact our experts – we'll find a solution that moves your business forward. We'll tailor a mini leasing package that meets your company's specific needs."
+    ],
+    "link": { "label": "Contact us", "href": "/asiakaspalvelu" }
+  },
+
+  "promotion": {
+    "heading": "Explore our other solutions",
+    "texts": ["Innolease offers comprehensive leasing solutions for all kinds of needs."],
+    "columns": [
+      {
+        "title": "Car Leasing",
+        "texts": ["Long-term leasing solutions for individuals and businesses."],
+        "link": { "label": "Explore Car Leasing", "href": "/autoleasing" }
+      },
+      {
+        "title": "Business Leasing",
+        "texts": ["Comprehensive fleet management solutions for businesses."],
+        "link": { "label": "Business Leasing", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Customer Service",
+        "texts": ["Personal service throughout your leasing journey."],
+        "link": { "label": "Contact us", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

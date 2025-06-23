@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Autoetulaskuri | Innolease",
+    "description": "Laske ja vertaile yrityksen autoetuvaihtoehtoja. Löydä kustannustehokkain leasingratkaisu yrityksesi tarpeisiin."
+  },
+  "hero": {
+    "heading": "Autoetulaskuri",
+    "subheading": "Laske ja vertaile erilaisia autoetuvaihtoehtoja löytääksesi kustannustehokkaimman ratkaisun yrityksellesi",
+    "image": {
+      "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png"
+    }
+  },
+  "intro": {
+    "title": "Optimoi yrityksesi autoedut",
+    "description": "Käytä laskuriamme vapaan autoedun, rajoitetun autoedun ja kilometrikorvausten vertailuun. Tee tietoisia päätöksiä yrityksesi ajoneuvopolitiikasta tarkkaan dataan perustuen.",
+    "getStarted": "Aloita laskeminen"
+  },
+  "calculator": {
+    "title": "Autoetulaskuri",
+    "description": "Säädä alla olevia parametreja nähdäksesi, miten eri vaihtoehdot vaikuttavat kustannuksiin sekä työnantajalle että työntekijälle. Laskuri tarjoaa reaaliaikaisia vertailuja nykyisten verosäännösten pohjalta.",
+    "selectBenefitType": "Valitse autoedun tyyppi",
+    "benefitTypeDescription": "Valitse vertailtava autoedun malli säätääksesi laskentaparametreja",
+    "tabs": {
+      "freeBenefit": "Vapaa autoetu",
+      "usageBenefit": "Käyttöetu",
+      "free": "Vapaa autoetu",
+      "limited": "Rajoitettu autoetu"
+    },
+    "inputs": {
+      "title": "Syöttöparametrit",
+      "carValue": "Auton arvo (€)",
+      "annualDriving": "Vuosiajokilometrit (km)",
+      "homeToWork": "Koti-työmatka (km)",
+      "monthlyCost": "Kuukausikustannus (€)",
+      "fuelCost": "Polttoaineen hinta (€/litra)",
+      "fuelConsumption": "Polttoaineen kulutus (l/100km)"
+    },
+    "results": {
+      "title": "Tulokset",
+      "monthlyTitle": "Kuukausikustannukset",
+      "annualTitle": "Vuosikustannukset",
+      "employerCost": "Työnantajan kustannus",
+      "employeeCost": "Työntekijän kustannus",
+      "totalCost": "Kokonaiskustannus",
+      "comparisonTitle": "Kustannusvertailu",
+      "savingsTitle": "Mahdolliset säästöt",
+      "recommendation": "Suositus",
+      "taxBenefit": "Verotettava etu",
+      "taxableValue": "Verotusarvo",
+      "fuelCosts": "Polttoainekustannukset",
+      "maintenanceCosts": "Huoltokustannukset",
+      "insuranceCosts": "Vakuutuskustannukset",
+      "taxImpact": "Verovaikutus",
+      "netCost": "Nettokuukausikustannus",
+      "costPerKm": "Hinta per km",
+      "annualTaxCost": "Vuotuiset verokustannukset",
+      "monthlyDriving": "Kuukausiajokilometrit",
+      "workDriving": "Työajokilometrit",
+      "privateDriving": "Yksityisajokilometrit",
+      "privateUsePercentage": "Yksityiskäytön osuus",
+      "monthlySavings": "Kuukausisäästöt",
+      "month": "kk"
+    },
+    "freeBenefit": {
+      "description": "Vapaa autoetu tarkoittaa, että työnantaja maksaa kaikki autoon liittyvät kustannukset, mukaan lukien yksityisajon polttoaineen.",
+      "advantages": "Edut",
+      "advantage1": "Yksinkertainen kulujen hallinta",
+      "advantage2": "Ennustettavat kuukausikustannukset",
+      "advantage3": "Ei tarvetta seurata yksityis- ja työajoa erikseen",
+      "considerations": "Huomioitavaa",
+      "consideration1": "Korkeampi verotettava etu työntekijälle",
+      "consideration2": "Ei välttämättä kustannustehokasta pienillä ajokilometreillä",
+      "consideration3": "Vähemmän kannustinta tehokkaaseen ajotapaan"
+    },
+    "limitedBenefit": {
+      "description": "Rajoitettu autoetu tarkoittaa, että työnantaja tarjoaa auton, mutta työntekijä maksaa yksityisajossa käytetyn polttoaineen.",
+      "advantages": "Edut",
+      "advantage1": "Alhaisempi verotettava etu työntekijälle",
+      "advantage2": "Usein kustannustehokkaampi kokonaisuudessaan",
+      "advantage3": "Kannustaa polttoainetehokkaaseen ajamiseen",
+      "considerations": "Huomioitavaa",
+      "consideration1": "Vaatii työ- ja yksityisajon seurantaa",
+      "consideration2": "Vähemmän ennustettavat kustannukset työntekijälle",
+      "consideration3": "Monimutkaisempi kulujen hallinta"
+    },
+    "kmAllowance": {
+      "title": "Kilometrikorvaus",
+      "description": "Yritysauton sijaan työntekijät käyttävät omaa autoaan ja saavat verovapaata kilometrikorvausta työmatkoista.",
+      "rate": "Nykyinen korvaus: 0,53 €/km ensimmäiseltä 5 000 km:ltä, sen jälkeen 0,48 €/km",
+      "advantages": "Edut",
+      "advantage1": "Yksinkertainen hallinnollinen ratkaisu",
+      "advantage2": "Ei verotettavaa etua työntekijöille",
+      "advantage3": "Joustavuus ajoneuvojen valinnassa työntekijöille",
+      "considerations": "Huomioitavaa",
+      "consideration1": "Vaatii tarkkaa työmatkojen kirjanpitoa",
+      "consideration2": "Kokonaiskustannukset voivat olla korkeammat merkittävässä työajossa",
+      "consideration3": "Työntekijä kantaa ajoneuvon omistamisriskin"
+    },
+    "callToAction": "Tutustu leasingratkaisuihimme"
+  },
+  "optimizationTips": {
+    "title": "Optimointivinkit",
+    "tips": [
+      {
+        "title": "Valitse sähkö- tai hybridiajoneuvo",
+        "description": "Alhaisemmat verotusarvot ja pienemmät käyttökustannukset tekevät sähkö- ja hybridiajoneuvoista erinomaisen valinnan yritysautokalustolle."
+      },
+      {
+        "title": "Sovita auto todellisiin tarpeisiin",
+        "description": "Valitse ajoneuvot, jotka vastaavat todellisia liiketoimintatarpeita sen sijaan, että valitsisit arvokkaita malleja tarpeettomilla ominaisuuksilla."
+      },
+      {
+        "title": "Huomioi vuosiajokilometrit",
+        "description": "Työntekijöille, joilla on korkeat vuosiajokilometrit, vapaa autoetu tulee usein kustannustehokkaammaksi kuin rajoitettu etu."
+      },
+      {
+        "title": "Luo selkeät käytännöt",
+        "description": "Luo selkeät yritysautokäytännöt, jotka auttavat optimoimaan kustannuksia samalla kun ne vastaavat työntekijöiden tarpeita."
+      }
+    ]
+  },
+  "taxInfo": {
+    "title": "Verotustiedot",
+    "description": "Nykyiset autoedun verotussäännöt Suomessa vuosille 2023-2024. Näitä arvoja käytetään laskurin arvioissa.",
+    "disclaimer": "Huomaa: Tarkkaa verosuunnittelua varten konsultoi aina veroammattilaista, sillä säännökset voivat muuttua.",
+    "freeBenefit": {
+      "title": "Vapaa autoetu",
+      "formula": "Kuukausittainen verotusarvo = Perusarvo + 1,4% hankintahinnasta",
+      "baseValues": "Perusarvot (2023):",
+      "ageGroups": {
+        "group1": "Ikäryhmä A (2021-2023): 300€/kk",
+        "group2": "Ikäryhmä B (2018-2020): 315€/kk",
+        "group3": "Ikäryhmä C (2015-2017): 330€/kk"
+      }
+    },
+    "limitedBenefit": {
+      "title": "Rajoitettu autoetu",
+      "formula": "Kuukausittainen verotusarvo = Perusarvo + 1,4% hankintahinnasta - polttoaineen kustannusoikaisu",
+      "baseValues": "Perusarvot (2023):",
+      "ageGroups": {
+        "group1": "Ikäryhmä A (2021-2023): 135€/kk",
+        "group2": "Ikäryhmä B (2018-2020): 150€/kk",
+        "group3": "Ikäryhmä C (2015-2017): 165€/kk"
+      }
+    },
+    "electricVehicles": {
+      "title": "Sähköajoneuvot",
+      "description": "Täyssähköajoneuvoille (BEV) verotusarvoa alennetaan 170€/kk (2023)."
+    }
+  },
+  "cta": {
+    "title": "Valmis optimoimaan yrityksesi autostrategiaa?",
+    "description": "Kalustonhallinnan asiantuntijamme voivat auttaa toteuttamaan kustannustehokkaimman autoetujen rakenteen yrityksesi erityistarpeiden mukaan.",
+    "contactButton": "Ota yhteyttä asiantuntijoihimme",
+    "learnMoreButton": "Tutustu leasingratkaisuihimme",
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButtonHref": "/autoleasing"
+  },
+  "faq": {
+    "title": "Usein kysytyt kysymykset",
+    "questions": [
+      {
+        "question": "Mikä on ero vapaan ja rajoitetun autoedun välillä?",
+        "answer": "Vapaassa autoedussa työnantaja kattaa kaikki autoon liittyvät kustannukset mukaan lukien yksityisajon polttoaineen. Rajoitetussa autoedussa työntekijä maksaa yksityisajossa käytetyn polttoaineen. Tämä johtaa erilaisiin verovaikutuksiin ja kustannusrakenteisiin."
+      },
+      {
+        "question": "Kuinka tarkkoja laskelmat ovat?",
+        "answer": "Laskuri käyttää nykyisiä Suomen verosäännöksiä ja vakioisia kustannusarvioita. Vaikka se tarjoaa hyvän likiarvon, todelliset kustannukset voivat vaihdella erityisolosuhteiden mukaan. Tarkkaa taloussuunnittelua varten konsultoi leasingasiantuntijojamme."
+      },
+      {
+        "question": "Voinko käyttää tätä laskuria sähköajoneuvoille?",
+        "answer": "Kyllä, laskuri ottaa huomioon sähköajoneuvojen erityiset veroedut Suomessa. Laskettaessa sähköajoneuvoilla, säädä polttoaineen kulutus vastaamaan sähkökustannuksia per km."
+      },
+      {
+        "question": "Kuinka usein veroarvot päivitetään?",
+        "answer": "Päivitämme laskurimme aina kun Verohallinto julkaisee uudet autoedun arvot, tyypillisesti vuosittain. Nykyinen laskuri heijastaa 2023-2024 arvoja."
+      }
+    ]
+  }
+}

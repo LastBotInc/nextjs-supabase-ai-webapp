@@ -1,84 +1,105 @@
 {
   "meta": {
     "title": "Customer Stories | Innolease",
-    "description": "Discover how businesses across Finland have optimized their fleet management and reduced costs with Innolease leasing solutions."
+    "description": "Discover how businesses across Finland have optimized their fleet management and reduced costs with Innolease leasing solutions.",
+    "keywords": "customer stories, leasing, car dealership, business leasing, fleet management, cost savings",
+    "image": "/images/Tietoa_meista.png"
   },
   "hero": {
     "heading": "Customer Success Stories",
-    "subheading": "Real businesses achieving real results with Innolease solutions"
+    "subheading": "Real businesses achieving real results with Innolease solutions",
+    "image": { "src": "/images/Tietoa_meista.png" }
   },
   "featured": {
-    "label": "Featured Story",
+    "label": "Featured",
     "company": "Nordic Logistics Ltd",
-    "title": "How Nordic Logistics Reduced Fleet Costs by 22% with Innolease",
-    "summary": "Nordic Logistics partnered with Innolease to optimize their 120-vehicle fleet, resulting in significant cost savings and improved operational efficiency.",
+    "heading": "How Nordic Logistics Reduced Fleet Costs by 22% with Innolease",
+    "texts": [
+      "Nordic Logistics partnered with Innolease to optimize their 120-vehicle fleet, resulting in significant cost savings and improved operational efficiency."
+    ],
     "quote": "The transition to Innolease's fleet management solution was seamless. The data insights alone have transformed how we make decisions about our vehicle fleet.",
     "personName": "Maria Korhonen",
-    "personTitle": "Fleet Operations Director, Nordic Logistics",
-    "readMore": "Read the full story",
-    "results": {
-      "stat1": "22%",
-      "label1": "Cost reduction",
-      "stat2": "15%",
-      "label2": "Fuel efficiency improvement",
-      "stat3": "4.8/5",
-      "label3": "Driver satisfaction"
-    }
+    "personTitle": "Fleet Manager, Nordic Logistics",
+    "link": { "label": "Read the full story", "href": "/asiakastarinat/nordic-logistics" },
+    "results": [
+      { "stat": "22%", "label": "Cost reduction" },
+      { "stat": "15%", "label": "Fuel efficiency improvement" },
+      { "stat": "4.8/5", "label": "Driver satisfaction" }
+    ]
   },
   "testimonial": {
     "quote": "Innolease transformed our fleet management from a complex burden to a strategic advantage. Their digital tools and proactive service have been game-changers for our business.",
     "author": "Henrik Virtanen",
-    "position": "COO, TechFinland Solutions"
+    "position": "Chief Operating Officer, TechFinland Solutions"
   },
   "storiesSection": {
-    "title": "More Customer Stories",
-    "description": "Discover how businesses of all sizes and industries have benefited from our tailored leasing solutions.",
-    "loadMore": "Load More Stories"
+    "heading": "More Customer Stories",
+    "texts": [
+      "Discover how businesses of all sizes across various industries have benefited from our tailored leasing solutions."
+    ],
+    "link": { "label": "Load more stories", "href": "/asiakastarinat" }
   },
-  "stories": {
-    "readMore": "Read the full story",
-    "story1": {
+  "stories": [
+    {
       "company": "TechFinland Solutions",
-      "title": "Digital Transformation of Fleet Operations",
+      "heading": "Digital Transformation of Fleet Management",
       "industry": "Technology",
-      "excerpt": "TechFinland Solutions implemented Innolease's InnoFleet Manager to digitize their vehicle management processes, resulting in streamlined operations and significant cost savings."
+      "texts": [
+        "TechFinland Solutions implemented Innolease's InnoFleet Manager system to digitize their vehicle management processes, resulting in streamlined operations and significant cost savings."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/techfinland-solutions" }
     },
-    "story2": {
-      "company": "EcoConstruct Oy",
-      "title": "Building a Sustainable Fleet",
+    {
+      "company": "EcoConstruct Ltd",
+      "heading": "Building a Sustainable Fleet",
       "industry": "Construction",
-      "excerpt": "EcoConstruct transitioned to electric vehicles through Innolease's flexible leasing options, reducing their carbon footprint while maintaining operational capability."
+      "texts": [
+        "EcoConstruct transitioned to electric vehicles through Innolease's flexible leasing options, reducing their carbon footprint while maintaining operational capability."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/ecoconstruct" }
     },
-    "story3": {
+    {
       "company": "Nordic Healthcare Group",
-      "title": "Reliable Mobility for Critical Services",
+      "heading": "Reliable Mobility for Critical Services",
       "industry": "Healthcare",
-      "excerpt": "Nordic Healthcare Group relies on Innolease to ensure their caregivers always have reliable transportation, with specialized vehicles and maintenance services."
+      "texts": [
+        "Nordic Healthcare Group relies on Innolease to ensure their caregivers always have reliable transportation, with specialized vehicles and maintenance services."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/nordic-healthcare" }
     },
-    "story4": {
+    {
       "company": "Fresh Delivery Express",
-      "title": "Scaling Fleet Size with Business Growth",
+      "heading": "Scaling Fleet Size with Business Growth",
       "industry": "Logistics",
-      "excerpt": "As Fresh Delivery Express expanded operations, Innolease provided scalable fleet solutions that allowed them to adjust vehicle capacity to meet seasonal demands."
+      "texts": [
+        "As Fresh Delivery Express expanded their operations, Innolease provided scalable fleet solutions that allowed them to adjust vehicle capacity to meet seasonal demand."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/fresh-delivery" }
     },
-    "story5": {
-      "company": "Retail Innovators Oy",
-      "title": "Optimizing Cost Per Kilometer",
+    {
+      "company": "Retail Innovators Ltd",
+      "heading": "Optimizing Cost Per Kilometer",
       "industry": "Retail",
-      "excerpt": "Retail Innovators worked with Innolease to analyze and optimize their delivery routes and vehicle selection, reducing their cost per kilometer by 18%."
+      "texts": [
+        "Retail Innovators worked with Innolease to analyze and optimize their delivery routes and vehicle selection, reducing their cost per kilometer by 18%."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/retail-innovators" }
     },
-    "story6": {
+    {
       "company": "Arctic Tours",
-      "title": "Specialized Vehicles for Unique Conditions",
+      "heading": "Specialized Vehicles for Unique Conditions",
       "industry": "Tourism",
-      "excerpt": "Arctic Tours partnered with Innolease to source and maintain specialized vehicles capable of performing in extreme northern conditions for their tourism operations."
+      "texts": [
+        "Arctic Tours partnered with Innolease to source and maintain specialized vehicles capable of performing in extreme northern conditions for their tourism operations."
+      ],
+      "link": { "label": "Read the full story", "href": "/asiakastarinat/arctic-tours" }
     }
-  },
+  ],
   "filters": {
-    "industryLabel": "Filter by Industry",
+    "industryLabel": "Filter by industry",
     "sortLabel": "Sort by",
     "industries": {
-      "all": "All Industries",
+      "all": "All industries",
       "logistics": "Logistics",
       "manufacturing": "Manufacturing",
       "services": "Services",
@@ -86,16 +107,36 @@
       "construction": "Construction"
     },
     "sortOptions": {
-      "newest": "Newest First",
-      "oldest": "Oldest First",
-      "company": "Company Name"
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "company": "Company name"
     }
   },
+  "promotion": {
+    "heading": "Ready to Write Your Success Story?",
+    "texts": [
+      "Join the growing number of businesses that have transformed their fleet management with Innolease solutions."
+    ],
+    "columns": [
+      {
+        "heading": "Contact Our Experts",
+        "texts": ["Discuss your needs and find the best leasing solutions for your business or personal use."],
+        "link": { "label": "Contact Us", "href": "/customer-service" }
+      },
+      {
+        "heading": "Explore Leasing Solutions",
+        "texts": [
+          "Find the right leasing solution from our comprehensive range of business and personal leasing options."
+        ],
+        "link": { "label": "Explore Solutions", "href": "/business-leasing" }
+      }
+    ]
+  },
   "cta": {
-    "title": "Ready to Write Your Success Story?",
-    "description": "Join the growing number of businesses that have transformed their fleet operations with Innolease solutions.",
-    "backgroundAlt": "Fleet of modern business vehicles",
-    "contactButton": "Contact Us",
-    "leasingButton": "Explore Leasing Solutions"
+    "heading": "Want to Learn More About Our Leasing Solutions?",
+    "texts": [
+      "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use."
+    ],
+    "link": { "label": "Contact Us", "href": "/customer-service" }
   }
-} 
+}

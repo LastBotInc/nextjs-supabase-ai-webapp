@@ -101,19 +101,21 @@ export default function Navigation() {
     {
       id: "about-us",
       label: t("about_us"),
-      items: [{ href: "/about", label: t("about_us") }],
+      items: [
+        { href: "/keita-olemme", label: t("who_we_are") },
+        { href: "/digitaaliset-palvelut", label: t("digital_services") },
+        { href: "/rahoitusratkaisut", label: t("financing_solutions") },
+      ],
     },
     {
       id: "business-leasing",
       label: t("business_leasing"),
       items: [
-        { href: "/yritysleasing", label: t("business_leasing") },
         { href: "/autoleasing", label: t("car_leasing") },
         { href: "/kone-ja-laiteleasing", label: t("machine_leasing") },
-
-        //{ href: "/kausiauto", label: t("seasonal_car") },
-        //{ href: "/sijaisautopalvelu", label: t("replacement_car") },
-        // { href: "/yhteiskayttoauto", label: t("shared_car") },
+        { href: "/yritysleasing", label: t("business_leasing") },
+        { href: "/leasing-laskuri", label: t("leasing_calculator") },
+        { href: "/palveluhinnasto", label: t("service_prices") },
       ],
     },
     {
@@ -121,12 +123,9 @@ export default function Navigation() {
       label: t("for_customers"),
       items: [
         { href: "/autoilijan-opas", label: t("drivers_guide") },
-        { href: "/autokannan-hallinnointi", label: t("fleet_management") },
-        //{ href: "/auton-palautus", label: t("car_return_guide") },
-        //{ href: "/leasingauton-palautusohje", label: t("leasing_car_return") },
-        //{ href: "/sopimuksen-paattyminen", label: t("contract_termination") },
-        //{ href: "/kilometrien-ilmoitus", label: t("mileage_reporting") },
-        //{ href: "/maastavienti-asiakirja", label: t("export_documents") },
+        { href: "/fleet-manager", label: t("fleet_management") },
+        { href: "/laskurit", label: t("calculators") },
+        { href: "/ukk", label: t("faq") },
       ],
     },
     {
@@ -135,30 +134,27 @@ export default function Navigation() {
       items: [
         { href: "/minileasing", label: t("minileasing") },
         { href: "/auton-vuokraus", label: t("rent_car") },
-        // { href: "/huollon-varaus", label: t("service_booking") },
-        //{ href: "/rengaspalvelut", label: t("tire_services") },
       ],
     },
     {
       id: "current-topics",
       label: t("current_topics"),
       items: [
-        { href: "/ajankohtaista", label: t("current_topics") },
-        //{ href: "/kampanjat", label: t("campaigns") },
-        //{ href: "/asiakastarinat", label: t("customer_stories") },
-        //{ href: "/blogi", label: t("blog") },
-        //{ href: "/uutiset", label: t("news") },
+        { href: "/kampanjat", label: t("campaigns") },
+        { href: "/asiakastarinat", label: t("customer_stories") },
+        { href: "/blogi", label: t("blog") },
+        { href: "/uutiset", label: t("news") },
       ],
     },
     {
       id: "contact-info",
       label: t("contact_info"),
       items: [
-        //{ href: "/myynti", label: t("sales") },
-        // { href: "/jälkimarkkinointi", label: t("marketing") },
-        //{ href: "/laskutus", label: t("contact_info") },
         { href: "/asiakaspalvelu", label: t("customer_service") },
-        //{ href: "/tyopaikat", label: t("open_positions") },
+        { href: "/myynti", label: t("sales") },
+        { href: "/jalkimarkkinointi", label: t("marketing") },
+        { href: "/laskutus", label: t("billing") },
+        { href: "/avoimet-tyopaikat", label: t("open_positions") },
       ],
     },
   ];

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "title": "Minileasing - Joustava lyhytaikainen autoleasing yrityksille | Innolease",
+    "description": "Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen. Sopimusaika 1-12 kk, kiinteä kuukausihinta sisältää kaiken. Auto käyttöön jopa seuraavaksi päiväksi.",
+    "keywords": "minileasing, lyhytaikainen autoleasing, yritysautovuokraus, joustava autoleasing, projektiautot, sijaisautot",
+    "image": "/images/minileasing-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Minileasing yrityksille",
+    "subheading": "Tehoa liiketoimintaan ilman sitoutumista",
+    "texts": [
+      "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Minileasing yrityksille" },
+    "numbers": [{ "title": "Soita meille", "number": "+358 20 743 7670" }]
+  },
+
+  "intro": {
+    "heading": "Nopea ja joustava ratkaisu",
+    "texts": [
+      "Haaveiletko yritykselle suunnatusta vuokra-autopalvelusta, jossa auton voi vuokrata helposti netin kautta ja auto toimitetaan tarvittaessa sinulle vuokrauksen alettua ja noudetaan sinulta vuokrauksen päätyttyä?",
+      "Meiltä saat tarvittaessa auton vuokralle 1-12 kk tai leasingiin pidemmäksi aikaa. Nimeämme käyttöösi yhteyshenkilön, johon voit aina olla yhteydessä, kun tarvitset apua autonvuokrausasioissa."
+    ]
+  },
+
+  "features": {
+    "heading": "Minileasingin edut",
+    "texts": ["Minileasing on mutkaton, kustannustehokas ja nopea tapa varmistaa, että liiketoiminta ei pysähdy!"],
+    "list": [
+      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+      "Ei käsirahaa, ei jälleenmyyntihuolia",
+      "Nimetty yhteyshenkilö koko sopimuskauden ajan",
+      "Joustavat toimitus- ja noutovaihtoehdot"
+    ]
+  },
+
+  "useCases": {
+    "heading": "Täydellinen ratkaisu moneen tarpeeseen",
+    "texts": [
+      "Minileasing soveltuu erinomaisesti useisiin liiketoimintatilanteisiin, joissa tarvitset auton määräajaksi."
+    ],
+    "cases": [
+      {
+        "title": "Odotusaika",
+        "texts": [
+          "Sijaisauto uuden työsuhdeauton tai toimituksen valmistumista varten.",
+          "Vältä tyhjäkäynti ja pidä liiketoiminta liikkeessä."
+        ],
+        "image": { "src": "/images/minileasing-waiting.jpg", "alt": "Odotusajan ratkaisu" }
+      },
+      {
+        "title": "Sijaisauto",
+        "texts": [
+          "Korvaava ajoneuvo huollon tai korjauksen ajaksi.",
+          "Varmista henkilöstön liikkuvuus kaikissa tilanteissa."
+        ],
+        "image": { "src": "/images/minileasing-replacement.jpg", "alt": "Sijaisauto" }
+      },
+      {
+        "title": "Projektit",
+        "texts": [
+          "Määräaikaisiin työtehtäviin tai projekteihin tarvittavat ajoneuvot.",
+          "Skaalaa autokalustoa projektin tarpeiden mukaan."
+        ],
+        "image": { "src": "/images/minileasing-projects.jpg", "alt": "Projektiauto" }
+      },
+      {
+        "title": "Kausivaihtelut",
+        "texts": ["Kauden tai tilapäisen lisätarpeen kattamiseen.", "Reagoi nopeasti liiketoiminnan vaihteluihin."],
+        "image": { "src": "/images/minileasing-seasonal.jpg", "alt": "Kausivaihtelu" }
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "Näin minileasing toimii",
+    "texts": ["Yksinkertainen prosessi, joka saa sinut liikkeelle nopeasti."],
+    "steps": [
+      {
+        "step": "1",
+        "title": "Ota yhteyttä",
+        "description": "Kerro tarpeesi ja aikataulusi"
+      },
+      {
+        "step": "2",
+        "title": "Valitse auto",
+        "description": "Löydä sopiva ajoneuvo valikoimastamme"
+      },
+      {
+        "step": "3",
+        "title": "Allekirjoita sopimus",
+        "description": "Nopea ja yksinkertainen sopimusmenettely"
+      },
+      {
+        "step": "4",
+        "title": "Vastaanota auto",
+        "description": "Toimitus tai nouto sovitun mukaan"
+      }
+    ]
+  },
+
+  "pricing": {
+    "heading": "Läpinäkyvä hinnoittelu",
+    "texts": ["Kiinteä kuukausihinta sisältää kaiken tarvittavan – ei yllätyksiä tai piilokustannuksia."],
+    "included": [
+      "Ajoneuvon käyttöoikeus",
+      "Vakuutukset (kasko, liikennevakuutus)",
+      "Huolto- ja korjauspalvelut",
+      "Rengaspalvelut (kesä/talvirenkaat)",
+      "Tiepalvelut (autoliitto)",
+      "Henkilökohtainen asiakaspalvelu"
+    ],
+    "note": "Polttoaine kuuluu käyttäjän vastuulle"
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "questions": [
+      {
+        "question": "Kuinka nopeasti saan auton käyttööni?",
+        "answer": "Parhaimmillaan auto on käytössäsi jo seuraavana arkipäivänä riippuen valikoimasta ja toimitusmahdollisuuksista."
+      },
+      {
+        "question": "Mitä minileasingin hinta sisältää?",
+        "answer": "Kuukausihinta sisältää vakuutukset, huollot, rengaspalvelut ja tiepalvelut. Polttoaine kuuluu käyttäjän vastuulle."
+      },
+      {
+        "question": "Voinko pidentää sopimusta tarvittaessa?",
+        "answer": "Kyllä, sopimusta voi joustavasti pidentää tarpeen mukaan. Keskustele asiasta yhteyshenkilösi kanssa."
+      },
+      {
+        "question": "Entä jos auto rikkoutuu?",
+        "answer": "Korjaukset kuuluvat sopimukseen. Tarvittaessa tarjoamme sijaisauton korjauksen ajaksi."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Tarvitsetko auton nopeasti?",
+    "texts": [
+      "Ota yhteyttä asiantuntijoihimme – löydämme ratkaisun, joka liikuttaa yritystäsi eteenpäin. Räätälöimme käyttöösi juuri sinun yrityksesi tarpeita vastaavan minileasingpaketin."
+    ],
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
+  },
+
+  "promotion": {
+    "heading": "Tutustu muihin ratkaisuihimme",
+    "texts": ["Innolease tarjoaa kattavat leasingratkaisut kaikenlaisiin tarpeisiin."],
+    "columns": [
+      {
+        "title": "Autoleasing",
+        "texts": ["Pidempiaikaiset leasingratkaisut yksityisille ja yrityksille."],
+        "link": { "label": "Tutustu autoleasingiin", "href": "/autoleasing" }
+      },
+      {
+        "title": "Yritysleasing",
+        "texts": ["Kattavat autokannan hallintaratkaisut yrityksille."],
+        "link": { "label": "Yritysleasing", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Asiakaspalvelu",
+        "texts": ["Henkilökohtaista palvelua koko leasingmatkasi ajan."],
+        "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

@@ -13,38 +13,152 @@ import { FlexLayout } from "@/app/components/v2/layouts/FlexLayout";
 import { PageWrapper } from "@/app/components/v2/core/PageWrapper";
 import { Flex } from "@/app/components/v2/core/Flex";
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const { locale } = params;
-  const t = await getTranslations({ locale, namespace: "CarLeasing.meta" });
+interface Props {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+// TypeScript interfaces for the structured data
+interface MetaData {
+  title: string;
+  description: string;
+  keywords: string;
+  image: string;
+}
+
+interface ImageObject {
+  src: string;
+  alt: string;
+}
+
+interface HeroSection {
+  heading: string;
+  texts: string[];
+  image: ImageObject;
+}
+
+interface SectionWithTips {
+  heading: string;
+  texts: string[];
+  tips: string[];
+  note?: string;
+  image: ImageObject;
+}
+
+interface AccidentsSection {
+  heading: string;
+  texts: string[];
+  steps: string[];
+  image: ImageObject;
+}
+
+interface ChecklistItem {
+  heading: string;
+  items: string[];
+}
+
+interface ReturnSection {
+  heading: string;
+  texts: string[];
+  checklist: ChecklistItem;
+  mustHave: ChecklistItem;
+  remove: ChecklistItem;
+  image: ImageObject;
+}
+
+interface FaqQuestion {
+  question: string;
+  answer: string;
+}
+
+interface FaqSection {
+  heading: string;
+  texts: string[];
+  questions: FaqQuestion[];
+  image: ImageObject;
+}
+
+interface ContactNumber {
+  title: string;
+  number: string;
+}
+
+interface ContactSection {
+  heading: string;
+  texts: string[];
+  note: string;
+  image: ImageObject;
+  numbers: ContactNumber[];
+}
+
+// interface DriversGuideData {
+//   meta: MetaData;
+//   hero: HeroSection;
+//   maintenance: SectionWithTips;
+//   replacementCar: SectionWithTips;
+//   billing: SectionWithTips;
+//   tires: SectionWithTips;
+//   accidents: AccidentsSection;
+//   roadside: SectionWithTips;
+//   export: SectionWithTips;
+//   return: ReturnSection;
+//   faq: FaqSection;
+//   contact: ContactSection;
+// }
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "DriversGuide" });
+  const meta = t.raw('meta') as MetaData;
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    alternates: {
+      canonical: `/${locale}/autoilijan-opas`,
+    },
   };
 }
 
-export default async function DriversGuidePage({ params }: { params: { locale: string } }) {
-  // Setup localization
-  const { locale } = params;
+export default async function DriversGuidePage({ params }: Props) {
+  const { locale } = await params;
   await setupServerLocale(locale);
   const t = await getTranslations({ locale, namespace: "DriversGuide" });
+  
+  // Extract structured data using specific keys
+  const hero = t.raw('hero') as HeroSection;
+  const maintenance = t.raw('maintenance') as SectionWithTips;
+  const replacementCar = t.raw('replacementCar') as SectionWithTips;
+  const billing = t.raw('billing') as SectionWithTips;
+  const tires = t.raw('tires') as SectionWithTips;
+  const accidents = t.raw('accidents') as AccidentsSection;
+  const roadside = t.raw('roadside') as SectionWithTips;
+  const exportSection = t.raw('export') as SectionWithTips;
+  const returnSection = t.raw('return') as ReturnSection;
+  const faq = t.raw('faq') as FaqSection;
+  const contact = t.raw('contact') as ContactSection;
 
   return (
     <PageWrapper>
       <Hero isFirst palette="piki" fullWidth>
-        <Hero.Image src="/images/autonvuokraus.png" />
-        <Hero.Heading>{t("meta.title")}</Hero.Heading>
-        <Hero.SubHeading>{t("meta.description")}</Hero.SubHeading>
-        <Hero.Text> </Hero.Text>
+        <Hero.Image src={hero.image.src} />
+        <Hero.Heading>{hero.heading}</Hero.Heading>
+        {hero.texts.map((text, index) => (
+          <Hero.Text key={index}>{text}</Hero.Text>
+        ))}
       </Hero>
 
       <FlexLayout palette="beige">
         <FlexLayout.Column>
-          <Heading2>{t("intro.title")}</Heading2>
-          <Paragraph className="mt-2 text-lg">{t("intro.description")}</Paragraph>
+          <Heading2>{hero.heading}</Heading2>
+          {hero.texts.map((text, index) => (
+            <Paragraph key={index} className="mt-2 text-lg">{text}</Paragraph>
+          ))}
           <Image
             src={"/images/ajankohtaista.png"}
-            alt={"transparency.imageAlt"}
+            alt={"Autoilijan opas"}
             width={2048}
             height={2048}
             layout="responsive"
@@ -55,85 +169,111 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Accordion>
-            <Accordion.Item heading={t("maintenance.title")}>
-              <Paragraph>{t("maintenance.description")}</Paragraph>
+            <Accordion.Item heading={maintenance.heading}>
+              {maintenance.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("maintenance.tips").map((tip: string, idx: number) => (
+                {maintenance.tips.map((tip, idx) => (
                   <List.Item key={idx}>{tip}</List.Item>
                 ))}
               </List>
-              <Paragraph className="font-bold">{t("maintenance.note")}</Paragraph>
+              {maintenance.note && <Paragraph className="font-bold">{maintenance.note}</Paragraph>}
             </Accordion.Item>
-            <Accordion.Item heading={t("replacementCar.title")}>
-              <Paragraph>{t("replacementCar.description")}</Paragraph>
-              <Paragraph>{t("replacementCar.note")}</Paragraph>
+
+            <Accordion.Item heading={replacementCar.heading}>
+              {replacementCar.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
+              {replacementCar.note && <Paragraph>{replacementCar.note}</Paragraph>}
             </Accordion.Item>
-            <Accordion.Item heading={t("billing.title")}>
-              <Paragraph>{t("billing.description")}</Paragraph>
+
+            <Accordion.Item heading={billing.heading}>
+              {billing.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("billing.tips").map((tip: string, idx: number) => (
+                {billing.tips.map((tip, idx) => (
                   <List.Item key={idx}>{tip}</List.Item>
                 ))}
               </List>
-              <Paragraph className="font-bold">{t("billing.note")}</Paragraph>
+              {billing.note && <Paragraph className="font-bold">{billing.note}</Paragraph>}
             </Accordion.Item>
-            <Accordion.Item heading={t("tires.title")}>
-              <Paragraph>{t("tires.description")}</Paragraph>
+
+            <Accordion.Item heading={tires.heading}>
+              {tires.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("tires.tips").map((tip: string, idx: number) => (
+                {tires.tips.map((tip, idx) => (
                   <List.Item key={idx}>{tip}</List.Item>
                 ))}
               </List>
             </Accordion.Item>
-            <Accordion.Item heading={t("accidents.title")}>
-              <Paragraph>{t("accidents.description")}</Paragraph>
+
+            <Accordion.Item heading={accidents.heading}>
+              {accidents.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("accidents.steps").map((step: string, idx: number) => (
+                {accidents.steps.map((step, idx) => (
                   <List.Item key={idx}>{step}</List.Item>
                 ))}
               </List>
             </Accordion.Item>
-            <Accordion.Item heading={t("roadside.title")}>
-              <Paragraph>{t("roadside.description")}</Paragraph>
+
+            <Accordion.Item heading={roadside.heading}>
+              {roadside.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("roadside.tips").map((tip: string, idx: number) => (
+                {roadside.tips.map((tip, idx) => (
                   <List.Item key={idx}>{tip}</List.Item>
                 ))}
               </List>
             </Accordion.Item>
-            <Accordion.Item heading={t("export.title")}>
-              <Paragraph>{t("export.description")}</Paragraph>
+
+            <Accordion.Item heading={exportSection.heading}>
+              {exportSection.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
               <List className="palette-text-color">
-                {t.raw("export.tips").map((tip: string, idx: number) => (
+                {exportSection.tips.map((tip, idx) => (
                   <List.Item key={idx}>{tip}</List.Item>
                 ))}
               </List>
             </Accordion.Item>
-            <Accordion.Item heading={t("return.title")}>
-              <Paragraph>{t("return.description")}</Paragraph>
+
+            <Accordion.Item heading={returnSection.heading}>
+              {returnSection.texts.map((text, index) => (
+                <Paragraph key={index}>{text}</Paragraph>
+              ))}
+              
               {/* Checklist */}
               <div className="">
-                <Heading3>{t("return.checklist.title")}</Heading3>
+                <Heading3>{returnSection.checklist.heading}</Heading3>
                 <List className="palette-text-color">
-                  {t.raw("return.checklist.items").map((item: string, idx: number) => (
+                  {returnSection.checklist.items.map((item, idx) => (
                     <List.Item key={idx}>{item}</List.Item>
                   ))}
                 </List>
               </div>
+
               {/* Must Have */}
               <div className="">
-                <Heading3>{t("return.mustHave.title")}</Heading3>
+                <Heading3>{returnSection.mustHave.heading}</Heading3>
                 <List className="palette-text-color">
-                  {t.raw("return.mustHave.items").map((item: string, idx: number) => (
+                  {returnSection.mustHave.items.map((item, idx) => (
                     <List.Item key={idx}>{item}</List.Item>
                   ))}
                 </List>
               </div>
+
               {/* Remove */}
               <div className="">
-                <Heading3>{t("return.remove.title")}</Heading3>
+                <Heading3>{returnSection.remove.heading}</Heading3>
                 <List className="palette-text-color">
-                  {t.raw("return.remove.items").map((item: string, idx: number) => (
+                  {returnSection.remove.items.map((item, idx) => (
                     <List.Item key={idx}>{item}</List.Item>
                   ))}
                 </List>
@@ -145,32 +285,32 @@ export default async function DriversGuidePage({ params }: { params: { locale: s
 
       <FlexLayout palette="piki">
         <FlexLayout.Column>
-          <Heading2>{t("faq.title")}</Heading2>
-          <Paragraph>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-            suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          </Paragraph>
+          <Heading2>{faq.heading}</Heading2>
+          {faq.texts.map((text, index) => (
+            <Paragraph key={index}>{text}</Paragraph>
+          ))}
         </FlexLayout.Column>
         <FlexLayout.Column>
           <Accordion>
-            {t.raw("faq.sections").map((section: { title: string; description: string }, idx: number) => (
-              <Accordion.Item key={idx} heading={section.title}>
-                <Paragraph>{section.description}</Paragraph>
+            {faq.questions.map((question, idx) => (
+              <Accordion.Item key={idx} heading={question.question}>
+                <Paragraph>{question.answer}</Paragraph>
               </Accordion.Item>
             ))}
           </Accordion>
         </FlexLayout.Column>
       </FlexLayout>
 
-      <FlexLayout palette="piki" mainImage={{ src: "/images/Tietoa_meista.png", backgroundPosition: "top center" }}>
+      <FlexLayout palette="piki" mainImage={{ src: contact.image.src, backgroundPosition: "top center" }}>
         <FlexLayout.Column className="shadow-text-sharp">
           <Flex direction="column" gaps="large">
-            <Heading2 className="max-w-2xl">{t("contact.title")}</Heading2>
-            <Paragraph variant="large">{t("contact.description")}</Paragraph>
-            <Paragraph variant="large">{t("contact.note")}</Paragraph>
+            <Heading2 className="max-w-2xl">{contact.heading}</Heading2>
+            {contact.texts.map((text, index) => (
+              <Paragraph key={index} variant="large">{text}</Paragraph>
+            ))}
+            <Paragraph variant="large">{contact.note}</Paragraph>
             <div className="self-start">
-              <CallUs className="justify-self-start" numbers={t.raw("contact.numbers")} />
+              <CallUs className="justify-self-start" numbers={contact.numbers} />
             </div>
           </Flex>
         </FlexLayout.Column>

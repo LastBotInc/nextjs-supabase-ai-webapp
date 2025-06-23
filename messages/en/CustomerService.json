@@ -1,12 +1,17 @@
 {
   "meta": {
-    "title": "Customer Service | Innolease",
-    "description": "Connect with Innolease customer service for personalized assistance with your leasing and fleet management needs."
+    "title": "Customer Service | Innolease - Personal Assistance for Leasing & Fleet Management",
+    "description": "Contact Innolease customer service for personal assistance with leasing and fleet management. Our expert team is ready to help.",
+    "keywords": "customer service, leasing support, maintenance services, billing, account management, contact information, offices",
+    "image": "/images/ajankohtaista.png"
   },
   "hero": {
     "heading": "Customer Service",
-    "subheading": "We're here to help you with all your leasing and fleet management needs",
-    "backgroundAlt": "Customer service representatives",
+    "subheading": "We help you with all matters related to leasing and fleet management",
+    "texts": [
+      "At Innolease, we are committed to providing excellent customer service. Our expert team is ready to help you with all questions and concerns related to vehicle leasing and fleet management."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Customer service representatives" },
     "numbers": [
       {
         "number": "+358 9 123 4567",
@@ -15,143 +20,128 @@
     ]
   },
   "intro": {
-    "title": "How Can We Help You?",
-    "paragraph1": "At Innolease, we're committed to providing exceptional customer service. Our team of experts is ready to assist you with any questions or concerns regarding your vehicle leasing arrangements and fleet management.",
-    "paragraph2": "Whether you need assistance with maintenance scheduling, billing inquiries, or contract information, we're just a phone call or message away."
+    "heading": "How can we help?",
+    "texts": [
+      "At Innolease, we are committed to providing excellent customer service. Our expert team is ready to help you with all questions and concerns related to vehicle leasing and fleet management.",
+      "Whether you need help scheduling maintenance, billing inquiries, or contract matters, we are just a phone call or message away."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Customer service" }
   },
   "quickHelp": {
-    "title": "Quick Help",
+    "heading": "Quick Contact",
     "phone": "+358 9 123 4567",
-    "email": "customer.service@innolease.fi",
+    "email": "customerservice@innolease.fi",
     "hours": "Mon-Fri: 8:00 - 18:00",
-    "contactButton": "Contact Us"
+    "contactButton": "Contact us",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Quick contact" }
   },
   "supportCategories": {
-    "title": "Support Categories",
-    "description": "Our customer service team is specialized in various areas to provide you with expert assistance for any issue you might encounter.",
+    "heading": "Service Categories",
+    "texts": [
+      "Our customer service team specializes in different areas to provide expert assistance in all possible situations."
+    ],
     "learnMore": "Learn more",
+    "learnMoreHref": "/asiakaspalvelu",
     "categories": {
       "leasing": {
-        "title": "Leasing Support",
-        "description": "Get help with contract terms, leasing options, and end-of-lease arrangements."
+        "heading": "Leasing Support",
+        "texts": ["Get help with contract terms, leasing options, and contract termination matters."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Leasing support" }
       },
       "maintenance": {
-        "title": "Maintenance Services",
-        "description": "Schedule maintenance, tire changes, or inspections for your leased vehicles."
+        "heading": "Maintenance Services",
+        "texts": ["Book maintenance, tire changes, or inspections for your leased vehicles."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Maintenance services" }
       },
       "billing": {
-        "title": "Billing & Payments",
-        "description": "Assistance with invoices, payment options, and financial questions."
+        "heading": "Billing and Payments",
+        "texts": ["Assistance with billing, payment methods, and financial questions."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Billing and payments" }
       },
       "accounts": {
-        "title": "Account Management",
-        "description": "Help with your InnoFleet Manager account, user access, and settings."
+        "heading": "Account Management",
+        "texts": ["Help with your InnoFleet Manager account, access rights, and settings."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Account management" }
       }
-    }
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Service categories" }
   },
   "offices": {
-    "title": "Our Offices",
-    "description": "Visit us at one of our office locations across Finland for face-to-face assistance.",
-    "viewMap": "View on Map",
-    "helsinki": {
-      "name": "Helsinki Office",
-      "address": "Aleksanterinkatu 15, 00100 Helsinki",
-      "phone": "+358 9 123 4567",
-      "email": "helsinki@innolease.fi",
-      "hours": "Mon-Fri: 9:00 - 17:00"
-    },
-    "tampere": {
-      "name": "Tampere Office",
-      "address": "Hämeenkatu 10, 33200 Tampere",
-      "phone": "+358 3 456 7890",
-      "email": "tampere@innolease.fi",
-      "hours": "Mon-Fri: 9:00 - 16:00"
-    },
-    "oulu": {
-      "name": "Oulu Office",
-      "address": "Isokatu 35, 90100 Oulu",
-      "phone": "+358 8 789 0123",
-      "email": "oulu@innolease.fi",
-      "hours": "Mon-Fri: 9:00 - 16:00"
-    }
+    "heading": "Our Offices",
+    "texts": ["Visit one of our offices across Finland for personal service."],
+    "viewMap": "View on map",
+    "locations": [
+      {
+        "name": "Helsinki Office",
+        "address": "Aleksanterinkatu 15, 00100 Helsinki",
+        "phone": "+358 9 123 4567",
+        "email": "helsinki@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 17:00"
+      },
+      {
+        "name": "Tampere Office",
+        "address": "Hämeenkatu 10, 33200 Tampere",
+        "phone": "+358 3 456 7890",
+        "email": "tampere@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 16:00"
+      },
+      {
+        "name": "Oulu Office",
+        "address": "Isokatu 35, 90100 Oulu",
+        "phone": "+358 8 789 0123",
+        "email": "oulu@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 16:00"
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Offices" }
   },
   "contactForm": {
-    "title": "Get in Touch",
-    "description": "Fill out the form below, and our team will get back to you as soon as possible.",
+    "heading": "Contact Us",
+    "texts": ["Fill out the form below and our team will contact you as soon as possible."],
     "formTitle": "Contact Form",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "email": "Email Address",
-    "phone": "Phone Number",
-    "subject": "Subject",
-    "selectSubject": "Select a subject",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "selectSubject": "Select subject",
+      "message": "Your Message"
+    },
     "subjects": {
       "leasing": "Leasing Inquiry",
       "maintenance": "Maintenance Service",
       "billing": "Billing Question",
-      "other": "Other"
+      "other": "Other Matter"
     },
-    "message": "Your Message",
-    "privacyConsent": "I consent to Innolease processing my data according to the Privacy Policy.",
-    "submit": "Submit Message",
+    "privacyConsent": "I agree that Innolease processes my data in accordance with the privacy policy.",
+    "submit": "Send Message",
     "faq": {
-      "question1": "What information should I have ready when contacting customer service?",
-      "answer1": "It's helpful to have your contract number, vehicle details, and any relevant documentation ready when contacting us for faster assistance.",
-      "question2": "How quickly can I expect a response to my inquiry?",
-      "answer2": "We aim to respond to all inquiries within 24 hours during business days. Urgent matters are prioritized and typically addressed within a few hours.",
-      "question3": "Can I schedule maintenance through customer service?",
-      "answer3": "Yes, our customer service team can help you schedule maintenance services, tire changes, and inspections for your leased vehicles at our partner service centers."
-    }
+      "questions": [
+        {
+          "question": "What information should I have ready when contacting customer service?",
+          "answer": "It's helpful if you have your contract number, vehicle information, and any necessary documents ready to speed up the service."
+        },
+        {
+          "question": "How quickly can I expect a response to my inquiry?",
+          "answer": "We aim to respond to all inquiries within 24 hours on business days. Urgent matters are prioritized and typically handled within a few hours."
+        },
+        {
+          "question": "Can I book maintenance through customer service?",
+          "answer": "Yes, our customer service team will help you book maintenance services, tire changes, and inspections for your leased vehicles at our partner service locations."
+        }
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Contact form" }
   },
-  "personnel": [
-    {
-      "name": "Ville Mäkinen",
-      "title": "Myyntijohtaja",
-      "phone": "040 7570 309",
-      "email": "ville.makinen@innolease.fi",
-      "image": { "src": "/images/personnel/ville-makinen.jpg", "alt": "Ville Mäkinen" }
-    },
-    {
-      "name": "Samuli Hintikka",
-      "title": "Myyntipäällikkö",
-      "phone": "045 6468 184",
-      "email": "samuli.hintikka@innolease.fi",
-      "image": { "src": "/images/personnel/samuli-hintikka.jpg", "alt": "Samuli Hintikka" }
-    },
-    {
-      "name": "Anssi Hyvärinen",
-      "title": "Myyntipäällikkö",
-      "phone": "050 4734 817",
-      "email": "anssi.hyvarinen@innolease.fi",
-      "image": { "src": "/images/personnel/anssi-hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
-    },
-    {
-      "name": "Jesse Hämäläinen",
-      "title": "Myyntipäällikkö",
-      "phone": "050 4738 049",
-      "email": "jesse.hamalainen@innolease.fi",
-      "image": { "src": "/images/personnel/jesse-hamalainen.jpg", "alt": "Jesse Hämäläinen" }
-    },
-    {
-      "name": "Veikka Jurvelin",
-      "title": "Myyntipäällikkö",
-      "phone": "050 4735 816",
-      "email": "veikka.jurvelin@innolease.fi",
-      "image": { "src": "/images/personnel/veikka-jurvelin.jpg", "alt": "Veikka Jurvelin" }
-    },
-    {
-      "name": "Niclas Yrttimaa",
-      "title": "Myyntipäällikkö",
-      "phone": "050 4611 119",
-      "email": "niclas.yrttimaa@innolease.fi",
-      "image": { "src": "/images/personnel/niclas-yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
-    }
-  ],
+
   "cta": {
-    "title": "Ready to Optimize Your Fleet?",
-    "description": "Discover how our fleet management solutions can help your business save time and reduce costs.",
-    "backgroundAlt": "Fleet of business vehicles",
+    "heading": "Ready to Optimize Your Fleet Management?",
+    "texts": ["Discover how our fleet management solutions can save your company time and costs."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Corporate vehicle fleet" },
     "fleetButton": "Explore Fleet Solutions",
-    "leasingButton": "View Leasing Options"
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "View Leasing Options",
+    "leasingHref": "/yritysleasing"
   }
 }

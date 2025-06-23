@@ -4,6 +4,7 @@ import { Paragraph } from "../core/Paragraph";
 
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRightIcon } from "lucide-react";
 
 type NewsItem = Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "className"> & {
   image?: {
@@ -55,8 +56,14 @@ export function NewsCard({ title, text, link, image, category }: NewsItem) {
         <Paragraph className="font-medium text-kupari category-heading">{category}</Paragraph>
         <Heading3Small className="text-piki">{title}</Heading3Small>
         <Paragraph className="text-piki">{text}</Paragraph>
-        {link && <Link href={link.href}>{link.text}</Link>}
+       
       </Flex>
+      {link && (
+          <div className="flex items-center gap-2">
+            <Link href={link.href}>{link.text}</Link>
+            <ArrowRightIcon />
+          </div>
+        )}
     </Flex>
   );
 }

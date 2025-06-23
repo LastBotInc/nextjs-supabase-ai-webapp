@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "title": "Digital Services | Innolease - Modern Solutions for Fleet Management",
+    "description": "Discover Innolease's innovative digital services including FleetManager, online customer portal, and digital documentation systems for efficient fleet management.",
+    "keywords": "digital services, FleetManager, fleet management, online portal, digital solutions, leasing technology",
+    "image": "/images/innolease/digital-services-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Digital Services – Modern Solutions for Your Fleet",
+    "subheading": "Streamline your fleet management with our innovative digital tools",
+    "texts": [
+      "Innolease offers comprehensive digital services that simplify your company's operations throughout the leasing period. Our modern tools provide real-time control, transparency, and efficiency for your entire fleet."
+    ],
+    "image": {
+      "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png",
+      "alt": "Digital Services Dashboard"
+    },
+    "numbers": [{ "title": "Contact us", "number": "020 743 7670" }]
+  },
+
+  "fleetManager": {
+    "heading": "FleetManager – Complete Fleet Control",
+    "subheading": "One management view, all information",
+    "texts": [
+      "FleetManager is an intelligent and user-friendly tool that brings your vehicle fleet management to one place – real-time and transparent. Track vehicle-specific costs and optimize utilization easily.",
+      "Clear reports support both financial management and sustainability reporting needs."
+    ],
+    "list": [
+      { "term": "Contract Monitoring", "description": "Complete contract management and tracking in one place" },
+      {
+        "term": "Cost Control & Optimization",
+        "description": "Real-time cost tracking and optimization recommendations"
+      },
+      { "term": "Utilization Optimization", "description": "Mileage tracking and usage optimization tools" },
+      { "term": "Environmental Perspectives", "description": "Sustainability monitoring and environmental reporting" },
+      { "term": "Complete Transparency", "description": "Centralized information with full visibility" }
+    ],
+    "image": { "src": "/images/innolease/fleetmanager-dashboard.jpg", "alt": "FleetManager Dashboard" }
+  },
+
+  "digitalPortal": {
+    "heading": "Online Customer Portal",
+    "subheading": "Access your fleet information 24/7",
+    "texts": [
+      "Our secure online portal provides you with instant access to all your fleet information, documents, and services. Manage your vehicles, track costs, and access important documents anytime, anywhere.",
+      "The portal integrates seamlessly with FleetManager, providing a comprehensive digital ecosystem for your fleet management needs."
+    ],
+    "list": [
+      "Vehicle information and documentation",
+      "Service history and maintenance records",
+      "Cost reports and financial summaries",
+      "Contract details and renewal notifications",
+      "Digital service requests and communication"
+    ],
+    "image": { "src": "/images/innolease/customer-portal.jpg", "alt": "Customer Portal Interface" }
+  },
+
+  "digitalDocumentation": {
+    "heading": "Digital Documentation System",
+    "subheading": "Paperless fleet management",
+    "texts": [
+      "Say goodbye to scattered paperwork. Our digital documentation system keeps all your vehicle documents organized, accessible, and secure in one place.",
+      "From service records to insurance documents, everything is digitized and searchable, making fleet administration effortless."
+    ],
+    "cases": [
+      {
+        "title": "Service Records",
+        "texts": [
+          "All maintenance and repair records are automatically digitized and linked to each vehicle. Access complete service history instantly."
+        ],
+        "image": { "src": "/images/innolease/service-records.jpg", "alt": "Digital Service Records" }
+      },
+      {
+        "title": "Contract Management",
+        "texts": [
+          "Digital contracts with automated reminders for renewals, maintenance schedules, and important deadlines."
+        ],
+        "image": { "src": "/images/innolease/contract-management.jpg", "alt": "Digital Contract Management" }
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Why Choose Our Digital Services?",
+    "texts": ["Our digital services are designed to make fleet management as efficient and transparent as possible."],
+    "table": {
+      "columns": ["Benefit", "Description"],
+      "rows": [
+        ["Real-time Access", "Access your fleet information 24/7 from anywhere"],
+        ["Cost Transparency", "Complete visibility into all fleet-related costs"],
+        ["Automated Reporting", "Generate detailed reports with just a few clicks"],
+        ["Streamlined Communication", "Direct communication with our service team"],
+        ["Environmental Tracking", "Monitor and report on sustainability metrics"]
+      ]
+    }
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "texts": ["Here are answers to the most common questions about our digital services."],
+    "questions": [
+      {
+        "question": "How do I access the FleetManager system?",
+        "answer": "You'll receive login credentials and a personal walkthrough when you start using our services. Our team provides comprehensive training to ensure you get the most out of all features."
+      },
+      {
+        "question": "Is my data secure in your digital systems?",
+        "answer": "Yes, we use enterprise-grade security measures including encryption, secure servers, and regular security audits to protect your data. All systems comply with GDPR and industry security standards."
+      },
+      {
+        "question": "Can I integrate your systems with our existing business software?",
+        "answer": "Our digital services offer integration capabilities with most common business management systems. Contact our technical team to discuss specific integration requirements for your company."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Ready to Digitize Your Fleet Management?",
+    "texts": [
+      "Contact Innolease today to learn more about our digital services and how they can transform your fleet management. Our experts will help you choose the right digital solutions for your business needs."
+    ],
+    "link": { "label": "Contact Us", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/innolease/digital-transformation.jpg", "alt": "Digital Fleet Management" }
+  },
+
+  "promotion": {
+    "heading": "Explore More Solutions",
+    "texts": ["Discover our comprehensive range of leasing and fleet management services."],
+    "columns": [
+      {
+        "title": "Fleet Management Tools",
+        "texts": ["Advanced tools for complete fleet control and optimization."],
+        "link": { "label": "Learn More", "href": "/fleet-manager" }
+      },
+      {
+        "title": "Leasing Solutions",
+        "texts": ["Comprehensive leasing services for businesses of all sizes."],
+        "link": { "label": "Explore Leasing", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Customer Support",
+        "texts": ["Expert support and guidance throughout your leasing journey."],
+        "link": { "label": "Contact Support", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

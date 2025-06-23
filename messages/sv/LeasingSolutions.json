@@ -159,6 +159,7 @@
     "title": "Redo att hitta din ideala leasinglösning?",
     "description": "Kontakta våra leasingspecialister för en personlig konsultation och offert.",
     "button": "Begär offert",
+    "buttonHref": "/yhteystiedot",
     "contact": "Eller ring oss på +358 50 123 4567"
   }
 }

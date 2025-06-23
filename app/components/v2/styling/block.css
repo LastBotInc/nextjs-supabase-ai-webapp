@@ -54,6 +54,9 @@
 .block-box.block-padding-full {
   @apply p-4 lg:p-8;
 }
+.block-box .content-area.block-padding-full {
+  @apply p-4 lg:p-8;
+}
 
 /* sets half padding to content area of the main block and half to the box content area
   So box background is outside of the content area, but box content is aligned with normal content area

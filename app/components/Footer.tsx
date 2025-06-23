@@ -6,7 +6,6 @@ import InnoleaseLogo from "@/app/components/InnoleaseLogo";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import { FlexLayout } from "./v2/layouts/FlexLayout";
 import { Flex } from "./v2/core/Flex";
-import { Columns } from "./v2/core/Columns";
 
 export default function Footer() {
   const locale = useLocale();
@@ -14,7 +13,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t palette-border-color mt-auto color-palette-light-gray palette-text-color palette-background-color">
-      <FlexLayout direction="column">
+      <FlexLayout direction="column" palette="none">
         <Flex gaps="large" className="justify-between">
           {/* Column 1: Company Information */}
           <div>

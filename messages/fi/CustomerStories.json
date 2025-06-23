@@ -1,29 +1,31 @@
 {
   "meta": {
     "title": "Asiakastarinat | Innolease",
-    "description": "Tutustu, kuinka yritykset ympäri Suomea ovat optimoineet autokannan hallintaansa ja vähentäneet kustannuksiaan Innoleasen leasing-ratkaisuilla."
+    "description": "Tutustu, kuinka yritykset ympäri Suomea ovat optimoineet autokannan hallintaansa ja vähentäneet kustannuksiaan Innoleasen leasing-ratkaisuilla.",
+    "keywords": "asiakastarinat, leasing, autokauppa, yritysleasing, kalustonhallinta, kustannussäästöt",
+    "image": "/images/Tietoa_meista.png"
   },
   "hero": {
     "heading": "Asiakkaiden menestystarinoita",
-    "subheading": "Todellisia yrityksiä saavuttamassa todellisia tuloksia Innoleasen ratkaisuilla"
+    "subheading": "Todellisia yrityksiä saavuttamassa todellisia tuloksia Innoleasen ratkaisuilla",
+    "image": { "src": "/images/Tietoa_meista.png" }
   },
   "featured": {
     "label": "Esittelyssä",
     "company": "Nordic Logistics Oy",
-    "title": "Kuinka Nordic Logistics vähensi autokannan kustannuksia 22% Innoleasen avulla",
-    "summary": "Nordic Logistics kumppanoi Innoleasen kanssa optimoidakseen 120 ajoneuvon kalustonsa, mikä johti merkittäviin kustannussäästöihin ja toiminnan tehostumiseen.",
+    "heading": "Kuinka Nordic Logistics vähensi autokannan kustannuksia 22% Innoleasen avulla",
+    "texts": [
+      "Nordic Logistics kumppanoi Innoleasen kanssa optimoidakseen 120 ajoneuvon kalustonsa, mikä johti merkittäviin kustannussäästöihin ja toiminnan tehostumiseen."
+    ],
     "quote": "Siirtyminen Innoleasen kalustonhallintaratkaisuun sujui vaivattomasti. Pelkästään data-analyysi on muuttanut tapaamme tehdä päätöksiä ajoneuvokannastamme.",
     "personName": "Maria Korhonen",
     "personTitle": "Kalustojohtaja, Nordic Logistics",
-    "readMore": "Lue koko tarina",
-    "results": {
-      "stat1": "22%",
-      "label1": "Kustannusten vähennys",
-      "stat2": "15%",
-      "label2": "Polttoainetehokkuuden parannus",
-      "stat3": "4.8/5",
-      "label3": "Kuljettajien tyytyväisyys"
-    }
+    "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/nordic-logistics" },
+    "results": [
+      { "stat": "22%", "label": "Kustannusten vähennys" },
+      { "stat": "15%", "label": "Polttoainetehokkuuden parannus" },
+      { "stat": "4.8/5", "label": "Kuljettajien tyytyväisyys" }
+    ]
   },
   "testimonial": {
     "quote": "Innolease muutti autokannan hallintamme monimutkaisesta taakasta strategiseksi eduksi. Heidän digitaaliset työkalunsa ja ennakoiva palvelunsa ovat olleet liiketoiminnallemme käänteentekeviä.",
@@ -31,49 +33,68 @@
     "position": "Operatiivinen johtaja, TechFinland Solutions"
   },
   "storiesSection": {
-    "title": "Lisää asiakastarinoita",
-    "description": "Tutustu, kuinka kaikenkokoisten yritysten eri toimialoilla ovat hyötyneet räätälöidyistä leasing-ratkaisuistamme.",
-    "loadMore": "Lataa lisää tarinoita"
+    "heading": "Lisää asiakastarinoita",
+    "texts": [
+      "Tutustu, kuinka kaikenkokoisten yritysten eri toimialoilla ovat hyötyneet räätälöidyistä leasing-ratkaisuistamme."
+    ],
+    "link": { "label": "Lataa lisää tarinoita", "href": "/asiakastarinat" }
   },
-  "stories": {
-    "readMore": "Lue koko tarina",
-    "story1": {
+  "stories": [
+    {
       "company": "TechFinland Solutions",
-      "title": "Kalustonhallinnan digitaalinen muutos",
+      "heading": "Kalustonhallinnan digitaalinen muutos",
       "industry": "Teknologia",
-      "excerpt": "TechFinland Solutions otti käyttöön Innoleasen InnoFleet Manager -järjestelmän digitalisoidakseen ajoneuvojen hallinnan, mikä johti toiminnan tehostumiseen ja merkittäviin kustannussäästöihin."
+      "texts": [
+        "TechFinland Solutions otti käyttöön Innoleasen InnoFleet Manager -järjestelmän digitalisoidakseen ajoneuvojen hallinnan, mikä johti toiminnan tehostumiseen ja merkittäviin kustannussäästöihin."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/techfinland-solutions" }
     },
-    "story2": {
+    {
       "company": "EcoConstruct Oy",
-      "title": "Kestävän autokannan rakentaminen",
+      "heading": "Kestävän autokannan rakentaminen",
       "industry": "Rakentaminen",
-      "excerpt": "EcoConstruct siirtyi sähköajoneuvoihin Innoleasen joustavien leasing-vaihtoehtojen avulla, pienentäen hiilijalanjälkeään ja säilyttäen toimintakykynsä."
+      "texts": [
+        "EcoConstruct siirtyi sähköajoneuvoihin Innoleasen joustavien leasing-vaihtoehtojen avulla, pienentäen hiilijalanjälkeään ja säilyttäen toimintakykynsä."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/ecoconstruct" }
     },
-    "story3": {
+    {
       "company": "Nordic Healthcare Group",
-      "title": "Luotettavaa liikkuvuutta kriittisille palveluille",
+      "heading": "Luotettavaa liikkuvuutta kriittisille palveluille",
       "industry": "Terveydenhuolto",
-      "excerpt": "Nordic Healthcare Group luottaa Innoleaseen varmistaakseen, että heidän hoitajillaan on aina luotettava kuljetus, erikoisvarustellut ajoneuvot ja huoltopalvelut."
+      "texts": [
+        "Nordic Healthcare Group luottaa Innoleaseen varmistaakseen, että heidän hoitajillaan on aina luotettava kuljetus, erikoisvarustellut ajoneuvot ja huoltopalvelut."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/nordic-healthcare" }
     },
-    "story4": {
+    {
       "company": "Fresh Delivery Express",
-      "title": "Autokannan kasvattaminen liiketoiminnan mukana",
+      "heading": "Autokannan kasvattaminen liiketoiminnan mukana",
       "industry": "Logistiikka",
-      "excerpt": "Kun Fresh Delivery Express laajensi toimintaansa, Innolease tarjosi skaalautuvia kalustoratkaisuja, jotka mahdollistivat ajoneuvokapasiteetin säätämisen kausittaisen kysynnän mukaan."
+      "texts": [
+        "Kun Fresh Delivery Express laajensi toimintaansa, Innolease tarjosi skaalautuvia kalustoratkaisuja, jotka mahdollistivat ajoneuvokapasiteetin säätämisen kausittaisen kysynnän mukaan."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/fresh-delivery" }
     },
-    "story5": {
+    {
       "company": "Retail Innovators Oy",
-      "title": "Kilometrikustannusten optimointi",
+      "heading": "Kilometrikustannusten optimointi",
       "industry": "Vähittäiskauppa",
-      "excerpt": "Retail Innovators työskenteli Innoleasen kanssa analysoidakseen ja optimoidakseen toimitusreittinsä ja ajoneuvovalintansa, vähentäen kilometrikustannuksiaan 18%."
+      "texts": [
+        "Retail Innovators työskenteli Innoleasen kanssa analysoidakseen ja optimoidakseen toimitusreittinsä ja ajoneuvovalintansa, vähentäen kilometrikustannuksiaan 18%."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/retail-innovators" }
     },
-    "story6": {
+    {
       "company": "Arctic Tours",
-      "title": "Erikoisajoneuvot ainutlaatuisiin olosuhteisiin",
+      "heading": "Erikoisajoneuvot ainutlaatuisiin olosuhteisiin",
       "industry": "Matkailu",
-      "excerpt": "Arctic Tours kumppanoi Innoleasen kanssa hankkiakseen ja ylläpitääkseen erikoisajoneuvoja, jotka pystyvät toimimaan äärimmäisissä pohjoisissa olosuhteissa matkailutoimintaa varten."
+      "texts": [
+        "Arctic Tours kumppanoi Innoleasen kanssa hankkiakseen ja ylläpitääkseen erikoisajoneuvoja, jotka pystyvät toimimaan äärimmäisissä pohjoisissa olosuhteissa matkailutoimintaa varten."
+      ],
+      "link": { "label": "Lue koko tarina", "href": "/asiakastarinat/arctic-tours" }
     }
-  },
+  ],
   "filters": {
     "industryLabel": "Suodata toimialan mukaan",
     "sortLabel": "Järjestä",
@@ -91,11 +112,31 @@
       "company": "Yrityksen nimi"
     }
   },
+  "promotion": {
+    "heading": "Valmis kirjoittamaan oman menestystarinasi?",
+    "texts": [
+      "Liity kasvavaan joukkoon yrityksiä, jotka ovat muuttaneet autokannan hallintansa Innoleasen ratkaisuilla."
+    ],
+    "columns": [
+      {
+        "heading": "Ota yhteyttä asiantuntijoihimme",
+        "texts": [
+          "Keskustele tarpeistasi ja löydä parhaat leasing-ratkaisut liiketoiminnallesi tai henkilökohtaiseen käyttöön."
+        ],
+        "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
+      },
+      {
+        "heading": "Tutustu leasing-ratkaisuihin",
+        "texts": ["Löydä sopiva leasing-ratkaisu laajasta valikoimastamme yritys- ja henkilöleasingvaihtoehtoja."],
+        "link": { "label": "Tutustu ratkaisuihin", "href": "/yritysleasing" }
+      }
+    ]
+  },
   "cta": {
-    "title": "Valmis kirjoittamaan oman menestystarinasi?",
-    "description": "Liity kasvavaan joukkoon yrityksiä, jotka ovat muuttaneet autokannan hallintansa Innoleasen ratkaisuilla.",
-    "backgroundAlt": "Moderni yritysajoneuvojen autokanta",
-    "contactButton": "Ota yhteyttä",
-    "leasingButton": "Tutustu leasing-ratkaisuihin"
+    "heading": "Haluatko tietää lisää leasing-ratkaisuistamme?",
+    "texts": [
+      "Ota yhteyttä Innoleaseen tänään. Keskustellaan tarpeistasi ja löydetään paras leasing-ratkaisu liiketoiminnallesi tai henkilökohtaiseen käyttöön."
+    ],
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
   }
-} 
+}

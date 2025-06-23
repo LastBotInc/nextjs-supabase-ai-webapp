@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Frequently Asked Questions - Innolease",
+    "description": "Find answers to the most common questions about Innolease services. Car leasing, calculators, customer service, and digital services.",
+    "keywords": "FAQ, frequently asked questions, car leasing, leasing calculator, customer service, digital services",
+    "image": "/images/faq-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Frequently Asked Questions",
+    "texts": [
+      "Find answers to the most common questions about Innolease services. If you can't find the answer you're looking for, please don't hesitate to contact our customer service."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Frequently Asked Questions" }
+  },
+
+  "sections": {
+    "carLeasing": {
+      "heading": "Car Leasing",
+      "description": "Questions and answers about car leasing, contract terms, and leasing options.",
+      "namespace": "CarLeasing"
+    },
+    "leasingCalculator": {
+      "heading": "Leasing Calculators",
+      "description": "Help with using leasing calculators, calculating tax values, and optimizing car benefits.",
+      "namespace": "LeasingCalculator"
+    },
+    "customerService": {
+      "heading": "Customer Service",
+      "description": "Information about our customer service, contact details, and making service requests.",
+      "namespace": "CustomerService"
+    },
+    "digitalServices": {
+      "heading": "Digital Services",
+      "description": "Questions about FleetManager system, online services, and digital tools.",
+      "namespace": "DigitalServices"
+    },
+    "servicePrice": {
+      "heading": "Service Pricing",
+      "description": "Questions about pricing, service fees, and billing.",
+      "namespace": "ServicePrices"
+    },
+    "machineLeasing": {
+      "heading": "Equipment Leasing",
+      "description": "Information about machinery and equipment leasing and specialized solutions.",
+      "namespace": "MachineLeasing"
+    },
+    "financialSolutions": {
+      "heading": "Financial Solutions",
+      "description": "Questions about financing options and financial solutions.",
+      "namespace": "FinancialSolutions"
+    },
+    "leasingSolutions": {
+      "heading": "Leasing Solutions",
+      "description": "General questions about different leasing solutions and models.",
+      "namespace": "LeasingSolutions"
+    },
+    "driversGuide": {
+      "heading": "Driver's Guide",
+      "description": "Tips and advice for safe and economical driving.",
+      "namespace": "DriversGuide"
+    }
+  },
+
+  "contact": {
+    "heading": "Didn't Find Your Answer?",
+    "texts": [
+      "If you couldn't find the information you were looking for, our customer service is ready to help you with all your questions."
+    ],
+    "phone": "+358 20 743 7670",
+    "email": "customerservice@innolease.fi",
+    "hours": "Mon-Fri: 8:00-18:00",
+    "link": { "label": "Contact Us", "href": "/customer-service" }
+  }
+}

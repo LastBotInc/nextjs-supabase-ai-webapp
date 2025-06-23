@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Myyntitiimi | Innolease",
+    "description": "Ota yhteyttä Innoleasen ammattitaitoiseen myyntitiimiin saadaksesi henkilökohtaista neuvontaa autojen, pakettiautojen ja muiden ajoneuvojen leasingista yrityksille ja yksityishenkilöille.",
+    "keywords": "myyntitiimi, yhteystiedot, leasing, autoleasing, yritysleasing, henkilöleasing, neuvonta",
+    "image": "/images/og/sales.png"
+  },
+
+  "intro": {
+    "heading": "Myyntitiimimme",
+    "texts": [
+      "Kokenut myyntitiimimme on täällä auttamassa sinua löytämään täydellisen leasing-ratkaisun tarpeisiisi. Syvällisellä osaamisella ajoneuvoleasingista ja markkinoiden parhaista tarjouksista ohjaamme sinut läpi koko prosessin.",
+      "Ota yhteyttä saadaksesi henkilökohtaista neuvontaa ja räätälöityjä ratkaisuja sekä yrityksille että yksityishenkilöille."
+    ]
+  },
+
+  "services": {
+    "heading": "Miten autamme sinua",
+    "texts": ["Myyntitiimimme tarjoaa kattavaa palvelua kaikilla ajoneuvoleasingin osa-alueilla."],
+    "list": [
+      "Henkilökohtainen neuvonta yritysleasingissa",
+      "Henkilöleasingratkaisut",
+      "Kalustonhallinta ja optimointi",
+      "Rahoitusvaihtoehdot ja ehdot",
+      "Erikoisajoneuvot ja räätälöidyt ratkaisut"
+    ]
+  },
+
+  "process": {
+    "heading": "Näin se toimii",
+    "texts": ["Teemme leasing-prosessista sinulle mahdollisimman helpon."],
+    "steps": [
+      {
+        "title": "Yhteydenotto ja tarpeiden kartoitus",
+        "texts": ["Ota yhteyttä puhelimitse tai sähköpostilla. Keskustelemme tarpeistasi ja toiveistasi."]
+      },
+      {
+        "title": "Henkilökohtainen tarjous",
+        "texts": ["Tarpeidesi perusteella kokoamme räätälöidyn tarjouksen parhain ehdoin."]
+      },
+      {
+        "title": "Sopimuksen allekirjoitus ja toimitus",
+        "texts": [
+          "Kun olet tyytyväinen tarjoukseen, autamme sinut sopimuksen allekirjoituksen läpi ja järjestämme sujuvan toimituksen."
+        ]
+      }
+    ]
+  },
+
+  "contact": {
+    "heading": "Ota yhteyttä tänään",
+    "texts": ["Valmis keskustelemaan leasing-tarpeistasi? Myyntitiimimme on valmiina auttamaan sinua."],
+    "methods": [
+      {
+        "type": "Puhelin",
+        "value": "+358 20 7419 200",
+        "description": "Arkisin 8:00-16:00"
+      },
+      {
+        "type": "Sähköposti",
+        "value": "myynti@innolease.fi",
+        "description": "Vastaamme 24 tunnin sisällä"
+      }
+    ]
+  }
+}

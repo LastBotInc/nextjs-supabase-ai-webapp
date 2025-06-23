@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Leasinglaskurit - Innolease",
+    "description": "Käytä hyödyllisiä leasinglaskureitamme. Laske autoedun arvoa ja leasingkustannuksia helposti verkossa.",
+    "keywords": "leasinglaskuri, autoetu, leasingkustannukset, autoleasing, autoedun arvo",
+    "image": "/images/calculators-meta.jpg"
+  },
+
+  "section1": {
+    "heading": "Hyödylliset leasinglaskurit",
+    "texts": [
+      "Tutustu kattaviin leasinglaskureihimme, jotka auttavat sinua tekemään oikeita päätöksiä autoleasingin ja autoedun suhteen.",
+      "Laskurimme antavat sinulle tarkat arviot kustannuksista ja eduista, jotta voit suunnitella budjettisi huolellisesti."
+    ],
+    "image": { "src": "/images/calculators-hero.jpg", "alt": "Leasinglaskurit" }
+  },
+
+  "cta": {
+    "heading": "Tarvitsetko apua laskureiden käytössä?",
+    "texts": ["Asiantuntijamme auttavat tulkitsemaan tuloksia ja löytämään parhaan ratkaisun tarpeisiisi."],
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/help-cta.jpg", "alt": "Apua laskureiden käytössä" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Autoetulaskuri",
+      "text": "Laske autoedun verotusarvo ja kustannukset tarkasti",
+      "buttonText": "Siirry autoetulaskuriin",
+      "href": "/leasing-laskuri"
+    },
+    "carLeasing": {
+      "heading": "Autoleasing",
+      "text": "Tutustu autoleasingiin ja sen etuihin",
+      "buttonText": "Lue lisää autoleasingista",
+      "href": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Henkilökohtainen palvelu",
+      "text": "Saat asiantuntija-apua ja räätälöityjä ratkaisuja",
+      "buttonText": "Varaa aika",
+      "href": "/asiakaspalvelu"
+    }
+  }
+}

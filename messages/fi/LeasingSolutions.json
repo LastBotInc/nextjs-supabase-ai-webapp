@@ -159,6 +159,7 @@
     "title": "Valmiina löytämään parhaan leasingratkaisun?",
     "description": "Ota yhteyttä leasingasiantuntijoihimme, niin keskustellaan tarpeistasi ja tehdään tarjous.",
     "button": "Pyydä tarjous",
+    "buttonHref": "/yhteystiedot",
     "contact": "Tai soita meille +358 50 123 4567"
   }
 }

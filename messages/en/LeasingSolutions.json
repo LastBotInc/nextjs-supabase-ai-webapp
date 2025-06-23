@@ -159,6 +159,7 @@
     "title": "Ready to find your ideal leasing solution?",
     "description": "Contact our leasing specialists for a personalized consultation and quote.",
     "button": "Request a Quote",
+    "buttonHref": "/yhteystiedot",
     "contact": "Or call us at +358 50 123 4567"
   }
 }
