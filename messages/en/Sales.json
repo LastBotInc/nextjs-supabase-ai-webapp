@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Sales Team | Innolease",
+    "description": "Contact Innolease's professional sales team for personal advice on leasing cars, vans and other vehicles for businesses and individuals.",
+    "keywords": "sales team, contact, leasing, car leasing, business leasing, personal leasing, consultation",
+    "image": "/images/og/sales.png"
+  },
+
+  "intro": {
+    "heading": "Our Sales Team",
+    "texts": [
+      "Our experienced sales team is here to help you find the perfect leasing solution for your needs. With deep knowledge of vehicle leasing and the market's best offers, we guide you through the entire process.",
+      "Contact us for personal advice and tailored solutions for both businesses and individuals."
+    ]
+  },
+
+  "services": {
+    "heading": "How We Can Help You",
+    "texts": ["Our sales team offers comprehensive service in all areas of vehicle leasing."],
+    "list": [
+      "Personal consultation for business leasing",
+      "Personal leasing solutions",
+      "Fleet management and optimization",
+      "Financing options and terms",
+      "Special vehicles and customized solutions"
+    ]
+  },
+
+  "process": {
+    "heading": "How It Works",
+    "texts": ["We make the leasing process as simple as possible for you."],
+    "steps": [
+      {
+        "title": "Contact and needs analysis",
+        "texts": ["Get in touch with us by phone or email. We discuss your needs and requirements."]
+      },
+      {
+        "title": "Personal offer",
+        "texts": ["Based on your needs, we compile a tailored offer with the best terms."]
+      },
+      {
+        "title": "Contract signing and delivery",
+        "texts": [
+          "When you're satisfied with the offer, we help you through contract signing and arrange smooth delivery."
+        ]
+      }
+    ]
+  },
+
+  "contact": {
+    "heading": "Contact Us Today",
+    "texts": ["Ready to discuss your leasing needs? Our sales team is ready to help you."],
+    "methods": [
+      {
+        "type": "Phone",
+        "value": "+358 20 7419 200",
+        "description": "Weekdays 8:00-16:00"
+      },
+      {
+        "type": "Email",
+        "value": "myynti@innolease.fi",
+        "description": "We respond within 24 hours"
+      }
+    ]
+  }
+}
