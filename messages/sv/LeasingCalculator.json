@@ -33,7 +33,14 @@
       "homeToWork": "Hem-arbetsresa (km)",
       "monthlyCost": "Månadskostnad (€)",
       "fuelCost": "Bränslepris (€/liter)",
-      "fuelConsumption": "Bränsleförbrukning (l/100km)"
+      "fuelConsumption": "Bränsleförbrukning (l/100km)",
+      "calculationYear": "Beräkningsår",
+      "firstRegistrationYear": "Första registreringsår",
+      "extraEquipment": "Extrautrustning (€)",
+      "gasoline": "Bensinbil",
+      "electric": "Elbil",
+      "plugInHybrid": "Plug-in hybrid",
+      "engineType": "Motortyp"
     },
     "results": {
       "title": "Resultat",
@@ -59,7 +66,10 @@
       "privateDriving": "Privatkörning",
       "privateUsePercentage": "Privatanvändningens andel",
       "monthlySavings": "Månatliga besparingar",
-      "month": "mån"
+      "month": "mån",
+      "ageReduction": "Åldersavdrag",
+      "electricBioBenefit": "El-/biogasförmån avdrag",
+      "year": "år"
     },
     "freeBenefit": {
       "description": "Fri bilförmån innebär att arbetsgivaren betalar alla kostnader relaterade till bilen, inklusive bränsle för privat användning.",
