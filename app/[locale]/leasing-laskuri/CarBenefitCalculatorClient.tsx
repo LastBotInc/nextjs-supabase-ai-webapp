@@ -2,386 +2,182 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations, useFormatter } from "next-intl";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { calculateCarBenefit, CarBenefitOutput } from "@/app/utils/car-benefit-calculator";
+import { RadioGroup, RadioGroupOption } from "@/components/ui/radio-group";
+import { Columns } from "@/app/components/v2/core/Columns";
+import { Heading3 } from "@/app/components/v2/core/Headings";
+import { Flex } from "@/app/components/v2/core/Flex";
 
 interface CarBenefitCalculatorClientProps {
   locale: string;
-  translations: {
-    calculatorTab: any;
-    inputs: any;
-    results: any;
-  };
 }
 
-export default function CarBenefitCalculatorClient({ locale, translations }: CarBenefitCalculatorClientProps) {
+// Helper: get current year for default values
+const CURRENT_YEAR = new Date().getFullYear();
+
+export default function CarBenefitCalculatorClient({ locale }: CarBenefitCalculatorClientProps) {
   // Client-side localization
   const t = useTranslations("LeasingCalculator");
   const format = useFormatter();
 
-  // State for calculator
-  const [calculatorTab, setCalculatorTab] = useState("free");
-  const [carValue, setCarValue] = useState(40000);
-  const [monthlyCost, setMonthlyCost] = useState(600);
-  const [annualDriving, setAnnualDriving] = useState(20000);
-  const [homeToWork, setHomeToWork] = useState(30);
-  const [results, setResults] = useState<any>(null);
+  // State for calculator inputs
+  type BenefitType = "freeUseBenefit" | "useBenefit";
+  const [calculatorTab, setCalculatorTab] = useState<BenefitType>("useBenefit");
+  const [carType, setCarType] = useState<"electric" | "plugInHybrid" | "gasoline">("gasoline");
+  const [basePrice, setBasePrice] = useState(40000); // Car base price
+  const [extraEquipmentPrice, setExtraEquipmentPrice] = useState(0); // Extra equipment price
+  const [calculationYear, setCalculationYear] = useState(CURRENT_YEAR); // Calculation year
+  const [firstRegistrationYear, setFirstRegistrationYear] = useState(CURRENT_YEAR); // Registration year
 
-  // Derived values
-  const monthlyKm = Math.round(annualDriving / 12);
-  const workKm = Math.round(homeToWork * 2 * 21); // 21 work days per month
-  const privateKm = monthlyKm - workKm > 0 ? monthlyKm - workKm : 0;
+  // Derived: benefit type for utility
+  const benefitType = calculatorTab;
+
+  // State for results
+  const [results, setResults] = useState<CarBenefitOutput | null>(null);
 
   // Calculate results on input change
   useEffect(() => {
-    if (calculatorTab === "free") {
-      // Free car benefit calculations (example)
-      const taxValue = Math.round(carValue * 0.01 + 300);
-      const netCostPerMonth = Math.round(taxValue * 0.4); // Assuming 40% tax rate
-      const costPerKm = (netCostPerMonth / privateKm).toFixed(2);
+    // Prepare input for utility
+    const input = {
+      calculationYear,
+      firstRegistrationYear,
+      basePrice,
+      extraEquipmentPrice,
+      latestExtraEquipmentYear: CURRENT_YEAR, // Not user-editable in UI, always current year
+      benefitType,
+      isElectric: carType === "electric",
+      isPlugInHybrid: carType === "plugInHybrid",
+    };
+    setResults(calculateCarBenefit(input));
+  }, [calculationYear, firstRegistrationYear, basePrice, extraEquipmentPrice, benefitType, carType]);
 
-      setResults({
-        taxValue,
-        netCostPerMonth,
-        costPerKm: privateKm > 0 ? costPerKm : "0.00",
-        annualTaxCost: taxValue * 12,
-        privateUsePercentage: Math.round((privateKm / monthlyKm) * 100),
-        savings: 0,
-      });
-    } else {
-      // Usage benefit calculations (example)
-      const baseTaxValue = Math.round(carValue * 0.008 + 120);
-      const kmAddition = Math.round(annualDriving * 0.08);
-      const taxValue = baseTaxValue + kmAddition;
-      const netCostPerMonth = Math.round(taxValue * 0.4); // Assuming 40% tax rate
-      const costPerKm = (netCostPerMonth / privateKm).toFixed(2);
-
-      setResults({
-        taxValue,
-        netCostPerMonth,
-        costPerKm: privateKm > 0 ? costPerKm : "0.00",
-        annualTaxCost: taxValue * 12,
-        privateUsePercentage: Math.round((privateKm / monthlyKm) * 100),
-        savings: Math.round(monthlyCost - netCostPerMonth),
-      });
-    }
-  }, [calculatorTab, carValue, monthlyCost, annualDriving, homeToWork, privateKm, monthlyKm]);
+  // Helper: generate year options for selects
+  const yearOptions = Array.from({ length: 7 }, (_, i) => CURRENT_YEAR - i);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-      <Tabs defaultValue="free">
-        <div className="p-6 bg-beige">
-          <h3 className="text-2xl font-bold text-piki mb-4">{t("calculator.selectBenefitType")}</h3>
-          <TabsList className="grid w-full grid-cols-2 mb-2">
-            <TabsTrigger value="free">{t("calculator.tabs.freeBenefit")}</TabsTrigger>
-            <TabsTrigger value="usage">{t("calculator.tabs.usageBenefit")}</TabsTrigger>
-          </TabsList>
-          <div className="text-sm text-gray-600">
-            <InformationCircleIcon className="inline-block h-4 w-4 mr-1" />
-            {t("calculator.benefitTypeDescription")}
+    <Columns columns={{ default: 1, md: 2 }} gaps="large">
+      <Flex direction="column" gaps="large">
+        <Flex direction="column" gaps="small">
+          <Heading3>{t("calculator.selectBenefitType")}</Heading3>
+          <RadioGroup
+            className="flex flex-row gap-4"
+            value={calculatorTab}
+            onValueChange={(value) => setCalculatorTab(value as BenefitType)}
+          >
+            <RadioGroupOption value="useBenefit" label={t("calculator.tabs.usageBenefit")} />
+            <RadioGroupOption value="freeUseBenefit" label={t("calculator.tabs.freeBenefit")} />
+          </RadioGroup>
+        </Flex>
+        <Flex direction="column" gaps="large">
+          {/* Car base price slider */}
+          <Heading3>{t("calculator.inputs.title")}</Heading3>
+          <div>
+            <div className="flex justify-between items-center">
+              <label className="font-medium">{t("calculator.inputs.carValue")}</label>
+              <span className="font-bold text-kupari">
+                {format.number(basePrice, { style: "currency", currency: "EUR", maximumFractionDigits: 0 })}
+              </span>
+            </div>
+            <Slider
+              value={[basePrice]}
+              onValueChange={(val) => setBasePrice(val[0])}
+              min={10000}
+              max={100000}
+              step={1000}
+              className="py-4"
+            />
+            <div className="flex justify-between text-xs">
+              <span>10 000 €</span>
+              <span>100 000 €</span>
+            </div>
           </div>
-        </div>
-
-        <div className="p-8">
-          <TabsContent value="free" className="mt-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-medium text-piki mb-6">{t("calculator.inputs.title")}</h4>
-
-                {/* Car value slider */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.carValue")}</label>
-                    <span className="text-lg font-bold text-kupari">
-                      {format.number(carValue, { style: "currency", currency: "EUR" })}
-                    </span>
-                  </div>
-                  <Slider
-                    value={[carValue]}
-                    onValueChange={(val) => setCarValue(val[0])}
-                    min={10000}
-                    max={100000}
-                    step={1000}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>10 000 €</span>
-                    <span>100 000 €</span>
-                  </div>
-                </div>
-
-                {/* Annual driving slider */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.annualDriving")}</label>
-                    <span className="text-lg font-bold text-kupari">{format.number(annualDriving)} km</span>
-                  </div>
-                  <Slider
-                    value={[annualDriving]}
-                    onValueChange={(val) => setAnnualDriving(val[0])}
-                    min={5000}
-                    max={50000}
-                    step={1000}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>5 000 km</span>
-                    <span>50 000 km</span>
-                  </div>
-                </div>
-
-                {/* Home to work distance slider */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.homeToWork")}</label>
-                    <span className="text-lg font-bold text-kupari">{homeToWork} km</span>
-                  </div>
-                  <Slider
-                    value={[homeToWork]}
-                    onValueChange={(val) => setHomeToWork(val[0])}
-                    min={0}
-                    max={100}
-                    step={1}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>0 km</span>
-                    <span>100 km</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-medium text-piki mb-6">{t("calculator.results.title")}</h4>
-
-                {results && (
-                  <div className="space-y-6">
-                    <div className="bg-beige p-6 rounded-lg text-center">
-                      <div className="text-sm text-gray-700 mb-1">{t("calculator.results.taxableValue")}</div>
-                      <div className="text-3xl font-bold text-piki">
-                        {format.number(results.taxValue, { style: "currency", currency: "EUR" })}
-                        <span className="text-sm font-normal text-gray-600 ml-1">
-                          / {t("calculator.results.month")}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-sm text-gray-700 mb-1">{t("calculator.results.netCost")}</div>
-                        <div className="text-xl font-bold text-piki">
-                          {format.number(results.netCostPerMonth, { style: "currency", currency: "EUR" })}
-                          <span className="text-xs font-normal text-gray-600 ml-1">
-                            / {t("calculator.results.month")}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-sm text-gray-700 mb-1">{t("calculator.results.costPerKm")}</div>
-                        <div className="text-xl font-bold text-piki">
-                          {results.costPerKm} €<span className="text-xs font-normal text-gray-600 ml-1">/ km</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.annualTaxCost")}</span>
-                        <span className="font-medium text-piki">
-                          {format.number(results.annualTaxCost, { style: "currency", currency: "EUR" })}
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.monthlyDriving")}</span>
-                        <span className="font-medium text-piki">{monthlyKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.workDriving")}</span>
-                        <span className="font-medium text-piki">{workKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.privateDriving")}</span>
-                        <span className="font-medium text-piki">{privateKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-700">{t("calculator.results.privateUsePercentage")}</span>
-                        <span className="font-medium text-piki">{results.privateUsePercentage}%</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+          {/* Extra equipment price slider */}
+          <div>
+            <div className="flex justify-between items-center mb-2">
+              <label className="font-medium">{t("calculator.inputs.extraEquipment")}</label>
+              <span className="font-bold text-kupari">
+                {format.number(extraEquipmentPrice, { style: "currency", currency: "EUR", maximumFractionDigits: 0 })}
+              </span>
             </div>
-          </TabsContent>
-
-          <TabsContent value="usage" className="mt-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-medium text-piki mb-6">{t("calculator.inputs.title")}</h4>
-
-                {/* Car value slider */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.carValue")}</label>
-                    <span className="text-lg font-bold text-kupari">
-                      {format.number(carValue, { style: "currency", currency: "EUR" })}
-                    </span>
-                  </div>
-                  <Slider
-                    value={[carValue]}
-                    onValueChange={(val) => setCarValue(val[0])}
-                    min={10000}
-                    max={100000}
-                    step={1000}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>10 000 €</span>
-                    <span>100 000 €</span>
-                  </div>
-                </div>
-
-                {/* Monthly cost slider - only shown for usage benefit */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.monthlyCost")}</label>
-                    <span className="text-lg font-bold text-kupari">
-                      {format.number(monthlyCost, { style: "currency", currency: "EUR" })}
-                    </span>
-                  </div>
-                  <Slider
-                    value={[monthlyCost]}
-                    onValueChange={(val) => setMonthlyCost(val[0])}
-                    min={300}
-                    max={1500}
-                    step={50}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>300 €</span>
-                    <span>1 500 €</span>
-                  </div>
-                </div>
-
-                {/* Annual driving slider */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.annualDriving")}</label>
-                    <span className="text-lg font-bold text-kupari">{format.number(annualDriving)} km</span>
-                  </div>
-                  <Slider
-                    value={[annualDriving]}
-                    onValueChange={(val) => setAnnualDriving(val[0])}
-                    min={5000}
-                    max={50000}
-                    step={1000}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>5 000 km</span>
-                    <span>50 000 km</span>
-                  </div>
-                </div>
-
-                {/* Home to work distance slider */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium text-gray-700">{t("calculator.inputs.homeToWork")}</label>
-                    <span className="text-lg font-bold text-kupari">{homeToWork} km</span>
-                  </div>
-                  <Slider
-                    value={[homeToWork]}
-                    onValueChange={(val) => setHomeToWork(val[0])}
-                    min={0}
-                    max={100}
-                    step={1}
-                    className="py-4"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>0 km</span>
-                    <span>100 km</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-medium text-piki mb-6">{t("calculator.results.title")}</h4>
-
-                {results && (
-                  <div className="space-y-6">
-                    <div className="bg-beige p-6 rounded-lg text-center">
-                      <div className="text-sm text-gray-700 mb-1">{t("calculator.results.monthlySavings")}</div>
-                      <div className="text-3xl font-bold text-piki">
-                        {format.number(results.savings, { style: "currency", currency: "EUR" })}
-                        <span className="text-sm font-normal text-gray-600 ml-1">
-                          / {t("calculator.results.month")}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-sm text-gray-700 mb-1">{t("calculator.results.taxableValue")}</div>
-                        <div className="text-xl font-bold text-piki">
-                          {format.number(results.taxValue, { style: "currency", currency: "EUR" })}
-                          <span className="text-xs font-normal text-gray-600 ml-1">
-                            / {t("calculator.results.month")}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-sm text-gray-700 mb-1">{t("calculator.results.netCost")}</div>
-                        <div className="text-xl font-bold text-piki">
-                          {format.number(results.netCostPerMonth, { style: "currency", currency: "EUR" })}
-                          <span className="text-xs font-normal text-gray-600 ml-1">
-                            / {t("calculator.results.month")}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.annualTaxCost")}</span>
-                        <span className="font-medium text-piki">
-                          {format.number(results.annualTaxCost, { style: "currency", currency: "EUR" })}
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.monthlyDriving")}</span>
-                        <span className="font-medium text-piki">{monthlyKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.workDriving")}</span>
-                        <span className="font-medium text-piki">{workKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-700">{t("calculator.results.privateDriving")}</span>
-                        <span className="font-medium text-piki">{privateKm} km</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-700">{t("calculator.results.privateUsePercentage")}</span>
-                        <span className="font-medium text-piki">{results.privateUsePercentage}%</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+            <Slider
+              value={[extraEquipmentPrice]}
+              onValueChange={(val) => setExtraEquipmentPrice(val[0])}
+              min={0}
+              max={20000}
+              step={500}
+              className="py-4"
+            />
+            <div className="flex justify-between text-xs">
+              <span>0 €</span>
+              <span>20 000 €</span>
             </div>
-          </TabsContent>
-        </div>
-      </Tabs>
+          </div>
 
-      <div className="p-6 bg-gray-50 border-t border-gray-200">
-        <div className="text-center">
-          <Button size="lg" className="bg-kupari hover:bg-kupari/90 text-white px-8" asChild>
-            <Link href={`/${locale}/leasing-solutions`}>{t("calculator.callToAction")}</Link>
-          </Button>
+          {/* Electric/Biogas toggle */}
+          <Flex direction="column" gaps="small">
+            <Heading3>{t("calculator.inputs.engineType")}</Heading3>
+            <RadioGroup
+              value={carType}
+              onValueChange={(value) => setCarType(value as "electric" | "plugInHybrid" | "gasoline")}
+              className="flex flex-row gap-4"
+            >
+              <RadioGroupOption value="gasoline" label={t("calculator.inputs.gasoline")} />
+              <RadioGroupOption value="plugInHybrid" label={t("calculator.inputs.plugInHybrid")} />
+              <RadioGroupOption value="electric" label={t("calculator.inputs.electric")} />
+            </RadioGroup>
+          </Flex>
+          {/* Calculation year select */}
+          <Flex>
+            <div>
+              <label htmlFor="calculationYear" className="text-sm font-medium text-gray-700 block mb-1">
+                {t("calculator.inputs.calculationYear")}
+              </label>
+              <select
+                className="w-full border rounded px-3 py-2"
+                value={calculationYear}
+                onChange={(e) => setCalculationYear(Number(e.target.value))}
+                name="calculationYear"
+              >
+                {yearOptions.map((y) => (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* First registration year select */}
+            <div>
+              <label htmlFor="firstRegistrationYear" className="text-sm font-medium text-gray-700 block mb-1">
+                {t("calculator.inputs.firstRegistrationYear")}
+              </label>
+              <select
+                className="w-full border rounded px-3 py-2"
+                value={firstRegistrationYear}
+                onChange={(e) => setFirstRegistrationYear(Number(e.target.value))}
+                name="firstRegistrationYear"
+              >
+                {yearOptions.map((y) => (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </Flex>
+        </Flex>
+      </Flex>
+      <div className="p-10 self-center align-middle w-full">
+        <div className="bg-white p-10 rounded-lg text-center">
+          <Heading3>{t("calculator.results.taxableValue")}</Heading3>
+          {results && (
+            <div className="text-3xl font-bold text-piki pt-4">
+              {format.number(results.monthlyValue, { style: "currency", currency: "EUR" })}
+              <span className="text-sm font-normal text-gray-600 ml-1">/ {t("calculator.results.month")}</span>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </Columns>
   );
 }

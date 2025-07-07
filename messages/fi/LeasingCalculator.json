@@ -33,7 +33,14 @@
       "homeToWork": "Koti-työmatka (km)",
       "monthlyCost": "Kuukausikustannus (€)",
       "fuelCost": "Polttoaineen hinta (€/litra)",
-      "fuelConsumption": "Polttoaineen kulutus (l/100km)"
+      "fuelConsumption": "Polttoaineen kulutus (l/100km)",
+      "calculationYear": "Laskentavuosi",
+      "firstRegistrationYear": "Ensirekisteröintivuosi",
+      "extraEquipment": "Lisävarusteet (€)",
+      "gasoline": "Bensiini/diesel",
+      "electric": "Sähköauto",
+      "plugInHybrid": "Plug-in hybrid",
+      "engineType": "Käyttövoiman tyyppi"
     },
     "results": {
       "title": "Tulokset",
@@ -59,7 +66,10 @@
       "privateDriving": "Yksityisajokilometrit",
       "privateUsePercentage": "Yksityiskäytön osuus",
       "monthlySavings": "Kuukausisäästöt",
-      "month": "kk"
+      "month": "kk",
+      "ageReduction": "Ikävähennys",
+      "electricBioBenefit": "Sähkö-/biokaasuetu vähennys",
+      "year": "vuosi"
     },
     "freeBenefit": {
       "description": "Vapaa autoetu tarkoittaa, että työnantaja maksaa kaikki autoon liittyvät kustannukset, mukaan lukien yksityisajon polttoaineen.",

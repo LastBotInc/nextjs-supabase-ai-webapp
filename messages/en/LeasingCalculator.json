@@ -33,7 +33,14 @@
       "homeToWork": "Home to Work Distance (km)",
       "monthlyCost": "Monthly Cost (€)",
       "fuelCost": "Fuel Cost (€/liter)",
-      "fuelConsumption": "Fuel Consumption (l/100km)"
+      "fuelConsumption": "Fuel Consumption (l/100km)",
+      "calculationYear": "Calculation Year",
+      "firstRegistrationYear": "First Registration Year",
+      "extraEquipment": "Extra Equipment (€)",
+      "gasoline": "Gasoline Car",
+      "electric": "Electric Car",
+      "plugInHybrid": "Plug-in Hybrid",
+      "engineType": "Engine Type"
     },
     "results": {
       "title": "Results",
@@ -59,7 +66,10 @@
       "privateDriving": "Private Driving",
       "privateUsePercentage": "Private Use Percentage",
       "monthlySavings": "Monthly Savings",
-      "month": "month"
+      "month": "month",
+      "ageReduction": "Age Reduction",
+      "electricBioBenefit": "Electric/Biogas Benefit Deduction",
+      "year": "year"
     },
     "freeBenefit": {
       "description": "Free car benefit means the employer pays for all costs related to the car, including fuel for private use.",
