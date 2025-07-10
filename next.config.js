@@ -194,7 +194,7 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               // Scripts - allow self and specific analytics
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-insights.com https://*.va.vercel-scripts.com https://va.vercel-scripts.com https://*.cloudflare.com https://challenges.cloudflare.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-insights.com https://*.va.vercel-scripts.com https://va.vercel-scripts.com https://*.cloudflare.com https://challenges.cloudflare.com https://*.lastbot.com https://assets.lastbot.com",
               // Styles - allow self and inline styles needed for Next.js
               "style-src 'self' 'unsafe-inline'",
               // Images - allow self, data URLs, and specific domains
@@ -202,13 +202,13 @@ const nextConfig = {
               // Fonts - restrict to self
               "font-src 'self' data: https://fonts.gstatic.com",
               // Connect - allow specific APIs and websockets
-              "connect-src 'self' https://*.vercel-insights.com https://*.va.vercel-scripts.com https://va.vercel-scripts.com https://*.supabase.co https://dnhlnmjbjspbgogkywnf.supabase.co wss://*.supabase.co wss://dnhlnmjbjspbgogkywnf.supabase.co http://127.0.0.1:54321 http://localhost:54321 ws://127.0.0.1:54321 ws://localhost:54321",
+              "connect-src 'self' https://*.vercel-insights.com https://*.va.vercel-scripts.com https://va.vercel-scripts.com https://*.supabase.co https://dnhlnmjbjspbgogkywnf.supabase.co wss://*.supabase.co wss://dnhlnmjbjspbgogkywnf.supabase.co http://127.0.0.1:54321 http://localhost:54321 ws://127.0.0.1:54321 ws://localhost:54321 https://*.lastbot.com wss://*.lastbot.com",
               // Media - allow self and specific domains
               "media-src 'self' blob: data: https://*.lastbot.net https://*.vercel.app http://localhost:* http://127.0.0.1:*",
               // Object - restrict entirely
               "object-src 'none'",
               // Frame - allow self and Cloudflare Turnstile
-              "frame-src 'self' https://challenges.cloudflare.com",
+              "frame-src 'self' https://challenges.cloudflare.com https://*.lastbot.com",
               // Worker - restrict to self
               "worker-src 'self' blob:",
               // Manifest - allow self
@@ -217,6 +217,8 @@ const nextConfig = {
               "form-action 'self'",
               // Base URI - restrict to self
               "base-uri 'self'",
+              // Child src - allow LastBot for iframe/worker content
+              "child-src 'self' https://*.lastbot.com",
             ].join("; "),
           },
           {

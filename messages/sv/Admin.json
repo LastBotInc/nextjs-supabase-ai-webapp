@@ -1,451 +1,94 @@
 {
+  "title": "Adminpanel",
+  "navigation": {
+    "dashboard": "Instrumentpanel",
+    "analytics": "Analys",
+    "blog": "Blogghantering",
+    "contacts": "Kontakter",
+    "translations": "Översättningar",
+    "users": "Användare",
+    "media": "Media",
+    "seo": "SEO",
+    "landing-pages": "Landningssidor",
+    "calendar": "Kalender"
+  },
   "analytics": {
     "title": "Analysinstrumentpanel",
+    "realtime": {
+      "title": "Realtidsaktivitet"
+    },
+    "tables": {
+      "topPages": "Populäraste sidor",
+      "trafficSources": "Trafikkällor"
+    },
     "tabs": {
       "pageViews": "Sidvisningar",
-      "topPages": "Toppsidor"
+      "topPages": "Populäraste sidor",
+      "userAgents": "Användaragenter"
     },
-    "cards": {},
-    "error": {
-      "title": "Analysfel",
-      "description": "Det uppstod ett problem med att ladda analysdata. Försök igen.",
-      "retry": "Försök igen"
+    "userAgents": {
+      "title": "Användaragent-analys",
+      "browsers": "Webbläsarfördelning",
+      "operatingSystems": "Operativsystem",
+      "devices": "Enhetstyper",
+      "versions": "Webbläsarversioner",
+      "insights": "Insikter",
+      "parseButton": "Analysera användaragenter",
+      "parsing": "Analyserar...",
+      "totalRequests": "Totala förfrågningar",
+      "uniqueBrowsers": "Unika webbläsare",
+      "modernBrowsers": "Moderna webbläsare",
+      "desktopUsers": "Skrivbordsanvändare",
+      "mobileUsers": "Mobilanvändare",
+      "botTraffic": "Bot-trafik"
+    }
+  },
+  "blog": {
+    "title": "Blogghantering",
+    "posts": {
+      "title": "Inlägg",
+      "create": "Skapa inlägg",
+      "edit": "Redigera inlägg",
+      "delete": "Radera inlägg",
+      "publish": "Publicera",
+      "unpublish": "Avpublicera",
+      "draft": "Utkast",
+      "published": "Publicerat"
     }
   },
   "contacts": {
-    "title": "Kontaktförfrågningar",
+    "title": "Kontakthantering",
     "table": {
-      "date": "Datum",
       "name": "Namn",
-      "company": "Företag",
       "email": "E-post",
-      "description": "Meddelande",
-      "status": "Status",
+      "phone": "Telefon",
+      "message": "Meddelande",
+      "date": "Datum",
       "actions": "Åtgärder"
-    },
-    "status": {
-      "new": "Ny",
-      "in_progress": "Pågående",
-      "completed": "Slutförd",
-      "archived": "Arkiverad"
-    },
-    "delete": "Ta bort",
-    "deleteConfirmation": "Är du säker på att du vill ta bort denna kontakt? Åtgärden kan inte ångras.",
-    "loading": "Laddar kontakter...",
-    "retry": "Försök igen"
+    }
   },
   "translations": {
-    "shortcuts": {},
-    "table": {},
-    "editor": {
-      "save": "Spara",
-      "saving": "Sparar...",
-      "cancel": "Avbryt",
-      "edit": "Klicka för att redigera",
-      "empty": "Tom",
-      "placeholder": "Ange översättning",
-      "success": "Översättning sparad",
-      "error": "Misslyckades med att spara översättning",
-      "generate": "Generera översättning med AI"
-    },
-    "languages": {
-      "title": "Språk",
-      "addButton": "Lägg till språk",
-      "enabled": "Aktiverad",
-      "disabled": "Inaktiverad",
-      "form": {
-        "code": "Språkkod",
-        "add": "Lägg till språk",
-        "cancel": "Avbryt",
-        "select": "Välj ett språk..."
-      },
-      "addSuccess": "Språk tillagt",
-      "addError": "Misslyckades med att lägga till språk",
-      "enableSuccess": "Språk aktiverat",
-      "disableSuccess": "Språk inaktiverat",
-      "updateError": "Misslyckades med att uppdatera språk",
-      "translationSuccess": "Översättningar genererade",
-      "translationError": "Misslyckades med att generera vissa översättningar",
-      "remove": "Ta bort",
-      "removing": "Tar bort...",
-      "removeSuccess": "Språk borttaget",
-      "removeError": "Misslyckades med att ta bort språk",
-      "removeConfirmTitle": "Ta bort språk",
-      "removeConfirmMessage": "Är du säker på att du vill ta bort detta språk? Detta raderar alla översättningar för detta språk. Åtgärden kan inte ångras.",
-      "removeConfirm": "Ja, ta bort språk"
-    },
-    "search": {
-      "placeholder": "Sök översättningar..."
-    },
-    "generating": "Genererar översättningar..."
+    "title": "Översättningshantering",
+    "generate": "Generera översättningar",
+    "import": "Importera",
+    "export": "Exportera",
+    "sync": "Synkronisera"
   },
   "users": {
     "title": "Användarhantering",
-    "email": "E-post",
-    "id": "ID",
-    "created": "Skapad",
-    "lastSignIn": "Senaste inloggning",
-    "never": "Aldrig",
-    "loading": "Laddar användare...",
-    "retry": "Försök igen",
-    "previous": "Föregående",
-    "next": "Nästa",
-    "page": "Sida"
-  },
-  "products": {
-    "title": "Produkthantering",
-    "description": "Hantera synkroniserade produkter från Shopify ({count} totalt)",
-    "loading": "Laddar produkter...",
-    "retry": "Försök igen",
-    "table": {
-      "title": "Produkt",
-      "vendor": "Leverantör",
-      "type": "Typ",
-      "status": "Status",
-      "shopifyId": "Shopify-ID",
-      "updated": "Senast uppdaterad"
-    },
-    "pagination": {
-      "previous": "Föregående",
-      "next": "Nästa",
-      "page": "Sida {page} av {total}"
-    },
-    "card": {
-      "title": "Produktdetaljer",
-      "description": "Beskrivning",
-      "vendor": "Leverantör",
-      "type": "Produkttyp",
-      "shopifyId": "Shopify-ID",
-      "internalId": "Intern ID",
-      "created": "Skapad",
-      "updated": "Senast uppdaterad",
-      "viewInShopify": "Visa i Shopify",
-      "images": "Bilder",
-      "variants": "Produktvarianter",
-      "loadingVariants": "Laddar varianter...",
-      "noVariants": "Inga varianter hittades för denna produkt",
-      "variantTitle": "Variant",
-      "price": "Pris",
-      "sku": "Artikelnummer",
-      "inventory": "Lager",
-      "shopifyVariantId": "Shopify-variant ID"
-    },
-    "editor": {
-      "selectFromLibrary": "Välj från mediabibliotek",
-      "removeImage": "Ta bort bild",
-      "noImageSelected": "Ingen bild vald",
-      "enterUrlManually": "Eller ange URL manuellt",
-      "selectProductImage": "Välj produktbild"
-    }
-  },
-  "seo": {},
-  "code": {},
-  "calendar": {
-    "title": "Kalenderhantering",
-    "description": "Hantera bokningsbara tider och inställningar",
-    "loading": "Laddar kalender...",
-    "tabs": {
-      "calendar": "Kalender & tider",
-      "settings": "Inställningar",
-      "appointmentTypes": "Bokningstyper"
-    },
-    "slots": {
-      "loading": "Laddar tider...",
-      "availableSlots": "Tillgängliga tider",
-      "createSlots": "Skapa nya tider",
-      "noSlots": "Inga tillgängliga tider för detta datum",
-      "selectDate": "Välj datum",
-      "startDate": "Startdatum",
-      "cancel": "Avboka tid",
-      "endDate": "Slutdatum",
-      "create": "Skapa tider",
-      "creating": "Skapar tider...",
-      "slotDuration": "Tidslängd (minuter)",
-      "bookedSlots": "Bokade tider",
-      "cancelBooking": "Avboka bokning",
-      "slots": "Tider",
-      "status": {},
-      "actions": {
-        "generate": "Generera tillgängliga tider",
-        "generating": "Genererar tider..."
-      }
-    },
-    "settings": {
-      "endTime": "Sluttid",
-      "startTime": "Starttid",
-      "loading": "Laddar inställningar...",
-      "timezone": "Tidszon",
-      "defaultDuration": "Standardlängd för bokning",
-      "bufferBefore": "Bufferttid före",
-      "bufferAfter": "Bufferttid efter",
-      "saving": "Sparar inställningar...",
-      "save": "Spara inställningar",
-      "remove": "Ta bort",
-      "noWorkingDays": "Inga arbetsdagar valda. Klicka på 'Lägg till arbetsdag' för att lägga till tillgängliga timmar.",
-      "addWorkingDay": "Lägg till arbetsdag",
-      "updateSuccess": "Inställningar uppdaterade",
-      "workingHours": "Arbetstider",
-      "day": "Dag",
-      "days": {
-        "monday": "Måndag",
-        "tuesday": "Tisdag",
-        "wednesday": "Onsdag",
-        "thursday": "Torsdag",
-        "friday": "Fredag",
-        "saturday": "Lördag",
-        "sunday": "Söndag"
-      }
-    },
-    "appointmentTypes": {
-      "createNew": "Skapa ny bokningstyp",
-      "noTypes": "Du har inte skapat några bokningstyper ännu",
-      "form": {
-        "name": "Namn",
-        "description": "Beskrivning",
-        "duration": "Längd (minuter)",
-        "isFree": "Detta är en gratis bokningstyp",
-        "price": "Pris (SEK)",
-        "create": "Skapa bokningstyp",
-        "creating": "Skapar...",
-        "edit": "Redigera bokningstyp",
-        "delete": "Ta bort bokningstyp",
-        "isActive": "Aktiv",
-        "slug": "Sökväg"
-      },
-      "status": {
-        "active": "Aktiv",
-        "inactive": "Inaktiv"
-      },
-      "minutes": "minuter",
-      "free": "Gratis",
-      "viewBookingPage": "Visa bokningssida"
-    }
-  },
-  "DataSync": {
-    "title": "Datasynkroniseringshantering",
-    "loadingSources": "Laddar datakällor...",
-    "errorLoading": "Fel vid laddning av datakällor: {message}",
-    "retry": "Försök igen",
-    "refreshList": "Uppdatera lista",
-    "addNewSource": "Lägg till ny källa",
-    "errorFetchingSome": "Misslyckades att hämta vissa datakällor: {message}",
-    "noSourcesFound": "Inga datakällor hittades.",
-    "shopify": {
-      "title": "Shopify-butik",
-      "notConfigured": "Shopify-integration är inte konfigurerad",
-      "configureInstructions": "Konfigurera SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY och SHOPIFY_API_SECRET miljövariabler.",
-      "connectionError": "Fel vid anslutning till Shopify-butik",
-      "connected": "Ansluten",
-      "loading": "Laddar Shopify-information...",
-      "shopName": "Butiksnamn",
-      "domain": "Domän",
-      "productCount": "Antal produkter",
-      "lastSync": "Senaste synkronisering",
-      "never": "Aldrig",
-      "viewProducts": "Visa produkter",
-      "syncNow": "Synkronisera nu",
-      "manageProducts": "Hantera produkter",
-      "syncError": "Misslyckades att synkronisera produkter",
-      "productSync": {
-        "title": "Produktsynkronisering",
-        "syncProducts": "Synkronisera produkter",
-        "fullSync": "Fullständig synkronisering",
-        "syncing": "Synkroniserar...",
-        "description": "Synkronisera produkter från din Shopify-butik till den lokala databasen. Vanlig synkronisering importerar nya/uppdaterade produkter, medan fullständig synkronisering återimporterar alla produkter.",
-        "progress": "Synkroniseringsframsteg:",
-        "total": "Totalt",
-        "created": "Skapade",
-        "updated": "Uppdaterade",
-        "errors": "Fel"
-      },
-      "articleSync": {
-        "title": "Artikelsynkronisering",
-        "description": "Synkronisera artiklar från Shopify-butiken till lokala blogginlägg",
-        "syncButton": "Synkronisera artiklar",
-        "syncing": "Synkroniserar...",
-        "progress": {
-          "titleShopifyToApp": "Artikelsynkroniseringsframsteg (Shopify → App):",
-          "total": "Totalt",
-          "created": "Skapade",
-          "updated": "Uppdaterade",
-          "errors": "Fel"
-        }
-      },
-      "reverseArticleSync": {
-        "title": "Publicera till Shopify",
-        "description": "Synkronisera publicerade blogginlägg från appen till din Shopify-butik",
-        "syncButton": "Publicera till Shopify",
-        "syncing": "Publicerar...",
-        "progress": {
-          "titleAppToShopify": "Artikelsynkroniseringsframsteg (App → Shopify):",
-          "processed": "Bearbetade",
-          "created": "Skapade",
-          "updated": "Uppdaterade",
-          "errors": "Fel"
-        }
-      },
-      "reverseProductSync": {
-        "title": "Publicera produkter till Shopify",
-        "description": "Synkronisera lokala produkter från appen till din Shopify-butik",
-        "syncButton": "Publicera till Shopify",
-        "syncing": "Publicerar...",
-        "progress": {
-          "titleAppToShopify": "Produktsynkroniseringsframsteg (App → Shopify):",
-          "processed": "Bearbetade",
-          "created": "Skapade",
-          "updated": "Uppdaterade",
-          "errors": "Fel"
-        }
-      }
-    },
-    "dataSources": {
-      "title": "Datakällor",
-      "addNew": "Lägg till ny datakälla",
-      "addNewDescription": "Lägg till en ny datakälla genom att ange dess URL",
-      "form": {
-        "url": "Feed-URL",
-        "urlPlaceholder": "https://example.com/products.json",
-        "type": "Källtyp",
-        "typeOptions": {
-          "product_feed": "Produktfeed",
-          "inventory_feed": "Lagerfeed",
-          "customer_data": "Kunddata"
-        },
-        "add": "Lägg till datakälla",
-        "adding": "Lägger till...",
-        "cancel": "Avbryt"
-      },
-      "addSuccess": "Datakälla tillagd framgångsrikt",
-      "addError": "Misslyckades att lägga till datakälla",
-      "urlExists": "Datakälla med denna URL finns redan"
-    },
     "table": {
       "name": "Namn",
-      "identifier": "Identifierare",
-      "type": "Typ",
+      "email": "E-post",
+      "role": "Roll",
       "status": "Status",
-      "lastFetched": "Senast hämtad",
+      "lastLogin": "Senaste inloggning",
       "actions": "Åtgärder"
-    },
-    "unknownStatus": "Okänd",
-    "never": "Aldrig",
-    "syncDisabledInactive": "Synkronisering inaktiverad (inaktiv källa)",
-    "triggerSyncNow": "Utlös synkronisering nu",
-    "triggering": "Utlöser...",
-    "triggerSync": "Synkronisera",
-    "viewDetails": "Visa detaljer",
-    "syncTriggeredSuccessfully": "Synkronisering utlöst framgångsrikt för: {name}",
-    "errors": {
-      "unauthorized": "Obehörig.",
-      "fetchFailed": "Hämtning misslyckades.",
-      "triggerFailed": "Utlösning misslyckades."
-    },
-    "detailTitle": "Datakälldetaljer",
-    "backToList": "Tillbaka till listan",
-    "loadingDetails": "Laddar detaljer...",
-    "errorLoadingDetails": "Fel vid laddning av detaljer: {message}",
-    "notFound": "Datakälla hittades inte.",
-    "sections": {
-      "generalInfo": "Allmän information",
-      "schema": "Upptäckt schema",
-      "rawFeed": "Råfeed",
-      "syncHistory": "Synkroniseringshistorik"
-    },
-    "fields": {
-      "id": "ID",
-      "name": "Namn",
-      "identifier": "Intern identifierare",
-      "feedUrl": "Feed-URL",
-      "feedType": "Feed-typ",
-      "status": "Status",
-      "errorMessage": "Felmeddelande",
-      "createdAt": "Skapad",
-      "updatedAt": "Uppdaterad",
-      "lastFetchedAt": "Senast hämtad",
-      "lastSchemaUpdateAt": "Schema uppdaterat"
-    },
-    "detectedSchema": {
-      "title": "Upptäckt JSON-schema",
-      "empty": "Inget schema upptäckt ännu eller schemat är tomt."
-    },
-    "actions": {
-      "triggerSync": "Utlös synkronisering"
     }
   },
-  "title": "Adminpanel",
-  "welcome": "Välkommen till adminpanelen",
-  "SEO": {
-    "title": "SEO-hantering",
-    "dashboard": "SEO-instrumentpanel",
-    "keywords": {
-      "title": "Nyckelordsforskning",
-      "description": "Upptäck och analysera nyckelord för din SEO-strategi",
-      "research": "Forska nyckelord",
-      "suggestions": "Nyckelordsförslag",
-      "saved": "Sparade nyckelord",
-      "seedKeyword": "Grundnyckelord",
-      "searchVolume": "Sökvolym",
-      "cpc": "CPC",
-      "competition": "Konkurrens",
-      "difficulty": "Svårighet",
-      "intent": "Avsikt",
-      "location": "Plats",
-      "language": "Språk",
-      "researching": "Forskar...",
-      "addKeyword": "Lägg till nyckelord",
-      "noKeywords": "Inga sparade nyckelord ännu. Börja med att forska nyckelord ovan.",
-      "selectProject": "Välj projekt",
-      "enterKeyword": "Ange ett nyckelord att forska...",
-      "ai": {
-        "title": "AI-nyckelordsgenerering",
-        "description": "Låt AI generera relevanta nyckelord baserat på din företagsbeskrivning, målland och befintliga nyckelord.",
-        "companyDescription": "Företags-/domänbeskrivning",
-        "companyDescriptionPlaceholder": "Beskriv ditt företag, produkter eller tjänster för att hjälpa AI att generera bättre nyckelord...",
-        "companyDescriptionHelp": "Anpassa denna beskrivning för att matcha din specifika verksamhet. AI kommer att generera nyckelord på det valda språket för målandet, undvika nyckelord som redan finns i ditt projekt.",
-        "targetLocation": "Målplats för AI-nyckelord",
-        "targetLanguage": "Målspråk för AI-nyckelord",
-        "generateButton": "Generera AI-nyckelord",
-        "generatingButton": "Genererar AI-nyckelord...",
-        "generateCount": "Generera {count} AI-nyckelord",
-        "generating": "Genererar AI-nyckelord...",
-        "success": "Genererade framgångsrikt {count} AI-nyckelord",
-        "error": "AI-nyckelordsgenerering misslyckades"
-      },
-      "locations": {
-        "2840": "Förenta staterna",
-        "2826": "Storbritannien",
-        "2124": "Kanada",
-        "2276": "Tyskland",
-        "2250": "Frankrike",
-        "2752": "Sverige",
-        "2246": "Finland"
-      },
-      "languages": {
-        "en": "Engelska",
-        "fi": "Finska",
-        "sv": "Svenska",
-        "de": "Tyska",
-        "fr": "Franska"
-      },
-      "noProjects": {
-        "title": "Inga SEO-projekt hittades",
-        "description": "Du behöver skapa ett SEO-projekt först innan du kan utföra nyckelordsforskning. Projekt hjälper till att organisera dina nyckelord och spåra deras prestanda.",
-        "createButton": "Skapa ditt första SEO-projekt"
-      },
-      "loading": "Laddar nyckelordsforskningsdata...",
-      "actions": "Åtgärder",
-      "deleteKeyword": "Ta bort",
-      "added": "Tillagd"
-    },
-    "projects": {
-      "title": "SEO-projekt",
-      "new": "Nytt projekt",
-      "select": "Välj ett projekt..."
-    },
-    "serp": {
-      "title": "SERP-analys",
-      "analyzeTooltip": "Analysera live SERP-resultat",
-      "noResults": "Inga organiska SERP-resultat hittades för detta nyckelord."
-    }
+  "media": {
+    "title": "Mediahantering",
+    "upload": "Ladda upp media",
+    "delete": "Radera",
+    "edit": "Redigera"
   }
 }

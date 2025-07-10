@@ -8,6 +8,8 @@ import AnalyticsWrapper from '@/components/analytics/AnalyticsWrapper'
 import { CookieConsentWrapper } from '@/components/cookie-consent-wrapper'
 import FooterWrapper from '@/app/components/FooterWrapper'
 import AIBotMessageWrapper from '@/components/AIBotMessageWrapper'
+import LastBotWidget from '@/components/lastbot/LastBotWidget'
+
 import { cn } from '@/lib/utils'
 
 const geistSans = Geist({
@@ -112,6 +114,7 @@ export default function RootLayout({
           <Toaster />
           <AnalyticsWrapper />
           <CookieConsentWrapper />
+          <LastBotWidget />
         </Providers>
       </body>
     </html>

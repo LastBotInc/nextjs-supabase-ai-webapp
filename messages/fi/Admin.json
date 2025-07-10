@@ -1,451 +1,94 @@
 {
+  "title": "Hallintapaneeli",
+  "navigation": {
+    "dashboard": "Kojelauta",
+    "analytics": "Analytiikka",
+    "blog": "Blogin hallinta",
+    "contacts": "Yhteydenotot",
+    "translations": "Käännökset",
+    "users": "Käyttäjät",
+    "media": "Media",
+    "seo": "SEO",
+    "landing-pages": "Laskeutumissivut",
+    "calendar": "Kalenteri"
+  },
   "analytics": {
-    "title": "Analytiikan hallintapaneeli",
-    "tabs": {
-      "pageViews": "Sivukatselut",
-      "topPages": "Suosituimmat sivut"
+    "title": "Analytiikkakojelauta",
+    "realtime": {
+      "title": "Reaaliaikainen toiminta"
     },
-    "cards": {},
-    "error": {
-      "title": "Analytiikkavirhe",
-      "description": "Analytiikkatietojen lataamisessa tapahtui virhe. Yritä uudelleen.",
-      "retry": "Yritä uudelleen"
+    "tables": {
+      "topPages": "Suosituimmat sivut",
+      "trafficSources": "Liikenteen lähteet"
+    },
+    "tabs": {
+      "pageViews": "Sivunäkymät",
+      "topPages": "Suosituimmat sivut",
+      "userAgents": "Käyttäjäagentit"
+    },
+    "userAgents": {
+      "title": "Käyttäjäagentti-analytiikka",
+      "browsers": "Selainjakauma",
+      "operatingSystems": "Käyttöjärjestelmät",
+      "devices": "Laitetyypit",
+      "versions": "Selainversiot",
+      "insights": "Oivallukset",
+      "parseButton": "Jäsennä käyttäjäagentit",
+      "parsing": "Jäsennetään...",
+      "totalRequests": "Pyynnöt yhteensä",
+      "uniqueBrowsers": "Yksilölliset selaimet",
+      "modernBrowsers": "Modernit selaimet",
+      "desktopUsers": "Työpöytäkäyttäjät",
+      "mobileUsers": "Mobiilikäyttäjät",
+      "botTraffic": "Botti-liikenne"
+    }
+  },
+  "blog": {
+    "title": "Blogin hallinta",
+    "posts": {
+      "title": "Artikkelit",
+      "create": "Luo artikkeli",
+      "edit": "Muokkaa artikkelia",
+      "delete": "Poista artikkeli",
+      "publish": "Julkaise",
+      "unpublish": "Poista julkaisu",
+      "draft": "Luonnos",
+      "published": "Julkaistu"
     }
   },
   "contacts": {
-    "title": "Yhteydenottopyynnöt",
+    "title": "Yhteydenottojen hallinta",
     "table": {
-      "date": "Päivämäärä",
       "name": "Nimi",
-      "company": "Yritys",
       "email": "Sähköposti",
-      "description": "Viesti",
-      "status": "Tila",
+      "phone": "Puhelin",
+      "message": "Viesti",
+      "date": "Päivämäärä",
       "actions": "Toiminnot"
-    },
-    "status": {
-      "new": "Uusi",
-      "in_progress": "Käsittelyssä",
-      "completed": "Valmis",
-      "archived": "Arkistoitu"
-    },
-    "delete": "Poista",
-    "deleteConfirmation": "Haluatko varmasti poistaa tämän yhteydenoton? Toimintoa ei voi peruuttaa.",
-    "loading": "Ladataan yhteydenottoja...",
-    "retry": "Yritä uudelleen"
+    }
   },
   "translations": {
-    "shortcuts": {},
-    "table": {},
-    "editor": {
-      "save": "Tallenna",
-      "saving": "Tallennetaan...",
-      "cancel": "Peruuta",
-      "edit": "Klikkaa muokataksesi",
-      "empty": "Tyhjä",
-      "placeholder": "Syötä käännös",
-      "success": "Käännös tallennettu",
-      "error": "Käännöksen tallennus epäonnistui",
-      "generate": "Generoi käännös tekoälyllä"
-    },
-    "languages": {
-      "title": "Kielet",
-      "addButton": "Lisää kieli",
-      "enabled": "Käytössä",
-      "disabled": "Ei käytössä",
-      "form": {
-        "code": "Kielikoodi",
-        "add": "Lisää kieli",
-        "cancel": "Peruuta",
-        "select": "Valitse kieli..."
-      },
-      "addSuccess": "Kieli lisätty onnistuneesti",
-      "addError": "Kielen lisääminen epäonnistui",
-      "enableSuccess": "Kieli otettu käyttöön",
-      "disableSuccess": "Kieli poistettu käytöstä",
-      "updateError": "Kielen päivitys epäonnistui",
-      "translationSuccess": "Käännökset generoitu onnistuneesti",
-      "translationError": "Joidenkin käännösten generointi epäonnistui",
-      "remove": "Poista",
-      "removing": "Poistetaan...",
-      "removeSuccess": "Kieli poistettu onnistuneesti",
-      "removeError": "Kielen poistaminen epäonnistui",
-      "removeConfirmTitle": "Poista kieli",
-      "removeConfirmMessage": "Haluatko varmasti poistaa tämän kielen? Tämä poistaa kaikki tämän kielen käännökset. Toimintoa ei voi peruuttaa.",
-      "removeConfirm": "Kyllä, poista kieli"
-    },
-    "search": {
-      "placeholder": "Etsi käännöksiä..."
-    },
-    "generating": "Generoidaan käännöksiä..."
+    "title": "Käännösten hallinta",
+    "generate": "Luo käännökset",
+    "import": "Tuo",
+    "export": "Vie",
+    "sync": "Synkronoi"
   },
   "users": {
-    "title": "Käyttäjähallinta",
-    "email": "Sähköposti",
-    "id": "Tunniste",
-    "created": "Luotu",
-    "lastSignIn": "Viimeisin kirjautuminen",
-    "never": "Ei koskaan",
-    "loading": "Ladataan käyttäjiä...",
-    "retry": "Yritä uudelleen",
-    "previous": "Edellinen",
-    "next": "Seuraava",
-    "page": "Sivu"
-  },
-  "products": {
-    "title": "Tuotteiden hallinta",
-    "description": "Hallinnoi synkronoituja tuotteita Shopifysta ({count} yhteensä)",
-    "loading": "Ladataan tuotteita...",
-    "retry": "Yritä uudelleen",
-    "table": {
-      "title": "Tuote",
-      "vendor": "Toimittaja",
-      "type": "Tyyppi",
-      "status": "Tila",
-      "shopifyId": "Shopify-tunniste",
-      "updated": "Viimeksi päivitetty"
-    },
-    "pagination": {
-      "previous": "Edellinen",
-      "next": "Seuraava",
-      "page": "Sivu {page} / {total}"
-    },
-    "card": {
-      "title": "Tuotteen tiedot",
-      "description": "Kuvaus",
-      "vendor": "Toimittaja",
-      "type": "Tuotetyyppi",
-      "shopifyId": "Shopify-tunniste",
-      "internalId": "Sisäinen tunniste",
-      "created": "Luotu",
-      "updated": "Viimeksi päivitetty",
-      "viewInShopify": "Näytä Shopifyssa",
-      "images": "Kuvat",
-      "variants": "Tuotevariantit",
-      "loadingVariants": "Ladataan variantteja...",
-      "noVariants": "Tälle tuotteelle ei löytynyt variantteja",
-      "variantTitle": "Variantti",
-      "price": "Hinta",
-      "sku": "Tuotekoodi",
-      "inventory": "Varasto",
-      "shopifyVariantId": "Shopify-variantti ID"
-    },
-    "editor": {
-      "selectFromLibrary": "Valitse mediakirjastosta",
-      "removeImage": "Poista kuva",
-      "noImageSelected": "Kuvaa ei valittu",
-      "enterUrlManually": "Tai syötä URL-osoite manuaalisesti",
-      "selectProductImage": "Valitse tuotekuva"
-    }
-  },
-  "seo": {},
-  "code": {},
-  "calendar": {
-    "title": "Kalenterinhallinta",
-    "description": "Hallinnoi varattavia aikoja ja asetuksia",
-    "loading": "Ladataan kalenteria...",
-    "tabs": {
-      "calendar": "Kalenteri & ajat",
-      "settings": "Asetukset",
-      "appointmentTypes": "Varaustyypit"
-    },
-    "slots": {
-      "loading": "Ladataan aikoja...",
-      "availableSlots": "Vapaat ajat",
-      "createSlots": "Luo uusia aikoja",
-      "noSlots": "Ei vapaita aikoja tälle päivälle",
-      "selectDate": "Valitse päivä",
-      "startDate": "Alkupäivä",
-      "cancel": "Peruuta aika",
-      "endDate": "Loppupäivä",
-      "create": "Luo ajat",
-      "creating": "Luodaan aikoja...",
-      "slotDuration": "Ajan kesto (minuutit)",
-      "bookedSlots": "Varatut ajat",
-      "cancelBooking": "Peruuta varaus",
-      "slots": "Ajat",
-      "status": {},
-      "actions": {
-        "generate": "Generoi vapaita aikoja",
-        "generating": "Generoidaan aikoja..."
-      }
-    },
-    "settings": {
-      "endTime": "Päättymisaika",
-      "startTime": "Alkamisaika",
-      "loading": "Ladataan asetuksia...",
-      "timezone": "Aikavyöhyke",
-      "defaultDuration": "Oletuskesto varaukselle",
-      "bufferBefore": "Puskuriaika ennen",
-      "bufferAfter": "Puskuriaika jälkeen",
-      "saving": "Tallennetaan asetuksia...",
-      "save": "Tallenna asetukset",
-      "remove": "Poista",
-      "noWorkingDays": "Työpäiviä ei valittu. Klikkaa 'Lisää työpäivä' lisätäksesi käytettävissä olevia tunteja.",
-      "addWorkingDay": "Lisää työpäivä",
-      "updateSuccess": "Asetukset päivitetty onnistuneesti",
-      "workingHours": "Työaika",
-      "day": "Päivä",
-      "days": {
-        "monday": "Maanantai",
-        "tuesday": "Tiistai",
-        "wednesday": "Keskiviikko",
-        "thursday": "Torstai",
-        "friday": "Perjantai",
-        "saturday": "Lauantai",
-        "sunday": "Sunnuntai"
-      }
-    },
-    "appointmentTypes": {
-      "createNew": "Luo uusi varaustyyppi",
-      "noTypes": "Et ole luonut vielä varaustyyppejä",
-      "form": {
-        "name": "Nimi",
-        "description": "Kuvaus",
-        "duration": "Kesto (minuutit)",
-        "isFree": "Tämä on ilmainen varaustyyppi",
-        "price": "Hinta (€)",
-        "create": "Luo varaustyyppi",
-        "creating": "Luodaan...",
-        "edit": "Muokkaa varaustyyppiä",
-        "delete": "Poista varaustyyppi",
-        "isActive": "Aktiivinen",
-        "slug": "Polkutunniste"
-      },
-      "status": {
-        "active": "Aktiivinen",
-        "inactive": "Ei-aktiivinen"
-      },
-      "minutes": "minuuttia",
-      "free": "Ilmainen",
-      "viewBookingPage": "Näytä varaussivu"
-    }
-  },
-  "DataSync": {
-    "title": "Tietosynkronoinnin hallinta",
-    "loadingSources": "Ladataan tietolähteitä...",
-    "errorLoading": "Virhe ladattaessa tietolähteitä: {message}",
-    "retry": "Yritä uudelleen",
-    "refreshList": "Päivitä lista",
-    "addNewSource": "Lisää uusi lähde",
-    "errorFetchingSome": "Joidenkin tietolähteiden lataus epäonnistui: {message}",
-    "noSourcesFound": "Tietolähteitä ei löytynyt.",
-    "shopify": {
-      "title": "Shopify-kauppa",
-      "notConfigured": "Shopify-integraatio ei ole määritetty",
-      "configureInstructions": "Määritä SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY ja SHOPIFY_API_SECRET ympäristömuuttujat.",
-      "connectionError": "Virhe yhdistettäessä Shopify-kauppaan",
-      "connected": "Yhdistetty",
-      "loading": "Ladataan Shopify-tietoja...",
-      "shopName": "Kaupan nimi",
-      "domain": "Verkkotunnus",
-      "productCount": "Tuotteiden määrä",
-      "lastSync": "Viimeisin synkronointi",
-      "never": "Ei koskaan",
-      "viewProducts": "Näytä tuotteet",
-      "syncNow": "Synkronoi nyt",
-      "manageProducts": "Hallinnoi tuotteita",
-      "syncError": "Tuotteiden synkronointi epäonnistui",
-      "productSync": {
-        "title": "Tuotesynkronointi",
-        "syncProducts": "Synkronoi tuotteet",
-        "fullSync": "Täysi synkronointi",
-        "syncing": "Synkronoidaan...",
-        "description": "Synkronoi tuotteet Shopify-kaupastasi paikalliseen tietokantaan. Tavallinen synkronointi tuo uudet/päivitetyt tuotteet, kun taas täysi synkronointi tuo kaikki tuotteet uudelleen.",
-        "progress": "Synkronoinnin edistyminen:",
-        "total": "Yhteensä",
-        "created": "Luotu",
-        "updated": "Päivitetty",
-        "errors": "Virheet"
-      },
-      "articleSync": {
-        "title": "Artikkelisynkronointi",
-        "description": "Synkronoi artikkelit Shopify-kaupasta paikallisiin blogikirjoituksiin",
-        "syncButton": "Synkronoi artikkelit",
-        "syncing": "Synkronoidaan...",
-        "progress": {
-          "titleShopifyToApp": "Artikkelisynkronoinnin edistyminen (Shopify → Sovellus):",
-          "total": "Yhteensä",
-          "created": "Luotu",
-          "updated": "Päivitetty",
-          "errors": "Virheet"
-        }
-      },
-      "reverseArticleSync": {
-        "title": "Julkaise Shopifyhin",
-        "description": "Synkronoi julkaistut blogikirjoitukset sovelluksesta Shopify-kauppaasi",
-        "syncButton": "Julkaise Shopifyhin",
-        "syncing": "Julkaistaan...",
-        "progress": {
-          "titleAppToShopify": "Artikkelisynkronoinnin edistyminen (Sovellus → Shopify):",
-          "processed": "Käsitelty",
-          "created": "Luotu",
-          "updated": "Päivitetty",
-          "errors": "Virheet"
-        }
-      },
-      "reverseProductSync": {
-        "title": "Julkaise tuotteet Shopifyhin",
-        "description": "Synkronoi paikalliset tuotteet sovelluksesta Shopify-kauppaasi",
-        "syncButton": "Julkaise Shopifyhin",
-        "syncing": "Julkaistaan...",
-        "progress": {
-          "titleAppToShopify": "Tuotesynkronoinnin edistyminen (Sovellus → Shopify):",
-          "processed": "Käsitelty",
-          "created": "Luotu",
-          "updated": "Päivitetty",
-          "errors": "Virheet"
-        }
-      }
-    },
-    "dataSources": {
-      "title": "Tietolähteet",
-      "addNew": "Lisää uusi tietolähde",
-      "addNewDescription": "Lisää uusi tietolähde syöttämällä sen URL-osoite",
-      "form": {
-        "url": "Syötteen URL",
-        "urlPlaceholder": "https://example.com/products.json",
-        "type": "Lähteen tyyppi",
-        "typeOptions": {
-          "product_feed": "Tuotesyöte",
-          "inventory_feed": "Varastosyöte",
-          "customer_data": "Asiakastiedot"
-        },
-        "add": "Lisää tietolähde",
-        "adding": "Lisätään...",
-        "cancel": "Peruuta"
-      },
-      "addSuccess": "Tietolähde lisätty onnistuneesti",
-      "addError": "Tietolähteen lisääminen epäonnistui",
-      "urlExists": "Tietolähde tällä URL-osoitteella on jo olemassa"
-    },
+    "title": "Käyttäjien hallinta",
     "table": {
       "name": "Nimi",
-      "identifier": "Tunniste",
-      "type": "Tyyppi",
+      "email": "Sähköposti",
+      "role": "Rooli",
       "status": "Tila",
-      "lastFetched": "Viimeksi haettu",
+      "lastLogin": "Viimeisin kirjautuminen",
       "actions": "Toiminnot"
-    },
-    "unknownStatus": "Tuntematon",
-    "never": "Ei koskaan",
-    "syncDisabledInactive": "Synkronointi pois käytöstä (ei-aktiivinen lähde)",
-    "triggerSyncNow": "Käynnistä synkronointi nyt",
-    "triggering": "Käynnistetään...",
-    "triggerSync": "Synkronoi",
-    "viewDetails": "Näytä tiedot",
-    "syncTriggeredSuccessfully": "Synkronointi käynnistetty onnistuneesti lähteelle: {name}",
-    "errors": {
-      "unauthorized": "Ei valtuuksia.",
-      "fetchFailed": "Nouto epäonnistui.",
-      "triggerFailed": "Käynnistys epäonnistui."
-    },
-    "detailTitle": "Tietolähteen tiedot",
-    "backToList": "Takaisin listaan",
-    "loadingDetails": "Ladataan tietoja...",
-    "errorLoadingDetails": "Virhe ladattaessa tietoja: {message}",
-    "notFound": "Tietolähdettä ei löytynyt.",
-    "sections": {
-      "generalInfo": "Yleistiedot",
-      "schema": "Havaittu skeema",
-      "rawFeed": "Raakasyöte",
-      "syncHistory": "Synkronointihistoria"
-    },
-    "fields": {
-      "id": "Tunniste (ID)",
-      "name": "Nimi",
-      "identifier": "Sisäinen tunniste",
-      "feedUrl": "Syötteen URL",
-      "feedType": "Syötteen tyyppi",
-      "status": "Tila",
-      "errorMessage": "Virheviesti",
-      "createdAt": "Luotu",
-      "updatedAt": "Päivitetty",
-      "lastFetchedAt": "Viimeksi haettu",
-      "lastSchemaUpdateAt": "Skeema päivitetty"
-    },
-    "detectedSchema": {
-      "title": "Havaittu JSON-skeema",
-      "empty": "Skeemaa ei ole vielä havaittu tai se on tyhjä."
-    },
-    "actions": {
-      "triggerSync": "Käynnistä synkronointi"
     }
   },
-  "title": "Hallintapaneeli",
-  "welcome": "Tervetuloa hallintapaneeliin",
-  "SEO": {
-    "title": "SEO-hallinta",
-    "dashboard": "SEO-kojelauta",
-    "keywords": {
-      "title": "Avainsanatutkimus",
-      "description": "Löydä ja analysoi avainsanoja SEO-strategiaasi varten",
-      "research": "Tutki avainsanoja",
-      "suggestions": "Avainsanaehdotukset",
-      "saved": "Tallennetut avainsanat",
-      "seedKeyword": "Lähtöavainsana",
-      "searchVolume": "Hakumäärä",
-      "cpc": "CPC",
-      "competition": "Kilpailu",
-      "difficulty": "Vaikeus",
-      "intent": "Tarkoitus",
-      "location": "Sijainti",
-      "language": "Kieli",
-      "researching": "Tutkitaan...",
-      "addKeyword": "Lisää avainsana",
-      "noKeywords": "Ei tallennettuja avainsanoja vielä. Aloita tutkimalla avainsanoja yllä.",
-      "selectProject": "Valitse projekti",
-      "enterKeyword": "Syötä tutkittava avainsana...",
-      "ai": {
-        "title": "Tekoälyavainsanojen generointi",
-        "description": "Anna tekoälyn generoida relevantteja avainsanoja yrityskuvauksen, kohdemaan ja olemassa olevien avainsanojen perusteella.",
-        "companyDescription": "Yritys-/verkkotunnuskuvaus",
-        "companyDescriptionPlaceholder": "Kuvaile yritystäsi, tuotteitasi tai palveluitasi auttaaksesi tekoälyä generoimaan parempia avainsanoja...",
-        "companyDescriptionHelp": "Mukauta tämä kuvaus vastaamaan omaa liiketoimintaasi. Tekoäly generoi avainsanoja valitulla kielellä kohdemaan mukaan, välttäen projektissasi jo olevia avainsanoja.",
-        "targetLocation": "Kohdesijainti tekoälyavainsanoille",
-        "targetLanguage": "Kohdekieli tekoälyavainsanoille",
-        "generateButton": "Generoi tekoälyavainsanoja",
-        "generatingButton": "Generoidaan tekoälyavainsanoja...",
-        "generateCount": "Generoi {count} tekoälyavainsanaa",
-        "generating": "Generoidaan tekoälyavainsanoja...",
-        "success": "Generoitiin onnistuneesti {count} tekoälyavainsanaa",
-        "error": "Tekoälyavainsanojen generointi epäonnistui"
-      },
-      "locations": {
-        "2840": "Yhdysvallat",
-        "2826": "Yhdistynyt kuningaskunta",
-        "2124": "Kanada",
-        "2276": "Saksa",
-        "2250": "Ranska",
-        "2752": "Ruotsi",
-        "2246": "Suomi"
-      },
-      "languages": {
-        "en": "Englanti",
-        "fi": "Suomi",
-        "sv": "Ruotsi",
-        "de": "Saksa",
-        "fr": "Ranska"
-      },
-      "noProjects": {
-        "title": "SEO-projekteja ei löytynyt",
-        "description": "Sinun täytyy luoda SEO-projektisi ennen kuin voit tehdä avainsanatutkimusta. Projektit auttavat järjestämään avainsanojasi ja seuraamaan niiden suorituskykyä.",
-        "createButton": "Luo ensimmäinen SEO-projektisi"
-      },
-      "loading": "Ladataan avainsanatutkimustietoja...",
-      "actions": "Toiminnot",
-      "deleteKeyword": "Poista",
-      "added": "Lisätty",
-      "serp": {
-        "title": "SERP-analyysi",
-        "analyzeTooltip": "Analysoi live SERP-tulokset",
-        "noResults": "Tälle avainsanalle ei löytynyt orgaanisia SERP-tuloksia."
-      }
-    },
-    "projects": {
-      "title": "SEO-projektit",
-      "new": "Uusi projekti",
-      "select": "Valitse projekti..."
-    }
+  "media": {
+    "title": "Median hallinta",
+    "upload": "Lataa media",
+    "delete": "Poista",
+    "edit": "Muokkaa"
   }
 }

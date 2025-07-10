@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { initAnalytics, trackPageView } from '@/lib/analytics'
+import { initAnalytics, trackPageView, setupAutoTracking } from '@/lib/analytics'
 import { useDedupingEffect } from '@/lib/utils/deduplication'
 
 export default function AnalyticsInitializer() {
   const isInitialized = useRef(false)
+  const isAutoTrackingSetup = useRef(false)
 
   // Use dedupingEffect for initialization
   useDedupingEffect(() => {
@@ -19,6 +20,12 @@ export default function AnalyticsInitializer() {
         // Track initial page view
         await trackPageView()
 
+        // Setup auto-tracking for interactions
+        if (!isAutoTrackingSetup.current) {
+          setupAutoTracking()
+          isAutoTrackingSetup.current = true
+        }
+
         // Setup page view tracking for route changes
         const handleRouteChange = () => {
           if (isInitialized.current) {
@@ -29,9 +36,25 @@ export default function AnalyticsInitializer() {
         // Add route change listener
         window.addEventListener('popstate', handleRouteChange)
         
+        // Track navigation API changes (for SPA routing)
+        const originalPushState = history.pushState
+        const originalReplaceState = history.replaceState
+
+        history.pushState = function(...args) {
+          originalPushState.apply(history, args)
+          setTimeout(() => handleRouteChange(), 0)
+        }
+
+        history.replaceState = function(...args) {
+          originalReplaceState.apply(history, args)
+          setTimeout(() => handleRouteChange(), 0)
+        }
+        
         // Cleanup
         return () => {
           window.removeEventListener('popstate', handleRouteChange)
+          history.pushState = originalPushState
+          history.replaceState = originalReplaceState
         }
       } catch (error) {
         console.error('Analytics initialization failed:', error)

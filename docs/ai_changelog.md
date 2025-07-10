@@ -1,5 +1,188 @@
 # AI Changelog
 
+## Recent Changes
+
+### 2025-01-10 - LastBot Chat Widget Integration
+- **Added LastBot chat widget support** to the application
+- **Created LastBotWidget component** (`components/lastbot/LastBotWidget.tsx`) with configurable environment variables
+- **Updated Content Security Policy** in `next.config.js` to allow LastBot domains:
+  - Added `https://*.lastbot.com` and `https://assets.lastbot.com` to script-src
+  - Added `https://*.lastbot.com` and `wss://*.lastbot.com` to connect-src
+  - Added `https://*.lastbot.com` to frame-src and child-src
+- **Environment variables added**:
+  - `NEXT_PUBLIC_ENABLE_LASTBOT_ONE` - Boolean to enable/disable widget
+  - `NEXT_PUBLIC_LASTBOT_BASE_URL` - Base URL for LastBot widgets
+  - `NEXT_PUBLIC_LASTBOT_WIDGET_ID` - Unique widget identifier
+- **Integrated widget into root layout** for global availability on public pages
+- **Added comprehensive unit tests** for the LastBot widget component
+- **Widget features**:
+  - Conditional rendering based on environment variables
+  - Automatic script loading with error handling
+  - Configurable widget properties (auto-open, fullscreen, etc.)
+  - Development-only debug logging
+
+## 2025-01-10 - Comprehensive User Agent Analytics Implementation
+
+### Added
+- **User Agent Parser Library** (`lib/user-agent-parser.ts`):
+  - Comprehensive user agent string parsing using `ua-parser-js`
+  - Browser, OS, device type, and engine detection
+  - Bot/crawler detection with 15+ indicators
+  - Device type classification (mobile, tablet, desktop)
+  - Browser version analysis and "modern browser" detection
+  - Geographic and architecture information extraction
+  - Diversity index calculations for analytics insights
+
+- **User Agent Analytics API** (`app/api/analytics/user-agents/route.ts`):
+  - GET endpoint for user agent analytics with date range filtering
+  - POST endpoint for individual user agent parsing
+  - Batch parsing and database update functionality
+  - Chart-ready data formatting for browsers, OS, devices, and versions
+  - Time series analysis for browser/device diversity trends
+  - Comprehensive insights calculation (diversity, modern browser %, etc.)
+
+- **User Agent Analytics Dashboard** (`app/[locale]/admin/analytics/user-agents.tsx`):
+  - Complete analytics dashboard with 8 different chart types
+  - Pie chart for browser distribution
+  - Bar chart for operating systems
+  - Custom device type visualization with progress bars
+  - Horizontal bar chart for browser versions
+  - Time series chart for diversity trends over time
+  - Key metrics cards with real-time data
+  - Parse user agents button for database updates
+  - Loading states and empty state handling
+  - Responsive design with grid layouts
+
+- **Analytics Dashboard Integration**:
+  - Added "User Agents" tab to main analytics dashboard
+  - Integrated with existing date range selection
+  - Consistent styling with other analytics components
+  - Real-time refresh capabilities
+
+- **Comprehensive Translations**:
+  - English, Finnish, and Swedish translations for all UI elements
+  - Culturally appropriate terminology for each language
+  - Technical terms properly localized
+
+### Technical Features
+- **Advanced User Agent Analysis**:
+  - Simpson's Diversity Index for browser ecosystem measurement
+  - Modern browser percentage calculation
+  - Bot traffic detection and filtering
+  - Device vendor and model identification
+  - CPU architecture detection
+  - Screen resolution and connection type analysis
+
+- **Performance Optimizations**:
+  - Batch processing for database updates
+  - Efficient chart data formatting
+  - Loading skeletons for better UX
+  - Lazy loading for large datasets
+
+- **Data Insights**:
+  - Browser market share analysis
+  - Operating system distribution
+  - Device type trends
+  - Version fragmentation analysis
+  - Geographic technology adoption patterns
+
+### Database Integration
+- Seamless integration with existing `analytics_events` table
+- Automatic parsing of existing user agent strings
+- Real-time data updates and visualization
+- Support for historical trend analysis
+
+### Dependencies Added
+- `ua-parser-js`: User agent string parsing
+- `@types/ua-parser-js`: TypeScript definitions
+- Enhanced Recharts usage for specialized charts
+
+This implementation provides comprehensive user agent analytics comparable to Google Analytics, with detailed browser, OS, and device insights, trend analysis, and actionable business intelligence for understanding your website's audience technology preferences.
+
+## 2025-01-10 - Enhanced Analytics Dashboard with Charts and Date Selection
+
+### Added
+- **Interactive Charts**: Added comprehensive chart visualizations using Recharts library
+  - Area chart for page views over time with gradient fills
+  - Horizontal bar chart for top pages performance
+  - Pie chart for traffic sources distribution
+  - Donut chart for device types breakdown
+  - Line chart for engagement metrics trends
+- **Enhanced Date Selection**: Added comprehensive date range selector with options:
+  - Last Hour, Last 24 Hours, Last 7 Days, Last 30 Days, Last 90 Days, Last Year
+- **Empty State Handling**: Added proper empty states for all charts when no data is available
+- **Real Data Integration**: Fixed all charts to use only real database data instead of mock data
+
+### Fixed
+- **Removed Mock Data**: Eliminated all random/fake data generation from charts
+- **Proper Loading States**: Added skeleton loading for better UX
+- **Metric Cards**: Removed fake percentage changes, showing only real metrics
+- **Translation Updates**: Added comprehensive translations for analytics features
+
+### Enhanced
+- **Chart Interactions**: Added tooltips, legends, and responsive containers
+- **Visual Design**: Consistent color schemes and professional styling
+- **Performance**: Optimized chart rendering and data processing
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+
+The analytics dashboard now provides accurate, real-time insights with professional-grade visualizations and comprehensive user agent analysis capabilities.
+
+## 2025-01-10 - Analytics System Phase 1 Implementation
+
+### Database Schema Enhancement
+- **Extended analytics_events table** with 20+ new columns for comprehensive tracking:
+  - Event categorization (event_category, event_action, event_label)
+  - Page metadata (page_title, page_load_time)
+  - Device information (browser, os, device_type, screen_resolution)
+  - Geographic data (region, timezone)
+  - Engagement metrics (scroll_depth, time_on_page)
+  - E-commerce tracking (revenue, currency, items)
+  - Custom dimensions and metrics support
+- **Enhanced analytics_sessions table** with engagement scoring
+- **Real-time views** (analytics_realtime, analytics_active_sessions)
+- **Materialized view** (analytics_hourly_stats) for performance
+- **Database functions** for engagement scoring and automated triggers
+- **Comprehensive indexes** for query performance optimization
+
+### Analytics Library Rewrite
+- **Complete rewrite** of `lib/analytics.ts` with Google Analytics 4-like capabilities
+- **Enhanced event tracking** with categories, actions, labels, and custom dimensions
+- **Scroll depth tracking** with milestone events (25%, 50%, 75%, 100%)
+- **Time-on-page measurements** using Page Visibility API for accuracy
+- **Advanced device detection** (browser, OS, screen resolution, connection type)
+- **Geographic tracking** with timezone and region detection
+- **Specialized tracking functions**:
+  - `trackClick()` - Link and button interactions
+  - `trackFormSubmit()` - Form completion tracking
+  - `trackDownload()` - File download events
+  - `trackVideoPlay()` - Media engagement
+  - `trackSearch()` - Search query tracking
+  - `trackPurchase()` - E-commerce transactions
+  - `trackCustomEvent()` - Flexible custom events
+- **Auto-tracking setup** for common user interactions
+- **Enhanced session management** with 30-minute expiration
+- **Reliable page unload tracking** using sendBeacon API
+- **SPA route change detection** for Next.js navigation
+
+### API Endpoints Enhancement
+- **Updated event tracking API** (`app/api/analytics/events/route.ts`) to handle enhanced properties
+- **Enhanced session API** (`app/api/analytics/sessions/route.ts`) for new session data
+- **New real-time API** (`app/api/analytics/realtime/route.ts`) for live analytics
+- **Comprehensive error handling** and validation
+- **TypeScript type safety** throughout the API layer
+
+### Component Updates
+- **Enhanced AnalyticsInitializer** with new tracking capabilities
+- **Auto-tracking setup** for common interactions
+- **SPA navigation detection** for accurate page view tracking
+- **Updated analytics services** with comprehensive data fetching
+
+### Database Type Generation
+- **Generated updated TypeScript types** from enhanced schema using Supabase CLI
+- **Type-safe database operations** throughout the application
+
+This implementation establishes a robust foundation for advanced analytics comparable to Google Analytics 4, with comprehensive event tracking, real-time capabilities, and extensive customization options.
+
 ## 2025-05-03
 - **Feat:** Updated translations admin page namespace mappings:
   - Cleaned up namespace mappings in the translations admin page to only include existing namespaces

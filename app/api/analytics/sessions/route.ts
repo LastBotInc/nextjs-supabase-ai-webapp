@@ -20,10 +20,11 @@ export async function POST(request: Request) {
       .maybeSingle()
 
     if (existingSession) {
+      console.log('📊 Session already exists:', session.id)
       return NextResponse.json({ success: true, existing: true })
     }
 
-    // Insert new session
+    // Insert new session with enhanced properties
     const { error } = await supabase
       .from('analytics_sessions')
       .insert({
@@ -33,8 +34,17 @@ export async function POST(request: Request) {
         referrer: session.referrer,
         user_agent: session.user_agent,
         device_type: session.device_type,
+        browser: session.browser,
+        os: session.os,
+        screen_resolution: session.screen_resolution,
         country: session.country,
-        city: session.city
+        region: session.region,
+        city: session.city,
+        timezone: session.timezone,
+        session_duration: session.session_duration || 0,
+        page_views: session.page_views || 0,
+        is_engaged: session.is_engaged || false,
+        engagement_score: session.engagement_score || 0.0
       })
 
     if (error) {
@@ -44,6 +54,13 @@ export async function POST(request: Request) {
         { status: 500 }
       )
     }
+
+    console.log('✅ Enhanced session created successfully:', {
+      id: session.id,
+      first_page: session.first_page,
+      device: session.device_type,
+      browser: session.browser
+    })
 
     return NextResponse.json({ success: true, new: true })
   } catch (error) {

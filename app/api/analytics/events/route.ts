@@ -15,21 +15,40 @@ export async function POST(request: Request) {
     // Create Supabase client
     const supabase = await createClient(undefined, true)
 
-    // Insert event with batching
+    // Insert event with enhanced properties
     const { error } = await supabase
       .from('analytics_events')
       .insert({
         event_type: event.event_type,
+        event_category: event.event_category,
+        event_action: event.event_action,
+        event_label: event.event_label,
         page_url: event.page_url,
+        page_title: event.page_title,
         session_id: event.session_id,
         locale: event.locale,
         user_id: event.user_id,
         referrer: event.referrer,
         user_agent: event.user_agent,
         device_type: event.device_type,
+        browser: event.browser,
+        os: event.os,
+        screen_resolution: event.screen_resolution,
         country: event.country,
+        region: event.region,
         city: event.city,
-        metadata: event.metadata
+        timezone: event.timezone,
+        scroll_depth: event.scroll_depth,
+        time_on_page: event.time_on_page,
+        is_bounce: event.is_bounce,
+        page_load_time: event.page_load_time,
+        connection_type: event.connection_type,
+        custom_dimensions: event.custom_dimensions || {},
+        custom_metrics: event.custom_metrics || {},
+        transaction_id: event.transaction_id,
+        revenue: event.revenue,
+        currency: event.currency,
+        items: event.items || []
       })
 
     if (error) {
@@ -39,6 +58,14 @@ export async function POST(request: Request) {
         { status: 500 }
       )
     }
+
+    console.log('✅ Enhanced event tracked successfully:', {
+      type: event.event_type,
+      category: event.event_category,
+      action: event.event_action,
+      page: event.page_url,
+      session: event.session_id
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {
