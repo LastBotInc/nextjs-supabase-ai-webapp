@@ -111,7 +111,7 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
 
   const MenuBar = () => {
     return (
-      <div className="border-b border-gray-200 dark:border-gray-700 mb-4 pb-2 flex flex-wrap gap-2">
+      <div className="border-b border-gray-200 dark:border-gray-600 mb-4 pb-2 flex flex-wrap gap-2">
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleMark('bold').run()}
@@ -210,11 +210,39 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
   }
 
   return (
-    <div className="prose dark:prose-invert max-w-none border rounded-lg p-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-      <MenuBar />
+    <div 
+      className="rich-text-editor border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+      style={{
+        '--editor-text-color': '#111827',
+        '--editor-bg-color': 'white'
+      } as React.CSSProperties}
+    >
+      <div className="p-4 border-b border-gray-200 dark:border-gray-600">
+        <MenuBar />
+      </div>
       <EditorContent
         editor={editor}
-        className="min-h-[200px] focus:outline-none mt-4 prose-sm sm:prose lg:prose-lg xl:prose-xl [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mb-4 [&_h2]:mt-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2 [&_blockquote]:border-l-4 [&_blockquote]:border-gray-300 [&_blockquote:dark]:border-gray-600 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-4 [&_pre]:bg-gray-100 [&_pre:dark]:bg-gray-700 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:my-4 [&_code]:bg-gray-100 [&_code:dark]:bg-gray-700 [&_code]:rounded [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm"
+        className="min-h-[200px] p-4 focus:outline-none prose prose-gray dark:prose-invert max-w-none
+          [&_.ProseMirror]:!text-gray-900 [&_.ProseMirror]:dark:!text-gray-100
+          [&_.ProseMirror]:!bg-transparent
+          [&_.ProseMirror]:focus:outline-none
+          [&_.ProseMirror]:font-normal [&_.ProseMirror]:leading-relaxed
+          [&_.ProseMirror_*]:!text-gray-900 [&_.ProseMirror_*]:dark:!text-gray-100
+          [&_.ProseMirror_p]:!text-gray-900 [&_.ProseMirror_p]:dark:!text-gray-100 [&_.ProseMirror_p]:leading-relaxed
+          [&_.ProseMirror_div]:!text-gray-900 [&_.ProseMirror_div]:dark:!text-gray-100
+          [&_.ProseMirror_span]:!text-gray-900 [&_.ProseMirror_span]:dark:!text-gray-100
+          [&_.ProseMirror_h1]:!text-gray-900 [&_.ProseMirror_h1]:dark:!text-gray-100
+          [&_.ProseMirror_h2]:text-2xl [&_.ProseMirror_h2]:font-bold [&_.ProseMirror_h2]:mb-4 [&_.ProseMirror_h2]:mt-6 [&_.ProseMirror_h2]:!text-gray-900 [&_.ProseMirror_h2]:dark:!text-gray-100
+          [&_.ProseMirror_h3]:!text-gray-900 [&_.ProseMirror_h3]:dark:!text-gray-100
+          [&_.ProseMirror_ul]:list-disc [&_.ProseMirror_ul]:pl-6 
+          [&_.ProseMirror_ol]:list-decimal [&_.ProseMirror_ol]:pl-6 
+          [&_.ProseMirror_li]:mb-2 [&_.ProseMirror_li]:!text-gray-900 [&_.ProseMirror_li]:dark:!text-gray-100
+          [&_.ProseMirror_blockquote]:border-l-4 [&_.ProseMirror_blockquote]:border-gray-300 [&_.ProseMirror_blockquote]:dark:border-gray-600 [&_.ProseMirror_blockquote]:pl-4 [&_.ProseMirror_blockquote]:italic [&_.ProseMirror_blockquote]:my-4 [&_.ProseMirror_blockquote]:!text-gray-700 [&_.ProseMirror_blockquote]:dark:!text-gray-300
+          [&_.ProseMirror_pre]:bg-gray-100 [&_.ProseMirror_pre]:dark:bg-gray-800 [&_.ProseMirror_pre]:rounded-lg [&_.ProseMirror_pre]:p-4 [&_.ProseMirror_pre]:my-4 [&_.ProseMirror_pre]:!text-gray-900 [&_.ProseMirror_pre]:dark:!text-gray-100
+          [&_.ProseMirror_code]:bg-gray-100 [&_.ProseMirror_code]:dark:bg-gray-800 [&_.ProseMirror_code]:rounded [&_.ProseMirror_code]:px-1 [&_.ProseMirror_code]:py-0.5 [&_.ProseMirror_code]:font-mono [&_.ProseMirror_code]:text-sm [&_.ProseMirror_code]:!text-gray-900 [&_.ProseMirror_code]:dark:!text-gray-100
+          [&_.ProseMirror_strong]:!text-gray-900 [&_.ProseMirror_strong]:dark:!text-gray-100 [&_.ProseMirror_strong]:font-bold
+          [&_.ProseMirror_em]:!text-gray-900 [&_.ProseMirror_em]:dark:!text-gray-100
+          [&_.ProseMirror_a]:!text-blue-600 [&_.ProseMirror_a]:hover:!text-blue-800 [&_.ProseMirror_a]:dark:!text-blue-400"
         data-testid="rich-text-editor"
       />
       <MediaSelector

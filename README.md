@@ -143,6 +143,7 @@ A modern, AI-integrated Next.js template designed specifically for the Cursor ID
    **Other Configurations:**
    - `NODE_ENV`: Set to 'development' for local development
    - `NEXT_PUBLIC_SITE_URL`: Your site URL (http://localhost:3000 for local)
+   
 
 4. Initialize the database:
    ```bash

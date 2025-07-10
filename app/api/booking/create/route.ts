@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Required fields validated')
     console.log('🔑 Creating Supabase client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get the appointment type to determine duration
     const { data: appointmentType, error: appointmentTypeError } = await supabase

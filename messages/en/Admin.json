@@ -92,6 +92,52 @@
     "next": "Next",
     "page": "Page"
   },
+  "products": {
+    "title": "Product Management",
+    "description": "Manage synced products from Shopify ({count} total)",
+    "loading": "Loading products...",
+    "retry": "Retry",
+    "table": {
+      "title": "Product",
+      "vendor": "Vendor",
+      "type": "Type",
+      "status": "Status",
+      "shopifyId": "Shopify ID",
+      "updated": "Last Updated"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {total}"
+    },
+    "card": {
+      "title": "Product Details",
+      "description": "Description",
+      "vendor": "Vendor",
+      "type": "Product Type",
+      "shopifyId": "Shopify ID",
+      "internalId": "Internal ID",
+      "created": "Created",
+      "updated": "Last Updated",
+      "viewInShopify": "View in Shopify",
+      "images": "Images",
+      "variants": "Product Variants",
+      "loadingVariants": "Loading variants...",
+      "noVariants": "No variants found for this product",
+      "variantTitle": "Variant",
+      "price": "Price",
+      "sku": "SKU",
+      "inventory": "Inventory",
+      "shopifyVariantId": "Shopify Variant ID"
+    },
+    "editor": {
+      "selectFromLibrary": "Select from Media Library",
+      "removeImage": "Remove Image",
+      "noImageSelected": "No image selected",
+      "enterUrlManually": "Or enter URL manually",
+      "selectProductImage": "Select Product Image"
+    }
+  },
   "seo": {},
   "code": {},
   "calendar": {
@@ -173,6 +219,234 @@
       "minutes": "minutes",
       "free": "Free",
       "viewBookingPage": "View Booking Page"
+    }
+  },
+  "DataSync": {
+    "title": "Data Synchronization Management",
+    "loadingSources": "Loading data sources...",
+    "errorLoading": "Error loading data sources: {message}",
+    "retry": "Retry",
+    "refreshList": "Refresh List",
+    "addNewSource": "Add New Source",
+    "errorFetchingSome": "Failed to fetch some data sources: {message}",
+    "noSourcesFound": "No data sources found.",
+    "shopify": {
+      "title": "Shopify Store",
+      "notConfigured": "Shopify integration is not configured",
+      "configureInstructions": "Configure SHOPIFY_SHOP_DOMAIN, SHOPIFY_ADMIN_ACCESS_TOKEN, SHOPIFY_API_KEY, and SHOPIFY_API_SECRET environment variables.",
+      "connectionError": "Error connecting to Shopify store",
+      "connected": "Connected",
+      "loading": "Loading Shopify information...",
+      "shopName": "Shop Name",
+      "domain": "Domain",
+      "productCount": "Product Count",
+      "lastSync": "Last Sync",
+      "never": "Never",
+      "viewProducts": "View Products",
+      "syncNow": "Sync Now",
+      "manageProducts": "Manage Products",
+      "syncError": "Failed to sync products",
+      "productSync": {
+        "title": "Product Synchronization",
+        "syncProducts": "Sync Products",
+        "fullSync": "Full Sync",
+        "syncing": "Syncing...",
+        "description": "Sync products from your Shopify store to the local database. Regular sync imports new/updated products, while Full Sync re-imports all products.",
+        "progress": "Sync Progress:",
+        "total": "Total",
+        "created": "Created",
+        "updated": "Updated",
+        "errors": "Errors"
+      },
+      "articleSync": {
+        "title": "Article Synchronization",
+        "description": "Sync articles from Shopify store to local blog posts",
+        "syncButton": "Sync Articles",
+        "syncing": "Syncing...",
+        "progress": {
+          "titleShopifyToApp": "Article Sync Progress (Shopify → App):",
+          "total": "Total",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
+      },
+      "reverseArticleSync": {
+        "title": "Publish to Shopify",
+        "description": "Sync published blog posts from the app to your Shopify store",
+        "syncButton": "Publish to Shopify",
+        "syncing": "Publishing...",
+        "progress": {
+          "titleAppToShopify": "Article Sync Progress (App → Shopify):",
+          "processed": "Processed",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
+      },
+      "reverseProductSync": {
+        "title": "Publish Products to Shopify",
+        "description": "Sync local products from the app to your Shopify store",
+        "syncButton": "Publish to Shopify",
+        "syncing": "Publishing...",
+        "progress": {
+          "titleAppToShopify": "Product Sync Progress (App → Shopify):",
+          "processed": "Processed",
+          "created": "Created",
+          "updated": "Updated",
+          "errors": "Errors"
+        }
+      }
+    },
+    "dataSources": {
+      "title": "Data Sources",
+      "addNew": "Add New Data Source",
+      "addNewDescription": "Add a new data source by entering its URL",
+      "form": {
+        "url": "Feed URL",
+        "urlPlaceholder": "https://example.com/products.json",
+        "type": "Source Type",
+        "typeOptions": {
+          "product_feed": "Product Feed",
+          "inventory_feed": "Inventory Feed",
+          "customer_data": "Customer Data"
+        },
+        "add": "Add Data Source",
+        "adding": "Adding...",
+        "cancel": "Cancel"
+      },
+      "addSuccess": "Data source added successfully",
+      "addError": "Failed to add data source",
+      "urlExists": "Data source with this URL already exists"
+    },
+    "table": {
+      "name": "Name",
+      "identifier": "Identifier",
+      "type": "Type",
+      "status": "Status",
+      "lastFetched": "Last Fetched",
+      "actions": "Actions"
+    },
+    "unknownStatus": "Unknown",
+    "never": "Never",
+    "syncDisabledInactive": "Sync disabled (inactive source)",
+    "triggerSyncNow": "Trigger Sync Now",
+    "triggering": "Triggering...",
+    "triggerSync": "Sync",
+    "viewDetails": "View Details",
+    "syncTriggeredSuccessfully": "Sync triggered successfully for: {name}",
+    "errors": {
+      "unauthorized": "Unauthorized.",
+      "fetchFailed": "Fetch failed.",
+      "triggerFailed": "Trigger failed."
+    },
+    "detailTitle": "Data Source Details",
+    "backToList": "Back to List",
+    "loadingDetails": "Loading details...",
+    "errorLoadingDetails": "Error loading details: {message}",
+    "notFound": "Data source not found.",
+    "sections": {
+      "generalInfo": "General Information",
+      "schema": "Detected Schema",
+      "rawFeed": "Raw Feed",
+      "syncHistory": "Sync History"
+    },
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "identifier": "Internal Identifier",
+      "feedUrl": "Feed URL",
+      "feedType": "Feed Type",
+      "status": "Status",
+      "errorMessage": "Error Message",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "lastFetchedAt": "Last Fetched At",
+      "lastSchemaUpdateAt": "Schema Updated At"
+    },
+    "detectedSchema": {
+      "title": "Detected JSON Schema",
+      "empty": "No schema detected yet or schema is empty."
+    },
+    "actions": {
+      "triggerSync": "Trigger Sync"
+    }
+  },
+  "title": "Admin Dashboard",
+  "welcome": "Welcome to the admin dashboard",
+  "SEO": {
+    "title": "SEO Management",
+    "dashboard": "SEO Dashboard",
+    "keywords": {
+      "title": "Keyword Research",
+      "description": "Discover and analyze keywords for your SEO strategy",
+      "research": "Research Keywords",
+      "suggestions": "Keyword Suggestions",
+      "saved": "Saved Keywords",
+      "seedKeyword": "Seed Keyword",
+      "searchVolume": "Search Volume",
+      "cpc": "CPC",
+      "competition": "Competition",
+      "difficulty": "Difficulty",
+      "intent": "Intent",
+      "location": "Location",
+      "language": "Language",
+      "researching": "Researching...",
+      "addKeyword": "Add Keyword",
+      "noKeywords": "No keywords saved yet. Start by researching some keywords above.",
+      "selectProject": "Select Project",
+      "enterKeyword": "Enter a keyword to research...",
+      "actions": "Actions",
+      "deleteKeyword": "Delete",
+      "added": "Added",
+      "ai": {
+        "title": "AI Keyword Generation",
+        "description": "Let AI generate relevant keywords based on your company description, target location, and existing keywords.",
+        "companyDescription": "Company/Domain Description",
+        "companyDescriptionPlaceholder": "Describe your company, products, or services to help AI generate better keywords...",
+        "companyDescriptionHelp": "Customize this description to match your specific business. AI will generate keywords in the selected language for the target location, avoiding keywords that already exist in your project.",
+        "targetLocation": "Target Location for AI Keywords",
+        "targetLanguage": "Target Language for AI Keywords",
+        "generateButton": "Generate AI Keywords",
+        "generatingButton": "Generating AI Keywords...",
+        "generateCount": "Generate {count} AI Keywords",
+        "generating": "Generating AI Keywords...",
+        "success": "Successfully generated {count} AI keywords",
+        "error": "AI keyword generation failed"
+      },
+      "locations": {
+        "2840": "United States",
+        "2826": "United Kingdom",
+        "2124": "Canada",
+        "2276": "Germany",
+        "2250": "France",
+        "2752": "Sweden",
+        "2246": "Finland"
+      },
+      "languages": {
+        "en": "English",
+        "fi": "Finnish",
+        "sv": "Swedish",
+        "de": "German",
+        "fr": "French"
+      },
+      "noProjects": {
+        "title": "No SEO Projects Found",
+        "description": "You need to create an SEO project first before you can perform keyword research. Projects help organize your keywords and track their performance.",
+        "createButton": "Create Your First SEO Project"
+      },
+      "loading": "Loading keyword research data...",
+      "added": "Added",
+      "serp": {
+        "title": "SERP Analysis",
+        "analyzeTooltip": "Analyze live SERP results",
+        "noResults": "No organic SERP results found for this keyword."
+      }
+    },
+    "projects": {
+      "title": "SEO Projects",
+      "new": "New Project",
+      "select": "Select a project..."
     }
   }
 }

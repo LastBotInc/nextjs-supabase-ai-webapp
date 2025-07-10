@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     const event = await request.json() as AnalyticsEvent
     
     // Create Supabase client
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Insert event with batching
     const { error } = await supabase

@@ -3,6 +3,7 @@ import Replicate from 'replicate'
 import { createClient } from '@supabase/supabase-js'
 import sharp from 'sharp'
 import { createClient as createServerClient } from '@/utils/supabase/server'
+import { cookies } from 'next/headers'
 
 const REPLICATE_API_KEY = process.env.REPLICATE_API_TOKEN
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -31,42 +32,49 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
 
 export async function POST(request: Request) {
   try {
-    // Get authorization token from request headers
+    console.log('\n🖼️ [POST /api/blog-image] Admin AI image generation request')
+
+    // 1. Token Verification Layer
     const authHeader = request.headers.get('Authorization')
     if (!authHeader?.startsWith('Bearer ')) {
+      console.error('❌ Missing or invalid auth header')
       return NextResponse.json(
         { error: 'Missing or invalid authorization header' },
         { status: 401 }
       )
     }
-    const token = authHeader.split(' ')[1]
 
-    // Create authenticated Supabase client
-    const supabase = await createServerClient()
-
-    // Verify the token and get user
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+    console.log('🔑 Creating auth client...')
+    // Create regular client to verify the token
+    const authClient = await createServerClient()
+    const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
 
     if (authError || !user) {
+      console.error('❌ Auth error:', authError)
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    // Check if user is admin
-    const { data: profile } = await supabase
+    console.log('✅ User authenticated:', user.id)
+
+    // 2. Admin Role Verification Layer
+    const { data: profile } = await authClient
       .from('profiles')
       .select('is_admin')
       .eq('id', user.id)
       .single()
 
     if (!profile?.is_admin) {
+      console.error('❌ User is not admin:', user.id)
       return NextResponse.json(
         { error: 'Forbidden - Admin access required' },
         { status: 403 }
       )
     }
+
+    console.log('✅ Admin access verified for user:', user.id)
 
     const { prompt, slug, style = 'digital_illustration' } = await request.json()
 
@@ -76,6 +84,8 @@ export async function POST(request: Request) {
         { status: 400 }
       )
     }
+
+    console.log('🎨 Generating image with Recraft...')
 
     // Generate image with Recraft
     const output = await replicate.run(
@@ -98,6 +108,8 @@ export async function POST(request: Request) {
       throw new Error('No images generated')
     }
 
+    console.log('📥 Downloading and optimizing image...')
+
     // Download the image
     const imageUrl = images[0]
     const imageResponse = await fetch(imageUrl)
@@ -112,6 +124,8 @@ export async function POST(request: Request) {
       })
       .toBuffer()
 
+    console.log('🗂️ Preparing storage bucket...')
+
     // Create bucket if it doesn't exist (using service role)
     const { data: buckets } = await supabaseAdmin
       .storage
@@ -120,6 +134,7 @@ export async function POST(request: Request) {
     const bucketExists = buckets?.some(bucket => bucket.name === BUCKET_NAME)
 
     if (!bucketExists) {
+      console.log('📁 Creating storage bucket...')
       const { error: createError } = await supabaseAdmin
         .storage
         .createBucket(BUCKET_NAME, {
@@ -130,6 +145,8 @@ export async function POST(request: Request) {
 
       if (createError) throw createError
     }
+
+    console.log('☁️ Uploading image to storage...')
 
     // Upload file (using service role)
     const fileName = `${slug}-${Date.now()}.webp`
@@ -150,12 +167,14 @@ export async function POST(request: Request) {
       .from(BUCKET_NAME)
       .getPublicUrl(fileName)
 
+    console.log('✅ Image generated and uploaded successfully:', publicUrl)
+
     return NextResponse.json({ url: publicUrl })
   } catch (error: Error | unknown) {
-    console.error('Image generation error:', error)
+    console.error('❌ Image generation error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate and upload image'
     return NextResponse.json(
-      { error: errorMessage },
+      { error: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error' },
       { status: 500 }
     )
   }

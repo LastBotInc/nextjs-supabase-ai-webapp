@@ -83,7 +83,7 @@ In web applications, certain operations need to be restricted to admin users onl
        }
 
        // 3. Service Role Operations Layer
-       const supabase = createClient(true) // Create service role client
+       const supabase = createClient(undefined, true) // Create service role client
        
        // Get request data
        const data = await request.json()
@@ -546,7 +546,7 @@ console.log('✅ User authenticated:', user.id)
 
 // 3. Create service role client for database operations
 console.log('🔑 Creating service role client...')
-const supabase = await createClient(true)
+const supabase = await createClient(undefined, true)
 
 // 4. Perform database operations with service role client
 const { data, error } = await supabase
@@ -689,13 +689,13 @@ export const createClient = async (useServiceRole = false) => {
 2. **Client Usage**
    ```typescript
    // ❌ Wrong: Using service role client directly
-   const supabase = createClient(true)
+   const supabase = createClient(undefined, true)
    
    // ✅ Right: Verify auth first, then use service role
    const authClient = createClient()
    const { user } = await authClient.auth.getUser()
    if (user) {
-     const supabase = createClient(true)
+     const supabase = createClient(undefined, true)
      // Proceed with operation
    }
    ```

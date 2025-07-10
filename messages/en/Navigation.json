@@ -11,9 +11,12 @@
     "blog": "Blog Admin",
     "contacts": "Contacts",
     "analytics": "Analytics",
+    "seo": "SEO",
     "translations": "Translations",
     "media": "Media",
     "users": "Users",
+    "products": "Products",
+    "dataSync": "Data Sync",
     "landingPages": "Landing Pages",
     "calendar": "Calendar"
   },

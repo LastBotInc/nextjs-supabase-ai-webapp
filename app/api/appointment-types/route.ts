@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Fetch appointment types
     const { data: appointmentTypes, error } = await supabase
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
     
     // Create service role client for database operations
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Check for existing slugs to avoid conflicts
     let slug = baseSlug

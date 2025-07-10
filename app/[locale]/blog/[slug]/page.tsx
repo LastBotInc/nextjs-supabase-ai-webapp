@@ -103,12 +103,12 @@ export default async function BlogPost({ params }: Props) {
 
   if (!post) {
     return (
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{t('notFound')}</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">{t('notFoundDescription')}</p>
+      <div className="container mx-auto px-4 py-12 max-w-4xl bg-light-background text-light-text">
+        <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 text-light-text">{t('notFound')}</h1>
+        <p className="text-xl text-gray-600 mb-8">{t('notFoundDescription')}</p>
         <Link 
           href={`/${locale}/blog`} 
-          className="inline-flex items-center text-lg font-semibold text-purple-500 hover:text-purple-400 transition-colors duration-200"
+          className="inline-flex items-center text-lg font-semibold text-brand-blue hover:text-blue-700 transition-colors duration-200"
         >
           <span className="mr-2">←</span>
           {t('backToBlog')}
@@ -133,9 +133,9 @@ export default async function BlogPost({ params }: Props) {
   return (
     <>
       <StructuredData data={structuredData} />
-      <article className="container mx-auto px-4 py-12 max-w-5xl">
+      <article className="container mx-auto px-4 py-12 max-w-5xl bg-light-background text-light-text">
         {post.featured_image && (
-          <div className="relative w-full h-[500px] mb-12 rounded-2xl overflow-hidden shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-300">
+          <div className="relative w-full h-[300px] md:h-[500px] mb-12 rounded-lg overflow-hidden shadow-lg">
             <Image
               src={post.featured_image}
               alt={post.title}
@@ -145,16 +145,18 @@ export default async function BlogPost({ params }: Props) {
             />
           </div>
         )}
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{post.title}</h1>
-        <BlogContent content={post.content} />
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-8 text-light-text">{post.title}</h1>
+        <div className="prose prose-lg max-w-none text-gray-700 prose-headings:text-light-text prose-a:text-brand-blue hover:prose-a:text-blue-700 prose-strong:text-light-text">
+          <BlogContent content={post.content} />
+        </div>
+        <div className="mt-12 pt-8 border-t border-gray-300">
           <Comments postId={post.id} />
         </div>
       </article>
       <FloatingNav locale={locale} />
       {similarPosts.length > 0 && (
-        <div className="mt-16 mb-12 max-w-5xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold leading-tight mb-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{t('similarPosts')}</h2>
+        <div className="mt-16 mb-12 max-w-5xl mx-auto px-4 bg-light-background text-light-text">
+          <h2 className="text-3xl font-bold leading-tight mb-8 text-light-text">{t('similarPosts')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {similarPosts.map((similar: SimilarPost) => (
               <Link
@@ -162,11 +164,11 @@ export default async function BlogPost({ params }: Props) {
                 href={`/${locale}/blog/${similar.slug}`}
                 className="block group"
               >
-                <div className="border dark:border-gray-800 rounded-2xl p-6 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 bg-white dark:bg-gray-900">
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">
+                <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-white h-full flex flex-col">
+                  <h3 className="font-semibold text-xl mb-3 text-light-text group-hover:text-brand-blue transition-all duration-300">
                     {similar.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
+                  <p className="text-gray-600 text-sm line-clamp-3 flex-grow">
                     {stripHtmlTags(similar.content).substring(0, 150)}...
                   </p>
                 </div>
@@ -175,10 +177,10 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </div>
       )}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 bg-light-background">
         <Link
           href={`/${locale}/blog`}
-          className="inline-flex items-center text-lg font-semibold text-purple-500 hover:text-purple-400 transition-colors duration-200"
+          className="inline-flex items-center text-lg font-semibold text-brand-blue hover:text-blue-700 transition-colors duration-200"
         >
           <span className="mr-2">←</span>
           {t('backToBlog')}

@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     console.log('User authenticated:', user.id)
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get user's booking settings
     console.log('Fetching user booking settings...')

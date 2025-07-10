@@ -1,41 +1,53 @@
 import { createClient } from '@/utils/supabase/server'
 import { NextResponse } from 'next/server'
-import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai'
+import { GoogleGenAI, Type, HarmBlockThreshold, HarmCategory } from '@google/genai'
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_STUDIO_KEY!)
+const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_STUDIO_KEY! })
 
 // List of supported languages and their codes
 const SUPPORTED_LANGUAGES = [
-  { code: 'fi', name: 'Finnish' }
+  { code: 'fi', name: 'Finnish' },
+  { code: 'sv', name: 'Swedish' }
   // Add more languages here as needed
 ]
 
+// Helper function to generate slug from title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+    .substring(0, 100) // Limit length
+}
+
 // Define the schema for translation response
 const translationSchema = {
-  type: SchemaType.OBJECT,
+  type: Type.OBJECT,
   properties: {
     title: {
-      type: SchemaType.STRING,
+      type: Type.STRING,
       description: "Translated title of the blog post",
-      nullable: false,
+    },
+    slug: {
+      type: Type.STRING,
+      description: "Translated URL slug in the target language, using lowercase letters, numbers, and hyphens only. Should be SEO-friendly and reflect the translated title.",
     },
     excerpt: {
-      type: SchemaType.STRING,
+      type: Type.STRING,
       description: "Translated excerpt/summary of the blog post",
-      nullable: true,
     },
     meta_description: {
-      type: SchemaType.STRING,
+      type: Type.STRING,
       description: "Translated meta description for SEO",
-      nullable: true,
     },
     content: {
-      type: SchemaType.STRING,
+      type: Type.STRING,
       description: "Translated main content of the blog post, preserving all markdown formatting and code blocks",
-      nullable: false,
     },
   },
-  required: ["title", "content"],
+  required: ["title", "slug", "content"],
 }
 
 export async function POST(request: Request) {
@@ -58,15 +70,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Initialize model with schema
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash-001',
-      generationConfig: {
-        responseMimeType: "application/json",
-        responseSchema: translationSchema,
-      },
-    })
-
     // Translate to each supported language
     const translations = await Promise.all(
       SUPPORTED_LANGUAGES.map(async (lang) => {
@@ -82,18 +85,67 @@ export async function POST(request: Request) {
             3. Keep all HTML tags unchanged
             4. Only translate the actual content text
             5. Preserve line breaks and paragraph structure
+            6. Create a localized URL slug that reflects the translated title
+            
+            For the slug:
+            - Use only lowercase letters, numbers, and hyphens
+            - Replace spaces with hyphens
+            - Remove special characters
+            - Make it SEO-friendly in the target language
+            
+            Return the response as JSON with the following structure:
+            {
+              "title": "translated title",
+              "slug": "translated-url-slug",
+              "excerpt": "translated excerpt",
+              "meta_description": "translated meta description",
+              "content": "translated content with preserved formatting"
+            }
             
             Here's the content to translate:
             
             Title: ${post.title}
+            Slug: ${post.slug}
             Excerpt: ${post.excerpt || ''}
             Meta Description: ${post.meta_description || ''}
             Content:
             ${post.content}
           `
 
-          const result = await model.generateContent(prompt)
-          const translation = JSON.parse(result.response.text())
+          // Generate content with structured JSON output
+          const response = await ai.models.generateContent({
+            model: 'gemini-2.0-flash-001',
+            contents: [{ text: prompt }],
+            config: {
+              temperature: 0.7,
+              maxOutputTokens: 4096,
+              responseMimeType: 'application/json',
+              responseSchema: translationSchema,
+              safetySettings: [
+                {
+                  category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+                  threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+                },
+                {
+                  category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                  threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+                },
+                {
+                  category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                  threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+                },
+                {
+                  category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                  threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+                },
+              ],
+            },
+          })
+
+          const translation = JSON.parse(response.text || '{}')
+
+          // Ensure slug is properly formatted
+          const finalSlug = translation.slug || generateSlug(translation.title)
 
           // Create translated version of the post
           const { data: translatedPost, error: insertError } = await supabase
@@ -102,6 +154,7 @@ export async function POST(request: Request) {
               ...post,
               id: undefined, // Let Supabase generate a new ID
               title: translation.title,
+              slug: finalSlug,
               excerpt: translation.excerpt || post.excerpt,
               meta_description: translation.meta_description || post.meta_description,
               content: translation.content,
@@ -119,7 +172,8 @@ export async function POST(request: Request) {
           return {
             language: lang.code,
             success: true,
-            postId: translatedPost.id
+            postId: translatedPost.id,
+            slug: finalSlug
           }
         } catch (error) {
           console.error(`Translation error for ${lang.code}:`, error)

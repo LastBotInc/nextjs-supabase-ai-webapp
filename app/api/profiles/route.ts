@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const select = searchParams.get('select') || '*'
 
     // Create Supabase client
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Process IDs in batches
     const results = []
@@ -70,7 +70,7 @@ export async function PUT(request: Request) {
     }
 
     const body = await request.json()
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     const { data, error } = await supabase
       .from('profiles')

@@ -15,7 +15,7 @@ export async function GET() {
     
     // Create regular Supabase client for public reads
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     // Get all languages and filter in the query
     console.log('📊 Fetching languages...')
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
 
     // Create Supabase client with service role for admin operations
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
     
     // Get user from token
     console.log('🔑 Verifying user...')
@@ -180,7 +180,7 @@ export async function PATCH(request: Request) {
 
     // Create authenticated Supabase client
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Verify the token and get user
     console.log('🔑 Verifying user...')
@@ -251,7 +251,7 @@ export async function DELETE(request: Request) {
 
     // Create authenticated Supabase client
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Verify the token and get user
     console.log('🔑 Verifying user...')

@@ -36,7 +36,7 @@ export async function GET(request: Request) {
 
     // After authentication, use service role client for database operations
     console.log('🔑 Creating service role client...')
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Get user's settings
     console.log('📊 Fetching settings...')
@@ -119,7 +119,7 @@ export async function PUT(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Check if settings exist
     const { data: existingSettings } = await supabase

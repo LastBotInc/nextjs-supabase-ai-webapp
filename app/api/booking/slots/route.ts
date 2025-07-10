@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
     // Create clients
     const supabase = await createClient()
-    const adminClient = await createClient(true)
+    const adminClient = await createClient(undefined, true)
 
     // First, get the appointment type to verify it exists and is active
     console.log('Checking appointment type:', appointmentTypeId)

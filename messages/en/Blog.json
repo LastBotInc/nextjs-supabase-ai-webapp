@@ -1,7 +1,7 @@
 {
   "title": "Blog",
-  "description": "Latest insights, research, and news from LastBot",
-  "noPosts": "No posts yet. Be the first to write one!",
+  "description": "Latest insights, research, and news from Brancoy HI Engine on AI-powered eCommerce, Shopify best practices, and intelligent migration strategies.",
+  "noPosts": "No posts yet. Stay tuned for insights from Brancoy HI Engine!",
   "similarPosts": "Similar Posts",
   "backToBlog": "Back to Blog",
   "admin": {
@@ -27,7 +27,8 @@
       "targetLanguagesOptional": "(optional)",
       "prompt": "Blog Post Prompt",
       "promptPlaceholder": "Enter a prompt to generate blog post content...",
-      "detectedLanguage": "(detected)"
+      "detectedLanguage": "(detected)",
+      "published": "Published"
     },
     "editor": {
       "bold": "Bold",
@@ -46,6 +47,9 @@
     "publishError": "Failed to publish post",
     "unpublishSuccess": "Post unpublished successfully",
     "unpublishError": "Failed to unpublish post",
+    "saveSuccess": "Post saved successfully",
+    "updateSuccess": "Post updated successfully",
+    "translationsCreated": "and {count} translations created",
     "research": {
       "title": "Web Research",
       "search": "Search",
@@ -59,6 +63,23 @@
       "extend": "Extend",
       "analysis": {},
       "topics": {}
+    },
+    "seoKeywords": {
+      "title": "SEO Keywords",
+      "description": "Select keywords from your SEO projects to include in the content generation",
+      "loading": "Loading keywords...",
+      "noKeywords": "No SEO keywords found. Create some keywords in your SEO projects first.",
+      "selectedCount": "{count} keywords selected",
+      "project": "Project"
+    },
+    "buttons": {
+      "generateWithAI": "Generate with AI",
+      "generateImage": "Generate Image"
+    },
+    "errors": {
+      "titleRequired": "Title is required",
+      "contentRequired": "Content is required",
+      "slugInvalid": "Slug must contain only lowercase letters, numbers, and hyphens"
     }
   },
   "comments": "Comments",
@@ -72,6 +93,17 @@
   "deleteComment": "Delete",
   "fetchCommentsError": "Failed to load comments. Please try again.",
   "deleteCommentError": "Failed to delete comment. Please try again.",
-  "subjects": {},
+  "subjects": {
+    "all": "All Articles",
+    "news": "News & Updates",
+    "research": "AI Research",
+    "generative-ai": "Generative AI Insights",
+    "case-stories": "Client Case Stories",
+    "allPosts": "All Posts",
+    "updates": "Updates",
+    "insights": "Insights",
+    "tutorials": "Tutorials",
+    "announcements": "Announcements"
+  },
   "meta": {}
 }

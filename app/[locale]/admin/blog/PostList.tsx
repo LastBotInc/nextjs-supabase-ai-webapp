@@ -50,25 +50,48 @@ export default function PostList({ initialPosts }: PostListProps) {
     setIsEditing(false)
   }
 
-  const handleSave = (formData: FormData) => {
-    // Convert FormData to Post type for state update
-    const post = selectedPost || {
-      id: '', // Will be set by the server
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      author_id: '', // Will be set by the server
-      embedding: null,
-      ...formData
+  const handleSave = (apiResponse: any) => {
+    console.log('🔄 handleSave called with:', apiResponse)
+    
+    // Handle API response structure
+    let postsToAdd: Post[] = []
+    
+    if (apiResponse.original && apiResponse.translations) {
+      // New post with translations - add original + all translations
+      postsToAdd = [apiResponse.original, ...apiResponse.translations]
+      console.log('📝 Adding new posts with translations:', postsToAdd.length, 'posts')
+      toast.success(`${t('saveSuccess')} ${t('translationsCreated', { count: apiResponse.translations.length })}`)
+    } else if (apiResponse.original) {
+      // New post without translations - just the original
+      postsToAdd = [apiResponse.original]
+      console.log('📝 Adding new post without translations:', 1, 'post')
+      toast.success(t('saveSuccess'))
+    } else {
+      // Updated existing post - single post response
+      postsToAdd = [apiResponse]
+      console.log('📝 Updating existing post')
+      toast.success(t('updateSuccess'))
     }
     
     setPosts(prev => {
-      const index = prev.findIndex(p => p.id === post.id)
-      if (index >= 0) {
-        return [...prev.slice(0, index), post, ...prev.slice(index + 1)]
-      }
-      return [post, ...prev]
+      let updatedPosts = [...prev]
+      
+      postsToAdd.forEach(post => {
+        const existingIndex = updatedPosts.findIndex(p => p.id === post.id)
+        if (existingIndex >= 0) {
+          // Update existing post
+          updatedPosts[existingIndex] = post
+        } else {
+          // Add new post at the beginning
+          updatedPosts = [post, ...updatedPosts]
+        }
+      })
+      
+      console.log('✅ Posts state updated. Total posts:', updatedPosts.length)
+      return updatedPosts
     })
-        setIsEditing(false)
+    
+    setIsEditing(false)
   }
 
   const handlePublish = async (post: Post) => {
@@ -125,6 +148,7 @@ export default function PostList({ initialPosts }: PostListProps) {
             post={selectedPost}
             onSave={handleSave}
             onCancel={handleCancel}
+            supabaseClient={supabase}
           />
         </div>
       </div>

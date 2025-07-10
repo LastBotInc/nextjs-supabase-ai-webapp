@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     }
 
     // Create regular client to verify the token
-    const authClient = await createClient()
+    const authClient = createClient()
     const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
     
     if (authError || !user) {
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = createClient(undefined, true); // Service role client without cookies
     
     const { target_languages, ...postData } = await request.json()
     
@@ -63,6 +63,7 @@ export async function POST(request: Request) {
             content: post.content,
             excerpt: post.excerpt,
             meta_description: post.meta_description,
+            slug: post.slug,
             targetLanguage: lang
           })
 
@@ -76,6 +77,7 @@ export async function POST(request: Request) {
               content: translation.content,
               excerpt: translation.excerpt,
               meta_description: translation.meta_description,
+              slug: translation.slug,
               locale: lang,
               created_at: post.created_at // Keep same creation date as original
             })
@@ -122,7 +124,7 @@ export async function PUT(request: Request) {
     }
 
     // Create regular client to verify the token
-    const authClient = await createClient()
+    const authClient = createClient()
     const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
     
     if (authError || !user) {
@@ -148,7 +150,7 @@ export async function PUT(request: Request) {
     }
 
     // After authentication, use service role client for database operations
-    const supabase = await createClient(true)
+    const supabase = createClient(undefined, true); // Service role client without cookies
     
     const { id, target_languages, ...postData } = await request.json()
     

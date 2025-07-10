@@ -64,19 +64,33 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
   try {
-    const { data: { user }, error: authError } = await supabase.auth.getUser()
+    console.log('\n📝 [POST /api/tavily-search] Web research request')
 
+    // 1. Token Verification Layer
+    const authHeader = request.headers.get('Authorization')
+    if (!authHeader?.startsWith('Bearer ')) {
+      console.error('❌ Missing or invalid auth header')
+      return NextResponse.json(
+        { error: 'Missing or invalid authorization header' },
+        { status: 401 }
+      )
+    }
+
+    console.log('🔑 Creating auth client...')
+    // Create regular client to verify the token
+    const authClient = await createClient()
+    const { data: { user }, error: authError } = await authClient.auth.getUser(authHeader.split(' ')[1])
+    
     if (authError || !user) {
-      console.error('[POST /api/tavily-search] Auth error or no user:', authError)
+      console.error('❌ Auth error:', authError)
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
+
+    console.log('✅ User authenticated:', user.id)
 
     const {
       query,
@@ -180,7 +194,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ results })
 
   } catch (error) {
-    console.error('Tavily search error (POST):', error)
+    console.error('❌ Tavily search error (POST):', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to perform search';
     return NextResponse.json(
       { error: errorMessage },

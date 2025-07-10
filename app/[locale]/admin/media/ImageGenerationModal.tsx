@@ -32,11 +32,18 @@ const SIZES = [
   { width: 1536, height: 1536 }
 ];
 
+const AI_MODELS = [
+  { value: 'imagen-3.0', label: 'imagen-3_0' },
+  { value: 'imagen-4.0', label: 'imagen-4_0' },
+  { value: 'gpt-image-1', label: 'gpt-image-1' }
+] as const;
+
 export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenerationModalProps) {
   const t = useTranslations('Media');
   const supabase = createClient();
   const [options, setOptions] = useState<GenerationOptions>({
     prompt: '',
+    model: 'imagen-3.0',
     style: 'digital_illustration',
     width: 1024,
     height: 1024
@@ -52,7 +59,7 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
       setIsGenerating(true);
       setError(null);
 
-      // Call the Recraft API through our backend
+      // Call the media generation API through our backend
       const response = await fetch('/api/media/generate', {
         method: 'POST',
         headers: { 
@@ -85,60 +92,83 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50">
       <div className="fixed inset-x-4 top-[50%] translate-y-[-50%] sm:inset-x-auto sm:left-[50%] sm:translate-x-[-50%] sm:max-w-lg w-full">
-        <div className="bg-card rounded-lg shadow-lg">
-          <div className="p-4 border-b flex justify-between items-center">
-            <h3 className="text-lg font-semibold">
+        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+          <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
               {t('generateImage')}
             </h3>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-muted rounded-full"
+              className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
             >
-              <XMarkIcon className="w-5 h-5" />
+              <XMarkIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
             </button>
           </div>
 
           <div className="p-4 space-y-4">
             {error && (
-              <p className="text-sm text-destructive">{error}</p>
+              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+                <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+              </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                 {t('prompt')}
               </label>
               <textarea
                 value={options.prompt}
                 onChange={e => setOptions({ ...options, prompt: e.target.value })}
                 rows={3}
-                className="w-full px-3 py-2 border rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder={t('promptPlaceholder')}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">
-                {t('style')}
+              <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                {t('model')}
               </label>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{t('modelHelp')}</p>
               <select
-                value={options.style}
-                onChange={e => setOptions({ ...options, style: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md"
+                value={options.model}
+                onChange={e => setOptions({ ...options, model: e.target.value as GenerationOptions['model'] })}
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                {STYLES.map(style => (
-                  <option key={style} value={style}>
-                    {style.split('_').map(word => 
-                      word.charAt(0).toUpperCase() + word.slice(1)
-                    ).join(' ')}
+                {AI_MODELS.map(model => (
+                  <option key={model.value} value={model.value}>
+                    {t(`models.${model.label}`)}
                   </option>
                 ))}
               </select>
             </div>
 
+            {/* Only show style selection for Imagen models */}
+            {options.model?.startsWith('imagen') && (
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  {t('style')}
+                </label>
+                <select
+                  value={options.style}
+                  onChange={e => setOptions({ ...options, style: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  {STYLES.map(style => (
+                    <option key={style} value={style}>
+                      {style.split('_').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                      ).join(' ')}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                 {t('size')}
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -147,10 +177,10 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
                     key={`${size.width}x${size.height}`}
                     onClick={() => setOptions({ ...options, ...size })}
                     className={`
-                      p-2 text-sm border rounded-md
+                      p-2 text-sm border rounded-md transition-colors
                       ${options.width === size.width && options.height === size.height
-                        ? 'border-primary bg-primary/5'
-                        : 'hover:bg-muted'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
+                        : 'border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                       }
                     `}
                   >
@@ -161,14 +191,14 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                 {t('negativePrompt')}
               </label>
               <input
                 type="text"
                 value={options.negativePrompt || ''}
                 onChange={e => setOptions({ ...options, negativePrompt: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder={t('negativePromptPlaceholder')}
               />
             </div>
@@ -176,7 +206,7 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
             <div className="flex justify-end space-x-2 pt-4">
               <button
                 onClick={onClose}
-                className="px-4 py-2 text-sm border rounded-md hover:bg-muted"
+                className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors"
                 disabled={isGenerating}
               >
                 {t('cancel')}
@@ -184,7 +214,7 @@ export function ImageGenerationModal({ isOpen, onClose, onSuccess }: ImageGenera
               <button
                 onClick={handleGenerate}
                 disabled={!options.prompt || isGenerating}
-                className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90 disabled:opacity-50"
+                className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isGenerating ? t('generating') : t('generate')}
               </button>

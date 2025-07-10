@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const session = await request.json() as AnalyticsSession
     
     // Create Supabase client
-    const supabase = await createClient(true)
+    const supabase = await createClient(undefined, true)
 
     // Check if session already exists
     const { data: existingSession } = await supabase
