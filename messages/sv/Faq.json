@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Vanliga frågor - Innolease",
+    "description": "Hitta svar på de vanligaste frågorna om Innoleases tjänster. Billeasing, kalkylatorer, kundservice och digitala tjänster.",
+    "keywords": "FAQ, vanliga frågor, billeasing, leasingkalkylator, kundservice, digitala tjänster",
+    "image": "/images/faq-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Vanliga frågor",
+    "texts": [
+      "Hitta svar på de vanligaste frågorna om Innoleases tjänster. Om du inte hittar svaret du söker, tveka inte att kontakta vår kundservice."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Vanliga frågor" }
+  },
+
+  "sections": {
+    "carLeasing": {
+      "heading": "Billeasing",
+      "description": "Frågor och svar om billeasing, avtalsvillkor och leasingalternativ.",
+      "namespace": "CarLeasing"
+    },
+    "leasingCalculator": {
+      "heading": "Leasingkalkylatorer",
+      "description": "Hjälp med att använda leasingkalkylatorer, beräkna skattemässiga värden och optimera bilförmåner.",
+      "namespace": "LeasingCalculator"
+    },
+    "customerService": {
+      "heading": "Kundservice",
+      "description": "Information om vår kundservice, kontaktuppgifter och hur du gör serviceförfrågningar.",
+      "namespace": "CustomerService"
+    },
+    "digitalServices": {
+      "heading": "Digitala tjänster",
+      "description": "Frågor om FleetManager-systemet, webbtjänster och digitala verktyg.",
+      "namespace": "DigitalServices"
+    },
+    "servicePrice": {
+      "heading": "Tjänstepriser",
+      "description": "Frågor om prissättning, serviceavgifter och fakturering.",
+      "namespace": "ServicePrices"
+    },
+    "machineLeasing": {
+      "heading": "Maskinleasing",
+      "description": "Information om maskin- och utrustningsleasing samt speciallösningar.",
+      "namespace": "MachineLeasing"
+    },
+    "financialSolutions": {
+      "heading": "Finansiella lösningar",
+      "description": "Frågor om finansieringsalternativ och finansiella lösningar.",
+      "namespace": "FinancialSolutions"
+    },
+    "leasingSolutions": {
+      "heading": "Leasinglösningar",
+      "description": "Allmänna frågor om olika leasinglösningar och modeller.",
+      "namespace": "LeasingSolutions"
+    },
+    "driversGuide": {
+      "heading": "Förarguide",
+      "description": "Tips och råd för säker och ekonomisk körning.",
+      "namespace": "DriversGuide"
+    }
+  },
+
+  "contact": {
+    "heading": "Hittade du inte ditt svar?",
+    "texts": [
+      "Om du inte kunde hitta informationen du sökte, är vår kundservice redo att hjälpa dig med alla dina frågor."
+    ],
+    "phone": "+358 20 743 7670",
+    "email": "kundservice@innolease.fi",
+    "hours": "Mån-Fre: 8:00-18:00",
+    "link": { "label": "Kontakta oss", "href": "/kundservice" }
+  }
+}

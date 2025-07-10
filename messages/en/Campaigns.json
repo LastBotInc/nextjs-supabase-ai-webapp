@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Current Campaigns",
+    "description": "Explore our latest car leasing campaigns. Find special offers on vans, electric cars, and more. Limited-time deals for private and business customers."
+  },
+  "hero": {
+    "title": "Campaigns & Special Offers",
+    "intro": "Discover our current leasing campaigns and take advantage of exclusive offers on selected vehicles. Whether you need a van, an electric car, or an SUV, we have a deal for you.",
+    "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png" }
+  },
+  "from": "From",
+  "month": "month",
+  "view_offer": "View Offer",
+  "campaign_detail_href": "/kampanjat",
+  "cta": {
+    "title": "Interested in a campaign offer?",
+    "description": "Contact us for more information or to reserve your campaign vehicle. Our team will help you find the best solution for your needs.",
+    "button": "Contact Us",
+    "buttonHref": "/yhteystiedot"
+  }
+}

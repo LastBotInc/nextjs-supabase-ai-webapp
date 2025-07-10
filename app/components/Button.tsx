@@ -1,65 +1,80 @@
-import { ButtonHTMLAttributes, KeyboardEvent } from 'react';
-import type { MouseEvent } from 'react';
-import { Link } from '@/app/i18n/navigation';
+"use client";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'gradient';
-  size?: 'sm' | 'md' | 'lg';
+import React from "react";
+import Link from "next/link";
+import { AnchorHTMLAttributes } from "react";
+
+type ButtonVariant = "primary" | "secondary" | "outline" | "white" | "gradient";
+type ButtonSize = "sm" | "md" | "lg";
+
+interface ButtonProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
+  children: React.ReactNode;
   href?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
   target?: string;
   rel?: string;
 }
 
 export function Button({
   children,
-  className = '',
-  variant = 'primary',
-  size = 'md',
   href,
+  variant = "primary",
+  size = "md",
+  className = "",
+  onClick,
+  disabled = false,
+  type = "button",
   target,
   rel,
-  onClick,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'rounded-full font-medium transition-colors inline-flex w-fit items-center justify-center gap-2';
+  const baseStyles =
+    "inline-flex items-center justify-center font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
 
-  const variantStyles = {
-    primary: 'bg-[#8B5CF6] text-white hover:bg-[#7C3AED] dark:hover:bg-[#9F7AEA]',
-    secondary: 'bg-black/[.05] dark:bg-white/[.06] hover:bg-black/[.1] dark:hover:bg-white/[.1]',
-    outline: 'border border-solid border-black/[.1] dark:border-white/[.1] hover:bg-black/[.05] dark:hover:bg-white/[.05]',
-    gradient: 'bg-gradient-to-r from-[#A78BFA] to-[#8B5CF6] text-white hover:from-[#9F7AEA] hover:to-[#7C3AED] transform hover:scale-105 transition-all duration-300'
+  // Size classes
+  const sizeClasses = {
+    sm: "px-3 py-1.5 text-sm",
+    md: "px-4 py-2 text-base",
+    lg: "px-6 py-3 text-lg",
   };
 
-  const sizeStyles = {
-    sm: 'text-sm h-8 px-3',
-    md: 'text-base h-10 px-4',
-    lg: 'text-lg h-12 px-6'
+  // Variant classes
+  const variantClasses = {
+    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500",
+    secondary: "bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500",
+    outline: "border border-gray-300 bg-transparent hover:bg-gray-50 text-gray-700 focus:ring-blue-500",
+    white: "bg-white text-blue-600 hover:bg-gray-50 focus:ring-blue-500",
+    gradient:
+      "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white focus:ring-blue-500",
   };
 
-  const styles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const buttonClasses = `${baseStyles} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      onClick?.(e as unknown as MouseEvent<HTMLButtonElement>);
-    }
-  };
-
+  // If this is a link
   if (href) {
     return (
-      <Link href={href} className={styles} target={target} rel={rel}>
+      <Link
+        href={href}
+        className={`${buttonClasses} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        onClick={disabled ? (e) => e.preventDefault() : onClick}
+        aria-disabled={disabled}
+        target={target}
+        rel={rel}
+        {...props}
+      >
         {children}
       </Link>
     );
   }
 
+  // Otherwise, it's a button
   return (
-    <button
-      className={styles}
-      onClick={onClick}
-      onKeyDown={handleKeyDown}
-      {...props}
-    >
+    <button type={type} className={buttonClasses} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

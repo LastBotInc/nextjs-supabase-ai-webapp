@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Behavior Rules (Strictly Follow)
+- **Existing Project:** NEVER create a new project. Analyze the existing structure via `list_dir`, `<documentation>`, and code search.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge for libraries or external APIs. ALWAYS use `web_search` to verify current documentation, versions, and best practices when implementing or fixing related code.
+- **Latest Libraries:** When adding dependencies, prefer the latest stable versions unless otherwise specified.
+- **Cautious Edits:** Be extremely careful when modifying existing code. Use `codebase_search` or `grep_search` to understand potential usages elsewhere. Avoid deleting code unless explicitly requested or clearly redundant after refactoring.
+- **Follow Instructions:** Read and follow all instructions within the chosen `<action>` and these general rules precisely.
+- **Exact Request Fulfillment:**
+    - Implement *only* what the user explicitly asks for. No extra features, enhancements, or refactoring unless requested.
+    - Confirm your solution addresses *all* parts of the request.
+    - **Crucial:** Ask yourself before finalizing changes: "Am I adding anything not explicitly requested?"
+- **Simplicity:** Prefer the simplest, most direct solution that meets all requirements. Minimize code complexity.
+- **Tool Usage:** Use the provided tools (`<tools>`, `<command_line_tools>`) whenever appropriate to interact with the filesystem, codebase, web, or terminal. Explain *why* you are using a tool *before* calling it.
+- **Clarity:** Communicate clearly. State your plan, actions, and results. Ask clarifying questions if the request is ambiguous.

@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Avoimet työpaikat | Liity Innoleasen tiimiin",
+    "description": "Tutustu jännittäviin uramahdollisuuksiin Innoleasella. Liity asiantuntijatiimiin ja auta muokkaamaan yritysautojen leasingin tulevaisuutta Suomessa.",
+    "keywords": "urat, työpaikat, avoimet työpaikat, autoleasing urat, suomalaiset työpaikat, yritysrahoitus työpaikat, asiakaspalvelu urat",
+    "image": "/images/team/careers-hero.jpg"
+  },
+  "aboutCompany": {
+    "heading": "Tietoa Innoleasesta",
+    "texts": [
+      "Innolease on kokenut ja ketterä leasingkumppani, joka tarjoaa asiakaslähtöisiä ja joustavia ratkaisuja yritysten tarpeisiin. Osana Autolle.com-konsernia erikoistumme kone-, laite- ja ajoneuvoleasingratkaisuihin vahvan tiimimme vuosien kokemuksella yritysrahoituksesta ja leasingista.",
+      "Olemme kasvaneet nopeasti yhdistämällä vuokraus- ja leasingpalvelut yhdeksi kokonaisuudeksi. Tavoitteemme on tarjota asiakkaille kattavimmat ja joustavimmat ratkaisut, jotka vastaavat nykypäivän yritysten ja yksityishenkilöiden muuttuviin tarpeisiin.",
+      "Yli 800 ajoneuvolla valtakunnallisesti ja digitaalisilla työkaluilla kuten InnoFleet Manager, voimaannumme suomalaisia yrityksiä hallitsemaan liikkuvuutta kustannustehokkaasti, selkeästi ja skaalautuvasti."
+    ],
+    "image": { "src": "/images/team/innolease-office.jpg", "alt": "Innoleasen tiimi töissä" }
+  },
+  "whyWorkHere": {
+    "heading": "Miksi töihin Innoleaselle?",
+    "subheading": "Liity yritykseen, joka arvostaa asiantuntijuutta, läpinäkyvyyttä ja innovaatiota",
+    "cards": [
+      {
+        "title": "Asiantuntijatiimi",
+        "texts": ["Työskentele kokeneiden yritysrahoituksen ja leasingin ammattilaisten kanssa. Opi alan asiantuntijoilta ja kehitä osaamistasi tukevassa ympäristössä."],
+        "image": { "src": "/images/team/expert-team.jpg", "alt": "Ammattimainen tiimityöskentely" }
+      },
+      {
+        "title": "Asiakaslähtöinen kulttuuri",
+        "texts": ["Ole osa yritystä, joka asettaa asiakkaat etusijalle. Jokainen rooli edistää henkilökohtaisen palvelun ja räätälöityjen ratkaisujen toimittamista asiakkaillemme."],
+        "image": { "src": "/images/team/customer-service.jpg", "alt": "Asiakaspalvelun huippuosaaminen" }
+      },
+      {
+        "title": "Digitaalinen innovaatio",
+        "texts": ["Työskentele huippuluokan digitaalisten työkalujen ja palvelujen parissa. Auta kehittämään ja toteuttamaan moderneja ratkaisuja, jotka yksinkertaistavat kalustomhallintaa yrityksille."],
+        "image": { "src": "/images/team/digital-innovation.jpg", "alt": "Digitaaliset työkalut ja teknologia" }
+      },
+      {
+        "title": "Kasvumahdollisuudet",
+        "texts": ["Liity nopeasti kasvavaan yritykseen, jossa on selkeät urakehityspolut. Hyödynnä Autolle.com-konsernin asiantuntemusta ja verkostoja."],
+        "image": { "src": "/images/team/career-growth.jpg", "alt": "Ammatillinen kehittyminen" }
+      },
+      {
+        "title": "Joustava työympäristö",
+        "texts": ["Nauti moderneista työtavoista ja joustavuudesta työn ja henkilökohtaisen elämän tasapainottamisessa. Uskomme tuloksiin, emme vain pöydän äärellä vietettyihin tunteihin."],
+        "image": { "src": "/images/team/flexible-work.jpg", "alt": "Moderni työpaikka" }
+      }
+    ]
+  },
+  "openPositions": {
+    "heading": "Avoimet työpaikat",
+    "subheading": "Liity kasvavaan tiimiin ja auta muokkaamaan yritysleasing tulevaisuutta",
+    "positions": [
+      {
+        "title": "Senior Leasing-asiantuntija",
+        "department": "Liiketoiminnan kehittäminen",
+        "location": "Helsinki",
+        "type": "Kokopäivätyö",
+        "texts": [
+          "Johda monimutkaisia leasingneuvotteluja ja kehitä räätälöityjä ratkaisuja suurille yritysasiakkaille. Vaatii 5+ vuoden kokemuksen yritysrahoituksesta tai leasingista."
+        ],
+        "requirements": [
+          "Kandidaatin tutkinto talous-, kauppa- tai vastaavalta alalta",
+          "5+ vuoden kokemus leasingista tai yritysrahoituksesta",
+          "Vahvat analytiikka- ja neuvottelutaidot",
+          "Sujuva suomen ja englannin kieli"
+        ]
+      },
+      {
+        "title": "Asiakaspalveluedustaja",
+        "department": "Asiakaspalvelu",
+        "location": "Tampere / Etätyö",
+        "type": "Kokopäivätyö",
+        "texts": [
+          "Tarjoa erinomaista asiakastukea leasingasiakkaillemme. Hoida kyselyjä, koordinoi huoltopalveluja ja varmista asiakastyytyväisyys."
+        ],
+        "requirements": [
+          "Kokemus asiakaspalvelusta tai vastaavalta alalta",
+          "Erinomaiset viestintätaidot",
+          "Ongelmanratkaisuasenne",
+          "Autoteollisuuden tuntemus eduksi"
+        ]
+      },
+      {
+        "title": "Digitaalinen tuotepäällikkö",
+        "department": "Teknologia",
+        "location": "Helsinki",
+        "type": "Kokopäivätyö", 
+        "texts": [
+          "Johda InnoFleet Manager -alustamme ja muiden digitaalisten palvelujemme kehitystä. Johda tuotestrategiaa ja työskentele kehitystiimien kanssa."
+        ],
+        "requirements": [
+          "Tuotehallintakokemus SaaS- tai fintech-alalta",
+          "Kalustomhallintajärjestelmien ymmärrys",
+          "Ketterien menetelmien kokemus",
+          "Vahvat sidosryhmähallintataidot"
+        ]
+      },
+      {
+        "title": "Kalustokoordinaattori",
+        "department": "Toiminnot",
+        "location": "Turku",
+        "type": "Kokopäivätyö",
+        "texts": [
+          "Hallitse ajoneuvojen logistiikkaa, koordinoi huoltoaikatauluja ja varmista optimaalinen kaluston käyttöaste. Työskentele tiiviisti asiakkaiden ja palvelukumppaneiden kanssa."
+        ],
+        "requirements": [
+          "Kokemus logistiikasta tai kalustomhallinnasta",
+          "Vahvat organisointitaidot",
+          "Ajokortti vaaditaan",
+          "Kyky työskennellä useiden sidosryhmien kanssa"
+        ]
+      },
+      {
+        "title": "Liiketoiminnan kehittämisen trainee",
+        "department": "Myynti",
+        "location": "Helsinki",
+        "type": "Trainee-ohjelma",
+        "texts": [
+          "12 kuukauden trainee-ohjelma, joka kattaa yritysleasing kaikki osa-alueet. Loistava mahdollisuus vastavalmistuneille aloittaa uransa leasing-alalla."
+        ],
+        "requirements": [
+          "Kandidaatin tai maisterin tutkinto suoritettu",
+          "Kiinnostus yritysrahoitukseen ja asiakaspalveluun",
+          "Vahvat viestintätaidot",
+          "Kunnianhimo kasvaa leasing-alalla"
+        ]
+      }
+    ]
+  },
+  "howToApply": {
+    "heading": "Näin haet",
+    "texts": [
+      "Valmis liittymään tiimiin? Haluamme kuulla sinusta! Lähetä meille hakemuksesi, johon sisältyy CV:si ja motivaatiokirje, jossa kerrot miksi olet kiinnostunut tehtävästä ja mitä voit tuoda tiimillemme.",
+      "Kaikki hakemukset käsitellään luottamuksellisesti, ja otamme sinuun yhteyttä kahden viikon sisällä. Jos sinulla on kysymyksiä mistä tahansa tehtävästä, älä epäröi ottaa meihin yhteyttä."
+    ],
+    "requirements": [
+      "Lähetä CV:si PDF-muodossa",
+      "Sisällytä henkilökohtainen motivaatiokirje",
+      "Mainitse mihin tehtävään haet",
+      "Kerro käytettävyytesi ja palkkatoiveesi"
+    ],
+    "process": [
+      "Alkuhakemusten tarkastelu (1-2 viikkoa)",
+      "Puhelin- tai videohaastatteluty (30-45 minuuttia)",
+      "Henkilökohtainen haastattelu tiimin jäsenten kanssa",
+      "Suosittelijatarkistukset ja lopullinen päätös"
+    ]
+  },
+  "cta": {
+    "heading": "Valmis aloittamaan urasi Innoleasella?",
+    "texts": [
+      "Liity asiantuntijatiimimme ja auta muokkaamaan yritysautojen leasingin tulevaisuutta Suomessa. Etsimme lahjakkaita henkilöitä, jotka jakavat arvojamme: läpinäkyvyys, asiakaslähtöisyys ja innovatiivisuus."
+    ],
+    "link": { "label": "Ota yhteyttä HR-tiimiin", "href": "/contact" }
+  },
+  "promotion": {
+    "heading": "Tutustu Innoleaseen tarkemmin",
+    "texts": [
+      "Opi lisää yrityksestämme, palveluistamme ja kulttuuristamme ennen hakemista."
+    ],
+    "columns": [
+      {
+        "title": "Tietoa yrityksestämme",
+        "texts": ["Tutustu tarinaamme, missioomme ja arvoihin, jotka ohjaavat kaikkea tekemistämme."],
+        "link": { "label": "Lue lisää meistä", "href": "/about" }
+      },
+      {
+        "title": "Palvelumme",
+        "texts": ["Tutustu kattaviin leasingratkaisuihin yrityksille ja yksityishenkilöille."],
+        "link": { "label": "Katso palvelut", "href": "/leasing-solutions" }
+      },
+      {
+        "title": "Yhteystiedot",
+        "texts": ["Onko kysyttävää? Ota yhteyttä tiimiin saadaksesi lisätietoja."],
+        "link": { "label": "Ota yhteyttä", "href": "/contact" }
+      }
+    ]
+  }
+}

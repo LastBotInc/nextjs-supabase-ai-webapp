@@ -5,200 +5,476 @@
 ### Public Pages (`/[locale]`)
 
 1. Home Page (`/`)
-   - Template features showcase
-   - Getting started guide
-   - Documentation links
-   - GitHub repository link
 
-2. Blog Page (`/blog`)
-   - Article listings
-   - Categories
-   - Search functionality
-   - Featured posts
-   - AI-enhanced content
+   - **Hero Section:** Large background image/video, clear value proposition headline, description, primary CTA ('Request a Quote'), secondary CTA ('Learn More'). Use Hero component for these.
+   - **Campaigns Section (New):**
+     - **Location:** Below Hero section.
+     - **Title:** "Current Campaigns" (localized).
+     - **Layout:** Responsive grid (1-col mobile, 2-col tablet/desktop) with light background (e.g., `bg-gray-50`).
+     - **Card Template:**
+       - Vehicle Image (16:9 ratio).
+       - Tagline Badge (e.g., "Limited Stock!") - styled distinctively.
+       - Vehicle Title (Make/Model) - bold.
+       - Indicative Price (e.g., "From €XXX/month + VAT") - smaller text.
+       - Pill-shaped Tags (e.g., "Van", "Electric").
+       - CTA Button ("View Offer") - standard style.
+   - **Leasing Solutions Overview:** Brief cards summarizing the 4 main leasing types (Financial, Flexible, Maintenance, MiniLeasing) with icons and links.
+   - **Fleet Management Tools Overview:** Cards highlighting key digital tools (InnoFleet Manager, Reporting, etc.).
+   - **Testimonials:** Rotating or static customer quotes.
+   - **Partner Logos:** Display logos of key service partners.
+   - **Environmental Focus/EV Section:** Highlighting EV options and benefits.
+   - **Final CTA:** Clear call-to-action section.
 
-3. Privacy Page (`/privacy`)
-   - Privacy policy
-   - Data handling
-   - Cookie information
+2. Leasing Solutions (`/leasing-solutions`)
 
-4. Preview Page (`/preview/[id]`)
-   - Content preview
-   - Share functionality
-   - Version comparison
+   - Financial Leasing
+   - Flexible Leasing
+   - Maintenance Leasing
+   - MiniLeasing
+   - Comparison calculator
 
-5. Public Booking Page (`/book/[userId]`)
-   - Month view calendar
-   - Available time slots for selected date
-   - Timezone selector
-   - Booking form with fields:
-     - Name
-     - Email
-     - Company (optional)
-     - Description/Agenda (optional)
-   - Confirmation screen
-   - Success/Error messages
-   - Responsive design for all devices
+3. Fleet Management (`/fleet-management`)
 
-6. Landing Page (`/[slug]`)
-   - Concept: "AI-Powered Growth Engine"
-   - Theme: Dark theme consistent with admin, using brand gradients for highlights.
-   - Fonts: Geist Sans (headings), Inter (body).
-   - Structure:
-     - Hero Section: Large gradient headline, sub-headline, dynamic abstract background (using `public/images/landing-hero-bg.png`), prominent gradient CTA button.
-     - Problem/Solution Section: Two-column layout contrasting user pain points with AI solutions.
-     - Key Features Section: Grid of dark cards showcasing features like Predictive Keyword Research, Content Optimization, etc.
-     - Social Proof/Trust Section: Logos, testimonials, or key results.
-     - How It Works Section (Optional): Simple 3-step graphic/list.
-     - Final CTA Section: Reinforce value proposition, repeat prominent gradient CTA button, trust statement.
-   - Styling: Tailwind CSS, leveraging configured theme colors and fonts.
+   - InnoFleet Manager overview
+   - Fleet reporting features
+   - Cost tracking tools
+   - Service management
 
-### Admin Pages (`/[locale]/admin`)
+4. Services (`/services`)
+
+   - Vehicle maintenance network
+   - Tire service partners
+   - Inspection services
+   - Electric vehicle services
+   - Fleet optimization
+
+5. About Us (`/about`)
+
+   - Company history
+   - Team information
+   - Corporate responsibility
+   - Autolle.com Group connection
+
+6. Blog (`/blog`)
+
+   - Industry news
+   - Leasing tips
+   - Fleet management insights
+   - Vehicle industry updates
+   - EV transition guidance
+
+7. Contact Page (`/contact`)
+
+   - Contact form
+   - Office locations
+   - Service request form
+   - Leasing inquiry form
+
+8. Privacy Policy (`/privacy`)
+   - Data protection information
+   - Cookie policy
+   - GDPR compliance
+
+### Client Portal (`/[locale]/portal`)
+
+1. Dashboard (`/portal`)
+
+   - Fleet overview
+   - Contract summaries
+   - Upcoming service reminders
+   - Recent activities
+   - Cost analytics
+
+2. Vehicles (`/portal/vehicles`)
+
+   - Vehicle list with details
+   - Status indicators
+   - Contract information
+   - Document access
+   - Service history
+
+3. Contracts (`/portal/contracts`)
+
+   - Active contracts
+   - Contract details
+   - Payment schedules
+   - End-of-lease options
+   - Contract documents
+
+4. Maintenance (`/portal/maintenance`)
+
+   - Service booking
+   - Maintenance history
+   - Tire management
+   - Inspection scheduling
+   - Repair records
+
+5. Reports (`/portal/reports`)
+
+   - Cost reports
+   - Usage reports
+   - Emissions analytics
+   - Custom report builder
+   - Export options
+
+6. User Management (`/portal/users`)
+
+   - Driver accounts
+   - Permission settings
+   - Role management
+   - Activity logs
+   - Driver-vehicle assignments
+
+7. Documents (`/portal/documents`)
+
+   - Contracts
+   - Invoices
+   - Service records
+   - Vehicle documentation
+   - Corporate policies
+
+8. Settings (`/portal/settings`)
+   - Company information
+   - Notification preferences
+   - API integration settings
+   - Multi-factor authentication
+   - Language preferences
+
+### Admin Portal (`/[locale]/admin`)
 
 1. Dashboard (`/admin`)
-   - Overview statistics
-   - Quick actions
-   - Recent activity
 
-2. Blog Management (`/admin/blog`)
-   - Post editor with AI assistance
-   - Post list
-   - Category management
-   - Media library
-   - AI image generation
+   - Client overview
+   - Contract analytics
+   - Vehicle status summary
+   - Financial metrics
+   - Service provider performance
 
-3. User Management (`/admin/users`)
-   - User list
-   - Role management
-   - Access control
-   - Profile management
+2. Client Management (`/admin/clients`)
 
-4. Media Management (`/admin/media`)
-   - Media asset library
-   - Folder organization
-   - AI image generation
-   - Optimization tools
-
-5. Analytics Dashboard (`/admin/analytics`)
-   - Page view tracking
-   - User behavior
-   - Performance metrics
-   - Custom reports
-
-6. Calendar Management (`/admin/calendar`)
-   - Calendar view with booked/available slots
-   - Settings panel:
-     - Default meeting duration
-     - Buffer times
-     - Working hours
-     - Blocked dates
-     - Timezone settings
-   - Upcoming meetings list
-   - Past meetings history
-   - Quick actions:
-     - Block time slots
-     - Cancel meetings
-     - Copy booking link
-
-7. Contact Management (`/admin/contacts`)
-   - Contact list
-   - Status tracking
+   - Client list
+   - Account details
+   - Contract assignments
    - Communication history
-   - Task management
+   - Notes and follow-ups
 
-8. Landing Pages (`/admin/landing-pages`)
-   - Page builder
+3. Vehicle Management (`/admin/vehicles`)
+
+   - Vehicle inventory
+   - Availability status
+   - Maintenance scheduling
+   - Location tracking
+   - Procurement planning
+
+4. Contract Management (`/admin/contracts`)
+
+   - Contract creation
    - Template management
-   - SEO settings
-   - Performance tracking
+   - Approval workflows
+   - Renewal tracking
+   - Contract analytics
 
-9. Translation Management (`/admin/translations`)
-   - Language settings
-   - Translation editor
-   - Import/Export
-   - Missing keys tracking
+5. Financial Management (`/admin/finance`)
+
+   - Invoice generation
+   - Payment tracking
+   - Pricing management
+   - Financial reporting
+   - Expense tracking
+
+6. Service Management (`/admin/services`)
+
+   - Service provider network
+   - Appointment scheduling
+   - Service quality tracking
+   - Maintenance planning
+   - Service analytics
+
+7. Content Management (`/admin/content`)
+
+   - Website content editor
+   - Blog post management
+   - Document templates
+   - Email templates
+   - Marketing materials
+
+8. System Settings (`/admin/settings`)
+   - User management
+   - Role configuration
+   - System logs
+   - API management
+   - Integration settings
 
 ## UI/UX Patterns
 
-### Design System
+### Page structure
+
+All pages in `app[locale]/**/page.tsx` and their components should follow these guidelines strictly.
+
+The first element on all pages is the `PageWrapper` which sets primary padding.
+Next should be a layout component [Main layout components](#main-layout-components) which sets spacing and alignment and gaps.
+Contents should be placed in the layout components.
+
+### Page styles and spacing
+
+All styles, colors, fonts and paddings, margins and gaps are set in the existing components. There should not be need to explicitly set any styling when using existing components. Do not set classNames to existing components.
+
+### Main layout components
+
+All pages should use `PageWrapper` as root component and then use layout components to wrap contents.
+
+Read the documentation show layout components are built from the `app/components/v2/core/block/Block.tsx`.
+
+Never nest any layout components in the page code!
+
+#### Layout blocks
+
+Layout components use blocks to render their children. Each block has background and content area. Children are rendered only to content area.
+
+There are four types of blocks:
+
+- `main`: the root level. Used as a direct child of PageWrapper. If it has a background color or image, it covers full width of the page.
+- `content`: Content is placed in this block. It has max width and is centered on wide screens. Sets correct padding to the content.
+- `box`: presents a box which can be any container inside a content block.
+- `component`: used for aligning component elements.
+
+#### Layout components
+
+There are ready-made layouts for different purposes:
+
+- `layout/Hero`: create hero layout with image, title and contact information. Must have an image
+- `layout/BasicLayout`: Content is rendered in a flex box with direction column by default. Use in simple layout. Has preset spacing and content wrappers. No need to set any.
+- `layout/TwoColumnLayout`: Renders two children a columns with gaps and spacing. Will render columns vertically in mobile. Uses the BasicLayout.
+- `layout/ThreeColumnLayout`: Renders three children a columns with gaps and spacing. Will render columns vertically in mobile. Uses the BasicLayout.
+- `layout/GridLayout`: places children in to Content Block and wraps with an element with display:grid
+- `layout/FlexLayout`: places children in to Content Block and wraps with an element with display:flex
+- `layout:BoxLayout`: like GridLayout, but content padding is different. Aligns its children (boxes), so they are outside content area but contents of the boxes is aligned like other content.
+- `layout/CustomMainContent`: basic layout for showing content. Uses Main block + Content block. Accepts images and content. Should only be used if other layouts do not work.
+
+Never nest any layout components in the page code!
+
+#### Layout custom content components
+
+Layouts expect certain child components. They are not compulsory, but help align content for the layout's purpose.
+Prefer using them as direct children of the layouts.
+
+With `GridLayout`, use `GridLayout.Column` to wrap content.
+
+With `BoxLayout`, use `BoxLayout.Box` to wrap content.
+
+With `FlexLayout`, use `FlexLayout.Column` or `FlexLayout.FixedWidthColumn` to wrap content. `FlexLayout.FixedWidthColumn` is used when a column needs to have certain width.
+
+With `Hero`, use `Hero.Image `, `Hero.Heading`, `Hero.SubHeading`, `Hero.Text` and `Hero.ExtraContent`
+
+With `CustomMainContent` content must be manually wrapped. Use `ContentArea` component as first child and then prefer `Flex` or `Grid` components to wrap and align content.
+
+### Content components
+
+Placed in @app/components/vs/core
+
+- `Card`: Content component to render elements in a flex box in the content slot of a layout component.
+- `Flex`: wraps children with flex box with responsive breakpoints when to show children in one column.
+- `Columns`: wraps children with grid with responsive breakpoints to change column counts.
+- `BackgroundImage`: Renders an image to div with inset and position absolute. Accepts responsive backgroundSize and backgroundPosition.
+- `PageWrapper`: Root wrapper for all pages
+
+### Colors and palettes
+
+Each layout has two palettes:
+
+- palette: used by the main block and visually covers the whole block. Use only to set background color of the full page width element. Default is white background with black text, borders, icons and buttons. Palette name is "default"
+- contentPalette: used by the content block and is used by its children. If not set, the palette is inherited from main block. No default.
+
+### UI components
+
+- `Accordion`: basic accordion component
+- `Headings`: different Heading sizes (h1...h6) with size variants. Uses palette colors.
+- `ImageContainer`: wrapper to images to handle aspect ratio and padding.
+- `LinkButton`: renders a link looking like a button
+- `List`: renders <ul>
+- `Paragraph`: renders <p> with size variations
+
+### Core components that should not be used outside blocks
+
+**Do not use these because they must be nested properly in a blocks**
+
+- `Block`: core component to render block + content
+- `ContentArea`: renders div.content-area
+
+## Component usage
+
+First add a PageWrapper to page
+
+Then use layouts:
+
+```typescript
+<PageWrapper>
+  <FlexLayout>{children}</FlexLayout>
+  <BasicLayout>{children}</BasicLayout>
+</PageWrapper>
+```
+
+Do not nest any `/layout/*` components!
+
+Read the JSDoc from each `/app/components/v2/layout/*.tsx` before using them.
+
+#### Palettes
+
+There are ready made palettes used by components:
+
+- "betoni": with background color: #6D6E71 and accessible text and button and icon colors.
+- "kupari" with background color: #C49A6C and accessible text and button and icon colors.
+- "piki" with background color: #231F20 and accessible text and button and icon colors.
+- "light-gray" with background color: #f6f6f6 and accessible text and button and icon colors.
+- "black" with background color: #000000 and accessible text and button and icon colors.
+- "beige" with background color: #E8E4DA and accessible text and button and icon colors.
+- "maantie" with background color: #D9D9D9 and accessible text and button and icon colors.
+- "default" with background color: #ffffff and accessible text and button and icon colors.
+
+Use palettes in the components and not apply other colors with className.
+
+Palettes are used with palette prop:
+
+```typescript
+<Content palette="piki"></Content>
+```
+
+Child components will use colors from palette, so there is no need to apply colors with classNames.
+
+#### Colors
+
+These are brand colors, but do not use them in components. Use palette prop or no colors at all.
+
 - Colors:
-  - Primary Gradient Colors:
-    - Pink: #E078F9
-    - Purple: #B800DF
-    - Indigo: #824BFC
-    - Light Blue: #767FFF
-    - Blue: #2B39FF
-    - Deep Purple: #5D00F8
-    - Cyan: #8BFCFF
-  - Base Colors:
+
+  - Primary Colors:
+    - Kupari (Copper): #C49A6C
+    - Piki (Pitch Black): #231F20
+    - Sähkö (Electric Blue): #4441E8
+  - Neutral Colors:
+    - Beige: #E8E4DA
+    - Maantie (Road Grey): #D9D9D9
+    - Betoni (Concrete): #6D6E71
     - White: #FFFFFF
-    - Dark Gray: #262626
-    - Medium Gray: #6B6B6B
-  - Gradients:
-    - Primary: bg-gradient-to-r from-[#E078F9] via-[#2B39FF] to-[#8BFCFF]
-    - Secondary: bg-gradient-to-r from-[#E078F9] to-[#2B39FF]
+  - Semantic Colors:
+    - Success: #16A75C
+    - Warning: #F59E0B
+    - Error: #EF4444
+    - Info: #3A8DDE
   - Dark Mode:
-    - Background: #262626
-    - Card Background: #1F1F1F
-    - Text: #FFFFFF
+    - Background: #1E293B
+    - Card Background: #0F172A
+    - Text: #F5F7FA
+
+#### Typography
+
+Use components that have typography already set. They can be imported from folder `@/app/components/v2/core/`.
+
+- Heading1, Heading2,Heading3
+- Paragraph,
+- Button
+- LinkButton
+- List
 
 - Typography:
-  - Headings: Geist Sans
-  - Body: Inter
-  - Code: Geist Mono
-  
+
+  - Primary Font: Inter Tight
+  - Available Weights: Light, Regular, Bold, Black
+  - Headings: Inter Tight
+  - Body: Inter Tight
+  - Monospace: Inter Tight
+
 - Heading Styles:
+
+  Prefer using `Heading` components which have all necessary variations, colors and fonts built-in.
+
   - Main Headings (H1):
-    - Font: Geist Sans
-    - Size: text-5xl (3rem) on mobile, text-6xl (3.75rem) on desktop
-    - Weight: font-extrabold
-    - Line Height: leading-[1.1] (1.1)
-    - Gradient: bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
-    - Style: bg-clip-text text-transparent
+
+    - Font: Inter Tight
+    - Size: text-4xl (2.25rem) on mobile, text-5xl (3rem) on desktop
+    - Weight: font-bold
+    - Color: Innolease Blue (#0E4C92)
+    - Line Height: leading-tight (1.25)
     - Margin Bottom: mb-6
-    - Container: max-w-4xl mx-auto text-center
-    - Tracking: tracking-tight
 
   - Section Headings (H2):
-    - Font: Geist Sans
-    - Size: text-4xl (2.25rem)
-    - Weight: font-bold
-    - Color: text-white with gradient background
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects: 
-      - Scale: transform hover:scale-105
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+
+    - Font: Inter Tight
+    - Size: text-3xl (1.875rem)
+    - Weight: font-semibold
+    - Color: Innolease Blue (#0E4C92)
+    - Line Height: leading-tight (1.25)
+    - Margin Bottom: mb-4
 
   - Content Headings (H3):
-    - Font: Geist Sans
+    - Font: Inter Tight
     - Size: text-2xl (1.5rem)
-    - Weight: font-bold
-    - Color: text-white
-    - Container: Dark card with gradient (from-gray-800 to-gray-900)
-    - Card Style: rounded-2xl p-8
-    - Hover Effects:
-      - Scale: transform hover:scale-105
-      - Text Gradient: group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400
-      - Shadow: hover:shadow-2xl hover:shadow-purple-500/10
-      - Transition: transition-all duration-300
+    - Weight: font-medium
+    - Color: Innolease Dark Blue (#072B54)
+    - Line Height: leading-normal (1.5)
+    - Margin Bottom: mb-3
 
-- Components:
-  - Buttons:
-    - Primary: Purple fill
-    - Secondary: Purple outline
-    - Ghost: Transparent with hover
-  - Cards:
-    - White background
-    - Subtle shadow
-    - Rounded corners
-  - Forms:
-    - Clean, minimal design
-    - Inline validation
-    - Clear error states
+#### Components
+
+Prefer using ready made components and do not create new ones.
+
+Components in app structure:
+
+```
+app/
+├── components
+|   |── v2
+│      ├── blocks      # Wrapper to use nested core/block.tsx components
+│      ├── component   # Custom components for special cases like news.
+│      ├── core        # core components that other components use
+│      ├── layouts     # ready made layout components for aligning and wrapping actual content. **Prefer using these in all pages**!
+│      ├── styling      # css and styling helpers
+│      ├── utils        # utils for components
+
+```
+
+Read each components documentation in JSDOc format in their \*.tsx files.
+
+#### Pages
+
+All pages must have <PageWrapper> as the root component.
+
+Then each page must use layout/ components to wrap actual components. Block components are located in folder "@/app/components/v2/blocks"
+
+#### Colors
+
+Block components use palette-prop to define colors. Use the prop, do not assign other colors. See [Palettes](#palettes)
+
+### Spacing and alignment
+
+Components set spacing, padding, gaps, and alignment, automatically. Do not set them with classNames.
+
+### Creating new visuals, components and charts
+
+Always prefer using existing components. See [Components](#components).
+
+When creating new components, use these guidelines:
+
+- Forms:
+
+  - Input fields: Light background, dark border, focus state with blue outline
+  - Dropdowns: Custom styled with chevron icon
+  - Checkboxes: Custom styled with blue check
+  - Radio buttons: Custom styled with blue dot
+  - Toggle switches: Blue when active, gray when inactive
+  - Form validation: Inline error messages in red
+  - Form sections: Logical grouping with clear section headers
+
+- Data Visualization:
+  - Cost charts: Bar and line charts
+  - Fleet composition: Pie and donut charts
+  - Timeline charts: For contract and maintenance tracking
+  - Vehicle status indicators: Color-coded status badges
+  - Emissions dashboard: Environmental impact visualization
+  - Cost comparisons: Side-by-side bar charts
 
 ### Responsive Design
+
 - Mobile-first approach
 - Breakpoints:
   - sm: 640px
@@ -208,35 +484,299 @@
   - 2xl: 1536px
 
 ### Animations
-- Subtle hover effects
-- Smooth page transitions
-- Loading states
-- Micro-interactions
+
+- Subtle hover effects on interactive elements
+- Loading states with minimal animations
+- Page transitions for a smooth experience
+- Micro-interactions for feedback
+- Chart animations for data presentation
 
 ### Accessibility
+
 - WCAG 2.1 AA compliance
 - Keyboard navigation
 - Screen reader support
 - High contrast mode
 - Focus indicators
+- Accessible form labels
+- Alternative text for images
+- Semantic HTML structure
 
 ## Styling Approach
 
-1. Tailwind CSS
-   - Custom configuration
-   - Component classes
-   - Utility-first approach
+1. Colors are fixed in [Palettes](#palettes) and they are used by passing `palette`-props to block components.
+
+2. Tailwind CSS
+
+   - Custom configuration for Innolease brand colors
+   - Consistent spacing and sizing
+   - Component-specific utilities
+   - Responsive utility classes
    - Dark mode support
 
-2. CSS Modules
+3. CSS Modules
+
    - For complex components
    - Animation keyframes
    - Custom properties
+   - Vehicle display modules
+   - Fleet dashboard components
 
-3. CSS-in-JS (styled-components)
-   - Dynamic styling
-   - Theme provider
-   - Global styles
+4. Layouts
+   Use existing components for new layouts, wrappers and containers.
+
+5. Reusable Components
+   Use existing [Components](#components) and their variations.
+
+6. New components
+   New components should use palettes and not set colors or fonts with classNames.
+   There are no components for:
+   - Form elements
+   - Card designs
+   - Table components
+   - Modal dialogs
+   - Vehicle cards
+
+### Graphical Patterns and Overlays
+
+- **Patterns:** The brand utilizes distinct graphical elements derived from the logo:
+
+  - A single, curved parallelogram shape.
+  - A wavy pattern formed by repeating and mirroring this shape.
+  - A tiled pattern using variations of the shape.
+  - These are typically rendered in neutral colors like 'Road Grey' or 'Concrete Grey'.
+
+- **Usage:** These patterns can be used subtly as background overlays on containers, images, or sections (e.g., hero sections, feature cards) to reinforce brand identity without overwhelming the content.
+
+- **Implementation (CSS Overlay):**
+
+  - **Method:** Use CSS pseudo-elements (`::before` or `::after`) on the container element.
+  - **Styling:** Apply the pattern using `background-image` (preferably an SVG for scalability and sharpness) or potentially CSS gradients/masks for simpler patterns. Set `background-repeat`, `background-size`, and `background-position` as needed.
+  - **Subtlety:** Control visibility using the `opacity` property (e.g., `opacity: 0.05` or `opacity: 0.1`).
+  - **Interaction:** Ensure the overlay doesn't interfere with user interaction by setting `pointer-events: none;`.
+  - **Layering:** Use `position: absolute`, `inset: 0`, and potentially `z-index` to position the overlay correctly behind content.
+  - **Blending:** Consider `background-blend-mode` (e.g., `multiply`, `overlay`) for interesting effects when layered over images or colors.
+  - **Centralization:** Store SVG patterns or common CSS overlay utility classes centrally for consistency.
+
+- **Conceptual Example (Pattern Overlay):**
+
+  ```css
+  .container-with-pattern-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container-with-pattern-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cover entire container */
+    background-image: url("/path/to/innolease-pattern.svg");
+    background-repeat: repeat;
+    background-size: 60px 60px; /* Example size */
+    opacity: 0.08; /* Adjust for subtlety */
+    pointer-events: none;
+    z-index: 0; /* Behind content if needed */
+  }
+  ```
+
+- **Example (Text Overlay):** As seen in some card examples, a simple semi-transparent overlay can be used behind text sections placed over images to ensure readability. This typically uses `background-color` with an alpha value (e.g., `rgba(0, 0, 0, 0.5)`) on a pseudo-element covering the text area.
+
+## Styling Rules and Anti-Patterns
+
+### Strict Rules
+
+1. **Component Usage**
+
+   - NEVER add className props to existing components
+   - NEVER modify existing component styles directly
+   - ALWAYS use the provided layout components from `app/components/v2/layout/`
+   - ALWAYS use the provided core components from `app/components/v2/core/`
+
+2. **Styling Hierarchy**
+
+   - Use `PageWrapper` as the root component for all pages
+   - Use layout components (e.g., `BasicLayout`, `FlexLayout`) for structure
+   - Use palette props for colors (e.g., `palette="betoni"`)
+   - Use existing typography components (`Heading1`, `Paragraph`, etc.)
+
+3. **Color Management**
+   - NEVER use Tailwind color classes directly
+   - NEVER use inline styles for colors
+   - ALWAYS use palette props for color schemes
+   - Available palettes: "betoni", "kupari", "piki", "light-gray", "black", "beige", "maantie", "default"
+
+### Anti-Patterns to Avoid
+
+1. **Incorrect Patterns:**
+
+   ```typescript
+   // ❌ DO NOT DO THIS:
+   <div className="flex flex-col gap-4 p-6">
+     <h1 className="text-2xl font-bold">Title</h1>
+   </div>
+
+   // ❌ DO NOT DO THIS:
+   <BasicLayout className="custom-styles">
+     <div className="text-blue-900">Content</div>
+   </BasicLayout>
+
+   // ❌ DO NOT DO THIS:
+   <div style={{ padding: '1rem', backgroundColor: '#f6f6f6' }}>
+     Content
+   </div>
+   ```
+
+2. **Correct Patterns:**
+
+   ```typescript
+   // ✅ DO THIS:
+   <PageWrapper>
+     <BasicLayout palette="light-gray">
+       <Heading1>Title</Heading1>
+       <Paragraph>Content</Paragraph>
+     </BasicLayout>
+   </PageWrapper>
+
+   // ✅ DO THIS:
+   <PageWrapper>
+     <TwoColumnLayout palette="betoni">
+       <Card>Column 1 Content</Card>
+       <Card>Column 2 Content</Card>
+     </TwoColumnLayout>
+   </PageWrapper>
+   ```
+
+### Component Creation Rules
+
+1. **New Components**
+
+   - New components should be created only if no existing component meets the need
+   - New components must follow the same styling rules
+   - New components should use palette props for colors
+   - New components should not accept className props unless absolutely necessary
+
+2. **Component Structure**
+   - Place new components in appropriate directories:
+     - `app/components/v2/core/` for basic UI components
+     - `app/components/v2/layout/` for layout components
+     - `app/components/v2/blocks/` for block components
+   - Document new components with JSDoc comments
+   - Include usage examples in component documentation
+
+### Validation Checklist
+
+Before submitting any code, verify:
+
+1. [ ] No className props on existing components
+2. [ ] Using correct layout components
+3. [ ] Using palette props for colors
+4. [ ] Using typography components for text
+5. [ ] Following the page structure with PageWrapper
+6. [ ] No inline styles
+7. [ ] No direct Tailwind utility classes
+8. [ ] Proper component nesting (no layout component nesting)
+
+### Common Scenarios
+
+1. **Page Layout:**
+
+   ```typescript
+   // ✅ Correct page structure
+   export default function Page() {
+     return (
+       <PageWrapper>
+         <Hero>
+           <Hero.Image src="..." alt="..." />
+           <Hero.Heading>Title</Hero.Heading>
+           <Hero.Text>Description</Hero.Text>
+         </Hero>
+         <BasicLayout palette="light-gray">
+           <Heading2>Section Title</Heading2>
+           <Paragraph>Content</Paragraph>
+         </BasicLayout>
+       </PageWrapper>
+     );
+   }
+   ```
+
+2. **Content Sections:**
+   ```typescript
+   // ✅ Correct content section
+   <BasicLayout palette="betoni">
+     <GridLayout>
+       <GridLayout.Column>
+         <Card>Content 1</Card>
+       </GridLayout.Column>
+       <GridLayout.Column>
+         <Card>Content 2</Card>
+       </GridLayout.Column>
+     </GridLayout>
+   </BasicLayout>
+   ```
+
+### AI-Generated Code Guidelines
+
+1. **When Reviewing AI-Generated Code:**
+
+   - Check for className usage
+   - Verify layout component usage
+   - Ensure palette props are used
+   - Validate component nesting
+   - Remove any direct styling
+
+2. **When Requesting AI-Generated Code:**
+   - Explicitly state: "Follow project styling rules"
+   - Specify: "Use layout components and palette props"
+   - Request: "No className props or direct styling"
+   - Reference: "Use existing components from v2 directory"
+
+## User Flows
+
+1. Vehicle Selection Process
+
+   - Browse available vehicles
+   - Compare specifications
+   - View pricing options
+   - Select leasing type
+   - Customize lease terms
+   - Submit inquiry
+
+2. Client Portal Onboarding
+
+   - Initial login
+   - Profile setup
+   - Vehicle assignment
+   - Dashboard introduction
+   - Feature tour
+   - Notification setup
+
+3. Maintenance Booking
+
+   - Select vehicle
+   - Choose service type
+   - View available time slots
+   - Select preferred service location
+   - Confirm booking
+   - Receive confirmation
+   - Get reminders
+
+4. End-of-Lease Process
+
+   - Receive notification of approaching end date
+   - Review end-of-lease options
+   - Schedule vehicle inspection
+   - Complete return checklist
+   - Schedule return appointment
+   - Process contract termination
+   - Explore renewal options
+
+5. Fleet Report Generation
+   - Select report type
+   - Define parameters
+   - Choose visualization options
+   - Generate report
+   - Export in preferred format
+   - Schedule recurring reports
 
 ## Internationalization
 
@@ -261,6 +801,7 @@ messages/
 ### Using Translations
 
 Translations are organized by namespace, making it easier to:
+
 - Locate translations for specific features
 - Compare translations across languages
 - Maintain consistency within logical sections
@@ -281,22 +822,377 @@ Translations are organized by namespace, making it easier to:
 ## Performance Optimization
 
 1. Image Optimization
+
    - Next.js Image component
-   - Responsive images
-   - WebP format
+   - WebP format for vehicle images
+   - Responsive sizing
    - Lazy loading
+   - Blur placeholders
 
 2. Code Splitting
+
    - Route-based splitting
    - Component lazy loading
-   - Dynamic imports
+   - Dynamic imports for heavy components
+   - Separate bundles for admin and client portals
 
 3. Caching Strategy
-   - Static page generation
-   - Incremental Static Regeneration
+
+   - Static generation for public pages
+   - ISR for semi-dynamic content
    - API response caching
+   - Local storage for user preferences
 
 4. Core Web Vitals
-   - LCP optimization
-   - FID improvement
-   - CLS minimization
+   - LCP optimization for vehicle imagery
+   - FID improvement with code splitting
+   - CLS minimization with proper image dimensions
+   - Server-side rendering for data-heavy pages
+
+- **Card Layouts:** Used extensively for summarizing services (Leasing Solutions, Fleet Tools), displaying blog posts, testimonials, and **campaign offers**.
+
+## SEO-Optimized Page Structure (Finnish Site)
+
+### Main Navigation
+
+1. Asiakastarinat (Customer Stories) (`/fi/asiakastarinat`)
+
+   - Success stories of clients using Innolease services
+   - Case studies categorized by industry and leasing type
+   - Testimonials with measurable results
+
+2. Kampanjat (Campaigns) (`/fi/kampanjat`)
+
+   - Current vehicle offers
+   - Seasonal promotions
+   - Limited-time deals
+   - Special leasing terms
+
+3. Blogi (Blog) (`/fi/blogi`)
+
+   - Industry insights
+   - Vehicle information
+   - Leasing advice
+   - Fleet management tips
+
+4. Avoimet työpaikat (Open Positions) (`/fi/tyopaikat`)
+
+   - Career opportunities
+   - Company culture information
+   - Benefits overview
+   - Application process
+
+5. Asiakaspalvelu (Customer Service) (`/fi/asiakaspalvelu`)
+
+   - Contact methods
+   - FAQ section
+   - Support request form
+   - Service hours
+
+6. Yhteystiedot (Contact Information) (`/fi/yhteystiedot`)
+   - Office locations
+   - Department contacts
+   - Map integration
+   - Contact form
+
+### Main Service Categories
+
+1. Yritysleasingit (Business Leasing) (`/fi/yritysleasingit`)
+
+   - B2B leasing solutions
+   - Corporate fleet options
+   - Volume pricing
+   - Custom leasing programs
+
+2. Muut palvelut (Other Services) (`/fi/muut-palvelut`)
+
+   - Complementary services beyond leasing
+   - Add-on options
+   - Partner services
+   - Special requirements
+
+3. Tietoa meistä (About Us) (`/fi/tietoa-meista`)
+
+   - Company history
+   - Mission and values
+   - Team information
+   - Corporate responsibility
+
+4. Asiakkaille (For Customers) (`/fi/asiakkaille`)
+
+   - Client resources
+   - Support materials
+   - Guides and documentation
+   - Self-service tools
+
+5. Auton vuokraus (Car Rental) (`/fi/auton-vuokraus`)
+   - Short-term rental options
+   - Rental process
+   - Vehicle classes
+   - Pricing information
+
+### Service Submenu Items
+
+1. Autoleasing (Car Leasing) (`/fi/autoleasing`)
+
+   - Personal vehicle leasing
+   - Corporate vehicle leasing
+   - Leasing term options
+   - Vehicle selection
+
+2. Huollon varaus (Service Booking) (`/fi/huollon-varaus`)
+
+   - Maintenance scheduling
+   - Service center locations
+   - Service types
+   - Online booking system
+
+3. Autoilijan opas (Driver's Guide) (`/fi/autoilijan-opas`)
+
+   - Vehicle operation tips
+   - Maintenance guidelines
+   - Troubleshooting advice
+   - Emergency procedures
+
+4. Vuokraa auto (Rent a Car) (`/fi/vuokraa-auto`)
+
+   - Rental process steps
+   - Available vehicles
+   - Rental terms
+   - Reservation system
+
+5. Kone- ja laitelasing (Machine and Equipment Leasing) (`/fi/kone-ja-laitelasing`)
+
+   - Industrial equipment options
+   - Specialized machinery leasing
+   - Equipment maintenance
+   - Lease-to-own options
+
+6. Rengaspalvelut (Tire Services) (`/fi/rengaspalvelut`)
+
+   - Seasonal tire change
+   - Tire storage
+   - Tire selection guidance
+   - Tire service locations
+
+7. Kalustoraportti (Fleet Report) (`/fi/kalustoraportti`)
+
+   - Fleet status reporting
+   - Asset management tools
+   - Usage analytics
+   - Cost tracking
+
+8. Minileasing (`/fi/minileasing`)
+
+   - Short-term leasing options
+   - Flexible terms
+   - Quick vehicle access
+   - Simplified process
+
+9. Autokannan hallinnointi (Fleet Management) (`/fi/autokannan-hallinnointi`)
+
+   - Fleet administration tools
+   - Maintenance scheduling
+   - Vehicle lifecycle management
+   - Driver management
+
+10. Päästöraportti (Emission Report) (`/fi/paastoraportti`)
+
+    - Environmental impact tracking
+    - CO2 emissions monitoring
+    - Sustainability metrics
+    - Regulatory compliance reporting
+
+11. Kausiauito (Seasonal Car) (`/fi/kausiauito`)
+
+    - Seasonal vehicle options
+    - Short-term availability
+    - Specific-use vehicles
+    - Seasonal pricing
+
+12. Opas auton palautukseen (Guide to Returning a Car) (`/fi/auton-palautus`)
+
+    - End-of-lease procedures
+    - Return condition requirements
+    - Inspection process
+    - Final settlement information
+
+13. Sijaisautopalvelu (Replacement Car Service) (`/fi/sijaisautopalvelu`)
+
+    - Temporary vehicle provision
+    - Service vehicle options
+    - Booking process
+    - Availability information
+
+14. Sopimuksen päättyminen (Contract Termination) (`/fi/sopimuksen-paattyminen`)
+
+    - End-of-contract options
+    - Contract renewal
+    - Vehicle return process
+    - Final payment information
+
+15. Yhteiskäyttöauto (Shared Use Car) (`/fi/yhteiskayttoauto`)
+
+    - Vehicle sharing programs
+    - Corporate vehicle pooling
+    - Access systems
+    - Booking platform
+
+16. Maastavienti asiakirja (Export Documents) (`/fi/maastavienti-asiakirja`)
+
+    - Vehicle export documentation
+    - International requirements
+    - Process guidelines
+    - Support services
+
+17. Kilometrien ilmoitus (Mileage Reporting) (`/fi/kilometrien-ilmoitus`)
+    - Mileage tracking system
+    - Reporting methods
+    - Usage monitoring
+    - Excess mileage information
+
+### Authentication
+
+1. Kirjaudu Innoon (Log in to Inno) (`/fi/kirjaudu`)
+   - Client portal access
+   - User authentication
+   - Account management
+   - Secure login system
+
+## Navigation Design
+
+### Main Navigation Structure
+
+The site will use a single main navigation at the top of all pages, with dropdown menus for organizing the extensive page structure.
+
+#### Top-Level Navigation Items
+
+1. **Leasing-palvelut** (Leasing Services) - Dropdown
+
+   - Autoleasing (Car Leasing)
+   - Kone- ja laitelasing (Machine and Equipment Leasing)
+   - Minileasing
+   - Kausiauito (Seasonal Car)
+   - Sijaisautopalvelu (Replacement Car Service)
+   - Yhteiskäyttöauto (Shared Use Car)
+
+2. **Asiakkaalle** (For Customers) - Dropdown
+
+   - Autoilijan opas (Driver's Guide)
+   - Opas auton palautukseen (Guide to Returning a Car)
+   - Leaseingauton palautusohje (Leasing Car Return Instructions)
+   - Sopimuksen päättyminen (Contract Termination)
+   - Kilometrien ilmoitus (Mileage Reporting)
+   - Maastavienti asiakirja (Export Documents)
+
+3. **Auton vuokraus** (Car Rental) - Dropdown
+
+   - Vuokraa auto (Rent a Car)
+   - Huollon varaus (Service Booking)
+   - Rengaspalvelut (Tire Services)
+
+4. **Ajankohtaista** (Current Topics) - Dropdown
+
+   - Blogi (Blog)
+   - Kampanjat (Campaigns)
+   - Asiakastarinat (Customer Stories)
+   - Avoimet työpaikat (Open Positions)
+
+5. **Tietoa meistä** (About Us) - Dropdown
+
+   - Yritysleasingit (Business Leasing)
+   - Autokannan hallinnointi (Fleet Management)
+   - Muut palvelut (Other Services)
+   - Asiakaspalvelu (Customer Service)
+
+6. **Yhteystiedot** (Contact Information) - CTA Button
+   - Direct link to contact page
+
+#### Mobile Navigation
+
+- Hamburger menu icon for smaller screens
+- Expandable accordion-style dropdowns for mobile
+- "Yhteystiedot" button remains visible outside menu
+
+#### Navigation Features
+
+- Active state highlighting
+- Dropdown indicator icons
+- Smooth reveal animations for dropdowns
+- Sticky behavior on scroll
+- Transparent to solid background transition when scrolling
+
+### Footer Design
+
+The footer will be organized into four main columns with links to essential pages and information.
+
+#### Column 1: Company Information
+
+- Logo
+- Company name (Innolease Oy)
+- Address (Katuosoite 10, 01150 Kaupunki)
+- Business ID (Y-tunnus: 2661196-9)
+- Copyright info (© 2025 Innolease Oy)
+
+#### Column 2: Office Locations
+
+- Helsinki (with link)
+- Oulu (with link)
+- Vantaa (with link)
+- Raisio (with link)
+
+#### Column 3: Resources
+
+- Kalustoraportointi (Fleet Reporting)
+- Päästöraportti (Emissions Report)
+- Sähköinen ajopalvkirja (Electronic Driving Log)
+- Autoilijan opas (Driver's Guide)
+- Leasingauton palautusohje (Leasing Car Return Guide)
+
+#### Column 4: Tools
+
+- Autopäättäjän työkalut (Car Decision-maker Tools)
+- Autoetulaskuri (Car Benefit Calculator)
+- Sähköautojen vertailu (Electric Car Comparison)
+
+#### Additional Footer Elements
+
+- Social media icons (Facebook, Twitter, Instagram)
+- Language selector (FI, SV, EN)
+- Privacy policy link
+- Terms of service link
+- Cookie policy link
+- Newsletter signup
+
+#### Footer Responsive Behavior
+
+- Columns stack on smaller screens
+- Full width on mobile devices
+- Collapsible sections on mobile for better space usage
+
+### Navigation Implementation
+
+For implementing the navigation and footer, we'll use the following approach:
+
+1. **Main Navigation Component**
+
+   - Create a reusable `MainNavigation` component
+   - Implement dropdown functionality with React state management
+   - Use CSS transitions for smooth interactions
+   - Handle responsive design with Tailwind breakpoints
+
+2. **Footer Component**
+
+   - Create a reusable `Footer` component
+   - Implement responsive grid layout
+   - Ensure all links are accessible
+   - Optimize for mobile viewing
+
+3. **Common Features**
+   - All navigation links to use Next.js `Link` component for client-side navigation
+   - Internationalization support for all menu items
+   - SEO-friendly markup structure
+   - Keyboard navigation support
+   - ARIA attributes for accessibility
+
+This navigation structure ensures all important pages are easily accessible while maintaining a clean, uncluttered interface. The dropdown menus organize content logically without overwhelming users with too many top-level options.

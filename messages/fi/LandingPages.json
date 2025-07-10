@@ -1,95 +1,178 @@
 {
-  "title": "Landing‑sivut",
-  "preview": "Esikatsele sivua",
+  "title": "Laskeutumissivut",
+  "preview": "Esikatsele laskeutumissivua",
   "publish": "Julkaise",
-  "unpublish": "Piilota",
-  "description": "Luo ja hallinnoi landing‑sivuja",
-  "notFound": "Sivua ei löytynyt",
-  "notFoundDescription": "Pyydettyä landing‑sivua ei löytynyt.",
-  "createPage": "Luo landing‑sivu",
-  "createPageDescription": "Luo uusi landing‑sivu mukautetulla sisällöllä, SEO‑asetuksilla ja analytiikalla.",
-  "editPage": "Muokkaa landing‑sivua",
-  "editPageDescription": "Muokkaa sisällön, asetusten ja seurannan tietoja.",
-  "generateContent": "Generoi sisältö",
-  "generateImage": "Generoi kuva",
+  "unpublish": "Poista julkaisu",
+  "description": "Luo ja hallitse laskeutumissivuja",
+  "content": "Sisältö",
+  "notFound": "Sivua ei löydy",
+  "notFoundDescription": "Pyydettyä laskeutumissivua ei löytynyt.",
+  "createPage": "Luo laskeutumissivu",
+  "createPageDescription": "Luo uusi laskeutumissivu mukautetulla sisällöllä, SEO-asetuksilla ja analytiikkaseurannalla.",
+  "editPage": "Muokkaa laskeutumissivua",
+  "editPageDescription": "Muokkaa tämän laskeutumissivun sisältöä, asetuksia ja seurantaa.",
+  "deletePage": "Poista laskeutumissivu",
+  "previewPage": "Esikatsele sivua",
+  "publishPage": "Julkaise sivu",
+  "unpublishPage": "Poista sivun julkaisu",
+  "generateContent": "Luo sisältö",
+  "generateImage": "Luo kuva",
+  "seoSettings": "SEO-asetukset",
+  "customCode": "Mukautettu koodi",
   "analytics": {
+    "title": "Analytiikka",
+    "description": "Määritä laskeutumissivun analytiikka-asetukset",
     "enableAnalytics": "Ota analytiikka käyttöön",
-    "enableAnalyticsDescription": "Ota analytiikan seuranta tälle sivulle",
-    "gaMeasurementId": "Google Analytics ‑mittaus‑ID",
-    "gtmContainerId": "Google Tag Manager ‑kontti‑ID",
-    "fbPixelId": "Facebook Pixel ‑ID",
-    "linkedinPixelId": "LinkedIn Pixel ‑ID"
+    "enableAnalyticsDescription": "Ota käyttöön analytiikan seuranta tälle laskeutumissivulle"
   },
+  "deleteConfirm": "Haluatko varmasti poistaa tämän laskeutumissivun?",
+  "publishConfirm": "Haluatko varmasti julkaista tämän laskeutumissivun?",
+  "unpublishConfirm": "Haluatko varmasti poistaa tämän laskeutumissivun julkaisun?",
   "form": {
     "title": "Otsikko",
-    "slug": "URL‑osoite",
+    "slug": "URL-osoitteen osa",
     "content": "Sisältö",
     "excerpt": "Lyhennelmä",
+    "metaDescription": "Meta-kuvaus",
     "featuredImage": "Pääkuva",
-    "tags": "Tägät",
-    "prompt": "Landing‑sivun kehotus",
-    "promptPlaceholder": "Kirjoita kehotus sisällön generointiin...",
-    "generating": "Generoidaan...",
+    "tags": "Tunnisteet",
+    "template": "Malli",
+    "customCss": "Mukautettu CSS",
+    "customJs": "Mukautettu JavaScript",
+    "customHead": "Mukautettu Head-sisältö",
+    "customScripts": "Lisäskriptit",
+    "seoData": "SEO-tiedot",
+    "analyticsData": "Analytiikkatiedot",
+    "prompt": "Laskeutumissivun kehotus",
+    "promptPlaceholder": "Kirjoita kehotus laskeutumissivun sisällön luomiseen...",
+    "generating": "Luodaan...",
+    "validation": {
+      "titleRequired": "Otsikko on pakollinen",
+      "slugRequired": "URL-osoitteen osa on pakollinen",
+      "contentRequired": "Sisältö on pakollinen",
+      "slugFormat": "URL-osoitteen osa voi sisältää vain pieniä kirjaimia, numeroita ja yhdysviivoja",
+      "slugUnique": "Tämä URL-osoitteen osa on jo käytössä"
+    },
+    "success": {
+      "created": "Laskeutumissivu luotu onnistuneesti",
+      "updated": "Laskeutumissivu päivitetty onnistuneesti",
+      "deleted": "Laskeutumissivu poistettu onnistuneesti",
+      "published": "Laskeutumissivu julkaistu onnistuneesti",
+      "unpublished": "Laskeutumissivun julkaisu poistettu onnistuneesti"
+    },
+    "error": {
+      "create": "Laskeutumissivun luonti epäonnistui",
+      "update": "Laskeutumissivun päivitys epäonnistui",
+      "delete": "Laskeutumissivun poisto epäonnistui",
+      "publish": "Laskeutumissivun julkaisu epäonnistui",
+      "unpublish": "Laskeutumissivun julkaisun poistaminen epäonnistui",
+      "load": "Laskeutumissivun lataaminen epäonnistui"
+    },
     "cancel": "Peruuta",
     "save": "Tallenna",
     "createPage": "Luo sivu",
-    "published": "Julkaistu"
+    "generateContent": "Luo sisältö",
+    "generateImage": "Luo kuva",
+    "search": "Etsi laskeutumissivuja...",
+    "status": "Tila",
+    "lastModified": "Viimeksi muokattu",
+    "actions": "Toiminnot",
+    "edit": "Muokkaa",
+    "view": "Näytä",
+    "published": "Julkaistu",
+    "draft": "Luonnos",
+    "noPages": "Ei laskeutumissivuja. Luo ensimmäinen sivu!",
+    "noSearchResults": "Hakuasi vastaavia laskeutumissivuja ei löytynyt.",
+    "seo": {
+      "metaTitle": "Meta-otsikko",
+      "metaDescription": "Meta-kuvaus",
+      "ogImage": "OG-kuva",
+      "keywords": "Avainsanat",
+      "canonicalUrl": "Kanoninen URL-osoite"
+    },
+    "code": {
+      "customHead": "Mukautettu Head-koodi",
+      "customCss": "Mukautettu CSS",
+      "customJs": "Mukautettu JavaScript"
+    }
   },
-  "validation": {},
+  "validation": {
+    "titleRequired": "Otsikko on pakollinen",
+    "slugRequired": "URL-osoitteen osa on pakollinen",
+    "contentRequired": "Sisältö on pakollinen",
+    "slugFormat": "URL-osoitteen osa voi sisältää vain pieniä kirjaimia, numeroita ja yhdysviivoja",
+    "slugUnique": "Tämä URL-osoitteen osa on jo käytössä"
+  },
   "success": {
-    "imageGenerated": "Kuva generoitu onnistuneesti"
+    "created": "Laskeutumissivu luotu onnistuneesti",
+    "updated": "Laskeutumissivu päivitetty onnistuneesti",
+    "deleted": "Laskeutumissivu poistettu onnistuneesti",
+    "published": "Laskeutumissivu julkaistu onnistuneesti",
+    "unpublished": "Laskeutumissivun julkaisu poistettu onnistuneesti",
+    "imageGenerated": "Kuva luotu onnistuneesti"
   },
   "tabs": {
     "content": "Sisältö",
-    "seo": "SEO‑asetukset",
-    "cta": "Kehotus toimintaan",
+    "seo": "SEO-asetukset",
+    "cta": "Call to Action",
     "code": "Mukautettu koodi"
   },
   "error": {
-    "load": "Landing‑sivun lataus epäonnistui"
+    "create": "Laskeutumissivun luonti epäonnistui",
+    "update": "Laskeutumissivun päivitys epäonnistui",
+    "delete": "Laskeutumissivun poisto epäonnistui",
+    "publish": "Laskeutumissivun julkaisu epäonnistui",
+    "unpublish": "Laskeutumissivun julkaisun poistaminen epäonnistui",
+    "load": "Laskeutumissivun lataaminen epäonnistui"
   },
-  "generating": "Generoidaan...",
-  "search": "Hae landing‑sivuja...",
+  "cancel": "Peruuta",
+  "save": "Tallenna",
+  "generating": "Luodaan...",
+  "search": "Etsi laskeutumissivuja...",
   "status": "Tila",
   "lastModified": "Viimeksi muokattu",
   "actions": "Toiminnot",
   "edit": "Muokkaa",
   "view": "Näytä",
-  "noPages": "Ei landing‑sivuja. Luo ensimmäinen!",
-  "noSearchResults": "Ei hakutuloksia.",
+  "published": "Julkaistu",
+  "draft": "Luonnos",
+  "noPages": "Ei laskeutumissivuja. Luo ensimmäinen sivu!",
+  "noSearchResults": "Hakuasi vastaavia laskeutumissivuja ei löytynyt.",
   "editor": {
+    "title": "Laskeutumissivun muokkain",
     "cta": {
-      "title": "Kehotus toimintaan",
+      "title": "Call to Action",
       "headline": {
         "label": "Otsikko",
-        "placeholder": "Syötä otsikko"
+        "placeholder": "Kirjoita otsikko tähän"
       },
       "description": {
         "label": "Kuvaus",
-        "placeholder": "Syötä kuvaus"
+        "placeholder": "Kirjoita kuvaus tähän"
       },
       "buttonText": {
         "label": "Painikkeen teksti",
-        "placeholder": "Syötä teksti"
+        "placeholder": "Kirjoita painikkeen teksti"
       },
       "buttonLink": {
         "label": "Painikkeen linkki",
-        "placeholder": "Syötä URL"
+        "placeholder": "Syötä URL-osoite"
       },
       "secondaryText": {
         "label": "Toissijainen teksti",
-        "placeholder": "Syötä teksti"
+        "placeholder": "Kirjoita toissijainen teksti"
       }
     }
   },
   "seo": {
-    "metaTitle": "Meta‑otsikko",
-    "metaDescription": "Meta‑kuvaus",
-    "ogImage": "OG‑kuva",
-    "keywords": "Avainsanat"
+    "metaTitle": "Meta-otsikko",
+    "metaDescription": "Meta-kuvaus",
+    "ogImage": "OG-kuva",
+    "keywords": "Avainsanat",
+    "canonicalUrl": "Kanoninen URL-osoite"
   },
   "code": {
-    "customHead": "Mukautettu head‑koodi",
+    "customHead": "Mukautettu Head-koodi",
     "customCss": "Mukautettu CSS",
     "customJs": "Mukautettu JavaScript"
   }

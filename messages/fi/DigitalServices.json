@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Digitaaliset palvelut | Innolease - Modernit ratkaisut kalustonhallintaan",
+    "description": "Tutustu Innoleasen innovatiivisiin digitaalisiin palveluihin: FleetManager, verkkoasiakasportaali ja digitaaliset dokumentointijärjestelmät tehokkaaseen kalustonhallintaan.",
+    "keywords": "digitaaliset palvelut, FleetManager, kalustonhallinta, verkkopalvelut, digitaaliset ratkaisut, leasing-teknologia",
+    "image": "/images/innolease/digital-services-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Digitaaliset palvelut – Modernit ratkaisut kalustollesi",
+    "subheading": "Tehosta kalustonhallintaa innovatiivisilla digitaalisilla työkaluilla",
+    "texts": [
+      "Innolease tarjoaa kattavat digitaaliset palvelut, jotka helpottavat yrityksesi toimintaa koko leasingkauden ajan. Modernit työkalumme tarjoavat reaaliaikaisen hallinnan, läpinäkyvyyden ja tehokkuuden koko kalustollesi."
+    ],
+    "image": {
+      "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png",
+      "alt": "Digitaalisten palveluiden kojelauta"
+    },
+    "numbers": [{ "title": "Ota yhteyttä", "number": "020 743 7670" }]
+  },
+
+  "fleetManager": {
+    "heading": "FleetManager – Täydellinen kaluston hallinta",
+    "subheading": "Yksi hallintanäkymä, kaikki tieto",
+    "texts": [
+      "FleetManager on älykäs ja helppokäyttöinen työkalu, joka tuo ajoneuvokalustosi hallinnan yhteen paikkaan – reaaliaikaisesti ja läpinäkyvästi. Seuraa ajoneuvokohtaisia kustannuksia ja optimoi käyttöaste helposti.",
+      "Selkeät raportit tukevat niin talousjohdon kuin vastuullisuusraportoinnin tarpeita."
+    ],
+    "list": [
+      { "term": "Sopimuksen seuranta", "description": "Kattava sopimusten hallinnointi ja seuranta yhdessä paikassa" },
+      {
+        "term": "Kustannusten hallinta & optimointi",
+        "description": "Reaaliaikainen kustannusseuranta ja optimointisuositukset"
+      },
+      { "term": "Käyttöasteen optimointi", "description": "Kilometriseuranta ja käytön optimointityökalut" },
+      { "term": "Ympäristönäkökulmat", "description": "Vastuullisuuden seuranta ja ympäristöraportointi" },
+      { "term": "Täydellinen läpinäkyvyys", "description": "Keskitetty tieto täydellä näkyvyydellä" }
+    ],
+    "image": { "src": "/images/innolease/fleetmanager-dashboard.jpg", "alt": "FleetManager-kojelauta" }
+  },
+
+  "digitalPortal": {
+    "heading": "Verkkoasiakasportaali",
+    "subheading": "Pääsy kalustotietoihisi 24/7",
+    "texts": [
+      "Turvallinen verkkopalvelumme tarjoaa sinulle välittömän pääsyn kaikkiin kalustotietoihisi, dokumentteihin ja palveluihin. Hallinnoi ajoneuvoja, seuraa kustannuksia ja käytä tärkeitä dokumentteja milloin tahansa, mistä tahansa.",
+      "Portaali integroituu saumattomasti FleetManagerin kanssa, tarjoten kattavan digitaalisen ekosysteemin kalustonhallintaan."
+    ],
+    "list": [
+      "Ajoneuvojen tiedot ja dokumentaatio",
+      "Huoltohistoria ja kunnossapitotiedot",
+      "Kustannusraportit ja taloudelliset yhteenvedot",
+      "Sopimustiedot ja uudistamisilmoitukset",
+      "Digitaaliset palvelupyynnöt ja viestintä"
+    ],
+    "image": { "src": "/images/innolease/customer-portal.jpg", "alt": "Asiakasportaalin käyttöliittymä" }
+  },
+
+  "digitalDocumentation": {
+    "heading": "Digitaalinen dokumentointijärjestelmä",
+    "subheading": "Paperitonta kalustonhallintaa",
+    "texts": [
+      "Sano hyvästit hajanaisille paperitöille. Digitaalinen dokumentointijärjestelmämme pitää kaikki ajoneuvodokumentit järjestyksessä, saavutettavina ja turvassa yhdessä paikassa.",
+      "Huoltotiedoista vakuutusasiakirjoihin, kaikki on digitoitu ja hakukelpoista, mikä tekee kaluston hallinnosta vaivatonta."
+    ],
+    "cases": [
+      {
+        "title": "Huoltotiedot",
+        "texts": [
+          "Kaikki huolto- ja korjaustiedot digitoidaan automaattisesti ja yhdistetään jokaiseen ajoneuvoon. Pääsy täydelliseen huoltohistoriaan välittömästi."
+        ],
+        "image": { "src": "/images/innolease/service-records.jpg", "alt": "Digitaaliset huoltotiedot" }
+      },
+      {
+        "title": "Sopimusten hallinta",
+        "texts": [
+          "Digitaaliset sopimukset automaattisilla muistutuksilla uudistuksista, huoltoaikatauluista ja tärkeistä määräajoista."
+        ],
+        "image": { "src": "/images/innolease/contract-management.jpg", "alt": "Digitaalinen sopimusten hallinta" }
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Miksi valita digitaaliset palvelumme?",
+    "texts": [
+      "Digitaaliset palvelumme on suunniteltu tekemään kalustonhallinnasta mahdollisimman tehokasta ja läpinäkyvää."
+    ],
+    "table": {
+      "columns": ["Hyöty", "Kuvaus"],
+      "rows": [
+        ["Reaaliaikainen pääsy", "Pääsy kalustotietoihisi 24/7 mistä tahansa"],
+        ["Kustannusten läpinäkyvyys", "Täydellinen näkyvyys kaikkiin kaluston kustannuksiin"],
+        ["Automaattinen raportointi", "Yksityiskohtaisten raporttien luominen muutamalla klikkauksella"],
+        ["Sujuva viestintä", "Suora viestintä palvelutiimiimme"],
+        ["Ympäristöseuranta", "Vastuullisuusmittareiden seuranta ja raportointi"]
+      ]
+    }
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": ["Tässä vastauksia yleisimpiin kysymyksiin digitaalisista palveluistamme."],
+    "questions": [
+      {
+        "question": "Miten pääsen käyttämään FleetManager-järjestelmää?",
+        "answer": "Saat kirjautumistiedot ja henkilökohtaisen opastuksen aloittaessasi palvelujemme käytön. Tiimimme tarjoaa kattavan koulutuksen, jotta saat kaiken irti kaikista ominaisuuksista."
+      },
+      {
+        "question": "Ovatko tietoni turvassa digitaalisissa järjestelmissäsi?",
+        "answer": "Kyllä, käytämme yritysluokan tietoturvamenetelmiä, mukaan lukien salaus, turvalliset palvelimet ja säännölliset tietoturvtarkastukset tietojesi suojaamiseksi. Kaikki järjestelmät ovat GDPR:n ja alan tietoturvallisuusstandardien mukaisia."
+      },
+      {
+        "question": "Voinko integroida järjestelmänne olemassa oleviin liiketoiminnan ohjelmistoihimme?",
+        "answer": "Digitaaliset palvelumme tarjoavat integrointimahdollisuuksia useimpien yleisten liiketoiminnan hallintajärjestelmien kanssa. Ota yhteyttä tekniseen tiimiimme keskustellaksesi yrityksesi erityisistä integrointivaatimuksista."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Valmis digitalisoimaan kalustonhallintasi?",
+    "texts": [
+      "Ota yhteyttä Innoleaseen tänään saadaksesi lisätietoja digitaalisista palveluistamme ja siitä, kuinka ne voivat muuttaa kalustonhallintasi. Asiantuntijamme auttavat sinua valitsemaan oikeat digitaaliset ratkaisut liiketoimintasi tarpeisiin."
+    ],
+    "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/innolease/digital-transformation.jpg", "alt": "Digitaalinen kalustonhallinta" }
+  },
+
+  "promotion": {
+    "heading": "Tutustu muihin ratkaisuihin",
+    "texts": ["Löydä kattava valikoimamme leasing- ja kalustonhallintapalveluja."],
+    "columns": [
+      {
+        "title": "Kalustonhallintatyökalut",
+        "texts": ["Edistyneet työkalut täydelliseen kaluston hallintaan ja optimointiin."],
+        "link": { "label": "Lue lisää", "href": "/fleet-manager" }
+      },
+      {
+        "title": "Leasingratkaisut",
+        "texts": ["Kattavat leasingpalvelut erikokoisille yrityksille."],
+        "link": { "label": "Tutustu leasingiin", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Asiakaspalvelu",
+        "texts": ["Asiantuntevaa tukea ja ohjausta koko leasingmatkasi ajan."],
+        "link": { "label": "Ota yhteyttä", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

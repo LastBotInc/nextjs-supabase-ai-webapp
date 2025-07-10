@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Car Rental for Businesses | Innolease - Flexible and Fast Solution",
+    "description": "Rent a car for your business flexibly and effortlessly. Mini-leasing and company cars for short and long-term use – delivery and pickup according to your needs.",
+    "keywords": "car rental, company car, mini-leasing, short-term car rental, replacement car, project car, business car rental",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "hero": {
+    "heading": "Company Cars Flexibly at Your Disposal",
+    "texts": [
+      "Rent a car for your business easily and quickly – without commitment. We deliver the car directly to your company's door and pick it up when the rental period ends.",
+      "Are you dreaming of a business-oriented car rental service where you can rent a car easily online and have it delivered and picked up as needed? Discover our flexible car rental service for businesses!"
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Company cars flexibly at your disposal" }
+  },
+
+  "benefits": {
+    "heading": "Why Choose Us?",
+    "texts": ["We offer businesses a flexible and effortless car rental service that suits various needs."],
+    "list": [
+      "Ready-to-use car immediately – even for the next day",
+      "Contract period 1–12 months, exactly according to your needs",
+      "Fixed monthly price includes insurance, maintenance and tire services",
+      "No down payment, no resale worries",
+      "Contact person to support your business"
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Car rental" }
+  },
+
+  "examples": {
+    "heading": "Perfect Solution for:",
+    "texts": ["Our car rental service is suitable for many different situations and needs."],
+    "list": [
+      "Waiting period for new company car or delivery completion",
+      "Replacement car during maintenance or repair",
+      "Projects or temporary work assignments",
+      "Seasonal or temporary additional needs"
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Business leasing" }
+  },
+
+  "minileasing": {
+    "heading": "Mini-leasing for Businesses – Power to Business Without Commitment",
+    "texts": [
+      "Do you need a car for your business quickly and for a fixed period? Mini-leasing is a flexible solution for short-term vehicle needs – without long-term commitments or ownership worries. Mini-leasing is a straightforward, cost-effective and fast way to ensure that business doesn't stop!"
+    ],
+    "benefits": [
+      "Ready-to-use car immediately – even for the next day",
+      "Contract period 1–12 months, exactly according to your needs",
+      "Fixed monthly price includes insurance, maintenance and tire services",
+      "No down payment, no resale worries",
+      "Contact person to support your business"
+    ],
+    "useCases": {
+      "heading": "Perfect Solution for:",
+      "list": [
+        "Waiting period for new company car or delivery completion",
+        "Replacement car during maintenance or repair",
+        "Projects or temporary work assignments",
+        "Seasonal or temporary additional needs"
+      ]
+    },
+    "cta": "Contact us – we'll find a solution that moves your business forward"
+  },
+
+  "cta": {
+    "heading": "Contact Us – We'll Find a Solution for Your Business",
+    "texts": [
+      "We tailor a suitable rental or leasing package for your business. Contact us and tell us about your needs!"
+    ],
+    "link": { "label": "Request Quote", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "leasing": {
+      "heading": "Interested in Leasing?",
+      "text": "Explore our comprehensive car leasing services for individuals and businesses.",
+      "buttonText": "Car Leasing",
+      "buttonHref": "/autoleasing"
+    },
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you save with a company car.",
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
+    },
+    "contact": {
+      "heading": "Need Personal Consultation?",
+      "text": "Our experts help you find the right solution for your business.",
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot"
+    }
+  }
+}

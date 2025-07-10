@@ -1,0 +1,40 @@
+.columns {
+  /* column has no effect unless you set the --column-count in the style attribute */
+  --column-count: var(--column-count-default, auto);
+  --column-count-md: auto;
+  --column-count-lg: auto;
+  --column-count-xl: auto;
+  --column-template: 1fr;
+  --row-template: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+  @screen md {
+    --column-count: var(--column-count-md);
+  }
+  @screen lg {
+    --column-count: var(--column-count-lg);
+  }
+  @screen xl {
+    --column-count: var(--column-count-xl);
+  }
+}
+
+.columns[style*="--column-count-active"] {
+  grid-template-columns: repeat(var(--column-count), 1fr);
+}
+
+.columns.small-gaps {
+  @apply gap-2 lg:gap-4;
+}
+.columns.large-gaps {
+  @apply gap-4 lg:gap-8;
+}
+
+.block-main .block-content .columns.level-based-gaps {
+  @apply gap-4 lg:gap-8;
+}
+
+.block-main .block-content .block-box .content-area .columns.level-based-gaps {
+  @apply gap-2 lg:gap-2;
+}

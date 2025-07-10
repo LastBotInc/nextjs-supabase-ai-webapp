@@ -1,138 +1,128 @@
 {
+  "title": "Modernit leasingratkaisut yrityksellesi",
+  "subtitle": "Räätälöidyt leasingvaihtoehdot kaikenkokoisille yrityksille",
+  "description": "Innolease tarjoaa kattavia yritysten ajoneuvoleasingratkaisuja ja kalustonhallintapalveluita räätälöitynä tarpeisiisi. Läpinäkyvä hinnoittelu ja toimintaa tehostavat digitaaliset työkalut.",
   "hero": {
-    "title": "Rakenna älykkäitä verkkosovelluksia tekoälyn avulla",
-    "description": "Moderni Next.js‑pohjainen malli, jossa on valmiit tekoälyominaisuudet, kehitystyökalut ja parhaat käytännöt skaalautuvien web‑sovellusten rakentamiseen.",
-    "backgroundAlt": "Abstrakti teknologiatausta",
-    "cta": "Katso GitHubissa",
-    "docs": "Dokumentaatio"
+    "title": "Joustavaa ajoneuvoleasingia yrityksille",
+    "description": "Innolease tarjoaa kattavia yritysten ajoneuvoleasingratkaisuja ja kalustonhallintapalveluita räätälöitynä tarpeisiisi. Läpinäkyvä hinnoittelu ja toimintaa tehostavat digitaaliset työkalut.",
+    "backgroundAlt": "Yritysautojen kalusto",
+    "cta": "Pyydä tarjous",
+    "learnMore": "Lue lisää"
   },
-  "agentic": {
-    "title": "Agenttimainen Kehityskehys",
-    "subtitle": "Cursor IDE:lle",
-    "description": "Laajenna ja tehosta Cursorin composer‑agenttia kattavalla päästä‑päähän‑kehityskehyksellä.",
-    "features": {
-      "title": "Parempi Kehityskokemus",
-      "list": {
-        "rules": "Rakenteelliset kehityssäännöt ja ‑mallit",
-        "prompts": "Optimoidut kehotteet koodin generointiin",
-        "tools": "Integroituja työkaluja ja apuohjelmia",
-        "validation": "Automaattinen testaus ja validointi",
-        "docs": "Kattava dokumentaatiogenerointi"
-      }
+  "campaigns": {
+    "title": "Nykyiset kampanjat",
+    "tagline1": "Vähän jäljellä alennuksella!",
+    "price1": "Alk. 499 €/kk + ALV",
+    "tag1_1": "Van",
+    "tag1_2": "Diesel",
+    "tag1_3": "Alennus",
+    "tagline2": "Valmiina toimitukseen",
+    "price2": "Alk. 649 €/kk + ALV",
+    "tag2_1": "Sähkö",
+    "tag2_2": "Uusi",
+    "cta": "Katso tarjous"
+  },
+  "leasing": {
+    "title": "Leasingratkaisut",
+    "description": "Valitse yrityksellesi parhaiten sopiva leasingratkaisu.",
+    "financial": {
+      "title": "Rahoitusleasing",
+      "description": "Rahoita vain ajoneuvo ilman kilometrirajoituksia. Hoidat itse huollot ja vastaat jäännösarvosta.",
+      "feature1": "Ei kilometrirajoituksia",
+      "feature2": "Asiakas huoltaa ajoneuvon itse",
+      "feature3": "Joustavat sopimuksen päättymisehdot",
+      "feature4": "Kilpailukykyinen rahoitus"
     },
-    "benefits": {
-      "title": "Keskeiset Hyödyt",
-      "quality": "Parempi koodin laatu ja yhtenäisyys",
-      "completeness": "Laajempi ominaisuuksien kattavuus",
-      "efficiency": "Nopeutettu kehitysprosessi",
-      "standards": "Vahvistetut koodausstandardit ja parhaat käytännöt"
+    "flexible": {
+      "title": "Joustoleasing",
+      "description": "Huoltokustannukset sisältyvät yhteen laskuun, ja jäännösarvo perustuu markkinaennusteeseen.",
+      "feature1": "Huollot sisältyvät hintaan",
+      "feature2": "Markkinaperusteinen jäännösarvo",
+      "feature3": "Selkeä kuukausilaskutus",
+      "feature4": "Mahdollisuus jatkaa sopimusta"
+    },
+    "maintenance": {
+      "title": "Huoltoleasing",
+      "description": "Kaiken kattava kuukausihinta sisältää ennakoitavat ajoneuvokustannukset ja ennalta määritellyt palvelut.",
+      "feature1": "Kaikki sisältyy hintaan",
+      "feature2": "Kattava palvelupaketti",
+      "feature3": "Ennalta sovittu kilometrimäärä",
+      "feature4": "Täysin ennakoitavat kustannukset"
+    },
+    "mini": {
+      "title": "Minileasing",
+      "description": "Lyhytaikainen 1-12 kuukauden leasing sisältää ajoneuvon ja vakuutuksen tilapäisiin tarpeisiin.",
+      "feature1": "1-12 kk sopimukset",
+      "feature2": "Vakuutus sisältyy",
+      "feature3": "Ei pitkäaikaista sitoutumista",
+      "feature4": "Nopea saatavuus"
+    },
+    "cta": "Vertaile vaihtoehtoja"
+  },
+  "fleet": {
+    "title": "Kalustonhallinnan työkalut",
+    "description": "Hallitse koko ajoneuvokalustoasi tehokkaasti digitaalisilla työkaluilla.",
+    "manager": {
+      "title": "InnoFleet Manager",
+      "description": "Näe kaikki sopimukset, ajoneuvot, kulut ja käyttäjät yhdessä paikassa."
+    },
+    "reports": {
+      "title": "Päästö- ja kalustoraportointi",
+      "description": "Seuraa ympäristövaikutuksia ja yksityiskohtaista kalustoanalytiikkaa."
+    },
+    "policy": {
+      "title": "Yrityksen autopolitiikka ja hankinta",
+      "description": "Optimoi sopimuksia ja hallitse ajoneuvojen hankintaa vaivattomasti."
+    },
+    "driver": {
+      "title": "Kuljettajan työkalut",
+      "description": "Tarjoa työntekijöillesi laskureita, vertailuja ja itsepalvelutoimintoja."
+    },
+    "cta": "Tutustu työkaluihin"
+  },
+  "testimonials": {
+    "title": "Suomalaisten yritysten luottokumppani",
+    "testimonial1": {
+      "quote": "Innoleasen joustavat leasingvaihtoehdot ja digitaaliset työkalut ovat merkittävästi yksinkertaistaneet kalustonhallintaamme. Heidän läpinäkyvä toimintatapansa tarkoittaa, ettei yllätyksiä tule.",
+      "author": "Matti Virtanen",
+      "company": "Tech Solutions Oy"
+    },
+    "testimonial2": {
+      "quote": "Kaiken kattava huoltoleasingpaketti antaa meille täydellisen kustannusten ennakoitavuuden. Heidän palveluverkostonsa on erinomainen ja kattaa koko Suomen.",
+      "author": "Liisa Korhonen",
+      "company": "Nordic Logistics Oy"
+    },
+    "testimonial3": {
+      "quote": "Siirtyminen sähköautoihin sujui vaivattomasti Innoleasen avulla. Heidän sähköautojen vertailutyökalunsa auttoivat meitä tekemään perusteltuja päätöksiä.",
+      "author": "Juha Mäkinen",
+      "company": "Vihreä Innovaatio Oy"
     }
   },
-  "cta": {},
+  "partners": {
+    "title": "Palveluverkostomme kumppanit",
+    "description": "Valtakunnallinen kattavuus huolloille, renkaille ja katsastuksille luotettavien kumppaniemme kautta.",
+    "vianor": "Rengaspalvelut ja kausivaihdot",
+    "euromaster": "Kattavat huoltopalvelut",
+    "katsastus": "Ajoneuvojen katsastuspalvelut",
+    "coverage": "Yli 800 huoltopistettä ympäri Suomen"
+  },
+  "environmental": {
+    "title": "Ympäristövastuu",
+    "description": "Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla.",
+    "feature1": "Laaja valikoima sähköautoja",
+    "feature2": "Yksityiskohtainen päästöraportointi",
+    "feature3": "Latausratkaisut sähköautoille",
+    "feature4": "Neuvontaa kaluston sähköistämiseen",
+    "cta": "Kohti vihreämpää kalustoa Innoleasen kanssa"
+  },
+  "cta": {
+    "title": "Valmiina optimoimaan yrityksesi autokanta?",
+    "description": "Ota yhteyttä ja pyydä tarjous yrityksesi tarpeisiin sopivasta leasingratkaisusta.",
+    "button": "Pyydä tarjous",
+    "contact": "Tai soita meille +358 50 123 4567"
+  },
   "meta": {
-    "title": "Tekoälyä hyödyntävä Next.js‑malli | Moderni web‑kehitys",
-    "description": "Moderni Next.js‑malli, jossa on sisäänrakennettu tekoälytuki, Supabase‑integraatio ja kehitystyökalut skaalautuvien verkkosovellusten luomiseen."
-  },
-  "features": {
-    "title": "Kaikki mitä tarvitset",
-    "description": "Laaja valikoima työkaluja ja ominaisuuksia kehityksen nopeuttamiseen.",
-    "ai": {
-      "title": "Tekoälyintegraatio",
-      "description": "Valmiit integraatiot Google Gemini‑, Recraft‑ ja Tavily‑API‑rajapintoihin sisällön luontia, kuvan­tuotantoa ja älykästä hakua varten."
-    },
-    "tools": {
-      "title": "Kehitystyökalut",
-      "description": "Modernit työkalut kuvien optimointiin, HTML‑>Markdown‑muunnokseen ja tehokkaaseen tiedostonhallintaan."
-    },
-    "database": {
-      "title": "Tietokanta & Auth",
-      "description": "Saumaton Supabase‑integraatio autentikointiin, reaaliaikaisiin datoihin ja suojattuihin API‑päätepisteisiin."
-    },
-    "i18n": {
-      "title": "Kansainvälistäminen",
-      "description": "Sisäänrakennettu monikielisyystuki next‑intl‑kirjastolla ja tehokas käännösten hallinta."
-    },
-    "performance": {
-      "title": "Suorituskyky",
-      "description": "Optimoitu nopeuteen palvelin­komponenttien, edge‑funktioiden ja tehokkaiden välimuististrategioiden avulla."
-    },
-    "security": {
-      "title": "Turvallisuus",
-      "description": "Parhaat käytännöt turvalliseen autentikointiin, API‑suojaan ja datan käsittelyyn."
-    }
-  },
-  "coreFeatures": {
-    "title": "Ydinominaisuudet",
-    "description": "Kaikki mitä tarvitset täysiverisen verkkosovelluksen rakentamiseen",
-    "auth": {
-      "title": "Autentikointi & Käyttäjät",
-      "description": "Täydellinen käyttäjähallinta Supabase Auth‑integraatiolla, sosiaalisilla kirjautumisilla, suojatuilla reiteillä ja roolipohjaisella käyttöoikeudella.",
-      "feature1": "Sosiaalinen kirjautuminen",
-      "feature2": "Suojatut reitit",
-      "feature3": "Roolipohjainen käyttöoikeus",
-      "feature4": "Käyttäjäprofiilit"
-    },
-    "content": {
-      "title": "Sisällönhallinta",
-      "description": "Kattava sisällönhallinta tekoälyavusteisella luomisella ja optimoinnilla.",
-      "feature1": "Tekoälyavusteinen blogijärjestelmä",
-      "feature2": "Mediakirjasto tekoäly­generoinnilla",
-      "feature3": "Resurssien optimointiputki",
-      "feature4": "Landing‑sivujen rakentaja",
-      "feature5": "Hakukoneoptimointi"
-    },
-    "i18n": {
-      "title": "Kansainvälistäminen",
-      "description": "Sisäänrakennettu monikielisyys ja sisällön lokalisointi.",
-      "feature1": "Monikielinen tuki",
-      "feature2": "Käännösten hallinta",
-      "feature3": "Kielenvaihto",
-      "feature4": "Sisällön lokalisointi"
-    },
-    "analytics": {
-      "title": "Analytiikka",
-      "description": "Seuraa ja analysoi käyttäjien toimintaa ja sovelluksen suorituskykyä.",
-      "feature1": "Sivukatselujen seuranta",
-      "feature2": "Tapahtumien seuranta",
-      "feature3": "Istuntojen hallinta",
-      "feature4": "Käyttäjäpolkujen analyysi"
-    },
-    "booking": {
-      "title": "Varausjärjestelmä",
-      "description": "Täydellinen ajanvaraus­järjestelmä kalenterinhallinnalla.",
-      "feature1": "Ajanvaraus",
-      "feature2": "Kalenterinhallinta",
-      "feature3": "Aikavyöhyketuki",
-      "feature4": "Sähköposti­ilmoitukset"
-    },
-    "realtime": {
-      "title": "Reaaliaikaiset Ominaisuudet",
-      "description": "Live‑päivitykset ja yhteistyö­ominaisuudet Supabasen voimalla.",
-      "feature1": "Live‑päivitykset",
-      "feature2": "Datasykronointi",
-      "feature3": "Läsnäolo­indikaattorit",
-      "feature4": "Yhteismuokkaus"
-    },
-    "technical": {
-      "title": "Tekniset Ominaisuudet",
-      "description": "Rakennettu moderneilla teknologioilla ja parhailla käytännöillä.",
-      "feature1": "Moderni käyttöliittymä Tailwind CSS:llä",
-      "feature2": "Tumma/vaalea tila",
-      "feature3": "Tyyppiturvallinen kehitys",
-      "feature4": "Suorituskyky­optimointi",
-      "feature5": "Kattava testaus",
-      "feature6": "Row Level Security",
-      "feature7": "API‑suojaus",
-      "feature8": "Reaaliaikaiset tilaukset"
-    }
-  },
-  "getStarted": {
-    "title": "Aloita Rakentaminen Tänään",
-    "description": "Pääset vauhtiin minuuteissa, ei tunneissa.",
-    "step1": "Kloonaa repositorio ja asenna riippuvuudet",
-    "step2": "Määritä ympäristömuuttujat ja API‑avaimet",
-    "step3": "Aloita kehitys sisäänrakennetulla tekoälytuella",
-    "cta": "Katso GitHubissa",
-    "imageAlt": "Illustratio kehitystyökaluista ja ominaisuuksista"
+    "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
+    "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut. Läpinäkyvä hinnoittelu ja tehokkaat digitaaliset työkalut."
   }
 }

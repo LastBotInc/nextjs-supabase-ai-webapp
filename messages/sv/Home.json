@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "title": "Innolease | Företagsleasing och fordonshantering",
+    "description": "Omfattande leasinglösningar för företagsfordon och fordonshanteringstjänster med transparent prissättning och effektiva digitala verktyg.",
+    "keywords": "företagsleasing, fordonshantering, billeasing, företagsbilar, InnoFleet Manager, leasinglösningar, fordonspark, elbilar, hybridleasing",
+    "image": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png"
+  },
+
+  "hero": {
+    "heading": "Innolease",
+    "subheading": "Ditt företags partner inom leasing",
+    "numbers": [
+      { "title": "Ring oss", "number": "020 743 7670" },
+      { "title": "Ring oss", "number": "020 743 76700" }
+    ],
+    "image": { "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png", "alt": "Innolease Hero" }
+  },
+
+  "topTeam": {
+    "heading": "Ett mångsidigt team av experter till din tjänst",
+    "texts": [
+      "Innoleases huvudsyfte är att anpassa sig till kundens behov och erbjuda olika alternativ som gör det lättare för kunden att fatta beslut som passar deras situation.",
+      "Vår öppna verksamhetsmodell där vi arbetar tillsammans med kunden för att definiera ett servicepaket som tjänar deras behov. Vårt mål är att spara kundens tid och pengar, minska risker och göra flottbudgetering enklare."
+    ],
+    "link": { "label": "Läs mer", "href": "/keita-olemme" },
+    "image": { "src": "/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png", "alt": "Gruppfoto" }
+  },
+
+  "personnel": [
+    {
+      "name": "Ville Mäkinen",
+      "title": "Försäljningsdirektör",
+      "phone": "040 7570 309",
+      "email": "ville.makinen@innolease.fi",
+      "image": { "src": "/images/team/ville_makinen.jpg", "alt": "Ville Mäkinen" }
+    },
+    {
+      "name": "Samuli Hintikka",
+      "title": "Försäljningschef",
+      "phone": "045 6468 184",
+      "email": "samuli.hintikka@innolease.fi",
+      "image": { "src": "/images/team/samuli_hintikka.jpg", "alt": "Samuli Hintikka" }
+    },
+    {
+      "name": "Anssi Hyvärinen",
+      "title": "Försäljningschef",
+      "phone": "050 4734 817",
+      "email": "anssi.hyvarinen@innolease.fi",
+      "image": { "src": "/images/team/anssi_hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
+    },
+    {
+      "name": "Jesse Hämäläinen",
+      "title": "Försäljningschef",
+      "phone": "050 4738 049",
+      "email": "jesse.hamalainen@innolease.fi",
+      "image": { "src": "/images/team/jesse_hamalainen.jpg", "alt": "Jesse Hämäläinen" }
+    },
+    {
+      "name": "Veikka Jurvelin",
+      "title": "Försäljningschef",
+      "phone": "050 4735 816",
+      "email": "veikka.jurvelin@innolease.fi",
+      "image": { "src": "/images/team/veikka_jurvelin.jpg", "alt": "Veikka Jurvelin" }
+    },
+    {
+      "name": "Niclas Yrttimaa",
+      "title": "Försäljningschef",
+      "phone": "050 4611 119",
+      "email": "niclas.yrttimaa@innolease.fi",
+      "image": { "src": "/images/team/niclas_yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
+    }
+  ],
+
+  "leasingOptions": {
+    "heading": "Leasing-lösningar",
+    "subheading": "Välj den leasing-lösning som passar ditt företag bäst.",
+    "columns": [
+      {
+        "subheading": "Det mest lämpliga leasing-alternativet och finansieringsmodellen för dig",
+        "texts": [
+          "Vi har alltid ett leasing-alternativ och finansieringsmodell som passar kundens situation. Vårt mål är att erbjuda flexibilitet och skräddarsydda lösningar."
+        ],
+        "link": { "label": "Läs mer", "href": "/autoleasing" },
+        "image": { "src": "/images/home/leasing1.png", "alt": "Leasing-alternativ" }
+      },
+      {
+        "subheading": "Flexibel och enkel maskin- och utrustningsleasing",
+        "texts": [
+          "Som en smidig aktör är vår service flexibel. Specialönskemål gällande schema och fordonsutrustning är vardagsmat för oss."
+        ],
+        "link": { "label": "Läs mer", "href": "/kone-ja-laiteleasing" },
+        "image": { "src": "/images/home/leasing2.png", "alt": "Flexibel leasing" }
+      }
+    ],
+    "link": { "label": "Alla leasing-lösningar", "href": "/yritysleasing" }
+  },
+
+  "serviceLinks": [
+    { "label": "Flotthanteringsverktyg", "href": "/fleet-manager" },
+    { "label": "Bilkalkylator", "href": "/laskurit" },
+    { "label": "Företagsbilguide", "href": "/autoilijan-opas" },
+    { "label": "Företagsleasing", "href": "/yritysleasing" },
+    { "label": "Privatleasing", "href": "/autoleasing" }
+  ],
+
+  "news": {
+    "heading": "Aktuellt",
+    "cards": [
+      {
+        "title": "Nya Ford Transit Custom",
+        "texts": [
+          "Beskrivningar kommer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Läs mer", "href": "/uutiset" },
+        "image": { "src": "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png", "alt": "Ford Transit" },
+        "category": "Nyheter"
+      },
+      {
+        "title": "Vi erbjuder alla märken och modeller",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Läs mer", "href": "/kampanjat" },
+        "image": { "src": "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png", "alt": "Sportbilar" },
+        "category": "Kampanjer"
+      },
+      {
+        "title": "Leasing-lösning ETruck",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Läs mer", "href": "/blogi" },
+        "image": { "src": "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png", "alt": "Ellastbil" },
+        "category": "Bloggar"
+      }
+    ],
+    "link": { "label": "Visa aktuella nyheter", "href": "/uutiset" }
+  },
+
+  "newsSection": {
+    "heading": "Aktuellt"
+  },
+
+  "innoFleet": {
+    "subtitle": "Rapporteringsverktyg",
+    "heading": "InnoFleet Manager",
+    "texts": [
+      "Skapa alla rapporter ditt företag behöver direkt från webbtjänsten. Aktuell information om hela din flotta ger dig möjlighet att hantera fordonsrelaterade ärenden effektivt och spara tid.",
+      "Underhåll av hela din flotta och servicefunktioner är också lätt tillgängliga på din mobila enhet."
+    ],
+    "link": { "label": "Läs mer", "href": "/fleet-manager" },
+    "image": {
+      "src": "/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png",
+      "alt": "InnoFleet Manager-app"
+    },
+    "smallImage": { "src": "/images/home/iphone_05_sleep_image.png", "alt": "InnoFleet Manager-app" }
+  },
+
+  "team": {
+    "heading": "Företagsbilar och finansieringsexperter till din tjänst",
+    "role": "Försäljningschef",
+    "email": "förnamn.efternamn@innolease.fi",
+    "members": [
+      { "name": "Jukka Mäkinen", "phone": "+358 50 123 4567" },
+      { "name": "Liisa Korhonen", "phone": "+358 50 123 4568" },
+      { "name": "Mikko Nieminen", "phone": "+358 50 123 4569" },
+      { "name": "Anna Virtanen", "phone": "+358 50 123 4570" }
+    ],
+    "memberAlt": "Teammedlem"
+  },
+
+  "transparency": {
+    "heading": "Leasing-lösningens kostnader transparent",
+    "texts": [
+      "Vi vill göra billeasing så tydligt och enkelt som möjligt. Därför är Innoleases prissättning transparent. Du får alltid ett sanningsenligt och tydligt erbjudande från oss som inte innehåller dolda kostnader. Vi gör saker utan onödig byråkrati och får saker gjorda.",
+      "Vi implementerar ditt företags fordonspolicy och genomför kostnadsjämförelser av din flotta å dina vägnar, samt realiserar gammal utrustning."
+    ],
+    "link": { "label": "Läs mer", "href": "/palveluhinnasto" },
+    "image": { "src": "/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png", "alt": "Mörk bil" }
+  },
+
+  "searchingFor": {
+    "heading": "Letar efter en <span class=\"text-kupari\">ny</span> eller <span class=\"text-kupari\">begagnad</span> bil?",
+    "texts": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    ],
+    "link": { "label": "Läs mer", "href": "/myynti" },
+    "image": { "src": "/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png", "alt": "Mörk bil" }
+  },
+
+  "greenLeasing": {
+    "heading": "Mot grönare flotta med Innolease",
+    "texts": ["Minska ditt koldioxidavtryck med våra el- och hybridfordon."],
+    "list": [
+      "Brett urval av elbilar",
+      "Detaljerad utsläppsrapportering",
+      "Laddningslösningar för elbilar",
+      "Vägledning för flottans elektrifiering"
+    ],
+    "link": { "label": "Läs mer", "href": "/yritysleasing" },
+    "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png", "alt": "Grön leasing" }
+  }
+}

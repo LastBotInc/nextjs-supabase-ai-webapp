@@ -1,25 +1,56 @@
 {
   "title": "Profiiliasetukset",
-  "description": "Hallinnoi tilisi asetuksia ja mieltymyksiä",
-  "menu": {},
+  "description": "Hallitse tilisi asetuksia ja mieltymyksiä",
+  "menu": {
+    "title": "Profiilivalikko",
+    "general": "Yleiset asetukset",
+    "security": "Tietoturva & yksityisyys",
+    "preferences": "Asetukset",
+    "backToSite": "Takaisin sivustolle"
+  },
   "tabs": {
     "general": "Yleiset",
-    "security": "Turvallisuus",
+    "security": "Tietoturva",
     "preferences": "Asetukset"
   },
   "sections": {
-    "general": {},
-    "security": {},
-    "preferences": {}
+    "general": {
+      "title": "Yleiset tiedot",
+      "description": "Muokkaa perusprofiilitietojasi"
+    },
+    "security": {
+      "title": "Tietoturva-asetukset",
+      "description": "Hallitse tilisi turvallisuutta ja yksityisyysasetuksia"
+    },
+    "preferences": {
+      "title": "Käyttäjäasetukset",
+      "description": "Mukauta käyttökokemustasi"
+    }
   },
   "fields": {
     "username": "Käyttäjätunnus",
     "email": "Sähköposti",
     "fullName": "Koko nimi",
-    "fullNamePlaceholder": "Syötä koko nimesi"
+    "fullNamePlaceholder": "Syötä koko nimesi",
+    "language": "Ensisijainen kieli",
+    "theme": "Ulkoasuasetus",
+    "notifications": "Sähköposti-ilmoitukset",
+    "currentPassword": "Nykyinen salasana",
+    "newPassword": "Uusi salasana",
+    "confirmPassword": "Vahvista uusi salasana"
   },
   "actions": {
-    "save": "Tallenna muutokset"
+    "save": "Tallenna muutokset",
+    "cancel": "Peruuta",
+    "changePassword": "Vaihda salasana",
+    "updateEmail": "Päivitä sähköposti",
+    "enable2FA": "Ota kaksivaiheinen tunnistautuminen käyttöön",
+    "disable2FA": "Poista kaksivaiheinen tunnistautuminen käytöstä"
   },
-  "messages": {}
+  "messages": {
+    "saved": "Muutokset tallennettu onnistuneesti",
+    "error": "Tapahtui virhe tallennettaessa muutoksia",
+    "passwordChanged": "Salasana vaihdettu onnistuneesti",
+    "emailChanged": "Sähköposti vaihdettu onnistuneesti"
+  }
 }

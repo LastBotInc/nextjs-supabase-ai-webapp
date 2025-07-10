@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "Autoilijan Opas | Innolease - Kaikki tarvittava tietoa leasingautosi käytöstä",
+    "description": "Kattava opas autoiluun sopimuskauden aikana. Huollot, korjaukset, vahinkotilanteet, palautus ja paljon muuta hyödyllistä tietoa.",
+    "keywords": "autoilijan opas, leasing-auto, huollot, korjaukset, vahinkotilanteet, auton palautus, tiepalvelu, maastavienti",
+    "image": "/images/ajankohtaista.png"
+  },
+
+  "hero": {
+    "heading": "Autoilijan opas - Autoilu sopimuskauden aikana",
+    "texts": [
+      "Me Innolease Oy:llä olemme asiakkaan apuna ajoneuvojen hankinnoissa, kalustonhallinnassa sekä sopimuksen aikana käytännön asioissa. Työsuhdeautoilun tulee olla mahdollisimman helppoa.",
+      "Alta löydät hyödyllistä tietoa leasing-autosi käytöstä ja palveluistamme. Mikäli jokin asia askarruttaa, oma yhteyshenkilösi ja asiakaspalvelumme ovat valmiina auttamaan."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Autoilijan opas" }
+  },
+
+  "maintenance": {
+    "heading": "Huollot ja korjaukset",
+    "texts": [
+      "Auton toimintavarmuuden ja takuiden kannalta on tärkeää, että auto huollatetaan valmistajan tai maahantuojan huolto-ohjelman mukaisesti. Huollot tehdään Innolease Oy:n kumppaniverkostoon kuuluvassa huoltopaikassa. Huoltoon tulee pyytää lupa ennen ajanvarausta."
+    ],
+    "tips": [
+      "Seuraa huolto-ohjelmaa ja huoltokirjaa.",
+      "Huollot ja korjaukset sisältyvät huolto- ja joustoleasingiin.",
+      "Rahoitusleasing ei sisällä huoltoja tai korjauksia.",
+      "Teknisissä vioissa ota yhteyttä valtuutettuun merkkihuoltoon."
+    ],
+    "note": "Autoilijan opas toimitetaan sähköpostilla auton luovutuksen yhteydessä. Jos et ole saanut opasta, tilaa uusi asiakaspalvelusta.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Huollot ja korjaukset" }
+  },
+
+  "replacementCar": {
+    "heading": "Huollon sijaisauto",
+    "texts": [
+      "Voit saada sijaisauton huollon ajaksi, jos se sisältyy yrityksesi autopolitiikkaan. Pidempiaikaista sijaisautoa varten ota yhteyttä asiakaspalveluun."
+    ],
+    "note": "Lisätietoja autonvuokrauksesta – linkki.",
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Sijaisauto" }
+  },
+
+  "billing": {
+    "heading": "Huollon laskutusluvat",
+    "texts": [
+      "Huoltoihin ja korjauksiin tulee hakea ennakkoon laskutuslupa Innolease Oy:n huoltotiimin kautta. Luvan hakee huoltoliike, ei auton käyttäjä."
+    ],
+    "tips": [
+      "Luvan voi anoa, kun vika ja kustannukset ovat tiedossa.",
+      "Sama pätee huoltoihin, renkaiden uusintaan ja muihin laskutettaviin toimenpiteisiin."
+    ],
+    "note": "Lisätietoja laskutusluvista – linkki.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Laskutusluvat" }
+  },
+
+  "tires": {
+    "heading": "Rengaspalvelut",
+    "texts": [
+      "Renkaiden kausivaihdot, säilytys ja uusinnat sopimuskauden aikana. Pääyhteistyökumppanit: Vianor ja Euromaster. Tarkista sopimuksestasi, sisältyvätkö palvelut."
+    ],
+    "tips": [
+      "Rengaspaineiden tarkistus on käyttäjän vastuulla.",
+      "Rikkoutumisesta tai väärästä käytöstä johtuvat uusinnat eivät sisälly sopimukseen."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Rengaspalvelut" }
+  },
+
+  "accidents": {
+    "heading": "Vahinkotilanteet",
+    "texts": [
+      "Toimi vahinkotilanteessa seuraavasti:"
+    ],
+    "steps": [
+      "Täytä vahinkoilmoitus paikan päällä ja pyydä toinen osapuoli allekirjoittamaan.",
+      "Toimita ilmoitus vakuutusyhtiöön.",
+      "Poliisi paikalle henkilövahingoissa, epäselvissä tapauksissa tai riistaeläinkolarissa.",
+      "Vahingon aiheuttajan vakuutusyhtiö korvaa syyttömän osapuolen kulut.",
+      "Ilmoita myös Innolease Oy:n JM-tiimille tai yhteyshenkilölle vahingosta."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Vahinkotilanteet" }
+  },
+
+  "roadside": {
+    "heading": "Tiepalvelu",
+    "texts": [
+      "Innolease Oy:n Tiepalvelu palvelee 24/7. Palvelu on lähtökohtaisesti maksuton ja kulut ohjataan vakuutusyhtiölle tai maahantuojalle."
+    ],
+    "tips": [
+      "Jos tilannetta ei voi ratkaista puhelimitse, ammattilainen lähetetään paikalle.",
+      "Jos kuluja ei korvata, ne laskutetaan asiakkaalta."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Tiepalvelu" }
+  },
+
+  "export": {
+    "heading": "Maastavienti",
+    "texts": [
+      "Tarkista työnantajan ohjeistus. Tarvitset maastavientivaltakirjan ja Green Cardin (ei Pohjoismaissa). Omistaja myöntää luvan. Ota rekisteröintitodistus mukaan ulkomaille."
+    ],
+    "tips": [
+      "Tilaa asiakirjat hyvissä ajoin ennen matkaa.",
+      "Green Card todistaa liikennevakuutuksen voimassaolon."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Maastavienti" }
+  },
+
+  "return": {
+    "heading": "Leasingauton palautus",
+    "texts": [
+      "Aloita uuden auton hankinta tai sopimusjatko ajoissa. Palauta auto Autollecom myymälään. Täytä palautuslomake ja noudata ohjeita."
+    ],
+    "checklist": {
+      "heading": "Palautuksessa varmista että:",
+      "items": [
+        "Auto on puhdas sisältä ja ulkoa.",
+        "Auto on huollettu huolto-ohjelman mukaisesti.",
+        "Auto on katsastettu.",
+        "Henkilökohtaiset tiedot on poistettu.",
+        "Vauriot on korjattu tai ilmoitettu vakuutusyhtiöön.",
+        "Puuttuvat lisävarusteet palautettu 7 vrk sisällä."
+      ]
+    },
+    "mustHave": {
+      "heading": "Ajoneuvossa tulee olla mukana:",
+      "items": [
+        "Kaikki avaimet ja latauskaapelit.",
+        "Kaikki asiakirjat; huoltokirja ja manuaalit.",
+        "Molemmat rengassarjat.",
+        "Asennetut lisävarusteet."
+      ]
+    },
+    "remove": {
+      "heading": "Ajoneuvosta tulee poistaa:",
+      "items": [
+        "Teippaukset.",
+        "Leasingsopimukseen kuulumattomat lisävarusteet.",
+        "Paikanninlaitteet."
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Auton palautus" }
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": [
+      "Tässä osiossa löydät vastaukset yleisimpiin kysymyksiin leasingauton käytöstä."
+    ],
+    "questions": [
+      {
+        "question": "Katsastukset ja verot",
+        "answer": "Käyttäjän vastuulla on tehdä auton katsastus ja huolehtia veroista. Yhteistyökumppanit: A-Katsastus ja K1. Laskutus ohjautuu suoraan Innoleaselle."
+      },
+      {
+        "question": "Käyttäjän vaihdos",
+        "answer": "Käyttäjän vaihtuessa ilmoita rekisterinumero ja uuden käyttäjän tiedot asiakaspalveluun."
+      },
+      {
+        "question": "Vakuutukset",
+        "answer": "Vakuutusyhtiön tiedot ja omavastuut saat autopäättäjältä. Tutustu vakuutuksen laajuuteen ja omavastuusiin etukäteen."
+      },
+      {
+        "question": "Maastavienti",
+        "answer": "Katso kohta maastavienti – linkki."
+      },
+      {
+        "question": "Auton palautus",
+        "answer": "Katso kohta auton palautus – linkki."
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Usein kysytyt kysymykset" }
+  },
+
+  "contact": {
+    "heading": "Jäikö sinulle kysymyksiä?",
+    "texts": [
+      "Jos et löytänyt vastausta kysymykseesi sivuiltamme, ota meihin yhteyttä."
+    ],
+    "note": "Linkki yhteydenottokaavakkeeseen.",
+    "image": { "src": "/images/Tietoa_meista.png", "alt": "Yhteydenotto" },
+    "numbers": [
+      {
+        "title": "Soita meille",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Soita meille",
+        "number": "020 743 76700"
+      }
+    ]
+  }
+}

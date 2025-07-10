@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Eftermarknadsservice - Innolease",
+    "description": "Omfattande eftermarknadsservice och support för leasingfordon. Professionell underhåll, stöd och värdeoptimering under hela leasingperioden.",
+    "keywords": "eftermarknadsservice, fordonsunderhåll, leasing-support, flotthantering, service efter köp",
+    "image": "/images/og/post-marketing.jpg"
+  },
+
+  "section1": {
+    "heading": "Professionell eftermarknadsservice",
+    "texts": [
+      "Vår omfattande eftermarknadsservice säkerställer att era leasingfordon behåller sitt värde och prestanda under hela leasingperioden. Vi erbjuder professionella support- och underhållslösningar anpassade efter ert företags behov.",
+      "Från rutinunderhåll till akut support – vårt erfarna team hanterar alla aspekter av fordonshantering efter leasing, så att ni kan fokusera på er kärnverksamhet."
+    ],
+    "image": {
+      "src": "/images/post-marketing/service-team.jpg",
+      "alt": "Professionellt serviceteam som underhåller leasingfordon"
+    }
+  },
+
+  "section2": {
+    "heading": "Vårt tjänsteutbud",
+    "texts": [
+      "Vi erbjuder ett komplett utbud av eftermarknadsservicetjänster utformade för att maximera värdet och effektiviteten hos er leasingflotta."
+    ],
+    "list": [
+      {
+        "term": "Förebyggande underhåll",
+        "description": "Regelbundet schemalagt underhåll för att förhindra kostsamma reparationer och säkerställa optimal prestanda"
+      },
+      {
+        "term": "Akutstöd",
+        "description": "Dygnet-runt-väghjälp och akuta reparationstjänster för oväntade situationer"
+      },
+      {
+        "term": "Värdeoptimering",
+        "description": "Strategisk underhållsplanering för att bevara fordonets värde under hela leasingperioden"
+      },
+      {
+        "term": "Flottövervakning",
+        "description": "Avancerade spårnings- och övervakningssystem för att optimera flottans effektivitet och användning"
+      },
+      {
+        "term": "Tjänster vid leasingslut",
+        "description": "Omfattande fordonsinspektion och förberedelse för leasingretur eller köpoptioner"
+      }
+    ],
+    "image": { "src": "/images/post-marketing/maintenance.jpg", "alt": "Fordonsunderhåll och inspektionstjänster" }
+  },
+
+  "section3": {
+    "heading": "Servicefördelar",
+    "texts": [
+      "Vår eftermarknadsservice levererar mätbara fördelar som minskar era totala ägandekostnader och förbättrar den operativa effektiviteten."
+    ],
+    "table": {
+      "columns": ["Serviceområde", "Viktiga fördelar"],
+      "rows": [
+        ["Kostnadshantering", "Minskade oväntade reparationskostnader och optimerade underhållsscheman"],
+        ["Fordonsprestanda", "Bibehållen tillförlitlighet och effektivitet under hela leasingperioden"],
+        ["Efterlevnad", "Säkerställd följsamhet till tillverkargarantier och leasingavtal"],
+        ["Bekvämlighet", "Strömlinjeformad servicekoordinering och minimal störning av verksamheten"],
+        ["Värdebevarande", "Bevarat fordonsvärde för utvärderingar vid leasingslut"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Varför välja vår eftermarknadsservice",
+    "texts": [
+      "Vår expertis inom eftermarknadsservice grundar sig på års erfarenhet inom leasingbranschen och djup förståelse för fordons livscykelhantering."
+    ],
+    "list": [
+      "Certifierade tekniker med specialutbildning inom flera fordonsvarumärken",
+      "Strategiska partnerskap med auktoriserade servicecenter rikstäckande",
+      "Avancerad flotthanteringsteknik för realtidsövervakning",
+      "Anpassade servicepaket skräddarsydda för era specifika flottbehov",
+      "Transparent rapportering och kostnadsuppföljning för budgethantering"
+    ]
+  },
+
+  "faq": {
+    "heading": "Vanliga frågor",
+    "texts": ["Vanliga frågor om vår eftermarknadsservice och hur den gynnar er leasingflotta."],
+    "questions": [
+      {
+        "question": "Vad inkluderar eftermarknadsservice i ett leasingavtal?",
+        "answer": "Eftermarknadsservice omfattar alla tjänster relaterade till underhåll, övervakning och optimering av era leasingfordon efter att leasingen börjat, inklusive förebyggande underhåll, reparationer, flottövervakning och förberedelser inför leasingslut."
+      },
+      {
+        "question": "Hur påverkar eftermarknadsservice mina leasingkostnader?",
+        "answer": "Rätt eftermarknadsservice kan avsevärt minska era totala ägandekostnader genom att förhindra dyra reparationer, bibehålla fordonets värde och säkerställa efterlevnad av leasingvillkor, vilket i slutändan sparar pengar under leasingperioden."
+      },
+      {
+        "question": "Kan jag anpassa eftermarknadsservicepaketet?",
+        "answer": "Ja, vi erbjuder flexibla servicepaket som kan anpassas efter er specifika flottstorlek, fordonstyper, användningsmönster och budgetkrav för att säkerställa optimalt värde för ert företag."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Redo att optimera er flotthantering?",
+    "texts": [
+      "Låt våra eftermarknadsexperter hjälpa er att maximera värdet och prestandan hos er leasingflotta. Kontakta oss idag för en skräddarsydd servicekonsultation."
+    ],
+    "link": { "label": "Kontakta vårt serviceteam", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/post-marketing/cta-fleet.jpg", "alt": "Professionell flotthanteringsservice" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Beräkna Dina Servicebesparingar",
+      "text": "Använd vår servicekostnadskalkylator för att uppskatta potentiella besparingar med våra eftermarknadsservicetjänster.",
+      "buttonText": "Beräkna Besparingar",
+      "buttonHref": "/laskurit"
+    },
+    "carLeasing": {
+      "heading": "Utforska Leasingalternativ",
+      "text": "Upptäck våra omfattande leasinglösningar med integrerade eftermarknadsservicetjänster.",
+      "buttonText": "Visa Leasingalternativ",
+      "buttonHref": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Få Expertkonsultation",
+      "text": "Tala med våra eftermarknadsspecialister om dina flottstyrningsbehov.",
+      "buttonText": "Kontakta Experterna",
+      "buttonHref": "/asiakaspalvelu"
+    }
+  }
+}

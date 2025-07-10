@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Jälkimarkkinointipalvelut - Innolease",
+    "description": "Kattavat jälkimarkkinointi- ja huoltopalvelut leasingajoneuvoille. Ammattimaista huoltoa, tukea ja arvon optimointia koko leasingkauden ajan.",
+    "keywords": "jälkimarkkinointi, huoltopalvelut, ajoneuvojen ylläpito, leasing-tuki, kalustonhallinta",
+    "image": "/images/og/post-marketing.jpg"
+  },
+
+  "section1": {
+    "heading": "Ammattimaiset jälkimarkkinointipalvelut",
+    "texts": [
+      "Kattavat jälkimarkkinointipalvelumme varmistavat, että leasingajoneuvosi säilyttävät arvonsa ja suorituskykynsä koko leasingkauden ajan. Tarjoamme ammattimaisia tuki- ja huoltoratkaisuja, jotka on räätälöity yrityksesi tarpeisiin.",
+      "Säännöllisestä huollosta hätätilannetukeen – kokenut tiimimme hoitaa kaikki leasingajoneuvojen hallinnan osa-alueet, jolloin voitte keskittyä ydinliiketoimintaanne."
+    ],
+    "image": {
+      "src": "/images/post-marketing/service-team.jpg",
+      "alt": "Ammattimainen huoltotiimi ylläpitämässä leasingajoneuvoja"
+    }
+  },
+
+  "section2": {
+    "heading": "Palveluvalikoima",
+    "texts": [
+      "Tarjoamme kattavan valikoiman jälkimarkkinointipalveluja, jotka on suunniteltu maksimoimaan leasingkaluston arvo ja tehokkuus."
+    ],
+    "list": [
+      {
+        "term": "Ennakoiva huolto",
+        "description": "Säännöllinen huolto-ohjelma kalliiden korjausten ehkäisemiseksi ja optimaalisen suorituskyvyn varmistamiseksi"
+      },
+      {
+        "term": "Hätätilanteiden tuki",
+        "description": "Ympärivuorokautinen tiepalvelu ja hätäkorjauspalvelut odottamattomiin tilanteisiin"
+      },
+      {
+        "term": "Arvon optimointi",
+        "description": "Strateginen huoltosuunnittelu ajoneuvon arvon säilyttämiseksi koko leasingkauden ajan"
+      },
+      {
+        "term": "Kaluston seuranta",
+        "description": "Kehittyneet seuranta- ja valvontajärjestelmät kaluston tehokkuuden optimoimiseksi"
+      },
+      {
+        "term": "Leasingkauden päätöspalvelut",
+        "description": "Kattava ajoneuvon tarkastus ja valmistelu leasingin palauttamista tai lunastusta varten"
+      }
+    ],
+    "image": { "src": "/images/post-marketing/maintenance.jpg", "alt": "Ajoneuvojen huolto- ja tarkastuspalvelut" }
+  },
+
+  "section3": {
+    "heading": "Palvelujen hyödyt",
+    "texts": [
+      "Jälkimarkkinointipalvelumme tuottavat mitattavia hyötyjä, jotka alentavat kokonaisomistuskustannuksianne ja parantavat toiminnan tehokkuutta."
+    ],
+    "table": {
+      "columns": ["Palvelualue", "Keskeiset hyödyt"],
+      "rows": [
+        ["Kustannushallinta", "Vähentyneet odottamattomat korjauskustannukset ja optimoidut huoltoaikataulut"],
+        ["Ajoneuvon suorituskyky", "Ylläpidetty luotettavuus ja tehokkuus koko leasingkauden ajan"],
+        ["Vaatimustenmukaisuus", "Varmistettu valmistajien takuiden ja leasingsopimusten noudattaminen"],
+        ["Mukavuus", "Virtaviivaistettu palvelukoordinaatio ja minimaalinen häiriö liiketoiminnalle"],
+        ["Arvon säilyttäminen", "Säilytetty ajoneuvon arvo leasingkauden päätösarviointeja varten"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Miksi valita meidän jälkimarkkinointipalvelumme",
+    "texts": [
+      "Jälkimarkkinointipalvelujen asiantuntemuksemme perustuu vuosien kokemukseen leasingalalta ja syvään ajoneuvon elinkaaren hallinnan ymmärrykseen."
+    ],
+    "list": [
+      "Sertifioidut teknikot, jotka on koulutettu useiden ajoneuvomerkkien huoltoon",
+      "Strategiset kumppanuudet valtuutettujen huoltoliikkeiden kanssa valtakunnallisesti",
+      "Kehittynyt kalustonhallintateknologia reaaliaikaiseen seurantaan",
+      "Räätälöidyt palvelupaketit teidän kaluston erityistarpeisiin",
+      "Läpinäkyvä raportointi ja kustannusseuranta budjetin hallintaan"
+    ]
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": ["Yleisiä kysymyksiä jälkimarkkinointipalveluistamme ja siitä, miten ne hyödyttävät leasingkalustoanne."],
+    "questions": [
+      {
+        "question": "Mitä jälkimarkkinointi sisältää leasingsopimuksessa?",
+        "answer": "Jälkimarkkinointi kattaa kaikki leasingajoneuvojen ylläpitoon, seurantaan ja optimointiin liittyvät palvelut leasingkauden alettua, mukaan lukien ennakoiva huolto, korjaukset, kaluston seuranta ja leasingkauden päätöspalvelut."
+      },
+      {
+        "question": "Miten jälkimarkkinointi vaikuttaa leasingkustannuksiini?",
+        "answer": "Asianmukaiset jälkimarkkinointipalvelut voivat merkittävästi alentaa kokonaisomistuskustannuksianne ehkäisemällä kalliita korjauksia, ylläpitämällä ajoneuvon arvoa ja varmistamalla leasingehtojen noudattamisen."
+      },
+      {
+        "question": "Voinko räätälöidä jälkimarkkinointipalvelupaketin?",
+        "answer": "Kyllä, tarjoamme joustavia palvelupaketteja, jotka voidaan räätälöidä kalustonne koon, ajoneuvotyppien, käyttötapojen ja budjettienne mukaan parhaan arvon varmistamiseksi."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Valmiina optimoimaan kalustonhallintaa?",
+    "texts": [
+      "Anna jälkimarkkinoinnin asiantuntijoiden auttaa maksimoimaan leasingkaluston arvo ja suorituskyky. Ota yhteyttä tänään räätälöityä palvelukonsultaatiota varten."
+    ],
+    "link": { "label": "Ota yhteyttä palvelutiimiin", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/post-marketing/cta-fleet.jpg", "alt": "Ammattimainen kalustonhallintapalvelu" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Laske Palvelusäästösi",
+      "text": "Käytä palvelukustannuslaskuriamme arvioidaksesi mahdolliset säästöt jälkimarkkinointipalveluillamme.",
+      "buttonText": "Laske Säästöt",
+      "buttonHref": "/laskurit"
+    },
+    "carLeasing": {
+      "heading": "Tutustu Leasingvaihtoehtoisiin",
+      "text": "Löydä kattavat leasingratkaisumme integroiduilla jälkimarkkinointipalveluilla.",
+      "buttonText": "Katso Leasingvaihtoehdot",
+      "buttonHref": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Hanki Asiantuntijakonsultaatio",
+      "text": "Keskustele jälkimarkkinointiasiantuntijoidemme kanssa kalustonhallintasi tarpeista.",
+      "buttonText": "Ota Yhteyttä Asiantuntijoihin",
+      "buttonHref": "/asiakaspalvelu"
+    }
+  }
+}

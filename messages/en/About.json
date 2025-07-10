@@ -1,30 +1,213 @@
 {
-  "title": "About LastBot",
-  "description": "We are a team of AI experts dedicated to making artificial intelligence accessible and useful for businesses of all sizes.",
-  "about": {},
-  "news": {
-    "title": "News",
-    "viewAll": "View all news",
-    "readMore": "Read more"
+  "title": "About Us",
+  "subtitle": "Experienced and agile leasing partner for your business needs",
+  "introduction": {
+    "paragraph1": "Innolease.fi is an experienced and agile leasing partner offering customer-oriented and flexible solutions for your business needs. We specialize in leasing machinery, equipment, and vehicles, delivered by our strong team with years of experience in corporate finance and leasing.",
+    "paragraph2": "Innolease was born as part of the growth story of the Autolle.com Group, when we combined our rental and corporate leasing businesses under one roof. This allows us to offer a more comprehensive range of services to our business customers in response to the growing demand for tailored corporate leasing.",
+    "paragraph3": "We operate independently but leverage the expertise and networks of Autolle.com, enabling us to provide competitive solutions for companies of all sizes."
   },
-  "contact": {
-    "title": "Contact Us",
-    "info": {
-      "title": "Contact Information"
+  "our_story_title": "Our Story",
+  "our_story": "Innolease has grown rapidly as part of the Autolle.com Group, combining rental and leasing services into a single entity. Our goal is to provide our customers with the most comprehensive and flexible solutions to meet the evolving needs of today's businesses and individuals.",
+  "our_mission_title": "Our Mission and Goals",
+  "our_mission": "We strive to be the most reliable and customer-oriented leasing partner in Finland. Our aim is to make our customers' lives easier by offering clear, honest, and cost-effective solutions—whether it's managing a company's fleet or meeting an individual's mobility needs.",
+  "our_values_title": "Our Values",
+  "our_values": "Our operations are guided by three core values:",
+  "values_list": [
+    {
+      "title": "Transparency",
+      "description": "We speak plainly and always communicate costs, terms, and options honestly."
     },
-    "address": {
-      "title": "Address",
-      "street": "Kimmeltie 10",
-      "postal": "90630 Oulu",
-      "country": "Finland"
+    {
+      "title": "Personalized Service",
+      "description": "Every customer has a dedicated contact who understands your industry and responds quickly to your needs."
     },
-    "social": {
-      "title": "Follow Us"
-    },
-    "form": {
-      "title": "Send us a message"
+    {
+      "title": "Flexibility",
+      "description": "We seek the best solution for your business—whether it's machinery, equipment, or vehicles."
     }
+  ],
+  "why_choose_us_title": "Why Choose Innolease?",
+  "why_choose_us": [
+    "An experienced team of professionals in corporate finance and leasing.",
+    "Customer-oriented and flexible service—solutions are always tailored to the customer's needs.",
+    "Competitive and transparent terms.",
+    "Strong support and networks from the Autolle.com Group.",
+    "Comprehensive digital services that make fleet management and reporting easier."
+  ],
+  "digital_services_title": "Digital Services – More Than Just Leasing",
+  "digital_services": [
+    "Comprehensive digital services for businesses and individuals.",
+    "Easy fleet management, reporting, and practical support all in one place.",
+    "Quick access to an expert through digital services—you're never left alone with the system."
+  ],
+  "offerings_title": "Our Services for Private and Corporate Customers",
+  "offerings": {
+    "corporate": [
+      "Tailored leasing solutions for businesses of all sizes.",
+      "Leasing of machinery, equipment, and vehicles with flexible terms.",
+      "Dedicated contact person and personalized service.",
+      "Competitive prices and clear contract terms."
+    ],
+    "private": [
+      "Easy and effortless mobility through leasing.",
+      "Clear costs and transparent contracts.",
+      "Digital services and expert support also for private customers."
+    ]
   },
-  "form": {},
-  "meta": {}
+  "history_title": "Growth Story and Group Connection",
+  "history": {
+    "paragraph1": "Innolease is part of the Autolle.com Group, whose expertise and networks enable competitive and innovative solutions for all customers.",
+    "paragraph2": "By combining rental and leasing operations, we have been able to meet the growing demand for tailored corporate leasing services in Finland.",
+    "autolleButton": "Learn more about Autolle.com",
+    "imageAlt": "Autolle.com Group office building"
+  },
+  "coverage_title": "Nationwide Service Network",
+  "coverage": {
+    "description": "With strategically located partners and a strong network, Innolease offers a comprehensive service network throughout Finland. We ensure support wherever your fleet operates.",
+    "mapPlaceholder": "Map of Finland with service locations",
+    "mapAlt": "Map of Innolease's service network in Finland"
+  },
+  "cta": {
+    "title": "Ready to optimize your fleet?",
+    "description": "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use.",
+    "button": "Contact us"
+  },
+  "meta": {
+    "title": "About Us | Innolease - Flexible Leasing Solutions",
+    "description": "Learn about Innolease, our mission to provide efficient and tailored leasing solutions, our expert team, and our commitment to Finnish businesses.",
+    "keywords": "about us, company information, leasing partner, expert team, Autolle.com group, business leasing, digital services",
+    "image": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png"
+  },
+  "hero": {
+    "heading": "About Us",
+    "subheading": "An experienced and agile leasing partner for your business needs",
+    "image": { "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png", "alt": "Innolease Hero" }
+  },
+  "introduction": {
+    "heading": "Our Company Story",
+    "texts": [
+      "Innolease.fi is an experienced and agile leasing partner that offers customer-focused and flexible solutions for your business needs. We specialize in machinery, equipment, and vehicle leasing solutions, implemented with our strong team's years of experience in business financing and leasing.",
+      "Innolease was born as part of Autolle.com group's growth story, when we combined our rental business operations and business leasing operations under one roof. This way we can offer more comprehensive services to our business customers in response to the growing need for tailored business leasing.",
+      "We operate independently, but leverage Autolle.com's expertise and networks, which enables competitive solutions for companies of all sizes."
+    ],
+    "image": { "src": "/images/innolease-car.png", "alt": "Innolease vehicles" }
+  },
+  "ourStory": {
+    "heading": "Our Company Story",
+    "texts": [
+      "Innolease has grown rapidly as part of the Autolle.com group, combining rental and leasing services into one entity. Our goal is to offer our customers the most comprehensive and flexible solutions that meet the changing needs of today's businesses and individuals."
+    ]
+  },
+  "ourMission": {
+    "heading": "Our Mission and Goals",
+    "texts": [
+      "We strive to be the most reliable and customer-focused leasing partner in Finland. Our goal is to make our customers' lives easier by providing clear, honest, and cost-effective solutions – whether it's fleet management for businesses or mobility needs for individuals."
+    ]
+  },
+  "ourValues": {
+    "heading": "Our Values",
+    "texts": ["Our operations are guided by three core values:"],
+    "cards": [
+      {
+        "title": "Transparency",
+        "texts": ["We speak plain language and always tell the truth about costs, terms, and options."]
+      },
+      {
+        "title": "Personal Service",
+        "texts": [
+          "Every customer has their own contact person who knows your industry and responds quickly to your needs."
+        ]
+      },
+      {
+        "title": "Flexibility",
+        "texts": [
+          "We find the best solution for your company's situation – whether it's machinery, equipment, or vehicles."
+        ]
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "heading": "Why Choose Innolease?",
+    "list": [
+      "Experienced team of business financing and leasing professionals.",
+      "Customer-focused and flexible service – solutions are always tailored to the customer's needs.",
+      "Competitive and transparent terms.",
+      "Strong background support and networks from the Autolle.com group.",
+      "Comprehensive digital services that make fleet management and reporting easier."
+    ]
+  },
+  "digitalServices": {
+    "heading": "Digital Services – More Than Leasing",
+    "list": [
+      "Comprehensive digital services for businesses and individuals.",
+      "Easy fleet management, reporting, and practical situation support in one place.",
+      "Quick connection to an expert also through digital services – you won't be left alone with the system."
+    ]
+  },
+  "offerings": {
+    "heading": "Our Services for Private and Business Customers",
+    "columns": [
+      {
+        "subheading": "For Businesses",
+        "list": [
+          "Tailored leasing solutions for businesses of all sizes.",
+          "Machinery, equipment, and vehicle leasing with flexible terms.",
+          "Dedicated contact person and personal service.",
+          "Competitive prices and clear contract terms."
+        ]
+      },
+      {
+        "subheading": "For Private Customers",
+        "list": [
+          "Easy and effortless mobility through leasing.",
+          "Clear costs and transparent contracts.",
+          "Digital services and expert support also for private customers."
+        ]
+      }
+    ]
+  },
+  "history": {
+    "heading": "Growth Story and Group Connection",
+    "texts": [
+      "Innolease is part of the Autolle.com group, whose expertise and networks enable competitive and innovative solutions for all customers.",
+      "By combining rental and leasing businesses, we have been able to respond to the growing need for tailored business leasing services in Finland."
+    ],
+    "link": { "label": "Learn about Autolle.com", "href": "https://autolle.com" },
+    "image": { "src": "/images/innolease-car.png", "alt": "Autolle.com group office building" }
+  },
+  "coverage": {
+    "heading": "Nationwide Service Network",
+    "texts": [
+      "Through strategically located partners and a strong network, Innolease provides comprehensive service coverage throughout Finland. We ensure support wherever your fleet operates."
+    ],
+    "image": { "src": "/images/placeholders/map.png", "alt": "Innolease service network map in Finland" }
+  },
+  "cta": {
+    "heading": "Ready to Optimize Your Fleet?",
+    "texts": [
+      "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use."
+    ],
+    "link": { "label": "Contact Us", "href": "/contact" }
+  },
+  "additionalCta": {
+    "services": {
+      "heading": "Explore Our Services",
+      "text": "Discover a wide range of leasing solutions for your business and personal use. Car leasing, machinery leasing, and other flexible financing solutions.",
+      "buttonText": "View All Services",
+      "buttonHref": "/leasing-solutions"
+    },
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you can save with a company car. Get an accurate calculation of your car benefit tax value.",
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
+    },
+    "team": {
+      "heading": "Meet Our Team",
+      "text": "Our experienced specialists are ready to help you find the best solution. Get in touch and discuss your needs.",
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot",
+      "imageAlt": "Innolease team in a meeting"
+    }
+  }
 }

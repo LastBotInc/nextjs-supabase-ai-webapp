@@ -1,21 +1,26 @@
 {
+  "title": "Ylläpito",
   "analytics": {
-    "title": "Analytiikkapaneeli",
+    "title": "Analytiikka-hallintapaneeli",
     "tabs": {
       "pageViews": "Sivukatselut",
       "topPages": "Suosituimmat sivut"
     },
-    "cards": {},
+    "cards": {
+      "activeSessions": "Aktiiviset istunnot",
+      "pageViews": "Sivukatselut (viimeiset 7 päivää)",
+      "topPages": "Suosituimmat sivut (viimeiset 30 päivää)"
+    },
     "error": {
       "title": "Analytiikkavirhe",
-      "description": "Analytiikkatietojen lataus epäonnistui. Yritä uudelleen.",
+      "description": "Analytiikkadatan latauksessa ilmeni ongelma. Yritä uudelleen.",
       "retry": "Yritä uudelleen"
     }
   },
   "contacts": {
     "title": "Yhteydenottopyynnöt",
     "table": {
-      "date": "Päiväys",
+      "date": "Päivämäärä",
       "name": "Nimi",
       "company": "Yritys",
       "email": "Sähköposti",
@@ -30,23 +35,36 @@
       "archived": "Arkistoitu"
     },
     "delete": "Poista",
-    "deleteConfirmation": "Haluatko varmasti poistaa tämän yhteydenoton? Toimintoa ei voi perua.",
+    "deleteConfirmation": "Haluatko varmasti poistaa tämän yhteydenoton? Tätä toimintoa ei voi perua.",
     "loading": "Ladataan yhteydenottoja...",
     "retry": "Yritä uudelleen"
   },
   "translations": {
-    "shortcuts": {},
-    "table": {},
+    "title": "Käännökset",
+    "description": "Hallitse käännöksiä kaikille tuetuille kielille",
+    "shortcuts": {
+      "title": "Pikanäppäimet",
+      "enter": "Paina Enter muokataksesi",
+      "save": "Paina Ctrl/Cmd + Enter tallentaaksesi",
+      "cancel": "Paina Escape peruuttaaksesi"
+    },
+    "table": {
+      "namespace": "Namespace",
+      "key": "Avain",
+      "value": "Käännös"
+    },
     "editor": {
       "save": "Tallenna",
       "saving": "Tallennetaan...",
       "cancel": "Peruuta",
       "edit": "Klikkaa muokataksesi",
       "empty": "Tyhjä",
-      "placeholder": "Syötä käännös",
+      "placeholder": "Kirjoita käännös",
       "success": "Käännös tallennettu",
-      "error": "Käännöksen tallennus epäonnistui",
-      "generate": "Generoi käännös tekoälyllä"
+      "error": "Käännöksen tallentaminen epäonnistui",
+      "generate": "Luo käännös tekoälyn avulla",
+      "invalidJson": "Käännös ei ole oikeassa muodossa",
+      "jsonHint": "Käännöksen tulee olla samassa muodossa kuin edellinen!"
     },
     "languages": {
       "title": "Kielet",
@@ -55,89 +73,133 @@
       "disabled": "Pois käytöstä",
       "form": {
         "code": "Kielikoodi",
+        "name": "Englanninkielinen nimi",
+        "nativeName": "Nimen kirjoitus omalla kielellä",
+        "codeHelp": "Kaksikirjaiminen kielikoodi (esim. en, fi)",
         "add": "Lisää kieli",
         "cancel": "Peruuta",
-        "select": "Valitse kieli..."
+        "select": "Valitse kieli...",
+        "generating": "Luodaan käännöksiä..."
       },
-      "addSuccess": "Kieli lisätty",
-      "addError": "Kielen lisäys epäonnistui",
+      "addSuccess": "Kieli lisätty onnistuneesti",
+      "addError": "Kielen lisääminen epäonnistui",
       "enableSuccess": "Kieli otettu käyttöön",
       "disableSuccess": "Kieli poistettu käytöstä",
       "updateError": "Kielen päivitys epäonnistui",
-      "translationSuccess": "Käännökset generoitu onnistuneesti",
-      "translationError": "Jotkin käännökset epäonnistuivat",
+      "translationSuccess": "Käännökset luotiin onnistuneesti",
+      "translationError": "Kaikkia käännöksiä ei voitu luoda",
       "remove": "Poista",
       "removing": "Poistetaan...",
-      "removeSuccess": "Kieli poistettu",
-      "removeError": "Kielen poisto epäonnistui",
+      "removeSuccess": "Kieli poistettu onnistuneesti",
+      "removeError": "Kielen poistaminen epäonnistui",
       "removeConfirmTitle": "Poista kieli",
-      "removeConfirmMessage": "Haluatko varmasti poistaa tämän kielen? Kaikki käännökset poistetaan. Tätä ei voi perua.",
+      "removeConfirmMessage": "Haluatko varmasti poistaa tämän kielen? Tämä poistaa kaikki kyseisen kielen käännökset. Tätä toimintoa ei voi perua.",
       "removeConfirm": "Kyllä, poista kieli"
     },
     "search": {
-      "placeholder": "Hae käännöksiä..."
+      "placeholder": "Etsi käännöksiä..."
     },
-    "generating": "Generoidaan käännöksiä..."
+    "generating": "Luodaan käännöksiä..."
   },
   "users": {
     "title": "Käyttäjähallinta",
     "email": "Sähköposti",
     "id": "ID",
     "created": "Luotu",
-    "lastSignIn": "Viimeinen kirjautuminen",
+    "lastSignIn": "Viimeisin kirjautuminen",
     "never": "Ei koskaan",
     "loading": "Ladataan käyttäjiä...",
+    "error": "Käyttäjien lataaminen epäonnistui",
     "retry": "Yritä uudelleen",
     "previous": "Edellinen",
     "next": "Seuraava",
     "page": "Sivu"
   },
-  "seo": {},
-  "code": {},
+  "editor": {
+    "title": "Laskeutumissivujen muokkaus",
+    "tabs": {
+      "content": "Sisältö",
+      "seo": "SEO-asetukset",
+      "code": "Oma koodi",
+      "analytics": "Analytiikka"
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta-otsikko",
+    "metaDescription": "Meta-kuvaus",
+    "ogImage": "OG-kuva",
+    "keywords": "Avainsanat",
+    "canonicalUrl": "Kanoninen URL-osoite"
+  },
+  "code": {
+    "customHead": "Mukautettu Head-koodi",
+    "customCss": "Mukautettu CSS",
+    "customJs": "Mukautettu JavaScript"
+  },
   "calendar": {
     "title": "Kalenterinhallinta",
-    "description": "Hallinnoi varattavia aikoja ja asetuksia",
+    "description": "Hallitse varattavia aikoja ja asetuksia",
     "loading": "Ladataan kalenteria...",
     "tabs": {
-      "calendar": "Kalenteri & Aikavälit",
+      "calendar": "Kalenteri & ajat",
       "settings": "Asetukset",
       "appointmentTypes": "Ajanvaraustyypit"
     },
     "slots": {
-      "loading": "Ladataan aikavälejä...",
+      "loading": "Ladataan aikoja...",
+      "timeSlots": "Saatavilla olevat ajat",
       "availableSlots": "Vapaat ajat",
       "createSlots": "Luo uusia aikoja",
-      "noSlots": "Tälle päivälle ei ole vapaita aikoja",
+      "noSlots": "Ei vapaita aikoja tälle päivälle",
+      "title": "Aikavälit",
       "selectDate": "Valitse päivämäärä",
-      "startDate": "Aloituspäivä",
+      "startDate": "Alkamispäivä",
       "cancel": "Peruuta aika",
-      "endDate": "Lopetuspäivä",
+      "endDate": "Päättymispäivä",
       "create": "Luo ajat",
       "creating": "Luodaan aikoja...",
-      "slotDuration": "Aikavälin kesto (min)",
+      "availableHours": "Saatavilla olevat tunnit",
+      "unavailableDates": "Ei saatavilla olevat päivämäärät",
+      "slotDuration": "Aikavälin kesto (minuuttia)",
       "bookedSlots": "Varatut ajat",
-      "cancelBooking": "Peru varaus",
-      "slots": "Ajat",
-      "status": {},
+      "cancelBooking": "Peruuta varaus",
+      "slots": "Aikavälit",
+      "status": {
+        "available": "Vapaa",
+        "booked": "Varattu",
+        "cancelled": "Peruutettu"
+      },
       "actions": {
-        "generate": "Generoi vapaat ajat",
-        "generating": "Generoidaan aikoja..."
+        "cancel": "Peruuta",
+        "generate": "Luo vapaat ajat",
+        "generating": "Luodaan aikoja...",
+        "success": "Aikavälit luotu",
+        "error": "Aikavälien luonti epäonnistui"
       }
     },
     "settings": {
       "endTime": "Päättymisaika",
       "startTime": "Aloitusaika",
       "loading": "Ladataan asetuksia...",
+      "title": "Kalenteriasetukset",
       "timezone": "Aikavyöhyke",
-      "defaultDuration": "Oletusvarauksen kesto",
+      "defaultDuration": "Oletusajanvarauksen kesto",
+      "durationError": "Keston on oltava vähintään 15 minuuttia",
+      "bufferTime": "Puskuri",
       "bufferBefore": "Puskuri ennen",
       "bufferAfter": "Puskuri jälkeen",
       "saving": "Tallennetaan asetuksia...",
+      "saved": "Asetukset tallennettu",
+      "error": "Asetusten tallentaminen epäonnistui",
+      "before": "Ennen",
+      "after": "Jälkeen",
       "save": "Tallenna asetukset",
+      "saveSuccess": "Asetukset tallennettu onnistuneesti",
+      "saveError": "Asetusten tallentaminen epäonnistui",
       "remove": "Poista",
-      "noWorkingDays": "Ei työpäiviä valittuna. Klikkaa 'Lisää työpäivä' lisätäksesi aukioloajat.",
+      "noWorkingDays": "Ei valittuja työpäiviä. Lisää työpäivä napsauttamalla 'Lisää työpäivä'.",
       "addWorkingDay": "Lisää työpäivä",
-      "updateSuccess": "Asetukset päivitetty",
+      "updateSuccess": "Asetukset päivitetty onnistuneesti",
       "workingHours": "Työajat",
       "day": "Päivä",
       "days": {
@@ -152,27 +214,31 @@
     },
     "appointmentTypes": {
       "createNew": "Luo uusi ajanvaraustyyppi",
-      "noTypes": "Et ole vielä luonut ajanvaraustyyppejä",
+      "existingTypes": "Olemassa olevat ajanvaraustyypit",
+      "loading": "Ladataan ajanvaraustyyppejä...",
+      "noTypes": "Et ole vielä luonut yhtään ajanvaraustyyppiä",
       "form": {
         "name": "Nimi",
         "description": "Kuvaus",
-        "duration": "Kesto (min)",
-        "isFree": "Ilmainen ajanvaraus",
-        "price": "Hinta (€)",
-        "create": "Luo ajanvaraus",
+        "duration": "Kesto (minuuttia)",
+        "isFree": "Tämä on ilmainen ajanvaraustyyppi",
+        "price": "Hinta ($)",
+        "create": "Luo ajanvaraustyyppi",
         "creating": "Luodaan...",
-        "edit": "Muokkaa ajan­varaustyyppiä",
-        "delete": "Poista ajan­varaustyyppi",
-        "isActive": "Aktiivinen",
-        "slug": "Slug"
+        "edit": "Muokkaa ajanvaraustyyppiä",
+        "delete": "Poista ajanvaraustyyppi",
+        "isActive": "Käytössä",
+        "slug": "Polkutunniste"
       },
       "status": {
         "active": "Aktiivinen",
         "inactive": "Ei aktiivinen"
       },
+      "duration": "Kesto",
       "minutes": "minuuttia",
+      "price": "Hinta",
       "free": "Ilmainen",
-      "viewBookingPage": "Näytä varaus­sivu"
+      "viewBookingPage": "Näytä ajanvarausnäkymä"
     }
   }
 }

@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "Förarguide | Innolease - Allt du behöver veta om att använda din leasingbil",
+    "description": "Omfattande guide för körning under avtalsperioden. Underhåll, reparationer, olyckor, återlämning och mycket mer användbar information.",
+    "keywords": "förarguide, leasingbil, underhåll, reparationer, olyckor, bilretur, vägassistans, export utomlands",
+    "image": "/images/ajankohtaista.png"
+  },
+
+  "hero": {
+    "heading": "Förarguide - Körning under avtalsperioden",
+    "texts": [
+      "Vi på Innolease Oy hjälper kunder med fordonsanskaffningar, flottstyrning och praktiska frågor under avtalet. Tjänstebilskörning ska vara så enkelt som möjligt.",
+      "Nedan hittar du användbar information om att använda din leasingbil och våra tjänster. Om du har några frågor är din personliga kontaktperson och vår kundservice redo att hjälpa."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Förarguide" }
+  },
+
+  "maintenance": {
+    "heading": "Underhåll och Reparationer",
+    "texts": [
+      "För bilens driftsäkerhet och garantier är det viktigt att bilen servas enligt tillverkarens eller importörens underhållsschema. Underhåll utförs på servicepunkter som tillhör Innolease Oy:s partnernätverk. Tillstånd måste begäras för underhåll innan tidsbokning."
+    ],
+    "tips": [
+      "Följ underhållsschemat och serviceboken.",
+      "Underhåll och reparationer ingår i underhålls- och flexibel leasing.",
+      "Finansiell leasing inkluderar inte underhåll eller reparationer.",
+      "Vid tekniska fel, kontakta en auktoriserad märkesservice."
+    ],
+    "note": "Förarguiden levereras via e-post när bilen överlämnas. Om du inte har fått guiden, beställ en ny från kundservice.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Underhåll och reparationer" }
+  },
+
+  "replacementCar": {
+    "heading": "Ersättningsbil för Underhåll",
+    "texts": [
+      "Du kan få en ersättningsbil under underhåll om det ingår i ditt företags bilpolicy. För längre ersättningsbilar, kontakta kundservice."
+    ],
+    "note": "Mer information om biluthyrning – länk.",
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Ersättningsbil" }
+  },
+
+  "billing": {
+    "heading": "Underhållsfaktureringstillstånd",
+    "texts": [
+      "Faktureringstillstånd måste erhållas i förväg för underhåll och reparationer genom Innolease Oy:s underhållsteam. Tillståndet begärs av serviceverkstaden, inte bilanvändaren."
+    ],
+    "tips": [
+      "Ett tillstånd kan begäras när felet och kostnaderna är kända.",
+      "Detsamma gäller underhåll, däckbyte och andra fakturerbara åtgärder."
+    ],
+    "note": "Mer information om faktureringstillstånd – länk.",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Faktureringstillstånd" }
+  },
+
+  "tires": {
+    "heading": "Däcktjänster",
+    "texts": [
+      "Säsongsdäckbyten, förvaring och utbyten under avtalsperioden. Huvudsamarbetspartners: Vianor och Euromaster. Kontrollera ditt avtal för att se om tjänsterna ingår."
+    ],
+    "tips": [
+      "Kontroll av däcktryck är användarens ansvar.",
+      "Utbyten på grund av skada eller felaktig användning ingår inte i avtalet."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Däcktjänster" }
+  },
+
+  "accidents": {
+    "heading": "Olyckssituationer",
+    "texts": [
+      "Vid olycka, gör följande:"
+    ],
+    "steps": [
+      "Fyll i olycksfallsrapporten på plats och be den andra parten att underteckna den.",
+      "Skicka rapporten till försäkringsbolaget.",
+      "Ring polisen vid personskador, oklara fall eller viltolyckor.",
+      "Den felande partens försäkringsbolag kompenserar den oskyldiga partens kostnader.",
+      "Meddela också Innolease Oy:s JM-team eller din kontaktperson om skadan."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Olyckssituationer" }
+  },
+
+  "roadside": {
+    "heading": "Vägassistans",
+    "texts": [
+      "Innolease Oy:s Vägassistans tjänar 24/7. Tjänsten är i princip gratis och kostnaderna riktas till försäkringsbolaget eller importören."
+    ],
+    "tips": [
+      "Om situationen inte kan lösas per telefon, skickas en professionell till platsen.",
+      "Om kostnaderna inte täcks, faktureras de kunden."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Vägassistans" }
+  },
+
+  "export": {
+    "heading": "Export Utomlands",
+    "texts": [
+      "Kontrollera din arbetsgivares instruktioner. Du behöver en exportfullmakt och Green Card (inte i nordiska länder). Ägaren beviljar tillstånd. Ta registreringsbeviset utomlands."
+    ],
+    "tips": [
+      "Beställ dokument i god tid före resan.",
+      "Green Card bevisar trafikförsäkringens giltighet."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Export utomlands" }
+  },
+
+  "return": {
+    "heading": "Leasingbilsretur",
+    "texts": [
+      "Börja skaffa en ny bil eller avtalsförlängning i tid. Returnera bilen till en Autollecom-butik. Fyll i returformuläret och följ instruktionerna."
+    ],
+    "checklist": {
+      "heading": "Vid retur, se till att:",
+      "items": [
+        "Bilen är ren inuti och utanpå.",
+        "Bilen har servats enligt underhållsschemat.",
+        "Bilen har besiktigats.",
+        "Personuppgifter har tagits bort.",
+        "Skador har reparerats eller rapporterats till försäkringsbolaget.",
+        "Saknade tillbehör returnerade inom 7 dagar."
+      ]
+    },
+    "mustHave": {
+      "heading": "Fordonet måste innehålla:",
+      "items": [
+        "Alla nycklar och laddkablar.",
+        "Alla dokument; servicebok och manualer.",
+        "Båda däckuppsättningarna.",
+        "Installerade tillbehör."
+      ]
+    },
+    "remove": {
+      "heading": "Ta bort från fordonet:",
+      "items": [
+        "Dekaler.",
+        "Tillbehör som inte ingår i leasingavtalet.",
+        "Spårningsenheter."
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Bilretur" }
+  },
+
+  "faq": {
+    "heading": "Vanliga Frågor",
+    "texts": [
+      "I detta avsnitt hittar du svar på de vanligaste frågorna om att använda en leasingbil."
+    ],
+    "questions": [
+      {
+        "question": "Besiktningar och Skatter",
+        "answer": "Användaren ansvarar för bilbesiktning och hantering av skatter. Partners: A-Katsastus och K1. Fakturering riktas direkt till Innolease."
+      },
+      {
+        "question": "Användarbyte",
+        "answer": "När användaren byts, rapportera registreringsnumret och den nya användarens information till kundservice."
+      },
+      {
+        "question": "Försäkringar",
+        "answer": "Du kan få försäkringsbolagets information och självrisker från bilansvarig. Bekanta dig med försäkringsskyddet och självriskerna i förväg."
+      },
+      {
+        "question": "Export Utomlands",
+        "answer": "Se avsnittet export utomlands – länk."
+      },
+      {
+        "question": "Bilretur",
+        "answer": "Se avsnittet bilretur – länk."
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Vanliga frågor" }
+  },
+
+  "contact": {
+    "heading": "Har Du Frågor?",
+    "texts": [
+      "Om du inte hittade svar på din fråga på våra sidor, kontakta oss."
+    ],
+    "note": "Länk till kontaktformulär.",
+    "image": { "src": "/images/Tietoa_meista.png", "alt": "Kontakt" },
+    "numbers": [
+      {
+        "title": "Ring oss",
+        "number": "020 743 7670"
+      },
+      {
+        "title": "Ring oss",
+        "number": "020 743 76700"
+      }
+    ]
+  }
+}

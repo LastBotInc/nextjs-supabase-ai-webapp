@@ -1,0 +1,9 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diamond pattern - uses currentColor for fill to allow CSS styling -->
+  <g>
+    <!-- Diamond 1: center (25,25) -->
+    <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="currentColor"  />
+    <!-- Diamond 3: center (25,75) -->
+    <path d="M25,50 L50,75 L25,100 L0,75 Z" fill="currentColor"  />
+  </g>
+</svg>  

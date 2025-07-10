@@ -1,11 +1,16 @@
 {
+  "title": "Admin",
   "analytics": {
     "title": "Analytics Dashboard",
     "tabs": {
       "pageViews": "Page Views",
       "topPages": "Top Pages"
     },
-    "cards": {},
+    "cards": {
+      "activeSessions": "Active Sessions",
+      "pageViews": "Page Views (Last 7 Days)",
+      "topPages": "Top Pages (Last 30 Days)"
+    },
     "error": {
       "title": "Analytics Error",
       "description": "There was a problem loading the analytics data. Please try again.",
@@ -35,8 +40,19 @@
     "retry": "Try Again"
   },
   "translations": {
-    "shortcuts": {},
-    "table": {},
+    "title": "Translations",
+    "description": "Manage translations for all supported languages",
+    "shortcuts": {
+      "title": "Keyboard Shortcuts",
+      "enter": "Press Enter to edit",
+      "save": "Press Ctrl/Cmd + Enter to save",
+      "cancel": "Press Escape to cancel"
+    },
+    "table": {
+      "namespace": "Namespace",
+      "key": "Key",
+      "value": "Translation"
+    },
     "editor": {
       "save": "Save",
       "saving": "Saving...",
@@ -46,7 +62,9 @@
       "placeholder": "Enter translation",
       "success": "Translation saved",
       "error": "Failed to save translation",
-      "generate": "Generate translation using AI"
+      "generate": "Generate translation using AI",
+      "invalidJson": "Translation is not in the correct format",
+      "jsonHint": "Translation must be in the same format as the previous one!"
     },
     "languages": {
       "title": "Languages",
@@ -55,9 +73,13 @@
       "disabled": "Disabled",
       "form": {
         "code": "Language Code",
+        "name": "English Name",
+        "nativeName": "Native Name",
+        "codeHelp": "Two-letter language code (e.g. en, fi)",
         "add": "Add Language",
         "cancel": "Cancel",
-        "select": "Select a language..."
+        "select": "Select a language...",
+        "generating": "Generating translations..."
       },
       "addSuccess": "Language added successfully",
       "addError": "Failed to add language",
@@ -87,13 +109,33 @@
     "lastSignIn": "Last Sign In",
     "never": "Never",
     "loading": "Loading users...",
+    "error": "Failed to load users",
     "retry": "Retry",
     "previous": "Previous",
     "next": "Next",
     "page": "Page"
   },
-  "seo": {},
-  "code": {},
+  "editor": {
+    "title": "Landing Page Editor",
+    "tabs": {
+      "content": "Content",
+      "seo": "SEO Settings",
+      "code": "Custom Code",
+      "analytics": "Analytics"
+    }
+  },
+  "seo": {
+    "metaTitle": "Meta Title",
+    "metaDescription": "Meta Description",
+    "ogImage": "OG Image",
+    "keywords": "Keywords",
+    "canonicalUrl": "Canonical URL"
+  },
+  "code": {
+    "customHead": "Custom Head Code",
+    "customCss": "Custom CSS",
+    "customJs": "Custom JavaScript"
+  },
   "calendar": {
     "title": "Calendar Management",
     "description": "Manage bookable times and settings",
@@ -105,35 +147,55 @@
     },
     "slots": {
       "loading": "Loading slots...",
+      "timeSlots": "Available Time Slots",
       "availableSlots": "Available Slots",
       "createSlots": "Create New Slots",
       "noSlots": "No available time slots for this date",
+      "title": "Time Slots",
       "selectDate": "Select Date",
       "startDate": "Start Date",
       "cancel": "Cancel slot",
       "endDate": "End Date",
       "create": "Create Slots",
       "creating": "Creating slots...",
+      "availableHours": "Available Hours",
+      "unavailableDates": "Unavailable Dates",
       "slotDuration": "Slot Duration (minutes)",
       "bookedSlots": "Booked Slots",
       "cancelBooking": "Cancel Booking",
       "slots": "Slots",
-      "status": {},
+      "status": {
+        "available": "Available",
+        "booked": "Booked",
+        "cancelled": "Cancelled"
+      },
       "actions": {
+        "cancel": "Cancel",
         "generate": "Generate Available Slots",
-        "generating": "Generating slots..."
+        "generating": "Generating slots...",
+        "success": "Slots generated",
+        "error": "Failed to generate slots"
       }
     },
     "settings": {
       "endTime": "End Time",
       "startTime": "Start Time",
       "loading": "Loading settings...",
+      "title": "Calendar Settings",
       "timezone": "Timezone",
       "defaultDuration": "Default Booking Duration",
+      "durationError": "Duration must be at least 15 minutes",
+      "bufferTime": "Buffer Time",
       "bufferBefore": "Buffer Time Before",
       "bufferAfter": "Buffer Time After",
       "saving": "Saving settings...",
+      "saved": "Settings saved",
+      "error": "Failed to save settings",
+      "before": "Before",
+      "after": "After",
       "save": "Save Settings",
+      "saveSuccess": "Settings saved successfully",
+      "saveError": "Failed to save settings",
       "remove": "Remove",
       "noWorkingDays": "No working days selected. Click 'Add working day' to add available hours.",
       "addWorkingDay": "Add working day",
@@ -152,6 +214,8 @@
     },
     "appointmentTypes": {
       "createNew": "Create New Appointment Type",
+      "existingTypes": "Your Appointment Types",
+      "loading": "Loading appointment types...",
       "noTypes": "You haven't created any appointment types yet",
       "form": {
         "name": "Name",
@@ -170,7 +234,9 @@
         "active": "Active",
         "inactive": "Inactive"
       },
+      "duration": "Duration",
       "minutes": "minutes",
+      "price": "Price",
       "free": "Free",
       "viewBookingPage": "View Booking Page"
     }

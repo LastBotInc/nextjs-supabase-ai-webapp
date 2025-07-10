@@ -1,0 +1,55 @@
+/**
+ * This file provides namespace management utilities for the i18n system.
+ *
+ * In Edge Runtime environments, we cannot use the Node.js file system modules,
+ * so we use a pre-generated list of namespaces for both production and development.
+ */
+
+/**
+ * Gets the list of available namespaces.
+ * This function returns a pre-generated list of namespaces.
+ */
+export const getNamespaces = (): string[] => {
+  // Pre-generated list of namespaces from the messages/en directory
+  return [
+    "About",
+    "Account",
+    "Admin",
+    "Auth",
+    "Billing",
+    "Blog",
+    "Campaigns",
+    "Calculators",
+    "CarLeasing",
+    "CarRental",
+    "Common",
+    "Contact",
+    "CookieConsent",
+    "CorporateLeasing",
+    "CurrentTopics",
+    "CustomerService",
+    "CustomerStories",
+    "DigitalServices",
+    "DriversGuide",
+    "Faq",
+    "FinancialSolutions",
+    "FleetManager",
+    "Footer",
+    "Home",
+    "Index",
+    "LandingPages",
+    "LeasingCalculator",
+    "LeasingSolutions",
+    "MachineLeasing",
+    "Media",
+    "Meta",
+    "MiniLeasing",
+    "Navigation",
+    "OpenPositions",
+    "PostMarketing",
+    "Privacy",
+    "Profile",
+    "Sales",
+    "ServicePrices",
+  ];
+};

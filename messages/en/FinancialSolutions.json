@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Financial Solutions | Innolease",
+    "description": "Find the right financing solution for your business. Car leasing, equipment financing, and digital services for efficient fleet management.",
+    "keywords": "financial leasing, service leasing, flexible leasing, equipment financing, mini leasing, business leasing, car leasing, fleet management",
+    "image": "/images/innolease/rahoitusratkaisut-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Financial Solutions for Your Business",
+    "subheading": "The smart way to drive and invest",
+    "texts": [
+      "Innolease is your company's partner in leasing matters. We compete for car procurement, financing, and find the leasing option that suits you. Our open operating model where we work together with the customer to define a package that serves the customer's needs."
+    ],
+    "numbers": [
+      { "title": "Customer Service", "number": "020 743 7670" },
+      { "title": "Sales", "number": "010 229 1090" }
+    ],
+    "image": {
+      "src": "/images/yritysleasing.png",
+      "alt": "Innolease financial solutions for businesses"
+    }
+  },
+
+  "leasingTypes": {
+    "heading": "Leasing Options",
+    "subheading": "Choose the solution that best fits your business",
+    "texts": ["We offer different leasing options for companies' various needs. Each has its own advantages."],
+    "cases": [
+      {
+        "title": "Financial Leasing",
+        "texts": [
+          "When you want to be in control yourself. A cost-effective and simple option for companies that want to keep the reins in their hands. The car's mileage is not limited and the company is responsible for maintenance and the car's residual value at the end of the rental period.",
+          "Suitable for those seeking a cost-effective solution."
+        ],
+        "image": { "src": "/images/innolease/rahoitusleasing.jpg", "alt": "Financial Leasing" }
+      },
+      {
+        "title": "Flexible Leasing",
+        "texts": [
+          "Freedom and predictability with one contract. Brings maintenance to the same invoice, but costs are determined by actual expenses. Residual value is estimated based on market value.",
+          "A good option if you want to combine flexibility and control."
+        ],
+        "image": { "src": "/images/innolease/joustoleasing.jpg", "alt": "Flexible Leasing" }
+      },
+      {
+        "title": "Service Leasing",
+        "texts": [
+          "Simplicity and predictability. A hassle-free complete solution. With one monthly price, the company gets a car and desired services – from maintenance to washing and tire services.",
+          "Perfect solution for companies that value predictability and convenience."
+        ],
+        "image": { "src": "/images/innolease/huoltoleasing.jpg", "alt": "Service Leasing" }
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Benefits of Leasing",
+    "texts": ["Why choose leasing? Here are the key benefits for your business."],
+    "table": {
+      "columns": ["Benefit", "Description"],
+      "rows": [
+        ["Fixed monthly price", "Throughout the contract period, easy to budget"],
+        ["Contract period", "Typically 12-60 months"],
+        ["No down payment", "Car in use without large initial investment"],
+        ["Hassle-free exchange", "New car in use, get rid of the old one effortlessly"],
+        ["Dedicated contact person", "Helps with all car-related matters"]
+      ]
+    }
+  },
+
+  "minileasing": {
+    "heading": "Mini Leasing for Businesses",
+    "subheading": "Power to business without commitment",
+    "texts": [
+      "Does your business need a car quickly and for a specific period? Mini leasing is a flexible solution for short-term vehicle needs – without long-term commitments or ownership worries."
+    ],
+    "list": [
+      "Ready-to-use car immediately – even the next day",
+      "Contract period 1–12 months, exactly according to your needs",
+      "Fixed monthly price includes insurance, maintenance and tire services",
+      "No down payment, no resale worries"
+    ]
+  },
+
+  "equipmentFinancing": {
+    "heading": "Equipment and Machinery Leasing",
+    "subheading": "Invest in efficiency without large one-time costs",
+    "texts": [
+      "Do you need machinery or equipment for production, construction or business – but don't want to tie up capital or buy outright?",
+      "Equipment and machinery leasing offers your business a flexible and cost-effective way to get necessary tools in use immediately – without large one-time costs."
+    ],
+    "list": [
+      { "term": "Fixed rent", "description": "Throughout the rental period 12-72 months" },
+      { "term": "Ownership", "description": "Equipment remains company property after rental period" },
+      { "term": "Taxation", "description": "Leasing rents can be deducted in taxation" },
+      { "term": "Capital", "description": "Capital doesn't need to be tied to investment" },
+      { "term": "Balance sheet", "description": "Doesn't tie fixed assets to balance sheet" },
+      { "term": "Budgeting", "description": "Budgeting becomes more predictable" }
+    ],
+    "image": { "src": "/images/innolease/kone-laiterahoitus.jpg", "alt": "Equipment and Machinery Leasing" }
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "texts": ["Here are answers to the most common questions about our financial solutions."],
+    "questions": [
+      {
+        "question": "What's the difference between financial and service leasing?",
+        "answer": "In financial leasing, the customer is responsible for maintenance and the car's residual value, while in service leasing all services are included in the fixed monthly price."
+      },
+      {
+        "question": "Can the leasing contract be changed during the period?",
+        "answer": "Flexible leasing enables flexibility during the contract period. In other leasing types, changes are handled case by case."
+      },
+      {
+        "question": "How does mini leasing differ from regular leasing?",
+        "answer": "Mini leasing is intended for short-term use (1-12 months) and includes all services. It's a quick solution for temporary needs."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need a Financing Solution?",
+    "texts": [
+      "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business or personal use."
+    ],
+    "link": { "label": "Contact Us", "href": "/yhteystiedot" },
+    "image": { "src": "/images/innolease/cta-rahoitusratkaisut.jpg", "alt": "Contact Innolease" }
+  },
+
+  "promotion": {
+    "heading": "Explore Our Other Services",
+    "texts": ["We also offer other services that may interest your business."],
+    "columns": [
+      {
+        "title": "Digital Services",
+        "texts": ["FleetManager tool for fleet management and efficient real-time monitoring."],
+        "link": { "label": "Learn More", "href": "/digitaaliset-palvelut" }
+      },
+      {
+        "title": "Car Rental",
+        "texts": ["Need a car for a short time? We offer fast and flexible car rental services."],
+        "link": { "label": "Rent a Car", "href": "/auton-vuokraus" }
+      },
+      {
+        "title": "Business Leasing",
+        "texts": ["Comprehensive range of business car leasing solutions for companies of all sizes."],
+        "link": { "label": "Explore", "href": "/yritysleasing" }
+      }
+    ]
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "title": "Innolease | Yritysautojen leasing ja kalustonhallinta",
+    "description": "Kattavat yritysautojen leasingratkaisut ja kalustonhallintapalvelut läpinäkyvällä hinnoittelulla ja tehokkailla digitaalisilla työkaluilla.",
+    "keywords": "yritysautojen leasing, kalustonhallinta, autoleasing, yritysleasing, InnoFleet Manager, leasingratkaisut, autokannan hallinta, sähköautot, hybridiauto leasing",
+    "image": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png"
+  },
+
+  "hero": {
+    "heading": "Innolease",
+    "subheading": "Yrityksesi kumppani leasingasioissa",
+    "numbers": [
+      { "title": "Soita meille", "number": "020 743 7670" },
+      { "title": "Soita meille", "number": "020 743 76700" }
+    ],
+    "image": { "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png", "alt": "Innolease Hero" }
+  },
+
+  "topTeam": {
+    "heading": "Monipuolinen asiantuntijaryhmä palveluksessasi",
+    "texts": [
+      "Innoleasen päätarkoitus on mukautua asiakkaan tarpeisiin ja tarjota erilaisia vaihtoehtoja, jotka helpottavat asiakasta tekemään tilanteeseen sopivia päätöksiä.",
+      "Avoin toimintamallimme, jossa määrittelemme yhdessä asiakkaan kanssa heidän tarpeitaan palvelevan palvelupaketin. Tavoitteemme on säästää asiakkaan aikaa ja rahaa, vähentää riskejä sekä helpottaa kalustoudgetointia."
+    ],
+    "link": { "label": "Lue lisää", "href": "/keita-olemme" },
+    "image": { "src": "/images/home/542c1cb86dab162e495da68f95bb1172db8497fb.png", "alt": "Ryhmäkuva" }
+  },
+
+  "personnel": [
+    {
+      "name": "Ville Mäkinen",
+      "title": "Myyntijohtaja",
+      "phone": "040 7570 309",
+      "email": "ville.makinen@innolease.fi",
+      "image": { "src": "/images/team/ville_makinen.jpg", "alt": "Ville Mäkinen" }
+    },
+    {
+      "name": "Samuli Hintikka",
+      "title": "Myyntipäällikkö",
+      "phone": "045 6468 184",
+      "email": "samuli.hintikka@innolease.fi",
+      "image": { "src": "/images/team/samuli_hintikka.jpg", "alt": "Samuli Hintikka" }
+    },
+    {
+      "name": "Anssi Hyvärinen",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4734 817",
+      "email": "anssi.hyvarinen@innolease.fi",
+      "image": { "src": "/images/team/anssi_hyvarinen.jpg", "alt": "Anssi Hyvärinen" }
+    },
+    {
+      "name": "Jesse Hämäläinen",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4738 049",
+      "email": "jesse.hamalainen@innolease.fi",
+      "image": { "src": "/images/team/jesse_hamalainen.jpg", "alt": "Jesse Hämäläinen" }
+    },
+    {
+      "name": "Veikka Jurvelin",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4735 816",
+      "email": "veikka.jurvelin@innolease.fi",
+      "image": { "src": "/images/team/veikka_jurvelin.jpg", "alt": "Veikka Jurvelin" }
+    },
+    {
+      "name": "Niclas Yrttimaa",
+      "title": "Myyntipäällikkö",
+      "phone": "050 4611 119",
+      "email": "niclas.yrttimaa@innolease.fi",
+      "image": { "src": "/images/team/niclas_yrttimaa.jpg", "alt": "Niclas Yrttimaa" }
+    }
+  ],
+
+  "leasingOptions": {
+    "heading": "Leasing-ratkaisut",
+    "subheading": "Valitse yrityksellesi parhaiten sopiva leasing-ratkaisu.",
+    "columns": [
+      {
+        "subheading": "Sinulle sopivimmat leasing-vaihtoehto ja rahoitusmalli",
+        "texts": [
+          "Meillä on aina asiakkaan tilanteeseen sopiva leasing-vaihtoehto ja rahoitusmalli. Tavoitteemme on tarjota joustavuutta ja räätälöityjä ratkaisuja."
+        ],
+        "link": { "label": "Lue lisää", "href": "/autoleasing" },
+        "image": { "src": "/images/home/leasing1.png", "alt": "Leasing-vaihtoehto" }
+      },
+      {
+        "subheading": "Joustava ja helppo kone- ja laiteleasing",
+        "texts": [
+          "Ketteränä toimijana palvelumme on joustavaa. Erikoistoiveet aikataulun ja ajoneuvon varustuksen suhteen ovat meille arkipäivää."
+        ],
+        "link": { "label": "Lue lisää", "href": "/kone-ja-laiteleasing" },
+        "image": { "src": "/images/home/leasing2.png", "alt": "Joustava leasing" }
+      }
+    ],
+    "link": { "label": "Kaikki leasing-ratkaisut", "href": "/yritysleasing" }
+  },
+
+  "serviceLinks": [
+    { "label": "Kalustonhallinnan työkalut", "href": "/fleet-manager" },
+    { "label": "Autolaskuri", "href": "/laskurit" },
+    { "label": "Yritysauton opas", "href": "/autoilijan-opas" },
+    { "label": "Yritysleasing", "href": "/yritysleasing" },
+    { "label": "Yksityisleasing", "href": "/autoleasing" }
+  ],
+
+  "news": {
+    "heading": "Ajankohtaista",
+    "cards": [
+      {
+        "title": "Uusi Ford Transit Custom",
+        "texts": [
+          "Kuvaukset tulossa. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "/uutiset" },
+        "image": { "src": "/images/home/fbd9d9f2eb685db6d67715917cb19f5c86abb4d8.png", "alt": "Ford Transit" },
+        "category": "Uutiset"
+      },
+      {
+        "title": "Tarjoamme kaikkia merkkejä ja malleja",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "/kampanjat" },
+        "image": { "src": "/images/home/f383847c12f5d779ca1cc2e033f8ab64b992859f.png", "alt": "Urheiluautot" },
+        "category": "Kampanjat"
+      },
+      {
+        "title": "Leasing-ratkaisu ETruck",
+        "texts": [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ],
+        "link": { "label": "Lue lisää", "href": "/blogi" },
+        "image": { "src": "/images/home/8a775237ed7d12f46cacc356b839daf0c7b36b4e.png", "alt": "Sähkörekka" },
+        "category": "Blogit"
+      }
+    ],
+    "link": { "label": "Näytä ajankohtaiset uutiset", "href": "/uutiset" }
+  },
+
+  "newsSection": {
+    "heading": "Ajankohtaista"
+  },
+
+  "innoFleet": {
+    "subtitle": "Raportointityökalu",
+    "heading": "InnoFleet Manager",
+    "texts": [
+      "Luo kaikki yrityksesi tarvitsemat raportit suoraan verkkopalvelusta. Ajantasainen tieto koko kalustostasi antaa mahdollisuuden hoitaa ajoneuvoon liittyvät asiat tehokkaasti ja säästää aikaa.",
+      "Koko kalustosi huolto ja palvelutoiminnot ovat helposti saatavilla myös mobiililaitteessasi."
+    ],
+    "link": { "label": "Lue lisää", "href": "/fleet-manager" },
+    "image": {
+      "src": "/images/home/oogee01150_Close-up_of_the_front_wheel_and_headlight_design_o_9c38ffea-2dc7-44c8-aa69-241256430d63_3_1.png",
+      "alt": "InnoFleet Manager -sovellus"
+    },
+    "smallImage": { "src": "/images/home/iphone_05_sleep_image.png", "alt": "InnoFleet Manager -sovellus" }
+  },
+
+  "team": {
+    "heading": "Yritysautoilun ja -rahoituksen asiantuntijat palveluksessasi",
+    "role": "Myyntipäällikkö",
+    "email": "etunimi.sukunimi@innolease.fi",
+    "members": [
+      { "name": "Jukka Mäkinen", "phone": "+358 50 123 4567" },
+      { "name": "Liisa Korhonen", "phone": "+358 50 123 4568" },
+      { "name": "Mikko Nieminen", "phone": "+358 50 123 4569" },
+      { "name": "Anna Virtanen", "phone": "+358 50 123 4570" }
+    ],
+    "memberAlt": "Tiimin jäsen"
+  },
+
+  "transparency": {
+    "heading": "Leasing-ratkaisun kustannukset läpinäkyvästi",
+    "texts": [
+      "Haluamme tehdä autoleasingista mahdollisimman selkeää ja yksinkertaista. Siksi Innoleasen hinnoittelu on läpinäkyvää. Saat meiltä aina totuudenmukaisen ja selkeän tarjouksen, jossa ei ole piilokustannuksia. Teemme asiat ilman turhaa byrokratiaa ja saamme asiat hoidettua.",
+      "Toteutamme yrityksesi ajoneuvopolitiikan ja teemme puolestasi kalustosi kustannusvertailuja sekä realisoimme vanhaa kalustoa."
+    ],
+    "link": { "label": "Lue lisää", "href": "/palveluhinnasto" },
+    "image": { "src": "/images/home/9460b1df285683cc7b8700f34fe521e13acee9c4.png", "alt": "Tumma auto" }
+  },
+
+  "searchingFor": {
+    "heading": "<span class=\"text-kupari\">Uusi</span> vai <span class=\"text-kupari\">käytetty</span> auto etsinnässä?",
+    "texts": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    ],
+    "link": { "label": "Lue lisää", "href": "/autoleasing" },
+    "image": { "src": "/images/home/f818c3812d549af98d6ac2658d7e74e6 2.png", "alt": "Tumma auto" }
+  },
+
+  "greenLeasing": {
+    "heading": "Kohti vihreämpää kalustoa Innoleasen kanssa",
+    "texts": ["Pienennä hiilijalanjälkeäsi sähkö- ja hybridiautojemme avulla."],
+    "list": [
+      "Laaja valikoima sähköautoja",
+      "Yksityiskohtainen päästöraportointi",
+      "Latausratkaisut sähköautoille",
+      "Neuvontaa kaluston sähköistämiseen"
+    ],
+    "link": { "label": "Lue lisää", "href": "/digitaaliset-palvelut" },
+    "image": { "src": "/images/home/514779a641a0c85ec74f7f81387290bd5d4de8a6.png", "alt": "Vihreä leasing" }
+  }
+}

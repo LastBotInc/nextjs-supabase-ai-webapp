@@ -3,6 +3,7 @@ export interface BrandTone {
   friendly: number; // 0-10 scale where 10 is most friendly
   technical: number; // 0-10 scale where 10 is most technical
   innovative: number; // 0-10 scale where 10 is most innovative
+  trustworthy: number; // 0-10 scale where 10 is most trustworthy
 }
 
 export interface BrandPersonality {
@@ -22,65 +23,67 @@ export interface BrandVoice {
 }
 
 export const brandInfo: BrandVoice = {
-  name: "LastBot",
-  description: "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions that empower businesses in their digital transformation journey.",
+  name: "Innolease",
+  description: "Innolease, part of the Autolle.com Group, provides comprehensive business vehicle leasing and fleet management solutions tailored to each client's specific needs. With 800+ vehicles nationwide and digital tools like InnoFleet Manager, we empower Finnish businesses to manage mobility with cost-efficiency, clarity, and scalability.",
   tone: {
-    formal: 7,     // Professional but not stiff
-    friendly: 9,   // Very approachable and human
-    technical: 8,  // Strong technical expertise but accessible
-    innovative: 9  // Leading edge in AI technology
+    formal: 6,     // Professional but approachable and modern
+    friendly: 6,   // Business-friendly but not overly casual
+    technical: 7,  // Knowledgeable about vehicles and leasing
+    innovative: 8, // Modern digital tools and services, 'On the pulse'
+    trustworthy: 9 // High emphasis on transparency and reliability
   },
   personality: {
     primary: [
-      "Human-centric",
-      "Innovative",
-      "Trustworthy",
-      "Empowering",
-      "Forward-thinking"
+      "Reliable", // Luotettavuus
+      "Expert", // Asiantuntijuus
+      "Customer-centric", // Asiakaslähtöinen
+      "Quality-focused", // Laadukkuus
+      "Modern" // Ajan hermolla
     ],
     secondary: [
-      "Approachable",
-      "Educational",
-      "Collaborative",
-      "Ethical",
-      "Results-driven"
+      "Experienced", // Kokemus
+      "Transparent",
+      "Adaptable",
+      "Efficient",
+      "Digital-forward",
+      "Collaborative"
     ],
     avoid: [
+      "Overly casual",
+      "Ambiguous",
+      "Inflexible",
       "Impersonal",
-      "Overly technical",
-      "Aggressive",
-      "Hype-driven",
-      "Fear-mongering about AI"
+      "Traditional/outdated"
     ]
   },
   writingStyle: [
-    "Balance technical accuracy with human warmth",
-    "Use clear, jargon-free language when explaining complex concepts",
-    "Emphasize the human benefits of AI technology",
-    "Share practical examples and real-world applications",
-    "Address common AI concerns with empathy and understanding",
-    "Focus on empowerment rather than replacement",
-    "Maintain an educational and collaborative tone"
+    "Clear, concise business language with minimal jargon",
+    "Use concrete examples of cost savings and efficiency gains",
+    "Emphasize the complete service approach from leasing to maintenance",
+    "Focus on customizable solutions for different business needs",
+    "Highlight digital tools that simplify fleet management",
+    "Balance professional tone with approachable language",
+    "Use data points and specifics when describing services"
   ],
   commonPhrases: [
-    "AI-first approach",
-    "Human-centric AI",
-    "Fast-track to AI integration",
-    "Continuous learning",
-    "Digital transformation",
-    "Genuine connections",
-    "Autonomous solutions",
-    "24/7 availability"
+    "Tailored leasing solutions",
+    "Comprehensive fleet management",
+    "Digital tools and services",
+    "Transparent pricing",
+    "Dedicated account manager",
+    "Cost-efficient mobility",
+    "Predictable vehicle costs",
+    "One unified service experience",
+    "Flexible leasing options"
   ],
   avoidPhrases: [
-    "AI takeover",
-    "Replace humans",
-    "Fully automated",
-    "No human intervention",
-    "Revolutionary AI",
-    "Disruptive technology",
-    "Game-changing solution",
-    "Market leader"
+    "One-size-fits-all",
+    "Hidden costs",
+    "Standard packages only",
+    "Inflexible terms",
+    "Complicated processes",
+    "Old-fashioned service",
+    "Limited options"
   ]
 };
 

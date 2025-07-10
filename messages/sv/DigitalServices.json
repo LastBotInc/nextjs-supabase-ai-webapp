@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Digitala tjänster | Innolease - Moderna lösningar för fordonshantering",
+    "description": "Upptäck Innoleases innovativa digitala tjänster: FleetManager, webbaserad kundportal och digitala dokumentationssystem för effektiv fordonshantering.",
+    "keywords": "digitala tjänster, FleetManager, fordonshantering, webbtjänster, digitala lösningar, leasing-teknik",
+    "image": "/images/innolease/digital-services-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Digitala tjänster – Moderna lösningar för din fordonspark",
+    "subheading": "Effektivisera din fordonshantering med innovativa digitala verktyg",
+    "texts": [
+      "Innolease erbjuder omfattande digitala tjänster som förenklar ditt företags verksamhet under hela leasingperioden. Våra moderna verktyg ger realtidskontroll, transparens och effektivitet för hela din fordonspark."
+    ],
+    "image": {
+      "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png",
+      "alt": "Instrumentpanel för digitala tjänster"
+    },
+    "numbers": [{ "title": "Kontakta oss", "number": "020 743 7670" }]
+  },
+
+  "fleetManager": {
+    "heading": "FleetManager – Fullständig kontroll över din fordonspark",
+    "subheading": "En hanteringsvy, all information",
+    "texts": [
+      "FleetManager är ett intelligent och användarvänligt verktyg som samlar hanteringen av din fordonspark på ett ställe – i realtid och transparent. Spåra fordonsspecifika kostnader och optimera utnyttjandegraden enkelt.",
+      "Tydliga rapporter stöder både ekonomiska styrnings- och hållbarhetsrapporteringsbehov."
+    ],
+    "list": [
+      { "term": "Kontraktsövervakning", "description": "Omfattande kontraktshantering och spårning på ett ställe" },
+      {
+        "term": "Kostnadskontroll & optimering",
+        "description": "Realtidskostnadsspårning och optimeringsrekommendationer"
+      },
+      { "term": "Utnyttjandegradoptimering", "description": "Körsträckespårning och användningsoptimeringsverktyg" },
+      { "term": "Miljöperspektiv", "description": "Hållbarhetsövervakning och miljörapportering" },
+      { "term": "Fullständig transparens", "description": "Centraliserad information med full synlighet" }
+    ],
+    "image": { "src": "/images/innolease/fleetmanager-dashboard.jpg", "alt": "FleetManager-instrumentpanel" }
+  },
+
+  "digitalPortal": {
+    "heading": "Webbaserad kundportal",
+    "subheading": "Tillgång till din fordonsparkinformation 24/7",
+    "texts": [
+      "Vår säkra webbtjänst ger dig omedelbar åtkomst till all din fordonsparkinformation, dokument och tjänster. Hantera fordon, spåra kostnader och komma åt viktiga dokument när som helst, var som helst.",
+      "Portalen integreras sömlöst med FleetManager och erbjuder ett omfattande digitalt ekosystem för din fordonshantering."
+    ],
+    "list": [
+      "Fordonsinformation och dokumentation",
+      "Servicehistorik och underhållsregister",
+      "Kostnadsrapporter och ekonomiska sammanfattningar",
+      "Kontraktsdetaljer och förnyelseaviseringar",
+      "Digitala serviceförfrågningar och kommunikation"
+    ],
+    "image": { "src": "/images/innolease/customer-portal.jpg", "alt": "Kundportalens användargränssnitt" }
+  },
+
+  "digitalDocumentation": {
+    "heading": "Digitalt dokumentationssystem",
+    "subheading": "Papperslös fordonshantering",
+    "texts": [
+      "Säg adjö till spridda pappersarbeten. Vårt digitala dokumentationssystem håller alla dina fordonsdokument organiserade, tillgängliga och säkra på ett ställe.",
+      "Från serviceposter till försäkringsdokument, allt är digitaliserat och sökbart, vilket gör fordonsadministration enkel."
+    ],
+    "cases": [
+      {
+        "title": "Serviceposter",
+        "texts": [
+          "Alla underhålls- och reparationsposter digitaliseras automatiskt och kopplas till varje fordon. Omedelbar åtkomst till fullständig servicehistorik."
+        ],
+        "image": { "src": "/images/innolease/service-records.jpg", "alt": "Digitala serviceposter" }
+      },
+      {
+        "title": "Kontraktshantering",
+        "texts": [
+          "Digitala kontrakt med automatiska påminnelser för förnyelser, underhållsscheman och viktiga deadlines."
+        ],
+        "image": { "src": "/images/innolease/contract-management.jpg", "alt": "Digital kontraktshantering" }
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Varför välja våra digitala tjänster?",
+    "texts": [
+      "Våra digitala tjänster är utformade för att göra fordonshantering så effektiv och transparent som möjligt."
+    ],
+    "table": {
+      "columns": ["Fördel", "Beskrivning"],
+      "rows": [
+        ["Realtidsåtkomst", "Åtkomst till din fordonsparkinformation 24/7 från var som helst"],
+        ["Kostnadstransparens", "Fullständig synlighet av alla fordonsrelaterade kostnader"],
+        ["Automatisk rapportering", "Generera detaljerade rapporter med bara några klick"],
+        ["Strömlinjeformad kommunikation", "Direkt kommunikation med vårt serviceteam"],
+        ["Miljöspårning", "Övervaka och rapportera hållbarhetsmått"]
+      ]
+    }
+  },
+
+  "faq": {
+    "heading": "Vanliga frågor",
+    "texts": ["Här är svar på de vanligaste frågorna om våra digitala tjänster."],
+    "questions": [
+      {
+        "question": "Hur får jag tillgång till FleetManager-systemet?",
+        "answer": "Du får inloggningsuppgifter och en personlig genomgång när du börjar använda våra tjänster. Vårt team tillhandahåller omfattande utbildning för att säkerställa att du får ut det mesta av alla funktioner."
+      },
+      {
+        "question": "Är mina data säkra i era digitala system?",
+        "answer": "Ja, vi använder säkerhetsåtgärder av företagsklass inklusive kryptering, säkra servrar och regelbundna säkerhetsrevisioner för att skydda dina data. Alla system följer GDPR och branschens säkerhetsstandarder."
+      },
+      {
+        "question": "Kan jag integrera era system med våra befintliga affärsprogram?",
+        "answer": "Våra digitala tjänster erbjuder integreringsmöjligheter med de flesta vanliga affärshanteringssystem. Kontakta vårt tekniska team för att diskutera specifika integreringskrav för ditt företag."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Redo att digitalisera din fordonshantering?",
+    "texts": [
+      "Kontakta Innolease idag för att lära dig mer om våra digitala tjänster och hur de kan transformera din fordonshantering. Våra experter hjälper dig att välja rätt digitala lösningar för dina affärsbehov."
+    ],
+    "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/innolease/digital-transformation.jpg", "alt": "Digital fordonshantering" }
+  },
+
+  "promotion": {
+    "heading": "Utforska fler lösningar",
+    "texts": ["Upptäck vårt omfattande utbud av leasing- och fordonshanteringstjänster."],
+    "columns": [
+      {
+        "title": "Fordonshanteringsverktyg",
+        "texts": ["Avancerade verktyg för fullständig fordonsparkkontroll och optimering."],
+        "link": { "label": "Läs mer", "href": "/fleet-manager" }
+      },
+      {
+        "title": "Leasinglösningar",
+        "texts": ["Omfattande leasingtjänster för företag av alla storlekar."],
+        "link": { "label": "Utforska leasing", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Kundservice",
+        "texts": ["Expertstöd och vägledning under hela din leasingresa."],
+        "link": { "label": "Kontakta support", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

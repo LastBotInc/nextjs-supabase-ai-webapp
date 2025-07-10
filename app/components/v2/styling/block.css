@@ -1,0 +1,132 @@
+.block {
+  @apply flex flex-col;
+  @apply w-full;
+}
+
+.block {
+  z-index: 20;
+  background-color: var(--palette-background-color);
+  color: var(--palette-text-color);
+}
+
+.block-background-image {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* TODO: pos & size from vars */
+}
+
+.block-with-background-image {
+  position: relative;
+}
+.block-with-background-image .content-area {
+  --palette-background-color: transparent;
+}
+
+.content-area {
+  position: relative;
+  z-index: 20;
+  color: var(--palette-text-color, #000);
+  background-color: var(--palette-background-color, transparent);
+}
+
+.main-level-padding-full,
+.block-main > .content-area.block-padding-full,
+.block-content.block-padding-full {
+  @apply p-6 lg:p-14;
+}
+
+.main-level-padding-small,
+.block-main > .content-area.block-padding-small,
+.block-content.block-padding-small {
+  @apply p-6 lg:p-7;
+}
+
+.main-level-padding-full-y {
+  @apply py-6 lg:py-14;
+}
+
+.block-box.block-padding-full {
+  @apply p-4 lg:p-8;
+}
+.block-box .content-area.block-padding-full {
+  @apply p-4 lg:p-8;
+}
+
+/* sets half padding to content area of the main block and half to the box content area
+  So box background is outside of the content area, but box content is aligned with normal content area
+  padding should be half of the full padding
+*/
+.block-main.with-split-padding .block-content.block-content .content-area,
+.forced-split-padding.forced-split-padding {
+  @apply p-3 lg:p-7;
+  .block-box .content-area {
+    @apply p-3 lg:p-7;
+  }
+}
+
+.block-main.compensate-for-split-padding-bottom.compensate-for-split-padding-bottom {
+  @apply pb-3 lg:pb-7;
+}
+
+.block-main.full-size-boxes .block-content.block-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.block-main.with-split-padding .content-area .block-content {
+  padding: 0;
+}
+.main-level-padding-inline,
+.block-main > .content-area.block-padding-inline,
+.block-padding-inline.block-padding-inline {
+  @apply px-6 lg:px-14;
+}
+
+.main-level-padding-block,
+.block-main > .content-area.block-padding-block,
+.block-padding-block.block-padding-block {
+  @apply py-6 lg:py-14;
+}
+.bottom-padding-half-block.bottom-padding-half-block {
+  @apply pb-3 lg:pb-7;
+}
+
+.block-padding-none.block-padding-none {
+  padding: 0;
+}
+
+/* Main block */
+.block-main {
+  --padding: 0;
+  --padding-md: 0;
+  --padding-lg: 0;
+}
+
+.block-main .block-content {
+  @apply max-w-7xl mx-auto;
+}
+
+.block-main-without-bg.block-main-without-bg + .block-main-without-bg.block-main-without-bg {
+  padding-top: 0;
+}
+
+/* Content block */
+
+.block-content .content {
+  padding: 0;
+}
+
+.rounded-box,
+.rounded-box .content-area {
+  @apply rounded-xl;
+}
+
+.with-overflowing-image {
+  @apply z-30;
+}

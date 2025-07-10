@@ -1,0 +1,12 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diamond pattern - uses currentColor for fill to allow CSS styling -->
+  <g>
+    <!-- Row 1 -->
+    <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="currentColor" fill-opacity="0.7" />
+    <path d="M75,0 L100,25 L75,50 L50,25 Z" fill="currentColor" fill-opacity="0.7" />
+    
+    <!-- Row 2 -->
+    <path d="M25,50 L50,75 L25,100 L0,75 Z" fill="currentColor" fill-opacity="0.7" />
+    <path d="M75,50 L100,75 L75,100 L50,75 Z" fill="currentColor" fill-opacity="0.7" />
+  </g>
+</svg> 

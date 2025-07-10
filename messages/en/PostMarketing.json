@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Post Marketing Services - Innolease",
+    "description": "Comprehensive post marketing and after-sales services for leased vehicles. Professional maintenance, support, and value optimization throughout your lease period.",
+    "keywords": "post marketing, after-sales service, vehicle maintenance, lease support, fleet management",
+    "image": "/images/og/post-marketing.jpg"
+  },
+
+  "section1": {
+    "heading": "Professional Post Marketing Services",
+    "texts": [
+      "Our comprehensive post marketing services ensure your leased vehicles maintain their value and performance throughout the entire lease period. We provide professional support and maintenance solutions tailored to your business needs.",
+      "From routine maintenance to emergency support, our experienced team handles all aspects of post-lease vehicle management, allowing you to focus on your core business operations."
+    ],
+    "image": {
+      "src": "/images/post-marketing/service-team.jpg",
+      "alt": "Professional service team maintaining leased vehicles"
+    }
+  },
+
+  "section2": {
+    "heading": "Our Service Portfolio",
+    "texts": [
+      "We offer a complete range of post marketing services designed to maximize the value and efficiency of your leased vehicle fleet."
+    ],
+    "list": [
+      {
+        "term": "Preventive Maintenance",
+        "description": "Regular scheduled maintenance to prevent costly repairs and ensure optimal performance"
+      },
+      {
+        "term": "Emergency Support",
+        "description": "24/7 roadside assistance and emergency repair services for unexpected situations"
+      },
+      {
+        "term": "Value Optimization",
+        "description": "Strategic maintenance planning to preserve vehicle value throughout the lease period"
+      },
+      {
+        "term": "Fleet Monitoring",
+        "description": "Advanced tracking and monitoring systems to optimize fleet efficiency and usage"
+      },
+      {
+        "term": "End-of-Lease Services",
+        "description": "Comprehensive vehicle inspection and preparation for lease return or purchase options"
+      }
+    ],
+    "image": { "src": "/images/post-marketing/maintenance.jpg", "alt": "Vehicle maintenance and inspection services" }
+  },
+
+  "section3": {
+    "heading": "Service Benefits",
+    "texts": [
+      "Our post marketing services deliver measurable benefits that reduce your total cost of ownership and improve operational efficiency."
+    ],
+    "table": {
+      "columns": ["Service Area", "Key Benefits"],
+      "rows": [
+        ["Cost Management", "Reduced unexpected repair costs and optimized maintenance schedules"],
+        ["Vehicle Performance", "Maintained reliability and efficiency throughout lease period"],
+        ["Compliance", "Ensured adherence to manufacturer warranties and lease agreements"],
+        ["Convenience", "Streamlined service coordination and minimal business disruption"],
+        ["Value Retention", "Preserved vehicle value for end-of-lease evaluations"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Why Choose Our Post Marketing Services",
+    "texts": [
+      "Our expertise in post marketing services stems from years of experience in the leasing industry and deep understanding of vehicle lifecycle management."
+    ],
+    "list": [
+      "Certified technicians with specialized training in multiple vehicle brands",
+      "Strategic partnerships with authorized service centers nationwide",
+      "Advanced fleet management technology for real-time monitoring",
+      "Customized service packages tailored to your specific fleet needs",
+      "Transparent reporting and cost tracking for budget management"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "texts": ["Common questions about our post marketing services and how they benefit your leased vehicle fleet."],
+    "questions": [
+      {
+        "question": "What does post marketing include in a lease agreement?",
+        "answer": "Post marketing encompasses all services related to maintaining, monitoring, and optimizing your leased vehicles after the lease begins, including preventive maintenance, repairs, fleet monitoring, and end-of-lease preparations."
+      },
+      {
+        "question": "How does post marketing affect my lease costs?",
+        "answer": "Proper post marketing services can significantly reduce your total cost of ownership by preventing expensive repairs, maintaining vehicle value, and ensuring compliance with lease terms, ultimately saving money over the lease period."
+      },
+      {
+        "question": "Can I customize the post marketing service package?",
+        "answer": "Yes, we offer flexible service packages that can be tailored to your specific fleet size, vehicle types, usage patterns, and budget requirements to ensure optimal value for your business."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Ready to Optimize Your Fleet Management?",
+    "texts": [
+      "Let our post marketing experts help you maximize the value and performance of your leased vehicle fleet. Contact us today for a customized service consultation."
+    ],
+    "link": { "label": "Contact Our Service Team", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/post-marketing/cta-fleet.jpg", "alt": "Professional fleet management services" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Calculate Your Service Savings",
+      "text": "Use our service cost calculator to estimate potential savings with our post marketing services.",
+      "buttonText": "Calculate Savings",
+      "buttonHref": "/laskurit"
+    },
+    "carLeasing": {
+      "heading": "Explore Leasing Options",
+      "text": "Discover our comprehensive leasing solutions with integrated post marketing services.",
+      "buttonText": "View Leasing Options",
+      "buttonHref": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Get Expert Consultation",
+      "text": "Speak with our post marketing specialists about your fleet management needs.",
+      "buttonText": "Contact Experts",
+      "buttonHref": "/asiakaspalvelu"
+    }
+  }
+}

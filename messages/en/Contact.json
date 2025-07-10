@@ -1,22 +1,33 @@
 {
-  "info": {},
-  "address": {},
-  "social": {},
+  "meta": {
+    "title": "Contact Us",
+    "description": "Get in touch with Innolease. Find our office locations, contact details, and send us a message using the contact form."
+  },
+  "title": "Contact Information",
+  "intro": "We are here to help you with all your leasing and service needs. Contact us using the form or reach out to one of our offices directly.",
   "form": {
-    "description": "Fill out the form below and we'll get back to you as soon as possible.",
+    "title": "Contact Form",
     "name": "Name",
     "email": "Email",
-    "company": "Company",
-    "submit": "Send Message",
-    "submitting": "Sending...",
-    "success": {
-      "title": "Message Sent",
-      "message": "Thank you for your message. We'll get back to you soon."
+    "phone": "Phone",
+    "subject": "Subject",
+    "subjects": {
+      "leasing": "Leasing inquiry",
+      "service": "Service & maintenance",
+      "fleet": "Fleet management",
+      "other": "Other"
     },
-    "error": {
-      "captcha": "Please complete the captcha verification.",
-      "captchaValidation": "Captcha validation failed. Please try again."
-    },
-    "meta": {}
+    "message": "Message",
+    "submit": "Send Message"
+  },
+  "offices": {
+    "title": "Our Offices"
+  },
+  "hours": {
+    "title": "Opening Hours",
+    "weekdays": "Monday–Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
   }
 }

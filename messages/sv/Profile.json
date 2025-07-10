@@ -1,25 +1,56 @@
 {
   "title": "Profilinställningar",
   "description": "Hantera dina kontoinställningar och preferenser",
-  "menu": {},
+  "menu": {
+    "title": "Profilmeny",
+    "general": "Allmänna inställningar",
+    "security": "Säkerhet & integritet",
+    "preferences": "Preferenser",
+    "backToSite": "Tillbaka till sidan"
+  },
   "tabs": {
     "general": "Allmänt",
     "security": "Säkerhet",
-    "preferences": "Inställningar"
+    "preferences": "Preferenser"
   },
   "sections": {
-    "general": {},
-    "security": {},
-    "preferences": {}
+    "general": {
+      "title": "Allmän information",
+      "description": "Hantera din grundläggande profilinformation"
+    },
+    "security": {
+      "title": "Säkerhetsinställningar",
+      "description": "Hantera säkerhet och integritetsinställningar för ditt konto"
+    },
+    "preferences": {
+      "title": "Användarpreferenser",
+      "description": "Anpassa din upplevelse"
+    }
   },
   "fields": {
     "username": "Användarnamn",
-    "email": "E‑post",
+    "email": "E-post",
     "fullName": "Fullständigt namn",
-    "fullNamePlaceholder": "Ange ditt fullständiga namn"
+    "fullNamePlaceholder": "Skriv in ditt fullständiga namn",
+    "language": "Föredraget språk",
+    "theme": "Temapreferens",
+    "notifications": "E-postaviseringar",
+    "currentPassword": "Nuvarande lösenord",
+    "newPassword": "Nytt lösenord",
+    "confirmPassword": "Bekräfta nytt lösenord"
   },
   "actions": {
-    "save": "Spara ändringar"
+    "save": "Spara ändringar",
+    "cancel": "Avbryt",
+    "changePassword": "Byt lösenord",
+    "updateEmail": "Uppdatera e-post",
+    "enable2FA": "Aktivera tvåfaktorsautentisering",
+    "disable2FA": "Inaktivera tvåfaktorsautentisering"
   },
-  "messages": {}
+  "messages": {
+    "saved": "Ändringar sparade framgångsrikt",
+    "error": "Ett fel uppstod när ändringarna skulle sparas",
+    "passwordChanged": "Lösenordet uppdaterades framgångsrikt",
+    "emailChanged": "E-postadressen uppdaterades framgångsrikt"
+  }
 }

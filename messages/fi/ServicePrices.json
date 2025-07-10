@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "Palveluhinnasto | Innolease",
+    "description": "Tutustu Innoleasen kattavaan palveluhinnastoon. Läpinäkyvät hinnat autojen leasingille, koneiden vuokraukselle ja muille palveluillemme.",
+    "keywords": "palveluhinnasto, leasing hinnat, autoleasing hinnat, koneleasing hinnat, vuokraushinnat, Innolease",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "section1": {
+    "heading": "Palveluhinnastomme",
+    "texts": [
+      "Innoleasing tarjoaa läpinäkyvät ja kilpailukykyiset hinnat kaikille palveluillemme. Hinnoittelumme perustuu reiluuteen ja pitkäaikaisiin asiakassuhteisiin.",
+      "Kaikki hinnat sisältävät ALV:n ja ovat voimassa toistaiseksi. Yksityiskohtaiset tarjoukset räätälöidään aina asiakkaan tarpeiden mukaan."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Läpinäkyvä hinnoittelu" }
+  },
+
+  "section2": {
+    "heading": "Autoleasing - Käynnistyskulut",
+    "texts": ["Autoleasingin aloittamiseen liittyvät kertaluonteiset kulut ja käsittelymaksut."],
+    "list": [
+      { "term": "Sopimuksen käsittelymaksu", "description": "150€ - 300€ (riippuen sopimuksen monimutkaisuudesta)" },
+      { "term": "Luottotietojen tarkistus", "description": "25€ per hakija" },
+      { "term": "Ajoneuvon rekisteröinti ja vakuutus", "description": "200€ - 400€" },
+      { "term": "Toimituskulut", "description": "100€ - 250€ (riippuen etäisyydestä)" },
+      { "term": "Erikoisvarusteiden asennus", "description": "50€ - 200€ per varuste" }
+    ],
+    "image": { "src": "/images/car-leasing-costs.jpg", "alt": "Autoleasingin käynnistyskulut" }
+  },
+
+  "section3": {
+    "heading": "Kuukausittaiset leasinghinnat",
+    "texts": [
+      "Alla olevat hinnat ovat suuntaa-antavia kuukausimaksuja 36 kuukauden leasing-sopimuksille. Lopulliset hinnat riippuvat ajoneuvon arvosta, sopimusajasta ja lisäpalveluista."
+    ],
+    "table": {
+      "columns": ["Ajoneuvoluokka", "Kuukausimaksu (alkaen)"],
+      "rows": [
+        ["Pienautot (esim. Toyota Yaris)", "189€/kk"],
+        ["Keskikokoiset autot (esim. Volkswagen Golf)", "289€/kk"],
+        ["Premium-autot (esim. BMW 3-sarja)", "459€/kk"],
+        ["Sähköautot (esim. Tesla Model 3)", "549€/kk"],
+        ["Pakettiautot (esim. Ford Transit)", "329€/kk"]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "Lisäpalvelut ja vaihtoehdot",
+    "texts": [
+      "Tarjoamme kattavan valikoiman lisäpalveluja, jotka tekevät leasingkokemuksestasi sujuvan ja huolettoman."
+    ],
+    "list": [
+      "Kattava huolto- ja korjauspaketti (+89€/kk)",
+      "Renkaiden vaihto ja säilytys (+45€/kk)",
+      "Korvausauto tarvittaessa (+25€/kk)",
+      "Polttoainekortti ja tankkauspalvelu (+15€/kk)",
+      "24/7 tiepalveluapu sisältyy kaikkiin sopimuksiin"
+    ]
+  },
+
+  "section5": {
+    "heading": "Asiakastarinat - Säästöesimerkit",
+    "texts": ["Katso miten asiakkaamme ovat säästäneet valitsemalla Innoleasen palvelut."],
+    "cases": [
+      {
+        "title": "PK-yritys säästää 2000€ vuodessa",
+        "texts": [
+          "Helsinkiläinen IT-yritys vaihtoi yritysautonsa leasingiin ja säästää vuosittain merkittävästi verotuksessa ja ylläpitokuluissa. Kiinteä kuukausimaksu helpottaa budjetointia."
+        ],
+        "image": { "src": "/images/business-savings.jpg", "alt": "Yritysasiakas säästää" }
+      },
+      {
+        "title": "Perhe löysi unelma-autonsa",
+        "texts": [
+          "Tamperelainen perhe pääsi ajamaan haaveidensa sähköautolla ilman suurta alkuinvestointia. Leasing mahdollisti uuden teknologian kokeilun pienellä riskillä."
+        ],
+        "image": { "src": "/images/family-electric-car.jpg", "alt": "Perhe sähköautolla" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset hinnoittelusta",
+    "texts": ["Vastauksia yleisimpiin hinnoitteluun liittyviin kysymyksiin."],
+    "questions": [
+      {
+        "question": "Sisältyykö ALV hinnasto hintoihin?",
+        "answer": "Kyllä, kaikki hinnastomme hinnat sisältävät arvonlisäveron (24%). Yritysasiakkaille voimme tarjota ALV:ttomia hintoja."
+      },
+      {
+        "question": "Voiko hintoja neuvotella?",
+        "answer": "Kyllä, pitkäaikaisille asiakkaille ja suuremmille tilauksille voimme tarjota erikoishintoja. Ota yhteyttä myyntiimme keskustellaksesi vaihtoehdoista."
+      },
+      {
+        "question": "Muuttuvatko hinnat sopimuskauden aikana?",
+        "answer": "Kuukausimaksut pysyvät vakioina koko sopimuskauden ajan. Mahdolliset indeksikorotukset sovitaan etukäteen sopimuksessa."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Tarvitsetko henkilökohtaisen hintatarjouksen?",
+    "texts": [
+      "Ota yhteyttä asiantuntijoihimme, niin laadimme juuri sinulle räätälöidyn tarjouksen. Ilmainen konsultaatio ja hinnoittelu."
+    ],
+    "link": { "label": "Pyydä tarjous", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/personal-quote.jpg", "alt": "Henkilökohtainen tarjous" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Leasinglaskuri",
+      "text": "Laske oma kuukausimaksusi helposti",
+      "buttonText": "Siirry laskuriin",
+      "buttonHref": "/leasing-laskuri"
+    },
+    "carLeasing": {
+      "heading": "Autoleasing",
+      "text": "Tutustu autoleasingin mahdollisuuksiin",
+      "buttonText": "Lue lisää",
+      "buttonHref": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Asiakaspalvelu",
+      "text": "Kysymyksiä hinnoittelusta? Ota yhteyttä",
+      "buttonText": "Ota yhteyttä",
+      "buttonHref": "/asiakaspalvelu"
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "title": "Rahoitusratkaisut | Innolease",
+    "description": "Löydä yrityksellesi sopiva rahoitusratkaisu. Autoleasing, kone- ja laiteleasing sekä digitaaliset palvelut tehokkaaseen kalustonhallintaan.",
+    "keywords": "rahoitusleasing, huoltoleasing, joustoleasing, kone-ja-laiterahoitus, minileasing, yritysleasing, autoleasing, kalustonhallinta",
+    "image": "/images/yritysleasing.png"
+  },
+
+  "hero": {
+    "heading": "Rahoitusratkaisut yrityksellesi",
+    "subheading": "Fiksu tapa autoilla ja investoida",
+    "texts": [
+      "Innolease on yrityksesi kumppani leasingasioissa. Kilpailutamme auton hankinnan, rahoituksen ja katsomme teille sopivan leasingvaihtoehdon. Avoin toimintamallimme yhdessä asiakkaan kanssa määrittelemään tarpeita palveleva kokonaisuus."
+    ],
+    "numbers": [
+      { "title": "Asiakaspalvelu", "number": "020 743 7670" },
+      { "title": "Myynti", "number": "010 229 1090" }
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Innolease rahoitusratkaisut yrityksille" }
+  },
+
+  "leasingTypes": {
+    "heading": "Leasingvaihtoehdot",
+    "subheading": "Valitse yrityksellesi sopivin ratkaisu",
+    "texts": ["Tarjoamme erilaisia leasingvaihtoehtoja yritysten erilaisiin tarpeisiin. Jokaisella on omat etunsa."],
+    "cases": [
+      {
+        "title": "Rahoitusleasing",
+        "texts": [
+          "Kun haluat hallita itse. Kustannustehokas ja yksinkertainen vaihtoehto yritykselle, joka haluaa pitää langat käsissään. Auton ajomäärää ei rajoiteta ja yritys vastaa itse huolloista ja auton jäännösarvosta vuokra-ajan lopussa.",
+          "Sopii kustannustehokasta ratkaisua hakevalle."
+        ],
+        "image": { "src": "/images/innolease/rahoitusleasing.jpg", "alt": "Rahoitusleasing" }
+      },
+      {
+        "title": "Joustoleasing",
+        "texts": [
+          "Vapautta ja ennakoitavuutta yhdellä sopimuksella. Tuo huollot samalle laskulle, mutta kustannukset määräytyvät todellisten kulujen mukaan. Jäännösarvo arvioidaan markkina-arvon perusteella.",
+          "Hyvä vaihtoehto, jos haluat yhdistää joustavuuden ja hallinnan."
+        ],
+        "image": { "src": "/images/innolease/joustoleasing.jpg", "alt": "Joustoleasing" }
+      },
+      {
+        "title": "Huoltoleasing",
+        "texts": [
+          "Helppoutta ja ennustettavuutta. Vaivaton kokonaisratkaisu. Yhdellä kuukausihinnalla yritys saa auton ja halutut palvelut – huolloista pesuihin ja rengaspalveluihin.",
+          "Täydellinen ratkaisu yrityksille, jotka arvostavat ennakoitavuutta ja vaivattomuutta."
+        ],
+        "image": { "src": "/images/innolease/huoltoleasing.jpg", "alt": "Huoltoleasing" }
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Leasingin edut",
+    "texts": ["Miksi valita leasing? Tässä keskeisimmät edut yrityksellesi."],
+    "table": {
+      "columns": ["Etu", "Kuvaus"],
+      "rows": [
+        ["Kiinteä kuukausihinta", "Koko sopimuskauden ajan, helppo budjetoida"],
+        ["Sopimusaika", "Tyypillisesti 12-60 kuukautta"],
+        ["Ei käsirahaa", "Auto käyttöön ilman suurta alkuinvestointia"],
+        ["Vaivaton vaihdos", "Uusi auto käyttöön, vanhasta eroon vaivattomasti"],
+        ["Oma yhteyshenkilö", "Auttaa kaikissa autoiluun liittyvissä asioissa"]
+      ]
+    }
+  },
+
+  "minileasing": {
+    "heading": "Minileasing yrityksille",
+    "subheading": "Tehoa liiketoimintaan ilman sitoutumista",
+    "texts": [
+      "Tarvitsetko yrityksellesi auton nopeasti ja määräajaksi? Minileasing on joustava ratkaisu lyhytaikaiseen ajoneuvotarpeeseen – ilman pitkäaikaisia sitoumuksia tai omistamisen huolia."
+    ],
+    "list": [
+      "Käyttövalmis auto heti – jopa seuraavaksi päiväksi",
+      "Sopimusaika 1–12 kk, juuri tarpeesi mukaan",
+      "Kiinteä kuukausihinta sisältää vakuutuksen, huollot ja rengaspalvelut",
+      "Ei käsirahaa, ei jälleenmyyntihuolia"
+    ]
+  },
+
+  "equipmentFinancing": {
+    "heading": "Kone- ja laiteleasing",
+    "subheading": "Investoi tehokkuuteen, ilman suuria kertakustannuksia",
+    "texts": [
+      "Tarvitsetko tuotantoon, rakentamiseen tai liiketoimintaan koneita tai laitteita – mutta et halua sitoa pääomaa tai ostaa omaksi?",
+      "Kone- ja laiteliisaus tarjoaa yrityksellesi joustavan ja kustannustehokkaan tavan hankkia tarvittavat työkalut käyttöön heti – ilman suuria kertakustannuksia."
+    ],
+    "list": [
+      { "term": "Kiinteä vuokra", "description": "Koko vuokrakauden ajan 12-72 kuukautta" },
+      { "term": "Omistajuus", "description": "Laite jää yrityksen omistukseen vuokra-ajan jälkeen" },
+      { "term": "Verotus", "description": "Leasingvuokrat voidaan vähentää verotuksessa" },
+      { "term": "Pääoma", "description": "Pääomaa ei tarvitse sitoa investointiin" },
+      { "term": "Tase", "description": "Ei sido käyttöomaisuutta taseeseen" }
+    ],
+    "image": { "src": "/images/innolease/kone-laiterahoitus.jpg", "alt": "Kone- ja laiteleasing" }
+  },
+
+  "faq": {
+    "heading": "Usein kysytyt kysymykset",
+    "texts": ["Tässä vastauksia yleisimpiin kysymyksiin rahoitusratkaisuistamme."],
+    "questions": [
+      {
+        "question": "Mikä on ero rahoitus- ja huoltoleasingin välillä?",
+        "answer": "Rahoitusleasingissa asiakas vastaa itse huolloista ja auton jäännösarvosta, kun taas huoltoleasingissa kaikki palvelut sisältyvät kiinteään kuukausihintaan."
+      },
+      {
+        "question": "Voiko leasingsopimusta muuttaa kesken kauden?",
+        "answer": "Joustoleasing mahdollistaa joustoa sopimuskaudella. Muissa leasingtyypeissä muutokset käsitellään tapauskohtaisesti."
+      },
+      {
+        "question": "Miten minileasing eroaa tavallisesta leasingista?",
+        "answer": "Minileasing on tarkoitettu lyhytaikaiseen käyttöön (1-12 kk) ja sisältää kaikki palvelut. Se on nopea ratkaisu tilapäisiin tarpeisiin."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Tarvitsetko rahoitusratkaisua?",
+    "texts": [
+      "Ota yhteyttä Innolease tänään. Keskustellaan tarpeistasi ja löydämme parhaan leasingratkaisun yrityksellesi tai henkilökohtaiseen käyttöön."
+    ],
+    "link": { "label": "Ota yhteyttä", "href": "/yhteystiedot" },
+    "image": { "src": "/images/innolease/cta-rahoitusratkaisut.jpg", "alt": "Ota yhteyttä Innolease" }
+  },
+
+  "promotion": {
+    "heading": "Tutustu muihin palveluihimme",
+    "texts": ["Tarjoamme myös muita palveluja, jotka voivat kiinnostaa yritystäsi."],
+    "columns": [
+      {
+        "title": "Digitaaliset palvelut",
+        "texts": ["FleetManager-työkalu kalustonhallintaan ja tehokas seuranta reaaliaikaisesti."],
+        "link": { "label": "Lue lisää", "href": "/digitaaliset-palvelut" }
+      },
+      {
+        "title": "Auton vuokraus",
+        "texts": ["Tarvitsetko auton lyhyeksi aikaa? Meiltä löytyy nopeaa ja joustavaa autonvuokrausta."],
+        "link": { "label": "Vuokraa auto", "href": "/auton-vuokraus" }
+      },
+      {
+        "title": "Yritysleasing",
+        "texts": ["Kattava valikoima yritysautojen leasingratkaisuja kaikenkokoisille yrityksille."],
+        "link": { "label": "Tutustu", "href": "/yritysleasing" }
+      }
+    ]
+  }
+}

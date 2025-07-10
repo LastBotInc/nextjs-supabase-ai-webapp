@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "Car Benefit Calculator | Innolease",
+    "description": "Calculate and compare car benefit options for your company vehicles. Find the most cost-effective leasing solution for your business needs."
+  },
+  "hero": {
+    "heading": "Car Benefit Calculator",
+    "subheading": "Calculate and compare different car benefit options to find the most cost-effective solution for your business",
+    "image": {
+      "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png"
+    }
+  },
+  "intro": {
+    "title": "Optimize Your Company Car Benefits",
+    "description": "Use our calculator to compare free car benefit, limited car benefit, and kilometer compensation options. Make informed decisions about your company's vehicle policy based on accurate data.",
+    "getStarted": "Start calculating"
+  },
+  "calculator": {
+    "title": "Car Benefit Calculator",
+    "description": "Adjust the parameters below to see how different options affect costs for both the employer and employee. The calculator provides real-time comparisons based on current tax regulations.",
+    "selectBenefitType": "Select Benefit Type",
+    "benefitTypeDescription": "Choose car benefit model for comparison to adjust calculation parameters",
+    "tabs": {
+      "freeBenefit": "Free Car Benefit",
+      "usageBenefit": "Usage Benefit",
+      "free": "Free Car Benefit",
+      "limited": "Limited Car Benefit"
+    },
+    "inputs": {
+      "title": "Input Parameters",
+      "carValue": "Car Value (€)",
+      "annualDriving": "Annual Driving (km)",
+      "homeToWork": "Home to Work Distance (km)",
+      "monthlyCost": "Monthly Cost (€)",
+      "fuelCost": "Fuel Cost (€/liter)",
+      "fuelConsumption": "Fuel Consumption (l/100km)",
+      "calculationYear": "Calculation Year",
+      "firstRegistrationYear": "First Registration Year",
+      "extraEquipment": "Extra Equipment (€)",
+      "gasoline": "Gasoline Car",
+      "electric": "Electric Car",
+      "plugInHybrid": "Plug-in Hybrid",
+      "engineType": "Engine Type"
+    },
+    "results": {
+      "title": "Results",
+      "monthlyTitle": "Monthly Costs",
+      "annualTitle": "Annual Costs",
+      "employerCost": "Employer Cost",
+      "employeeCost": "Employee Cost",
+      "totalCost": "Total Cost",
+      "comparisonTitle": "Cost Comparison",
+      "savingsTitle": "Potential Savings",
+      "recommendation": "Recommendation",
+      "taxBenefit": "Taxable Benefit",
+      "taxableValue": "Taxable Value",
+      "fuelCosts": "Fuel Costs",
+      "maintenanceCosts": "Maintenance Costs",
+      "insuranceCosts": "Insurance Costs",
+      "taxImpact": "Tax Impact",
+      "netCost": "Net Monthly Cost",
+      "costPerKm": "Cost per km",
+      "annualTaxCost": "Annual Tax Cost",
+      "monthlyDriving": "Monthly Driving",
+      "workDriving": "Work Driving",
+      "privateDriving": "Private Driving",
+      "privateUsePercentage": "Private Use Percentage",
+      "monthlySavings": "Monthly Savings",
+      "month": "month",
+      "ageReduction": "Age Reduction",
+      "electricBioBenefit": "Electric/Biogas Benefit Deduction",
+      "year": "year"
+    },
+    "freeBenefit": {
+      "description": "Free car benefit means the employer pays for all costs related to the car, including fuel for private use.",
+      "advantages": "Advantages",
+      "advantage1": "Simplified expense management",
+      "advantage2": "Predictable monthly costs",
+      "advantage3": "No need to track private vs. business mileage",
+      "considerations": "Considerations",
+      "consideration1": "Higher taxable benefit for employee",
+      "consideration2": "May not be cost-effective for low annual mileage",
+      "consideration3": "Less incentive for efficient driving habits"
+    },
+    "limitedBenefit": {
+      "description": "Limited car benefit means the employer provides the car, but the employee pays for fuel used in private driving.",
+      "advantages": "Advantages",
+      "advantage1": "Lower taxable benefit for the employee",
+      "advantage2": "Often more cost-effective overall",
+      "advantage3": "Encourages fuel-efficient driving",
+      "considerations": "Considerations",
+      "consideration1": "Requires tracking of business vs. private mileage",
+      "consideration2": "Less predictable costs for employee",
+      "consideration3": "More complex expense management"
+    },
+    "kmAllowance": {
+      "title": "Kilometer Allowance",
+      "description": "Instead of a company car, employees use their own car and receive a tax-free kilometer allowance for business travel.",
+      "rate": "Current rate: 0.53 €/km for the first 5,000 km, 0.48 €/km thereafter",
+      "advantages": "Advantages",
+      "advantage1": "Simple administrative solution",
+      "advantage2": "No taxable benefit for employees",
+      "advantage3": "Flexibility in vehicle choice for employees",
+      "considerations": "Considerations",
+      "consideration1": "Requires detailed record-keeping of business trips",
+      "consideration2": "Total costs can be higher with significant business travel",
+      "consideration3": "Employee bears the risk of vehicle ownership"
+    },
+    "callToAction": "Explore Our Leasing Solutions"
+  },
+  "optimizationTips": {
+    "title": "Optimization Tips",
+    "tips": [
+      {
+        "title": "Choose Electric or Hybrid Vehicles",
+        "description": "Lower tax values and reduced operating costs make electric and hybrid vehicles an excellent choice for corporate vehicle fleets."
+      },
+      {
+        "title": "Match Vehicle to Actual Needs",
+        "description": "Select vehicles that match actual business requirements rather than choosing prestige models with unnecessary features."
+      },
+      {
+        "title": "Consider Annual Driving Distance",
+        "description": "For employees with high annual driving distances, free car benefit often becomes more cost-effective than limited benefit."
+      },
+      {
+        "title": "Create Clear Policies",
+        "description": "Establish clear company car policies that help optimize costs while meeting employee needs."
+      }
+    ]
+  },
+  "taxInfo": {
+    "title": "Tax Information",
+    "description": "Current car benefit taxation rules in Finland for 2023-2024. These values are used in the calculator's estimations.",
+    "disclaimer": "Note: For precise tax planning, always consult a tax professional as regulations may change.",
+    "freeBenefit": {
+      "title": "Free Car Benefit",
+      "formula": "Monthly taxable value = Base value + 1.4% of replacement price",
+      "baseValues": "Base values (2023):",
+      "ageGroups": {
+        "group1": "Age group A (2021-2023): €300/month",
+        "group2": "Age group B (2018-2020): €315/month",
+        "group3": "Age group C (2015-2017): €330/month"
+      }
+    },
+    "limitedBenefit": {
+      "title": "Limited Car Benefit",
+      "formula": "Monthly taxable value = Base value + 1.4% of replacement price - fuel cost adjustment",
+      "baseValues": "Base values (2023):",
+      "ageGroups": {
+        "group1": "Age group A (2021-2023): €135/month",
+        "group2": "Age group B (2018-2020): €150/month",
+        "group3": "Age group C (2015-2017): €165/month"
+      }
+    },
+    "electricVehicles": {
+      "title": "Electric Vehicles",
+      "description": "For all-electric vehicles (BEV), the taxable value is reduced by €170/month (2023)."
+    }
+  },
+  "cta": {
+    "title": "Ready to Optimize Your Company Car Strategy?",
+    "description": "Our fleet management experts can help you implement the most cost-effective car benefit structure based on your company's specific needs.",
+    "contactButton": "Contact Our Experts",
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButton": "Learn About Our Leasing Solutions",
+    "learnMoreButtonHref": "/autoleasing"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What's the difference between free and limited car benefit?",
+        "answer": "With free car benefit, the employer covers all car-related costs including fuel for private driving. With limited car benefit, the employee pays for fuel used in private driving. This results in different tax implications and cost structures."
+      },
+      {
+        "question": "How accurate are the calculations?",
+        "answer": "The calculator uses current Finnish tax regulations and standard cost estimates. While it provides a good approximation, actual costs may vary based on specific circumstances. For precise financial planning, consult our leasing experts."
+      },
+      {
+        "question": "Can I use this calculator for electric vehicles?",
+        "answer": "Yes, the calculator accounts for the special tax benefits for electric vehicles in Finland. When calculating with electric vehicles, adjust the fuel consumption to represent electricity costs per km."
+      },
+      {
+        "question": "How often are tax values updated?",
+        "answer": "We update our calculator whenever the Tax Administration publishes new car benefit values, typically annually. The current calculator reflects 2023-2024 values."
+      }
+    ]
+  }
+}

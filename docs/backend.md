@@ -1,73 +1,92 @@
 # Backend Architecture
 
 ## Overview
-This template uses a modern backend architecture with AI capabilities at its core:
+Innolease's backend architecture is designed to support comprehensive vehicle leasing and fleet management operations for B2B clients:
 
 ## Database
 We use Supabase as our backend service, providing:
-- PostgreSQL database
-- Authentication
-- Real-time subscriptions
-- Storage
-- Edge Functions
+- PostgreSQL database with vehicle and contract data models
+- Authentication with corporate account hierarchy
+- Real-time fleet status updates
+- Document storage for contracts and invoices
+- Scheduled functions for maintenance alerts and reporting
 
 ### Authentication
 Authentication is handled by Supabase Auth with the following features:
-- Email/Password authentication
-- Social providers (configurable)
-- Session management
-- Middleware protection for routes
+- Email/Password authentication for corporate accounts
+- Role-based access (Admin, Fleet Manager, Driver, Service Provider)
+- Company hierarchy with parent-child relationships
+- Session management with enhanced security
+- IP tracking for unusual login detection
 
 ### Database Schema
-The template includes a basic schema with:
-- User profiles
-- Blog posts
-- Media assets
-- AI generations history
-- Analytics events
+The schema is designed around vehicle leasing operations:
+- Corporate profiles and hierarchy
+- Vehicle inventory and details
+- Leasing contracts and terms
+- Maintenance records and scheduling
+- Invoicing and financial tracking
+- Service provider integration
 
 ### API Endpoints
 
-#### Authentication & Users
+#### Authentication & Corporate Access
 - `/api/auth/*` - Authentication endpoints
+- `/api/companies/*` - Company management
 - `/api/users/*` - User management
-- `/api/profiles/*` - User profile management
+- `/api/roles/*` - Role and permission management
 
-#### Content Management
-- `/api/blog/*` - Blog post CRUD operations
-- `/api/blog-image/*` - Blog image management
-- `/api/media/*` - Media asset management
-- `/api/landing-pages/*` - Landing page management
-- `/api/upload/*` - File upload handling
+#### Vehicle Management
+- `/api/vehicles/*` - Vehicle inventory CRUD operations
+- `/api/vehicle-status/*` - Real-time vehicle status updates
+- `/api/vehicle-assignments/*` - Driver-vehicle assignments
+- `/api/mileage-reports/*` - Vehicle mileage tracking
+- `/api/vehicle-documents/*` - Vehicle documentation
 
-#### AI Services
-- `/api/gemini/*` - Google Gemini AI integration
-- `/api/recraft/*` - Recraft image generation
-- `/api/tavily-search/*` - Web search and research
-- `/api/research-enhance/*` - Research enhancement
+#### Contract Management
+- `/api/contracts/*` - Leasing contract operations
+- `/api/contract-templates/*` - Contract template management
+- `/api/contract-calculations/*` - Pricing and terms calculations
+- `/api/contract-documents/*` - Contract document generation
+- `/api/contract-renewals/*` - Contract renewal management
 
-#### Analytics & Tracking
-- `/api/analytics/*` - Analytics data endpoints
-- `/api/analytics-init/*` - Analytics initialization
+#### Maintenance & Services
+- `/api/maintenance/*` - Maintenance record tracking
+- `/api/service-requests/*` - Service request management
+- `/api/service-providers/*` - Service partner integration
+- `/api/maintenance-scheduling/*` - Maintenance scheduling
+- `/api/inspection-reminders/*` - Vehicle inspection reminders
 
-#### Utilities
-- `/api/html-to-md/*` - HTML to Markdown conversion
-- `/api/sitemap/*` - Sitemap generation
-- `/api/sse/*` - Server-sent events
+#### Financial Operations
+- `/api/invoices/*` - Invoice generation and management
+- `/api/payments/*` - Payment tracking
+- `/api/financial-reports/*` - Financial reporting
+- `/api/cost-analysis/*` - Fleet cost analysis
+- `/api/budget-planning/*` - Budget and forecast planning
 
-#### Forms & Communication
-- `/api/forms/*` - Form submission handling
-- `/api/contact-notification/*` - Contact form notifications
-- `/api/waitlist/*` - Waitlist management
+#### Reporting & Analytics
+- `/api/fleet-analytics/*` - Fleet performance metrics
+- `/api/emissions-reports/*` - Environmental impact reporting
+- `/api/utilization-reports/*` - Vehicle utilization analysis
+- `/api/cost-reports/*` - Cost breakdown reporting
+- `/api/custom-reports/*` - Custom report generation
 
-#### Booking System
-- `/api/booking/*` - Booking system endpoints
-- `/api/appointment-types/*` - Appointment type management
+#### Document Management
+- `/api/document-templates/*` - Document template management
+- `/api/pdf-generation/*` - PDF document generation
+- `/api/document-storage/*` - Secure document storage
+- `/api/document-sharing/*` - Controlled document sharing
 
 #### Internationalization
-- `/api/translations/*` - Translation management
+- `/api/translations/*` - Translation management (Finnish, Swedish, English)
 - `/api/languages/*` - Language settings
-- `/api/i18n/*` - Internationalization utilities
+- `/api/regional-settings/*` - Region-specific configurations
+
+#### Notifications
+- `/api/email-notifications/*` - Email notification system
+- `/api/sms-notifications/*` - SMS alerts for critical events
+- `/api/in-app-notifications/*` - Portal notification system
+- `/api/maintenance-alerts/*` - Service due reminders
 
 ### Environment Variables
 Required environment variables:
@@ -75,33 +94,64 @@ Required environment variables:
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-# AI Services
-GOOGLE_AI_STUDIO_KEY=your-gemini-api-key
-REPLICATE_API_KEY=your-replicate-key
-TAVILY_API_KEY=your-tavily-key
+# Email Notifications
+SENDGRID_API_KEY=your-sendgrid-key
+NOTIFICATION_FROM_EMAIL=notifications@innolease.fi
+
+# SMS Notifications
+SMS_PROVIDER_API_KEY=your-sms-provider-key
+
+# PDF Generation
+PDF_GENERATOR_API_KEY=your-pdf-generator-key
+
+# Service Integrations
+VIANOR_API_KEY=your-vianor-integration-key
+EUROMASTER_API_KEY=your-euromaster-integration-key
+KATSASTUS_API_KEY=your-inspection-integration-key
+
+# Payment Processing
+PAYMENT_GATEWAY_API_KEY=your-payment-gateway-key
 ```
 
-## AI Service Architecture
-The template integrates with the following AI services:
+## Integration Architecture
+Innolease integrates with several external services:
 
-1. Supabase
-   - Database
-   - Authentication
-   - File storage
-   - Edge Functions
+1. Vehicle Data Services
+   - Vehicle registration database
+   - VIN lookup services
+   - Technical specifications database
+   - Market value estimation services
 
-2. Google Gemini API
-   - Text generation
-   - Image analysis
-   - Chat functionality
+2. Maintenance Service Providers
+   - Vianor integration for tire services
+   - Euromaster integration for maintenance
+   - A-Katsastus and K1-Katsastus for inspections
+   - Service booking systems
 
-3. Recraft/Flux API
-   - Image generation
-   - Style transfer
-   - Image editing
+3. Financial Services
+   - Invoicing system
+   - Payment processing
+   - Credit checking services
+   - Leasing calculation engines
 
-4. Tavily API
-   - Web search
-   - Content processing
-   - Research enhancement
+4. Reporting Services
+   - Fleet analytics
+   - Emissions calculations
+   - Cost optimization algorithms
+   - Utilization analytics
+
+5. Document Processing
+   - PDF generation
+   - Digital signing
+   - Document storage
+   - Template management
+
+## Security Measures
+- Row Level Security (RLS) policies for multi-tenant data isolation
+- End-to-end encryption for sensitive documents
+- Audit logging for all critical operations
+- IP-based access restrictions for admin functions
+- Two-factor authentication for sensitive operations
+- Regular security audits and penetration testing

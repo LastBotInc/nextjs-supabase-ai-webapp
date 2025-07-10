@@ -18,6 +18,8 @@
       ]
     },
     "session": {
+      "title": "Session Information",
+      "description": "When you use our website, we automatically collect:",
       "items": [
         "Session identifiers",
         "IP address (anonymized)",
@@ -43,10 +45,7 @@
         "name": "Preference Cookies",
         "description": "Store your language and display preferences"
       }
-    ],
-    "types[0]": {},
-    "types[1]": {},
-    "types[2]": {}
+    ]
   },
   "usage": {
     "title": "How We Use Your Information",
@@ -86,14 +85,25 @@
   "contact": {
     "title": "Contact Us",
     "description": "If you have any questions about this Privacy Policy or how we handle your data, please contact us:",
-    "info": {},
+    "info": {
+      "title": "Contact Information"
+    },
     "address": {
       "title": "Address",
       "street": "Kimmeltie 10",
       "postal": "90630 Oulu",
       "country": "Finland"
     },
-    "email": "Email"
+    "website": "Website",
+    "email": "Email",
+    "social": {
+      "title": "Follow Us"
+    },
+    "form": {
+      "title": "Send us a message"
+    }
   },
-  "form": {}
+  "form": {
+    "title": "Send us a message"
+  }
 }

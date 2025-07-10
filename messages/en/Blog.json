@@ -1,16 +1,41 @@
 {
-  "title": "Blog",
-  "description": "Latest insights, research, and news from LastBot",
-  "noPosts": "No posts yet. Be the first to write one!",
-  "similarPosts": "Similar Posts",
+  "title": "Innolease Blog",
+  "description": "Stay updated with the latest in vehicle leasing, fleet management trends, and company news.",
+  "subjects": {
+    "all": "All Posts",
+    "leasing-tips": "Leasing Tips",
+    "ev": "EV Transition",
+    "case-stories": "Case Stories",
+    "news": "Company News",
+    "research": "Industry Research"
+  },
+  "noPostsFound": "No Posts Found",
+  "noPostsDescription": "There are currently no blog posts matching your selection. Try viewing all posts.",
+  "viewAllPosts": "View All Posts",
+  "readMore": "Read More",
   "backToBlog": "Back to Blog",
+  "notFound": "Post Not Found",
+  "notFoundDescription": "Sorry, the blog post you are looking for could not be found.",
+  "similarPosts": "Similar Posts",
+  "publishedOn": "Published on",
+  "newestPost": "Latest Article",
+  "by": "by",
+  "tags": "Tags",
+  "relatedPosts": "Related Posts",
+  "readingTime": "{minutes} min read",
+  "sharePost": "Share this post",
   "admin": {
     "title": "Blog Posts",
     "newPost": "New Post",
     "editPost": "Edit",
+    "deletePost": "Delete",
+    "confirmDelete": "Are you sure you want to delete this post?",
     "save": "Save",
     "saving": "Saving...",
     "cancel": "Cancel",
+    "generating": "Generating...",
+    "generateWithAI": "Generate with AI",
+    "generateImage": "Generate Image",
     "publishPost": "Publish",
     "unpublishPost": "Unpublish",
     "fields": {
@@ -40,8 +65,12 @@
       "quote": "Quote",
       "image": "Insert Image"
     },
+    "saveSuccess": "Post saved successfully",
+    "saveError": "Failed to save post",
     "translationSuccess": "Translations created successfully",
     "translationError": "Failed to create translations",
+    "deleteSuccess": "Post deleted successfully",
+    "deleteError": "Failed to delete post",
     "publishSuccess": "Post published successfully",
     "publishError": "Failed to publish post",
     "unpublishSuccess": "Post unpublished successfully",
@@ -50,15 +79,43 @@
       "title": "Web Research",
       "search": "Search",
       "searching": "Searching...",
-      "error": {},
+      "noResults": "No results found",
+      "error": {
+        "search": "Failed to perform research",
+        "extend": "Failed to extend content"
+      },
+      "retry": "Try again",
+      "use": "Use",
+      "useResult": "Use result",
       "searchPlaceholder": "Search the web for relevant content...",
-      "scope": {},
+      "results": "Results",
+      "source": "Source",
+      "analyze": "Analyze",
+      "analyzing": "Analyzing...",
+      "summary": "Summary",
+      "keyPoints": "Key Points",
+      "scope": {
+        "small": "Small (3 results)",
+        "medium": "Medium (5 results)",
+        "large": "Large (8 results)",
+        "huge": "Huge (10 results)"
+      },
       "selected": "{count} selected",
       "useSelected": "Use Selected",
       "extending": "Extending...",
       "extend": "Extend",
-      "analysis": {},
-      "topics": {}
+      "analysis": {
+        "title": "Analysis",
+        "readability": "Readability",
+        "confidence": "Confidence",
+        "style": "Writing Style",
+        "audience": "Target Audience"
+      },
+      "topics": {
+        "title": "Topics & Sentiment",
+        "sentiment": "Sentiment",
+        "topics": "Topics"
+      }
     }
   },
   "comments": "Comments",
@@ -72,6 +129,9 @@
   "deleteComment": "Delete",
   "fetchCommentsError": "Failed to load comments. Please try again.",
   "deleteCommentError": "Failed to delete comment. Please try again.",
-  "subjects": {},
-  "meta": {}
+  "latestPost": "Latest Post",
+  "meta": {
+    "title": "Blog | LastBot - Human-Centric AI Solutions",
+    "description": "Explore the latest insights, trends, and success stories in AI integration, digital transformation, and human-centric technology solutions."
+  }
 }

@@ -3,72 +3,108 @@ import { getTranslations } from 'next-intl/server'
 import { locales } from '@/app/i18n/config'
 
 export interface MetadataProps {
+  locale: string
+  namespace: string
   title?: string
   description?: string
-  image?: string
+  imageUrl?: string
+  imageWidth?: number
+  imageHeight?: number
   type?: 'website' | 'article'
   publishedTime?: string
   modifiedTime?: string
   authors?: string[]
   tags?: string[]
-  noindex?: boolean
-  alternateLocales?: string[]
-  canonicalUrl?: string
-  imageWidth?: number
-  imageHeight?: number
+  path?: string
 }
 
+// Updated Keywords
+const innoleaseKeywords = [
+  'Innolease',
+  'Vehicle Leasing',
+  'Fleet Management',
+  'Business Leasing',
+  'Company Cars',
+  'Finland',
+  'Autolle.com',
+  'Financial Leasing',
+  'Flexible Leasing',
+  'Maintenance Leasing',
+  'MiniLeasing',
+  'InnoFleet Manager',
+];
+
+export const defaultMetadata = {
+  applicationName: 'Innolease',
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Innolease',
+    'Vehicle Leasing',
+    'Fleet Management',
+    'Business Leasing',
+    'Company Cars',
+    'Finland',
+    'Autolle.com',
+    'Financial Leasing',
+    'Flexible Leasing',
+    'Maintenance Leasing',
+    'MiniLeasing',
+    'InnoFleet Manager',
+  ],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+}
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.innolease.com'
+
 export async function generateLocalizedMetadata(
-  locale: string,
-  namespace: string,
   props: MetadataProps
 ): Promise<Metadata> {
-  const t = await getTranslations(namespace)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.lastbot.com'
-  const title = props.title || t('title')
-  const description = props.description || t('description')
-  const imageUrl = props.image 
-    ? (props.image.startsWith('http') ? props.image : `${baseUrl}${props.image}`)
-    : `${baseUrl}/images/og/home.webp`
-  
-  // Ensure canonical URL is always absolute and includes locale
-  const canonicalPath = props.canonicalUrl || ''
-  const canonicalUrl = `${baseUrl}/${locale}${canonicalPath}`
-  
-  // Generate alternate URLs for all locales
-  const alternateUrls = locales.reduce((acc, l) => ({
-    ...acc,
-    [l]: `${baseUrl}/${l}${canonicalPath}`
-  }), {})
+  const t = await getTranslations(props.namespace)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.innolease.com' // Changed domain
+  const title = props.title || t('Index.title')
+  const description = props.description || t('Index.description')
+  const locale = props.locale
+  const canonicalUrl = props.path ? new URL(props.path, baseUrl).toString() : new URL(`/${locale}`, baseUrl).toString()
+  const imageUrl = props.imageUrl || new URL('/images/og/default.webp', baseUrl).toString()
 
   return {
-    title: `${title} | LastBot - Human-Centric AI Solutions`,
-    description,
     metadataBase: new URL(baseUrl),
+    title: `${title} | Innolease - Vehicle Leasing Solutions`, // Changed brand name
+    description,
+    applicationName: 'Innolease', // Changed application name
+    authors: props.authors ? props.authors.map(name => ({ name })) : [{ name: 'Innolease Team' }], // Changed default team name
+    creator: 'Innolease Oy', // Changed creator
+    publisher: 'Innolease Oy', // Changed publisher
+    generator: 'Next.js',
+    keywords: innoleaseKeywords, // Use Innolease keywords
+    referrer: 'origin-when-cross-origin', // Set referrer policy
     openGraph: {
       title,
       description,
       url: canonicalUrl,
-      siteName: 'LastBot',
+      siteName: 'Innolease', // Changed site name
       type: props.type || 'website',
       locale,
-      alternateLocale: props.alternateLocales || locales.filter(l => l !== locale),
-      images: [{
-        url: imageUrl,
-        width: props.imageWidth || 1200,
-        height: props.imageHeight || 630,
-        alt: title,
-        type: imageUrl.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
-        secureUrl: imageUrl.replace('http://', 'https://'),
-      }],
-      ...(props.type === 'article' && {
-        article: {
-          publishedTime: props.publishedTime,
-          modifiedTime: props.modifiedTime,
-          authors: props.authors || ['LastBot Team'],
-          tags: props.tags,
-          section: 'Technology',
+      images: [
+        {
+          url: imageUrl,
+          width: props.imageWidth || 1200,
+          height: props.imageHeight || 630,
+          alt: title, // Use page title as default alt
+          type: imageUrl.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
+          secureUrl: imageUrl.replace('http://', 'https://'),
         },
+      ],
+      ...(props.type === 'article' && {
+        publishedTime: props.publishedTime,
+        modifiedTime: props.modifiedTime,
+        authors: props.authors || ['Innolease Team'], // Changed default team name
+        tags: props.tags,
+        section: 'Leasing & Fleet Management', // Changed section
       }),
     },
     twitter: {
@@ -76,23 +112,53 @@ export async function generateLocalizedMetadata(
       title,
       description,
       images: [imageUrl],
-      creator: '@lastbotai',
-      site: '@lastbotai',
+      // Removed creator and site handles for Twitter
     },
     alternates: {
       canonical: canonicalUrl,
-      languages: alternateUrls
+      languages: {
+        'en': new URL('/en', baseUrl).toString(),
+        'fi': new URL('/fi', baseUrl).toString(),
+        'sv': new URL('/sv', baseUrl).toString(),
+      },
     },
-    robots: props.noindex ? {
-      index: false,
-      follow: true,
-    } : {
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon-16x16.png',
+      apple: '/apple-touch-icon.png',
+    },
+    manifest: '/site.webmanifest',
+    verification: {
+      // Add verification codes if needed
+    },
+    appleWebApp: {
+      title: 'Innolease', // Changed App name
+      statusBarStyle: 'default',
+      capable: true,
+    },
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    other: {
+      // Add any other custom meta tags here
+    },
+    // JSON-LD Schema
+    // Removed the jsonLd generation for simplicity, can be re-added if needed
   }
 }
 
@@ -134,11 +200,11 @@ export function generateArticleStructuredData({
       name,
     })) || [{
       '@type': 'Organization',
-      name: 'LastBot Team',
+      name: 'Innolease Team',
     }],
     publisher: {
       '@type': 'Organization',
-      name: 'LastBot Inc',
+      name: 'Innolease Inc',
       logo: {
         '@type': 'ImageObject',
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/logo.png`,

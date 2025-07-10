@@ -1,8 +1,9 @@
 {
+  "title": "Mitt konto",
   "settings": {
     "title": "Kontoinställningar",
     "profile": "Profilinformation",
-    "preferences": "Inställningar",
+    "preferences": "Preferenser",
     "theme": "Tema",
     "language": "Språk",
     "fullName": "Fullständigt namn",
@@ -11,33 +12,37 @@
   },
   "security": {
     "title": "Säkerhetsinställningar",
-    "description": "Hantera säkerhetsinställningar och aktiva sessioner",
+    "description": "Hantera säkerhetsinställningar och aktiva sessioner för ditt konto",
     "newPassword": "Nytt lösenord",
     "confirmPassword": "Bekräfta lösenord",
     "updatePassword": "Uppdatera lösenord",
     "updating": "Uppdaterar...",
-    "passwordMismatch": "Lösenorden matchar inte",
+    "passwordMismatch": "Lösenorden stämmer inte överens",
     "passwordTooShort": "Lösenordet måste vara minst 6 tecken",
-    "updateError": "Kunde inte uppdatera lösenordet. Försök igen.",
+    "updateError": "Det gick inte att uppdatera lösenordet. Försök igen.",
     "sessions": "Aktiva sessioner",
     "currentSession": "Information om din nuvarande session:",
     "lastSignIn": "Senaste inloggning",
     "browser": "Webbläsare",
     "unknown": "Okänd"
   },
-  "notifications": {},
+  "notifications": {
+    "title": "Aviseringsinställningar",
+    "email": "E-postaviseringar",
+    "push": "Push-aviseringar"
+  },
   "appointments": {
     "title": "Bokningstyper",
     "createNew": "Skapa ny bokningstyp",
-    "existingTypes": "Dina bokningstyper",
+    "existingTypes": "Dina befintliga bokningstyper",
     "loading": "Laddar bokningstyper...",
     "noTypes": "Du har inte skapat några bokningstyper ännu",
     "form": {
       "name": "Namn",
       "description": "Beskrivning",
-      "duration": "Längd (minuter)",
-      "isFree": "Gratis bokning",
-      "price": "Pris (kr)",
+      "duration": "Varaktighet (minuter)",
+      "isFree": "Detta är en kostnadsfri bokning",
+      "price": "Pris ($)",
       "create": "Skapa bokningstyp",
       "creating": "Skapar..."
     },
@@ -45,8 +50,8 @@
       "active": "Aktiv",
       "inactive": "Inaktiv"
     },
-    "duration": "Längd",
-    "minutes": "min",
+    "duration": "Varaktighet",
+    "minutes": "minuter",
     "price": "Pris",
     "free": "Gratis",
     "viewBookingPage": "Visa bokningssida"

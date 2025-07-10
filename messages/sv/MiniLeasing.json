@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "title": "Minileasing - Flexibel korttidsleasing av bilar för företag | Innolease",
+    "description": "Minileasing är en flexibel lösning för korttidsbehov av fordon. Avtalsperiod 1-12 månader, fast månadspris inkluderar allt. Få en bil även nästa dag.",
+    "keywords": "minileasing, korttidsleasing av bilar, företagsbiluthyrning, flexibel billeasing, projektbilar, ersättningsbilar",
+    "image": "/images/minileasing-hero.jpg"
+  },
+
+  "hero": {
+    "heading": "Minileasing för företag",
+    "subheading": "Kraft till ditt företag utan förpliktelser",
+    "texts": [
+      "Behöver ditt företag en bil snabbt och för en bestämd period? Minileasing är en flexibel lösning för korttidsbehov av fordon – utan långsiktiga förpliktelser eller ägarbekymmer."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Minileasing för företag" },
+    "numbers": [{ "title": "Ring oss", "number": "+358 20 743 7670" }]
+  },
+
+  "intro": {
+    "heading": "Snabb och flexibel lösning",
+    "texts": [
+      "Letar du efter en företagsinriktad biluthyrningsservice där du kan hyra en bil enkelt online, med leverans när din uthyrning börjar och upphämtning när den slutar?",
+      "Vi kan förse dig med en biluthyrning för 1-12 månader eller leasing för längre perioder vid behov. Vi tilldelar dig en dedikerad kontaktperson som du alltid kan nå när du behöver hjälp med biluthyrningsfrågor."
+    ]
+  },
+
+  "features": {
+    "heading": "Minileasings fördelar",
+    "texts": [
+      "Minileasing är ett enkelt, kostnadseffektivt och snabbt sätt att säkerställa att ditt företag fortsätter att röra sig framåt!"
+    ],
+    "list": [
+      "Användningsklar bil omedelbart – även nästa dag",
+      "Avtalsperiod 1–12 månader, exakt enligt dina behov",
+      "Fast månadspris inkluderar försäkring, underhåll och däckservice",
+      "Ingen handpenning, inga återförsäljningsbekymmer",
+      "Dedikerad kontaktperson under hela avtalsperioden",
+      "Flexibla leverans- och upphämtningsalternativ"
+    ]
+  },
+
+  "useCases": {
+    "heading": "Perfekt lösning för många behov",
+    "texts": ["Minileasing är utmärkt lämpat för olika affärssituationer där du behöver en bil för en bestämd period."],
+    "cases": [
+      {
+        "title": "Väntetid",
+        "texts": [
+          "Ersättningsbil medan du väntar på en ny tjänstebil eller leverans.",
+          "Undvik stilleståndstid och håll ditt företag i rörelse."
+        ],
+        "image": { "src": "/images/minileasing-waiting.jpg", "alt": "Väntetidslösning" }
+      },
+      {
+        "title": "Ersättningsbil",
+        "texts": [
+          "Ersättningsfordon under underhåll eller reparationer.",
+          "Säkerställ personalens mobilitet i alla situationer."
+        ],
+        "image": { "src": "/images/minileasing-replacement.jpg", "alt": "Ersättningsbil" }
+      },
+      {
+        "title": "Projekt",
+        "texts": [
+          "Fordon som behövs för tillfälliga uppdrag eller projekt.",
+          "Skala din fordonsflotta enligt projektbehov."
+        ],
+        "image": { "src": "/images/minileasing-projects.jpg", "alt": "Projektbil" }
+      },
+      {
+        "title": "Säsongsförändringar",
+        "texts": ["Täcker säsongs- eller tillfälliga tilläggsbehov.", "Reagera snabbt på affärsfluktuationer."],
+        "image": { "src": "/images/minileasing-seasonal.jpg", "alt": "Säsongsvariation" }
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "Så fungerar minileasing",
+    "texts": ["En enkel process som sätter dig i rörelse snabbt."],
+    "steps": [
+      {
+        "step": "1",
+        "title": "Kontakta oss",
+        "description": "Berätta om dina behov och tidsram"
+      },
+      {
+        "step": "2",
+        "title": "Välj en bil",
+        "description": "Hitta ett lämpligt fordon från vårt urval"
+      },
+      {
+        "step": "3",
+        "title": "Signera avtalet",
+        "description": "Snabb och enkel avtalsprocess"
+      },
+      {
+        "step": "4",
+        "title": "Ta emot bilen",
+        "description": "Leverans eller upphämtning som överenskommits"
+      }
+    ]
+  },
+
+  "pricing": {
+    "heading": "Transparent prissättning",
+    "texts": ["Fast månadspris inkluderar allt som behövs – inga överraskningar eller dolda kostnader."],
+    "included": [
+      "Fordonsanvändningsrättigheter",
+      "Försäkring (kasko, trafikförsäkring)",
+      "Underhålls- och reparationsservice",
+      "Däckservice (sommar-/vinterdäck)",
+      "Vägassistans (bilförening)",
+      "Personlig kundservice"
+    ],
+    "note": "Bränsle är användarens ansvar"
+  },
+
+  "faq": {
+    "heading": "Vanliga frågor",
+    "questions": [
+      {
+        "question": "Hur snabbt kan jag få en bil?",
+        "answer": "I bästa fall kan bilen vara tillgänglig för dig nästa arbetsdag, beroende på tillgänglighet och leveransalternativ."
+      },
+      {
+        "question": "Vad inkluderar minileasingpriset?",
+        "answer": "Månadspriset inkluderar försäkring, underhåll, däckservice och vägassistans. Bränsle är användarens ansvar."
+      },
+      {
+        "question": "Kan jag förlänga avtalet vid behov?",
+        "answer": "Ja, avtalet kan flexibelt förlängas vid behov. Diskutera detta med din kontaktperson."
+      },
+      {
+        "question": "Vad händer om bilen går sönder?",
+        "answer": "Reparationer ingår i avtalet. Vid behov tillhandahåller vi en ersättningsbil under reparationer."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Behöver du en bil snabbt?",
+    "texts": [
+      "Kontakta våra experter – vi hittar en lösning som driver ditt företag framåt. Vi skräddarsyr ett minileasingpaket som möter ditt företags specifika behov."
+    ],
+    "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" }
+  },
+
+  "promotion": {
+    "heading": "Utforska våra andra lösningar",
+    "texts": ["Innolease erbjuder omfattande leasinglösningar för alla typer av behov."],
+    "columns": [
+      {
+        "title": "Billeasing",
+        "texts": ["Långsiktiga leasinglösningar för privatpersoner och företag."],
+        "link": { "label": "Utforska billeasing", "href": "/autoleasing" }
+      },
+      {
+        "title": "Företagsleasing",
+        "texts": ["Omfattande flotthanteringslösningar för företag."],
+        "link": { "label": "Företagsleasing", "href": "/yritysleasing" }
+      },
+      {
+        "title": "Kundservice",
+        "texts": ["Personlig service under hela din leasingresa."],
+        "link": { "label": "Kontakta oss", "href": "/asiakaspalvelu" }
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .image-container {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Test Page</h1>
+  
+  <div class="image-container">
+    <h2>Hero Handshake Image</h2>
+    <img src="/images/hero-handshake.jpg" alt="Hero Handshake">
+    <p>Path: /images/hero-handshake.jpg</p>
+  </div>
+  
+  <div class="image-container">
+    <h2>Team Member 1</h2>
+    <img src="/images/team-member-1.jpg" alt="Team Member 1">
+    <p>Path: /images/team-member-1.jpg</p>
+  </div>
+  
+  <div class="image-container">
+    <h2>Team Member 2</h2>
+    <img src="/images/team-member-2.jpg" alt="Team Member 2">
+    <p>Path: /images/team-member-2.jpg</p>
+  </div>
+  
+  <div class="image-container">
+    <h2>Team Member 3</h2>
+    <img src="/images/team-member-3.jpg" alt="Team Member 3">
+    <p>Path: /images/team-member-3.jpg</p>
+  </div>
+  
+  <div class="image-container">
+    <h2>Team Member 4</h2>
+    <img src="/images/team-member-4.jpg" alt="Team Member 4">
+    <p>Path: /images/team-member-4.jpg</p>
+  </div>
+
+  <script>
+    // Check which images loaded successfully
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('load', () => {
+          console.log(`Image loaded successfully: ${img.src}`);
+          img.parentElement.style.borderColor = 'green';
+        });
+        img.addEventListener('error', () => {
+          console.error(`Failed to load image: ${img.src}`);
+          img.parentElement.style.borderColor = 'red';
+          const errorMsg = document.createElement('p');
+          errorMsg.textContent = 'Error loading image';
+          errorMsg.style.color = 'red';
+          img.parentElement.appendChild(errorMsg);
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

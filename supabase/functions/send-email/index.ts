@@ -58,7 +58,7 @@ serve(async (req: Request) => {
         })
     }
 
-    // Send email using SendGrid
+    console.log('✉️ Sending email via SendGrid...', { to, subject });
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
@@ -70,8 +70,8 @@ serve(async (req: Request) => {
           to: [{ email: to }]
         }],
         from: {
-          email: 'pasi@lastbot.com',
-          name: 'LastBot'
+          email: 'info@innolease.com',
+          name: 'Innolease'
         },
         subject: subject,
         content: [{

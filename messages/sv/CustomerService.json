@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "title": "Kundservice | Innolease - Personlig hjälp med leasing och fordonsparkshantering",
+    "description": "Kontakta Innoleases kundservice för personlig hjälp med leasing och fordonsparkshantering. Vårt expertteam är redo att hjälpa.",
+    "keywords": "kundservice, leasingstöd, underhållstjänster, fakturering, kontohantering, kontaktinformation, kontor",
+    "image": "/images/ajankohtaista.png"
+  },
+  "hero": {
+    "heading": "Kundservice",
+    "subheading": "Vi hjälper dig med alla frågor som rör leasing och fordonsparkshantering",
+    "texts": [
+      "På Innolease är vi engagerade i att erbjuda utmärkt kundservice. Vårt expertteam är redo att hjälpa dig med alla frågor och bekymmer som rör fordonsleasing och fordonsparkshantering."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kundservicerepresentanter" },
+    "numbers": [
+      {
+        "number": "+358 9 123 4567",
+        "title": "Ring oss"
+      }
+    ]
+  },
+  "intro": {
+    "heading": "Hur kan vi hjälpa?",
+    "texts": [
+      "På Innolease är vi engagerade i att erbjuda utmärkt kundservice. Vårt expertteam är redo att hjälpa dig med alla frågor och bekymmer som rör fordonsleasing och fordonsparkshantering.",
+      "Oavsett om du behöver hjälp med att boka service, faktureringsfrågor eller avtalsärenden, är vi bara ett telefonsamtal eller meddelande bort."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kundservice" }
+  },
+  "quickHelp": {
+    "heading": "Snabbkontakt",
+    "phone": "+358 9 123 4567",
+    "email": "kundservice@innolease.fi",
+    "hours": "Mån-Fre: 8:00 - 18:00",
+    "contactButton": "Kontakta oss",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Snabbkontakt" }
+  },
+  "supportCategories": {
+    "heading": "Servicekategorier",
+    "texts": [
+      "Vårt kundserviceteam specialiserar sig på olika områden för att ge experthjälp i alla möjliga situationer."
+    ],
+    "learnMore": "Läs mer",
+    "learnMoreHref": "/asiakaspalvelu",
+    "categories": {
+      "leasing": {
+        "heading": "Leasingstöd",
+        "texts": ["Få hjälp med avtalsvillkor, leasingalternativ och avtalsuppsägning."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Leasingstöd" }
+      },
+      "maintenance": {
+        "heading": "Underhållstjänster",
+        "texts": ["Boka service, däckbyte eller besiktning för dina leasade fordon."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Underhållstjänster" }
+      },
+      "billing": {
+        "heading": "Fakturering och betalningar",
+        "texts": ["Hjälp med fakturering, betalningsmetoder och ekonomiska frågor."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Fakturering och betalningar" }
+      },
+      "accounts": {
+        "heading": "Kontohantering",
+        "texts": ["Hjälp med ditt InnoFleet Manager-konto, åtkomsträttigheter och inställningar."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Kontohantering" }
+      }
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Servicekategorier" }
+  },
+  "offices": {
+    "heading": "Våra kontor",
+    "texts": ["Besök något av våra kontor runt om i Finland för personlig service."],
+    "viewMap": "Visa på karta",
+    "locations": [
+      {
+        "name": "Helsingfors kontor",
+        "address": "Aleksanterinkatu 15, 00100 Helsinki",
+        "phone": "+358 9 123 4567",
+        "email": "helsinki@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 17:00"
+      },
+      {
+        "name": "Tammerfors kontor",
+        "address": "Hämeenkatu 10, 33200 Tampere",
+        "phone": "+358 3 456 7890",
+        "email": "tampere@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 16:00"
+      },
+      {
+        "name": "Uleåborg kontor",
+        "address": "Isokatu 35, 90100 Oulu",
+        "phone": "+358 8 789 0123",
+        "email": "oulu@innolease.fi",
+        "hours": "Mån-Fre: 9:00 - 16:00"
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kontor" }
+  },
+  "contactForm": {
+    "heading": "Kontakta oss",
+    "texts": ["Fyll i formuläret nedan så kontaktar vårt team dig så snart som möjligt."],
+    "formTitle": "Kontaktformulär",
+    "fields": {
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "email": "E-postadress",
+      "phone": "Telefonnummer",
+      "subject": "Ämne",
+      "selectSubject": "Välj ämne",
+      "message": "Ditt meddelande"
+    },
+    "subjects": {
+      "leasing": "Leasingförfrågan",
+      "maintenance": "Underhållsservice",
+      "billing": "Faktureringsfråga",
+      "other": "Annat ärende"
+    },
+    "privacyConsent": "Jag godkänner att Innolease behandlar mina uppgifter enligt integritetspolicyn.",
+    "submit": "Skicka meddelande",
+    "faq": {
+      "questions": [
+        {
+          "question": "Vilken information bör jag ha redo när jag kontaktar kundservice?",
+          "answer": "Det är bra om du har ditt avtalsnummer, fordonsinformation och eventuella nödvändiga dokument redo för att påskynda servicen."
+        },
+        {
+          "question": "Hur snabbt kan jag förvänta mig svar på min förfrågan?",
+          "answer": "Vi strävar efter att svara på alla förfrågningar inom 24 timmar på vardagar. Brådskande ärenden prioriteras och hanteras vanligtvis inom några timmar."
+        },
+        {
+          "question": "Kan jag boka service genom kundservice?",
+          "answer": "Ja, vårt kundserviceteam hjälper dig att boka underhållstjänster, däckbyten och besiktningar för dina leasade fordon hos våra partnerserviceställen."
+        }
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Kontaktformulär" }
+  },
+
+  "cta": {
+    "heading": "Redo att optimera din flotthantering?",
+    "texts": ["Upptäck hur våra flotthanteringslösningar kan spara ditt företag tid och kostnader."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Företagsfordonsflotta" },
+    "fleetButton": "Utforska flottlösningar",
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "Visa leasing-alternativ",
+    "leasingHref": "/yritysleasing"
+  }
+}

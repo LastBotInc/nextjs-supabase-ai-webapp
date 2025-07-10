@@ -1,17 +1,70 @@
 # AI Changelog
 
-## 2025-05-03
-- **Feat:** Implemented namespace-based localization structure:
-  - Created a script (`scripts/split-locales.js`) to split monolithic locale files into separate namespace files
-  - Organized translations by feature/component under locale-specific folders (en/, fi/, sv/)
-  - Added backup mechanism to preserve original locale files
-  - Generated comprehensive localization report showing namespace coverage across all locales
-  - Added npm script `split-locales` to package.json
-  - Created detailed README.md in the messages directory documenting the new structure
-  - Updated documentation in architecture.md, frontend.md, and .cursorrules
-  - Added new `<localize>` action to .cursorrules with language-specific guidance for translations
+## 2024-07-13
+
+- **Feat:** Implemented comprehensive Leasing Solutions page with:
+  - Four main leasing types: Financial, Flexible, Maintenance, and MiniLeasing
+  - Interactive monthly payment calculator for Financial Leasing
+  - Detailed feature comparison table between leasing options
+  - Case study showcase for Flexible Leasing
+  - Pricing structure display for MiniLeasing
+  - FAQ section with expandable/collapsible answers
+  - Strong call-to-action section
+- **i18n:** Added translations for Leasing Solutions page in English, Finnish, and Swedish
+- **Navigation:** Updated navigation menu to include the Leasing Solutions page link
+- **Components:** Created reusable UI components:
+
+  - SectionContainer for consistent section styling
+  - Extended Button component to support multiple variants including "white"
+  - Vehicle-themed icon components
+
+- **Brand:** Created custom Innolease logo with vehicle-themed icon and professional blue/gray color scheme
+- **Update:** Replaced LastBot logo with new Innolease logo in the navigation component
+- **Enhancement:** Used Gemini 2.0 model for higher quality text rendering in the logo
+- **Optimization:** Processed the logo through image optimizer for best quality and performance
+- **UI Improvement:** Created inverted version of the logo with white text and transparent background for better visibility on dark navigation bar
+- **Fix:** Resolved logo transparency issues by creating a truly transparent PNG with white text and icon specifically optimized for dark backgrounds
+- **Solution:** Implemented a pure SVG logo component to guarantee transparency and perfect white rendering on the black navigation bar
+- **Fix:** Corrected SVG text rendering by replacing path-based text with proper SVG text element for better readability and accuracy
+
+## 2024-07-12
+
+- **Fix:** Improved text visibility throughout the Innolease home page by:
+  - Enhancing text contrast by updating gray color values from light gray to darker variants
+  - Adding appropriate text wrappers with explicit color classes for list items
+  - Enhancing contrast for checkmarks, list labels, and icons
+  - Adjusting color values in the CTA section for better readability
+- **Asset:** Generated new leasing solutions and fleet management images using Gemini 2.0 model for improved text clarity
+- **Enhancement:** Added proper text formatting (font-medium, font-semibold) in various sections
+
+## 2024-07-11
+
+- **Feat:** Implemented the Innolease home page with the following components:
+  - Hero section with branded background and call-to-action
+  - Leasing solutions section showcasing the four leasing options
+  - Fleet management tools overview with visual representation
+  - Client testimonials section with company references
+  - Service partner network section highlighting Vianor, Euromaster, and A-Katsastus
+  - Environmental responsibility section with emissions savings visualization
+  - Clear call-to-action section for inquiries
+- **Asset:** Generated brand-appropriate imagery for hero background, leasing solutions, and fleet management sections
+- **Enhancement:** Added new icon components to support the UI (IconCar, IconTools, IconChart, etc.)
+- **i18n:** Added translations in English, Finnish, and Swedish for all home page content
+
+## 2024-07-10
+
+- Rescoped the entire project to focus on Innolease vehicle leasing platform:
+  - Updated brand information in `lib/brand-info.ts` to reflect Innolease's identity, tone, and messaging
+  - Completely revised `docs/description.md` with Innolease's business model and features
+  - Restructured `docs/frontend.md` with B2B vehicle leasing UI/UX patterns
+  - Updated `docs/architecture.md` to focus on vehicle and fleet management architecture
+  - Revised `docs/datamodel.md` with comprehensive vehicle leasing data models
+  - Updated `docs/backend.md` with maintenance, fleet, and financial service integrations
+  - Restructured `docs/todo.md` with a detailed roadmap for Innolease implementation
+  - Emphasized Finnish, Swedish, and English internationalization
 
 ## 2025-03-25
+
 - Enhanced the Gemini AI tool with advanced capabilities:
   - Added document processing support for PDF, DOCX, and other file types
   - Implemented Google Search grounding feature for real-time information
@@ -20,6 +73,7 @@
   - Updated documentation in .cursorrules with examples
 
 ## 2024-03-21
+
 - Rescoped project from LastBot website to "AI-Powered Next.js Template for Cursor IDE"
 - Updated project documentation:
   - Revised project description and core features
@@ -29,9 +83,11 @@
   - Added comprehensive AI service integration documentation
 
 ## 2023-07-27
+
 - **Fix Build Errors:** Resolved `Dynamic server usage` errors during `npm run build` by adding `export const dynamic = 'force-dynamic';` to necessary page files (admin layout, privacy, root locale page, test, account pages, profile settings, most auth pages). Ignored build-time i18n database errors as requested. Build now completes successfully despite some remaining dynamic usage warnings.
 
 ## [Current Session]
+
 - **Fix:** Resolved synchronous access errors for `searchParams` and `params` in multiple page components (`/admin/landing-pages`, `/blog`, `/[slug]`).
 - **Fix:** Replaced insecure `getSession`/`onAuthStateChange` usage with `getUser()` in `AuthProvider` and `middleware` as per Supabase recommendations.
 - **Fix:** Addressed authentication flow issues caused by the `getUser` refactor by refining middleware cookie handling.
@@ -43,74 +99,219 @@
 - **Docs:** Updated the `Available Scripts` section in `README.md` to accurately reflect the command-line tools defined in `.cursorrules`.
 - **Chore:** Added `NODE_ENV=production` prefix to production-related npm scripts in `package.json`.
 
-*   Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
-*   Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.
-*   Fixed Next.js 15 warning by awaiting `params` in API route and `generateMetadata`.
-*   Redesigned public landing page (`/[slug]`) styling using Tailwind CSS, added hero section with generated background, and improved typography.
-*   Added dynamic CTA fields (`cta_headline`, `cta_description`, etc.) to `landing_pages` table (migration `20250407182326`).
-*   Added "CTA" tab and fields to landing page editor.
-*   Updated public landing page to display CTA content from the database.
-*   Fixed missing translation keys for editor tabs/buttons.
-*   Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
-*   Removed unused preload link from `app/layout.tsx`.
-*   Adjusted prose font sizes and colors for better readability on landing page.
-*   Fixed i18n-ally translation detection issue by standardizing translation key paths in analytics components. Added missing translation keys for analytics fields (gaMeasurementId, gtmContainerId, fbPixelId, linkedinPixelId) to all language files.
+* Fixed landing page editor form showing empty fields due to missing API route for fetching single page by ID. Added `app/api/landing-pages/[id]/route.ts`.
+* Fixed Supabase RLS policy preventing anonymous users from viewing published landing pages. Refined RLS policies in migration `20250407180210`.
+* Fixed Next.js 15 warning by awaiting `params` in API route and `generateMetadata`.
+* Redesigned public landing page (`/[slug]`) styling using Tailwind CSS, added hero section with generated background, and improved typography.
+* Added dynamic CTA fields (`cta_headline`, `cta_description`, etc.) to `landing_pages` table (migration `20250407182326`).
+* Added "CTA" tab and fields to landing page editor.
+* Updated public landing page to display CTA content from the database.
+* Fixed missing translation keys for editor tabs/buttons.
+* Fixed Tiptap editor hydration error by setting `immediatelyRender: false`.
+* Removed unused preload link from `app/layout.tsx`.
+* Adjusted prose font sizes and colors for better readability on landing page.
+* Fixed blog seeding script (`scripts/seed-blog.ts`) to use valid `subject` values allowed by the database schema (mapped `leasing-tips` and `ev` to `research`).
+* Refined Finnish translations (`messages/fi.json`) for public pages (Index, Footer, About, LeasingSolutions, Blog) for natural language, correct phrasing, and standard capitalization.
+* Modified blog seeding script (`scripts/seed-blog.ts`) to remove image generation/upload and use local image paths (`/images/blog/[slug].webp`) instead.
+* Generated 8 featured images for blog posts (EN, FI, SV) using the `gemini-image` tool and saved them to `public/images/blog/`.
+* Fixed `getTranslations` call and client component import path in `app/[locale]/leasing-solutions/page.tsx` to resolve build error.
+* Replaced "LastBot" references with "Innolease" branding and content across multiple files (code, config, docs). Rewritten `AIBotMessage` component.
+* Fixed build error in `app/layout.tsx` by removing duplicate static `metadata` export.
+* Fixed `MISSING_MESSAGE` build error by adding `Index.meta` keys to `messages/en.json`.
+* Added new "Campaigns" section to the home page (`components/pages/home/index.tsx`) with two placeholder vehicle campaigns (Ford Transit, Polestar 2) and generated images. Added placeholder translations to `messages/en.json`.
 
-## AI Changes Log
+## 2024-08-13
 
-### 2025-06-04: Enhanced Video Generation Tool with Integrated Image Generation
+- Fixed build error caused by duplicate Icon components in `app/components/Icons.tsx`.
+- Corrected text color and contrast issues in the FAQ section on the Leasing Solutions page.
+- Implemented the Blog page (`app/[locale]/blog/page.tsx`, `app/[locale]/blog/[slug]/page.tsx`):
+  - Updated UI styles to match Innolease branding.
+  - Replaced placeholder/LastBot content.
+  - Updated blog seeding script (`scripts/seed-blog.ts`) with Innolease-relevant articles (Leasing Strategy, EV Transition, Maintenance Leasing, Case Study).
+  - Added necessary translations (EN, FI, SV).
+- Implemented the About Us page (`app/[locale]/about/page.tsx`):
+  - Created page structure with sections for History, Values, Team, Coverage/Stats, Partners, CTA.
+  - Applied Innolease branding and styles.
+  - Added necessary translations (EN, FI, SV).
+  - Fixed Button component type error to accept anchor attributes.
+- Added placeholder Finnish and Swedish versions for two blog articles in `scripts/seed-blog.ts`.
 
-- Enhanced the generate-video tool to support integrated image-to-video workflow
-- Added `--image-prompt` parameter to generate an image with OpenAI GPT-image-1 before video creation
-- Added support for image style and size parameters for generated images
-- Improved URL handling for Replicate models that require image URLs
-- Fixed compatibility issues between different model image input requirements
-- Added warning for local image files which may not be supported by all models
-- Added OpenAI dependency for image generation functionality
+## 2024-08-14
 
-### 2025-06-03: Enhanced Video Generation Tool with Kling AI Models
+- **Fix:** Resolved build errors (`INSUFFICIENT_PATH`) in `utils/metadata.ts` by implementing a helper function (`getNestedTranslation`) to safely handle potentially nested translation keys (`meta.title`/`title`, `meta.description`/`description`) when generating page metadata.
 
-- Updated the generate-video tool to support more Replicate video generation models
-- Added support for Kling v1.6 standard and Kling v2.0 models
-- Made Kling v1.6 the default model (previously minimax)
-- Added support for aspect ratio selection (16:9, 9:16, 1:1) for supported models
-- Enhanced image-to-video capabilities with proper parameter handling per model
-- Added negative prompt and cfg_scale parameters for finer control
-- Improved TypeScript typing with a ModelConfig interface
-- Fixed module import issues for better compatibility
+## 2025-04-23: Navigation and Site Structure Implementation
 
-### 2025-04-20: Added OpenAI GPT-image-1 and DALL-E Image Generation Tool
+- Redesigned `Navigation.tsx` with dropdown menus for improved information architecture
+- Updated `Footer.tsx` with comprehensive four-column design
+- Implemented placeholder pages for all Finnish site sections including:
+  - Main navigation items (Leasing Services, For Customers, Car Rental, etc.)
+  - Customer service pages
+  - Tools and resources
+  - Contact pages
+- Created two detailed page templates:
+  - Contact page with form and office locations
+  - Campaigns page with vehicle offers
+- Added sticky header with background transition on scroll
+- Improved mobile navigation with accordion-style dropdowns
+- Implemented newsletter signup in footer
+- Added social media links and legal information sections
 
-- Created a new command-line tool for both image generation and editing using OpenAI's latest models
-- Added support for GPT-image-1 and DALL-E 3 models
-- Implemented advanced prompt optimization using GPT-4 Vision
-- Added reference image support for GPT-image-1
-- Configured various options for customization (size, style, quality)
-- Updated package.json with necessary dependencies
-- Added documentation in .cursorrules
+## [Date: 2024-05-05]
 
-### 2025-04-14: Enhanced GitHub CLI Tool with Task Management
+### Fixed Edge Runtime Compatibility for Namespace Loading
 
-- Installed inngest library for background task/event support.
-- Added inngest client in lib/inngest-client.ts.
-- Added sample background function in lib/inngest-functions.ts.
-- Added API route handler in app/api/inngest/route.ts for Inngest event/function execution.
+- Removed file system operations from middleware that was causing Edge Runtime errors
+- Simplified i18n-helpers.ts to use a pre-generated list of namespaces without conditional logic
+- Updated update-namespace-list.js script to modify the simplified helper file
+- Ensured build-time namespace list generation still works correctly
+- Removed development-time dynamic scanning that wasn't compatible with Edge Runtime
 
-## 2025-06-05: Enhanced Homepage with AI-Generated Video Background
+These changes maintain the automated namespace discovery during builds while ensuring compatibility with Next.js Edge Runtime for middleware.
 
-- Added the AI-generated video as a dynamic background on the homepage
-- Implemented a fallback mechanism that shows a static image until the video loads
-- Added graceful error handling to try multiple paths for video loading
-- Improved loading experience with smooth opacity transitions
-- Ensured the video is responsive across all device sizes
-- Enhanced code with proper TypeScript typing and useRef for video control
+---
 
-## 2025-06-05: Fixed Homepage Hero Layout with Static Image
+### Dynamic Namespace Loading for Translations
 
-- Replaced video hero with static image solution due to persistent video loading issues
-- Created separate StaticHero component for better maintainability
-- Preserved the split-screen layout with text on left and visual element on right
-- Optimized image loading with proper sizing attributes
-- Added fallback gradient overlays for improved text readability
-- Made the solution compatible with both local development and production deployment
+- Replaced hardcoded namespace list in `app/i18n/config.ts` with a dynamic system
+- Created `utils/i18n-helpers.ts` with functions to scan for available namespaces
+- Added `scripts/update-namespace-list.js` to update namespace list during build
+- Updated `package.json` with `update-namespaces` script
+- Modified build process to automatically update namespaces
+- Enhanced middleware to dynamically scan for namespaces in development mode
+- Implemented caching to minimize file system operations
 
+This change eliminates the need to manually maintain the list of translation namespaces when new namespaces are added to the application, reducing maintenance burden and preventing potential bugs from missing namespaces.
+
+---
+
+- Added /messages/CorporateLeasing.json translations for fi, sv, en, split into logical blocks for yritysleasing page.
+- Implemented app/[locale]/yritysleasing/page.tsx using new content blocks, common layout and card components, and translation keys. Used placeholders for images.
+- Rewritten messages/fi/CarLeasing.json to be more verbose, friendly, and informative, using new content from /source and other fi JSONs. Expanded benefits, examples, and FAQ sections.
+- Translated and updated messages/sv/CarLeasing.json and messages/en/CarLeasing.json with the new, improved content and structure.
+- Ensured all three languages have matching, customer-oriented content and structure for CarLeasing.json.
+- Added comprehensive, verbose, and informative content for the MachineLeasing page in Finnish, Swedish, and English. The new JSON includes meta, title, intro, terms (as a list), vehicles (as a table), benefits (as a list), practical examples, FAQ, and a call-to-action. All translations follow localization and natural language guidelines.
+- Täytetty CurrentTopics.json (fi, sv, en) ajankohtais-/uutissisällöllä kolmella kielellä Ajankohtaista_kotisivu.html:n pohjalta. Käännökset tehtiin idiomattisesti ja liiketoimintaan sopivalla kielellä.
+- Fixed translation save in admin translations page to include Supabase access token in Authorization header for PUT requests, resolving authentication errors and enabling admin-only updates.
+- Fixed admin translation save: API route now uses anon client for authentication and service role client for upsert, resolving Supabase RLS errors and enabling secure admin-only updates to translations.
+
+## Recent Changes
+
+### 2025-01-02 - Created Open Positions Content Files
+
+- **Created comprehensive OpenPositions.json files** for all three locales (en, fi, sv)
+- **Content structure includes:**
+  - About the company section with brand-aligned content
+  - Why work here section with 5 benefit cards (expert team, customer culture, digital innovation, growth opportunities, flexible environment)
+  - List of 5 diverse open positions (Senior Leasing Specialist, Customer Service Rep, Digital Product Manager, Fleet Coordinator, Business Development Trainee)
+  - How to apply section with requirements and process details
+  - CTA section with contact information
+  - Promotion section with 3 columns linking to related pages
+- **Translation approach:** Natural, culturally appropriate translations prioritizing idiomatic expressions over literal word-for-word translations
+- **Structure compliance:** Followed the standardized JSON structure using `heading`, `subheading`, `texts` arrays, `link` objects, and `cards`/`columns` arrays
+- **Brand alignment:** Content reflects Innolease's brand voice emphasizing transparency, expertise, customer focus, and digital innovation
+- **Verification:** Translation completeness confirmed with `npm run check-translations` - all 25 keys present in all locales
+
+### 2025-01-02 - Implemented Open Positions Page
+
+- **Created server-side page** at `/app/[locale]/avoimet-tyopaikat/page.tsx` using the OpenPositions content
+- **Page structure implemented:**
+  - About Company section (TwoColumnLayout with image)
+  - Why Work Here section (BasicLayout with responsive card grid)
+  - Open Positions section (BasicLayout with detailed position cards including requirements)
+  - How to Apply section (TwoColumnLayout with requirements and process)
+  - CTA section (BasicLayout with contact link)
+  - Promotion section (BasicLayout with 3-column grid)
+- **Component usage:** Followed frontend patterns using PageWrapper, BasicLayout, TwoColumnLayout, FlexLayout, and core components
+- **Responsive design:** Implemented with proper mobile/tablet/desktop breakpoints using Tailwind CSS classes
+- **Build verification:** Successfully built and generated static pages for all three locales (en, fi, sv)
+- **TypeScript compliance:** All types properly defined and linter errors resolved
+
+### Previous Changes
+
+...existing changelog entries...
+
+## 2025-01-02
+
+### Converted Car Benefit Calculator Page to v2 Layout Components
+
+- **File updated**: `app/[locale]/leasing-laskuri/page.tsx`
+- **Context**: Converted the car benefit calculator page from custom CSS classes and containers to use the v2 layout component system
+- **Changes made**:
+  - Replaced custom HTML sections with v2 layout components (Hero, BasicLayout, TwoColumnLayout)
+  - Used proper v2 core components (Heading2, Heading3, Paragraph, Card, LinkButton, List, Accordion, Columns)
+  - Implemented structured content blocks for optimization tips, tax information, and FAQ sections
+  - Fixed metadata generation to use proper generateLocalizedMetadata function
+  - Maintained all existing functionality while improving code structure and consistency
+  - Used appropriate content palettes (beige, default, maantie) for visual hierarchy
+- **Key improvements**:
+  - Better maintainability with consistent v2 component patterns
+  - Improved responsive design through v2 layout system
+  - Proper content structure with Cards and Columns for optimization tips
+  - Clean FAQ implementation using Accordion component
+  - Consistent styling through palette system
+
+### Created CarBenefitCalculator Translation Files
+
+- **Files created/updated**: `messages/fi/CarBenefitCalculator.json`, `messages/sv/CarBenefitCalculator.json`, `messages/en/CarBenefitCalculator.json`
+- **Context**: The car benefit calculator page at `/leasing-laskuri` was missing comprehensive translation files
+- **Changes made**:
+  - Created complete Finnish translation with natural business terminology
+  - Created Swedish translation with appropriate formal business language
+  - Updated English translation to include all missing keys used in the client component
+  - Included all calculator parameters, results, benefits information, tax details, FAQ, and CTA sections
+  - Ensured all translation keys match what the `CarBenefitCalculatorClient.tsx` component expects
+- **Key features**:
+  - Natural, idiomatic expressions in each language rather than literal translations
+  - Comprehensive coverage of all calculator features and explanations
+  - Professional business terminology appropriate for B2B leasing context
+  - Complete FAQ section with detailed answers about car benefit taxation
+  - Structured content blocks for optimization tips and tax information
+
+## 2025-01-05 - Service Prices Page Implementation
+
+**Task:** Create ServicePrices.json translations and page implementation
+
+**Changes Made:**
+
+- Created comprehensive `ServicePrices.json` files in all three locales (fi, sv, en) with 41 keys each
+- Implemented realistic leasing service pricing content including:
+  - Company introduction and pricing philosophy
+  - Car leasing setup costs with detailed breakdown
+  - Monthly leasing rates table with vehicle categories and pricing
+  - Additional services and options with monthly costs
+  - Customer success stories with savings examples
+  - FAQ section addressing common pricing questions
+  - Call-to-action sections for quotes and contact
+  - Additional CTA cards for calculator, car leasing, and contact
+
+**Technical Implementation:**
+
+- Updated `app/[locale]/palveluhinnasto/page.tsx` to use the new ServicePrices namespace
+- Used proper v2 component patterns with layout components (TwoColumnLayout, BasicLayout, FlexLayout)
+- Implemented Table component for pricing display
+- Used ImageContainer with Next.js Image for proper image handling
+- Applied appropriate color palettes for different sections
+- Fixed TypeScript errors by using valid palette values and proper component props
+
+**Content Structure:**
+
+- Followed JSON translation guidelines with consistent structure
+- Used proper heading/subheading instead of title/description
+- Implemented texts arrays for multiple paragraphs
+- Used standard link and image object formats
+- Included comprehensive pricing table with realistic Finnish market prices
+- Added FAQ section for common pricing questions
+
+**Files Modified:**
+
+- `messages/fi/ServicePrices.json` (new)
+- `messages/sv/ServicePrices.json` (new)
+- `messages/en/ServicePrices.json` (new)
+- `app/[locale]/palveluhinnasto/page.tsx` (updated)
+
+**Verification:**
+
+- All translation files pass validation with 41 keys each across all locales
+- Page renders with proper component hierarchy and no TypeScript errors
+- Content is business-appropriate for a leasing company service pricing page

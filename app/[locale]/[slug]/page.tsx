@@ -1,72 +1,71 @@
-import { createClient } from '@/utils/supabase/server'
-import { getTranslations } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-import { Database } from '@/types/database'
-import { Metadata } from 'next'
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
-import { cookies } from 'next/headers'
-import { setupServerLocale } from '@/app/i18n/server-utils'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { Database } from "@/types/database";
+import { Metadata } from "next";
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+import { setupServerLocale } from "@/app/i18n/server-utils";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 // Define the original type
-type LandingPage = Database['public']['Tables']['landing_pages']['Row']
+type LandingPage = Database["public"]["Tables"]["landing_pages"]["Row"];
 
 // Define a specific type for the public view manually
 type PublicLandingPageView = {
-  id: string
-  title: string
-  slug: string
-  locale: string
-  content: string
-  custom_head: string | null
-  custom_css: string | null
-  custom_js: string | null
-  featured_image: string | null
-  meta_description: string | null
-  seo_data: any | null // Use 'any' or a more specific type if the structure is known
-  cta_headline: string | null
-  cta_description: string | null
-  cta_button_text: string | null
-  cta_button_link: string | null
-  cta_secondary_text: string | null
-}
+  id: string;
+  title: string;
+  slug: string;
+  locale: string;
+  content: string;
+  custom_head: string | null;
+  custom_css: string | null;
+  custom_js: string | null;
+  featured_image: string | null;
+  meta_description: string | null;
+  seo_data: unknown | null; // Use 'any' or a more specific type if the structure is known
+  cta_headline: string | null;
+  cta_description: string | null;
+  cta_button_text: string | null;
+  cta_button_link: string | null;
+  cta_secondary_text: string | null;
+};
 
 type Props = {
   params: {
-    locale: string
-    slug: string
-  }
-}
+    locale: string;
+    slug: string;
+  };
+};
 
 // Function to strip HTML tags from content
 function stripHtmlTags(html: string): string {
-  return html?.replace(/<[^>]*>/g, '') || ''
+  return html?.replace(/<[^>]*>/g, "") || "";
 }
 
 export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
-  const params = await paramsPromise
-  const { locale, slug } = params
-  const t = await getTranslations('LandingPages')
-  
+  const params = await paramsPromise;
+  const { locale, slug } = params;
+  const t = await getTranslations({ locale, namespace: "LandingPages" });
+
   // Use explicit ANON client for consistency and to ensure anon RLS is checked
-  const cookieStore = await cookies()
+  const cookieStore = await cookies();
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, 
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value
+          return cookieStore.get(name)?.value;
         },
       },
     }
-  )
+  );
 
   const { data: page, error } = await supabase
-    .from('landing_pages')
-    .select(`
+    .from("landing_pages")
+    .select(
+      `
       id,
       title,
       slug,
@@ -76,21 +75,22 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
       meta_description,
       featured_image,
       seo_data
-    `)
-    .eq('slug', slug)
-    .eq('locale', locale)
-    .eq('published', true)
-    .single()
+    `
+    )
+    .eq("slug", slug)
+    .eq("locale", locale)
+    .eq("published", true)
+    .single();
 
   if (error || !page) {
-    console.error('Error fetching landing page for metadata:', error)
+    console.error("Error fetching landing page for metadata:", error);
     return {
-      title: t('notFound'),
-      description: t('notFoundDescription')
-    }
+      title: t("notFound"),
+      description: t("notFoundDescription"),
+    };
   }
 
-  const description = page.meta_description || stripHtmlTags(page.content).substring(0, 150)
+  const description = page.meta_description || stripHtmlTags(page.content).substring(0, 150);
 
   return {
     title: page.title,
@@ -98,16 +98,18 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
     openGraph: {
       title: page.title,
       description,
-      type: 'website',
+      type: "website",
       ...(page.seo_data?.openGraph || {}),
-      images: page.featured_image ? [
-        {
-          url: page.featured_image,
-          width: 1200,
-          height: 630,
-          alt: page.title,
-        },
-      ] : undefined,
+      images: page.featured_image
+        ? [
+            {
+              url: page.featured_image,
+              width: 1200,
+              height: 630,
+              alt: page.title,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       title: page.title,
@@ -116,27 +118,27 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
       ...(page.seo_data?.twitter || {}),
     },
     ...(page.seo_data?.metadata || {}),
-  }
+  };
 }
 
 async function getLandingPage(slug: string, locale: string): Promise<PublicLandingPageView | null> {
-  const cookieStore = await cookies() // Restore await
+  const cookieStore = await cookies(); // Restore await
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, // Use ANON key for public pages
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value
+          return cookieStore.get(name)?.value;
         },
         // No need for set/remove for read-only anon access
       },
     }
-  )
+  );
 
   console.log(`Fetching landing page: slug=${slug}, locale=${locale}`); // Add logging
   const { data: page, error } = await supabase
-    .from('landing_pages')
+    .from("landing_pages")
     // Explicitly select required columns, including CTAs
     .select(
       `
@@ -158,26 +160,25 @@ async function getLandingPage(slug: string, locale: string): Promise<PublicLandi
       cta_secondary_text
     `
     )
-    .eq('slug', slug)
-    .eq('locale', locale)
-    .eq('published', true)
-    .single()
+    .eq("slug", slug)
+    .eq("locale", locale)
+    .eq("published", true)
+    .single();
 
   if (error) {
-    console.error('Error fetching landing page:', error)
-    return null
+    console.error("Error fetching landing page:", error);
+    return null;
   }
 
   // Cast should now work with the manually defined type
-  return page as PublicLandingPageView | null
+  return page as PublicLandingPageView | null;
 }
 
 export default async function LandingPage({ params: paramsPromise }: Props) {
-  const params = await paramsPromise
-  const { locale, slug } = params
-  await setupServerLocale(locale)
-  const t = await getTranslations('LandingPages')
-  const page: PublicLandingPageView | null = await getLandingPage(slug, locale)
+  const params = await paramsPromise;
+  const { locale, slug } = params;
+  await setupServerLocale(locale);
+  const page: PublicLandingPageView | null = await getLandingPage(slug, locale);
 
   if (!page) {
     notFound()
@@ -186,22 +187,18 @@ export default async function LandingPage({ params: paramsPromise }: Props) {
   return (
     <div className="bg-gray-900 min-h-screen text-white font-inter">
       {/* Custom head content */}
-      {page.custom_head && (
-        <div dangerouslySetInnerHTML={{ __html: page.custom_head }} />
-      )}
+      {page.custom_head && <div dangerouslySetInnerHTML={{ __html: page.custom_head }} />}
 
       {/* Custom CSS */}
-      {page.custom_css && (
-        <style dangerouslySetInnerHTML={{ __html: page.custom_css }} />
-      )}
+      {page.custom_css && <style dangerouslySetInnerHTML={{ __html: page.custom_css }} />}
 
       {/* Hero Section */}
       <section
         className="relative pt-32 pb-20 lg:pt-48 lg:pb-28 overflow-hidden"
         style={{
           backgroundImage: `url('/images/landing-hero-bg.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div> {/* Overlay */}
@@ -212,18 +209,16 @@ export default async function LandingPage({ params: paramsPromise }: Props) {
             </span>
           </h1>
           {page.meta_description && (
-            <p className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10">
-              {page.meta_description}
-            </p>
+            <p className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10">{page.meta_description}</p>
           )}
           {/* Use CTA Button from DB if text exists */}
           {page.cta_button_text && (
-            <Button 
+            <Button
               asChild // Render as child to allow wrapping with <a>
-              size="lg" 
+              size="lg"
               className="bg-gradient-to-r from-[#E078F9] to-[#2B39FF] hover:opacity-90 transition-opacity text-white font-bold text-lg px-8 py-4 rounded-lg"
             >
-              <a href={page.cta_button_link || '#'}>{page.cta_button_text}</a>
+              <a href={page.cta_button_link || "#"}>{page.cta_button_text}</a>
             </Button>
           )}
         </div>
@@ -255,40 +250,28 @@ export default async function LandingPage({ params: paramsPromise }: Props) {
       {/* e.g., Features Section, Social Proof, Final CTA */}
 
       {/* Example Final CTA Section (Using DB fields) */}
-       <section className="bg-gray-800 py-16 lg:py-24">
-         <div className="container mx-auto px-4 text-center">
-           {page.cta_headline && (
-             <h2 className="font-geist text-3xl sm:text-4xl font-bold mb-6 text-white">
-               {page.cta_headline}
-             </h2>
-           )}
-           {page.cta_description && (
-             <p className="max-w-2xl mx-auto text-gray-400 mb-8">
-               {page.cta_description}
-             </p>
-           )}
-           {/* Use CTA Button from DB if text exists */}
-           {page.cta_button_text && (
-             <Button 
-                asChild // Render as child to allow wrapping with <a>
-                size="lg" 
-                className="bg-gradient-to-r from-[#E078F9] to-[#2B39FF] hover:opacity-90 transition-opacity text-white font-bold text-lg px-8 py-4 rounded-lg"
-             >
-               <a href={page.cta_button_link || '#'}>{page.cta_button_text}</a>
-             </Button>
-           )}
-            {page.cta_secondary_text && (
-              <p className="mt-4 text-sm text-gray-500">
-                {page.cta_secondary_text}
-             </p>
-           )}
-         </div>
-       </section>
+      <section className="bg-gray-800 py-16 lg:py-24">
+        <div className="container mx-auto px-4 text-center">
+          {page.cta_headline && (
+            <h2 className="font-geist text-3xl sm:text-4xl font-bold mb-6 text-white">{page.cta_headline}</h2>
+          )}
+          {page.cta_description && <p className="max-w-2xl mx-auto text-gray-400 mb-8">{page.cta_description}</p>}
+          {/* Use CTA Button from DB if text exists */}
+          {page.cta_button_text && (
+            <Button
+              asChild // Render as child to allow wrapping with <a>
+              size="lg"
+              className="bg-gradient-to-r from-[#E078F9] to-[#2B39FF] hover:opacity-90 transition-opacity text-white font-bold text-lg px-8 py-4 rounded-lg"
+            >
+              <a href={page.cta_button_link || "#"}>{page.cta_button_text}</a>
+            </Button>
+          )}
+          {page.cta_secondary_text && <p className="mt-4 text-sm text-gray-500">{page.cta_secondary_text}</p>}
+        </div>
+      </section>
 
       {/* Custom scripts */}
-      {page.custom_js && (
-        <script dangerouslySetInnerHTML={{ __html: page.custom_js }} />
-      )}
+      {page.custom_js && <script dangerouslySetInnerHTML={{ __html: page.custom_js }} />}
     </div>
-  )
-} 
+  );
+}

@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "title": "Customer Service | Innolease - Personal Assistance for Leasing & Fleet Management",
+    "description": "Contact Innolease customer service for personal assistance with leasing and fleet management. Our expert team is ready to help.",
+    "keywords": "customer service, leasing support, maintenance services, billing, account management, contact information, offices",
+    "image": "/images/ajankohtaista.png"
+  },
+  "hero": {
+    "heading": "Customer Service",
+    "subheading": "We help you with all matters related to leasing and fleet management",
+    "texts": [
+      "At Innolease, we are committed to providing excellent customer service. Our expert team is ready to help you with all questions and concerns related to vehicle leasing and fleet management."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Customer service representatives" },
+    "numbers": [
+      {
+        "number": "+358 9 123 4567",
+        "title": "Call us"
+      }
+    ]
+  },
+  "intro": {
+    "heading": "How can we help?",
+    "texts": [
+      "At Innolease, we are committed to providing excellent customer service. Our expert team is ready to help you with all questions and concerns related to vehicle leasing and fleet management.",
+      "Whether you need help scheduling maintenance, billing inquiries, or contract matters, we are just a phone call or message away."
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Customer service" }
+  },
+  "quickHelp": {
+    "heading": "Quick Contact",
+    "phone": "+358 9 123 4567",
+    "email": "customerservice@innolease.fi",
+    "hours": "Mon-Fri: 8:00 - 18:00",
+    "contactButton": "Contact us",
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Quick contact" }
+  },
+  "supportCategories": {
+    "heading": "Service Categories",
+    "texts": [
+      "Our customer service team specializes in different areas to provide expert assistance in all possible situations."
+    ],
+    "learnMore": "Learn more",
+    "learnMoreHref": "/asiakaspalvelu",
+    "categories": {
+      "leasing": {
+        "heading": "Leasing Support",
+        "texts": ["Get help with contract terms, leasing options, and contract termination matters."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Leasing support" }
+      },
+      "maintenance": {
+        "heading": "Maintenance Services",
+        "texts": ["Book maintenance, tire changes, or inspections for your leased vehicles."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Maintenance services" }
+      },
+      "billing": {
+        "heading": "Billing and Payments",
+        "texts": ["Assistance with billing, payment methods, and financial questions."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Billing and payments" }
+      },
+      "accounts": {
+        "heading": "Account Management",
+        "texts": ["Help with your InnoFleet Manager account, access rights, and settings."],
+        "image": { "src": "/images/ajankohtaista.png", "alt": "Account management" }
+      }
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Service categories" }
+  },
+  "offices": {
+    "heading": "Our Offices",
+    "texts": ["Visit one of our offices across Finland for personal service."],
+    "viewMap": "View on map",
+    "locations": [
+      {
+        "name": "Helsinki Office",
+        "address": "Aleksanterinkatu 15, 00100 Helsinki",
+        "phone": "+358 9 123 4567",
+        "email": "helsinki@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 17:00"
+      },
+      {
+        "name": "Tampere Office",
+        "address": "Hämeenkatu 10, 33200 Tampere",
+        "phone": "+358 3 456 7890",
+        "email": "tampere@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 16:00"
+      },
+      {
+        "name": "Oulu Office",
+        "address": "Isokatu 35, 90100 Oulu",
+        "phone": "+358 8 789 0123",
+        "email": "oulu@innolease.fi",
+        "hours": "Mon-Fri: 9:00 - 16:00"
+      }
+    ],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Offices" }
+  },
+  "contactForm": {
+    "heading": "Contact Us",
+    "texts": ["Fill out the form below and our team will contact you as soon as possible."],
+    "formTitle": "Contact Form",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "selectSubject": "Select subject",
+      "message": "Your Message"
+    },
+    "subjects": {
+      "leasing": "Leasing Inquiry",
+      "maintenance": "Maintenance Service",
+      "billing": "Billing Question",
+      "other": "Other Matter"
+    },
+    "privacyConsent": "I agree that Innolease processes my data in accordance with the privacy policy.",
+    "submit": "Send Message",
+    "faq": {
+      "questions": [
+        {
+          "question": "What information should I have ready when contacting customer service?",
+          "answer": "It's helpful if you have your contract number, vehicle information, and any necessary documents ready to speed up the service."
+        },
+        {
+          "question": "How quickly can I expect a response to my inquiry?",
+          "answer": "We aim to respond to all inquiries within 24 hours on business days. Urgent matters are prioritized and typically handled within a few hours."
+        },
+        {
+          "question": "Can I book maintenance through customer service?",
+          "answer": "Yes, our customer service team will help you book maintenance services, tire changes, and inspections for your leased vehicles at our partner service locations."
+        }
+      ]
+    },
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Contact form" }
+  },
+
+  "cta": {
+    "heading": "Ready to Optimize Your Fleet Management?",
+    "texts": ["Discover how our fleet management solutions can save your company time and costs."],
+    "image": { "src": "/images/ajankohtaista.png", "alt": "Corporate vehicle fleet" },
+    "fleetButton": "Explore Fleet Solutions",
+    "fleetHref": "/fleet-manager",
+    "leasingButton": "View Leasing Options",
+    "leasingHref": "/yritysleasing"
+  }
+}

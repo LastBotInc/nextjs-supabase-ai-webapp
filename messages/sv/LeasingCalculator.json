@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "Bilförmånskalkylator | Innolease",
+    "description": "Beräkna och jämför bilförmånsalternativ för ditt företags fordon. Hitta den mest kostnadseffektiva leasinglösningen för dina affärsbehov."
+  },
+  "hero": {
+    "heading": "Bilförmånskalkylator",
+    "subheading": "Beräkna och jämför olika bilförmånsalternativ för att hitta den mest kostnadseffektiva lösningen för ditt företag",
+    "image": {
+      "src": "/images/KiinnostuitkoKoneidenJaLaitteidenLeasingista.png"
+    }
+  },
+  "intro": {
+    "title": "Optimera ditt företags bilförmåner",
+    "description": "Använd vår kalkylator för att jämföra fri bilförmån, begränsad bilförmån och kilometerersättning. Fatta välgrundade beslut om ditt företags fordonspolicy baserat på korrekt data.",
+    "getStarted": "Börja beräkna"
+  },
+  "calculator": {
+    "title": "Bilförmånskalkylator",
+    "description": "Justera parametrarna nedan för att se hur olika alternativ påverkar kostnaderna för både arbetsgivare och anställd. Kalkylatorn ger realtidsjämförelser baserat på aktuella skatteregler.",
+    "selectBenefitType": "Välj bilförmånstyp",
+    "benefitTypeDescription": "Välj bilförmånsmodell för jämförelse för att justera beräkningsparametrar",
+    "tabs": {
+      "freeBenefit": "Fri bilförmån",
+      "usageBenefit": "Användningsförmån",
+      "free": "Fri bilförmån",
+      "limited": "Begränsad bilförmån"
+    },
+    "inputs": {
+      "title": "Inmatningsparametrar",
+      "carValue": "Bilens värde (€)",
+      "annualDriving": "Årlig körsträcka (km)",
+      "homeToWork": "Hem-arbetsresa (km)",
+      "monthlyCost": "Månadskostnad (€)",
+      "fuelCost": "Bränslepris (€/liter)",
+      "fuelConsumption": "Bränsleförbrukning (l/100km)",
+      "calculationYear": "Beräkningsår",
+      "firstRegistrationYear": "Första registreringsår",
+      "extraEquipment": "Extrautrustning (€)",
+      "gasoline": "Bensinbil",
+      "electric": "Elbil",
+      "plugInHybrid": "Plug-in hybrid",
+      "engineType": "Motortyp"
+    },
+    "results": {
+      "title": "Resultat",
+      "monthlyTitle": "Månadskostnader",
+      "annualTitle": "Årskostnader",
+      "employerCost": "Arbetsgivarens kostnad",
+      "employeeCost": "Anställds kostnad",
+      "totalCost": "Totalkostnad",
+      "comparisonTitle": "Kostnadsjämförelse",
+      "savingsTitle": "Potentiella besparingar",
+      "recommendation": "Rekommendation",
+      "taxBenefit": "Skattepliktig förmån",
+      "taxableValue": "Beskattningsvärde",
+      "fuelCosts": "Bränslekostnader",
+      "maintenanceCosts": "Underhållskostnader",
+      "insuranceCosts": "Försäkringskostnader",
+      "taxImpact": "Skattepåverkan",
+      "netCost": "Netto månadskostnad",
+      "costPerKm": "Pris per km",
+      "annualTaxCost": "Årliga skattekostnader",
+      "monthlyDriving": "Månatlig körsträcka",
+      "workDriving": "Arbetskörning",
+      "privateDriving": "Privatkörning",
+      "privateUsePercentage": "Privatanvändningens andel",
+      "monthlySavings": "Månatliga besparingar",
+      "month": "mån",
+      "ageReduction": "Åldersavdrag",
+      "electricBioBenefit": "El-/biogasförmån avdrag",
+      "year": "år"
+    },
+    "freeBenefit": {
+      "description": "Fri bilförmån innebär att arbetsgivaren betalar alla kostnader relaterade till bilen, inklusive bränsle för privat användning.",
+      "advantages": "Fördelar",
+      "advantage1": "Enkel kostnadshantering",
+      "advantage2": "Förutsägbara månadskostnader",
+      "advantage3": "Inget behov av att spåra privat- och arbetskörning separat",
+      "considerations": "Att beakta",
+      "consideration1": "Högre skattepliktig förmån för anställd",
+      "consideration2": "Kanske inte kostnadseffektivt vid låg årlig körsträcka",
+      "consideration3": "Mindre incitament för effektiv körstil"
+    },
+    "limitedBenefit": {
+      "description": "Begränsad bilförmån innebär att arbetsgivaren tillhandahåller bilen, men den anställde betalar för bränsle som används vid privatkörning.",
+      "advantages": "Fördelar",
+      "advantage1": "Lägre skattepliktig förmån för den anställde",
+      "advantage2": "Ofta mer kostnadseffektivt överlag",
+      "advantage3": "Uppmuntrar bränsleeffektiv körning",
+      "considerations": "Att beakta",
+      "consideration1": "Kräver spårning av arbets- och privatkörning",
+      "consideration2": "Mindre förutsägbara kostnader för anställd",
+      "consideration3": "Mer komplicerad kostnadshantering"
+    },
+    "kmAllowance": {
+      "title": "Kilometerersättning",
+      "description": "Istället för företagsbil använder anställda sin egen bil och får skattefri kilometerersättning för arbetsresor.",
+      "rate": "Aktuell ersättning: 0,53 €/km för första 5 000 km, därefter 0,48 €/km",
+      "advantages": "Fördelar",
+      "advantage1": "Enkel administrativ lösning",
+      "advantage2": "Ingen skattepliktig förmån för anställda",
+      "advantage3": "Flexibilitet i fordonsval för anställda",
+      "considerations": "Att beakta",
+      "consideration1": "Kräver noggrann bokföring av arbetsresor",
+      "consideration2": "Totalkostnaderna kan vara högre vid betydande arbetskörning",
+      "consideration3": "Anställd bär risken för fordonsägande"
+    },
+    "callToAction": "Utforska våra leasinglösningar"
+  },
+  "optimizationTips": {
+    "title": "Optimeringstips",
+    "tips": [
+      {
+        "title": "Välj el- eller hybridfordon",
+        "description": "Lägre skattemässiga värden och reducerade driftskostnader gör el- och hybridfordon till ett utmärkt val för företagsfordonsflottor."
+      },
+      {
+        "title": "Anpassa bilen till verkliga behov",
+        "description": "Välj fordon som motsvarar verkliga affärsbehov istället för att välja dyra modeller med onödiga funktioner."
+      },
+      {
+        "title": "Beakta årlig körsträcka",
+        "description": "För medarbetare med hög årlig körsträcka blir fri bilförmån ofta mer kostnadseffektiv än begränsad förmån."
+      },
+      {
+        "title": "Skapa tydliga riktlinjer",
+        "description": "Skapa tydliga företagsbilspolicyer som hjälper till att optimera kostnader samtidigt som de möter medarbetarnas behov."
+      }
+    ]
+  },
+  "taxInfo": {
+    "title": "Skatteinformation",
+    "description": "Aktuella beskattningsregler för bilförmåner i Finland för 2023-2024. Dessa värden används i kalkylatorns uppskattningar.",
+    "disclaimer": "Observera: För exakt skatteplanering, konsultera alltid en skattespecialist eftersom reglerna kan ändras.",
+    "freeBenefit": {
+      "title": "Fri bilförmån",
+      "formula": "Månatligt beskattningsvärde = Grundvärde + 1,4% av anskaffningspris",
+      "baseValues": "Grundvärden (2023):",
+      "ageGroups": {
+        "group1": "Åldersgrupp A (2021-2023): 300€/mån",
+        "group2": "Åldersgrupp B (2018-2020): 315€/mån",
+        "group3": "Åldersgrupp C (2015-2017): 330€/mån"
+      }
+    },
+    "limitedBenefit": {
+      "title": "Begränsad bilförmån",
+      "formula": "Månatligt beskattningsvärde = Grundvärde + 1,4% av anskaffningspris - bränslekostnadsjustering",
+      "baseValues": "Grundvärden (2023):",
+      "ageGroups": {
+        "group1": "Åldersgrupp A (2021-2023): 135€/mån",
+        "group2": "Åldersgrupp B (2018-2020): 150€/mån",
+        "group3": "Åldersgrupp C (2015-2017): 165€/mån"
+      }
+    },
+    "electricVehicles": {
+      "title": "Elfordon",
+      "description": "För helektriska fordon (BEV) minskas beskattningsvärdet med 170€/mån (2023)."
+    }
+  },
+  "cta": {
+    "title": "Redo att optimera ditt företags bilstrategi?",
+    "description": "Våra flottstyrningsexperter kan hjälpa dig implementera den mest kostnadseffektiva bilförmånsstrukturen baserat på ditt företags specifika behov.",
+    "contactButton": "Kontakta våra experter",
+    "learnMoreButton": "Utforska våra leasinglösningar",
+    "contactButtonHref": "/yhteystiedot",
+    "learnMoreButtonHref": "/autoleasing"
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "questions": [
+      {
+        "question": "Vad är skillnaden mellan fri bilförmån och begränsad bilförmån?",
+        "answer": "Vid fri bilförmån täcker arbetsgivaren alla bilrelaterade kostnader inklusive bränsle för privatkörning. Vid begränsad bilförmån betalar medarbetaren för bränslet som används vid privatkörning. Detta leder till olika skatteeffekter och kostnadsstrukturer."
+      },
+      {
+        "question": "Hur exakta är beräkningarna?",
+        "answer": "Kalkylatorn använder aktuella svenska skatteregler och standardiserade kostnadsuppskattningar. Även om den ger en bra uppskattning kan de faktiska kostnaderna variera beroende på särskilda omständigheter. För exakt ekonomisk planering, konsultera våra leasingspecialister."
+      },
+      {
+        "question": "Kan jag använda denna kalkylator för elfordon?",
+        "answer": "Ja, kalkylatorn tar hänsyn till de speciella skattefördelarna för elfordon i Sverige. När du beräknar för elfordon, justera bränsleförbrukningen för att motsvara elkostnader per km."
+      },
+      {
+        "question": "Hur ofta uppdateras skattevärdena?",
+        "answer": "Vi uppdaterar vår kalkylator när Skatteverket publicerar nya bilförmånsvärden, vanligtvis årligen. Den nuvarande kalkylatorn återspeglar 2023-2024 värden."
+      }
+    ]
+  }
+}

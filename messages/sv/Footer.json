@@ -4,5 +4,21 @@
   "privacy": "Integritetspolicy",
   "contact": "Kontakt",
   "terms": "Användarvillkor",
-  "presentations": "Presentationer"
+  "presentations": "Presentationer",
+  "office_locations": "Kontor",
+  "resources": "Resurser",
+  "fleet_reporting": "Fordonsflottarapportering",
+  "emissions_report": "Utsläppsrapport",
+  "driving_log": "Körjournal",
+  "leasing_car_return": "Leasingbilsåterlämning",
+  "tools": "Verktyg",
+  "car_decision_tools": "Bilbeslutverktyg",
+  "car_benefit_calculator": "Bilförmånskalkylator",
+  "ev_comparison": "Elbilsjämförelse",
+  "cookies": "Cookiepolicy",
+  "newsletter": {
+    "subscribe": "Prenumerera på vårt nyhetsbrev för att få de senaste leasingerbjudandena och bilindustrins insikter.",
+    "email_placeholder": "Din e-postadress",
+    "button": "Prenumerera"
+  }
 }

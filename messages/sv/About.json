@@ -1,30 +1,150 @@
 {
-  "title": "Om LastBot",
-  "description": "Vi är ett team av AI‑experter som gör artificiell intelligens tillgänglig och användbar för företag i alla storlekar.",
-  "about": {},
-  "news": {
-    "title": "Nyheter",
-    "viewAll": "Visa alla nyheter",
-    "readMore": "Läs mer"
+  "meta": {
+    "title": "Om Oss | Innolease - Flexibla Leasinglösningar",
+    "description": "Lär dig mer om Innolease, vårt uppdrag att tillhandahålla effektiva och skräddarsydda leasinglösningar, vårt expertteam och vårt engagemang för finska företag.",
+    "keywords": "om oss, företagsinformation, leasingpartner, expertteam, Autolle.com-koncernen, företagsleasing, digitala tjänster",
+    "image": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png"
   },
-  "contact": {
-    "title": "Kontakta oss",
-    "info": {
-      "title": "Kontaktinformation"
+
+  "hero": {
+    "heading": "Om Oss",
+    "subheading": "En erfaren och smidig leasingpartner för ditt företags behov",
+    "image": { "src": "/images/home/2aac41606f2f57c11c3d0586a3eb85cf49a267a7.png", "alt": "Innolease Hero" }
+  },
+
+  "introduction": {
+    "heading": "Vårt Företags Historia",
+    "texts": [
+      "Innolease.fi är en erfaren och smidig leasingpartner som erbjuder kundfokuserade och flexibla lösningar för ditt företags behov. Vi specialiserar oss på maskin-, utrustnings- och fordonsleasinglösningar, genomförda med vårt starka teams års erfarenhet av företagsfinansiering och leasing.",
+      "Innolease föddes som en del av Autolle.com-koncernens tillväxtberättelse, när vi kombinerade vår uthyrningsverksamhet och företagsleasingverksamhet under ett tak. På detta sätt kan vi erbjuda mer omfattande tjänster till våra företagskunder som svar på det växande behovet av skräddarsydd företagsleasing.",
+      "Vi verkar självständigt, men utnyttjar Autolle.coms expertis och nätverk, vilket möjliggör konkurrenskraftiga lösningar för företag av alla storlekar."
+    ],
+    "image": { "src": "/images/innolease-car.png", "alt": "Innolease fordon" }
+  },
+
+  "ourStory": {
+    "heading": "Vårt Företags Historia",
+    "texts": [
+      "Innolease har vuxit snabbt som en del av Autolle.com-koncernen, och kombinerat uthyrnings- och leasingtjänster till en enhet. Vårt mål är att erbjuda våra kunder de mest omfattande och flexibla lösningarna som möter dagens företags och individers förändrade behov."
+    ]
+  },
+
+  "ourMission": {
+    "heading": "Vårt Uppdrag och Mål",
+    "texts": [
+      "Vi strävar efter att vara den mest pålitliga och kundfokuserade leasingpartnern i Finland. Vårt mål är att göra våra kunders liv enklare genom att erbjuda tydliga, ärliga och kostnadseffektiva lösningar – oavsett om det handlar om flotthantering för företag eller mobilitetsbehov för privatpersoner."
+    ]
+  },
+
+  "ourValues": {
+    "heading": "Våra Värderingar",
+    "texts": ["Vår verksamhet styrs av tre kärnvärden:"],
+    "cards": [
+      {
+        "title": "Transparens",
+        "texts": ["Vi talar klarspråk och berättar alltid sanningen om kostnader, villkor och alternativ."]
+      },
+      {
+        "title": "Personlig Service",
+        "texts": ["Varje kund har sin egen kontaktperson som känner din bransch och svarar snabbt på dina behov."]
+      },
+      {
+        "title": "Flexibilitet",
+        "texts": [
+          "Vi hittar den bästa lösningen för ditt företags situation – oavsett om det gäller maskiner, utrustning eller fordon."
+        ]
+      }
+    ]
+  },
+
+  "whyChooseUs": {
+    "heading": "Varför Välja Innolease?",
+    "list": [
+      "Erfaret team av professionella inom företagsfinansiering och leasing.",
+      "Kundfokuserad och flexibel service – lösningar skräddarsys alltid efter kundens behov.",
+      "Konkurrenskraftiga och transparenta villkor.",
+      "Starkt bakgrundsstöd och nätverk från Autolle.com-koncernen.",
+      "Omfattande digitala tjänster som gör flotthantering och rapportering enklare."
+    ]
+  },
+
+  "digitalServices": {
+    "heading": "Digitala Tjänster – Mer Än Leasing",
+    "list": [
+      "Omfattande digitala tjänster för företag och privatpersoner.",
+      "Enkel flotthantering, rapportering och praktisk situationsstöd på ett ställe.",
+      "Snabb kontakt med expert även genom digitala tjänster – du lämnas inte ensam med systemet."
+    ]
+  },
+
+  "offerings": {
+    "heading": "Våra Tjänster för Privat- och Företagskunder",
+    "columns": [
+      {
+        "subheading": "För Företag",
+        "list": [
+          "Skräddarsydda leasinglösningar för företag av alla storlekar.",
+          "Maskin-, utrustnings- och fordonsledning med flexibla villkor.",
+          "Dedikerad kontaktperson och personlig service.",
+          "Konkurrenskraftiga priser och tydliga avtalsvillkor."
+        ]
+      },
+      {
+        "subheading": "För Privatkunder",
+        "list": [
+          "Enkel och smidig mobilitet genom leasing.",
+          "Tydliga kostnader och transparenta kontrakt.",
+          "Digitala tjänster och expertstöd även för privatkunder."
+        ]
+      }
+    ]
+  },
+
+  "history": {
+    "heading": "Tillväxtberättelse och Koncernkoppling",
+    "texts": [
+      "Innolease är en del av Autolle.com-koncernen, vars expertis och nätverk möjliggör konkurrenskraftiga och innovativa lösningar för alla kunder.",
+      "Genom att kombinera uthyrnings- och leasingverksamheter har vi kunnat svara på det växande behovet av skräddarsydda företagsleasingtjänster i Finland."
+    ],
+    "link": { "label": "Lär dig om Autolle.com", "href": "https://autolle.com" },
+    "image": { "src": "/images/innolease-car.png", "alt": "Autolle.com-koncernens kontorsbyggnad" }
+  },
+
+  "coverage": {
+    "heading": "Rikstäckande Servicenätverk",
+    "texts": [
+      "Genom strategiskt placerade partners och ett starkt nätverk tillhandahåller Innolease omfattande servicetäckning i hela Finland. Vi säkerställer stöd där din flotta verkar."
+    ],
+    "image": { "src": "/images/placeholders/map.png", "alt": "Innoleases servicenätverkskarta i Finland" }
+  },
+
+  "cta": {
+    "heading": "Redo att Optimera Din Flotta?",
+    "texts": [
+      "Kontakta Innolease idag. Låt oss diskutera dina behov och hitta den bästa leasinglösningen för ditt företag eller personliga bruk."
+    ],
+    "link": { "label": "Kontakta Oss", "href": "/contact" }
+  },
+
+  "additionalCta": {
+    "services": {
+      "heading": "Utforska Våra Tjänster",
+      "text": "Upptäck ett brett utbud av leasinglösningar för företag och privat bruk. Billeasing, maskinleasing och andra flexibla finansieringslösningar.",
+      "buttonText": "Visa Alla Tjänster",
+      "buttonHref": "/leasing-solutions"
     },
-    "address": {
-      "title": "Adress",
-      "street": "Kimmeltie 10",
-      "postal": "90630 Uleåborg",
-      "country": "Finland"
+    "calculator": {
+      "heading": "Beräkna Din Bilförmån",
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du kan spara med en tjänstebil. Få en noggrann beräkning av din bilförmåns beskattningsvärde.",
+      "buttonText": "Gå Till Kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
     },
-    "social": {
-      "title": "Följ oss"
-    },
-    "form": {
-      "title": "Skicka ett meddelande"
+    "team": {
+      "heading": "Träffa Vårt Team",
+      "text": "Våra erfarna specialister är redo att hjälpa dig hitta den bästa lösningen. Kontakta oss och låt oss diskutera dina behov.",
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot",
+      "imageAlt": "Innolease-teamet i ett möte"
     }
-  },
-  "form": {},
-  "meta": {}
+  }
 }

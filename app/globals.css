@@ -17,12 +17,95 @@
   .animate-fade-in {
     animation: fade-in 0.3s ease-out forwards;
   }
+
+  /* Base container style for image overlays */
+  .has-overlay-pattern {
+    @apply relative;
+  }
+
+  /* Base pseudo-element style for overlays */
+  .has-overlay-pattern::after {
+    content: "";
+    @apply absolute inset-0 z-10 pointer-events-none;
+    background-repeat: repeat; /* Default repeat */
+    opacity: 0.08; /* Default subtle opacity */
+  }
+
+  /* Specific Pattern Overlays */
+  .overlay-pattern-wavy::after {
+    /* Wavy pattern using two mirrored shapes in one SVG tile */
+    background-image: url("/patterns/innolease-wavy.svg");
+    background-size: 80px 80px; /* Adjust scale as needed */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  .overlay-pattern-shape::after {
+    /* Tiled pattern using the single shape */
+    background-image: url("/patterns/innolease-shape.svg");
+    background-size: 30px 60px; /* Adjust scale as needed */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  .overlay-pattern-tile-dense::after {
+    /* Dense tile pattern using offset shapes */
+    background-image: url("/patterns/innolease-tile-dense.svg");
+    background-size: 60px 60px; /* Adjust scale as needed */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  .overlay-pattern-polka-dots::after {
+    /* Polka dot pattern */
+    background-image: url("/patterns/polka-dots.svg");
+    background-size: 100px 100px; /* Match SVG dimensions */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  .overlay-pattern-diamonds::after {
+    /* Diamond pattern */
+    background-image: url("/patterns/diamond-pattern.svg");
+    background-size: 100px 100px; /* Match SVG dimensions */
+    /* Set pattern color via text color and opacity utility */
+    @apply text-gray-400; /* Example base color */
+  }
+
+  /* Simple Color Overlay (Example) */
+  .overlay-color-dark-20::after {
+    @apply bg-black/20; /* 20% black overlay */
+  }
+  .overlay-color-dark-50::after {
+    @apply bg-black/50; /* 50% black overlay */
+  }
+
+  /* Opacity Control for Overlays */
+  .overlay-opacity-5::after {
+    @apply opacity-[0.05];
+  }
+  .overlay-opacity-8::after {
+    @apply opacity-[0.08];
+  }
+  .overlay-opacity-10::after {
+    @apply opacity-[0.1];
+  }
+  .overlay-opacity-15::after {
+    @apply opacity-[0.15];
+  }
+  .overlay-opacity-20::after {
+    @apply opacity-[0.2];
+  }
 }
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+
+    /* Define font variables here */
+    --font-sans: "__Inter_Tight_Fallback", "Inter Tight"; /* Use fallback name from next/font */
+    --font-mono: "__GeistMono_Fallback", "Geist Mono"; /* Use fallback name from next/font */
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -51,6 +134,14 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+
+    --palette-background-color: 0 0% 100%;
+    --palette-text-color: 222.2 84% 4.9%;
+    --palette-icon-color: 222.2 84% 4.9%;
   }
 
   .dark {
@@ -82,6 +173,10 @@
     --destructive-foreground: 0 85.7% 97.3%;
 
     --ring: 217.2 32.6% 17.5%;
+
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
@@ -91,5 +186,447 @@
   }
   body {
     @apply bg-background text-foreground;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  @layer base {
+    body {
+      color: rgb(var(--foreground-rgb));
+      background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+        rgb(var(--background-start-rgb));
+    }
+  }
+}
+
+.page-wrapper {
+  @apply flex min-h-screen flex-col items-center bg-white pt-20 lg:pt-32 overflow-x-hidden;
+}
+
+/* Overlay Patterns */
+.has-overlay-pattern {
+  position: relative;
+  z-index: 1;
+}
+
+.has-overlay-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-position: center;
+  z-index: 30;
+  opacity: var(--overlay-opacity, 0.2);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.overlay-opacity-5::before {
+  --overlay-opacity: 0.05;
+}
+
+.overlay-opacity-10::before {
+  --overlay-opacity: 0.1;
+}
+
+.overlay-opacity-15::before {
+  --overlay-opacity: 0.15;
+}
+
+.overlay-opacity-20::before {
+  --overlay-opacity: 0.2;
+}
+
+.overlay-pattern-grid::before {
+  background-image: url("/patterns/blue-grid.svg");
+  background-size: 500px 500px;
+}
+
+.overlay-pattern-dots::before {
+  background-image: url("/patterns/pink-grid.svg");
+  background-size: 500px 500px;
+}
+
+.overlay-pattern-wavy::before {
+  background-image: url("/patterns/innolease-wavy.svg");
+  background-size: 80px 80px;
+}
+
+.overlay-pattern-tile-dense::before {
+  background-image: url("/patterns/innolease-tile-dense.svg");
+  background-size: 60px 60px;
+}
+
+.overlay-pattern-shape::before {
+  background-image: url("/patterns/innolease-shape.svg");
+  background-size: 30px 60px;
+}
+
+.overlay-pattern-polka-dots::before {
+  background-image: url("/patterns/polka-dots.svg");
+  background-size: 100px 100px;
+}
+
+.overlay-pattern-diamonds::before {
+  background-image: url("/patterns/diamond-pattern.svg");
+  background-size: 100px 100px;
+}
+
+.overlay-pattern-pink-grid-small::before {
+  background-image: url("/patterns/pink-grid-small.svg");
+  background-size: 400px 400px;
+}
+
+.overlay-pattern-car-grid::before {
+  background-image: url("/patterns/car-grid-overlay.svg");
+  background-size: 600px 600px;
+  mix-blend-mode: soft-light;
+  opacity: var(--overlay-opacity, 0.3);
+  z-index: 0;
+}
+
+.overlay-pattern-leasing-grid::before {
+  background-image: url("/patterns/leasing-grid-overlay.svg");
+  background-size: 600px 600px;
+  mix-blend-mode: soft-light;
+  opacity: var(--overlay-opacity, 0.25);
+  z-index: 0;
+}
+
+.overlay-pattern-fi-grid::before {
+  background-image: url("/patterns/fi-leasing-grid.svg");
+  background-size: 400px 400px;
+  mix-blend-mode: overlay;
+  opacity: var(--overlay-opacity, 0.15);
+  z-index: 0;
+}
+
+.overlay-pattern-fi-grid-dark::before {
+  background-image: url("/patterns/fi-leasing-grid-dark.svg");
+  background-size: 400px 400px;
+  mix-blend-mode: overlay;
+  opacity: var(--overlay-opacity, 0.2);
+  z-index: 0;
+}
+
+/* Innolease graphics patterns */
+.overlay-pattern-innolease-1::before {
+  background-image: url("/patterns/innolease-tile-dense-06-2025.svg");
+  background-size: cover;
+  mix-blend-mode: overlay;
+  opacity: var(--overlay-opacity, 0.15);
+  z-index: 30;
+}
+
+.overlay-pattern-innolease-2::before {
+  background-image: url("/patterns/innolease-shape-06-2025.svg");
+  background-size: cover;
+  mix-blend-mode: overlay;
+  opacity: var(--overlay-opacity, 0.15);
+  z-index: 30;
+}
+
+.image-container-with-aspect-ratio-5-3 {
+  width: 100%;
+  aspect-ratio: 20/8;
+  @screen lg {
+    aspect-ratio: 5/3;
+  }
+  position: relative;
+  > * {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+.image-container-with-aspect-ratio-16-9 {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  > * {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+.aspect-ratio-4\/3 {
+  width: 100%;
+  aspect-ratio: 2/1;
+  position: relative;
+}
+
+.background-image-fill {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+  background-position: bottom center;
+}
+
+.call-us {
+  --gap: 3rem;
+  gap: var(--gap);
+  position: relative;
+  justify-self: start;
+  @apply mt-4;
+  @apply flex flex-row bg-white rounded-full p-4 text-sm pr-8;
+  > * {
+    white-space: nowrap;
+  }
+
+  @screen lg {
+    margin: 0;
+    justify-self: end;
+    > * {
+      width: auto;
+    }
+  }
+}
+
+.divider {
+  width: 1px;
+  display: block;
+  border-right: 1px solid #000;
+}
+
+.text-shape {
+  display: none;
+  @screen lg {
+    display: flex;
+    --shape: polygon(0% 100%, 100% 100%);
+    shape-outside: var(--shape) content-box;
+    -webkit-shape-outside: var(--shape) content-box;
+  }
+
+  float: right;
+  width: 66%;
+
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 3 / 4;
+}
+.grayscale {
+  filter: grayscale(1);
+}
+
+.responsive-background-image {
+  --size: cover;
+  --image: "";
+  --position: center;
+  --repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: var(--image);
+  background-size: var(--size-default, var(--size));
+  background-position: var(--position-default, var(--position));
+
+  @screen md {
+    background-size: var(--size-md, var(--size));
+    background-position: var(--position-md, var(--position));
+  }
+  @screen lg {
+    background-size: var(--size-lg, var(--size-md, var(--size)));
+    background-position: var(--position-lg, var(--position-md, var(--position)));
+  }
+  @screen xl {
+    background-size: var(--size-xl, var(--size-lg, var(--size-md, var(--size))));
+    background-position: var(--position-xl, var(--position-lg, var(--position-md, var(--position))));
+  }
+}
+
+.extra-padding-block {
+  @apply py-6;
+
+  @apply lg:py-14;
+}
+.extra-padding-block-only-md {
+  @apply py-6;
+}
+
+.highlight-effect {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.2;
+    display: none;
+  }
+  &:hover {
+    &::after {
+      display: block;
+    }
+  }
+}
+
+/*
+Navigation grid layout for desktop and mobile
+- Desktop: 2 rows, grid areas for logo, menu, search, languages
+- Mobile: 1 row (logo, languages, toggle), menu drops down below when open
+*/
+/* Mobile styles */
+.navigation {
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 3rem;
+  grid-template-areas: "logo languages toggle";
+  gap: 1rem;
+  display: grid;
+  padding: 1rem 0;
+}
+.navigation-logo {
+  grid-area: logo;
+}
+.navigation-languages {
+  grid-area: languages;
+  justify-self: end;
+  align-self: center;
+  button {
+    @apply text-sm font-medium p-1;
+  }
+}
+.navigation-toggle {
+  display: block;
+  grid-area: toggle;
+  justify-self: end;
+  align-self: center;
+}
+.navigation-search {
+  display: none;
+  grid-area: search;
+  justify-self: end;
+  input {
+    @apply rounded-lg;
+  }
+}
+.navigation-search-menu {
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  @apply z-10;
+}
+.navigation-menu {
+  /* Hidden by default, shown when menu is open (add .is-open class in JS/TSX) */
+  display: none;
+  grid-area: menu;
+  flex-direction: column;
+  gap: 1rem;
+  background: white;
+  width: 100vw;
+  left: 0;
+  top: 100%;
+  position: absolute;
+  z-index: 40;
+  padding: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  .toggle-button {
+    @apply text-piki text-base font-medium p-1;
+    white-space: nowrap;
+  }
+  .dropdown {
+    @apply hidden mt-1 w-60 rounded-md;
+  }
+  .active-dropdown {
+    @apply block;
+  }
+  .dropdown-toggle {
+    @apply rounded-xl transition-colors flex items-center;
+  }
+}
+.navigation-menu.is-open {
+  display: flex;
+}
+@screen md {
+  .navigation-menu {
+    .toggle-button {
+      @apply rounded-md;
+    }
+  }
+}
+@screen lg {
+  .navigation {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: 2.5rem 2.5rem;
+    grid-template-areas:
+      "logo . search languages"
+      "logo menu menu menu";
+    align-items: center;
+    width: 100%;
+    gap: 1rem 1rem;
+    background: white;
+    z-index: 50;
+    padding: 1rem 0;
+  }
+
+  .navigation-logo {
+    /* Explicitly span both rows and first column */
+    grid-area: logo / logo / span 2 / auto;
+    align-self: end;
+    padding-bottom: 0.8rem;
+  }
+  .navigation-menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    position: relative;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
+    left: auto;
+    top: auto;
+    position: relative;
+    .toggle-button {
+      @apply text-base;
+    }
+    .toggle-button.active {
+      @apply text-white bg-piki;
+    }
+
+    .dropdown {
+      @apply hidden absolute left-0 mt-2 py-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden;
+    }
+    .active-dropdown {
+      display: block;
+    }
+  }
+
+  .navigation-search {
+    display: flex;
+  }
+  .navigation-search.navigation-search-menu {
+    display: none;
+  }
+  .navigation-languages {
+    grid-area: languages;
+    justify-self: end;
+  }
+  .navigation-toggle {
+    display: none; /* Hidden on desktop */
+  }
+}
+
+@screen xl {
+  .navigation-menu {
+    gap: 1rem;
+  }
+}
+
+@import "./components/v2/styling/block.css";
+@import "./components/v2/styling/hero.css";
+@import "./components/v2/styling/columns.css";
+@import "./components/v2/styling/flex.css";
+@import "./components/v2/styling/palettes.css";
+@import "./components/v2/styling/typography.css";
+@import "./components/v2/styling/forms.css";
+@import "./components/v2/styling/decorative-image.css";
+@import "./components/v2/styling/table.css";
+@import "./components/v2/styling/accordion.css";

@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Car Leasing | Innolease - Easy and Worry-Free Driving",
+    "description": "Comprehensive and flexible leasing solutions for individuals and businesses. Fixed monthly payments, maintenance included, and hassle-free returns.",
+    "keywords": "car leasing, personal leasing, business leasing, mini leasing, auto leasing, lease agreement, car rental",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "hero": {
+    "heading": "Car Leasing – The Right Solution for You",
+    "texts": [
+      "Innolease offers comprehensive and flexible leasing solutions for both individuals and businesses. We want to make driving as easy and worry-free as possible – choose the option that best suits your needs, and we'll take care of the rest."
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Car leasing" }
+  },
+
+  "calculator": {
+    "heading": "Leasing Calculator",
+    "texts": ["Calculate your own leasing payment and see how affordable leasing can be."],
+    "fields": {
+      "carPrice": "Car price",
+      "contractLength": "Contract duration",
+      "months": "months",
+      "downPayment": "Down payment",
+      "interestRate": "Interest rate",
+      "taxRate": "Tax rate",
+      "resultTitle": "Calculation",
+      "monthlyFee": "Monthly payment",
+      "afterTaxMonthly": "Monthly payment after taxes",
+      "disclaimer": "This is an estimate. Actual costs may vary. Taxation is assumed to be paid from net earnings on the monthly payment."
+    }
+  },
+
+  "leasingOptions": {
+    "heading": "Leasing Options",
+    "cards": [
+      {
+        "title": "For Individuals – Simplicity for Everyday Life",
+        "texts": [
+          "Personal leasing is a hassle-free way to get a new car without a large down payment. The fixed monthly price covers almost all costs – maintenance, insurance, and tires – so you can focus on driving. At the end of the contract period, you can return the car, switch to a new one, or continue the contract."
+        ],
+        "palette": "maantie"
+      },
+      {
+        "title": "For Businesses – Efficiency and Flexibility for Business",
+        "texts": [
+          "Business leasing helps manage your company's vehicle fleet efficiently and cost-effectively. We offer customized contracts, a wide selection of vehicles, and a dedicated contact person who assists with all driving-related matters. Mini leasing is the perfect solution for short-term needs – you can get a car for use even the next day without long-term commitment."
+        ],
+        "palette": "kupari"
+      },
+      {
+        "title": "Leasing Terms – Flexible and Transparent",
+        "texts": [
+          "Our leasing contracts are clear and flexible. You can choose the contract duration (1–60 months), mileage, and additional services according to your needs. The fixed monthly price makes budgeting easier, and there are no hidden costs. Feel free to ask for more – we'll tailor a solution just for you."
+        ],
+        "palette": "piki"
+      },
+      {
+        "title": "Vehicle Selection – Find the Right Car",
+        "texts": [
+          "We offer a wide selection of cars: from small passenger cars to spacious family cars, vans, and electric vehicles. All our cars are well-equipped and regularly maintained. You can also test different car types before making a longer commitment."
+        ],
+        "palette": "piki"
+      }
+    ]
+  },
+
+  "benefits": {
+    "heading": "Why Choose Leasing?",
+    "list": [
+      "No large down payment – you only pay for usage",
+      "Fixed monthly price makes financial planning easier",
+      "Maintenance, insurance, and tires are included in the contract",
+      "No resale worries – return the car at the end of the contract period",
+      "Fast delivery – car available even the next day",
+      "Possibility to change cars as needed"
+    ]
+  },
+
+  "examples": {
+    "heading": "Practical Examples",
+    "list": [
+      "Need a car for a project? Mini leasing is a flexible solution for short-term needs.",
+      "Is your business growing rapidly? Leasing enables fleet expansion without large investments.",
+      "Want to test an electric car before making a purchase decision? With leasing, you can try different models risk-free."
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "Can I change cars during the contract period?",
+        "answer": "Yes, we offer flexible options to change cars when your life situation changes."
+      },
+      {
+        "question": "Are insurance and maintenance included in the monthly price?",
+        "answer": "Yes, in most contracts, insurance and maintenance are included in the fixed monthly price."
+      },
+      {
+        "question": "How do I return the car at the end of the contract period?",
+        "answer": "You can return the car to an agreed location. You'll get detailed instructions from our customer service."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Interested in Leasing?",
+    "texts": [
+      "Contact our experts – we'll help you find the best leasing solution for you or your business. You can also easily request a quote through our website."
+    ],
+    "link": { "label": "Contact Us", "href": "/asiakaspalvelu" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you save with a company car.",
+      "buttonText": "Go to Calculator",
+      "href": "/leasing-laskuri"
+    },
+    "corporate": {
+      "heading": "Business Leasing",
+      "text": "Explore our comprehensive business car leasing solutions. Financial leasing, flexible leasing, and maintenance leasing.",
+      "buttonText": "Business Leasing",
+      "href": "/yritysleasing"
+    },
+    "contact": {
+      "heading": "Need Help with Your Choice?",
+      "text": "Our experts will help you find the leasing solution that's right for you.",
+      "buttonText": "Contact Information",
+      "href": "/asiakaspalvelu"
+    }
+  }
+}

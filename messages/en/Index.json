@@ -1,138 +1,128 @@
 {
+  "title": "Modern Leasing Solutions for Your Business",
+  "subtitle": "Tailored leasing options for businesses of all sizes",
+  "description": "Innolease provides comprehensive business vehicle leasing solutions and fleet management services tailored to your exact needs, with transparent pricing and digital tools that streamline operations.",
   "hero": {
-    "title": "Build Smarter Web Apps with AI",
-    "description": "A modern Next.js template with built-in AI capabilities, development tools, and best practices for building scalable web applications.",
-    "backgroundAlt": "Abstract technology background",
-    "cta": "View on GitHub",
-    "docs": "Documentation"
+    "title": "Flexible Vehicle Leasing for Every Business",
+    "description": "Innolease provides comprehensive business vehicle leasing solutions and fleet management services tailored to your exact needs, with transparent pricing and digital tools that streamline operations.",
+    "backgroundAlt": "Fleet of business vehicles",
+    "cta": "Request a Quote",
+    "learnMore": "Learn More"
   },
-  "agentic": {
-    "title": "Agentic Development Framework",
-    "subtitle": "for Cursor IDE",
-    "description": "Extend and enhance Cursor's composer agent capabilities with a comprehensive framework for end-to-end development.",
-    "features": {
-      "title": "Enhanced Development Experience",
-      "list": {
-        "rules": "Structured development rules and patterns",
-        "prompts": "Optimized prompts for code generation",
-        "tools": "Integrated development tools and utilities",
-        "validation": "Automated testing and validation",
-        "docs": "Comprehensive documentation generation"
-      }
+  "leasing": {
+    "title": "Leasing Solutions",
+    "description": "Select the right leasing solution for your company's needs.",
+    "financial": {
+      "title": "Financial Leasing",
+      "description": "Finance only the vehicle with no mileage restrictions. Customer handles maintenance and residual value.",
+      "feature1": "No mileage limitations",
+      "feature2": "Customer maintains vehicle",
+      "feature3": "Flexible end terms",
+      "feature4": "Competitive financing"
     },
-    "benefits": {
-      "title": "Key Benefits",
-      "quality": "Improved code quality and consistency",
-      "completeness": "Enhanced feature completeness",
-      "efficiency": "Accelerated development workflow",
-      "standards": "Enforced coding standards and best practices"
+    "flexible": {
+      "title": "Flexible Leasing",
+      "description": "Maintenance costs included on one invoice with residual value based on market estimation.",
+      "feature1": "Maintenance included",
+      "feature2": "Market-based residual value",
+      "feature3": "Single monthly invoice",
+      "feature4": "Extension options"
+    },
+    "maintenance": {
+      "title": "Maintenance Leasing",
+      "description": "All-inclusive monthly price with predictable vehicle costs and pre-defined services.",
+      "feature1": "All-inclusive pricing",
+      "feature2": "Comprehensive service package",
+      "feature3": "Pre-defined mileage",
+      "feature4": "Complete cost predictability"
+    },
+    "mini": {
+      "title": "MiniLeasing",
+      "description": "Short-term leasing from 1-12 months, including vehicle and insurance for temporary needs.",
+      "feature1": "1-12 month terms",
+      "feature2": "Insurance included",
+      "feature3": "No long-term commitment",
+      "feature4": "Immediate availability"
+    },
+    "cta": "Compare Options"
+  },
+  "fleet": {
+    "title": "Fleet Management Tools",
+    "description": "Manage your entire vehicle fleet efficiently with our digital tools.",
+    "manager": {
+      "title": "InnoFleet Manager",
+      "description": "View all contracts, vehicles, costs, and users in one unified interface."
+    },
+    "reports": {
+      "title": "Emission & Fleet Reports",
+      "description": "Track environmental impact and detailed fleet analytics."
+    },
+    "policy": {
+      "title": "Policy & Procurement",
+      "description": "Optimize contracts and manage vehicle procurement with ease."
+    },
+    "driver": {
+      "title": "Driver Tools",
+      "description": "Empower employees with calculators, comparisons, and self-service options."
+    },
+    "cta": "Explore Tools"
+  },
+  "testimonials": {
+    "title": "Trusted by Businesses Across Finland",
+    "testimonial1": {
+      "quote": "Innolease's flexible leasing options and digital tools have dramatically simplified our fleet management. Their transparent approach means no surprises.",
+      "author": "Matti Virtanen",
+      "company": "Tech Solutions Oy"
+    },
+    "testimonial2": {
+      "quote": "The all-inclusive maintenance leasing package gives us complete cost predictability. Their service network is excellent throughout Finland.",
+      "author": "Liisa Korhonen",
+      "company": "Nordic Logistics Ab"
+    },
+    "testimonial3": {
+      "quote": "Switching to electric vehicles was simple with Innolease's guidance. Their EV comparison tools helped us make informed decisions.",
+      "author": "Juha Mäkinen",
+      "company": "Green Innovations Oy"
     }
   },
-  "cta": {},
+  "partners": {
+    "title": "Service Network Partners",
+    "description": "Nationwide coverage for maintenance, tires, and inspections with trusted partners.",
+    "vianor": "Tire services and seasonal changes",
+    "euromaster": "Comprehensive maintenance services",
+    "katsastus": "Vehicle inspection services",
+    "coverage": "800+ service locations across Finland"
+  },
+  "environmental": {
+    "title": "Environmental Responsibility",
+    "description": "Reduce your carbon footprint with our electric and hybrid vehicle options.",
+    "feature1": "Wide selection of electric vehicles",
+    "feature2": "Detailed emissions tracking",
+    "feature3": "EV charging solutions",
+    "feature4": "Fleet electrification consulting",
+    "cta": "Go Green with Innolease"
+  },
+  "cta": {
+    "title": "Ready to Optimize Your Vehicle Fleet?",
+    "description": "Contact us for a personalized leasing solution that fits your business needs.",
+    "button": "Request a Quote",
+    "contact": "Or call us at +358 50 123 4567"
+  },
   "meta": {
-    "title": "AI-Powered Next.js Template | Modern Web Development",
-    "description": "A modern Next.js template with built-in AI capabilities, Supabase integration, and development tools for building scalable web applications."
+    "title": "Innolease | Business Vehicle Leasing & Fleet Management",
+    "description": "Comprehensive business vehicle leasing solutions and fleet management services with transparent pricing and digital tools to streamline operations."
   },
-  "features": {
-    "title": "Everything You Need",
-    "description": "A comprehensive set of tools and features to accelerate your development workflow.",
-    "ai": {
-      "title": "AI Integration",
-      "description": "Built-in AI capabilities with Google Gemini, Recraft, and Tavily APIs for content generation, image creation, and intelligent search."
-    },
-    "tools": {
-      "title": "Development Tools",
-      "description": "Modern development tools for image optimization, HTML to Markdown conversion, and efficient file management."
-    },
-    "database": {
-      "title": "Database & Auth",
-      "description": "Seamless Supabase integration for authentication, real-time data, and secure API endpoints."
-    },
-    "i18n": {
-      "title": "Internationalization",
-      "description": "Built-in support for multiple languages with next-intl and efficient translation management."
-    },
-    "performance": {
-      "title": "Performance",
-      "description": "Optimized for speed with server components, edge functions, and efficient caching strategies."
-    },
-    "security": {
-      "title": "Security",
-      "description": "Best practices for secure authentication, API protection, and data handling."
-    }
-  },
-  "coreFeatures": {
-    "title": "Core Features",
-    "description": "Everything you need to build a full-featured web application",
-    "auth": {
-      "title": "Authentication & Users",
-      "description": "Complete user management system with Supabase Auth integration, social providers, protected routes, and role-based access control.",
-      "feature1": "Social provider login",
-      "feature2": "Protected routes",
-      "feature3": "Role-based access",
-      "feature4": "User profiles"
-    },
-    "content": {
-      "title": "Content Management",
-      "description": "Comprehensive content management with AI assistance for content creation and optimization.",
-      "feature1": "AI-assisted blog system",
-      "feature2": "Media library with AI generation",
-      "feature3": "Asset optimization pipeline",
-      "feature4": "Landing page builder",
-      "feature5": "SEO optimization"
-    },
-    "i18n": {
-      "title": "Internationalization",
-      "description": "Built-in support for multiple languages and content localization.",
-      "feature1": "Multi-language support",
-      "feature2": "Translation management",
-      "feature3": "Language switching",
-      "feature4": "Content localization"
-    },
-    "analytics": {
-      "title": "Analytics",
-      "description": "Track and analyze user behavior and application performance.",
-      "feature1": "Page view tracking",
-      "feature2": "Event tracking",
-      "feature3": "Session management",
-      "feature4": "User journey analysis"
-    },
-    "booking": {
-      "title": "Booking System",
-      "description": "Complete appointment scheduling system with calendar management.",
-      "feature1": "Appointment scheduling",
-      "feature2": "Calendar management",
-      "feature3": "Timezone support",
-      "feature4": "Email notifications"
-    },
-    "realtime": {
-      "title": "Real-time Features",
-      "description": "Live updates and collaborative features powered by Supabase.",
-      "feature1": "Live updates",
-      "feature2": "Data synchronization",
-      "feature3": "Presence indicators",
-      "feature4": "Collaborative editing"
-    },
-    "technical": {
-      "title": "Technical Features",
-      "description": "Built with modern technologies and best practices.",
-      "feature1": "Modern UI with Tailwind CSS",
-      "feature2": "Dark/light mode support",
-      "feature3": "Type-safe development",
-      "feature4": "Performance optimization",
-      "feature5": "Comprehensive testing",
-      "feature6": "Row Level Security",
-      "feature7": "API protection",
-      "feature8": "Real-time subscriptions"
-    }
-  },
-  "getStarted": {
-    "title": "Start Building Today",
-    "description": "Get up and running with your next project in minutes, not hours.",
-    "step1": "Clone the repository and install dependencies",
-    "step2": "Configure your environment variables and API keys",
-    "step3": "Start developing with built-in AI capabilities",
-    "cta": "View on GitHub",
-    "imageAlt": "Development tools and features illustration"
+  "campaigns": {
+    "title": "Current Campaigns",
+    "tagline1": "Few left at discount!",
+    "price1": "From €499/month + VAT",
+    "tag1_1": "Van",
+    "tag1_2": "Diesel",
+    "tag1_3": "Discount",
+    "tagline2": "Ready to Deliver",
+    "price2": "From €649/month + VAT",
+    "tag2_1": "Electric",
+    "tag2_2": "New",
+    "cta": "View Offer"
   }
 }

@@ -1,0 +1,9 @@
+<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+  <defs>
+    <!-- Define the base shape -->
+    <path id='shape' d='M 0 20 L 40 0 A 10 10 0 0 1 50 10 L 50 80 L 10 100 A 10 10 0 0 1 0 90 Z' fill='currentColor'/>
+  </defs>
+  <!-- Use the shape twice, offset to create the tile unit -->
+  <use xlink:href='#shape' transform='translate(0, 0)'/>
+  <use xlink:href='#shape' transform='translate(50, 50)'/>
+</svg> 

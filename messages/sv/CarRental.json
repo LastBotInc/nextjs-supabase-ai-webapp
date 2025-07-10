@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Biluthyrning för Företag | Innolease - Flexibel och Snabb Lösning",
+    "description": "Hyr bil för ditt företag flexibelt och smidigt. Mini-leasing och företagsbilar för kort- och långsiktig användning – leverans och hämtning enligt dina behov.",
+    "keywords": "biluthyrning, företagsbil, mini-leasing, korttids biluthyrning, ersättningsbil, projektbil, biluthyrning för företag",
+    "image": "/images/autonvuokraus.png"
+  },
+
+  "hero": {
+    "heading": "Företagsbilar Flexibelt till Ditt Förfogande",
+    "texts": [
+      "Hyr bil för ditt företag enkelt och snabbt – utan bindning. Vi levererar bilen direkt till ditt företags dörr och hämtar den när uthyrningsperioden slutar.",
+      "Drömmer du om en företagsinriktad biluthyrningstjänst där du kan hyra bil enkelt online och få den levererad och hämtad efter behov? Upptäck vår flexibla biluthyrningstjänst för företag!"
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Företagsbilar flexibelt till ditt förfogande" }
+  },
+
+  "benefits": {
+    "heading": "Varför Välja Oss?",
+    "texts": ["Vi erbjuder företag en flexibel och smidig biluthyrningstjänst som passar olika behov."],
+    "list": [
+      "Körfärdig bil omedelbart – även till nästa dag",
+      "Avtalsperiod 1–12 månader, precis enligt dina behov",
+      "Fast månadspris inkluderar försäkring, service och däcktjänster",
+      "Ingen handpenning, inga återförsäljningsbekymmer",
+      "Kontaktperson som stöd för ditt företag"
+    ],
+    "image": { "src": "/images/autonvuokraus.png", "alt": "Biluthyrning" }
+  },
+
+  "examples": {
+    "heading": "Perfekt Lösning för:",
+    "texts": ["Vår biluthyrningstjänst passar många olika situationer och behov."],
+    "list": [
+      "Väntetid för ny företagsbil eller leveransslutförande",
+      "Ersättningsbil under service eller reparation",
+      "Projekt eller tillfälliga arbetsuppdrag",
+      "Säsongs- eller tillfälliga tilläggsbehov"
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Företagsleasing" }
+  },
+
+  "minileasing": {
+    "heading": "Mini-leasing för Företag – Kraft till Verksamheten utan Bindning",
+    "texts": [
+      "Behöver du en bil för ditt företag snabbt och för en bestämd period? Mini-leasing är en flexibel lösning för kortsiktiga fordonsbehov – utan långsiktiga bindningar eller ägarbekymmer. Mini-leasing är ett enkelt, kostnadseffektivt och snabbt sätt att säkerställa att verksamheten inte stannar!"
+    ],
+    "benefits": [
+      "Körfärdig bil omedelbart – även till nästa dag",
+      "Avtalsperiod 1–12 månader, precis enligt dina behov",
+      "Fast månadspris inkluderar försäkring, service och däcktjänster",
+      "Ingen handpenning, inga återförsäljningsbekymmer",
+      "Kontaktperson som stöd för ditt företag"
+    ],
+    "useCases": {
+      "heading": "Perfekt Lösning för:",
+      "list": [
+        "Väntetid för ny företagsbil eller leveransslutförande",
+        "Ersättningsbil under service eller reparation",
+        "Projekt eller tillfälliga arbetsuppdrag",
+        "Säsongs- eller tillfälliga tilläggsbehov"
+      ]
+    },
+    "cta": "Kontakta oss – vi hittar en lösning som driver ditt företag framåt"
+  },
+
+  "cta": {
+    "heading": "Kontakta Oss – Vi Hittar en Lösning för Ditt Företag",
+    "texts": [
+      "Vi skräddarsyr ett passande uthyrnings- eller leasingpaket för ditt företag. Kontakta oss och berätta om dina behov!"
+    ],
+    "link": { "label": "Begär Offert", "href": "/kontakt" }
+  },
+
+  "additionalCta": {
+    "leasing": {
+      "heading": "Intresserad av Leasing?",
+      "text": "Utforska våra omfattande billeasingtjänster för privatpersoner och företag.",
+      "buttonText": "Billeasing",
+      "buttonHref": "/autoleasing"
+    },
+    "calculator": {
+      "heading": "Beräkna Din Bilförmån",
+      "text": "Använd vår kostnadsfria bilförmånskalkylator och ta reda på hur mycket du sparar med en tjänstebil.",
+      "buttonText": "Gå till Kalkylatorn",
+      "buttonHref": "/autoetulaskuri"
+    },
+    "contact": {
+      "heading": "Behöver Du Personlig Rådgivning?",
+      "text": "Våra experter hjälper dig hitta rätt lösning för ditt företag.",
+      "buttonText": "Kontaktuppgifter",
+      "buttonHref": "/yhteystiedot"
+    }
+  }
+}

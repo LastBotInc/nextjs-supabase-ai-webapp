@@ -1,46 +1,46 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
-import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
-import { useAuth } from '@/components/auth/AuthProvider'
-import Link from 'next/link'
-import { useParams, useSearchParams } from 'next/navigation'
+import dynamic from "next/dynamic";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/components/auth/AuthProvider";
+import Link from "next/link";
+import { useParams, useSearchParams } from "next/navigation";
 
 // Dynamically import SignInForm with no SSR
-const SignInForm = dynamic(() => import('@/components/auth/SignInForm'), {
-  ssr: false
-})
+const SignInForm = dynamic(() => import("@/components/auth/SignInForm"), {
+  ssr: false,
+});
 
 export default function SignInPage() {
-  const t = useTranslations('Auth')
-  const { session, loading, isAdmin } = useAuth()
-  const [isRedirecting, setIsRedirecting] = useState(false)
-  const params = useParams()
-  const searchParams = useSearchParams()
-  const locale = params.locale as string
-  const nextUrl = searchParams.get('next') || `/${locale}/admin/blog`
+  const t = useTranslations("Auth");
+  const { session, loading, isAdmin } = useAuth();
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const params = useParams();
+  const searchParams = useSearchParams();
+  const locale = params.locale as string;
+  const nextUrl = searchParams.get("next") || `/${locale}/admin`;
 
   useEffect(() => {
     // Add debug logging
-    console.log('Sign-in page state:', {
+    console.log("Sign-in page state:", {
       hasSession: !!session,
       loading,
       isAdmin,
       isRedirecting,
-      nextUrl
-    })
+      nextUrl,
+    });
 
     // Only redirect if we have a session and loading is complete
     if (session?.user && !loading) {
-      setIsRedirecting(true)
+      setIsRedirecting(true);
       // Small delay to ensure state is settled
       const redirectTimer = setTimeout(() => {
-        window.location.href = nextUrl
-      }, 100)
-      return () => clearTimeout(redirectTimer)
+        window.location.href = nextUrl;
+      }, 100);
+      return () => clearTimeout(redirectTimer);
     }
-  }, [session, loading, isAdmin, nextUrl, isRedirecting])
+  }, [session, loading, isAdmin, nextUrl, isRedirecting]);
 
   // Show loading state when redirecting or initial auth loading
   if (loading || isRedirecting) {
@@ -54,14 +54,7 @@ export default function SignInPage() {
               fill="none"
               viewBox="0 0 24 24"
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path
                 className="opacity-75"
                 fill="currentColor"
@@ -69,29 +62,28 @@ export default function SignInPage() {
               />
             </svg>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-300">
-            {isRedirecting ? t('redirecting') : t('loading')}
-          </p>
+          <p className="text-sm text-gray-600 dark:text-gray-300">{isRedirecting ? t("redirecting") : t("loading")}</p>
         </div>
       </div>
-    )
+    );
   }
 
   // If we have a session but not redirecting yet, don't render anything
   if (session?.user) {
-    return null
+    return null;
   }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-          {t('signIn')}
-        </h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">{t("signIn")}</h2>
         <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-          {t('noAccount')}{' '}
-          <Link href={`/${locale}/auth/register`} className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
-            {t('register')}
+          {t("noAccount")}{" "}
+          <Link
+            href={`/${locale}/auth/register`}
+            className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300"
+          >
+            {t("register")}
           </Link>
         </p>
       </div>
@@ -102,5 +94,5 @@ export default function SignInPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

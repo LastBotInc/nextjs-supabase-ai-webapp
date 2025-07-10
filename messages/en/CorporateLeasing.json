@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "Corporate Car Leasing | Innolease - Smart Way to Drive",
+    "description": "Comprehensive corporate car leasing solutions: finance leasing, flex leasing, full-service leasing and mini leasing. Competitive terms and personal service.",
+    "keywords": "corporate car leasing, finance leasing, flex leasing, full-service leasing, mini leasing, equipment leasing, business financing",
+    "image": "/images/yritysleasing.png"
+  },
+
+  "hero": {
+    "heading": "Corporate Car Leasing",
+    "subheading": "Smart Way to Drive",
+    "texts": [
+      "Innolease is your company's partner in leasing matters. Whether your business needs a passenger car or van, we help with your company's vehicle acquisitions. We handle competitive bidding for vehicle purchase, financing, and find the right leasing option for you."
+    ],
+    "numbers": [
+      { "title": "Call us", "number": "020 743 7670" },
+      { "title": "Call us", "number": "020 743 76700" }
+    ],
+    "image": { "src": "/images/yritysleasing.png", "alt": "Corporate Car Leasing" }
+  },
+
+  "ourModel": {
+    "heading": "Our Open Business Model",
+    "texts": ["Together with the customer, we define a comprehensive solution that serves the customer's needs."]
+  },
+
+  "personalService": {
+    "heading": "Your Dedicated Contact Person",
+    "texts": ["Helps with all driving-related matters throughout the entire contract period."]
+  },
+
+  "digitalServices": {
+    "heading": "Digital Services",
+    "texts": ["For fleet managers, allowing you to efficiently manage your own fleet."]
+  },
+
+  "benefits": {
+    "heading": "Benefits",
+    "list": [
+      "Fixed monthly price throughout the contract period",
+      "Contract period typically 12-60 months",
+      "No down payment",
+      "New car in use, get rid of the old one effortlessly"
+    ]
+  },
+
+  "leasingTypes": {
+    "heading": "Leasing Options",
+    "cards": [
+      {
+        "title": "Finance Leasing – when you want to control it yourself",
+        "texts": [
+          "Finance leasing is a cost-effective and simple option for a company that wants to keep control. The car's mileage is not limited and the company is responsible for maintenance and the car's residual value at the end of the lease period. This suits companies best that have their own maintenance solutions and want to maximize cost-efficiency.",
+          "Suitable for those seeking a cost-effective solution."
+        ],
+        "palette": "maantie"
+      },
+      {
+        "title": "Flex Leasing – freedom and predictability in one contract",
+        "texts": [
+          "Flex leasing brings maintenance to the same invoice, but costs are determined according to actual expenses. Residual value is assessed based on market value and at the end of the lease period the customer can either continue the lease contract or look for a buyer for the car. Flex leasing suits companies that want convenience and keep doors open for different options after the contract period.",
+          "Good option if you want to combine flexibility and control."
+        ],
+        "palette": "kupari"
+      },
+      {
+        "title": "Full-Service Leasing – convenience and predictability",
+        "texts": [
+          "Full-service leasing is a hassle-free complete solution. With one monthly price, the company gets a car and desired services – from maintenance to washing and tire services. The supplier is responsible for the car's residual value, and you don't need to worry about vehicle resale. This is an excellent choice for companies that want to budget costs accurately and minimize administrative work.",
+          "Perfect solution for companies that value predictability and convenience."
+        ],
+        "palette": "piki"
+      },
+      {
+        "title": "Mini Leasing for businesses – Power for business without commitment",
+        "texts": [
+          "Do you need a car for your business quickly and for a fixed period? Mini leasing is a flexible solution for short-term vehicle needs – without long-term commitments or ownership concerns."
+        ],
+        "benefits": [
+          "Ready-to-use car immediately – even for the next day",
+          "Contract period 1–12 months, exactly according to your needs",
+          "Fixed monthly price includes insurance, maintenance and tire services",
+          "No down payment, no resale worries"
+        ],
+        "perfectFor": [
+          "As a waiting period for a new company car or delivery completion",
+          "As a substitute car during maintenance or repair",
+          "For projects or temporary work assignments",
+          "To cover seasonal or temporary additional needs"
+        ],
+        "summary": "Mini leasing is a straightforward, cost-effective and fast way to ensure business doesn't stop!",
+        "palette": "betoni"
+      }
+    ]
+  },
+
+  "comparisonTable": {
+    "heading": "Service Comparison",
+    "table": {
+      "headings": [
+        "Services",
+        "Finance Leasing",
+        "Flex Leasing",
+        "Full-Service Leasing",
+        "Mini Leasing",
+        "Equipment Leasing"
+      ],
+      "rows": [
+        ["Dedicated contact person", "+", "+", "+", "+", "+"],
+        ["Monthly rent", "Fixed", "Fixed", "Fixed", "Fixed", "Fixed"],
+        ["Maintenance & repairs", "-", "+", "+", "+", "-"],
+        ["Tire renewals", "-", "+", "+", "+", "-"],
+        ["Tire hotel & changes", "-", "+", "+", "+", "-"],
+        ["Contract kilometers", "Open", "Budgeted", "Fixed", "Closed", "-"],
+        ["Maintenance budget", "Not included", "Open, settled at contract end", "Closed", "Closed", "Not included"],
+        ["Excess kilometer charge", "Not included", "Budgeted", "Budgeted", "Budgeted", "-"],
+        ["Residual value", "Customer's", "Open, settled at contract end", "Closed", "Closed", "Customer's"],
+        [
+          "Early contract termination",
+          "With capital settlement",
+          "With capital settlement",
+          "With capital settlement",
+          "-",
+          "With capital settlement"
+        ],
+        ["Used vehicle", "+", "+", "+", "+", "-"]
+      ],
+      "explanations": ["Explanation for item", "Explanation for another item"]
+    }
+  },
+
+  "equipmentLeasing": {
+    "heading": "Equipment and Machinery Financing – Invest in efficiency, without large one-time costs",
+    "texts": [
+      "Do you need machinery or equipment for production, construction or business – but don't want to tie up capital or buy outright? Equipment and machinery leasing offers your business a flexible and cost-effective way to get the necessary tools in use immediately – without large one-time costs."
+    ],
+    "benefits": [
+      "Fixed rent throughout the rental period 12-72 months",
+      "Equipment remains company property after the rental period",
+      "Leasing rents can be deducted in taxation",
+      "No need to tie up capital in investment",
+      "Doesn't bind fixed assets to the balance sheet",
+      "Budgeting is more predictable"
+    ],
+    "b2bSection": {
+      "heading": "We finance business-to-business trade",
+      "texts": [
+        "Did you find the machinery or equipment you need from another entrepreneur or are you selling your own equipment forward? We offer financing for business-to-business trade as well.",
+        "We apply for financing decision on your behalf, handle contracts, redeem the sales item and take care of financing. You can get a financing decision even within the same day.",
+        "Contact us – we'll help you find the right financing solution for your business."
+      ]
+    }
+  },
+
+  "contactCta": {
+    "heading": "Get in Touch",
+    "subheading": "we'll find a solution that moves your business forward",
+    "numbers": [
+      { "title": "Call us", "number": "020 743 7670" },
+      { "title": "Call us", "number": "020 743 76700" }
+    ],
+    "image": { "src": "/images/Tietoa_meista.png", "alt": "Get in Touch" }
+  },
+
+  "cta": {
+    "heading": "Need a leasing solution for your business?",
+    "texts": [
+      "Contact Innolease today. Let's discuss your needs and find the best leasing solution for your business."
+    ],
+    "link": { "label": "Contact Us", "href": "/yhteystiedot" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Calculate Your Car Benefit",
+      "text": "Use our free car benefit calculator and find out how much you can save with a company car. Get an accurate calculation of your car benefit tax value.",
+      "buttonText": "Go to Calculator",
+      "buttonHref": "/autoetulaskuri"
+    },
+    "rental": {
+      "heading": "Need a car for a short time?",
+      "text": "Explore our car rental services. A flexible solution for temporary vehicle needs without long-term commitments.",
+      "buttonText": "Rent a Car",
+      "buttonHref": "/auton-vuokraus"
+    },
+    "contact": {
+      "heading": "Expert help when needed",
+      "text": "Contact our experienced team. We'll help you find the leasing solution that fits your specific needs.",
+      "buttonText": "Contact Information",
+      "buttonHref": "/yhteystiedot"
+    }
+  },
+
+  "labels": {
+    "benefits": "Benefits",
+    "perfectFor": "Perfect solution for:"
+  }
+}

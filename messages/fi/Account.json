@@ -1,43 +1,48 @@
 {
+  "title": "Oma tili",
   "settings": {
-    "title": "Tiliasetukset",
+    "title": "Tilin asetukset",
     "profile": "Profiilitiedot",
     "preferences": "Asetukset",
-    "theme": "Teema",
+    "theme": "Ulkoasu",
     "language": "Kieli",
     "fullName": "Koko nimi",
     "fullNamePlaceholder": "Syötä koko nimesi",
     "save": "Tallenna muutokset"
   },
   "security": {
-    "title": "Turvallisuusasetukset",
-    "description": "Hallinnoi tilisi turvallisuusasetuksia ja aktiivisia istuntoja",
+    "title": "Tietoturva-asetukset",
+    "description": "Hallitse tilisi tietoturva-asetuksia ja aktiivisia istuntoja",
     "newPassword": "Uusi salasana",
     "confirmPassword": "Vahvista salasana",
     "updatePassword": "Päivitä salasana",
     "updating": "Päivitetään...",
     "passwordMismatch": "Salasanat eivät täsmää",
-    "passwordTooShort": "Salasanan on oltava vähintään 6 merkkiä",
+    "passwordTooShort": "Salasanan on oltava vähintään 6 merkkiä pitkä",
     "updateError": "Salasanan päivitys epäonnistui. Yritä uudelleen.",
     "sessions": "Aktiiviset istunnot",
     "currentSession": "Nykyisen istunnon tiedot:",
-    "lastSignIn": "Viimeinen kirjautuminen",
+    "lastSignIn": "Viimeisin kirjautuminen",
     "browser": "Selain",
     "unknown": "Tuntematon"
   },
-  "notifications": {},
+  "notifications": {
+    "title": "Ilmoitusasetukset",
+    "email": "Sähköposti-ilmoitukset",
+    "push": "Push-ilmoitukset"
+  },
   "appointments": {
     "title": "Ajanvaraustyypit",
     "createNew": "Luo uusi ajanvaraustyyppi",
-    "existingTypes": "Aiemmat ajanvaraustyypit",
+    "existingTypes": "Olemassa olevat ajanvaraustyypit",
     "loading": "Ladataan ajanvaraustyyppejä...",
-    "noTypes": "Et ole vielä luonut ajanvaraustyyppejä",
+    "noTypes": "Et ole vielä luonut yhtään ajanvaraustyyppiä",
     "form": {
       "name": "Nimi",
       "description": "Kuvaus",
-      "duration": "Kesto (min)",
-      "isFree": "Ilmainen ajanvaraus",
-      "price": "Hinta (€)",
+      "duration": "Kesto (minuuttia)",
+      "isFree": "Tämä on ilmainen ajanvaraus",
+      "price": "Hinta ($)",
       "create": "Luo ajanvaraustyyppi",
       "creating": "Luodaan..."
     },
@@ -46,9 +51,9 @@
       "inactive": "Ei aktiivinen"
     },
     "duration": "Kesto",
-    "minutes": "min",
+    "minutes": "minuuttia",
     "price": "Hinta",
     "free": "Ilmainen",
-    "viewBookingPage": "Näytä varaus­sivu"
+    "viewBookingPage": "Näytä ajanvarausnäkymä"
   }
 }

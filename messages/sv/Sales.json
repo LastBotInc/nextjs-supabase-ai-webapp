@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Säljteam | Innolease",
+    "description": "Kontakta Innoleases professionella säljteam för personlig rådgivning om leasing av bilar, skåpbilar och andra fordon för företag och privatpersoner.",
+    "keywords": "säljteam, kontakt, leasing, billeasing, företagsleasing, privatleasing, rådgivning",
+    "image": "/images/og/sales.png"
+  },
+
+  "intro": {
+    "heading": "Vårt säljteam",
+    "texts": [
+      "Vårt erfarna säljteam finns här för att hjälpa dig hitta den perfekta leasinglösningen för dina behov. Med djup kunskap om fordonsleasing och marknadens bästa erbjudanden guidar vi dig genom hela processen.",
+      "Kontakta oss för personlig rådgivning och skräddarsydda lösningar för både företag och privatpersoner."
+    ]
+  },
+
+  "services": {
+    "heading": "Vad vi hjälper dig med",
+    "texts": ["Vårt säljteam erbjuder omfattande service inom alla områden av fordonsleasing."],
+    "list": [
+      "Personlig rådgivning för företagsleasing",
+      "Privatleasinglösningar",
+      "Flottadministration och optimering",
+      "Finansieringsalternativ och villkor",
+      "Specialfordon och anpassade lösningar"
+    ]
+  },
+
+  "process": {
+    "heading": "Så här fungerar det",
+    "texts": ["Vi gör leasingprocessen så enkel som möjligt för dig."],
+    "steps": [
+      {
+        "title": "Kontakt och behovsanalys",
+        "texts": ["Ta kontakt med oss via telefon eller e-post. Vi diskuterar dina behov och önskemål."]
+      },
+      {
+        "title": "Personligt erbjudande",
+        "texts": ["Baserat på dina behov sammanställer vi ett skräddarsytt erbjudande med bästa villkor."]
+      },
+      {
+        "title": "Avtalsteckning och leverans",
+        "texts": ["När du är nöjd med erbjudandet hjälper vi dig genom avtalsteckning och ordnar smidig leverans."]
+      }
+    ]
+  },
+
+  "contact": {
+    "heading": "Kontakta oss idag",
+    "texts": ["Redo att diskutera dina leasingbehov? Vårt säljteam är redo att hjälpa dig."],
+    "methods": [
+      {
+        "type": "Telefon",
+        "value": "+358 20 7419 200",
+        "description": "Vardagar 8:00-16:00"
+      },
+      {
+        "type": "E-post",
+        "value": "myynti@innolease.fi",
+        "description": "Vi svarar inom 24 timmar"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "Leasingratkaisut | Innolease",
+    "description": "Tutustu kattaviin yritysautojen leasingratkaisuihimme: rahoitusleasing, joustoleasing, huoltoleasing ja minileasing."
+  },
+  "hero": {
+    "title": "Leasingratkaisut kaikkiin yritystarpeisiin",
+    "description": "Löydä täydellinen rahoitusmalli yrityksesi autokannalle – yksinkertaisesta rahoitusleasingista aina täysin kattaviin huoltopaketteihin."
+  },
+  "financialLeasing": {
+    "title": "Rahoitusleasing",
+    "subtitle": "Joustavuutta ilman suurta sitoutumista",
+    "description": "Rahoitusleasingratkaisumme tarjoaa selkeän ajoneuvorahoituksen ilman kilometrirajoituksia. Hoidat itse huollot ja vastaat jäännösarvosta, mikä antaa sinulle täyden hallinnan ajoneuvon käytöstä.",
+    "features": {
+      "title": "Tärkeimmät ominaisuudet",
+      "feature1": "Ei kilometrirajoituksia",
+      "feature2": "Ajoneuvo yrityksen taseessa",
+      "feature3": "Asiakas järjestää huollot itse",
+      "feature4": "Asiakas kantaa jäännösarvoriskin",
+      "feature5": "Mahdollisuus lunastaa auto sopimuskauden päätyttyä"
+    },
+    "idealFor": {
+      "title": "Sopii erityisesti yrityksille, jotka",
+      "type1": "Hallinnoivat kalustoaan itse",
+      "type2": "Ajavat paljon",
+      "type3": "Haluavat omistuksen kaltaisen ratkaisun taseeseen",
+      "type4": "Haluavat täyden hallinnan ajoneuvoistaan"
+    },
+    "calculator": {
+      "title": "Laske kuukausierä",
+      "vehicle": "Ajoneuvon hinta (€)",
+      "downpayment": "Käsiraha (€)",
+      "term": "Leasingaika (kk)",
+      "residual": "Arvioitu jäännösarvo (€)",
+      "interest": "Korko (%)",
+      "calculate": "Laske kuukausierä",
+      "result": "Arvioitu kuukausierä:",
+      "disclaimer": "Laskelma on suuntaa-antava. Ota yhteyttä saadaksesi tarkan tarjouksen."
+    }
+  },
+  "flexibleLeasing": {
+    "title": "Joustoleasing",
+    "subtitle": "Tasapainoista hallintaa ja huoltoetuja",
+    "description": "Joustoleasingratkaisumme yhdistää rahoituksen ja kattavat huoltopalvelut yhteen kuukausilaskuun. Nauti ennakoitavista huoltokuluista ja säilytä joustavuus auton käytössä.",
+    "features": {
+      "title": "Tärkeimmät ominaisuudet",
+      "feature1": "Huoltokulut yhdellä laskulla",
+      "feature2": "Markkinaperusteinen jäännösarvoarvio",
+      "feature3": "Kilometrimäärää voi muuttaa sopimuskaudella",
+      "feature4": "Sujuvat sopimuksen jatkomahdollisuudet",
+      "feature5": "Joustavuutta auton vaihtoon"
+    },
+    "idealFor": {
+      "title": "Sopii erityisesti yrityksille, jotka",
+      "type1": "Hakevat tehokkuutta keskisuureen kalustoon",
+      "type2": "Tarvitsevat joustavuutta vaihteleviin ajotarpeisiin",
+      "type3": "Arvostavat budjetin ennakoitavuutta",
+      "type4": "Siirtyvät omistuksesta leasingiin"
+    },
+    "caseStudy": {
+      "title": "Asiakastarina: Tech Solutions Oy",
+      "challenge": "Tech Solutions Oy tarvitsi joustavan kalustoratkaisun huoltokattavuudella, mutta ajomäärät vaihtelivat autokohtaisesti.",
+      "solution": "Innolease tarjosi joustoleasingpaketin, jossa kilometrimäärää saattoi säätää neljännesvuosittain, sekä kattavan huolto-ohjelman.",
+      "result": "Kalustokulut laskivat 18 %, autojen käyttöaste parani ja huoltohallinnointiin käytetty aika väheni.",
+      "quote": "Mahdollisuus muokata sopimuksia liiketoiminnan tarpeiden mukaan on ollut korvaamatonta kasvavalle yrityksellemme.",
+      "person": "Matti Virtanen, Kalustopäällikkö"
+    }
+  },
+  "maintenanceLeasing": {
+    "title": "Huoltoleasing",
+    "subtitle": "Kattava ja huoleton ratkaisu",
+    "description": "Huoltoleasing tarjoaa täydellisen mielenrauhan kiinteällä kuukausimaksulla. Se kattaa kaiken rahoituksesta kattavaan huoltoon, renkaisiin ja palveluihin. Täysin vaivaton kalustoratkaisu.",
+    "features": {
+      "title": "Tärkeimmät ominaisuudet",
+      "feature1": "Kaiken kattava kiinteä kuukausihinta",
+      "feature2": "Kattava huoltopaketti (huollot, renkaat, korjaukset)",
+      "feature3": "Valtakunnallinen huoltoverkosto",
+      "feature4": "Sijaisautopalvelu tarvittaessa",
+      "feature5": "Täysi kustannusten ennakoitavuus"
+    },
+    "idealFor": {
+      "title": "Sopii erityisesti yrityksille, jotka",
+      "type1": "Haluavat täysin ennakoitavat kustannukset",
+      "type2": "Eivät halua hallinnoida kalustoa itse",
+      "type3": "Toimivat laajasti Suomessa",
+      "type4": "Arvostavat vaivattomuutta joustavuuden sijaan"
+    },
+    "comparison": {
+      "title": "Vertaile leasingvaihtoehtoja",
+      "option1": "Rahoitusleasing",
+      "option2": "Joustoleasing",
+      "option3": "Huoltoleasing",
+      "financing": "Rahoitus",
+      "maintenance": "Huolto",
+      "tires": "Renkaat",
+      "repairs": "Korjaukset",
+      "insurance": "Vakuutus",
+      "roadside": "Tiepalvelu",
+      "replacement": "Sijaisauto",
+      "flexibility": "Sopimusjoustavuus",
+      "included": "Sisältyy",
+      "optional": "Valinnainen",
+      "excluded": "Ei sisälly",
+      "high": "Korkea",
+      "medium": "Keskitaso",
+      "low": "Matala"
+    }
+  },
+  "miniLeasing": {
+    "title": "Minileasing",
+    "subtitle": "Lyhytaikaista joustavuutta heti saatavilla",
+    "description": "Minileasingratkaisumme tarjoaa lyhytaikaista autoleasingia 1–12 kuukaudeksi. Se sisältää auton, huollon ja vakuutuksen yhdessä paketissa. Täydellinen tilapäisiin tarpeisiin ilman pitkäaikaista sitoutumista.",
+    "features": {
+      "title": "Tärkeimmät ominaisuudet",
+      "feature1": "Lyhyet sopimukset (1-12 kk)",
+      "feature2": "Vakuutus ja huolto sisältyvät",
+      "feature3": "Ei pitkäaikaista sitoutumista",
+      "feature4": "Nopea auton toimitus (usein jopa samana päivänä)",
+      "feature5": "Laaja valikoima heti saatavilla olevia autoja"
+    },
+    "idealFor": {
+      "title": "Sopii erityisesti",
+      "type1": "Projektiluontoiseen autotarpeeseen",
+      "type2": "Kausivaihteluihin",
+      "type3": "Uusien työntekijöiden koeajalle",
+      "type4": "Autotyyppien testaamiseen ennen pitkäaikaista sopimusta"
+    },
+    "pricing": {
+      "title": "Esimerkkihinnoittelu",
+      "category1": "Henkilöautot",
+      "price1": "Alk. 590 €/kk",
+      "category2": "Pakettiautot ja hyötyajoneuvot",
+      "price2": "Alk. 790 €/kk",
+      "category3": "Sähköautot",
+      "price3": "Alk. 890 €/kk",
+      "category4": "Premium-autot",
+      "price4": "Alk. 1190 €/kk",
+      "note": "Hinnat sisältävät huollon, vakuutuksen ja 2000 km/kk. Lisäkilometrit mahdollisia."
+    }
+  },
+  "faq": {
+    "title": "Usein kysytyt kysymykset",
+    "q1": "Mikä on lyhin mahdollinen leasingaika?",
+    "a1": "Minileasing alkaa yhdestä kuukaudesta. Muut leasingratkaisumme alkavat tyypillisesti 12 kuukaudesta.",
+    "q2": "Voiko leasingtyyppiä vaihtaa kesken sopimuskauden?",
+    "a2": "Kyllä, tarjoamme joustavuutta muokata leasingratkaisua liiketoiminnan tarpeiden muuttuessa sopimusehtojen puitteissa.",
+    "q3": "Onko sähköautoja saatavilla kaikissa leasingtyypeissä?",
+    "a3": "Kyllä, tarjoamme sähkö-, hybridi- ja polttomoottoriautoja kaikissa leasingratkaisuissamme.",
+    "q4": "Kuinka laaja huoltoverkostonne on?",
+    "a4": "Teemme yhteistyötä yli 800 huoltopisteen kanssa ympäri Suomen, mukaan lukien Vianor-, Euromaster- ja A-Katsastus-asemat.",
+    "q5": "Voiko vakuutuksen sisällyttää leasingpakettiin?",
+    "a5": "Vakuutus kuuluu oletuksena minileasingiin. Sen voi lisätä valinnaisena myös muihin leasingratkaisuihimme.",
+    "q6": "Mitä tapahtuu leasingkauden päättyessä?",
+    "a6": "Voit palauttaa auton, jatkaa sopimusta tai joissakin tapauksissa lunastaa auton sen jäännösarvolla.",
+    "q7": "Voiko yhteen sopimukseen sisällyttää useita autotyyppejä?",
+    "a7": "Kyllä, tarjoamme kalustoratkaisuja, jotka voivat sisältää erilaisia autotyyppejä yhden pääsopimuksen alla erillisillä ehdoilla."
+  },
+  "cta": {
+    "title": "Valmiina löytämään parhaan leasingratkaisun?",
+    "description": "Ota yhteyttä leasingasiantuntijoihimme, niin keskustellaan tarpeistasi ja tehdään tarjous.",
+    "button": "Pyydä tarjous",
+    "buttonHref": "/yhteystiedot",
+    "contact": "Tai soita meille +358 50 123 4567"
+  }
+}

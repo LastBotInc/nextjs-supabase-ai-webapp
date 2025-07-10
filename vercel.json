@@ -7,7 +7,7 @@
   "functions": {
     "app/api/**/*": {
       "memory": 1024,
-      "maxDuration": 10
+      "maxDuration": 300
     }
   },
   "crons": [],
@@ -92,5 +92,14 @@
         "hostname": "replicate.delivery"
       }
     ]
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "dev": true
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://www.innolease.com"
   }
 } 

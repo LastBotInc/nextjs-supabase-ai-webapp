@@ -1,6 +1,7 @@
 import { getRequestConfig } from 'next-intl/server';
 import { AbstractIntlMessages } from 'next-intl';
-import { type Locale, defaultLocale, locales, getI18nConfig } from '@/app/i18n/config';
+import { type Locale, defaultLocale, locales } from '@/app/i18n/config';
+import getI18nConfig from '../i18n';
 
 // This is the required default export for next-intl
 export default getRequestConfig(async ({ requestLocale }) => {

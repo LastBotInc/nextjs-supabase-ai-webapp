@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "Leasing Calculators - Innolease",
+    "description": "Use our helpful leasing calculators. Calculate car benefit values and leasing costs easily online.",
+    "keywords": "leasing calculator, car benefit, leasing costs, car leasing, car benefit value",
+    "image": "/images/calculators-meta.jpg"
+  },
+
+  "section1": {
+    "heading": "Helpful Leasing Calculators",
+    "texts": [
+      "Explore our comprehensive leasing calculators that help you make informed decisions about car leasing and car benefits.",
+      "Our calculators provide accurate estimates of costs and benefits, allowing you to plan your budget carefully."
+    ],
+    "image": { "src": "/images/calculators-hero.jpg", "alt": "Leasing Calculators" }
+  },
+
+  "section2": {
+    "heading": "",
+    "texts": [""],
+    "list": [
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" },
+      { "term": "", "description": "" }
+    ],
+    "image": { "src": "", "alt": "" }
+  },
+
+  "section3": {
+    "heading": "",
+    "texts": [""],
+    "table": {
+      "columns": ["", ""],
+      "rows": [
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""]
+      ]
+    }
+  },
+
+  "section4": {
+    "heading": "",
+    "texts": [""],
+    "list": ["", "", "", "", ""]
+  },
+
+  "section5": {
+    "heading": "",
+    "texts": [""],
+    "cases": [
+      {
+        "title": "",
+        "texts": [""],
+        "image": { "src": "", "alt": "" }
+      },
+      {
+        "title": "",
+        "texts": [""],
+        "image": { "src": "", "alt": "" }
+      }
+    ]
+  },
+
+  "faq": {
+    "heading": "",
+    "texts": [""],
+    "questions": [
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      },
+      {
+        "question": "",
+        "answer": ""
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Help Using the Calculators?",
+    "texts": ["Our experts will help you interpret the results and find the best solution for your needs."],
+    "link": { "label": "Contact Us", "href": "/asiakaspalvelu" },
+    "image": { "src": "/images/help-cta.jpg", "alt": "Help with calculator usage" }
+  },
+
+  "additionalCta": {
+    "calculator": {
+      "heading": "Car Benefit Calculator",
+      "text": "Calculate car benefit tax value and costs accurately",
+      "buttonText": "Go to Car Benefit Calculator",
+      "href": "/leasing-laskuri"
+    },
+    "carLeasing": {
+      "heading": "Car Leasing",
+      "text": "Learn about car leasing and its benefits",
+      "buttonText": "Read More About Car Leasing",
+      "href": "/autoleasing"
+    },
+    "contact": {
+      "heading": "Personal Service",
+      "text": "Get expert advice and tailored solutions",
+      "buttonText": "Book Appointment",
+      "href": "/asiakaspalvelu"
+    }
+  }
+}
