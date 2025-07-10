@@ -17,7 +17,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { RefreshCw, Users, Eye, Clock, TrendingUp, Globe, Monitor, MousePointer, Calendar, Smartphone } from 'lucide-react'
+import { RefreshCw, Users, Eye, Clock, TrendingUp, Globe, Monitor, MousePointer, Calendar, Smartphone, Target, Activity } from 'lucide-react'
 import { 
   LineChart, 
   Line, 
@@ -37,6 +37,7 @@ import {
 } from 'recharts'
 import UserAgentAnalytics from './user-agents'
 import GeographicAnalytics from './geographic'
+import ABTestingDashboard from './ab-testing'
 
 // Color palette for charts
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#84cc16', '#f97316']
@@ -637,13 +638,12 @@ export default function AnalyticsDashboard() {
 
       {/* Detailed Analytics Tabs */}
       <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList>
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="engagement">Engagement</TabsTrigger>
-          <TabsTrigger value="conversions">Conversions</TabsTrigger>
-          <TabsTrigger value="audience">Audience</TabsTrigger>
           <TabsTrigger value="user-agents">User Agents</TabsTrigger>
           <TabsTrigger value="geographic">Geographic</TabsTrigger>
+          <TabsTrigger value="ab-testing">A/B Testing</TabsTrigger>
+          <TabsTrigger value="real-time">Real-time</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">
@@ -771,6 +771,38 @@ export default function AnalyticsDashboard() {
 
         <TabsContent value="geographic" className="space-y-4">
           <GeographicAnalytics dateRange={dateRange} />
+        </TabsContent>
+
+        <TabsContent value="ab-testing" className="space-y-4">
+          <ABTestingDashboard />
+        </TabsContent>
+
+        <TabsContent value="real-time" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Activity className="h-5 w-5" />
+                Real-time Analytics
+              </CardTitle>
+              <p>
+                Live visitor activity and real-time metrics
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-12">
+                <Activity className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Real-time Dashboard Coming Soon</h3>
+                <p className="text-gray-600 mb-4">
+                  Live visitor tracking and real-time analytics dashboard
+                </p>
+                <div className="space-y-2 text-sm text-gray-500">
+                  <p>✅ Real-time data collection active</p>
+                  <p>✅ Session tracking implemented</p>
+                  <p>🔄 Live dashboard in development</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>

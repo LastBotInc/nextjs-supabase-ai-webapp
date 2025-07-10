@@ -21,6 +21,7 @@
     "calendar": "Calendar"
   },
   "account": {
-    "title": "My Account"
+    "title": "My Account",
+    "settings": "Settings"
   }
 }

@@ -13,9 +13,15 @@
     "calendar": "Kalenteri"
   },
   "analytics": {
-    "title": "Analytiikkakojelauta",
+    "title": "Analytiikka",
+    "description": "Tarkastele ja analysoi verkkosivustosi liikennettä ja suorituskykyä.",
+    "error": {
+      "title": "Jotain meni pieleen",
+      "description": "Analytiikkatietojen lataaminen epäonnistui. Yritä myöhemmin uudelleen.",
+      "retry": "Yritä uudelleen"
+    },
     "realtime": {
-      "title": "Reaaliaikainen toiminta"
+      "title": "Reaaliaikainen"
     },
     "tables": {
       "topPages": "Suosituimmat sivut",

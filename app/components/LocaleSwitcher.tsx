@@ -7,6 +7,14 @@ import { languages as availableLanguages } from '@/app/i18n/languages';
 import { staticLocales } from '@/app/i18n/config';
 import { createClient } from '@/utils/supabase/client';
 import { dedupingFetch } from '@/lib/utils/deduplication';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Globe } from 'lucide-react';
 
 interface Language {
   code: string;
@@ -107,15 +115,6 @@ export default function LocaleSwitcher() {
     };
   }, []);  // Empty dependency array since fetchLanguages is now stable
 
-  const handleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value;
-    try {
-      await router.replace(pathname, { locale: newLocale });
-    } catch (err) {
-      console.error('Error changing locale:', err);
-    }
-  };
-
   if (loading) {
     return (
       <div className="flex items-center">
@@ -136,41 +135,19 @@ export default function LocaleSwitcher() {
     return Math.max(...languages.map(lang => lang.native_name.length));
   };
   
-  // Minimum width plus some extra space for the dropdown arrow
-  const minWidth = Math.max(getLongestNativeName() * 8 + 30, 100); // 8px per character + 30px for arrow
-
   return (
-    <div className="flex items-center">
-      <label 
-        htmlFor="language-select" 
-        className="sr-only"
-      >
-        {t('label')}
-      </label>
-      <select
-        id="language-select"
-        value={locale}
-        onChange={handleChange}
-        aria-label={t('ariaLabel')}
-        style={{ minWidth: `${minWidth}px` }}
-        className="h-8 px-3 pr-8 text-sm bg-transparent border border-black/[.1] dark:border-white/[.1] rounded-md text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-black/[.3] dark:focus:ring-white/[.3] hover:border-gray-400 dark:hover:border-gray-500 transition-colors appearance-none"
-      >
+    <Select value={locale} onValueChange={(newLocale) => router.replace(pathname, { locale: newLocale })}>
+      <SelectTrigger className="w-auto h-8 bg-transparent border border-gray-700 hover:bg-gray-800">
+        <Globe className="h-4 w-4 mr-2" />
+        <SelectValue placeholder={t('label')} />
+      </SelectTrigger>
+      <SelectContent>
         {languages.map((lang) => (
-          <option 
-            key={lang.code} 
-            value={lang.code} 
-            className="bg-white dark:bg-gray-800 py-1"
-            aria-label={`${lang.name} - ${lang.native_name}`}
-          >
+          <SelectItem key={lang.code} value={lang.code}>
             {lang.native_name}
-          </option>
+          </SelectItem>
         ))}
-      </select>
-      <div className="relative right-6 pointer-events-none">
-        <svg className="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-        </svg>
-      </div>
-    </div>
+      </SelectContent>
+    </Select>
   );
 }

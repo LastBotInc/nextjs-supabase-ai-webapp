@@ -12,37 +12,6 @@
     "landing-pages": "Landningssidor",
     "calendar": "Kalender"
   },
-  "analytics": {
-    "title": "Analysinstrumentpanel",
-    "realtime": {
-      "title": "Realtidsaktivitet"
-    },
-    "tables": {
-      "topPages": "Populäraste sidor",
-      "trafficSources": "Trafikkällor"
-    },
-    "tabs": {
-      "pageViews": "Sidvisningar",
-      "topPages": "Populäraste sidor",
-      "userAgents": "Användaragenter"
-    },
-    "userAgents": {
-      "title": "Användaragent-analys",
-      "browsers": "Webbläsarfördelning",
-      "operatingSystems": "Operativsystem",
-      "devices": "Enhetstyper",
-      "versions": "Webbläsarversioner",
-      "insights": "Insikter",
-      "parseButton": "Analysera användaragenter",
-      "parsing": "Analyserar...",
-      "totalRequests": "Totala förfrågningar",
-      "uniqueBrowsers": "Unika webbläsare",
-      "modernBrowsers": "Moderna webbläsare",
-      "desktopUsers": "Skrivbordsanvändare",
-      "mobileUsers": "Mobilanvändare",
-      "botTraffic": "Bot-trafik"
-    }
-  },
   "Analytics": {
     "Geographic": {
       "title": "Geografisk analys",
@@ -130,5 +99,42 @@
     "upload": "Ladda upp media",
     "delete": "Radera",
     "edit": "Redigera"
+  },
+  "analytics": {
+    "title": "Analysinstrumentpanel",
+    "description": "Visa och analysera din webbplats trafik och prestanda.",
+    "error": {
+      "title": "Något gick fel",
+      "description": "Det gick inte att ladda analysdata. Försök igen senare.",
+      "retry": "Försök igen"
+    },
+    "realtime": {
+      "title": "Realtid"
+    },
+    "tables": {
+      "topPages": "Populäraste sidor",
+      "trafficSources": "Trafikkällor"
+    },
+    "tabs": {
+      "pageViews": "Sidvisningar",
+      "topPages": "Populäraste sidor",
+      "userAgents": "Användaragenter"
+    },
+    "userAgents": {
+      "title": "Användaragent-analys",
+      "browsers": "Webbläsarfördelning",
+      "operatingSystems": "Operativsystem",
+      "devices": "Enhetstyper",
+      "versions": "Webbläsarversioner",
+      "insights": "Insikter",
+      "parseButton": "Analysera användaragenter",
+      "parsing": "Analyserar...",
+      "totalRequests": "Totala förfrågningar",
+      "uniqueBrowsers": "Unika webbläsare",
+      "modernBrowsers": "Moderna webbläsare",
+      "desktopUsers": "Skrivbordsanvändare",
+      "mobileUsers": "Mobilanvändare",
+      "botTraffic": "Bot-trafik"
+    }
   }
 }

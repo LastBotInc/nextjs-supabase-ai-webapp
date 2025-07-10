@@ -21,6 +21,7 @@
     "dataSync": "Tietosynkronointi"
   },
   "account": {
-    "title": "Oma tili"
+    "title": "Oma tili",
+    "settings": "Asetukset"
   }
 }

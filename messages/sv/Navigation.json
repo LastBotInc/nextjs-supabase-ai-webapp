@@ -21,6 +21,7 @@
     "dataSync": "Datasynkronisering"
   },
   "account": {
-    "title": "Mitt konto"
+    "title": "Mitt konto",
+    "settings": "Inställningar"
   }
 }

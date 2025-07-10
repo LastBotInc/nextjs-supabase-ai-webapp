@@ -14,6 +14,12 @@
   },
   "analytics": {
     "title": "Analytics Dashboard",
+    "description": "View and analyze your website's traffic and performance.",
+    "error": {
+      "title": "Something went wrong",
+      "description": "We couldn't load the analytics data. Please try again later.",
+      "retry": "Retry"
+    },
     "realtime": {
       "title": "Real-time Activity"
     },
