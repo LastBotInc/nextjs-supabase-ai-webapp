@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { UAParser } from 'ua-parser-js'
 import { createClient } from '@/utils/supabase/client'
 import { dedupingFetch } from '@/lib/utils/deduplication'
+import { getGeographicData, type GeographicData } from './geographic-analytics'
 
 // Global flag to track initialization
 let isInitialized = false
@@ -151,6 +152,102 @@ const getUserTimezone = (): string => {
   }
 }
 
+/**
+ * Enhanced analytics initialization with geographic tracking
+ */
+export async function initializeAnalytics(): Promise<void> {
+  try {
+    // Use existing session initialization
+    const sessionId = getSessionId()
+    
+    // Collect geographic data
+    await collectGeographicData()
+    
+    // Track initial page view using existing function
+    await trackPageView()
+    
+    // Set up auto-tracking using existing function
+    setupAutoTracking()
+    
+    console.log('Analytics initialized with geographic tracking')
+  } catch (error) {
+    console.error('Failed to initialize analytics:', error)
+  }
+}
+
+/**
+ * Collect and store geographic data
+ */
+async function collectGeographicData(): Promise<void> {
+  try {
+    // Check if we already have geographic data for this session
+    const existingGeoData = sessionStorage.getItem('analytics_geo_data')
+    
+    if (existingGeoData) {
+      console.log('Geographic data already collected for this session')
+      return
+    }
+    
+    // Collect geographic data via API
+    const response = await fetch('/api/analytics/geographic', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        page_url: window.location.pathname,
+        timestamp: new Date().toISOString()
+      })
+    })
+    
+    if (response.ok) {
+      const result = await response.json()
+      
+      if (result.success) {
+        // Store geographic data in session storage
+        sessionStorage.setItem('analytics_geo_data', JSON.stringify(result.data))
+        
+        // Update global analytics context
+        updateAnalyticsContext(result.data)
+        
+        console.log('Geographic data collected:', result.data)
+      }
+    } else {
+      console.warn('Failed to collect geographic data:', response.status)
+    }
+  } catch (error) {
+    console.error('Error collecting geographic data:', error)
+  }
+}
+
+/**
+ * Update analytics context with geographic data
+ */
+function updateAnalyticsContext(geoData: GeographicData): void {
+  // Store in global context for use in other tracking calls
+  if (typeof window !== 'undefined') {
+    (window as any).analyticsGeoData = geoData
+  }
+}
+
+/**
+ * Get geographic data from context
+ */
+function getGeographicContext(): Partial<GeographicData> | null {
+  if (typeof window === 'undefined') return null
+  
+  const storedData = sessionStorage.getItem('analytics_geo_data')
+  if (storedData) {
+    try {
+      return JSON.parse(storedData)
+    } catch {
+      return null
+    }
+  }
+  
+  return (window as any).analyticsGeoData || null
+}
+
 // Enhanced event tracking with scroll depth and time on page
 export const trackEvent = async (
   eventType: string, 
@@ -173,11 +270,29 @@ export const trackEvent = async (
       const sessionId = getSessionId()
       const deviceInfo = getDeviceInfo()
       const { data: { session } } = await supabase.auth.getSession()
+      const geoData = getGeographicContext()
 
       // Calculate time on page for page view events
       let timeOnPage: number | undefined
       if (eventType === 'page_view' || eventType === 'page_exit') {
         timeOnPage = Math.round((Date.now() - pageStartTime) / 1000)
+      }
+
+      // Enhance metadata with geographic data
+      const enhancedMetadata = {
+        ...metadata,
+        ...(geoData && {
+          geographic_country: geoData.country,
+          geographic_region: geoData.region,
+          geographic_city: geoData.city,
+          geographic_timezone: geoData.timezone,
+          geographic_language: geoData.preferredLanguage,
+          geographic_continent: geoData.continent,
+          geographic_marketing_region: geoData.marketingRegion,
+          geographic_currency: geoData.currency,
+          geographic_is_eu: geoData.isEU,
+          geographic_is_gdpr: geoData.isGDPRRegion
+        })
       }
 
       const event: AnalyticsEvent = {
@@ -194,12 +309,19 @@ export const trackEvent = async (
         timezone: getUserTimezone(),
         scroll_depth: scrollDepth,
         time_on_page: timeOnPage,
-        custom_dimensions: metadata.dimensions as Record<string, any> || {},
-        custom_metrics: metadata.metrics as Record<string, number> || {},
+        custom_dimensions: (metadata.dimensions as Record<string, any>) || enhancedMetadata,
+        custom_metrics: (metadata.metrics as Record<string, number>) || {},
         transaction_id: metadata.transaction_id as string,
         revenue: metadata.revenue as number,
-        currency: metadata.currency as string || 'EUR',
+        currency: (metadata.currency as string) || 'EUR',
         items: metadata.items as any[],
+        // Add geographic data directly to event
+        ...(geoData && {
+          country: geoData.country,
+          region: geoData.region,
+          city: geoData.city,
+          browser_language: geoData.browserLanguage
+        }),
         ...deviceInfo
       }
 
@@ -232,40 +354,76 @@ export const trackPageView = async (customData?: Record<string, unknown>) => {
   pageStartTime = Date.now()
   scrollDepth = 0
   
-  return trackEvent('page_view', {
+  const geoData = getGeographicContext()
+  const enhancedData = {
+    ...customData,
     url: window.location.pathname,
     title: document.title,
     page_load_time: (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming)?.loadEventEnd || 0,
-    ...customData
-  }, 'navigation', 'page_view')
+    ...(geoData && {
+      geographic_country: geoData.country,
+      geographic_region: geoData.region,
+      geographic_city: geoData.city,
+      geographic_language: geoData.preferredLanguage,
+      geographic_marketing_region: geoData.marketingRegion
+    })
+  }
+  return trackEvent('page_view', enhancedData, 'navigation', 'page_view')
 }
 
 export const trackClick = async (element: string, label?: string, customData?: Record<string, unknown>) => {
-  return trackEvent('click', customData, 'engagement', 'click', label || element)
+  const geoData = getGeographicContext()
+  const enhancedData = {
+    ...customData,
+    element,
+    ...(geoData && {
+      geographic_country: geoData.country,
+      geographic_language: geoData.preferredLanguage
+    })
+  }
+  return trackEvent('click', enhancedData, 'engagement', 'click', label || element)
 }
 
 export const trackFormSubmit = async (formName: string, success: boolean = true, customData?: Record<string, unknown>) => {
-  return trackEvent('form_submit', {
+  const geoData = getGeographicContext()
+  const enhancedData = {
+    ...customData,
     form_name: formName,
     success,
-    ...customData
-  }, 'conversion', success ? 'form_submit_success' : 'form_submit_error', formName)
+    ...(geoData && {
+      geographic_country: geoData.country,
+      geographic_language: geoData.preferredLanguage
+    })
+  }
+  return trackEvent('form_submit', enhancedData, 'conversion', success ? 'form_submit_success' : 'form_submit_error', formName)
 }
 
 export const trackDownload = async (fileName: string, fileType: string, customData?: Record<string, unknown>) => {
-  return trackEvent('download', {
+  const geoData = getGeographicContext()
+  const enhancedData = {
+    ...customData,
     file_name: fileName,
     file_type: fileType,
-    ...customData
-  }, 'engagement', 'download', fileName)
+    ...(geoData && {
+      geographic_country: geoData.country,
+      geographic_language: geoData.preferredLanguage
+    })
+  }
+  return trackEvent('download', enhancedData, 'engagement', 'download', fileName)
 }
 
 export const trackVideoPlay = async (videoTitle: string, duration?: number, customData?: Record<string, unknown>) => {
-  return trackEvent('video_play', {
+  const geoData = getGeographicContext()
+  const enhancedData = {
+    ...customData,
     video_title: videoTitle,
     duration,
-    ...customData
-  }, 'engagement', 'video_play', videoTitle)
+    ...(geoData && {
+      geographic_country: geoData.country,
+      geographic_language: geoData.preferredLanguage
+    })
+  }
+  return trackEvent('video_play', enhancedData, 'engagement', 'video_play', videoTitle)
 }
 
 export const trackSearch = async (searchTerm: string, resultsCount?: number, customData?: Record<string, unknown>) => {

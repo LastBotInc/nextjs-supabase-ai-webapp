@@ -43,6 +43,46 @@
       "botTraffic": "Bot-trafik"
     }
   },
+  "Analytics": {
+    "Geographic": {
+      "title": "Geografisk analys",
+      "description": "Analysera användarnas platser, språk och regionala insikter",
+      "retry": "Försök igen",
+      "noData": "Ingen geografisk data tillgänglig än",
+      "collectData": "Samla geografisk data",
+      "refresh": "Uppdatera",
+      "totalUsers": "Totala användare",
+      "acrossCountries": "över {count} länder",
+      "topCountry": "Populäraste land",
+      "mostPopularLocation": "Populäraste plats",
+      "topLanguage": "Populäraste språk",
+      "languagesTotal": "{count} språk totalt",
+      "gdprCompliance": "GDPR-efterlevnad",
+      "gdprRegionUsers": "Användare i GDPR-regioner",
+      "groupBy": "Gruppera efter",
+      "country": "Land",
+      "region": "Region",
+      "city": "Stad",
+      "language": "Språk",
+      "continent": "Kontinent",
+      "marketingRegion": "Marknadsregion",
+      "currency": "Valuta",
+      "timezone": "Tidszon",
+      "topLocations": "Populäraste platser",
+      "distribution": "Fördelning",
+      "users": "Användare",
+      "diversityMetrics": "Mångfaldsmått",
+      "languageDiversity": "Språklig mångfald",
+      "geographicSpread": "Geografisk spridning",
+      "topMarketingRegion": "Populäraste marknadsregion",
+      "complianceOverview": "Efterlevnadsöversikt",
+      "gdprApplicable": "GDPR tillämplig",
+      "uniqueCountries": "Unika länder",
+      "uniqueLanguages": "Unika språk",
+      "detailedBreakdown": "Detaljerad uppdelning",
+      "percentage": "Procent"
+    }
+  },
   "blog": {
     "title": "Blogghantering",
     "posts": {

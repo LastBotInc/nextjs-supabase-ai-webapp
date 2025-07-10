@@ -43,6 +43,46 @@
       "botTraffic": "Botti-liikenne"
     }
   },
+  "Analytics": {
+    "Geographic": {
+      "title": "Maantieteellinen analytiikka",
+      "description": "Analysoi käyttäjien sijainteja, kieliä ja alueellisia näkemyksiä",
+      "retry": "Yritä uudelleen",
+      "noData": "Maantieteellistä dataa ei vielä saatavilla",
+      "collectData": "Kerää maantieteellistä dataa",
+      "refresh": "Päivitä",
+      "totalUsers": "Käyttäjiä yhteensä",
+      "acrossCountries": "{count} maassa",
+      "topCountry": "Suosituin maa",
+      "mostPopularLocation": "Suosituin sijainti",
+      "topLanguage": "Suosituin kieli",
+      "languagesTotal": "{count} kieltä yhteensä",
+      "gdprCompliance": "GDPR-vaatimustenmukaisuus",
+      "gdprRegionUsers": "Käyttäjät GDPR-alueilla",
+      "groupBy": "Ryhmittele",
+      "country": "Maa",
+      "region": "Alue",
+      "city": "Kaupunki",
+      "language": "Kieli",
+      "continent": "Maanosa",
+      "marketingRegion": "Markkinointialue",
+      "currency": "Valuutta",
+      "timezone": "Aikavyöhyke",
+      "topLocations": "Suosituimmat sijainnit",
+      "distribution": "Jakauma",
+      "users": "Käyttäjät",
+      "diversityMetrics": "Monimuotoisuusmittarit",
+      "languageDiversity": "Kielellinen monimuotoisuus",
+      "geographicSpread": "Maantieteellinen leveys",
+      "topMarketingRegion": "Suosituin markkinointialue",
+      "complianceOverview": "Vaatimustenmukaisuuden yleiskatsaus",
+      "gdprApplicable": "GDPR sovellettavissa",
+      "uniqueCountries": "Yksilöllisiä maita",
+      "uniqueLanguages": "Yksilöllisiä kieliä",
+      "detailedBreakdown": "Yksityiskohtainen erittely",
+      "percentage": "Prosentti"
+    }
+  },
   "blog": {
     "title": "Blogin hallinta",
     "posts": {

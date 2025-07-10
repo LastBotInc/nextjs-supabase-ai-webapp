@@ -43,6 +43,46 @@
       "botTraffic": "Bot Traffic"
     }
   },
+  "Analytics": {
+    "Geographic": {
+      "title": "Geographic Analytics",
+      "description": "Analyze user locations, languages, and regional insights",
+      "retry": "Retry",
+      "noData": "No geographic data available yet",
+      "collectData": "Collect Geographic Data",
+      "refresh": "Refresh",
+      "totalUsers": "Total Users",
+      "acrossCountries": "across {count} countries",
+      "topCountry": "Top Country",
+      "mostPopularLocation": "Most popular location",
+      "topLanguage": "Top Language",
+      "languagesTotal": "{count} languages total",
+      "gdprCompliance": "GDPR Compliance",
+      "gdprRegionUsers": "Users in GDPR regions",
+      "groupBy": "Group by",
+      "country": "Country",
+      "region": "Region",
+      "city": "City",
+      "language": "Language",
+      "continent": "Continent",
+      "marketingRegion": "Marketing Region",
+      "currency": "Currency",
+      "timezone": "Timezone",
+      "topLocations": "Top Locations",
+      "distribution": "Distribution",
+      "users": "Users",
+      "diversityMetrics": "Diversity Metrics",
+      "languageDiversity": "Language Diversity",
+      "geographicSpread": "Geographic Spread",
+      "topMarketingRegion": "Top Marketing Region",
+      "complianceOverview": "Compliance Overview",
+      "gdprApplicable": "GDPR Applicable",
+      "uniqueCountries": "Unique Countries",
+      "uniqueLanguages": "Unique Languages",
+      "detailedBreakdown": "Detailed Breakdown",
+      "percentage": "Percentage"
+    }
+  },
   "blog": {
     "title": "Blog Management",
     "posts": {
