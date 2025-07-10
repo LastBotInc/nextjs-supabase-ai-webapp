@@ -1,6 +1,14 @@
 # AI Changelog
 
 ## 2025-05-03
+- **Feat:** Updated translations admin page namespace mappings:
+  - Cleaned up namespace mappings in the translations admin page to only include existing namespaces
+  - Updated `utils/i18n-helpers.ts` to only return namespaces that actually exist in the messages directory
+  - Removed 26 non-existent namespaces (Billing, Campaigns, Calculators, etc.) from the namespace list
+  - Simplified namespace mapping labels to use English names for better clarity
+  - Removed path filter that was limiting available namespaces in the UI
+  - All 16 actual namespaces are now properly mapped and available for editing
+
 - **Feat:** Implemented namespace-based localization structure:
   - Created a script (`scripts/split-locales.js`) to split monolithic locale files into separate namespace files
   - Organized translations by feature/component under locale-specific folders (en/, fi/, sv/)

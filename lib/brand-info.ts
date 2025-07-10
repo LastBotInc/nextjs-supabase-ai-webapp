@@ -116,4 +116,8 @@ export const validateContent = (content: string): boolean => {
   );
   
   return !hasAvoided;
+};
+
+export const getKeywordGenerationDescription = (): string => {
+  return `${brandInfo.name} is a company that ${brandInfo.description.toLowerCase()} We specialize in AI integration, digital transformation, and autonomous solutions for businesses. Our services include AI consulting, implementation, and ongoing support to help companies become AI-first while maintaining their human-centric approach. We focus on creating genuine connections between technology and people, providing 24/7 AI-powered solutions that empower businesses in their digital journey.`;
 }; 
