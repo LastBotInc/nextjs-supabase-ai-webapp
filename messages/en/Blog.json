@@ -1,11 +1,11 @@
 {
-  "title": "Blog",
+  "title": "Articles",
   "description": "Latest insights, research, and news from Brancoy HI Engine on AI-powered eCommerce, Shopify best practices, and intelligent migration strategies.",
   "noPosts": "No posts yet. Stay tuned for insights from Brancoy HI Engine!",
   "similarPosts": "Similar Posts",
-  "backToBlog": "Back to Blog",
+  "backToBlog": "Back to Articles",
   "admin": {
-    "title": "Blog Posts",
+    "title": "Articles",
     "newPost": "New Post",
     "editPost": "Edit",
     "save": "Save",
@@ -25,8 +25,8 @@
       "targetLanguages": "Target Languages",
       "targetLanguagesHelp": "Select languages for automatic translation",
       "targetLanguagesOptional": "(optional)",
-      "prompt": "Blog Post Prompt",
-      "promptPlaceholder": "Enter a prompt to generate blog post content...",
+      "prompt": "Article Prompt",
+      "promptPlaceholder": "Enter a prompt to generate article content...",
       "detectedLanguage": "(detected)",
       "published": "Published"
     },

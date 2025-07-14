@@ -1,11 +1,11 @@
 {
-  "title": "Blogg",
+  "title": "Artiklar",
   "description": "Senaste insikter, forskning och nyheter från Brancoy HI Engine om AI-driven e-handel, bästa praxis för Shopify och intelligenta migreringsstrategier.",
   "noPosts": "Inga inlägg ännu. Håll utkik efter insikter från Brancoy HI Engine!",
   "similarPosts": "Liknande inlägg",
-  "backToBlog": "Tillbaka till bloggen",
+  "backToBlog": "Tillbaka till artiklar",
   "admin": {
-    "title": "Blogginlägg",
+    "title": "Artiklar",
     "newPost": "Nytt inlägg",
     "editPost": "Redigera",
     "save": "Spara",
@@ -25,8 +25,8 @@
       "targetLanguages": "Målspråk",
       "targetLanguagesHelp": "Välj språk för automatisk översättning",
       "targetLanguagesOptional": "(frivillig)",
-      "prompt": "Blogginläggsprompt",
-      "promptPlaceholder": "Ange en prompt för att generera blogginnehåll...",
+      "prompt": "Artikelprompt",
+      "promptPlaceholder": "Ange en prompt för att generera artikelinnehåll...",
       "detectedLanguage": "(upptäckt)"
     },
     "editor": {

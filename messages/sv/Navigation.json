@@ -1,14 +1,15 @@
 {
   "home": "Hem",
   "about": "Om oss",
-  "blog": "Blogg",
+  "blog": "Artiklar",
   "book": "Boka tid",
   "admin_link": "Admin",
   "signIn": "Logga in",
   "signOut": "Logga ut",
   "backToSite": "Tillbaka till webbplatsen",
   "admin": {
-    "blog": "Bloggadmin",
+    "cms": "CMS",
+    "blog": "Artikeladmin",
     "contacts": "Kontakter",
     "analytics": "Analys",
     "seo": "SEO",
@@ -18,7 +19,10 @@
     "products": "Produkter",
     "landingPages": "Landningssidor",
     "calendar": "Kalender",
-    "dataSync": "Datasynkronisering"
+    "dataSync": "Datasynkronisering",
+    "personas": "Användarpersonas",
+    "contentCalendar": "Innehållskalender",
+    "contentGenerator": "Innehållsgenerator"
   },
   "account": {
     "title": "Mitt konto",

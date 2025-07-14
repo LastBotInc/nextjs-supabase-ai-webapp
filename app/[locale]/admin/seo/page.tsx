@@ -5,6 +5,7 @@ import { useAuth } from '@/components/auth/AuthProvider';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/utils/supabase/client';
 import SEODashboard from '@/components/admin/seo/SEODashboard';
+import ProjectSelector from '@/components/admin/seo/ProjectSelector';
 import { SEOProject, SERPTracking } from '@/types/seo';
 
 // Extended interface for SERP data with joined project information
@@ -19,6 +20,7 @@ export default function SEOPage() {
   const t = useTranslations('Admin.SEO');
   const { session, loading: authLoading, isAdmin } = useAuth();
   const [projects, setProjects] = useState<SEOProject[]>([]);
+  const [selectedProject, setSelectedProject] = useState<SEOProject | null>(null);
   const [recentSerpData, setRecentSerpData] = useState<SERPTrackingWithProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,8 +47,8 @@ export default function SEOPage() {
 
       if (projectsError) throw projectsError;
 
-      // Fetch recent SERP data
-      const { data: serpData, error: serpError } = await supabase
+      // Fetch recent SERP data - filter by selected project if available
+      let serpQuery = supabase
         .from('serp_tracking')
         .select(`
           *,
@@ -54,6 +56,12 @@ export default function SEOPage() {
         `)
         .order('tracked_at', { ascending: false })
         .limit(10);
+      
+      if (selectedProject) {
+        serpQuery = serpQuery.eq('project_id', selectedProject.id);
+      }
+
+      const { data: serpData, error: serpError } = await serpQuery;
 
       if (serpError) throw serpError;
 
@@ -65,13 +73,17 @@ export default function SEOPage() {
     } finally {
       setLoading(false);
     }
-  }, [session, isAdmin, authLoading]);
+  }, [session, isAdmin, authLoading, selectedProject]);
 
   useEffect(() => {
     if (!authLoading) {
       fetchDashboardData();
     }
   }, [fetchDashboardData, authLoading]);
+
+  const handleProjectChange = (projectId: string, project: SEOProject) => {
+    setSelectedProject(project);
+  };
 
   if (authLoading || loading) {
     return (
@@ -152,12 +164,20 @@ export default function SEOPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          SEO Dashboard
-        </h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          Monitor and optimize your website's search engine performance
-        </p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+              SEO Dashboard
+            </h1>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Monitor and optimize your website's search engine performance
+            </p>
+          </div>
+          <ProjectSelector 
+            currentProjectId={selectedProject?.id}
+            onProjectChange={handleProjectChange}
+          />
+        </div>
       </div>
 
       <SEODashboard initialData={dashboardData} />

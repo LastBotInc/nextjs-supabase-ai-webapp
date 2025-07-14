@@ -11,18 +11,32 @@ export interface BrandPersonality {
   avoid: string[];
 }
 
+export interface BrandService {
+  name: string;
+  description: string;
+}
+
+export interface BrandSolution {
+  name: string;
+  description: string;
+}
+
 export interface BrandVoice {
   name: string;
+  websiteUrl: string;
   description: string;
   tone: BrandTone;
   personality: BrandPersonality;
   writingStyle: string[];
   commonPhrases: string[];
   avoidPhrases: string[];
+  services: BrandService[];
+  solutions: BrandSolution[];
 }
 
 export const brandInfo: BrandVoice = {
   name: "LastBot",
+  websiteUrl: "https://www.lastbot.com",
   description: "LastBot helps companies become AI-first while maintaining their focus on people. We provide a fast-track approach to AI integration, creating genuine connections and delivering autonomous solutions that empower businesses in their digital transformation journey.",
   tone: {
     formal: 7,     // Professional but not stiff
@@ -81,6 +95,50 @@ export const brandInfo: BrandVoice = {
     "Disruptive technology",
     "Game-changing solution",
     "Market leader"
+  ],
+  services: [
+    {
+      name: "AI Consulting",
+      description: "Strategic guidance to help organizations identify and implement AI opportunities that align with business goals"
+    },
+    {
+      name: "AI Implementation",
+      description: "End-to-end deployment of AI solutions with focus on seamless integration into existing workflows"
+    },
+    {
+      name: "Custom AI Development",
+      description: "Tailored AI applications designed specifically for your unique business requirements"
+    },
+    {
+      name: "AI Training & Workshops",
+      description: "Comprehensive training programs to upskill teams and foster AI literacy across organizations"
+    },
+    {
+      name: "AI Support & Maintenance",
+      description: "Ongoing support to ensure AI solutions continue delivering value and evolve with your needs"
+    }
+  ],
+  solutions: [
+    {
+      name: "LastBot Chat",
+      description: "Intelligent conversational AI that provides 24/7 customer support while maintaining your brand voice"
+    },
+    {
+      name: "LastBot Analytics",
+      description: "AI-powered analytics platform that transforms data into actionable business insights"
+    },
+    {
+      name: "LastBot Automation",
+      description: "Smart automation tools that streamline repetitive tasks while keeping humans in control"
+    },
+    {
+      name: "LastBot Content",
+      description: "AI content generation system that creates brand-aligned content at scale"
+    },
+    {
+      name: "LastBot Integration Hub",
+      description: "Seamless connectivity between AI capabilities and your existing tech stack"
+    }
   ]
 };
 

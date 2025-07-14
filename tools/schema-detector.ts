@@ -172,7 +172,7 @@ Return the single item schema (not an array of items, but the schema for one ite
     console.log('\nSending prompt to Gemini...');
 
     const result = await genAI.models.generateContent({
-      model: 'gemini-2.0-flash-001',
+      model: 'gemini-2.5-flash',
       contents: [{ role: "user", parts: [{ text: promptContent }] }],
       config: generationAndSafetyConfig,
     });

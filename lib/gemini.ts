@@ -109,11 +109,11 @@ export async function generateTranslation(input: TranslationInput): Promise<Tran
   try {
     // Generate content with structured JSON output
     const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash-001',
+      model: 'gemini-2.5-flash',
       contents: [{ text: prompt }],
       config: {
         temperature: 0.7,
-        maxOutputTokens: 4096,
+        maxOutputTokens: 32000,
         responseMimeType: 'application/json',
         responseSchema: translationSchema,
         safetySettings: [

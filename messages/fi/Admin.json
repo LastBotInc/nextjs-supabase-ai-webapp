@@ -3,7 +3,7 @@
   "navigation": {
     "dashboard": "Kojelauta",
     "analytics": "Analytiikka",
-    "blog": "Blogin hallinta",
+    "blog": "Artikkelien hallinta",
     "contacts": "Yhteydenotot",
     "translations": "Käännökset",
     "users": "Käyttäjät",
@@ -90,7 +90,7 @@
     }
   },
   "blog": {
-    "title": "Blogin hallinta",
+    "title": "Artikkelien hallinta",
     "posts": {
       "title": "Artikkelit",
       "create": "Luo artikkeli",
@@ -136,5 +136,197 @@
     "upload": "Lataa media",
     "delete": "Poista",
     "edit": "Muokkaa"
+  },
+  "cms": {
+    "title": "Sisällönhallintajärjestelmä",
+    "description": "Hallitse sisältöäsi, brändiäsi ja digitaalista läsnäoloasi yhdestä paikasta",
+    "brandManagement": "Brändinhallinta",
+    "brandManagementDescription": "Hallitse brändin määrityksiä tekoälypohjaista sisällöntuotantoa varten",
+    "contentModules": "Sisältömoduulit",
+    "stats": {
+      "totalPosts": "Julkaisuja yhteensä",
+      "activePersonas": "Aktiivisia asiakaspersoonia",
+      "scheduledContent": "Ajastettua sisältöä",
+      "mediaFiles": "Mediatiedostoja"
+    },
+    "brand": {
+      "addBrand": "Lisää brändi",
+      "createNew": "Luo uusi brändi",
+      "editBrand": "Muokkaa brändiä",
+      "brandName": "Brändin nimi",
+      "websiteUrl": "Verkkosivun URL",
+      "description": "Kuvaus",
+      "analyze": "Analysoi",
+      "analyzing": "Analysoidaan...",
+      "active": "Aktiivinen",
+      "inactive": "Ei aktiivinen",
+      "noDescription": "Ei kuvausta",
+      "basicInfo": "Perustiedot",
+      "brandTone": "Brändin sävy",
+      "personality": "Persoonallisuus",
+      "writingStyle": "Kirjoitustyyli",
+      "tone": {
+        "formal": "Muodollinen",
+        "formalDesc": "0 = Rento, 10 = Hyvin muodollinen",
+        "friendly": "Ystävällinen",
+        "friendlyDesc": "0 = Ammattimainen, 10 = Hyvin ystävällinen",
+        "technical": "Tekninen",
+        "technicalDesc": "0 = Yksinkertainen, 10 = Hyvin tekninen",
+        "innovative": "Innovatiivinen",
+        "innovativeDesc": "0 = Perinteinen, 10 = Hyvin innovatiivinen"
+      },
+      "traits": {
+        "primary": "Ensisijaiset piirteet",
+        "secondary": "Toissijaiset piirteet",
+        "avoid": "Vältettävät piirteet"
+      },
+      "style": {
+        "guidelines": "Kirjoitustyylin ohjeet",
+        "commonPhrases": "Yleisimmät ilmaisut",
+        "avoidPhrases": "Vältettävät ilmaisut"
+      },
+      "actions": {
+        "save": "Tallenna muutokset",
+        "create": "Luo brändi",
+        "delete": "Poista brändi",
+        "cancel": "Peruuta"
+      },
+      "messages": {
+        "analyzeSuccess": "Verkkosivusto analysoitu onnistuneesti",
+        "analyzeFailed": "Verkkosivuston analysointi epäonnistui",
+        "createSuccess": "Brändi luotu onnistuneesti",
+        "updateSuccess": "Brändi päivitetty onnistuneesti",
+        "deleteSuccess": "Brändi poistettu onnistuneesti",
+        "saveFailed": "Brändin tallennus epäonnistui",
+        "deleteFailed": "Brändin poisto epäonnistui",
+        "loadFailed": "Brändien lataus epäonnistui",
+        "requiredFields": "Täytä pakolliset kentät",
+        "enterUrl": "Anna ensin verkkosivun URL",
+        "confirmDelete": "Haluatko varmasti poistaa tämän brändin?"
+      }
+    },
+    "contentTypesDescription": "Määrittele ja mukauta sisältötyyppejä AI-pohjaista sisällöntuotantoa varten",
+    "aiPersonas": {
+      "title": "Asiakaspersoonat"
+    },
+    "contentTypes": {
+      "title": "Sisältötyypit",
+      "addContentType": "Lisää sisältötyyppi",
+      "createNew": "Luo uusi sisältötyyppi",
+      "editContentType": "Muokkaa sisältötyyppiä",
+      "name": "Nimi",
+      "namePlaceholder": "esim. Uutisartikkeli",
+      "slug": "Tunnus",
+      "description": "Kuvaus",
+      "descriptionPlaceholder": "Lyhyt kuvaus tästä sisältötyypistä",
+      "active": "Aktiivinen",
+      "inactive": "Ei aktiivinen",
+      "system": "Järjestelmä",
+      "basicInfo": "Perustiedot",
+      "toneOverrides": "Sävyn ohitukset",
+      "structure": "Rakenne",
+      "guidelines": "Ohjeet",
+      "associatedBrand": "Liitetty brändi",
+      "noBrand": "Ei tiettyä brändiä",
+      "typicalLength": "Tyypillinen pituus",
+      "lengthRange": "Pituusalue",
+      "brand": "Brändi",
+      "toneOverridesDescription": "Ohita brändin sävyasetukset tälle sisältötyypille. Jätä tyhjäksi käyttääksesi brändin oletuksia.",
+      "tone": {
+        "formal": "Muodollinen",
+        "friendly": "Ystävällinen",
+        "technical": "Tekninen",
+        "innovative": "Innovatiivinen"
+      },
+      "structureTemplate": "Rakennemalli",
+      "structureTemplateDescription": "Määrittele tyypillinen rakenne tälle sisältötyypille",
+      "keywords": "Avainsanat",
+      "keywordsPlaceholder": "Lisää avainsana",
+      "metaDescriptionTemplate": "Meta-kuvauksen malli",
+      "writingGuidelines": "Kirjoitusohjeet",
+      "guidelinesPlaceholder": "Lisää kirjoitusohje",
+      "exampleTitles": "Esimerkkiotsikot",
+      "exampleTitlesPlaceholder": "Lisää esimerkkiotsikko",
+      "actions": {
+        "save": "Tallenna muutokset",
+        "create": "Luo sisältötyyppi",
+        "delete": "Poista sisältötyyppi",
+        "cancel": "Peruuta"
+      },
+      "messages": {
+        "createSuccess": "Sisältötyyppi luotu onnistuneesti",
+        "updateSuccess": "Sisältötyyppi päivitetty onnistuneesti",
+        "deleteSuccess": "Sisältötyyppi poistettu onnistuneesti",
+        "saveFailed": "Sisältötyypin tallennus epäonnistui",
+        "deleteFailed": "Sisältötyypin poisto epäonnistui",
+        "loadFailed": "Sisältötyyppien lataus epäonnistui",
+        "requiredFields": "Täytä pakolliset kentät",
+        "confirmDelete": "Haluatko varmasti poistaa tämän sisältötyypin?"
+      }
+    }
+  },
+  "SEO": {
+    "keywords": {
+      "title": "Avainsanatutkimus",
+      "description": "Löydä ja analysoi avainsanoja SEO-strategiaasi varten",
+      "loading": "Ladataan avainsanatietoja...",
+      "research": "Tutki avainsanoja",
+      "researching": "Tutkitaan...",
+      "selectProject": "Valitse projekti",
+      "seedKeyword": "Lähtöavainsana",
+      "enterKeyword": "Syötä tutkittava avainsana",
+      "location": "Sijainti",
+      "language": "Kieli",
+      "searchVolume": "Hakuvolyymi",
+      "cpc": "CPC",
+      "competition": "Kilpailu",
+      "difficulty": "Vaikeusaste",
+      "intent": "Tarkoitus",
+      "actions": "Toiminnot",
+      "added": "Lisätty",
+      "suggestions": "Avainsanaehdotukset",
+      "saved": "Tallennetut avainsanat",
+      "noKeywords": "Ei tallennettuja avainsanoja. Aloita tutkimalla avainsanoja yllä.",
+      "addKeyword": "Lisää avainsana",
+      "deleteKeyword": "Poista",
+      "noProjects": {
+        "title": "SEO-projekteja ei löytynyt",
+        "description": "Luo ensimmäinen SEO-projektisi aloittaaksesi avainsanatutkimuksen.",
+        "createButton": "Luo SEO-projekti"
+      },
+      "locations": {
+        "2840": "Yhdysvallat",
+        "2826": "Iso-Britannia",
+        "2124": "Kanada",
+        "2276": "Saksa",
+        "2250": "Ranska",
+        "2752": "Ruotsi",
+        "2246": "Suomi"
+      },
+      "languages": {
+        "en": "Englanti",
+        "fi": "Suomi",
+        "sv": "Ruotsi",
+        "de": "Saksa",
+        "fr": "Ranska"
+      },
+      "ai": {
+        "title": "AI-avainsanageneraattori",
+        "description": "Käytä tekoälyä luodaksesi relevantteja avainsanoja yrityskuvauksesi perusteella",
+        "targetLocation": "Kohdesijainti",
+        "targetLanguage": "Kohdekieli",
+        "companyDescription": "Yrityksen kuvaus",
+        "companyDescriptionPlaceholder": "Kuvaile liiketoimintaasi, tuotteitasi, palveluitasi ja kohdeyleisöäsi...",
+        "companyDescriptionHelp": "Anna yksityiskohtainen kuvaus saadaksesi osuvampia avainsanaehdotuksia. Sisällytä tuotteesi, palvelusi, ainutlaatuiset arvolupauksesi ja kohdemarkkinasi.",
+        "generating": "Luodaan avainsanoja...",
+        "generateCount": "Luo {{count}} avainsanaa"
+      },
+      "serp": {
+        "analyzeTooltip": "Analysoi SERP-tulokset tälle avainsanalle"
+      }
+    },
+    "projects": {
+      "select": "Valitse projekti"
+    }
   }
 }

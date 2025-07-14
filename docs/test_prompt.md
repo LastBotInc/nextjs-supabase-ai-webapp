@@ -179,7 +179,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
       "command": "npm run gemini",
       "options": {
         "prompt": "Text prompt or question for the model",
-        "model": "(Optional) Model to use: 'gemini-2.0-flash-001' (default), 'gemini-2.0-flash-001', 'Gemini-Exp-1206', 'Gemini-2.0-Flash-Thinking-Exp-1219'",
+        "model": "(Optional) Model to use: 'gemini-2.5-flash' (default), 'gemini-2.5-flash', 'Gemini-Exp-1206', 'Gemini-2.0-Flash-Thinking-Exp-1219'",
         "temperature": "(Optional) Sampling temperature between 0.0 and 1.0 (default: 0.7)",
         "max-tokens": "(Optional) Maximum number of tokens to generate (default: 2048)",
         "image": "(Optional) Path to image file for vision tasks",
@@ -192,7 +192,7 @@ mcp_puppeteer_puppeteer_evaluate - Execute JavaScript
         "GOOGLE_AI_STUDIO_KEY in .env",
         "@google/generative-ai package"
       ],
-      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash-001 --temperature 0.7"
+      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.5-flash --temperature 0.7"
     },
     "download-file": {
       "description": "Downloads files from URLs with progress tracking, automatic file type detection, and customizable output paths",

@@ -2,9 +2,12 @@
 
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useTranslations } from 'next-intl';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { AdminApi } from '@/utils/adminApi';
+import { createClient } from '@/utils/supabase/client';
+import ProjectSelector from '@/components/admin/seo/ProjectSelector';
 import { COMMON_LOCATIONS, DEFAULT_LOCATION, type Location } from '@/lib/seo/locations';
+import type { SEOProject } from '@/types/seo';
 import {
   CogIcon,
   MagnifyingGlassIcon,
@@ -175,6 +178,7 @@ export default function TechnicalAuditPage() {
   
   // Form state
   const [domain, setDomain] = useState('');
+  const [selectedProject, setSelectedProject] = useState<SEOProject | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location>(DEFAULT_LOCATION);
   const [loading, setLoading] = useState(false);
   const [taskId, setTaskId] = useState<string | null>(null);
@@ -190,6 +194,37 @@ export default function TechnicalAuditPage() {
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
   const [filterType, setFilterType] = useState<'all' | 'errors' | 'warnings' | 'success'>('all');
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Handle project change
+  const handleProjectChange = useCallback((projectId: string, project: SEOProject) => {
+    setSelectedProject(project);
+    // Auto-populate domain from project
+    if (project.domain) {
+      setDomain(project.domain);
+    }
+  }, []);
+
+  // Load initial project from localStorage
+  useEffect(() => {
+    const loadInitialProject = async () => {
+      const savedProjectId = localStorage.getItem('selectedSeoProjectId');
+      if (savedProjectId) {
+        const supabase = createClient();
+        const { data: project } = await supabase
+          .from('seo_projects')
+          .select('*')
+          .eq('id', savedProjectId)
+          .single();
+        
+        if (project) {
+          setSelectedProject(project);
+          setDomain(project.domain);
+        }
+      }
+    };
+    
+    loadInitialProject();
+  }, []);
 
   const cancelAnalysis = useCallback(() => {
     console.log('🛑 Canceling analysis...')
@@ -414,12 +449,20 @@ export default function TechnicalAuditPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Technical SEO Audit
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Analyze your website's technical SEO health and performance
-        </p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              Technical SEO Audit
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400">
+              Analyze your website's technical SEO health and performance
+            </p>
+          </div>
+          <ProjectSelector 
+            currentProjectId={selectedProject?.id}
+            onProjectChange={handleProjectChange}
+          />
+        </div>
       </div>
 
       {/* Analysis Form */}

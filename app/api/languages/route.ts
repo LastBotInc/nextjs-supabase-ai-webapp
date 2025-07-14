@@ -114,7 +114,7 @@ export async function POST(request: Request) {
     }
 
     // Initialize model
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' })
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
 
     // Generate native name translation
     console.log('🤖 Generating native name translation...')

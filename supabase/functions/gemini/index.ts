@@ -42,7 +42,7 @@ export async function handleRequest(
     const body: RequestBody = await req.json();
     const { 
       prompt,
-      model = 'gemini-2.0-flash-001',
+      model = 'gemini-2.5-flash',
       temperature = 0.7,
       maxTokens = 2048,
       topP = 0.95,

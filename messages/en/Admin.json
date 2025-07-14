@@ -3,7 +3,7 @@
   "navigation": {
     "dashboard": "Dashboard",
     "analytics": "Analytics",
-    "blog": "Blog Management",
+    "blog": "Article Management",
     "contacts": "Contacts",
     "translations": "Translations",
     "users": "Users",
@@ -90,7 +90,7 @@
     }
   },
   "blog": {
-    "title": "Blog Management",
+    "title": "Article Management",
     "posts": {
       "title": "Posts",
       "create": "Create Post",
@@ -136,5 +136,197 @@
     "upload": "Upload Media",
     "delete": "Delete",
     "edit": "Edit"
+  },
+  "cms": {
+    "title": "Content Management System",
+    "description": "Manage your content, brand, and digital presence from one central hub",
+    "brandManagement": "Brand Management",
+    "brandManagementDescription": "Manage your brand definitions for AI-powered content generation",
+    "contentModules": "Content Modules",
+    "stats": {
+      "totalPosts": "Total Posts",
+      "activePersonas": "Active Customer Personas",
+      "scheduledContent": "Scheduled Content",
+      "mediaFiles": "Media Files"
+    },
+    "brand": {
+      "addBrand": "Add Brand",
+      "createNew": "Create New Brand",
+      "editBrand": "Edit Brand",
+      "brandName": "Brand Name",
+      "websiteUrl": "Website URL",
+      "description": "Description",
+      "analyze": "Analyze",
+      "analyzing": "Analyzing...",
+      "active": "Active",
+      "inactive": "Inactive",
+      "noDescription": "No description",
+      "basicInfo": "Basic Info",
+      "brandTone": "Brand Tone",
+      "personality": "Personality",
+      "writingStyle": "Writing Style",
+      "tone": {
+        "formal": "Formal",
+        "formalDesc": "0 = Casual, 10 = Very Formal",
+        "friendly": "Friendly",
+        "friendlyDesc": "0 = Professional, 10 = Very Friendly",
+        "technical": "Technical",
+        "technicalDesc": "0 = Simple, 10 = Very Technical",
+        "innovative": "Innovative",
+        "innovativeDesc": "0 = Traditional, 10 = Very Innovative"
+      },
+      "traits": {
+        "primary": "Primary Traits",
+        "secondary": "Secondary Traits",
+        "avoid": "Traits to Avoid"
+      },
+      "style": {
+        "guidelines": "Writing Style Guidelines",
+        "commonPhrases": "Common Phrases",
+        "avoidPhrases": "Phrases to Avoid"
+      },
+      "actions": {
+        "save": "Save Changes",
+        "create": "Create Brand",
+        "delete": "Delete Brand",
+        "cancel": "Cancel"
+      },
+      "messages": {
+        "analyzeSuccess": "Website analyzed successfully",
+        "analyzeFailed": "Failed to analyze website",
+        "createSuccess": "Brand created successfully",
+        "updateSuccess": "Brand updated successfully",
+        "deleteSuccess": "Brand deleted successfully",
+        "saveFailed": "Failed to save brand",
+        "deleteFailed": "Failed to delete brand",
+        "loadFailed": "Failed to load brands",
+        "requiredFields": "Please fill in required fields",
+        "enterUrl": "Please enter a website URL first",
+        "confirmDelete": "Are you sure you want to delete this brand?"
+      }
+    },
+    "contentTypesDescription": "Define and customize content types for AI-powered content generation",
+    "aiPersonas": {
+      "title": "Customer Personas"
+    },
+    "contentTypes": {
+      "title": "Content Types",
+      "addContentType": "Add Content Type",
+      "createNew": "Create New Content Type",
+      "editContentType": "Edit Content Type",
+      "name": "Name",
+      "namePlaceholder": "e.g., News Article",
+      "slug": "Slug",
+      "description": "Description",
+      "descriptionPlaceholder": "Brief description of this content type",
+      "active": "Active",
+      "inactive": "Inactive",
+      "system": "System",
+      "basicInfo": "Basic Info",
+      "toneOverrides": "Tone Overrides",
+      "structure": "Structure",
+      "guidelines": "Guidelines",
+      "associatedBrand": "Associated Brand",
+      "noBrand": "No specific brand",
+      "typicalLength": "Typical Length",
+      "lengthRange": "Length range",
+      "brand": "Brand",
+      "toneOverridesDescription": "Override brand tone settings for this content type. Leave blank to use brand defaults.",
+      "tone": {
+        "formal": "Formal",
+        "friendly": "Friendly",
+        "technical": "Technical",
+        "innovative": "Innovative"
+      },
+      "structureTemplate": "Structure Template",
+      "structureTemplateDescription": "Define the typical structure for this content type",
+      "keywords": "Keywords",
+      "keywordsPlaceholder": "Add keyword",
+      "metaDescriptionTemplate": "Meta Description Template",
+      "writingGuidelines": "Writing Guidelines",
+      "guidelinesPlaceholder": "Add a writing guideline",
+      "exampleTitles": "Example Titles",
+      "exampleTitlesPlaceholder": "Add an example title",
+      "actions": {
+        "save": "Save Changes",
+        "create": "Create Content Type",
+        "delete": "Delete Content Type",
+        "cancel": "Cancel"
+      },
+      "messages": {
+        "createSuccess": "Content type created successfully",
+        "updateSuccess": "Content type updated successfully",
+        "deleteSuccess": "Content type deleted successfully",
+        "saveFailed": "Failed to save content type",
+        "deleteFailed": "Failed to delete content type",
+        "loadFailed": "Failed to load content types",
+        "requiredFields": "Please fill in required fields",
+        "confirmDelete": "Are you sure you want to delete this content type?"
+      }
+    }
+  },
+  "SEO": {
+    "keywords": {
+      "title": "Keyword Research",
+      "description": "Discover and analyze keywords for your SEO strategy",
+      "loading": "Loading keyword data...",
+      "research": "Research Keywords",
+      "researching": "Researching...",
+      "selectProject": "Select Project",
+      "seedKeyword": "Seed Keyword",
+      "enterKeyword": "Enter a keyword to research",
+      "location": "Location",
+      "language": "Language",
+      "searchVolume": "Search Volume",
+      "cpc": "CPC",
+      "competition": "Competition",
+      "difficulty": "Difficulty",
+      "intent": "Intent",
+      "actions": "Actions",
+      "added": "Added",
+      "suggestions": "Keyword Suggestions",
+      "saved": "Saved Keywords",
+      "noKeywords": "No keywords saved yet. Start by researching some keywords above.",
+      "addKeyword": "Add Keyword",
+      "deleteKeyword": "Delete",
+      "noProjects": {
+        "title": "No SEO Projects Found",
+        "description": "Create your first SEO project to start keyword research.",
+        "createButton": "Create SEO Project"
+      },
+      "locations": {
+        "2840": "United States",
+        "2826": "United Kingdom",
+        "2124": "Canada",
+        "2276": "Germany",
+        "2250": "France",
+        "2752": "Sweden",
+        "2246": "Finland"
+      },
+      "languages": {
+        "en": "English",
+        "fi": "Finnish",
+        "sv": "Swedish",
+        "de": "German",
+        "fr": "French"
+      },
+      "ai": {
+        "title": "AI Keyword Generator",
+        "description": "Use AI to generate relevant keywords based on your business description",
+        "targetLocation": "Target Location",
+        "targetLanguage": "Target Language",
+        "companyDescription": "Company Description",
+        "companyDescriptionPlaceholder": "Describe your business, products, services, and target audience...",
+        "companyDescriptionHelp": "Provide a detailed description to get more relevant keyword suggestions. Include your products, services, unique value propositions, and target market.",
+        "generating": "Generating keywords...",
+        "generateCount": "Generate {{count}} Keywords"
+      },
+      "serp": {
+        "analyzeTooltip": "Analyze SERP results for this keyword"
+      }
+    },
+    "projects": {
+      "select": "Select a project"
+    }
   }
 }

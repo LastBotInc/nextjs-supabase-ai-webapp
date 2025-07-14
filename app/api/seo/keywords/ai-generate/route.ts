@@ -174,7 +174,7 @@ Generate keywords that are likely to have data in SEO tools for the ${targetLoca
 Keywords:`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash-001',
+        model: 'gemini-2.5-flash',
         contents: prompt,
         config: {
           temperature: 0.7,

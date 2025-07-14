@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai'
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_STUDIO_KEY!)
-const MODEL = 'gemini-2.0-flash-001'
+const MODEL = 'gemini-2.5-flash'
 
 // Define the schema for translation response
 const translationSchema = {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       model: MODEL,
       generationConfig: {
         temperature: 0.3, // Lower temperature for more accurate translations
-        maxOutputTokens: 8192,
+        maxOutputTokens: 32000,
         responseMimeType: "application/json",
         responseSchema: translationSchema,
       },

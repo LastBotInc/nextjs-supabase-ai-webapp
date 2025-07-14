@@ -1,14 +1,15 @@
 {
   "home": "Home",
   "about": "About",
-  "blog": "Blog",
+  "blog": "Articles",
   "book": "Book Appointment",
   "admin_link": "Admin",
   "signIn": "Sign In",
   "signOut": "Sign Out",
   "backToSite": "Back to Site",
   "admin": {
-    "blog": "Blog Admin",
+    "cms": "CMS",
+    "blog": "Articles Admin",
     "contacts": "Contacts",
     "analytics": "Analytics",
     "seo": "SEO",
@@ -18,7 +19,10 @@
     "products": "Products",
     "dataSync": "Data Sync",
     "landingPages": "Landing Pages",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "personas": "User Personas",
+    "contentCalendar": "Content Calendar",
+    "contentGenerator": "Content Generator"
   },
   "account": {
     "title": "My Account",

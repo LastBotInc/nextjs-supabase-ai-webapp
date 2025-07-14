@@ -3,7 +3,7 @@
   "navigation": {
     "dashboard": "Instrumentpanel",
     "analytics": "Analys",
-    "blog": "Blogghantering",
+    "blog": "Artikelhantering",
     "contacts": "Kontakter",
     "translations": "Översättningar",
     "users": "Användare",
@@ -53,7 +53,7 @@
     }
   },
   "blog": {
-    "title": "Blogghantering",
+    "title": "Artikelhantering",
     "posts": {
       "title": "Inlägg",
       "create": "Skapa inlägg",
@@ -135,6 +135,198 @@
       "desktopUsers": "Skrivbordsanvändare",
       "mobileUsers": "Mobilanvändare",
       "botTraffic": "Bot-trafik"
+    }
+  },
+  "cms": {
+    "title": "Innehållshanteringssystem",
+    "description": "Hantera ditt innehåll, varumärke och digitala närvaro från ett ställe",
+    "brandManagement": "Varumärkeshantering",
+    "brandManagementDescription": "Hantera varumärkesdefinitioner för AI-driven innehållsgenerering",
+    "contentModules": "Innehållsmoduler",
+    "stats": {
+      "totalPosts": "Totalt antal inlägg",
+      "activePersonas": "Aktiva kundpersonas",
+      "scheduledContent": "Schemalagt innehåll",
+      "mediaFiles": "Mediafiler"
+    },
+    "brand": {
+      "addBrand": "Lägg till varumärke",
+      "createNew": "Skapa nytt varumärke",
+      "editBrand": "Redigera varumärke",
+      "brandName": "Varumärkesnamn",
+      "websiteUrl": "Webbplats URL",
+      "description": "Beskrivning",
+      "analyze": "Analysera",
+      "analyzing": "Analyserar...",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "noDescription": "Ingen beskrivning",
+      "basicInfo": "Grundinformation",
+      "brandTone": "Varumärkeston",
+      "personality": "Personlighet",
+      "writingStyle": "Skrivstil",
+      "tone": {
+        "formal": "Formell",
+        "formalDesc": "0 = Avslappnad, 10 = Mycket formell",
+        "friendly": "Vänlig",
+        "friendlyDesc": "0 = Professionell, 10 = Mycket vänlig",
+        "technical": "Teknisk",
+        "technicalDesc": "0 = Enkel, 10 = Mycket teknisk",
+        "innovative": "Innovativ",
+        "innovativeDesc": "0 = Traditionell, 10 = Mycket innovativ"
+      },
+      "traits": {
+        "primary": "Primära egenskaper",
+        "secondary": "Sekundära egenskaper",
+        "avoid": "Egenskaper att undvika"
+      },
+      "style": {
+        "guidelines": "Riktlinjer för skrivstil",
+        "commonPhrases": "Vanliga fraser",
+        "avoidPhrases": "Fraser att undvika"
+      },
+      "actions": {
+        "save": "Spara ändringar",
+        "create": "Skapa varumärke",
+        "delete": "Ta bort varumärke",
+        "cancel": "Avbryt"
+      },
+      "messages": {
+        "analyzeSuccess": "Webbplatsen analyserades framgångsrikt",
+        "analyzeFailed": "Misslyckades med att analysera webbplatsen",
+        "createSuccess": "Varumärket skapades framgångsrikt",
+        "updateSuccess": "Varumärket uppdaterades framgångsrikt",
+        "deleteSuccess": "Varumärket togs bort framgångsrikt",
+        "saveFailed": "Misslyckades med att spara varumärket",
+        "deleteFailed": "Misslyckades med att ta bort varumärket",
+        "loadFailed": "Misslyckades med att ladda varumärken",
+        "requiredFields": "Fyll i obligatoriska fält",
+        "enterUrl": "Ange webbplatsens URL först",
+        "confirmDelete": "Är du säker på att du vill ta bort detta varumärke?"
+      }
+    },
+    "contentTypesDescription": "Definiera och anpassa innehållstyper för AI-driven innehållsproduktion",
+    "aiPersonas": {
+      "title": "Kundpersonas"
+    },
+    "contentTypes": {
+      "title": "Innehållstyper",
+      "addContentType": "Lägg till innehållstyp",
+      "createNew": "Skapa ny innehållstyp",
+      "editContentType": "Redigera innehållstyp",
+      "name": "Namn",
+      "namePlaceholder": "t.ex. Nyhetsartikel",
+      "slug": "Slug",
+      "description": "Beskrivning",
+      "descriptionPlaceholder": "Kort beskrivning av denna innehållstyp",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "system": "System",
+      "basicInfo": "Grundläggande info",
+      "toneOverrides": "Tonåsidosättningar",
+      "structure": "Struktur",
+      "guidelines": "Riktlinjer",
+      "associatedBrand": "Kopplat varumärke",
+      "noBrand": "Inget specifikt varumärke",
+      "typicalLength": "Typisk längd",
+      "lengthRange": "Längdintervall",
+      "brand": "Varumärke",
+      "toneOverridesDescription": "Åsidosätt varumärkets toninställningar för denna innehållstyp. Lämna tomt för att använda varumärkets standardvärden.",
+      "tone": {
+        "formal": "Formell",
+        "friendly": "Vänlig",
+        "technical": "Teknisk",
+        "innovative": "Innovativ"
+      },
+      "structureTemplate": "Strukturmall",
+      "structureTemplateDescription": "Definiera den typiska strukturen för denna innehållstyp",
+      "keywords": "Nyckelord",
+      "keywordsPlaceholder": "Lägg till nyckelord",
+      "metaDescriptionTemplate": "Mall för metabeskrivning",
+      "writingGuidelines": "Skrivriktlinjer",
+      "guidelinesPlaceholder": "Lägg till skrivriktlinje",
+      "exampleTitles": "Exempelrubriker",
+      "exampleTitlesPlaceholder": "Lägg till exempelrubrik",
+      "actions": {
+        "save": "Spara ändringar",
+        "create": "Skapa innehållstyp",
+        "delete": "Ta bort innehållstyp",
+        "cancel": "Avbryt"
+      },
+      "messages": {
+        "createSuccess": "Innehållstypen skapades framgångsrikt",
+        "updateSuccess": "Innehållstypen uppdaterades framgångsrikt",
+        "deleteSuccess": "Innehållstypen togs bort framgångsrikt",
+        "saveFailed": "Misslyckades med att spara innehållstypen",
+        "deleteFailed": "Misslyckades med att ta bort innehållstypen",
+        "loadFailed": "Misslyckades med att ladda innehållstyper",
+        "requiredFields": "Fyll i obligatoriska fält",
+        "confirmDelete": "Är du säker på att du vill ta bort denna innehållstyp?"
+      }
+    }
+  },
+  "SEO": {
+    "keywords": {
+      "title": "Nyckelordsforskning",
+      "description": "Upptäck och analysera nyckelord för din SEO-strategi",
+      "loading": "Laddar nyckelordsdata...",
+      "research": "Undersök nyckelord",
+      "researching": "Undersöker...",
+      "selectProject": "Välj projekt",
+      "seedKeyword": "Utgångsnyckelord",
+      "enterKeyword": "Ange ett nyckelord att undersöka",
+      "location": "Plats",
+      "language": "Språk",
+      "searchVolume": "Sökvolym",
+      "cpc": "CPC",
+      "competition": "Konkurrens",
+      "difficulty": "Svårighetsgrad",
+      "intent": "Avsikt",
+      "actions": "Åtgärder",
+      "added": "Tillagd",
+      "suggestions": "Nyckelordsförslag",
+      "saved": "Sparade nyckelord",
+      "noKeywords": "Inga sparade nyckelord än. Börja med att undersöka några nyckelord ovan.",
+      "addKeyword": "Lägg till nyckelord",
+      "deleteKeyword": "Ta bort",
+      "noProjects": {
+        "title": "Inga SEO-projekt hittades",
+        "description": "Skapa ditt första SEO-projekt för att börja med nyckelordsforskning.",
+        "createButton": "Skapa SEO-projekt"
+      },
+      "locations": {
+        "2840": "USA",
+        "2826": "Storbritannien",
+        "2124": "Kanada",
+        "2276": "Tyskland",
+        "2250": "Frankrike",
+        "2752": "Sverige",
+        "2246": "Finland"
+      },
+      "languages": {
+        "en": "Engelska",
+        "fi": "Finska",
+        "sv": "Svenska",
+        "de": "Tyska",
+        "fr": "Franska"
+      },
+      "ai": {
+        "title": "AI-nyckelordsgenerator",
+        "description": "Använd AI för att generera relevanta nyckelord baserat på din företagsbeskrivning",
+        "targetLocation": "Målplats",
+        "targetLanguage": "Målspråk",
+        "companyDescription": "Företagsbeskrivning",
+        "companyDescriptionPlaceholder": "Beskriv ditt företag, produkter, tjänster och målgrupp...",
+        "companyDescriptionHelp": "Ge en detaljerad beskrivning för att få mer relevanta nyckelordsförslag. Inkludera dina produkter, tjänster, unika värdeförslag och målmarknad.",
+        "generating": "Genererar nyckelord...",
+        "generateCount": "Generera {{count}} nyckelord"
+      },
+      "serp": {
+        "analyzeTooltip": "Analysera SERP-resultat för detta nyckelord"
+      }
+    },
+    "projects": {
+      "select": "Välj ett projekt"
     }
   }
 }

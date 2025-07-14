@@ -8,7 +8,7 @@ import { useAuth } from '@/components/auth/AuthProvider';
 import LocaleSwitcher from './LocaleSwitcher';
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/utils/supabase/client';
-import { Menu, X, ChevronRight, User } from 'lucide-react';
+import { Menu, X, ChevronRight, ChevronDown, User, FileText } from 'lucide-react';
 import Image from 'next/image';
 import LastBotSearch from '@/components/lastbot/LastBotSearch';
 import {
@@ -20,7 +20,36 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 // Separate AdminSidebar component
-function AdminSidebar({ links, pathname }: { links: Array<{ href: string; label: string }>, pathname?: string }) {
+function AdminSidebar({ links, pathname }: { links: Array<{ href: string; label: string; icon?: any; children?: Array<{ href: string; label: string }> }>, pathname?: string }) {
+  // Initialize expanded items based on current path
+  const getInitialExpandedItems = () => {
+    const expanded: string[] = [];
+    links.forEach(link => {
+      if (link.children) {
+        // Expand if the parent or any child is active
+        if (pathname?.endsWith(link.href) || link.children.some(child => pathname?.endsWith(child.href))) {
+          expanded.push(link.label);
+        }
+      }
+    });
+    return expanded;
+  };
+
+  const [expandedItems, setExpandedItems] = useState<string[]>(getInitialExpandedItems());
+
+  const toggleExpanded = (label: string) => {
+    setExpandedItems(prev => 
+      prev.includes(label) 
+        ? prev.filter(item => item !== label)
+        : [...prev, label]
+    );
+  };
+
+  const isChildActive = (children?: Array<{ href: string; label: string }>) => {
+    if (!children) return false;
+    return children.some(child => pathname?.endsWith(child.href));
+  };
+
   return (
     <div className="hidden sm:flex fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-900 border-r border-gray-800 overflow-y-auto">
       <div className="w-full py-6">
@@ -28,24 +57,78 @@ function AdminSidebar({ links, pathname }: { links: Array<{ href: string; label:
           <h2 className="text-lg font-semibold text-white">Admin Dashboard</h2>
         </div>
         <nav className="space-y-1 px-2">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors ${
-                pathname?.endsWith(href)
-                  ? 'bg-gray-800 text-white'
-                  : 'text-gray-300 hover:text-white hover:bg-gray-800'
-              }`}
-            >
-              {label}
-              <ChevronRight 
-                className={`ml-auto h-4 w-4 transition-transform ${
-                  pathname?.endsWith(href) ? 'transform rotate-90' : ''
-                }`}
-              />
-            </Link>
-          ))}
+          {links.map(({ href, label, icon: Icon, children }) => {
+            const isExpanded = expandedItems.includes(label) || isChildActive(children);
+            const hasChildren = children && children.length > 0;
+            
+            return (
+              <div key={href}>
+                {hasChildren ? (
+                  <>
+                    <Link
+                      href={href}
+                      className={`group flex items-center w-full px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                        pathname?.endsWith(href) || isChildActive(children)
+                          ? 'bg-gray-800 text-white'
+                          : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                      }`}
+                    >
+                      {Icon && <Icon className="mr-3 h-4 w-4" />}
+                      {label}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleExpanded(label);
+                        }}
+                        className="ml-auto p-1 hover:bg-gray-700 rounded"
+                      >
+                        {isExpanded ? (
+                          <ChevronDown className="h-4 w-4" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4" />
+                        )}
+                      </button>
+                    </Link>
+                    {isExpanded && (
+                      <div className="ml-4 mt-1 space-y-1">
+                        {children.map(child => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={`group flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                              pathname?.endsWith(child.href)
+                                ? 'bg-gray-700 text-white'
+                                : 'text-gray-400 hover:text-white hover:bg-gray-700'
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={href}
+                    className={`group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                      pathname?.endsWith(href)
+                        ? 'bg-gray-800 text-white'
+                        : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                    }`}
+                  >
+                    {Icon && <Icon className="mr-3 h-4 w-4" />}
+                    {label}
+                    <ChevronRight 
+                      className={`ml-auto h-4 w-4 transition-transform ${
+                        pathname?.endsWith(href) ? 'transform rotate-90' : ''
+                      }`}
+                    />
+                  </Link>
+                )}
+              </div>
+            );
+          })}
         </nav>
       </div>
     </div>
@@ -136,13 +219,21 @@ export default function Navigation() {
   // Define admin links - only show if user is admin and auth is complete without errors
   const adminLinks = (!loading && isAdmin && !error) ? [
     { href: '/admin/analytics', label: t('admin.analytics') },
-    { href: '/admin/blog', label: t('admin.blog') },
-    { href: '/admin/seo', label: t('admin.seo') },
+    { 
+      href: '/admin/cms', 
+      label: t('admin.cms'),
+      icon: FileText,
+      children: [
+        { href: '/admin/content-calendar', label: t('admin.contentCalendar') },
+        { href: '/admin/blog', label: t('admin.blog') },
+        { href: '/admin/seo', label: t('admin.seo') },
+        { href: '/admin/media', label: t('admin.media') }
+      ]
+    },
     { href: '/admin/users', label: t('admin.users') },
     { href: '/admin/contacts', label: t('admin.contacts') },
     { href: '/admin/calendar', label: t('admin.calendar') },
     { href: '/admin/landing-pages', label: t('admin.landingPages') },
-    { href: '/admin/media', label: t('admin.media') },
     { href: '/admin/translations', label: t('admin.translations') }
   ] : [];
 
@@ -291,14 +382,34 @@ export default function Navigation() {
             </button>
           </div>
           <nav className="flex flex-col space-y-4">
-            {links.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                {label}
-              </Link>
+            {links.map(({ href, label, children }) => (
+              <div key={href}>
+                {children ? (
+                  <div>
+                    <div className="px-3 py-2 text-base font-medium text-gray-500">
+                      {label}
+                    </div>
+                    <div className="ml-4 space-y-2">
+                      {children.map(child => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    href={href}
+                    className="px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+                  >
+                    {label}
+                  </Link>
+                )}
+              </div>
             ))}
             <div className="border-t border-gray-700 pt-4 mt-4 space-y-4">
               <LocaleSwitcher />

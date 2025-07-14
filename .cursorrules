@@ -126,7 +126,7 @@ mcp_supabase_query
         "@google/genai package",
         "node-fetch package"
       ],
-      "example": "npm run gemini -- --prompt "What is the capital of France?" --model gemini-2.0-flash-001 --temperature 0.7",
+      "example": "npm run gemini -- --prompt "What is the capital of France?" --model gemini-2.5-flash --temperature 0.7",
       "advanced_examples": [
         "# Process a PDF document from a URL",
         "npm run gemini -- --prompt "Summarize this document in 5 key points" --url "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"",

@@ -21,7 +21,7 @@ const ai = new GoogleGenAI({ apiKey: API_KEY });
 // Configure CLI options
 program
   .option('-p, --prompt <text>', 'Text prompt or question for the model')
-  .option('-m, --model <name>', 'Model to use', 'gemini-2.0-flash-001')
+  .option('-m, --model <name>', 'Model to use', 'gemini-2.5-flash')
   .option('-t, --temperature <number>', 'Sampling temperature', '0.7')
   .option('--max-tokens <number>', 'Maximum tokens to generate', '2048')
   .option('--top-p <number>', 'Nucleus sampling parameter', '0.95')

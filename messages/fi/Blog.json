@@ -1,11 +1,11 @@
 {
-  "title": "Blogi",
+  "title": "Artikkelit",
   "description": "Uusimmat oivallukset, tutkimukset ja uutiset Brancoy HI Engineltä tekoälypohjaisesta verkkokaupasta, Shopify-parhaista käytännöistä ja älykkäistä migraatiostrategioista.",
   "noPosts": "Ei vielä julkaisuja. Pysy kuulolla Brancoy HI Enginen oivalluksista!",
   "similarPosts": "Samankaltaisia julkaisuja",
-  "backToBlog": "Takaisin blogiin",
+  "backToBlog": "Takaisin artikkeleihin",
   "admin": {
-    "title": "Blogijulkaisut",
+    "title": "Artikkelit",
     "newPost": "Uusi julkaisu",
     "editPost": "Muokkaa",
     "save": "Tallenna",
@@ -25,8 +25,8 @@
       "targetLanguages": "Kohdekielet",
       "targetLanguagesHelp": "Valitse kielet automaattista kääntämistä varten",
       "targetLanguagesOptional": "(valinnainen)",
-      "prompt": "Blogijulkaisun kehoite",
-      "promptPlaceholder": "Syötä kehoite blogijulkaisun sisällön luomiseksi...",
+      "prompt": "Artikkelin kehoite",
+      "promptPlaceholder": "Syötä kehoite artikkelin sisällön luomiseksi...",
       "detectedLanguage": "(havaittu)"
     },
     "editor": {

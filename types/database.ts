@@ -1030,6 +1030,10 @@ export type Database = {
           tags: string[] | null
           title: string
           updated_at: string
+          scheduled_publish_at: string | null
+          ai_persona_id: string | null
+          generation_prompt: string | null
+          auto_generated: boolean
         }
         Insert: {
           author_id: string
@@ -1049,6 +1053,10 @@ export type Database = {
           tags?: string[] | null
           title: string
           updated_at?: string
+          scheduled_publish_at?: string | null
+          ai_persona_id?: string | null
+          generation_prompt?: string | null
+          auto_generated?: boolean
         }
         Update: {
           author_id?: string
@@ -1068,6 +1076,10 @@ export type Database = {
           tags?: string[] | null
           title?: string
           updated_at?: string
+          scheduled_publish_at?: string | null
+          ai_persona_id?: string | null
+          generation_prompt?: string | null
+          auto_generated?: boolean
         }
         Relationships: [
           {
@@ -1075,6 +1087,13 @@ export type Database = {
             columns: ["author_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fk_posts_ai_persona"
+            columns: ["ai_persona_id"]
+            isOneToOne: false
+            referencedRelation: "ai_personas"
             referencedColumns: ["id"]
           },
         ]
@@ -1348,6 +1367,355 @@ export type Database = {
           value?: string
         }
         Relationships: []
+      }
+      ai_personas: {
+        Row: {
+          id: string
+          name: string
+          description: string
+          personality_traits: Json
+          system_prompt: string
+          topics: string[]
+          active: boolean
+          created_at: string
+          updated_at: string
+          created_by: string | null
+        }
+        Insert: {
+          id?: string
+          name: string
+          description: string
+          personality_traits?: Json
+          system_prompt: string
+          topics?: string[]
+          active?: boolean
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+        }
+        Update: {
+          id?: string
+          name?: string
+          description?: string
+          personality_traits?: Json
+          system_prompt?: string
+          topics?: string[]
+          active?: boolean
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_personas_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      content_calendar: {
+        Row: {
+          id: string
+          date: string
+          time_slot: string
+          persona_id: string | null
+          topic: string
+          keywords: string[] | null
+          target_audience: string | null
+          content_type: string
+          status: string
+          post_id: string | null
+          locale: string
+          notes: string | null
+          created_at: string
+          updated_at: string
+          created_by: string | null
+          planned_title: string | null
+          generation_prompt: string | null
+          content_type_id: string | null
+          multiple_persona_ids: string[] | null
+          custom_topics: string[] | null
+          languages: string[] | null
+        }
+        Insert: {
+          id?: string
+          date: string
+          time_slot?: string
+          persona_id?: string | null
+          topic: string
+          keywords?: string[] | null
+          target_audience?: string | null
+          content_type?: string
+          status?: string
+          post_id?: string | null
+          locale?: string
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+          planned_title?: string | null
+          generation_prompt?: string | null
+          content_type_id?: string | null
+          multiple_persona_ids?: string[] | null
+          custom_topics?: string[] | null
+          languages?: string[] | null
+        }
+        Update: {
+          id?: string
+          date?: string
+          time_slot?: string
+          persona_id?: string | null
+          topic?: string
+          keywords?: string[] | null
+          target_audience?: string | null
+          content_type?: string
+          status?: string
+          post_id?: string | null
+          locale?: string
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+          planned_title?: string | null
+          generation_prompt?: string | null
+          content_type_id?: string | null
+          multiple_persona_ids?: string[] | null
+          custom_topics?: string[] | null
+          languages?: string[] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_calendar_persona_id_fkey"
+            columns: ["persona_id"]
+            isOneToOne: false
+            referencedRelation: "ai_personas"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "content_calendar_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "content_calendar_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      persona_queries: {
+        Row: {
+          id: string
+          persona_id: string
+          query: string
+          intent: string | null
+          expected_content_type: string | null
+          priority: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          persona_id: string
+          query: string
+          intent?: string | null
+          expected_content_type?: string | null
+          priority?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          persona_id?: string
+          query?: string
+          intent?: string | null
+          expected_content_type?: string | null
+          priority?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "persona_queries_persona_id_fkey"
+            columns: ["persona_id"]
+            isOneToOne: false
+            referencedRelation: "ai_personas"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      brands: {
+        Row: {
+          id: string
+          created_at: string
+          updated_at: string
+          user_id: string
+          name: string
+          website_url: string
+          description: string | null
+          tone_formal: number
+          tone_friendly: number
+          tone_technical: number
+          tone_innovative: number
+          personality_primary: string[]
+          personality_secondary: string[]
+          personality_avoid: string[]
+          writing_style: string[]
+          common_phrases: string[]
+          avoid_phrases: string[]
+          services: Json
+          solutions: Json
+          metadata: Json
+          is_active: boolean
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          user_id: string
+          name: string
+          website_url: string
+          description?: string | null
+          tone_formal?: number
+          tone_friendly?: number
+          tone_technical?: number
+          tone_innovative?: number
+          personality_primary?: string[]
+          personality_secondary?: string[]
+          personality_avoid?: string[]
+          writing_style?: string[]
+          common_phrases?: string[]
+          avoid_phrases?: string[]
+          services?: Json
+          solutions?: Json
+          metadata?: Json
+          is_active?: boolean
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          user_id?: string
+          name?: string
+          website_url?: string
+          description?: string | null
+          tone_formal?: number
+          tone_friendly?: number
+          tone_technical?: number
+          tone_innovative?: number
+          personality_primary?: string[]
+          personality_secondary?: string[]
+          personality_avoid?: string[]
+          writing_style?: string[]
+          common_phrases?: string[]
+          avoid_phrases?: string[]
+          services?: Json
+          solutions?: Json
+          metadata?: Json
+          is_active?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "brands_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      content_types: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          description: string
+          brand_id: string | null
+          tone_formal: number | null
+          tone_friendly: number | null
+          tone_technical: number | null
+          tone_innovative: number | null
+          typical_length_min: number
+          typical_length_max: number
+          structure_template: string[]
+          writing_guidelines: string[]
+          example_titles: string[]
+          keywords: string[]
+          meta_description_template: string | null
+          is_active: boolean
+          is_system: boolean
+          created_at: string
+          updated_at: string
+          created_by: string | null
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          description: string
+          brand_id?: string | null
+          tone_formal?: number | null
+          tone_friendly?: number | null
+          tone_technical?: number | null
+          tone_innovative?: number | null
+          typical_length_min?: number
+          typical_length_max?: number
+          structure_template?: string[]
+          writing_guidelines?: string[]
+          example_titles?: string[]
+          keywords?: string[]
+          meta_description_template?: string | null
+          is_active?: boolean
+          is_system?: boolean
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          description?: string
+          brand_id?: string | null
+          tone_formal?: number | null
+          tone_friendly?: number | null
+          tone_technical?: number | null
+          tone_innovative?: number | null
+          typical_length_min?: number
+          typical_length_max?: number
+          structure_template?: string[]
+          writing_guidelines?: string[]
+          example_titles?: string[]
+          keywords?: string[]
+          meta_description_template?: string | null
+          is_active?: boolean
+          is_system?: boolean
+          created_at?: string
+          updated_at?: string
+          created_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_types_brand_id_fkey"
+            columns: ["brand_id"]
+            isOneToOne: false
+            referencedRelation: "brands"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "content_types_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

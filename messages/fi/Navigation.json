@@ -1,14 +1,15 @@
 {
   "home": "Etusivu",
   "about": "Tietoa",
-  "blog": "Blogi",
+  "blog": "Artikkelit",
   "book": "Varaa aika",
   "admin_link": "Ylläpito",
   "signIn": "Kirjaudu sisään",
   "signOut": "Kirjaudu ulos",
   "backToSite": "Takaisin sivustolle",
   "admin": {
-    "blog": "Blogin ylläpito",
+    "cms": "Sisällönhallinta",
+    "blog": "Artikkelien ylläpito",
     "contacts": "Yhteydenotot",
     "analytics": "Analytiikka",
     "seo": "SEO",
@@ -18,7 +19,10 @@
     "products": "Tuotteet",
     "landingPages": "Laskeutumissivut",
     "calendar": "Kalenteri",
-    "dataSync": "Tietosynkronointi"
+    "dataSync": "Tietosynkronointi",
+    "personas": "Käyttäjäpersoonat",
+    "contentCalendar": "Sisältökalenteri",
+    "contentGenerator": "Sisällön generointi"
   },
   "account": {
     "title": "Oma tili",

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { 
   MagnifyingGlassIcon, 
   ChartBarIcon, 
@@ -14,7 +14,10 @@ import {
   ClockIcon,
 } from '@heroicons/react/24/outline';
 import { AdminApi } from '@/utils/adminApi';
+import { createClient } from '@/utils/supabase/client';
+import ProjectSelector from '@/components/admin/seo/ProjectSelector';
 import { COMMON_LOCATIONS, DEFAULT_LOCATION, type Location } from '@/lib/seo/locations';
+import type { SEOProject } from '@/types/seo';
 
 interface WebsiteAnalysisProps {
   onAnalysisComplete?: (data: any) => void;
@@ -86,6 +89,40 @@ export default function WebsiteAnalysis({ onAnalysisComplete }: WebsiteAnalysisP
   const [includeCompetitors, setIncludeCompetitors] = useState(true);
   const [includeTechnical, setIncludeTechnical] = useState(true);
   const [keywordLimit, setKeywordLimit] = useState(50);
+  const [selectedProject, setSelectedProject] = useState<SEOProject | null>(null);
+
+  // Load saved project on mount
+  useEffect(() => {
+    const loadSavedProject = async () => {
+      const savedProjectId = localStorage.getItem('selectedSeoProjectId');
+      if (savedProjectId) {
+        const supabase = createClient();
+        const { data: project } = await supabase
+          .from('seo_projects')
+          .select('*')
+          .eq('id', savedProjectId)
+          .single();
+        
+        if (project) {
+          setSelectedProject(project);
+          // Auto-populate domain from project
+          if (project.domain) {
+            setDomain(project.domain);
+          }
+        }
+      }
+    };
+    
+    loadSavedProject();
+  }, []);
+
+  const handleProjectChange = useCallback((projectId: string, project: SEOProject) => {
+    setSelectedProject(project);
+    // Auto-populate domain when project changes
+    if (project.domain) {
+      setDomain(project.domain);
+    }
+  }, []);
 
   const handleAnalyze = async () => {
     if (!domain.trim()) {
@@ -170,7 +207,13 @@ export default function WebsiteAnalysis({ onAnalysisComplete }: WebsiteAnalysisP
             Comprehensive SEO analysis using DataForSEO
           </p>
         </div>
-        <GlobeAltIcon className="h-6 w-6 text-blue-500" />
+        <div className="flex items-center gap-4">
+          <ProjectSelector 
+            currentProjectId={selectedProject?.id}
+            onProjectChange={handleProjectChange}
+          />
+          <GlobeAltIcon className="h-6 w-6 text-blue-500" />
+        </div>
       </div>
 
       {/* Analysis Form */}

@@ -22,9 +22,16 @@ npm run test:e2e:headless # Run E2E tests headlessly
 
 ### Database Operations
 ```bash
-supabase db reset        # Reset database to initial state
-npm run seed:users:local # Seed test users (creates 40+ users)
-npm run seed:blog:local  # Seed blog with AI-generated content
+# Quick setup - reset and seed essentials
+npm run db:reset-and-seed       # Reset DB + seed users + content types
+npm run db:reset-and-seed:blog  # Above + blog posts
+npm run db:reset-and-seed:all   # Above + translations
+
+# Individual operations
+supabase db reset               # Reset database to initial state
+npm run seed:users:local        # Seed test users (creates 2+ users)
+npm run seed:blog:local         # Seed blog with AI-generated content
+npm run seed:content-types:local # Seed content types for AI generation
 npm run import-translations:local # Import translations to Supabase
 ```
 
@@ -131,3 +138,16 @@ Required environment variables are documented in `.env.example`. Key categories:
 3. Test database operations with local seed commands
 4. Run tests before committing: `npm test`
 5. Build locally to catch type errors: `npm run build`
+
+## CRITICAL DATABASE RULES
+
+**NEVER USE `supabase db reset` WITHOUT EXPLICIT USER PERMISSION**
+
+The database contains hours of carefully configured test data. Database resets are extremely disruptive and should only be done when explicitly requested by the user. If you need to apply migrations or make schema changes, consider:
+
+1. Creating incremental migrations instead of resetting
+2. Using `supabase migration new` to create new migration files
+3. Testing changes on a separate branch or database
+4. Always asking the user before any destructive database operations
+
+This is a hard rule - no exceptions.
