@@ -14,8 +14,8 @@
               "-y", "dataforseo-mcp-server"
             ],
             "env": {
-              "DATAFORSEO_USERNAME": "pasi@lastbot.com",
-              "DATAFORSEO_PASSWORD": "f7f66e352f23be10"
+              "DATAFORSEO_USERNAME": "",
+              "DATAFORSEO_PASSWORD": ""
             }
         },
         "shopify-dev-mcp": {
