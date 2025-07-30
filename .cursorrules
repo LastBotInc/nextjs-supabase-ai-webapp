@@ -123,7 +123,7 @@ mcp_supabase_query
       },
       "requires": [
         "GOOGLE_AI_STUDIO_KEY in .env",
-        "@google/genai package",
+        "google/genai package",
         "node-fetch package"
       ],
       "example": "npm run gemini -- --prompt "What is the capital of France?" --model gemini-2.5-flash --temperature 0.7",
@@ -184,7 +184,7 @@ mcp_supabase_query
       },
       "requires": [
         "GOOGLE_AI_STUDIO_KEY or GEMINI_API_KEY in .env.local",
-        "@google/genai package",
+        "google/genai package",
         "commander package",
         "axios package",
         "dotenv package"
@@ -267,7 +267,7 @@ mcp_supabase_query
       },
       "requires": [
         "GEMINI_API_KEY or GOOGLE_AI_STUDIO_KEY in .env.local",
-        "@google/genai package",
+        "google/genai package",
         "commander package",
         "dotenv package"
       ]
@@ -513,29 +513,29 @@ mcp_supabase_query
 
 <documentation>
   ## Documentation and Context Files
-  Reference these files for understanding the project. Use `read_file` for `@*.md` files. Use `fetch_rules` for `@*.mdc` files.
-    - `@description.md`: App description, use cases, features.
-    - `@architecture.md`: Tech stack, folder structure, testing frameworks.
-    - `@datamodel.md`: Entities, attributes, relationships.
-    - `@frontend.md`: Views/screens, UI/UX patterns, styling.
-    - `@backend.md`: API endpoints, authentication, service architecture.
-    - `@todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
-    - `@ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
-    - `@learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
-    - `/.cursor/rules/@add-data-model.mdc`: How to add a new data model.
-    - `/.cursor/rules/@admin-api-protection.mdc`: How to protect the admin API.
-    - `/.cursor/rules/@implement-frontend-page.mdc`: How to implement a new frontend page.
-    - `/.cursor/rules/@implement-nextjs-api.mdc`: How to implement a new NextJS API route.
-    - `/.cursor/rules/@implement-unit-tests.mdc`: How to implement unit tests.
-    - `/.cursor/rules/@nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
-    - `/.cursor/rules/@supabase-auth-implementation.mdc`: How to implement Supabase authentication.
-    - `/.cursor/rules/@translation-guidelines.mdc`: Guidelines for translations.
-    - `/.cursor/rules/@translation-management-tools.mdc`: Tools for managing translations.
-    - `@package.json`: List of used npm packages and versions.
-    - `lib/@brand-info.ts`: Brand information for content generation.
+  Reference these files for understanding the project. Use `read_file` for `*.md` files. Use `fetch_rules` for `*.mdc` files.
+    - `description.md`: App description, use cases, features.
+    - `architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `datamodel.md`: Entities, attributes, relationships.
+    - `frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `backend.md`: API endpoints, authentication, service architecture.
+    - `todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+    - `/.cursor/rules/add-data-model.mdc`: How to add a new data model.
+    - `/.cursor/rules/admin-api-protection.mdc`: How to protect the admin API.
+    - `/.cursor/rules/implement-frontend-page.mdc`: How to implement a new frontend page.
+    - `/.cursor/rules/implement-nextjs-api.mdc`: How to implement a new NextJS API route.
+    - `/.cursor/rules/implement-unit-tests.mdc`: How to implement unit tests.
+    - `/.cursor/rules/nextjs-json-translation-usage.mdc`: How to use JSON translations in Next.js.
+    - `/.cursor/rules/supabase-auth-implementation.mdc`: How to implement Supabase authentication.
+    - `/.cursor/rules/translation-guidelines.mdc`: Guidelines for translations.
+    - `/.cursor/rules/translation-management-tools.mdc`: Tools for managing translations.
+    - `package.json`: List of used npm packages and versions.
+    - `lib/brand-info.ts`: Brand information for content generation.
 
   **Link Handling:**
-    - For `@filename.ext` links: Use `read_file` to access their content.
+    - For `filename.ext` links: Use `read_file` to access their content.
     - For `http://` or `https://` links: Use `web_search` to get information from the URL if needed for the task (e.g., documentation, error context). Do not assume you can directly access or parse the content without `web_search`.
 </documentation>
 
@@ -553,7 +553,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   <document>
      - **Goal:** Update documentation files.
      - **Steps:**
-       1. Read relevant documentation files (`@*.md`).
+       1. Read relevant documentation files (`*.md`).
        2. Use `edit_file` to make necessary updates based on the task. Focus on the specific files mentioned in the `<documentation>` section (e.g., `ai_changelog.md`, `todo.md`, `learnings.md`).
   </document>
 
@@ -561,8 +561,8 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   - **Goal:** Understand a task or topic thoroughly before planning.
   - **Steps:**
     1. **Gather Context:**
-        - Read relevant `@*.md` files from `<documentation>`.
-        - Fetch relevant `@*.mdc` rules using `fetch_rules`.
+        - Read relevant `*.md` files from `<documentation>`.
+        - Fetch relevant `*.mdc` rules using `fetch_rules`.
         - Use `codebase_search` to find relevant existing code snippets.
         - Use `web_search` for external information, documentation, or examples (perform at least one search).
     2. **Analyze & Plan:**
@@ -578,7 +578,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
     1. **Gather Context:**
         - Read `docs/learnings.md` for previous solutions (`read_file`).
         - If error messages contain URLs, use `web_search` to understand them.
-        - Fetch relevant `@*.mdc` rules (`fetch_rules`).
+        - Fetch relevant `*.mdc` rules (`fetch_rules`).
         - Use `web_search` for general error resolution information.
     2. **Iterative Fixing Loop:**
         a. **Hypothesize:** Based on context, identify 1-2 likely causes.
@@ -595,7 +595,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   - **Steps:**
     1. **Understand Requirements:**
         - Read `docs/architecture.md` for testing practices (`read_file`).
-        - Fetch `@implement-unit-tests.mdc` rule (`fetch_rules`).
+        - Fetch `implement-unit-tests.mdc` rule (`fetch_rules`).
     2. **Write Unit Tests:**
         - Use `edit_file` to create/update unit test files (e.g., `__tests__/*.test.ts`).
     3. **Run & Fix Unit Tests:**
@@ -630,7 +630,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
   <develop>
    - **Goal:** Implement the code for a feature (frontend/backend).
    - **Steps:**
-     1. Fetch relevant rules (`@implement-*.mdc`) using `fetch_rules`.
+     1. Fetch relevant rules (`implement-*.mdc`) using `fetch_rules`.
      2. Use `edit_file` to implement the required code changes across necessary files (components, API routes, types, etc.). Ensure imports and dependencies are handled.
   </develop>
 
@@ -655,7 +655,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
     - **Steps:**
       1. **Review Examples:** Read `tools/gemini.ts` using `read_file` to understand existing patterns.
       2. **Implement:** Use `edit_file` to add the AI logic.
-      3. **Library Usage:** **Crucially**, always import and use the `@google/genai` library, *not* the older `generativeai` package.
+      3. **Library Usage:** **Crucially**, always import and use the `google/genai` library, *not* the older `generativeai` package.
       4. **Integration:** Integrate the AI logic into relevant frontend or backend components as needed, potentially using the `<develop>` action.
       5. **Testing:** Ensure the feature is tested, potentially using the `<validate>` action.
   </implement_ai>
@@ -732,7 +732,7 @@ Define high-level tasks. Follow the `## Request Processing Steps` below to execu
     - **Follow Instructions Precisely:** Execute user instructions exactly as written.
     - **Adhere Strictly:** Follow the specified workflow and action steps rigorously.
     - **Maintain Structure:** Use consistent formatting as specified.
-    - **Leverage Context:** Actively incorporate context from documentation (`@*.md`), rules (`@*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
+    - **Leverage Context:** Actively incorporate context from documentation (`*.md`), rules (`*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
     - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
 
 - **For GPT (OpenAI) and Grok (X.AI):**
@@ -759,8 +759,8 @@ Follow these steps sequentially for **every** user request and follow behavioral
         ```
 3.  **Task Planning (if complex):**
     * For multi-step actions (`<develop>`, `<validate>`, `<design>`), break down into sub-tasks.
-    * Use `edit_file` to add sub-tasks to `@todo.md` (marked ❌). Include development, testing, documentation steps.
-    * Inform the user the plan is in `@todo.md`.
+    * Use `edit_file` to add sub-tasks to `todo.md` (marked ❌). Include development, testing, documentation steps.
+    * Inform the user the plan is in `todo.md`.
 4.  **Action Execution:**
     * State: `Starting Action: <action name>...`
     * Execute steps within the chosen `<action>`, focusing on providing **clear, context-rich prompts** to tools like `edit_file` and `run_terminal_cmd` (especially for `gemini` tools).
@@ -770,5 +770,5 @@ Follow these steps sequentially for **every** user request and follow behavioral
 5.  **Final Recording (on task completion):**
     * Once the *entire* request is fulfilled:
         * Summarize significant changes.
-        * Execute `<record>` action (update `@ai_changelog.md`, `@todo.md`).
-        * Ensure `@learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.
+        * Execute `<record>` action (update `ai_changelog.md`, `todo.md`).
+        * Ensure `learnings.md` was updated during `<fix>` or `<invent>` actions if applicable.

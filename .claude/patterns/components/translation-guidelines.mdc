@@ -1,0 +1,154 @@
+---
+description: 
+globs: *.json
+alwaysApply: false
+---
+# Translation Guidelines for JSON Localization Files
+
+## File Structure
+
+The localization system organizes translations by:
+- **Locale directories**: `en/`, `fi/`, `sv/`
+- **Namespace files**: Correspond to application features (e.g., `Blog.json`, `Footer.json`)
+
+Example structure:
+```
+messages/
+├── en/                  # English translations
+│   ├── Index.json       # Homepage translations
+│   ├── Blog.json        # Blog-related translations
+│   └── ...
+├── fi/                  # Finnish translations
+├── sv/                  # Swedish translations
+└── ...
+```
+
+## Translation Principles
+
+1. **Context is Key**
+   - Before translating, examine how the text appears in the UI
+   - Check relevant components using the text to understand usage context
+   - Compare across namespaces to maintain consistent terminology
+
+2. **Namespace-Specific Terminology**
+   - Each namespace may have specific terminology
+   - Maintain consistent translations for repeated terms within a namespace
+   - Analyze the JSON structure for conceptual organization
+
+3. **Natural Language Over Literal Translations**
+   - **DO NOT** translate word-for-word
+   - Prioritize natural, idiomatic expressions in each target language
+   - Adapt phrases to sound natural to native speakers
+
+4. **Handling Placeholders**
+   - Preserve all placeholders: `{name}`, `{count}`, `{date}`, etc.
+   - Adjust surrounding grammar to accommodate placeholders
+   - Consider variable content when structuring sentences
+
+5. **Formatting Rules**
+   - Maintain JSON structure and formatting consistency
+   - Use UTF-8 encoding for all files
+   - Ensure proper escaping of special characters
+   - Use 2-space indentation
+
+## Language-Specific Guidelines
+
+### English (en)
+- Use clear, concise phrasing
+- Follow American English conventions unless otherwise specified
+- Use sentence case for most UI elements (capitalize first word only)
+- Avoid idioms that may not translate well to other languages
+
+### Finnish (fi)
+- Adjust for grammatical cases appropriately
+- Remember that Finnish words are often longer than English equivalents
+- Consider compound word formation rules (yhdyssanat)
+- Use appropriate formal/informal tone (generally more formal for business apps)
+- Consider differences in sentence structure compared to English
+
+### Swedish (sv)
+- Pay attention to definite/indefinite forms
+- Use appropriate formal/informal tone ("ni" vs "du")
+- Consider gender agreement in adjectives
+- Maintain natural word order in questions and statements
+- Pay attention to "en" and "ett" words and their different plural forms
+
+## Implementation Process
+
+1. **Translation Workflow**
+   - Identify the target namespace files in each locale folder
+   - Compare existing translations for similar keys
+   - Draft translations that match the tone and style of the application
+   - Review in context if possible
+
+2. **Quality Control**
+   - Run `npm run check-translations` to verify completeness
+   - Review translation in UI context when possible
+   - If available, get feedback from native speakers
+
+## Examples
+
+### Basic Translation Example
+
+English (en/Common.json):
+```json
+{
+  "errorMessages": {
+    "notFound": "The requested resource was not found.",
+    "serverError": "An unexpected error occurred. Please try again later."
+  }
+}
+```
+
+Finnish (fi/Common.json):
+```json
+{
+  "errorMessages": {
+    "notFound": "Pyydettyä resurssia ei löytynyt.",
+    "serverError": "Tapahtui odottamaton virhe. Yritä myöhemmin uudelleen."
+  }
+}
+```
+
+Swedish (sv/Common.json):
+```json
+{
+  "errorMessages": {
+    "notFound": "Den begärda resursen kunde inte hittas.",
+    "serverError": "Ett oväntat fel inträffade. Försök igen senare."
+  }
+}
+```
+
+### Placeholder Example
+
+English (en/Profile.json):
+```json
+{
+  "welcome": "Welcome back, {name}! You have {count} new notifications."
+}
+```
+
+Finnish (fi/Profile.json):
+```json
+{
+  "welcome": "Tervetuloa takaisin, {name}! Sinulla on {count} uutta ilmoitusta."
+}
+```
+
+Swedish (sv/Profile.json):
+```json
+{
+  "welcome": "Välkommen tillbaka, {name}! Du har {count} nya aviseringar."
+}
+```
+
+### Pluralization Considerations
+
+Remember that different languages handle pluralization differently:
+
+English: "1 item" vs "2 items"
+Finnish: "1 kohde" vs "2 kohdetta"
+Swedish: "1 objekt" vs "2 objekt"
+
+Adapt translations appropriately for grammatical number rules in each language.

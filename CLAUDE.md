@@ -2,6 +2,69 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Claude Code Workflow System
+
+This project uses an organized workflow system for Claude Code with the following structure:
+
+### Directory Organization
+```
+.claude/
+├── docs/                    # Architecture & feature documentation
+│   ├── architecture.md      # System overview, tech stack, patterns
+│   ├── api-reference.md     # API endpoints documentation
+│   └── features/           # Feature-specific documentation
+├── workflows/              # Task-specific workflows
+│   ├── debugging.md        # Systematic debugging approach
+│   ├── feature-dev.md      # New feature development
+│   ├── testing.md          # Testing procedures
+│   ├── deployment.md       # Deployment checklist
+│   └── refactoring.md      # Code refactoring guide
+├── agents/                 # Specialized agent prompts
+│   ├── code-reviewer.md    # Code review specialist
+│   ├── test-writer.md      # Test generation agent
+│   ├── debugger.md         # Debug specialist
+│   └── api-designer.md     # API design agent
+└── patterns/               # Project-specific patterns
+    ├── components/         # React component patterns
+    ├── api/               # API route patterns
+    ├── database/          # Database query patterns
+    └── testing/           # Test patterns
+```
+
+### Using Workflows
+
+When working on tasks, reference the appropriate workflow:
+- **Debugging issues**: Follow `.claude/workflows/debugging.md`
+- **Building features**: Follow `.claude/workflows/feature-dev.md`
+- **Writing tests**: Follow `.claude/workflows/testing.md`
+- **Deploying**: Follow `.claude/workflows/deployment.md`
+- **Refactoring**: Follow `.claude/workflows/refactoring.md`
+
+### Using Specialized Agents
+
+For specialized tasks, use the Task tool with the appropriate agent:
+- **Code reviews**: `Task(subagent_type="general-purpose", prompt="Please review this code following .claude/agents/code-reviewer.md")`
+- **Test writing**: `Task(subagent_type="unit-test-implementer", prompt="Write tests following .claude/agents/test-writer.md")`
+- **Debugging**: `Task(subagent_type="general-purpose", prompt="Debug this issue following .claude/agents/debugger.md")`
+- **API design**: `Task(subagent_type="general-purpose", prompt="Design this API following .claude/agents/api-designer.md")`
+
+### Using Patterns
+
+When implementing features, reference the appropriate patterns:
+- **Components**: See `.claude/patterns/components/`
+- **API routes**: See `.claude/patterns/api/`
+- **Database**: See `.claude/patterns/database/`
+- **Testing**: See `.claude/patterns/testing/`
+
+### Using Project Tools
+
+This project includes extensive command-line tools. See `.claude/tools/` for:
+- **Translation tools**: Managing localization
+- **Database tools**: Migrations and seeding
+- **AI tools**: Text, image, and video generation
+- **Media tools**: Image processing and optimization
+- **Deployment tools**: Vercel and GitHub CLI integration
+
 ## Common Development Commands
 
 ### Development
@@ -11,6 +74,8 @@ npm run dev:next         # Start Next.js dev server only
 npm run dev:inngest      # Start Inngest dev server only
 ```
 
+**For comprehensive tool documentation, see:** `.claude/tools/`
+
 ### Testing
 ```bash
 npm test                 # Run unit tests with Vitest
@@ -19,6 +84,8 @@ npm run test:coverage    # Generate coverage report
 npm run cypress          # Run E2E tests
 npm run test:e2e:headless # Run E2E tests headlessly
 ```
+
+**For comprehensive testing guidance, see:** `.claude/workflows/testing.md`
 
 ### Database Operations
 ```bash
@@ -138,6 +205,8 @@ Required environment variables are documented in `.env.example`. Key categories:
 3. Test database operations with local seed commands
 4. Run tests before committing: `npm test`
 5. Build locally to catch type errors: `npm run build`
+
+**For detailed workflows, see:** `.claude/workflows/`
 
 ## CRITICAL DATABASE RULES
 

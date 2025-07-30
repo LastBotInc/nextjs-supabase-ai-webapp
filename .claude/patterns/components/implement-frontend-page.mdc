@@ -1,0 +1,512 @@
+---
+description: This describes the design pattern and implementation guidance for implementing nextjs page.
+globs: *.tsx, /app/[locale]
+---
+---
+description: This describes the design pattern and implementation guidance for implementing nextjs page.
+globs: *.tsx, /app/[locale]
+---
+
+# NextJS Frontend Page Implementation Patterns
+
+This document describes the patterns for implementing different types of pages in a NextJS application with authentication, localization, and server communication.
+
+## Common Setup
+
+- Always read [frontend.md](mdc:docs/frontend.md) for instructions on the styles, [brand-info.ts](mdc:lib/brand-info.ts) for constructing text and [architecture.md](mdc:docs/architecture.md) for overall architecture
+
+### Directory Structure
+app/
+  [locale]/
+    page.tsx                 # Public page
+    about/
+      page.tsx              # Public page
+    account/
+      settings/
+        page.tsx           # Account page (authenticated)
+      security/
+        page.tsx          # Account page (authenticated)
+    admin/
+      contacts/
+        page.tsx         # Admin page (authenticated + admin)
+      analytics/
+        page.tsx        # Admin page (authenticated + admin)
+      AdminLayoutClient.tsx  # Admin layout wrapper
+    layout.tsx  # Root layout with locale provider
+    page.tsx    # Home page
+  i18n/
+    server-utils.ts  # Server utilities for localization
+    client-utils.ts  # Client utilities for localization
+  messages/
+    en.json     # English translations
+    fi.json     # Finnish translations
+    sv.json     # Swedish translations
+
+### Required Dependencies
+```json
+{
+  "dependencies": {
+    "next": "^14.0.0",
+    "next-intl": "^3.0.0",
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
+```
+
+### Localisation Configuration
+
+1. **Root Layout Setup** (`app/[locale]/layout.tsx`):
+```typescript
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from '@/app/i18n/server-utils'
+
+interface Props {
+  children: React.ReactNode
+  params: { locale: string }
+}
+
+export default async function LocaleLayout({ children, params: { locale } }: Props) {
+  const messages = await getMessages(locale)
+
+  return (
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {children}
+    </NextIntlClientProvider>
+  )
+}
+```
+
+2. **Server Utilities** (`app/i18n/server-utils.ts`):
+```typescript
+import { createSharedPathnamesNavigation } from 'next-intl/navigation'
+import { getRequestConfig } from 'next-intl/server'
+
+export const locales = ['en', 'fi', 'sv']
+export const defaultLocale = 'en'
+
+// For server components
+export async function getMessages(locale: string) {
+  return (await import(`@/messages/${locale}.json`)).default
+}
+
+// Setup locale for server components
+export async function setupServerLocale(locale: string) {
+  const messages = await getMessages(locale)
+  return { locale, messages }
+}
+
+// Navigation utilities
+export const { Link, redirect, usePathname, useRouter } = 
+  createSharedPathnamesNavigation({ locales })
+```
+
+3. **Client Utilities** (`app/i18n/client-utils.ts`):
+```typescript
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { createSharedPathnamesNavigation } from 'next-intl/navigation'
+
+export const locales = ['en', 'fi', 'sv']
+
+// Navigation utilities for client components
+export const { Link, usePathname, useRouter } = 
+  createSharedPathnamesNavigation({ locales })
+
+// Hook for switching locales
+export function useLocale() {
+  const router = useRouter()
+  const pathname = usePathname()
+  
+  const switchLocale = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale })
+  }
+
+  return { switchLocale }
+}
+```
+### Usage Examples
+
+1. **Server Components**:
+```typescript
+import { getTranslations } from 'next-intl/server'
+
+export default async function Page() {
+  const t = await getTranslations('Namespace')
+  return <h1>{t('title')}</h1>
+}
+```
+
+2. **Client Components**:
+```typescript
+'use client'
+
+import { useTranslations } from 'next-intl'
+
+export default function Component() {
+  const t = useTranslations('Namespace')
+  return <button>{t('buttons.submit')}</button>
+}
+```
+
+3. **Locale Switcher Component**:
+```typescript
+'use client'
+
+import { useLocale, locales } from '@/app/i18n/client-utils'
+
+export default function LocaleSwitcher() {
+  const { switchLocale } = useLocale()
+  
+  return (
+    <select onChange={(e) => switchLocale(e.target.value)}>
+      {locales.map((locale) => (
+        <option key={locale} value={locale}>
+          {locale.toUpperCase()}
+        </option>
+      ))}
+    </select>
+  )
+}
+```
+
+4. **Localized Links**:
+```typescript
+import { Link } from '@/app/i18n/client-utils'
+
+export default function Navigation() {
+  return (
+    <nav>
+      <Link href="/">Home</Link>
+      <Link href="/about">About</Link>
+    </nav>
+  )
+}
+```
+
+### Best Practices
+
+1. **Translation Keys**:
+- Use nested structures for better organization
+- Use consistent naming conventions
+- Keep keys descriptive and hierarchical
+- Group common translations under shared namespaces
+
+2. **Dynamic Values**:
+```typescript
+// Using variables
+t('welcome', { name: user.name })
+
+// Using plurals
+t('items', { count: items.length })
+
+// Using rich text
+t.rich('terms', {
+  link: (chunks) => <a href="/terms">{chunks}</a>
+})
+```
+
+3. **Date and Number Formatting**:
+```typescript
+import { useFormatter } from 'next-intl'
+
+export default function Component() {
+  const format = useFormatter()
+  
+  return (
+    <div>
+      {format.dateTime(date, { dateStyle: 'full' })}
+      {format.number(amount, { style: 'currency', currency: 'EUR' })}
+    </div>
+  )
+}
+```
+
+4. **SEO Considerations**:
+- Use appropriate lang attributes
+- Implement hreflang tags
+- Consider locale-specific metadata
+- Use locale-specific URLs
+
+## Public Pages
+
+Public pages are server-side rendered and accessible to all users.
+
+### Pattern
+```typescript
+'use server'
+
+import { getTranslations } from 'next-intl/server'
+import { setupServerLocale } from '@/app/i18n/server-utils'
+
+interface Props {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export default async function PublicPage({ params }: Props) {
+  // 1. Setup localization
+  const { locale } = await params
+  await setupServerLocale(locale)
+  const t = await getTranslations('PageNamespace')
+
+  // 2. Optional: Server-side data fetching
+  const data = await fetchServerData()
+
+  // 3. Return server-rendered content
+  return (
+    <main>
+      <h1>{t('title')}</h1>
+      {/* Page content */}
+    </main>
+  )
+}
+```
+
+### Key Features
+- Server-side rendering
+- Server-side translations
+- No authentication required
+- Direct database access
+- SEO-friendly
+
+## Account Pages
+
+Account pages require authentication but not admin rights.
+
+### Pattern
+```typescript
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { useAuth } from '@/components/auth/AuthProvider'
+import { useState } from 'react'
+import { createClient } from '@/utils/supabase/client'
+
+export default function AccountPage() {
+  // 1. Setup hooks
+  const t = useTranslations('Account.namespace')
+  const { session } = useAuth()
+  const [loading, setLoading] = useState(false)
+  const supabase = createClient()
+
+  // 2. Handle authenticated actions
+  const handleAction = async () => {
+    if (!session?.user) return
+    
+    try {
+      setLoading(true)
+      // Perform authenticated action
+      const { error } = await supabase
+        .from('table')
+        .update({ /* data */ })
+        .eq('user_id', session.user.id)
+
+      if (error) throw error
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // 3. Return client-side rendered content
+  return (
+    <div>
+      {/* Protected content */}
+    </div>
+  )
+}
+```
+
+### Key Features
+- Client-side rendering
+- Authentication required
+- Client-side translations
+- Form handling
+- Real-time updates
+- Loading states
+
+## Admin Pages
+
+Admin pages require both authentication and admin rights.
+
+### Admin Layout Pattern
+```typescript
+'use client'
+
+import { useAuth } from '@/components/auth/AuthProvider'
+import { redirect } from 'next/navigation'
+
+export default function AdminLayoutClient({
+  children,
+  params: { locale }
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  const { isAuthenticated, isAdmin, loading } = useAuth()
+
+  // 1. Handle loading state
+  if (loading) return <LoadingComponent />
+
+  // 2. Handle authentication/authorization
+  if (!isAuthenticated || !isAdmin) {
+    redirect(`/${locale}/auth/sign-in?next=${encodeURIComponent(`/${locale}/admin`)}`)
+  }
+
+  // 3. Render admin layout
+  return <div className="admin-layout">{children}</div>
+}
+```
+
+### Admin Page Pattern
+```typescript
+'use client'
+
+export default function AdminPage() {
+  // 1. Setup hooks
+  const t = useTranslations('Admin.namespace')
+  const { session, isAdmin } = useAuth()
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  // 2. Setup data fetching
+  const fetchData = useCallback(async () => {
+    if (!session?.user || !isAdmin) return
+    
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('table')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error) throw error
+      setData(data)
+    } catch (error) {
+      setError(error.message)
+    } finally {
+      setLoading(false)
+    }
+  }, [session, isAdmin])
+
+  // 3. Setup effects
+  useEffect(() => {
+    if (session?.user && isAdmin) {
+      fetchData()
+    }
+  }, [session?.user?.id, isAdmin])
+
+  // 4. Return admin content
+  return (
+    <div>
+      {loading && <LoadingSpinner />}
+      {error && <ErrorMessage error={error} />}
+      {data && <DataTable data={data} />}
+    </div>
+  )
+}
+```
+
+### Key Features
+- Client-side rendering
+- Authentication and authorization required
+- Admin layout wrapper
+- Advanced data management
+- Error boundaries
+- Loading states
+- Real-time updates
+
+## Best Practices
+
+### 1. Error Handling
+```typescript
+try {
+  // Operation
+} catch (error) {
+  console.error('Error:', error)
+  setError(error instanceof Error ? error.message : 'An error occurred')
+} finally {
+  setLoading(false)
+}
+```
+
+### 2. Loading States
+```typescript
+const { loading, startLoading, stopLoading } = useLoadingWithTimeout({
+  timeout: 10000,
+  onTimeout: () => setError('Request timed out')
+})
+```
+
+### 3. Data Fetching
+```typescript
+const fetchData = useCallback(async () => {
+  try {
+    startLoading()
+    const { data, error } = await supabase
+      .from('table')
+      .select('*')
+    if (error) throw error
+    setData(data)
+  } catch (error) {
+    handleError(error)
+  } finally {
+    stopLoading()
+  }
+}, [dependencies])
+```
+
+### 4. Form Handling
+```typescript
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  if (loading) return
+
+  try {
+    setLoading(true)
+    // Form submission logic
+  } catch (error) {
+    setError(error.message)
+  } finally {
+    setLoading(false)
+  }
+}
+```
+
+### 5. Authentication Checks
+```typescript
+useEffect(() => {
+  if (!authLoading && (!session?.user || !isAdmin)) {
+    router.replace(`/${locale}/auth/sign-in?next=${encodeURIComponent(currentPath)}`)
+  }
+}, [session, isAdmin, authLoading])
+```
+
+### 6. Localization
+```typescript
+// Server-side
+const t = await getTranslations('Namespace')
+
+// Client-side
+const t = useTranslations('Namespace')
+```
+
+### 7. Performance Optimization
+- Use `useCallback` for functions
+- Use `useMemo` for expensive computations
+- Use `useRef` for stable references
+- Implement proper loading states
+- Use proper error boundaries
+- Implement proper caching strategies
+
+### 8. Security Best Practices
+- Always validate user permissions
+- Implement proper CSRF protection
+- Use proper content security policies
+- Implement rate limiting
+- Use proper input validation
+- Use proper output sanitization
