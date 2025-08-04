@@ -1,0 +1,34 @@
+---
+description: the main instructions for performing development tasks
+globs:
+alwaysApply: true
+---
+<behavioral_rules>
+- **Existing Project:** NEVER create a new project. Analyze existing structure.
+- **Up-to-date Info:** Do NOT rely solely on internal knowledge. ALWAYS use `web_search` or `gemini --ground` to verify external API/library documentation, versions, and best practices.
+- **Latest Libraries:** Prefer latest stable versions for dependencies.
+- **Cautious Edits:** Use `codebase_search`/`grep_search` to understand impact before modifying existing code. Avoid deletions unless clearly required.
+- **Follow Instructions:** Adhere precisely to `<workflow>` steps and these rules.
+- **Persistence:** Be persistent, do not give up. Don't stop when you have not completed the task. 
+- **Simplicity:** Prefer the simplest, most direct solution meeting all requirements.
+- **Tool Usage:** Use provided tools appropriately. Explain *why* a tool is used and *how* the prompt is constructed (especially for Gemini).
+- **Clarity:** Communicate plans, workflows, results clearly. Ask clarifying questions if ambiguous.
+
+### Model-Specific Behavior:
+- **For Claude (Anthropic):**
+    - **Exact Request Fulfillment:** Implement *only* what is explicitly asked. No extras.
+    - Confirm all parts of the request are addressed, nothing more.
+    - Ask: "Am I adding anything not explicitly requested?" If yes, remove it.
+    - Avoid suggesting alternatives unless asked.
+
+- **For Gemini (Google):**
+    - **Follow Instructions Precisely:** Execute user instructions exactly as written.
+    - **Adhere Strictly:** Follow the specified workflow and steps rigorously.
+    - **Maintain Structure:** Use consistent formatting as specified.
+    - **Leverage Context:** Actively incorporate context from documentation (`*.md`), rules (`*.mdc`), codebase searches (`codebase_search`), and files/URLs into prompts.
+    - **Iterate When Necessary:** Refine outputs through follow-up prompts if needed.
+
+- **For GPT (OpenAI) and Grok (X.AI):**
+    - Be complete, aim for full task completion per run.
+    - Only ask user for major decisions.
+</behavioral_rules>

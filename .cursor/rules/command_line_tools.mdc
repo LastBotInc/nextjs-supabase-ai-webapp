@@ -1,0 +1,373 @@
+---
+description: command line tools that can be used in this project
+globs:
+alwaysApply: true
+---
+<tools>
+# Internal Tools: Core capabilities available directly.
+run_terminal_cmd
+codebase_search
+read_file
+list_dir
+grep_search
+edit_file
+file_search
+delete_file
+reapply
+web_search
+mcp_puppeteer_puppeteer_navigate
+mcp_puppeteer_puppeteer_screenshot
+mcp_puppeteer_puppeteer_click
+mcp_puppeteer_puppeteer_fill
+mcp_puppeteer_puppeteer_select
+mcp_puppeteer_puppeteer_hover
+mcp_puppeteer_puppeteer_evaluate
+</tools>
+
+<command_line_tools>
+# Project-Specific Tools: Execute these using `run_terminal_cmd`.
+# 🔧 Setup: Run `npm install` and configure API keys in `.env.local` (see `.env.example`)
+{
+  "tools": {
+    "image-optimizer": {
+      "description": "Optimizes images with background removal, resizing, and format conversion using Sharp and Replicate's remove-bg model",
+      "tool": "run_terminal_cmd",
+      "command": "npm run optimize-image",
+      "status": "✅ Tested and working",
+      "options": {
+        "input": "Path to input image",
+        "output": "Path to output image",
+        "remove-bg": "(Optional) Remove image background using AI",
+        "resize": "(Optional) Resize image (format: WIDTHxHEIGHT, e.g. 800x600)",
+        "format": "(Optional) Convert to format (png, jpeg, or webp)",
+        "quality": "(Optional) Set output quality (1-100, default: 80)"
+      },
+      "requires": [
+        "REPLICATE_API_TOKEN in .env.local (for background removal)",
+      ],
+      "example": "npm run optimize-image -- -i input.png -o output.webp --resize 512x512 --format webp --quality 90",
+      "note": "Use -i and -o flags for input/output. Background removal requires Replicate API token."
+    },
+    "html-to-md": {
+      "description": "Scrapes a webpage and converts its HTML content to Markdown format using Turndown service",
+      "tool": "run_terminal_cmd",
+      "command": "npm run html-to-md",
+      "status": "✅ Tested and working",
+      "options": {
+        "url": "URL of the webpage to scrape",
+        "output": "(Optional) Output file path for the markdown (default: output.md)",
+        "selector": "(Optional) CSS selector to target specific content"
+      },
+      "requires": [
+      ],
+      "example": "npm run html-to-md -- --url https://example.com --output docs/scraped.md --selector main"
+    },
+    "gemini": {
+      "description": "Interacts with Google's Gemini API for text generation, chat, multimodal tasks, document analysis, and grounded search",
+      "tool": "run_terminal_cmd",
+      "command": "npm run gemini",
+      "status": "✅ Tested and working",
+      "options": {
+        "prompt": "Text prompt or question for the model",
+        "model": "(Optional) Model to use: 'gemini-2.0-flash' (default), 'gemini-2.5-pro-exp-03-25'",
+        "temperature": "(Optional) Sampling temperature between 0.0 and 1.0 (default: 0.7)",
+        "max-tokens": "(Optional) Maximum tokens to generate (default: 2048)",
+        "image": "(Optional) Path to image file for vision tasks",
+        "file": "(Optional) Path to local file (PDF, DOCX, TXT, etc.) for document analysis",
+        "url": "(Optional) URL to a document to analyze (PDF, DOCX, TXT, etc.)",
+        "mime-type": "(Optional) MIME type of the file (e.g., application/pdf, default: auto-detected)",
+        "chat-history": "(Optional) Path to JSON file containing chat history",
+        "stream": "(Optional) Stream the response (default: false)",
+        "safety-settings": "(Optional) JSON string of safety threshold configurations",
+        "schema": "(Optional) JSON schema for structured output",
+        "json": "(Optional) Return structured JSON data. Available types: recipes, tasks, products, custom",
+        "ground": "(Optional) Enable Google Search grounding for up-to-date information (default: false)",
+        "show-search-data": "(Optional) Show the search entries used for grounding (default: false)"
+      },
+      "requires": [
+        "GOOGLE_AI_STUDIO_KEY or GEMINI_API_KEY in .env.local",
+        "@google/generative-ai package (auto-installed with npm install)",
+        "node-fetch package (auto-installed with npm install)"
+      ],
+      "example": "npm run gemini -- --prompt \"What is the capital of France?\" --model gemini-2.0-flash --temperature 0.7",
+      "advanced_examples": [
+        "# Process a PDF document from a URL",
+        "npm run gemini -- --prompt \"Summarize this document in 5 key points\" --url \"https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf\"",
+        "",
+        "# Process a local PDF file",
+        "npm run gemini -- --prompt \"What is this document about?\" --file test/data/sample.pdf",
+        "",
+        "# Process a text file with specific MIME type",
+        "npm run gemini -- --prompt \"Expand on this information\" --file test/data/sample.txt --mime-type text/plain",
+        "",
+        "# Get grounded search results with real-time information",
+        "npm run gemini -- --prompt \"When is the next total solar eclipse in North America?\" --ground --show-search-data",
+        "",
+        "# Generate structured JSON data with predefined schema (recipes)",
+        "npm run gemini -- --prompt \"List 3 popular cookie recipes\" --json recipes",
+        "",
+        "# Generate structured JSON data with predefined schema (tasks)",
+        "npm run gemini -- --prompt \"Create a task list for planning a vacation\" --json tasks",
+        "",
+        "# Generate structured JSON data with predefined schema (products)",
+        "npm run gemini -- --prompt \"List 3 smartphone models\" --json products",
+        "",
+        "# Use a custom JSON schema for structured output",
+        "npm run gemini -- --prompt \"List 3 programming languages and their use cases\" --json custom --schema '{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"language\":{\"type\":\"string\"},\"year\":{\"type\":\"integer\"},\"useCases\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"language\",\"useCases\"]}}'"
+      ]
+    },
+    "gemini-image": {
+      "description": "Generates and edits images using Google Gemini and Imagen models",
+      "tool": "run_terminal_cmd",
+      "command": "node tools/gemini-image-tool.js",
+      "status": "✅ Tested and working",
+      "subcommands": {
+        "generate": {
+          "description": "Generate an image using Gemini 2.0 or Imagen 3.0",
+          "options": {
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: 'gemini-2.0' (default) or 'imagen-3.0'",
+            "output": "(Optional) Output file path (default: gemini-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "num-outputs": "(Optional) Number of images (Imagen 3 only, default: 1, max: 4)",
+            "negative-prompt": "(Optional) Negative prompt (Imagen 3 only)",
+            "aspect-ratio": "(Optional) Aspect ratio (Imagen 3 only, default: 1:1, options: 1:1, 16:9, 9:16, 4:3, 3:4)"
+          },
+          "example": "node tools/gemini-image-tool.js generate -p \"A futuristic car\" -m imagen-3.0 -n 2 --aspect-ratio 16:9 -o car.png"
+        },
+        "edit": {
+          "description": "Edit an existing image using Gemini 2.0",
+          "options": {
+            "input-image": "Required: Path to the input image",
+            "edit-prompt": "Required: Text prompt describing the edit",
+            "output": "(Optional) Output file path (default: gemini-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)"
+          },
+          "example": "node tools/gemini-image-tool.js edit -i input.png -p \"Add sunglasses to the person\" -o edited.png"
+        }
+      },
+      "requires": [
+        "GOOGLE_AI_STUDIO_KEY or GEMINI_API_KEY in .env.local",
+        "google/genai package (auto-installed with npm install)",
+      ]
+    },
+    "download-file": {
+      "description": "Downloads files from URLs with progress tracking, automatic file type detection, and customizable output paths",
+      "tool": "run_terminal_cmd",
+      "command": "npm run download-file",
+      "status": "✅ Tested and working",
+      "options": {
+        "url": "URL of the file to download",
+        "output": "(Optional) Complete output path including filename",
+        "folder": "(Optional) Output folder path (default: downloads)",
+        "filename": "(Optional) Output filename (if not provided, derived from URL or content)"
+      },
+      "requires": [
+      ],
+      "example": "npm run download-file -- --url https://example.com/image.jpg --folder public/images --filename downloaded-image.jpg"
+    },
+    "generate-video": {
+      "description": "Generates videos using various Replicate API models. Can optionally first generate an image using OpenAI (GPT-image-1) based on an image prompt, then use that image for video generation.",
+      "tool": "run_terminal_cmd",
+      "command": "npm run generate-video",
+      "status": "⚠️ Requires API keys - needs REPLICATE_API_TOKEN configured",
+      "options": {
+        "prompt": "Text description of the desired video (used by Replicate).",
+        "model": "(Optional) Replicate model to use: kling-1.6 (default), kling-2.0, minimax, hunyuan, mochi, or ltx.",
+        "duration": "(Optional) Duration of the video in seconds (model-specific limits apply).",
+        "image": "(Optional) Path to an existing input image for image-to-video generation. If using --image-prompt, this will typically be the same path as --openai-image-output.",
+        "output": "(Optional) Output filename for the video.",
+        "folder": "(Optional) Output folder path for the video (default: public/videos).",
+        "image-prompt": "(Optional) Text prompt for OpenAI (GPT-image-1) to generate an initial image. This image will then be used for video generation.",
+        "openai-image-output": "(Optional) Output path for the image generated by OpenAI (e.g., public/images/my-image.png). Required if --image-prompt is used and you want to specify the image name/path for the video step.",
+        "aspect-ratio": "(Optional) Aspect ratio for the video (e.g., 16:9, 1:1). Support depends on the Replicate model."
+      },
+      "requires": [
+        "REPLICATE_API_TOKEN in .env.local",
+        "OPENAI_API_KEY in .env.local (if using --image-prompt)"
+      ],
+      "example": "npm run generate-video -- --image-prompt \"A futuristic robot playing chess\" --openai-image-output public/images/robot-chess.png --prompt \"Animate the robot making a move, cinematic style\" --image public/images/robot-chess.png --model kling-1.6 --duration 4 --output robot-chess-video.mp4"
+    },
+    "remove-background-advanced": {
+      "description": "Advanced background removal tool using Sharp with color tolerance and edge detection",
+      "tool": "run_terminal_cmd",
+      "command": "npm run remove-background-advanced",
+      "status": "✅ Tested and working",
+      "options": {
+        "input": "Path to input image",
+        "output": "Path to output image",
+        "tolerance": "(Optional) Color tolerance for background detection (0-255, default: 30)"
+      },
+      "requires": [],
+      "example": "npm run remove-background-advanced -- --input input.png --output output.png --tolerance 40"
+    },
+    "openai-image": {
+      "description": "Generate and edit images using OpenAI's GPT-image-1 and DALL-E models",
+      "tool": "run_terminal_cmd",
+      "command": "npm run openai-image",
+      "status": "✅ Tested and working",
+      "subcommands": {
+        "generate": {
+          "description": "Generate an image using OpenAI's image generation models",
+          "options": {
+            "prompt": "Required: Text prompt for image generation",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-generated-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "quality": "(Optional) Image quality: standard or hd - DALL-E only (default: standard)",
+            "number": "(Optional) Number of images to generate (1-4) - DALL-E only (default: 1)",
+            "reference-image": "(Optional) Reference image path for gpt-image-1 with reference",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- generate -p \"A futuristic cityscape at sunset with flying cars\" -m gpt-image-1 -s 1792x1024 -c vivid"
+        },
+        "edit": {
+          "description": "Edit an existing image using OpenAI's models",
+          "options": {
+            "input-image": "Required: Path to the input image to edit",
+            "edit-prompt": "Required: Text prompt describing the edit to apply",
+            "model": "(Optional) Model to use: \"gpt-image-1\" or \"dall-e-3\" (default: gpt-image-1)",
+            "output": "(Optional) Output file path (default: openai-edited-image.png)",
+            "folder": "(Optional) Output folder path (default: public/images)",
+            "size": "(Optional) Image size: 1024x1024, 1792x1024, or 1024x1792 (default: 1024x1024)",
+            "creative": "(Optional) Creativity level for GPT-image-1: standard or vivid (default: standard)"
+          },
+          "example": "npm run openai-image -- edit -i input.jpg -p \"Change the background to a tropical beach\" -m gpt-image-1"
+        }
+      },
+      "requires": [
+        "OPENAI_API_KEY in .env.local"
+      ]
+    },
+    "github-cli": {
+      "description": "Interact with GitHub repositories, pull requests, issues, and workflows directly from the command line",
+      "tool": "run_terminal_cmd",
+      "command": "npm run github",
+      "status": "🔧 Not tested - requires GitHub authentication",
+      "options": {
+        "auth": {
+          "description": "Manage GitHub authentication",
+          "options": {
+            "login": "(Optional) Log in to GitHub (-l, --login)",
+            "status": "(Optional) View authentication status (-s, --status)",
+            "refresh": "(Optional) Refresh stored authentication credentials (-r, --refresh)",
+            "logout": "(Optional) Log out of GitHub (-o, --logout)"
+          }
+        },
+        "pr-create": {
+          "description": "Create a pull request",
+          "options": {
+            "title": "(Optional) Pull request title",
+            "body": "(Optional) Pull request body",
+            "base": "(Optional) Base branch name",
+            "draft": "(Optional) Create draft pull request",
+            "fill": "(Optional) Use commit info for title/body"
+          }
+        },
+        "pr-list": {
+          "description": "List and filter pull requests",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, merged, all (default: open)",
+            "limit": "(Optional) Maximum number of items to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "base": "(Optional) Filter by base branch",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "pr-view": {
+          "description": "View pull request details",
+          "arguments": "[number]: PR number or URL, if omitted the PR from the current branch is displayed",
+          "options": {
+            "web": "(Optional) Open in web browser"
+          }
+        },
+        "issue-create": {
+          "description": "Create a new issue",
+          "options": {
+            "title": "(Optional) Issue title",
+            "body": "(Optional) Issue body",
+            "assignee": "(Optional) Assign people by their login",
+            "label": "(Optional) Add labels by name",
+            "project": "(Optional) Add issue to project",
+            "milestone": "(Optional) Add issue to milestone",
+            "web": "(Optional) Open new issue in the web browser"
+          }
+        },
+        "issue-list": {
+          "description": "List and filter issues",
+          "options": {
+            "state": "(Optional) Filter by state: open, closed, all (default: open)",
+            "limit": "(Optional) Maximum number of issues to fetch (default: 30)",
+            "assignee": "(Optional) Filter by assignee",
+            "author": "(Optional) Filter by author",
+            "label": "(Optional) Filter by label",
+            "milestone": "(Optional) Filter by milestone",
+            "web": "(Optional) Open list in the browser"
+          }
+        },
+        "release-create": {
+          "description": "Create a new release",
+          "arguments": "<tag>: Tag name for the release",
+          "options": {
+            "title": "(Optional) Release title",
+            "notes": "(Optional) Release notes",
+            "notes-file": "(Optional) Read release notes from file",
+            "draft": "(Optional) Save release as draft instead of publishing",
+            "prerelease": "(Optional) Mark release as prerelease",
+            "generate-notes": "(Optional) Automatically generate release notes"
+          }
+        },
+        "release-list": {
+          "description": "List releases in a repository",
+          "options": {
+            "limit": "(Optional) Maximum number of releases to fetch (default: 30)"
+          }
+        },
+        "repo": {
+          "description": "Manage repositories",
+          "options": {
+            "create": "(Optional) Create a new repository",
+            "description": "(Optional) Repository description",
+            "homepage": "(Optional) Repository homepage URL",
+            "private": "(Optional) Make the repository private",
+            "team": "(Optional) The name of the organization team to grant access to",
+            "view": "(Optional) View repository details",
+            "web": "(Optional) Open in web browser",
+            "list": "(Optional) List your repositories"
+          }
+        },
+        "workflow": {
+          "description": "Manage GitHub workflows",
+          "options": {
+            "list": "(Optional) List workflows",
+            "run": "(Optional) Run a workflow by name or ID",
+            "view": "(Optional) View a specific workflow",
+            "enable": "(Optional) Enable a workflow by name or ID",
+            "disable": "(Optional) Disable a workflow by name or ID"
+          }
+        },
+        "tasks": {
+          "description": "List and manage tasks from GitHub Projects and Issues",
+          "options": {
+            "project": "(Optional) Specify project ID or number to list tasks from",
+            "repository": "(Optional) Specify repository in owner/repo format (default: current repository)",
+            "status": "(Optional) Filter by status: open, closed, all (default: open)",
+            "label": "(Optional) Filter by label",
+            "assignee": "(Optional) Filter by assignee",
+            "limit": "(Optional) Maximum number of tasks to fetch (default: 30)",
+            "format": "(Optional) Output format: table, json, or simple (default: table)",
+            "web": "(Optional) Open tasks in the web browser"
+          }
+        }
+      },
+      "requires": [
+        "GitHub CLI (will be auto-installed if not present)",
+        "GitHub account authentication"
+      ],
+      "example": "npm run github -- pr-create --title \"New feature\" --body \"This PR adds a new feature\""
+    }
+  }
+}
+</command_line_tools>

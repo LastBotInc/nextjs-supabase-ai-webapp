@@ -1,0 +1,30 @@
+---
+description: the list of documentation for this project. 
+globs:
+alwaysApply: true
+---
+<documentation>
+  ## Documentation and Context Files in /docs folder. Use for using, creating, updating documentation.
+  Reference these files for understanding the project and architecture.
+    - `description.md`: App description, use cases, features.
+    - `architecture.md`: Tech stack, folder structure, testing frameworks.
+    - `datamodel.md`: Entities, attributes, relationships.
+    - `frontend.md`: Views/screens, UI/UX patterns, styling.
+    - `backend.md`: API endpoints, authentication, service architecture.
+    - `todo.md`: Task list (✅ done, ⏳ in progress, ❌ not started). Update status, don't remove tasks.
+    - `ai_changelog.md`: Log of changes made by AI. Add concise summaries here.
+    - `learnings.md`: Technical learnings, best practices, error solutions. Add new findings here.
+
+  ## Subfolders under the docs folder to update software subsystem decomposition and sw design patterns
+    - patterns: folder that contains software pattern for implementing certain kind of parts in the system. Use these always to get up to date information about how to implement features.
+    - subsystems: folder that contains subsystem descriptions and links to the files belonging to a subsystem. Use these to document and understand about the details of single subsystems and to evaluate the relations between the componenents. 
+
+  ## important files at root folder   
+    - `package.json`: List of used npm packages and versions.
+    - `README.md`: **Comprehensive setup guide**, tool descriptions, usage examples, and API key instructions
+    - `.env.example`: Template for required environment variables and API keys
+
+  **Link Handling:**
+    - Documents might contain links to certain document in external repos. Read them separately when needed.
+    - For `http://` or `https://` links: Use web search to get information from the URL if needed for the task (e.g., documentation, error context). 
+</documentation>
